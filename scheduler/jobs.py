@@ -26,6 +26,7 @@ class PipelineOrchestrator:
         from scraper.fotocasa import FotocasaScraper
         from scraper.pisos import PisosScraper
         from scraper.habitaclia import HabitacliaScraper
+        from scraper.solvia import SolviaScraper
 
         respect_robots = self.config.get("scraping", {}).get("respect_robots", True)
         return {
@@ -33,6 +34,7 @@ class PipelineOrchestrator:
             "fotocasa": FotocasaScraper(self.http, self.config, respect_robots),
             "pisos": PisosScraper(self.http, self.config, respect_robots),
             "habitaclia": HabitacliaScraper(self.http, self.config, respect_robots),
+            "solvia": SolviaScraper(self.http, self.config, respect_robots),
         }
 
     def run_purchase_scrape(self) -> dict:
@@ -99,6 +101,14 @@ class PipelineOrchestrator:
         condition = listing.get("condition", "desconocido")
 
         if not price or not area:
+            return None
+
+        # Sanity checks: skip unrealistic values
+        if price < 20_000:
+            logger.debug(f"Skipping unrealistic price {price}€")
+            return None
+        if area < 20 or area > 2_000:
+            logger.debug(f"Skipping unrealistic area {area}m²")
             return None
 
         # Get purchase costs for this city/region

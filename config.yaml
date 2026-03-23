@@ -33,6 +33,14 @@ portals:
     search_urls:
       - "https://www.habitaclia.com/comprar-piso-en-madrid.htm"
     max_pages: 3
+  solvia:
+    enabled: true
+    search_urls:
+      - "https://www.solvia.es/es/comprar/viviendas/madrid"
+      - "https://www.solvia.es/es/comprar/viviendas/barcelona"
+      - "https://www.solvia.es/es/comprar/viviendas/valencia"
+      - "https://www.solvia.es/es/comprar/viviendas/sevilla"
+    max_pages: 5
 
 analysis:
   assumed_expenses_pct: 0.25
