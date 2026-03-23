@@ -1,0 +1,111 @@
+database:
+  path: data/real_estate.db
+
+scraping:
+  delay_min_seconds: 3
+  delay_max_seconds: 8
+  respect_robots: true
+  proxy_list: []
+  max_retries: 3
+  selenium_fallback: false
+
+portals:
+  idealista:
+    enabled: true
+    search_urls:
+      - "https://www.idealista.com/venta-viviendas/madrid-madrid/"
+      - "https://www.idealista.com/venta-viviendas/barcelona-barcelona/"
+    max_pages: 3
+  fotocasa:
+    enabled: true
+    search_urls:
+      - "https://www.fotocasa.es/es/comprar/viviendas/madrid-capital/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/todas-las-zonas/l"
+    max_pages: 3
+  pisos:
+    enabled: true
+    search_urls:
+      - "https://www.pisos.com/venta/pisos-madrid/"
+      - "https://www.pisos.com/venta/pisos-barcelona/"
+    max_pages: 3
+  habitaclia:
+    enabled: false
+    search_urls:
+      - "https://www.habitaclia.com/comprar-piso-en-madrid.htm"
+    max_pages: 3
+
+analysis:
+  assumed_expenses_pct: 0.25
+  purchase_costs_pct:
+    default: 0.10
+    madrid: 0.07
+    barcelona: 0.10
+    andalucia: 0.09
+    valencia: 0.10
+  min_yield_alert_pct: 6.0
+  capital_growth_annual_pct: 2.5
+  scoring_weights:
+    gross_yield: 0.35
+    price_per_m2: 0.25
+    location_score: 0.20
+    condition_score: 0.10
+    roi_net: 0.10
+
+alerts:
+  telegram:
+    token: "${TELEGRAM_TOKEN}"
+    chat_id: "${TELEGRAM_CHAT_ID}"
+    min_score_threshold: 70
+    cooldown_hours: 168
+
+scheduler:
+  scrape_interval_hours: 12
+  rental_scrape_interval_days: 7
+
+location_scores:
+  madrid:
+    "salamanca": 90
+    "chamberí": 88
+    "retiro": 87
+    "chamartín": 85
+    "moncloa-aravaca": 80
+    "arganzuela": 75
+    "centro": 73
+    "tetuán": 70
+    "hortaleza": 68
+    "fuencarral-el pardo": 65
+    "latina": 60
+    "carabanchel": 58
+    "usera": 55
+    "puente de vallecas": 52
+    "moratalaz": 50
+    "ciudad lineal": 60
+    "barajas": 55
+    "san blas-canillejas": 50
+    "vicálvaro": 45
+    "villa de vallecas": 48
+    "villaverde": 42
+  barcelona:
+    "sarrià-sant gervasi": 92
+    "les corts": 88
+    "eixample": 87
+    "gràcia": 85
+    "sant martí": 75
+    "sants-montjuïc": 70
+    "horta-guinardó": 68
+    "nou barris": 55
+    "sant andreu": 60
+    "ciutat vella": 65
+
+fallback_rent_per_m2:
+  madrid: 16.5
+  barcelona: 18.0
+  valencia: 11.0
+  sevilla: 10.5
+  zaragoza: 9.0
+  malaga: 12.0
+  bilbao: 13.5
+  palma: 14.0
+  alicante: 11.5
+  granada: 9.5
+  default: 10.0
