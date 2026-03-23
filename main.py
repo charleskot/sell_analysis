@@ -159,9 +159,9 @@ def export(
 
 @app.command()
 def show_top(
-    n: int = typer.Option(20, help="Número de mejores oportunidades a mostrar"),
-    city: str = typer.Option("", help="Filtrar por ciudad"),
-    min_yield: float = typer.Option(0, help="Rentabilidad bruta mínima (%)"),
+    top: int = typer.Option(20, "--top", help="Número de mejores oportunidades a mostrar"),
+    city: str = typer.Option("", "--city", help="Filtrar por ciudad"),
+    min_yield: float = typer.Option(0, "--min-yield", help="Rentabilidad bruta mínima (%)"),
 ):
     """Muestra las mejores oportunidades de inversión en la terminal."""
     from sqlalchemy import select, and_
@@ -198,14 +198,14 @@ def show_top(
             .join(investment_metrics, listings.c.id == investment_metrics.c.listing_id)
             .where(and_(*conditions))
             .order_by(investment_metrics.c.investment_score.desc())
-            .limit(n)
+            .limit(top)
         ).fetchall()
 
     if not rows:
         console.print("[yellow]No hay datos. Ejecuta primero: python main.py scrape --once[/yellow]")
         return
 
-    table = Table(title=f"Top {n} Oportunidades de Inversión", show_lines=True)
+    table = Table(title=f"Top {top} Oportunidades de Inversión", show_lines=True)
     table.add_column("Score", style="bold green", width=6)
     table.add_column("Ciudad/Barrio", width=20)
     table.add_column("Precio", width=12)
