@@ -23,8 +23,10 @@ scraping:
   #   • Smartproxy (smartproxy.com)   — affordable, ~$7/GB starter plan
   #   • IPRoyal (iproyal.com)         — cheapest option, ~$3/GB
   #
-  # Usage: set the PROXY env var or fill in below.
-  # Example: proxy: "http://brd-customer-XXXX-zone-residential:PASSWORD@brd.superproxy.io:22225"
+  # Usage (pick one):
+  #   Option A — env var (recommended): set SCRAPER_PROXY in .env  → no need to touch this file
+  #   Option B — fill in below:         proxy: "http://user:pass@host:port"
+  # Example: proxy: "http://brd-customer-XXXX-zone-residential-country-es:PASSWORD@brd.superproxy.io:22225"
   # ──────────────────────────────────────────────────────────────────────────
   proxy: ""
   proxy_list: []
