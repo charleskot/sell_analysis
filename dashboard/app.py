@@ -47,6 +47,7 @@ def main():
         render_score_vs_yield,
         render_portal_breakdown,
         render_top_opportunities,
+        render_price_history,
     )
 
     # Header
@@ -116,6 +117,7 @@ def main():
                 selected_label = st.selectbox("Selecciona un anuncio", list(listing_options.keys()))
                 selected_idx = listing_options[selected_label]
                 render_listing_detail(df.loc[selected_idx])
+                render_price_history(df.loc[selected_idx])
 
 
 import pandas as pd  # needed for render_listing_detail

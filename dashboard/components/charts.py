@@ -75,6 +75,52 @@ def render_portal_breakdown(df: pd.DataFrame) -> None:
     st.bar_chart(counts.set_index("Portal"), use_container_width=True)
 
 
+def render_price_history(row: pd.Series) -> None:
+    """Line chart of price evolution for a single listing."""
+    history = row.get("price_history") or []
+    current_price = row.get("price")
+    current_date = row.get("last_seen_at")
+
+    records = []
+    for entry in history:
+        if entry.get("price") and entry.get("date"):
+            records.append({"Fecha": pd.to_datetime(entry["date"], utc=True), "Precio (€)": float(entry["price"])})
+
+    if current_price and current_date:
+        records.append({"Fecha": pd.to_datetime(current_date, utc=True), "Precio (€)": float(current_price)})
+
+    if len(records) < 2:
+        st.caption("Sin cambios de precio registrados todavía.")
+        return
+
+    df_hist = pd.DataFrame(records).sort_values("Fecha").reset_index(drop=True)
+    first_price = df_hist["Precio (€)"].iloc[0]
+    last_price = df_hist["Precio (€)"].iloc[-1]
+    delta_pct = ((last_price - first_price) / first_price) * 100
+    first_date = df_hist["Fecha"].iloc[0].strftime("%d/%m/%Y")
+    last_date = df_hist["Fecha"].iloc[-1].strftime("%d/%m/%Y")
+
+    st.subheader("Evolución del Precio")
+    st.caption(f"Variación total: {delta_pct:+.1f}%  ({first_date} → {last_date})")
+
+    try:
+        import altair as alt
+        chart = (
+            alt.Chart(df_hist)
+            .mark_line(point=True)
+            .encode(
+                x=alt.X("Fecha:T", title="Fecha"),
+                y=alt.Y("Precio (€):Q", title="Precio (€)", scale=alt.Scale(zero=False)),
+                tooltip=[alt.Tooltip("Fecha:T", format="%d/%m/%Y"), alt.Tooltip("Precio (€):Q", format=",.0f")],
+            )
+            .properties(height=250)
+            .interactive()
+        )
+        st.altair_chart(chart, use_container_width=True)
+    except ImportError:
+        st.line_chart(df_hist.set_index("Fecha"))
+
+
 def render_top_opportunities(df: pd.DataFrame, n: int = 10) -> None:
     if df.empty:
         return

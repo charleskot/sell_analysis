@@ -46,6 +46,21 @@ def session_scope():
         conn.close()
 
 
+def build_updated_price_history(
+    existing_price: float | None,
+    existing_last_seen: datetime | None,
+    existing_history: list,
+    new_price: float | None,
+    now: datetime | None = None,
+) -> list:
+    """Return updated price_history list, appending existing price when it changes."""
+    history = list(existing_history or [])
+    if existing_price is not None and existing_price != new_price:
+        ts = existing_last_seen.isoformat() if existing_last_seen else (now or datetime.now(timezone.utc)).isoformat()
+        history.append({"price": existing_price, "date": ts})
+    return history
+
+
 def upsert_listing(raw: dict) -> bool:
     """Insert or update a listing. Returns True if new, False if updated."""
     listing_id = f"{raw['portal']}_{raw['external_id']}"
@@ -57,9 +72,9 @@ def upsert_listing(raw: dict) -> bool:
         ).fetchone()
 
         if existing:
-            history = existing.price_history or []
-            if existing.price != raw.get("price") and existing.price is not None:
-                history.append({"price": existing.price, "date": existing.last_seen_at.isoformat() if existing.last_seen_at else now.isoformat()})
+            history = build_updated_price_history(
+                existing.price, existing.last_seen_at, existing.price_history or [], raw.get("price"), now
+            )
 
             area = raw.get("area_m2")
             price = raw.get("price")
