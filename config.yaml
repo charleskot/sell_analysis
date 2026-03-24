@@ -35,13 +35,13 @@ scraping:
 
 portals:
   idealista:
-    enabled: true
+    enabled: false  # needs residential proxy
     search_urls:
       - "https://www.idealista.com/venta-viviendas/madrid-madrid/"
       - "https://www.idealista.com/venta-viviendas/barcelona-barcelona/"
     max_pages: 3
   fotocasa:
-    enabled: true
+    enabled: false  # needs residential proxy
     search_urls:
       - "https://www.fotocasa.es/es/comprar/viviendas/madrid-capital/todas-las-zonas/l"
       - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/todas-las-zonas/l"
@@ -51,9 +51,15 @@ portals:
     search_urls:
       - "https://www.pisos.com/venta/pisos-madrid/"
       - "https://www.pisos.com/venta/pisos-barcelona/"
+      - "https://www.pisos.com/venta/pisos-valencia/"
+      - "https://www.pisos.com/venta/pisos-sevilla/"
+      - "https://www.pisos.com/venta/pisos-malaga/"
+      - "https://www.pisos.com/venta/pisos-zaragoza/"
+      - "https://www.pisos.com/venta/pisos-bilbao/"
+      - "https://www.pisos.com/venta/pisos-alicante/"
     max_pages: 3
   habitaclia:
-    enabled: true   # needs residential proxy (SCRAPER_PROXY)
+    enabled: false  # needs residential proxy
     search_urls:
       - "https://www.habitaclia.com/comprar-piso-en-madrid.htm"
       - "https://www.habitaclia.com/comprar-piso-en-barcelona.htm"
@@ -93,7 +99,7 @@ rental_scraping:
         - "https://www.pisos.com/alquiler/pisos-bilbao/"
         - "https://www.pisos.com/alquiler/pisos-alicante/"
     idealista:
-      enabled: true   # requires SCRAPER_PROXY
+      enabled: false  # requires SCRAPER_PROXY
       max_pages: 3
       urls:
         - "https://www.idealista.com/alquiler-viviendas/madrid-madrid/"
@@ -102,7 +108,7 @@ rental_scraping:
         - "https://www.idealista.com/alquiler-viviendas/sevilla-sevilla/"
         - "https://www.idealista.com/alquiler-viviendas/malaga-malaga/"
     fotocasa:
-      enabled: true   # requires SCRAPER_PROXY
+      enabled: false  # requires SCRAPER_PROXY
       max_pages: 3
       urls:
         - "https://www.fotocasa.es/es/alquiler/viviendas/madrid-capital/todas-las-zonas/l"

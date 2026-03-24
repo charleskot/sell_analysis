@@ -1,5 +1,6 @@
 """Rent estimator: DB lookup → fallback table."""
 import logging
+import re
 
 logger = logging.getLogger(__name__)
 
@@ -38,10 +39,21 @@ class RentEstimator:
 
     def _normalize_city(self, city: str) -> str:
         city = city.lower().strip()
-        mappings = {
+
+        # Servihabitat format: "distrito <name>. <city> capital" or "distrito <name>. <city>"
+        m = re.match(r"distrito\s+.+\.\s+(.+?)(?:\s+capital)?$", city)
+        if m:
+            city = m.group(1).strip()
+
+        # Strip trailing " capital" / " - capital"
+        city = re.sub(r"\s*[-–]?\s*capital$", "", city).strip()
+
+        # Canonical name map
+        return {
             "madrid": "madrid",
             "barcelona": "barcelona",
             "barcelona-capital": "barcelona",
+            "valència": "valencia",
             "valencia": "valencia",
             "sevilla": "sevilla",
             "seville": "sevilla",
@@ -49,8 +61,10 @@ class RentEstimator:
             "málaga": "malaga",
             "malaga": "malaga",
             "bilbao": "bilbao",
+            "bilbo": "bilbao",
             "palma": "palma",
+            "palma de mallorca": "palma",
             "alicante": "alicante",
+            "alacant": "alicante",
             "granada": "granada",
-        }
-        return mappings.get(city, city)
+        }.get(city, city)
