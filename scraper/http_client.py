@@ -28,13 +28,16 @@ USER_AGENTS = [
 BASE_HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
     "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
-    "Accept-Encoding": "gzip, deflate",
+    "Accept-Encoding": "gzip, deflate, br",
     "DNT": "1",
     "Upgrade-Insecure-Requests": "1",
     "Sec-Fetch-Dest": "document",
     "Sec-Fetch-Mode": "navigate",
-    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-Site": "none",
     "Sec-Fetch-User": "?1",
+    "sec-ch-ua": '"Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
 }
 
 
@@ -144,12 +147,23 @@ class HttpClient:
             logger.error(f"Request failed for {url}: {e}")
             return None
 
+    @property
+    def has_proxy(self) -> bool:
+        return bool(self._proxy_pool._proxies)
+
     def _is_blocked(self, resp: requests.Response) -> bool:
-        if resp.status_code == 403:
+        if resp.status_code in (403, 429):
             return True
         if resp.status_code in (200, 301, 302):
-            text = resp.text[:2000].lower()
+            text = resp.text[:3000].lower()
+            # Cloudflare
             if "just a moment" in text or "cf-browser-verification" in text:
+                return True
+            # PerimeterX (Fotocasa)
+            if "you have been blocked" in text or "_pxid" in text or "perimeterx" in text:
+                return True
+            # DataDome (Idealista)
+            if "datadome" in text or "dd_referrer" in text:
                 return True
             if "acceso denegado" in text or "access denied" in text:
                 return True

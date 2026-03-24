@@ -1,5 +1,11 @@
-"""Fotocasa scraper - uses Selenium because listings are client-side rendered.
-Requires Chrome/Chromium installed. Falls back gracefully if unavailable.
+"""Fotocasa scraper.
+
+Strategy (in order):
+1. Plain HTTP request with residential proxy → parse __NEXT_DATA__ JSON or HTML.
+   Works reliably when a residential proxy is configured (bypasses PerimeterX IP check).
+2. Selenium fallback (requires Chrome/ChromeDriver in the environment).
+
+Set `proxy` in config.yaml scraping section to enable HTTP mode.
 """
 import json
 import logging
@@ -15,8 +21,11 @@ from scraper.http_client import HttpClient
 logger = logging.getLogger(__name__)
 
 BASE_URL = "https://www.fotocasa.es"
-# Fotocasa blocks plain HTTP scrapers with PerimeterX.
-# We use their /api/ prefix which serves the shell, then Selenium to get rendered listings.
+
+_FOTOCASA_HEADERS = {
+    "Referer": "https://www.google.es/",
+    "Sec-Fetch-Site": "cross-site",
+}
 
 
 class FotocasaScraper(BaseScraper):
@@ -25,6 +34,88 @@ class FotocasaScraper(BaseScraper):
     def __init__(self, http_client: HttpClient, config: dict, respect_robots: bool = True):
         super().__init__(http_client, config, respect_robots)
         self._selenium_available: bool | None = None
+        self._session_warmed = False
+
+    # ------------------------------------------------------------------
+    # Public API
+    # ------------------------------------------------------------------
+
+    def search_listings(self, search_url: str, max_pages: int = 5) -> Iterator[RawListing]:
+        page = 1
+        current_url = search_url
+
+        while page <= max_pages:
+            logger.info(f"Fotocasa page {page}: {current_url}")
+            listings: list[RawListing] = []
+
+            # 1) Try plain HTTP (works with residential proxy)
+            if self.http.has_proxy:
+                listings = self._fetch_via_http(current_url)
+
+            # 2) Selenium fallback
+            if not listings and self._check_selenium():
+                listings, next_url_selenium = self._fetch_via_selenium(current_url)
+                if listings:
+                    for listing in listings:
+                        yield listing
+                    if not next_url_selenium:
+                        break
+                    current_url = next_url_selenium
+                    page += 1
+                    continue
+
+            if not listings:
+                if not self.http.has_proxy:
+                    logger.warning(
+                        "Fotocasa: no proxy configured and Selenium unavailable. "
+                        "Set scraping.proxy in config.yaml (residential proxy required)."
+                    )
+                else:
+                    logger.warning(f"Fotocasa: no listings on page {page}, stopping.")
+                break
+
+            for listing in listings:
+                yield listing
+
+            next_url = self._next_page_url(current_url, page)
+            if not next_url:
+                break
+            current_url = next_url
+            page += 1
+
+    # ------------------------------------------------------------------
+    # HTTP approach
+    # ------------------------------------------------------------------
+
+    def _warm_session(self) -> None:
+        """Visit homepage once to acquire cookies (helps PerimeterX scoring)."""
+        if self._session_warmed:
+            return
+        self.http.get(BASE_URL, extra_headers=_FOTOCASA_HEADERS)
+        self._session_warmed = True
+
+    def _fetch_via_http(self, url: str) -> list[RawListing]:
+        self._warm_session()
+        resp = self.http.get(url, referer="https://www.google.es/", extra_headers=_FOTOCASA_HEADERS)
+        if resp is None or len(resp.text) < 500:
+            return []
+
+        # Best source: __NEXT_DATA__ JSON embedded in the page
+        listings = self._parse_next_data(resp.text)
+        if listings:
+            logger.info(f"Fotocasa HTTP: parsed {len(listings)} listings from __NEXT_DATA__")
+            return listings
+
+        # Fallback: parse rendered HTML cards
+        soup = BeautifulSoup(resp.text, "lxml")
+        listings = self._parse_listings_from_soup(soup)
+        if listings:
+            logger.info(f"Fotocasa HTTP: parsed {len(listings)} listings from HTML")
+        return listings
+
+    # ------------------------------------------------------------------
+    # Selenium approach
+    # ------------------------------------------------------------------
 
     def _check_selenium(self) -> bool:
         if self._selenium_available is None:
@@ -35,63 +126,53 @@ class FotocasaScraper(BaseScraper):
                 logger.info("Fotocasa: Selenium available")
             except Exception as e:
                 self._selenium_available = False
-                logger.warning(f"Fotocasa: Selenium not available ({e}). "
-                               "Install Chrome/ChromeDriver to scrape Fotocasa. Skipping portal.")
+                logger.warning(f"Fotocasa: Selenium not available ({e}). Skipping Selenium fallback.")
         return self._selenium_available
 
-    def search_listings(self, search_url: str, max_pages: int = 5) -> Iterator[RawListing]:
-        if not self._check_selenium():
-            return
-
+    def _fetch_via_selenium(self, url: str) -> tuple[list[RawListing], str | None]:
+        """Returns (listings, next_page_url)."""
         from scraper.selenium_driver import get_page_html
 
-        # Convert /es/ URL to /api/ prefix if not already
-        api_url = search_url.replace("www.fotocasa.es/es/", "www.fotocasa.es/api/")
-        if "/api/" not in api_url:
-            api_url = search_url
+        html = get_page_html(
+            url,
+            wait_selector="[class*='re-Card'], [class*='CardListing'], article[class*='listing']",
+            wait_seconds=4.0,
+        )
+        if html is None:
+            return [], None
 
-        page = 1
-        current_url = api_url
-
-        while page <= max_pages:
-            logger.info(f"Fotocasa (Selenium) page {page}: {current_url}")
-
-            html = get_page_html(
-                current_url,
-                wait_selector="[class*='re-Card'], [class*='CardListing'], article[class*='listing']",
-                wait_seconds=4.0,
-            )
-
-            if html is None:
-                logger.warning("Fotocasa: Selenium returned None, stopping")
-                break
-
+        listings = self._parse_next_data(html)
+        if not listings:
             soup = BeautifulSoup(html, "lxml")
             listings = self._parse_listings_from_soup(soup)
 
-            if not listings:
-                # Try __NEXT_DATA__ as fallback
-                listings = self._parse_next_data(html)
+        soup = BeautifulSoup(html, "lxml") if listings else None
+        next_url = self._get_next_page_url_from_soup(soup, url, 1) if soup else None
+        return listings, next_url
 
-            if not listings:
-                logger.warning(f"Fotocasa: No listings found on page {page}")
-                break
+    # ------------------------------------------------------------------
+    # Parsers
+    # ------------------------------------------------------------------
 
-            for listing in listings:
-                yield listing
-
-            # Check for next page
-            next_url = self._get_next_page_url(soup, current_url, page)
-            if not next_url:
-                break
-            current_url = next_url
-            page += 1
+    def _parse_next_data(self, html: str) -> list[RawListing]:
+        """Parse __NEXT_DATA__ JSON blob embedded in the page."""
+        try:
+            soup = BeautifulSoup(html, "lxml")
+            nd = soup.find("script", id="__NEXT_DATA__")
+            if not nd:
+                return []
+            data = json.loads(nd.string)
+            items = (
+                data.get("props", {}).get("pageProps", {}).get("initialSearch", {}).get("realEstates", [])
+                or data.get("props", {}).get("pageProps", {}).get("realEstates", [])
+                or []
+            )
+            results = [self._item_from_json(item) for item in items if item]
+            return [r for r in results if r]
+        except Exception:
+            return []
 
     def _parse_listings_from_soup(self, soup: BeautifulSoup) -> list[RawListing]:
-        """Parse listing cards from rendered HTML."""
-        results = []
-
-        # Fotocasa uses Tailwind CSS class names that change often - try multiple patterns
         card_selectors = [
             "[class*='re-Card']",
             "[data-testid*='card']",
@@ -100,19 +181,14 @@ class FotocasaScraper(BaseScraper):
             "article[class*='property']",
             "article[class*='listing']",
         ]
-
         cards = []
         for sel in card_selectors:
             cards = soup.select(sel)
             if cards:
                 break
 
-        for card in cards:
-            listing = self._parse_card(card)
-            if listing:
-                results.append(listing)
-
-        return results
+        results = [self._parse_card(card) for card in cards]
+        return [r for r in results if r]
 
     def _parse_card(self, card) -> RawListing | None:
         try:
@@ -122,10 +198,8 @@ class FotocasaScraper(BaseScraper):
 
             href = link.get("href", "")
             url = urljoin(BASE_URL, href) if not href.startswith("http") else href
-
             m = re.search(r"/(\d+)/?$", href)
             external_id = m.group(1) if m else self.http.hash_content(href)
-
             title = link.get("title", "") or link.get_text(strip=True)[:200]
 
             price_el = card.select_one("[class*='price'], [class*='Price']")
@@ -140,8 +214,7 @@ class FotocasaScraper(BaseScraper):
             loc_el = card.select_one("[class*='location'], [class*='address'], [class*='ubication']")
             district = city = None
             if loc_el:
-                loc_text = loc_el.get_text(strip=True)
-                parts = [p.strip() for p in loc_text.split(",")]
+                parts = [p.strip() for p in loc_el.get_text(strip=True).split(",")]
                 if len(parts) >= 2:
                     district = parts[0].lower()
                     city = parts[-1].lower()
@@ -160,11 +233,10 @@ class FotocasaScraper(BaseScraper):
                     except ValueError:
                         pass
 
-            photos = []
-            for img in card.select("img[src]")[:3]:
-                src = img.get("src", "")
-                if src and not src.endswith(".svg") and "placeholder" not in src:
-                    photos.append(src)
+            photos = [
+                img.get("src", "") for img in card.select("img[src]")[:3]
+                if img.get("src", "") and not img["src"].endswith(".svg") and "placeholder" not in img["src"]
+            ]
 
             return RawListing(
                 portal=self.PORTAL_NAME,
@@ -184,23 +256,6 @@ class FotocasaScraper(BaseScraper):
         except Exception as e:
             logger.debug(f"Error parsing Fotocasa card: {e}")
             return None
-
-    def _parse_next_data(self, html: str) -> list[RawListing]:
-        """Fallback: parse __NEXT_DATA__ JSON blob."""
-        try:
-            soup = BeautifulSoup(html, "lxml")
-            nd = soup.find("script", id="__NEXT_DATA__")
-            if not nd:
-                return []
-            data = json.loads(nd.string)
-            items = (
-                data.get("props", {}).get("pageProps", {}).get("initialSearch", {}).get("realEstates", [])
-                or data.get("props", {}).get("pageProps", {}).get("realEstates", [])
-                or []
-            )
-            return [self._item_from_json(item) for item in items if item]
-        except Exception:
-            return []
 
     def _item_from_json(self, item: dict) -> RawListing | None:
         try:
@@ -250,13 +305,19 @@ class FotocasaScraper(BaseScraper):
             logger.debug(f"Error parsing Fotocasa JSON item: {e}")
             return None
 
-    def _get_next_page_url(self, soup: BeautifulSoup, current_url: str, page: int) -> str | None:
-        next_el = soup.select_one("a[rel='next'], [class*='next'] a, [aria-label='Siguiente'] a")
-        if next_el and next_el.get("href"):
-            return urljoin(BASE_URL, next_el["href"])
-        # Increment page in URL
+    # ------------------------------------------------------------------
+    # Pagination
+    # ------------------------------------------------------------------
+
+    def _next_page_url(self, current_url: str, page: int) -> str | None:
         if "/l" in current_url:
             if re.search(r"/l\d+$", current_url):
                 return re.sub(r"/l\d+$", f"/l{page + 1}", current_url)
             return current_url.rstrip("/") + f"/l{page + 1}"
         return None
+
+    def _get_next_page_url_from_soup(self, soup: BeautifulSoup, current_url: str, page: int) -> str | None:
+        next_el = soup.select_one("a[rel='next'], [class*='next'] a, [aria-label='Siguiente'] a")
+        if next_el and next_el.get("href"):
+            return urljoin(BASE_URL, next_el["href"])
+        return self._next_page_url(current_url, page)

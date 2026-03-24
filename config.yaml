@@ -5,9 +5,27 @@ scraping:
   delay_min_seconds: 3
   delay_max_seconds: 8
   respect_robots: true
-  # Residential proxy for Fotocasa/Idealista/Habitaclia (blocked from datacenter IPs).
-  # Format: "http://user:pass@host:port" or "socks5://host:port"
-  # Leave empty to skip those portals automatically.
+  #
+  # ── Residential Proxy ──────────────────────────────────────────────────────
+  # Required for Fotocasa (PerimeterX) and Idealista (DataDome).
+  # Datacenter IPs are blocked by both portals; residential IPs bypass the check.
+  #
+  # Format:
+  #   Single proxy : proxy: "http://user:pass@host:port"
+  #   SOCKS5       : proxy: "socks5://user:pass@host:port"
+  #   Pool (rotate): proxy_list:
+  #                    - "http://user:pass@host1:port"
+  #                    - "http://user:pass@host2:port"
+  #
+  # Recommended providers (pay-as-you-go, Spanish IPs available):
+  #   • Bright Data (brightdata.com)  — best quality, ~$8.4/GB residential
+  #   • Oxylabs (oxylabs.io)          — reliable, ~$8/GB, good ES coverage
+  #   • Smartproxy (smartproxy.com)   — affordable, ~$7/GB starter plan
+  #   • IPRoyal (iproyal.com)         — cheapest option, ~$3/GB
+  #
+  # Usage: set the PROXY env var or fill in below.
+  # Example: proxy: "http://brd-customer-XXXX-zone-residential:PASSWORD@brd.superproxy.io:22225"
+  # ──────────────────────────────────────────────────────────────────────────
   proxy: ""
   proxy_list: []
   max_retries: 3
