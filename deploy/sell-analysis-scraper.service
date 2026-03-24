@@ -1,0 +1,18 @@
+[Unit]
+Description=Real Estate Investment Analyzer - Scraper (APScheduler)
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/user/sell_analysis
+ExecStart=/usr/local/bin/python3 /home/user/sell_analysis/main.py scrape
+Restart=on-failure
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sell-analysis-scraper
+EnvironmentFile=-/home/user/sell_analysis/.env
+
+[Install]
+WantedBy=multi-user.target

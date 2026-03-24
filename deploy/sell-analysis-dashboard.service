@@ -1,0 +1,18 @@
+[Unit]
+Description=Real Estate Investment Analyzer - Dashboard (Streamlit)
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/user/sell_analysis
+ExecStart=/usr/local/bin/streamlit run /home/user/sell_analysis/dashboard/app.py
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sell-analysis-dashboard
+EnvironmentFile=-/home/user/sell_analysis/.env
+
+[Install]
+WantedBy=multi-user.target

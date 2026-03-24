@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  scraper:
+    build: .
+    image: sell_analysis:latest
+    container_name: sell_analysis_scraper
+    command: python main.py scrape
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - .env
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  dashboard:
+    build: .
+    image: sell_analysis:latest
+    container_name: sell_analysis_dashboard
+    command: streamlit run dashboard/app.py
+      --server.address=0.0.0.0
+      --server.port=8501
+      --server.headless=true
+      --server.enableCORS=false
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - .env
+    restart: unless-stopped
+    depends_on:
+      - scraper
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
