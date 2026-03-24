@@ -39,6 +39,38 @@ class PipelineOrchestrator:
             "servihabitat": ServihabitatScraper(self.http, self.config, respect_robots),
         }
 
+    def run_rental_scrape(self) -> dict:
+        """Scrape rental listings, compute median rent/m² per zone, update DB."""
+        from analysis.rent_aggregator import aggregate_and_store
+
+        rental_cfg = self.config.get("rental_scraping", {})
+        portals_cfg = rental_cfg.get("portals", {})
+
+        all_listings: list[dict] = []
+
+        for portal_name, portal_cfg in portals_cfg.items():
+            if not portal_cfg.get("enabled", False):
+                logger.info(f"Rental portal {portal_name} disabled, skipping")
+                continue
+
+            scraper = self._scrapers.get(portal_name)
+            if not scraper:
+                logger.warning(f"No scraper found for rental portal {portal_name}")
+                continue
+
+            max_pages = portal_cfg.get("max_pages", 3)
+            for url in portal_cfg.get("urls", []):
+                logger.info(f"Rental scrape {portal_name}: {url}")
+                try:
+                    for raw in scraper.search_listings(url, max_pages):
+                        all_listings.append(raw.to_dict())
+                except Exception as e:
+                    logger.error(f"Rental scrape error {portal_name} {url}: {e}")
+
+        stats = aggregate_and_store(all_listings)
+        logger.info(f"Rental scrape complete: {stats}")
+        return stats
+
     def run_purchase_scrape(self) -> dict:
         """Main scraping job. Returns summary stats."""
         from models.db import upsert_listing, upsert_metrics
@@ -170,5 +202,15 @@ def create_scheduler(config: dict):
         name="Purchase listings scrape",
     )
 
-    logger.info(f"Scheduler configured: purchase scrape every {scrape_hours}h")
+    scheduler.add_job(
+        func=orchestrator.run_rental_scrape,
+        trigger="interval",
+        days=rental_days,
+        id="rental_scrape",
+        max_instances=1,
+        coalesce=True,
+        name="Rental listings scrape",
+    )
+
+    logger.info(f"Scheduler configured: purchase every {scrape_hours}h, rental every {rental_days}d")
     return scheduler, orchestrator

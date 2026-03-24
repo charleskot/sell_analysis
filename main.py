@@ -105,6 +105,26 @@ def init_db_cmd():
 
 
 @app.command()
+def scrape_rentals(
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Logging detallado"),
+):
+    """Scrapea alquileres y actualiza los precios medios de zona en la DB."""
+    setup_logging(verbose)
+    config = load_config()
+    init_db(config)
+
+    from scheduler.jobs import PipelineOrchestrator
+
+    orchestrator = PipelineOrchestrator(config)
+    console.print("[cyan]Scrapeando alquileres...[/cyan]")
+    stats = orchestrator.run_rental_scrape()
+    console.print(
+        f"[green]Completado:[/green] {stats['valid']} muestras, "
+        f"{stats['zones_updated']} zonas actualizadas, {stats['skipped']} descartadas"
+    )
+
+
+@app.command()
 def export(
     output: str = typer.Option("listings_export.csv", help="Ruta del archivo CSV de salida"),
     min_score: float = typer.Option(0, help="Score mínimo para exportar"),
