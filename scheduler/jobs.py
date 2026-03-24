@@ -27,6 +27,7 @@ class PipelineOrchestrator:
         from scraper.pisos import PisosScraper
         from scraper.habitaclia import HabitacliaScraper
         from scraper.solvia import SolviaScraper
+        from scraper.servihabitat import ServihabitatScraper
 
         respect_robots = self.config.get("scraping", {}).get("respect_robots", True)
         return {
@@ -35,6 +36,7 @@ class PipelineOrchestrator:
             "pisos": PisosScraper(self.http, self.config, respect_robots),
             "habitaclia": HabitacliaScraper(self.http, self.config, respect_robots),
             "solvia": SolviaScraper(self.http, self.config, respect_robots),
+            "servihabitat": ServihabitatScraper(self.http, self.config, respect_robots),
         }
 
     def run_purchase_scrape(self) -> dict:

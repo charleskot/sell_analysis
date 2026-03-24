@@ -5,6 +5,10 @@ scraping:
   delay_min_seconds: 3
   delay_max_seconds: 8
   respect_robots: true
+  # Residential proxy for Fotocasa/Idealista/Habitaclia (blocked from datacenter IPs).
+  # Format: "http://user:pass@host:port" or "socks5://host:port"
+  # Leave empty to skip those portals automatically.
+  proxy: ""
   proxy_list: []
   max_retries: 3
   selenium_fallback: false
@@ -29,10 +33,18 @@ portals:
       - "https://www.pisos.com/venta/pisos-barcelona/"
     max_pages: 3
   habitaclia:
-    enabled: false
+    enabled: false  # blocked from datacenter IPs - needs residential proxy
     search_urls:
       - "https://www.habitaclia.com/comprar-piso-en-madrid.htm"
     max_pages: 3
+  servihabitat:
+    enabled: true
+    search_urls:
+      - "https://www.servihabitat.com/es/venta/vivienda/madrid"
+      - "https://www.servihabitat.com/es/venta/vivienda/barcelona"
+      - "https://www.servihabitat.com/es/venta/vivienda/valencia"
+      - "https://www.servihabitat.com/es/venta/vivienda/sevilla"
+    max_pages: 5
   solvia:
     enabled: true
     search_urls:

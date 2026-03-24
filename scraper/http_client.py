@@ -88,7 +88,12 @@ class HttpClient:
         self._delay_max = config.get("delay_max_seconds", 8)
         self._max_retries = config.get("max_retries", 3)
         self._rate_limiter = RateLimiter(self._delay_min, self._delay_max)
-        self._proxy_pool = ProxyPool(config.get("proxy_list", []))
+        # Support both single proxy string and proxy_list
+        proxy_single = config.get("proxy", "")
+        proxy_list = config.get("proxy_list", [])
+        if proxy_single:
+            proxy_list = [proxy_single] + proxy_list
+        self._proxy_pool = ProxyPool(proxy_list)
         self._ua_list = USER_AGENTS[:]
         random.shuffle(self._ua_list)
         self._ua_cycle = itertools.cycle(self._ua_list)
