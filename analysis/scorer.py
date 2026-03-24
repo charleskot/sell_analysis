@@ -78,8 +78,10 @@ class InvestmentScorer:
             price_per_m2_score = 50.0  # neutral when no comparison data
 
         # 3. Location score
-        city_map = self._location_scores.get(city.lower(), {})
-        location_score = float(city_map.get(district.lower(), 50) if district else 50)
+        city_key = self._normalize_city(city)
+        city_map = self._location_scores.get(city_key, {})
+        district_key = district.lower().strip() if district else ""
+        location_score = float(city_map.get(district_key, 50) if district_key else 50)
 
         # 4. Condition score
         condition_score = float(CONDITION_SCORES.get(condition or "desconocido", 50))
@@ -104,6 +106,18 @@ class InvestmentScorer:
             roi_score=roi_score,
             total=total,
         )
+
+    def _normalize_city(self, city: str) -> str:
+        city = city.lower().strip()
+        return {
+            "barcelona-capital": "barcelona",
+            "valència": "valencia",
+            "madrid capital": "madrid",
+            "sevilla": "sevilla",
+            "seville": "sevilla",
+            "málaga": "malaga",
+            "málaga capital": "malaga",
+        }.get(city, city)
 
     def get_zone_avg_price_per_m2(self, city: str, district: str | None) -> float | None:
         """Compute zone average from DB listings."""

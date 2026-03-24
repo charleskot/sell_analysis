@@ -14,10 +14,11 @@ MOCK_CONFIG = {
         }
     },
     "location_scores": {
-        "madrid": {
-            "salamanca": 90,
-            "carabanchel": 58,
-        }
+        "madrid": {"salamanca": 90, "carabanchel": 58},
+        "valencia": {"l'eixample": 90, "benimaclet": 68},
+        "sevilla": {"triana": 88, "macarena": 63},
+        "malaga": {"malagueta": 88, "palma-palmilla": 42},
+        "bilbao": {"abando": 92, "rekalde": 58},
     },
 }
 
@@ -78,3 +79,32 @@ def test_scorer_unknown_city():
     bd = scorer.score("segovia", "centro", "buen_estado", 5.0, 3.5, 1500, 1600)
     assert bd.location_score == 50.0
     assert bd.total > 0
+
+
+def test_scorer_valencia_district():
+    scorer = InvestmentScorer(MOCK_CONFIG)
+    bd_premium = scorer.score("valencia", "l'eixample", "buen_estado", 5.0, 3.5, 2000, 2200)
+    bd_basic = scorer.score("valencia", "benimaclet", "buen_estado", 5.0, 3.5, 2000, 2200)
+    assert bd_premium.location_score == 90.0
+    assert bd_basic.location_score == 68.0
+    assert bd_premium.total > bd_basic.total
+
+
+def test_scorer_city_name_normalization():
+    scorer = InvestmentScorer(MOCK_CONFIG)
+    # "valència" (Valencian spelling) should resolve to "valencia" scores
+    bd = scorer.score("valència", "l'eixample", "buen_estado", 5.0, 3.5, 2000, 2200)
+    assert bd.location_score == 90.0
+
+
+def test_scorer_new_cities_have_scores():
+    scorer = InvestmentScorer(MOCK_CONFIG)
+    cases = [
+        ("sevilla", "triana", 88.0),
+        ("malaga", "malagueta", 88.0),
+        ("bilbao", "abando", 92.0),
+        ("malaga", "palma-palmilla", 42.0),
+    ]
+    for city, district, expected in cases:
+        bd = scorer.score(city, district, "buen_estado", 5.0, 3.5, 2000, 2200)
+        assert bd.location_score == expected, f"{city}/{district}: expected {expected}, got {bd.location_score}"

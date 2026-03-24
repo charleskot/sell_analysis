@@ -172,6 +172,142 @@ location_scores:
     "sant andreu": 60
     "ciutat vella": 65
 
+  valencia:
+    "l'eixample": 90
+    "eixample": 90
+    "el pla del real": 88
+    "russafa": 83
+    "rascanya": 50
+    "campanar": 72
+    "extramurs": 75
+    "la saïdia": 70
+    "quatre carreres": 60
+    "poblats marítims": 63
+    "el cabanyal-el canyamelar": 62
+    "benimaclet": 68
+    "jesús": 55
+    "patraix": 57
+    "benicalap": 52
+    "pobles del nord": 45
+    "pobles del sud": 48
+    "pobles de l'oest": 50
+    "ciutat vella": 80
+
+  sevilla:
+    "casco antiguo": 85
+    "centro": 85
+    "triana": 88
+    "los remedios": 90
+    "nervión": 85
+    "san vicente": 82
+    "alameda": 80
+    "san lorenzo": 80
+    "macarena": 63
+    "norte": 60
+    "este": 70
+    "bellavista-la palmera": 68
+    "cerro-amate": 48
+    "palmete": 50
+    "torreblanca": 45
+    "sur": 60
+    "valdezorras": 50
+
+  zaragoza:
+    "centro": 82
+    "casco histórico": 78
+    "universidad": 75
+    "romareda": 85
+    "actur-rey fernando": 65
+    "actur": 65
+    "delicias": 55
+    "el arrabal": 58
+    "torrero-la paz": 55
+    "oliver-valdefierro": 48
+    "miralbueno": 60
+    "las fuentes": 58
+    "santa isabel": 50
+    "la almozara": 65
+    "san josé": 62
+    "la jota": 55
+
+  malaga:
+    "centro": 85
+    "soho": 78
+    "trinidad": 75
+    "malagueta": 88
+    "el palo": 70
+    "pedregalejo": 72
+    "teatinos": 68
+    "carranque": 62
+    "puerto de la torre": 60
+    "churriana": 55
+    "campanillas": 50
+    "palma-palmilla": 42
+    "cruz de humilladero": 58
+    "ciudad jardín": 65
+    "martiricos-la roca": 60
+
+  bilbao:
+    "abando": 92
+    "indautxu": 90
+    "casco viejo": 80
+    "deusto": 75
+    "begoña": 72
+    "uribarri": 62
+    "basurto-zorroza": 65
+    "ibaiondo": 60
+    "rekalde": 58
+    "txurdinaga": 55
+    "otxarkoaga-txurdinaga": 48
+    "san ignacio": 70
+    "santutxu": 60
+
+  palma:
+    "casco antiguo": 90
+    "centro": 90
+    "santa catalina": 88
+    "son armadans": 82
+    "génova": 85
+    "el terreno": 72
+    "son rapinya": 78
+    "son espanyolet": 75
+    "la indioteria": 52
+    "son gotleu": 48
+    "el vivero": 65
+    "polígon de llevant": 50
+    "son cladera": 45
+    "establiments": 55
+
+  alicante:
+    "centro": 82
+    "ensanche": 80
+    "playa de san juan": 75
+    "benalúa": 68
+    "san blas": 60
+    "carolinas": 58
+    "babel": 65
+    "garbinet": 62
+    "cabo de las huertas": 78
+    "la zona sur": 50
+    "sidi ifni-nou alacant": 52
+    "ciudad de asís": 55
+
+  granada:
+    "centro": 82
+    "sagrario": 82
+    "realejo": 85
+    "albaicín": 78
+    "genil": 72
+    "rondas": 68
+    "arabial": 65
+    "zaidín": 62
+    "beiro": 60
+    "la chana": 55
+    "norte": 58
+    "pajaritos": 52
+    "casería de montijo": 50
+    "Ogíjares": 50
+
 fallback_rent_per_m2:
   madrid: 16.5
   barcelona: 18.0
