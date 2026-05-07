@@ -5,7 +5,7 @@ App que cada día:
 1. Rastrea plataformas de subastas inmobiliarias filtrando por las cuatro provincias catalanas (Barcelona, Girona, Lleida, Tarragona).
 2. Guarda las subastas nuevas en SQLite.
 3. Analiza cada nueva subasta con Claude (`claude-opus-4-7`): valor de mercado estimado, descuento, yield de alquiler, ROI de flip, riesgos legales, y un score 0-100.
-4. Te envía un email con las que superan el umbral (por defecto score ≥ 60).
+4. **Te manda por Telegram** las que superan el umbral (por defecto score ≥ 60).
 
 Plataformas incluidas:
 
@@ -18,10 +18,49 @@ Plataformas incluidas:
 - Python 3.11+ · FastAPI · SQLAlchemy 2 · SQLite
 - Anthropic SDK (Claude Opus 4.7) con prompt caching y structured outputs
 - httpx + BeautifulSoup para scraping
-- APScheduler para la ejecución diaria
-- Jinja2 + smtplib para el email
+- Telegram Bot API para las notificaciones
+- GitHub Actions para la ejecución diaria en la nube
 
-## Setup
+## Quickstart — todo se ejecuta gratis en GitHub Actions
+
+### 1. Crear el bot de Telegram (1 min)
+
+1. Abre Telegram y busca **@BotFather**.
+2. Manda `/newbot`, sigue las instrucciones, copia el **bot token** (`123456:ABC-DEF...`).
+3. Abre tu nuevo bot y mándale cualquier mensaje (`/start`).
+4. Para encontrar tu **chat_id**: habla con **@userinfobot** y te da tu ID (un número como `987654321`).
+
+### 2. Configurar los secrets en GitHub
+
+En tu repo, ve a **Settings → Secrets and variables → Actions** y añade:
+
+| Tipo | Nombre | Valor |
+|---|---|---|
+| Secret | `ANTHROPIC_API_KEY` | tu API key de Anthropic |
+| Secret | `TELEGRAM_BOT_TOKEN` | el token del bot |
+| Secret | `TELEGRAM_CHAT_ID` | tu chat_id |
+
+Opcional, en la pestaña **Variables** del mismo sitio puedes ajustar:
+
+| Nombre | Default | Descripción |
+|---|---|---|
+| `ANALYSIS_MODEL` | `claude-opus-4-7` | Cambiable a `claude-sonnet-4-6` para abaratar |
+| `TARGET_PROVINCES` | `08,17,25,43` | Provincias INE |
+| `MAX_PRICE_EUR` | `400000` | Filtra antes del LLM |
+| `MIN_OPPORTUNITY_SCORE` | `60` | Score mínimo para enviar |
+| `ENABLED_SCRAPERS` | `boe,addmeet,solvia,haya,servihabitat,aliseda` | |
+
+### 3. Listo
+
+El workflow `.github/workflows/daily.yml` corre cada día a las 07:00 UTC (08:00 Madrid invierno / 09:00 verano). Para cambiar la hora edita la línea `cron:` del workflow.
+
+Para probar antes de esperar al siguiente día: ve a **Actions → Daily auction analysis → Run workflow** y dispáralo manualmente.
+
+La base SQLite se cachea entre corridas (vía `actions/cache`) para que no re-analice las mismas subastas cada día.
+
+---
+
+## Uso local (alternativa)
 
 ```bash
 cd sell_analysis
@@ -29,83 +68,48 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
 cp .env.example .env
-# Edita .env con tu ANTHROPIC_API_KEY y credenciales SMTP
+# Edita .env con tu ANTHROPIC_API_KEY, TELEGRAM_BOT_TOKEN y TELEGRAM_CHAT_ID
+
+python run_daily.py            # corrida única
+python run_daily.py --dry-run  # todo menos el envío a Telegram
 ```
 
-### Email con Gmail
-
-1. Activa 2FA en tu cuenta Google.
-2. Crea una "App password" en https://myaccount.google.com/apppasswords.
-3. Pon esa contraseña en `SMTP_PASSWORD`.
-
-## Uso
-
-### Ejecutar una vez (manual)
-
-```bash
-python run_daily.py            # scrape + analiza + envía email
-python run_daily.py --dry-run  # todo menos el envío
-```
-
-### Servidor (scheduler + API)
+### Servidor con API web (opcional)
 
 ```bash
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
-Esto:
+Esto inicia un scheduler interno y expone una API:
 
-- Inicializa la base de datos.
-- Lanza APScheduler con un cron diario (hora configurable via `DAILY_RUN_HOUR`).
-- Expone una API:
-  - `GET /health`
-  - `GET /auctions?source=boe&province=Barcelona&min_score=60&limit=50`
-  - `GET /auctions/{id}`
-  - `GET /reports/latest`
-  - `GET /preview?min_score=60` — vista previa HTML del email del día
-  - `POST /run` — dispara una corrida en background
-
-### Como cron del sistema (alternativa al scheduler interno)
-
-Si prefieres no tener un proceso siempre vivo:
-
-```cron
-0 8 * * * cd /ruta/a/sell_analysis && /ruta/a/.venv/bin/python run_daily.py >> /var/log/auctions.log 2>&1
-```
-
-## Configuración
-
-Todo vive en `.env`. Las claves más útiles:
-
-| Variable | Default | Descripción |
-|---|---|---|
-| `ANTHROPIC_API_KEY` | — | API key (https://console.anthropic.com/) |
-| `ANALYSIS_MODEL` | `claude-opus-4-7` | Cambiable a `claude-sonnet-4-6` para abaratar |
-| `TARGET_PROVINCES` | `08,17,25,43` | Provincias INE (08 Barcelona, 17 Girona, 25 Lleida, 43 Tarragona) |
-| `MAX_PRICE_EUR` | `400000` | Filtra antes del LLM para no quemar tokens en mansiones |
-| `MIN_OPPORTUNITY_SCORE` | `60` | Score mínimo para incluir en el email |
-| `ENABLED_SCRAPERS` | `boe,addmeet,solvia,haya,servihabitat,aliseda` | Habilita/deshabilita fuentes |
-| `DAILY_RUN_HOUR/MINUTE` | `8/0` | Hora del cron interno |
+- `GET /health`
+- `GET /auctions?source=boe&province=Barcelona&min_score=60&limit=50`
+- `GET /auctions/{id}`
+- `GET /reports/latest`
+- `GET /preview?min_score=60` — vista HTML del reporte del día
+- `POST /run` — dispara una corrida en background
 
 ## Arquitectura
 
 ```
 sell_analysis/
+├── .github/workflows/daily.yml   # Cron diario en GitHub Actions
 ├── app/
-│   ├── config.py           # Settings (pydantic-settings)
-│   ├── db.py               # SQLAlchemy engine + session
-│   ├── models.py           # Auction / Analysis / DailyReport
+│   ├── config.py                 # Settings (pydantic-settings)
+│   ├── db.py                     # SQLAlchemy engine + session
+│   ├── models.py                 # Auction / Analysis / DailyReport
 │   ├── scrapers/
-│   │   ├── base.py         # BaseScraper + AuctionItem dataclass
-│   │   ├── boe.py          # subastas.boe.es (más completo)
+│   │   ├── base.py               # BaseScraper + AuctionItem dataclass
+│   │   ├── boe.py                # subastas.boe.es (más completo)
 │   │   ├── addmeet.py
-│   │   ├── _bank_base.py   # base genérica para bancos
-│   │   ├── solvia.py / haya.py / servihabitat.py / aliseda.py
-│   ├── analyzer.py         # Claude con structured outputs + prompt caching
-│   ├── notifier.py         # Render Jinja + envío SMTP
-│   ├── pipeline.py         # Orquestador: scrape → upsert → analyze → email
-│   ├── scheduler.py        # APScheduler cron
-│   ├── main.py             # FastAPI
+│   │   ├── _bank_base.py         # base genérica para bancos
+│   │   └── solvia.py / haya.py / servihabitat.py / aliseda.py
+│   ├── analyzer.py               # Claude con structured outputs + prompt caching
+│   ├── telegram.py               # Envío a Telegram Bot API
+│   ├── notifier.py               # Render Jinja para /preview
+│   ├── pipeline.py               # Orquestador: scrape → upsert → analyze → notify
+│   ├── scheduler.py              # APScheduler cron (uso local)
+│   ├── main.py                   # FastAPI
 │   └── templates/email.html.j2
 ├── tests/test_boe_parser.py
 ├── run_daily.py
@@ -117,9 +121,9 @@ sell_analysis/
 
 `app/analyzer.py` envía cada subasta a Claude con:
 
-- **System prompt cacheado** (`cache_control: ephemeral`): contiene las instrucciones de análisis. Como es constante para todas las subastas del día, las llamadas posteriores cuestan ~10× menos en tokens de input.
+- **System prompt cacheado** (`cache_control: ephemeral`): instrucciones constantes → llamadas posteriores cuestan ~10× menos en tokens de input.
 - **Adaptive thinking**: Claude decide cuánto razonar por subasta.
-- **Structured outputs**: el JSON de salida está validado contra un Pydantic schema (`OpportunityAnalysis`), así que nunca recibes JSON malformado.
+- **Structured outputs**: el JSON está validado contra un Pydantic schema (`OpportunityAnalysis`), así que nunca recibes JSON malformado.
 
 Salida (en español):
 
@@ -131,7 +135,7 @@ Salida (en español):
 
 ## Mantenimiento de scrapers
 
-Las páginas web cambian. Para diagnosticar:
+Las páginas web cambian. Mira los logs:
 
 ```bash
 python run_daily.py --dry-run 2>&1 | grep -i "scraper\|failed"
@@ -139,7 +143,7 @@ python run_daily.py --dry-run 2>&1 | grep -i "scraper\|failed"
 
 El scraper de **BOE** es el más estable (HTML del gobierno, estructura tabular).
 
-Los scrapers de **bancos** (Solvia, Haya, etc.) son SPAs y la versión actual solo captura lo SSR. Para cobertura completa, sustituye `httpx.Client` por `playwright` en `_bank_base.py`.
+Los scrapers de **bancos** son SPAs JavaScript y la versión actual solo captura lo SSR. Para cobertura completa, sustituye `httpx.Client` por `playwright` en `_bank_base.py`.
 
 ## Tests
 
@@ -155,10 +159,10 @@ Por subasta (Opus 4.7, system cacheado, ~500 tokens de input variable + ~600 tok
 - Output: ~$0.015
 - **~$0.018 por subasta analizada**
 
-Si filtras a 30-50 subastas/día, son ~$0.50-$0.90/día. Bajar a `claude-sonnet-4-6` lo deja en ~$0.15-$0.27/día.
+Con 30-50 subastas/día son ~$0.50-$0.90/día. Bajar a `claude-sonnet-4-6` lo deja en ~$0.15-$0.27/día.
 
 ## Notas legales
 
-- Asegúrate de respetar robots.txt y términos de servicio de cada plataforma.
+- Respeta robots.txt y términos de servicio de cada plataforma.
 - BOE es información pública.
 - Los portales bancarios y privados pueden requerir consentimiento para scraping a escala — limita la frecuencia y usa el `User-Agent` configurable.

@@ -22,9 +22,8 @@ def main():
     args = parser.parse_args()
 
     if args.dry_run:
-        # Monkey-patch send_email to a no-op
-        from app import notifier
-        notifier.send_email = lambda *a, **k: logging.info("(dry-run) email no enviado")
+        from app import telegram
+        telegram.notify = lambda *a, **k: logging.info("(dry-run) Telegram no enviado")
 
     from app.pipeline import run_daily
     result = run_daily()

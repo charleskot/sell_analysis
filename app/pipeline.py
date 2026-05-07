@@ -8,10 +8,10 @@ from typing import List
 from sqlalchemy import select
 
 from app import models
+from app import telegram
 from app.analyzer import OpportunityAnalysis, analyze
 from app.config import settings
 from app.db import session_scope, init_db
-from app.notifier import render_email, send_email
 from app.scrapers import get_scrapers
 from app.scrapers.base import AuctionItem
 
@@ -147,19 +147,13 @@ def run_daily() -> dict:
     stats = {"scraped": total_seen, "new_count": len(new_records), "analyzed": len(opportunities)}
     run_date = date.today().isoformat()
 
-    html = render_email(
-        opportunities=[{"auction": o.auction, "analysis": o.analysis} for o in opportunities],
-        stats=stats,
-        run_date=run_date,
-    )
-
-    subject = f"🏠 {len(opportunities)} oportunidad{'es' if len(opportunities) != 1 else ''} de subasta — {run_date}"
+    payload = [{"auction": o.auction, "analysis": o.analysis} for o in opportunities]
     sent_ok = True
     error_msg = None
     try:
-        send_email(subject, html)
+        telegram.notify(opportunities=payload, stats=stats, run_date=run_date)
     except Exception as e:
-        log.exception("Email falló: %s", e)
+        log.exception("Telegram falló: %s", e)
         sent_ok = False
         error_msg = str(e)
 

@@ -14,13 +14,8 @@ class Settings(BaseSettings):
 
     database_url: str = Field(default="sqlite:///./auctions.db")
 
-    smtp_host: str = ""
-    smtp_port: int = 587
-    smtp_user: str = ""
-    smtp_password: str = ""
-    smtp_from: str = ""
-    smtp_to: str = ""
-    smtp_use_tls: bool = True
+    telegram_bot_token: str = ""
+    telegram_chat_id: str = ""
 
     target_provinces: List[str] = Field(default_factory=lambda: ["08", "17", "25", "43"])
     max_price_eur: int = 400_000

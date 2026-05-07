@@ -1,0 +1,58 @@
+name: Daily auction analysis
+
+on:
+  schedule:
+    # 07:00 UTC = 08:00 Madrid invierno / 09:00 verano. Cambia si quieres otra hora.
+    - cron: "0 7 * * *"
+  workflow_dispatch:  # Permite lanzar manualmente desde la pestaña "Actions"
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Caché de la base SQLite entre corridas para que el dedupe de subastas
+      # funcione (no re-analizar las mismas cada día).
+      - name: Restore auctions DB
+        id: cache-db
+        uses: actions/cache/restore@v4
+        with:
+          path: auctions.db
+          key: auctions-db-${{ github.run_id }}
+          restore-keys: |
+            auctions-db-
+
+      - name: Run daily pipeline
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANALYSIS_MODEL: ${{ vars.ANALYSIS_MODEL || 'claude-opus-4-7' }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TARGET_PROVINCES: ${{ vars.TARGET_PROVINCES || '08,17,25,43' }}
+          MAX_PRICE_EUR: ${{ vars.MAX_PRICE_EUR || '400000' }}
+          MIN_OPPORTUNITY_SCORE: ${{ vars.MIN_OPPORTUNITY_SCORE || '60' }}
+          ENABLED_SCRAPERS: ${{ vars.ENABLED_SCRAPERS || 'boe,addmeet,solvia,haya,servihabitat,aliseda' }}
+          DATABASE_URL: sqlite:///./auctions.db
+        run: python run_daily.py
+
+      - name: Save auctions DB
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: auctions.db
+          key: auctions-db-${{ github.run_id }}
