@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Oportunidades de subasta — {{ run_date }}</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color:#222; max-width:780px; margin:0 auto; padding:24px; }
+  h1 { margin-bottom: 4px; }
+  .meta { color:#666; font-size:13px; margin-bottom:24px; }
+  .card { border:1px solid #e3e3e3; border-radius:8px; padding:16px; margin-bottom:16px; }
+  .score { display:inline-block; padding:4px 10px; border-radius:14px; font-weight:600; color:white; font-size:13px; }
+  .s-high { background:#1f7a3a; }
+  .s-mid { background:#c47c0a; }
+  .s-low { background:#8a8a8a; }
+  .row { display:flex; flex-wrap:wrap; gap:18px; margin:8px 0; font-size:14px; }
+  .row span { color:#555; }
+  .row b { color:#222; }
+  ul { padding-left:20px; margin:6px 0; }
+  .pros li { color:#1f7a3a; }
+  .cons li { color:#a02929; }
+  .risks li { color:#a05f00; }
+  a.btn { display:inline-block; margin-top:8px; padding:6px 12px; background:#0a64c4; color:white; text-decoration:none; border-radius:4px; font-size:13px; }
+  .footer { color:#999; font-size:12px; margin-top:32px; border-top:1px solid #eee; padding-top:12px; }
+</style>
+</head>
+<body>
+  <h1>🏠 Oportunidades de subasta</h1>
+  <div class="meta">
+    {{ run_date }} · {{ opportunities|length }} oportunidad{% if opportunities|length != 1 %}es{% endif %} encontrada{% if opportunities|length != 1 %}s{% endif %} · score mínimo {{ min_score }}
+  </div>
+
+  {% if not opportunities %}
+    <p>Hoy no se detectaron subastas que superen el umbral. Mañana volveré a revisar.</p>
+  {% endif %}
+
+  {% for o in opportunities %}
+    {% set s = o.analysis.opportunity_score %}
+    {% set cls = "s-high" if s >= 75 else ("s-mid" if s >= 60 else "s-low") %}
+    <div class="card">
+      <span class="score {{ cls }}">{{ s }}/100 · {{ o.analysis.recommendation|upper }}</span>
+      <h3 style="margin:6px 0 4px 0">{{ o.auction.title or "Subasta sin título" }}</h3>
+      <div style="color:#666; font-size:13px">
+        {{ o.auction.source|upper }} ·
+        {% if o.auction.address %}{{ o.auction.address }}{% endif %}
+        {% if o.auction.city %}, {{ o.auction.city }}{% endif %}
+        {% if o.auction.province %} ({{ o.auction.province }}){% endif %}
+      </div>
+
+      <div class="row">
+        {% if o.auction.starting_price %}<span>Precio salida:</span><b>{{ "{:,.0f}".format(o.auction.starting_price).replace(",", ".") }} €</b>{% endif %}
+        {% if o.analysis.estimated_market_value_eur %}<span>Valor mercado est.:</span><b>{{ "{:,.0f}".format(o.analysis.estimated_market_value_eur).replace(",", ".") }} €</b>{% endif %}
+        {% if o.analysis.estimated_discount_pct %}<span>Descuento:</span><b>{{ "{:.1f}".format(o.analysis.estimated_discount_pct) }}%</b>{% endif %}
+        {% if o.auction.surface_m2 %}<span>Superficie:</span><b>{{ o.auction.surface_m2|round|int }} m²</b>{% endif %}
+      </div>
+
+      <div class="row">
+        {% if o.analysis.estimated_rental_yield_pct %}<span>Yield alquiler:</span><b>{{ "{:.1f}".format(o.analysis.estimated_rental_yield_pct) }}%</b>{% endif %}
+        {% if o.analysis.estimated_flip_roi_pct %}<span>ROI flip:</span><b>{{ "{:.1f}".format(o.analysis.estimated_flip_roi_pct) }}%</b>{% endif %}
+        {% if o.auction.auction_end %}<span>Fin subasta:</span><b>{{ o.auction.auction_end.strftime("%d/%m/%Y") }}</b>{% endif %}
+      </div>
+
+      <p style="margin:10px 0 6px 0">{{ o.analysis.summary }}</p>
+
+      {% if o.analysis.pros %}<b>Pros</b><ul class="pros">{% for p in o.analysis.pros %}<li>{{ p }}</li>{% endfor %}</ul>{% endif %}
+      {% if o.analysis.cons %}<b>Cons</b><ul class="cons">{% for c in o.analysis.cons %}<li>{{ c }}</li>{% endfor %}</ul>{% endif %}
+      {% if o.analysis.legal_risks %}<b>Riesgos legales</b><ul class="risks">{% for r in o.analysis.legal_risks %}<li>{{ r }}</li>{% endfor %}</ul>{% endif %}
+
+      <a class="btn" href="{{ o.auction.url }}">Ver subasta original →</a>
+    </div>
+  {% endfor %}
+
+  <div class="footer">
+    Generado por sell_analysis · {{ stats.scraped }} subastas revisadas, {{ stats.new_count }} nuevas, {{ stats.analyzed }} analizadas con LLM.
+  </div>
+</body>
+</html>
