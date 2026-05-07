@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     http_user_agent: str = "Mozilla/5.0 (compatible; AuctionAnalyzer/1.0)"
     enabled_scrapers: List[str] = Field(
         default_factory=lambda: [
-            "boe", "addmeet", "idealista", "solvia", "haya", "servihabitat", "aliseda",
+            "boe", "addmeet", "solvia", "haya", "servihabitat", "aliseda",
         ]
     )
 

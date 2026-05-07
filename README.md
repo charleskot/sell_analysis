@@ -11,7 +11,6 @@ Plataformas incluidas:
 
 - **subastas.boe.es** — subastas judiciales y notariales oficiales (la fuente principal y la más confiable).
 - **addmeet.com** — subastas privadas.
-- **idealista.com** — listings con flag de subasta. *Aviso: Idealista bloquea bots agresivamente; en producción usa su API o un proxy con Playwright.*
 - **solvia, haya, servihabitat, aliseda** — inmuebles bancarios de adjudicación. *Estos son SPAs JavaScript; el scraper estático solo captura el subset SSR-renderizado.*
 
 ## Stack
@@ -85,7 +84,7 @@ Todo vive en `.env`. Las claves más útiles:
 | `TARGET_PROVINCES` | `08,17,25,43` | Provincias INE (08 Barcelona, 17 Girona, 25 Lleida, 43 Tarragona) |
 | `MAX_PRICE_EUR` | `400000` | Filtra antes del LLM para no quemar tokens en mansiones |
 | `MIN_OPPORTUNITY_SCORE` | `60` | Score mínimo para incluir en el email |
-| `ENABLED_SCRAPERS` | `boe,addmeet,idealista,solvia,haya,servihabitat,aliseda` | Habilita/deshabilita fuentes |
+| `ENABLED_SCRAPERS` | `boe,addmeet,solvia,haya,servihabitat,aliseda` | Habilita/deshabilita fuentes |
 | `DAILY_RUN_HOUR/MINUTE` | `8/0` | Hora del cron interno |
 
 ## Arquitectura
@@ -100,7 +99,6 @@ sell_analysis/
 │   │   ├── base.py         # BaseScraper + AuctionItem dataclass
 │   │   ├── boe.py          # subastas.boe.es (más completo)
 │   │   ├── addmeet.py
-│   │   ├── idealista.py
 │   │   ├── _bank_base.py   # base genérica para bancos
 │   │   ├── solvia.py / haya.py / servihabitat.py / aliseda.py
 │   ├── analyzer.py         # Claude con structured outputs + prompt caching
@@ -142,8 +140,6 @@ python run_daily.py --dry-run 2>&1 | grep -i "scraper\|failed"
 El scraper de **BOE** es el más estable (HTML del gobierno, estructura tabular).
 
 Los scrapers de **bancos** (Solvia, Haya, etc.) son SPAs y la versión actual solo captura lo SSR. Para cobertura completa, sustituye `httpx.Client` por `playwright` en `_bank_base.py`.
-
-**Idealista** bloquea bots — para producción seria usa su API o proxies residenciales.
 
 ## Tests
 
