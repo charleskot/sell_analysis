@@ -315,6 +315,7 @@ location_scores:
     "Ogíjares": 50
 
 fallback_rent_per_m2:
+  # Capital cities — central district average
   madrid: 16.5
   barcelona: 18.0
   valencia: 11.0
@@ -325,4 +326,87 @@ fallback_rent_per_m2:
   palma: 14.0
   alicante: 11.5
   granada: 9.5
-  default: 10.0
+  # Madrid metropolitan area suburbs
+  getafe: 12.5
+  alcorcón: 12.0
+  leganés: 12.0
+  fuenlabrada: 11.5
+  móstoles: 11.5
+  alcalá de henares: 11.0
+  torrejón de ardoz: 11.0
+  parla: 10.5
+  alcobendas: 14.0
+  san sebastián de los reyes: 13.0
+  pozuelo de alarcón: 15.0
+  majadahonda: 14.5
+  las rozas de madrid: 13.5
+  rivas-vaciamadrid: 12.5
+  coslada: 11.0
+  boadilla del monte: 14.0
+  collado villalba: 11.0
+  tres cantos: 13.0
+  valdemoro: 10.5
+  arganda del rey: 10.5
+  pinto: 10.5
+  aranjuez: 9.0
+  navalcarnero: 9.5
+  becerril de la sierra: 9.0
+  escorial (el): 10.0
+  el escorial: 10.0
+  # Barcelona metropolitan area
+  hospitalet de llobregat: 15.0
+  l'hospitalet de llobregat: 15.0
+  badalona: 14.0
+  sabadell: 12.5
+  terrassa: 12.0
+  mataró: 12.0
+  cornellà de llobregat: 14.0
+  sant boi de llobregat: 12.5
+  rubí: 11.5
+  viladecans: 13.0
+  castelldefels: 14.0
+  gavà: 13.0
+  mollet del vallès: 11.0
+  granollers: 11.0
+  # Valencia area
+  torrent: 9.5
+  paterna: 10.0
+  burjassot: 10.0
+  mislata: 10.5
+  alzira: 8.0
+  gandia: 8.5
+  # Seville area
+  dos hermanas: 9.0
+  alcalá de guadaíra: 8.5
+  mairena del aljarafe: 9.5
+  # Málaga coast
+  marbella: 14.0
+  torremolinos: 12.0
+  benalmádena: 11.5
+  fuengirola: 11.0
+  mijas: 10.5
+  estepona: 10.0
+  # Other major cities
+  murcia: 9.0
+  valladolid: 9.0
+  córdoba: 8.5
+  vigo: 10.5
+  gijón: 9.5
+  a coruña: 10.0
+  vitoria-gasteiz: 11.5
+  san sebastián: 14.0
+  donostia-san sebastián: 14.0
+  pamplona: 11.0
+  santander: 10.5
+  oviedo: 9.5
+  logroño: 9.0
+  badajoz: 7.5
+  huelva: 8.0
+  castellón de la plana: 9.0
+  tarragona: 10.5
+  lleida: 9.0
+  jerez de la frontera: 8.0
+  almería: 9.0
+  # Conservative default for unknown cities/rural areas
+  # Major cities and suburbs are listed explicitly above with realistic rates
+  default: 5.5

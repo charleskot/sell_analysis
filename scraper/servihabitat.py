@@ -77,6 +77,7 @@ class ServihabitatScraper(BaseScraper):
 
             town = (gtm("location-town") or "").lower()
             area_name = (gtm("location-area") or "").lower()
+            province = (gtm("location-province") or "").lower()
 
             # Build URL from link
             link = card.select_one("a[href*='/es/venta/']")
@@ -127,7 +128,9 @@ class ServihabitatScraper(BaseScraper):
                 condition=condition,
                 description=description,
                 district=area_name or None,
-                city=town or "desconocido",
+                # Use town as city for specific rent lookup;
+                # province stored in district as fallback for unknown towns.
+                city=town or province or "desconocido",
                 photo_urls=photos,
                 raw_html_hash=self.http.hash_content(f"{price}{area_m2}{rooms}"),
             )
