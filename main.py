@@ -125,6 +125,29 @@ def scrape_rentals(
 
 
 @app.command()
+def digest(
+    verbose: bool = typer.Option(False, "--verbose", "-v"),
+):
+    """Envía el resumen diario de top oportunidades por Telegram."""
+    setup_logging(verbose)
+    config = load_config()
+    init_db(config)
+
+    from alerts.telegram_bot import TelegramAlerter
+    alerter = TelegramAlerter(config)
+    if not alerter.enabled:
+        console.print("[red]Telegram no configurado. Añade TELEGRAM_TOKEN y TELEGRAM_CHAT_ID al .env[/red]")
+        return
+
+    console.print("[cyan]Enviando resumen diario...[/cyan]")
+    ok = alerter.send_daily_digest()
+    if ok:
+        console.print("[green]✓ Resumen enviado por Telegram[/green]")
+    else:
+        console.print("[red]Error enviando el resumen. Revisa el token.[/red]")
+
+
+@app.command()
 def export(
     output: str = typer.Option("listings_export.csv", help="Ruta del archivo CSV de salida"),
     min_score: float = typer.Option(0, help="Score mínimo para exportar"),

@@ -136,8 +136,8 @@ alerts:
   telegram:
     token: "${TELEGRAM_TOKEN}"
     chat_id: "${TELEGRAM_CHAT_ID}"
-    min_score_threshold: 70
-    cooldown_hours: 168
+    min_score_threshold: 65    # alert on score >= 65 (was 70 — too strict for bank properties)
+    cooldown_hours: 24          # re-alert same property max once per day (was 168h=7 days)
 
 scheduler:
   scrape_interval_hours: 12

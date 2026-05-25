@@ -76,7 +76,7 @@ class PipelineOrchestrator:
         from models.db import upsert_listing, upsert_metrics
 
         portals_cfg = self.config.get("portals", {})
-        stats = {"new": 0, "updated": 0, "errors": 0, "total": 0}
+        stats = {"new": 0, "updated": 0, "errors": 0, "total": 0, "alerts_sent": 0}
 
         for portal_name, portal_cfg in portals_cfg.items():
             if not portal_cfg.get("enabled", False):
@@ -110,9 +110,10 @@ class PipelineOrchestrator:
                                 listing_id = f"{raw.portal}_{raw.external_id}"
                                 upsert_metrics(listing_id, metrics)
 
-                                # Check alert threshold
+                                # Alert only for NEW listings above threshold
                                 score = metrics.get("investment_score", 0) or 0
-                                self.alerter.send_alert(listing_id, raw_dict, metrics, score)
+                                if is_new and self.alerter.send_alert(listing_id, raw_dict, metrics, score):
+                                    stats["alerts_sent"] += 1
 
                         except Exception as e:
                             logger.error(f"Error processing listing {raw.url}: {e}")
@@ -124,6 +125,11 @@ class PipelineOrchestrator:
 
         logger.info(f"Scrape complete: {stats}")
         return stats
+
+    def run_daily_digest(self) -> None:
+        """Send daily digest of top opportunities via Telegram."""
+        logger.info("Sending daily digest...")
+        self.alerter.send_daily_digest()
 
     def _compute_metrics(self, listing: dict) -> dict | None:
         from analysis.metrics import compute_all_metrics
@@ -212,5 +218,16 @@ def create_scheduler(config: dict):
         name="Rental listings scrape",
     )
 
-    logger.info(f"Scheduler configured: purchase every {scrape_hours}h, rental every {rental_days}d")
+    # Daily digest: every morning at 9:00 (Spain time)
+    scheduler.add_job(
+        func=orchestrator.run_daily_digest,
+        trigger="cron",
+        hour=9,
+        minute=0,
+        id="daily_digest",
+        max_instances=1,
+        name="Daily Telegram digest",
+    )
+
+    logger.info(f"Scheduler configured: purchase every {scrape_hours}h, rental every {rental_days}d, digest daily at 09:00")
     return scheduler, orchestrator
