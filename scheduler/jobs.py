@@ -12,14 +12,18 @@ class PipelineOrchestrator:
         from scraper.http_client import HttpClient
         from analysis.rent_estimator import RentEstimator
         from analysis.scorer import InvestmentScorer
+        from analysis.residence_scorer import ResidenceScorer
         from alerts.telegram_bot import TelegramAlerter
 
         self.config = config
+        self.mode = config.get("search_mode", "investment")
         self.http = HttpClient(config.get("scraping", {}))
         self.rent_estimator = RentEstimator(config)
         self.scorer = InvestmentScorer(config)
+        self.residence_scorer = ResidenceScorer(config)
         self.alerter = TelegramAlerter(config)
         self._scrapers = self._init_scrapers()
+        logger.info(f"Pipeline initialised in '{self.mode}' mode")
 
     def _init_scrapers(self) -> dict:
         from scraper.idealista import IdealistaScraper
@@ -132,6 +136,23 @@ class PipelineOrchestrator:
         self.alerter.send_daily_digest()
 
     def _compute_metrics(self, listing: dict) -> dict | None:
+        if self.mode == "residence":
+            return self._compute_residence_metrics(listing)
+        return self._compute_investment_metrics(listing)
+
+    def _compute_residence_metrics(self, listing: dict) -> dict | None:
+        """Residence-mode: score against personal-home criteria."""
+        bd = self.residence_scorer.score(listing)
+        if not bd.hard_filters_pass:
+            # Doesn't pass filters — no metrics, no alert
+            return None
+        return {
+            "investment_score": bd.total,
+            "score_breakdown": bd.to_dict(),
+            "match_profile": bd.matches_profile,
+        }
+
+    def _compute_investment_metrics(self, listing: dict) -> dict | None:
         from analysis.metrics import compute_all_metrics
 
         price = listing.get("price")

@@ -109,16 +109,16 @@ class TelegramAlerter:
         if not listings_data:
             return (
                 f"📊 *Resumen diario — {now}*\n\n"
-                f"No hay oportunidades con score ≥ {self._min_score:.0f} en este momento.\n"
-                f"El scraper sigue buscando — te avisaré en cuanto aparezca algo."
+                f"No hay viviendas con match ≥ {self._min_score:.0f} en este momento.\n"
+                f"El scraper sigue buscando en tus zonas — te avisaré en cuanto aparezca algo."
             )
 
-        lines = [f"📊 *Top {len(listings_data)} oportunidades — {now}*\n"]
+        lines = [f"🏠 *Top {len(listings_data)} viviendas — {now}*\n"]
         for i, r in enumerate(listings_data, 1):
             score = r.get("investment_score") or 0
             price = r.get("price") or 0
             area = r.get("area_m2") or 0
-            gy = r.get("gross_yield_pct") or 0
+            rooms = r.get("rooms") or "?"
             city = (r.get("city") or "").title()
             district = (r.get("district") or "").title()
             location = f"{district}, {city}" if district else city
@@ -126,7 +126,7 @@ class TelegramAlerter:
             stars = "⭐" * min(5, max(1, int(score / 20)))
             lines.append(
                 f"{i}. {stars} *{score:.0f}/100* — {location}\n"
-                f"   💰 {price:,.0f}€ | {area:.0f}m² | Rent. bruta: {gy:.1f}%\n"
+                f"   💰 {price:,.0f}€ | {area:.0f}m² | {rooms} hab\n"
                 f"   [Ver anuncio]({url})"
             )
 
@@ -160,6 +160,40 @@ class TelegramAlerter:
             return False
 
     def _format_message(self, listing: dict, metrics: dict, score: float) -> str:
+        # Detect residence-mode by presence of match_profile
+        if metrics.get("match_profile"):
+            return self._format_residence_message(listing, metrics, score)
+        return self._format_investment_message(listing, metrics, score)
+
+    def _format_residence_message(self, listing: dict, metrics: dict, score: float) -> str:
+        price = listing.get("price", 0)
+        area = listing.get("area_m2", 0)
+        rooms = listing.get("rooms", "?")
+        city = (listing.get("city") or "").title()
+        district = (listing.get("district") or "").title() if listing.get("district") else ""
+        location = f"{district}, {city}" if district else city
+        url = listing.get("url", "")
+        floor = listing.get("floor") or ""
+
+        bd = metrics.get("score_breakdown", {})
+        profile = metrics.get("match_profile", "?")
+        profile_label = "Obra nueva" if profile == "new" else "Reciente (≤20a)"
+        stars = "⭐" * min(5, max(1, int(score / 20)))
+
+        reasons = bd.get("reasons_pass", [])
+        reasons_txt = "\n".join(f"  ✓ {r}" for r in reasons) if reasons else ""
+
+        msg = (
+            f"*{stars} NUEVA VIVIENDA — Match {score:.0f}/100 — {profile_label}*\n\n"
+            f"📍 {location}\n"
+            f"💰 {price:,.0f}€ | {area:.0f}m² | {rooms} hab"
+        )
+        if floor:
+            msg += f" | {floor}"
+        msg += f"\n{reasons_txt}\n\n[Ver anuncio]({url})"
+        return msg
+
+    def _format_investment_message(self, listing: dict, metrics: dict, score: float) -> str:
         price = listing.get("price", 0)
         area = listing.get("area_m2", 0)
         rooms = listing.get("rooms", "?")

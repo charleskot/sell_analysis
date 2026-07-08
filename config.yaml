@@ -7,114 +7,157 @@ scraping:
   respect_robots: true
   #
   # ── Residential Proxy ──────────────────────────────────────────────────────
-  # Required for Fotocasa (PerimeterX) and Idealista (DataDome).
-  # Datacenter IPs are blocked by both portals; residential IPs bypass the check.
+  # REQUIRED for Idealista, Fotocasa, and Habitaclia (the main portals for
+  # Barcelona metro area). Without proxy these portals return 403.
   #
-  # Format:
-  #   Single proxy : proxy: "http://user:pass@host:port"
-  #   SOCKS5       : proxy: "socks5://user:pass@host:port"
-  #   Pool (rotate): proxy_list:
-  #                    - "http://user:pass@host1:port"
-  #                    - "http://user:pass@host2:port"
-  #
-  # Recommended providers (pay-as-you-go, Spanish IPs available):
-  #   • Bright Data (brightdata.com)  — best quality, ~$8.4/GB residential
-  #   • Oxylabs (oxylabs.io)          — reliable, ~$8/GB, good ES coverage
-  #   • Smartproxy (smartproxy.com)   — affordable, ~$7/GB starter plan
-  #   • IPRoyal (iproyal.com)         — cheapest option, ~$3/GB
-  #
-  # Usage (pick one):
-  #   Option A — env var (recommended): set SCRAPER_PROXY in .env  → no need to touch this file
-  #   Option B — fill in below:         proxy: "http://user:pass@host:port"
-  # Example: proxy: "http://brd-customer-XXXX-zone-residential-country-es:PASSWORD@brd.superproxy.io:22225"
+  # Set SCRAPER_PROXY in .env  →  http://user:pass@host:port
   # ──────────────────────────────────────────────────────────────────────────
   proxy: ""
   proxy_list: []
   max_retries: 3
   selenium_fallback: false
 
+# ═══════════════════════════════════════════════════════════════════════════
+# SEARCH MODE: primary residence (not investment)
+# ═══════════════════════════════════════════════════════════════════════════
+search_mode: residence
+
+# ── Target locations ──────────────────────────────────────────────────────
+# Add/remove locations here. Each entry defines a city (canonical name)
+# and optionally allowed_districts (whitelist) or excluded_districts (blacklist).
+target_locations:
+  - city: sant just desvern
+  - city: molins de rei
+  - city: sant feliu de llobregat
+  - city: sant cugat del vallès
+  - city: castelldefels
+    # Solo zonas concretas, principalmente Montemar
+    preferred_districts: ["montemar", "el poal", "els canyars", "vista alegre", "playa"]
+    excluded_districts: ["muntanya circular", "bellamar-poal", "zona industrial"]
+  - city: premià de dalt
+  - city: premià de mar
+    # Solo debajo de Gran Via (zona costa/centro)
+    preferred_districts: ["centre", "eixample", "sant cristòfol", "santa anna", "costa", "platja", "playa"]
+    excluded_districts: ["muntanya", "abril"]
+  - city: vilassar de mar
+  - city: vilassar de dalt
+  - city: esplugues de llobregat
+    preferred_districts: ["centre", "pueblo", "poble", "casc antic"]
+  - city: barcelona
+    preferred_districts: ["camp de l'arpa del clot", "camp de l'arpa", "el clot", "el guinardó", "guinardó"]
+
+# ── Residence criteria: two profiles ──────────────────────────────────────
+residence_criteria:
+  # Perfil A: obra nueva, ≤ 360k, ≥ 2 hab
+  profile_new:
+    label: "Obra nueva"
+    max_price: 360000
+    min_rooms: 2
+    require_condition: ["nuevo"]      # only new-build
+    max_years_old: null
+
+  # Perfil B: hasta 20 años, ≥ 3 hab, ≤ 285k (negociable hasta 315k)
+  profile_recent:
+    label: "Reciente (≤20 años)"
+    max_price: 285000
+    max_price_soft: 315000            # slightly above → soft-match (negotiable)
+    min_rooms: 3
+    max_years_old: 20
+    require_condition: null           # any condition allowed
+
+# ── Common requirements (both profiles) ───────────────────────────────────
+common_requirements:
+  min_area_m2: 60                     # minimum apartment size
+  require_elevator: true              # ascensor
+  require_balcony: true               # balcón, terraza o patio
+  prefer_views: true                  # "vistas amplias" — used as bonus, not hard filter
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Portals - URLs per target location
+# ═══════════════════════════════════════════════════════════════════════════
 portals:
   idealista:
-    enabled: false  # needs residential proxy
+    enabled: true                     # NEEDS PROXY
     search_urls:
-      - "https://www.idealista.com/venta-viviendas/madrid-madrid/"
-      - "https://www.idealista.com/venta-viviendas/barcelona-barcelona/"
-    max_pages: 3
+      - "https://www.idealista.com/venta-viviendas/sant-just-desvern/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
+      - "https://www.idealista.com/venta-viviendas/molins-de-rei/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
+      - "https://www.idealista.com/venta-viviendas/sant-feliu-de-llobregat/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
+      - "https://www.idealista.com/venta-viviendas/sant-cugat-del-valles/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
+      - "https://www.idealista.com/venta-viviendas/castelldefels/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
+      - "https://www.idealista.com/venta-viviendas/premia-de-dalt/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
+      - "https://www.idealista.com/venta-viviendas/premia-de-mar/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
+      - "https://www.idealista.com/venta-viviendas/vilassar-de-mar/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
+      - "https://www.idealista.com/venta-viviendas/vilassar-de-dalt/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
+      - "https://www.idealista.com/venta-viviendas/esplugues-de-llobregat/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
+      - "https://www.idealista.com/venta-viviendas/barcelona/sant-marti/el-camp-de-larpa-del-clot/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
+      - "https://www.idealista.com/venta-viviendas/barcelona/horta-guinardo/el-guinardo/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
+    max_pages: 5
+
   fotocasa:
-    enabled: false  # needs residential proxy
+    enabled: true                     # NEEDS PROXY
     search_urls:
-      - "https://www.fotocasa.es/es/comprar/viviendas/madrid-capital/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/todas-las-zonas/l"
-    max_pages: 3
-  pisos:
-    enabled: true
-    search_urls:
-      - "https://www.pisos.com/venta/pisos-madrid/"
-      - "https://www.pisos.com/venta/pisos-barcelona/"
-      - "https://www.pisos.com/venta/pisos-valencia/"
-      - "https://www.pisos.com/venta/pisos-sevilla/"
-      - "https://www.pisos.com/venta/pisos-malaga/"
-      - "https://www.pisos.com/venta/pisos-zaragoza/"
-      - "https://www.pisos.com/venta/pisos-bilbao/"
-      - "https://www.pisos.com/venta/pisos-alicante/"
-    max_pages: 3
+      - "https://www.fotocasa.es/es/comprar/viviendas/sant-just-desvern/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/molins-de-rei/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/sant-feliu-de-llobregat/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/sant-cugat-del-valles/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/castelldefels/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/premia-de-dalt/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/premia-de-mar/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/vilassar-de-mar/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/vilassar-de-dalt/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/esplugues-de-llobregat/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sant-marti/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/horta-guinardo/l"
+    max_pages: 5
+
   habitaclia:
-    enabled: false  # needs residential proxy
+    enabled: true                     # NEEDS PROXY (works well in Cataluña)
     search_urls:
-      - "https://www.habitaclia.com/comprar-piso-en-madrid.htm"
-      - "https://www.habitaclia.com/comprar-piso-en-barcelona.htm"
+      - "https://www.habitaclia.com/comprar-en-sant_just_desvern.htm"
+      - "https://www.habitaclia.com/comprar-en-molins_de_rei.htm"
+      - "https://www.habitaclia.com/comprar-en-sant_feliu_de_llobregat.htm"
+      - "https://www.habitaclia.com/comprar-en-sant_cugat_del_valles.htm"
+      - "https://www.habitaclia.com/comprar-en-castelldefels.htm"
+      - "https://www.habitaclia.com/comprar-en-premia_de_dalt.htm"
+      - "https://www.habitaclia.com/comprar-en-premia_de_mar.htm"
+      - "https://www.habitaclia.com/comprar-en-vilassar_de_mar.htm"
+      - "https://www.habitaclia.com/comprar-en-vilassar_de_dalt.htm"
+      - "https://www.habitaclia.com/comprar-en-esplugues_de_llobregat.htm"
+      - "https://www.habitaclia.com/comprar-en-barcelona-camp_de_larpa.htm"
+      - "https://www.habitaclia.com/comprar-en-barcelona-el_guinardo.htm"
+    max_pages: 5
+
+  # Disabled: bank-owned portals rarely have listings in these locations
+  pisos:
+    enabled: false
+    search_urls: []
     max_pages: 3
   servihabitat:
-    enabled: true
-    search_urls:
-      - "https://www.servihabitat.com/es/venta/vivienda/madrid"
-      - "https://www.servihabitat.com/es/venta/vivienda/barcelona"
-      - "https://www.servihabitat.com/es/venta/vivienda/valencia"
-      - "https://www.servihabitat.com/es/venta/vivienda/sevilla"
-    max_pages: 5
+    enabled: false
+    search_urls: []
+    max_pages: 3
   solvia:
-    enabled: true
-    search_urls:
-      - "https://www.solvia.es/es/comprar/viviendas/madrid"
-      - "https://www.solvia.es/es/comprar/viviendas/barcelona"
-      - "https://www.solvia.es/es/comprar/viviendas/valencia"
-      - "https://www.solvia.es/es/comprar/viviendas/sevilla"
-    max_pages: 5
+    enabled: false
+    search_urls: []
+    max_pages: 3
 
-rental_scraping:
-  # Portals used to compute real market rent prices (updates DB every 7 days).
-  # These reuse the same scraper logic — price field = monthly rent €.
-  # Pisos.com works without proxy. Idealista/Fotocasa require SCRAPER_PROXY.
-  portals:
-    pisos:
-      enabled: true
-      max_pages: 5
-      urls:
-        - "https://www.pisos.com/alquiler/pisos-madrid/"
-        - "https://www.pisos.com/alquiler/pisos-barcelona/"
-        - "https://www.pisos.com/alquiler/pisos-valencia/"
-        - "https://www.pisos.com/alquiler/pisos-sevilla/"
-        - "https://www.pisos.com/alquiler/pisos-malaga/"
-        - "https://www.pisos.com/alquiler/pisos-zaragoza/"
-        - "https://www.pisos.com/alquiler/pisos-bilbao/"
-        - "https://www.pisos.com/alquiler/pisos-alicante/"
-    idealista:
-      enabled: false  # requires SCRAPER_PROXY
-      max_pages: 3
-      urls:
-        - "https://www.idealista.com/alquiler-viviendas/madrid-madrid/"
-        - "https://www.idealista.com/alquiler-viviendas/barcelona-barcelona/"
-        - "https://www.idealista.com/alquiler-viviendas/valencia-valencia/"
-        - "https://www.idealista.com/alquiler-viviendas/sevilla-sevilla/"
-        - "https://www.idealista.com/alquiler-viviendas/malaga-malaga/"
-    fotocasa:
-      enabled: false  # requires SCRAPER_PROXY
-      max_pages: 3
-      urls:
-        - "https://www.fotocasa.es/es/alquiler/viviendas/madrid-capital/todas-las-zonas/l"
-        - "https://www.fotocasa.es/es/alquiler/viviendas/barcelona-capital/todas-las-zonas/l"
-        - "https://www.fotocasa.es/es/alquiler/viviendas/valencia-capital/todas-las-zonas/l"
+# ═══════════════════════════════════════════════════════════════════════════
+# Alerts
+# ═══════════════════════════════════════════════════════════════════════════
+alerts:
+  telegram:
+    token: "${TELEGRAM_TOKEN}"
+    chat_id: "${TELEGRAM_CHAT_ID}"
+    min_score_threshold: 60           # residence match score threshold
+    cooldown_hours: 24
 
+scheduler:
+  scrape_interval_hours: 12
+  rental_scrape_interval_days: 30    # rental data less important for residence search
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Legacy investment analysis (kept but not used when search_mode=residence)
+# ═══════════════════════════════════════════════════════════════════════════
 analysis:
   assumed_expenses_pct: 0.25
   purchase_costs_pct:
@@ -132,17 +175,40 @@ analysis:
     condition_score: 0.10
     roi_net: 0.10
 
-alerts:
-  telegram:
-    token: "${TELEGRAM_TOKEN}"
-    chat_id: "${TELEGRAM_CHAT_ID}"
-    min_score_threshold: 65    # alert on score >= 65 (was 70 — too strict for bank properties)
-    cooldown_hours: 24          # re-alert same property max once per day (was 168h=7 days)
+rental_scraping:
+  portals:
+    pisos:
+      enabled: false
+      max_pages: 3
+      urls: []
+    idealista:
+      enabled: false
+      max_pages: 3
+      urls: []
+    fotocasa:
+      enabled: false
+      max_pages: 3
+      urls: []
 
-scheduler:
-  scrape_interval_hours: 12
-  rental_scrape_interval_days: 7
+# ═══════════════════════════════════════════════════════════════════════════
+# Fallback rent per m² (used only if search_mode=investment)
+# ═══════════════════════════════════════════════════════════════════════════
+fallback_rent_per_m2:
+  madrid: 16.5
+  barcelona: 18.0
+  valencia: 11.0
+  sevilla: 10.5
+  zaragoza: 9.0
+  malaga: 12.0
+  bilbao: 13.5
+  palma: 14.0
+  alicante: 11.5
+  granada: 9.5
+  default: 5.5
 
+# ═══════════════════════════════════════════════════════════════════════════
+# Location scores (0-100) — used only if search_mode=investment
+# ═══════════════════════════════════════════════════════════════════════════
 location_scores:
   madrid:
     "salamanca": 90
@@ -177,236 +243,3 @@ location_scores:
     "nou barris": 55
     "sant andreu": 60
     "ciutat vella": 65
-
-  valencia:
-    "l'eixample": 90
-    "eixample": 90
-    "el pla del real": 88
-    "russafa": 83
-    "rascanya": 50
-    "campanar": 72
-    "extramurs": 75
-    "la saïdia": 70
-    "quatre carreres": 60
-    "poblats marítims": 63
-    "el cabanyal-el canyamelar": 62
-    "benimaclet": 68
-    "jesús": 55
-    "patraix": 57
-    "benicalap": 52
-    "pobles del nord": 45
-    "pobles del sud": 48
-    "pobles de l'oest": 50
-    "ciutat vella": 80
-
-  sevilla:
-    "casco antiguo": 85
-    "centro": 85
-    "triana": 88
-    "los remedios": 90
-    "nervión": 85
-    "san vicente": 82
-    "alameda": 80
-    "san lorenzo": 80
-    "macarena": 63
-    "norte": 60
-    "este": 70
-    "bellavista-la palmera": 68
-    "cerro-amate": 48
-    "palmete": 50
-    "torreblanca": 45
-    "sur": 60
-    "valdezorras": 50
-
-  zaragoza:
-    "centro": 82
-    "casco histórico": 78
-    "universidad": 75
-    "romareda": 85
-    "actur-rey fernando": 65
-    "actur": 65
-    "delicias": 55
-    "el arrabal": 58
-    "torrero-la paz": 55
-    "oliver-valdefierro": 48
-    "miralbueno": 60
-    "las fuentes": 58
-    "santa isabel": 50
-    "la almozara": 65
-    "san josé": 62
-    "la jota": 55
-
-  malaga:
-    "centro": 85
-    "soho": 78
-    "trinidad": 75
-    "malagueta": 88
-    "el palo": 70
-    "pedregalejo": 72
-    "teatinos": 68
-    "carranque": 62
-    "puerto de la torre": 60
-    "churriana": 55
-    "campanillas": 50
-    "palma-palmilla": 42
-    "cruz de humilladero": 58
-    "ciudad jardín": 65
-    "martiricos-la roca": 60
-
-  bilbao:
-    "abando": 92
-    "indautxu": 90
-    "casco viejo": 80
-    "deusto": 75
-    "begoña": 72
-    "uribarri": 62
-    "basurto-zorroza": 65
-    "ibaiondo": 60
-    "rekalde": 58
-    "txurdinaga": 55
-    "otxarkoaga-txurdinaga": 48
-    "san ignacio": 70
-    "santutxu": 60
-
-  palma:
-    "casco antiguo": 90
-    "centro": 90
-    "santa catalina": 88
-    "son armadans": 82
-    "génova": 85
-    "el terreno": 72
-    "son rapinya": 78
-    "son espanyolet": 75
-    "la indioteria": 52
-    "son gotleu": 48
-    "el vivero": 65
-    "polígon de llevant": 50
-    "son cladera": 45
-    "establiments": 55
-
-  alicante:
-    "centro": 82
-    "ensanche": 80
-    "playa de san juan": 75
-    "benalúa": 68
-    "san blas": 60
-    "carolinas": 58
-    "babel": 65
-    "garbinet": 62
-    "cabo de las huertas": 78
-    "la zona sur": 50
-    "sidi ifni-nou alacant": 52
-    "ciudad de asís": 55
-
-  granada:
-    "centro": 82
-    "sagrario": 82
-    "realejo": 85
-    "albaicín": 78
-    "genil": 72
-    "rondas": 68
-    "arabial": 65
-    "zaidín": 62
-    "beiro": 60
-    "la chana": 55
-    "norte": 58
-    "pajaritos": 52
-    "casería de montijo": 50
-    "Ogíjares": 50
-
-fallback_rent_per_m2:
-  # Capital cities — central district average
-  madrid: 16.5
-  barcelona: 18.0
-  valencia: 11.0
-  sevilla: 10.5
-  zaragoza: 9.0
-  malaga: 12.0
-  bilbao: 13.5
-  palma: 14.0
-  alicante: 11.5
-  granada: 9.5
-  # Madrid metropolitan area suburbs
-  getafe: 12.5
-  alcorcón: 12.0
-  leganés: 12.0
-  fuenlabrada: 11.5
-  móstoles: 11.5
-  alcalá de henares: 11.0
-  torrejón de ardoz: 11.0
-  parla: 10.5
-  alcobendas: 14.0
-  san sebastián de los reyes: 13.0
-  pozuelo de alarcón: 15.0
-  majadahonda: 14.5
-  las rozas de madrid: 13.5
-  rivas-vaciamadrid: 12.5
-  coslada: 11.0
-  boadilla del monte: 14.0
-  collado villalba: 11.0
-  tres cantos: 13.0
-  valdemoro: 10.5
-  arganda del rey: 10.5
-  pinto: 10.5
-  aranjuez: 9.0
-  navalcarnero: 9.5
-  becerril de la sierra: 9.0
-  escorial (el): 10.0
-  el escorial: 10.0
-  # Barcelona metropolitan area
-  hospitalet de llobregat: 15.0
-  l'hospitalet de llobregat: 15.0
-  badalona: 14.0
-  sabadell: 12.5
-  terrassa: 12.0
-  mataró: 12.0
-  cornellà de llobregat: 14.0
-  sant boi de llobregat: 12.5
-  rubí: 11.5
-  viladecans: 13.0
-  castelldefels: 14.0
-  gavà: 13.0
-  mollet del vallès: 11.0
-  granollers: 11.0
-  # Valencia area
-  torrent: 9.5
-  paterna: 10.0
-  burjassot: 10.0
-  mislata: 10.5
-  alzira: 8.0
-  gandia: 8.5
-  # Seville area
-  dos hermanas: 9.0
-  alcalá de guadaíra: 8.5
-  mairena del aljarafe: 9.5
-  # Málaga coast
-  marbella: 14.0
-  torremolinos: 12.0
-  benalmádena: 11.5
-  fuengirola: 11.0
-  mijas: 10.5
-  estepona: 10.0
-  # Other major cities
-  murcia: 9.0
-  valladolid: 9.0
-  córdoba: 8.5
-  vigo: 10.5
-  gijón: 9.5
-  a coruña: 10.0
-  vitoria-gasteiz: 11.5
-  san sebastián: 14.0
-  donostia-san sebastián: 14.0
-  pamplona: 11.0
-  santander: 10.5
-  oviedo: 9.5
-  logroño: 9.0
-  badajoz: 7.5
-  huelva: 8.0
-  castellón de la plana: 9.0
-  tarragona: 10.5
-  lleida: 9.0
-  jerez de la frontera: 8.0
-  almería: 9.0
-  # Conservative default for unknown cities/rural areas
-  # Major cities and suburbs are listed explicitly above with realistic rates
-  default: 5.5
