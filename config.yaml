@@ -76,62 +76,51 @@ common_requirements:
 # Portals - URLs per target location
 # ═══════════════════════════════════════════════════════════════════════════
 portals:
-  idealista:
-    enabled: true                     # NEEDS PROXY
+  # ── WORKS WITHOUT PROXY (verified) ──────────────────────────────────────
+  pisos:
+    enabled: true
     search_urls:
-      - "https://www.idealista.com/venta-viviendas/sant-just-desvern/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
-      - "https://www.idealista.com/venta-viviendas/molins-de-rei/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
-      - "https://www.idealista.com/venta-viviendas/sant-feliu-de-llobregat/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
-      - "https://www.idealista.com/venta-viviendas/sant-cugat-del-valles/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
-      - "https://www.idealista.com/venta-viviendas/castelldefels/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
-      - "https://www.idealista.com/venta-viviendas/premia-de-dalt/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
-      - "https://www.idealista.com/venta-viviendas/premia-de-mar/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
-      - "https://www.idealista.com/venta-viviendas/vilassar-de-mar/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
-      - "https://www.idealista.com/venta-viviendas/vilassar-de-dalt/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
-      - "https://www.idealista.com/venta-viviendas/esplugues-de-llobregat/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
-      - "https://www.idealista.com/venta-viviendas/barcelona/sant-marti/el-camp-de-larpa-del-clot/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
-      - "https://www.idealista.com/venta-viviendas/barcelona/horta-guinardo/el-guinardo/con-precio-hasta_360000,de-dos-dormitorios,de-tres-dormitorios,ascensor,balcon-terraza-o-patio/"
-    max_pages: 5
-
-  fotocasa:
-    enabled: true                     # NEEDS PROXY
-    search_urls:
-      - "https://www.fotocasa.es/es/comprar/viviendas/sant-just-desvern/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/molins-de-rei/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/sant-feliu-de-llobregat/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/sant-cugat-del-valles/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/castelldefels/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/premia-de-dalt/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/premia-de-mar/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/vilassar-de-mar/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/vilassar-de-dalt/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/esplugues-de-llobregat/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sant-marti/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/horta-guinardo/l"
+      - "https://www.pisos.com/venta/pisos-sant_just_desvern/"
+      - "https://www.pisos.com/venta/pisos-molins_de_rei/"
+      - "https://www.pisos.com/venta/pisos-sant_feliu_de_llobregat/"
+      - "https://www.pisos.com/venta/pisos-sant_cugat_del_valles/"
+      - "https://www.pisos.com/venta/pisos-castelldefels/"
+      - "https://www.pisos.com/venta/pisos-premia_de_dalt/"
+      - "https://www.pisos.com/venta/pisos-premia_de_mar/"
+      - "https://www.pisos.com/venta/pisos-vilassar_de_mar/"
+      - "https://www.pisos.com/venta/pisos-vilassar_de_dalt/"
+      - "https://www.pisos.com/venta/pisos-esplugues_de_llobregat/"
+      - "https://www.pisos.com/venta/pisos-barcelona-el_guinardo/"
     max_pages: 5
 
   habitaclia:
-    enabled: true                     # NEEDS PROXY (works well in Cataluña)
+    enabled: true
     search_urls:
-      - "https://www.habitaclia.com/comprar-en-sant_just_desvern.htm"
-      - "https://www.habitaclia.com/comprar-en-molins_de_rei.htm"
-      - "https://www.habitaclia.com/comprar-en-sant_feliu_de_llobregat.htm"
-      - "https://www.habitaclia.com/comprar-en-sant_cugat_del_valles.htm"
-      - "https://www.habitaclia.com/comprar-en-castelldefels.htm"
-      - "https://www.habitaclia.com/comprar-en-premia_de_dalt.htm"
-      - "https://www.habitaclia.com/comprar-en-premia_de_mar.htm"
-      - "https://www.habitaclia.com/comprar-en-vilassar_de_mar.htm"
-      - "https://www.habitaclia.com/comprar-en-vilassar_de_dalt.htm"
-      - "https://www.habitaclia.com/comprar-en-esplugues_de_llobregat.htm"
-      - "https://www.habitaclia.com/comprar-en-barcelona-camp_de_larpa.htm"
-      - "https://www.habitaclia.com/comprar-en-barcelona-el_guinardo.htm"
+      - "https://www.habitaclia.com/viviendas-sant_just_desvern.htm"
+      - "https://www.habitaclia.com/viviendas-molins_de_rei.htm"
+      - "https://www.habitaclia.com/viviendas-sant_cugat_del_valles.htm"
+      - "https://www.habitaclia.com/viviendas-castelldefels.htm"
+      - "https://www.habitaclia.com/viviendas-premia_de_mar.htm"
+      - "https://www.habitaclia.com/viviendas-premia_de_dalt-barcelona.htm"
+      - "https://www.habitaclia.com/viviendas-vilassar_de_mar-barcelona.htm"
+      - "https://www.habitaclia.com/viviendas-vilassar_de_dalt-barcelona.htm"
+      - "https://www.habitaclia.com/viviendas-esplugues_de_llobregat_l-barcelona.htm"
+      - "https://www.habitaclia.com/viviendas-el_camp_del_arpa_del_clot-barcelona.htm"
+      - "https://www.habitaclia.com/viviendas-el_guinardo-barcelona.htm"
     max_pages: 5
 
-  # Disabled: bank-owned portals rarely have listings in these locations
-  pisos:
-    enabled: false
+  # ── NEED PROXY (disabled by default) ────────────────────────────────────
+  # Uncomment/enable when SCRAPER_PROXY is set in .env
+  idealista:
+    enabled: false                    # needs residential proxy
     search_urls: []
-    max_pages: 3
+    max_pages: 5
+  fotocasa:
+    enabled: false                    # needs residential proxy
+    search_urls: []
+    max_pages: 5
+
+  # ── Bank-owned portals: not relevant for Barcelona metro residence search ──
   servihabitat:
     enabled: false
     search_urls: []

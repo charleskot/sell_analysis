@@ -51,38 +51,67 @@ class HabitacliaScraper(BaseScraper):
 
     def _parse_card(self, card) -> RawListing | None:
         try:
-            link = card.select_one("a[href]")
+            link = card.select_one("h3.list-item-title a, h2 a, a[itemprop='name'], a[href]")
             if not link:
                 return None
 
             href = link.get("href", "")
             url = urljoin(BASE_URL, href) if not href.startswith("http") else href
 
-            m = re.search(r"-(\d{6,})\.htm", href)
+            # ID: -iXXXXXX.htm at end of URL
+            m = re.search(r"-i(\d{6,})\.htm", href)
             external_id = m.group(1) if m else self.http.hash_content(href)
 
-            price_el = card.select_one("[class*='price'], .price")
-            price = self.parse_price(price_el.get_text()) if price_el else None
+            # Title from link title attr or text
+            title = (link.get("title") or link.get_text(strip=True))[:200]
 
-            area_el = card.select_one("[class*='surface'], [class*='area']")
-            area_m2 = self.parse_area(area_el.get_text()) if area_el else None
+            # Price: usually in .list-item-price or amidst list-item-feature line
+            price = None
+            price_el = card.select_one(".list-item-price, [class*='item-price'], [itemprop='price']")
+            if price_el:
+                price = self.parse_price(price_el.get_text())
+            if price is None:
+                # Fallback: search full card text for large euro amounts
+                pm = re.search(r"([\d\.]{5,})\s*€\b(?!/)", card.get_text(" ", strip=True))
+                if pm:
+                    try:
+                        price = float(pm.group(1).replace(".", ""))
+                    except ValueError:
+                        pass
 
-            rooms_el = card.select_one("[class*='room'], [class*='bedroom']")
-            rooms = self.parse_rooms(rooms_el.get_text()) if rooms_el else None
+            # Feature line: "386m2 - 6 habitaciones - 4 baños - 4.119€/m2"
+            feat_el = card.select_one("p.list-item-feature, .list-item-feature")
+            area_m2 = rooms = bathrooms = None
+            if feat_el:
+                feat_text = feat_el.get_text(" ", strip=True)
+                am = re.search(r"(\d[\d\.,]*)\s*m(?:²|\d)?\b(?!\s*/)", feat_text)
+                if am:
+                    try:
+                        area_m2 = float(am.group(1).replace(".", "").replace(",", "."))
+                    except ValueError:
+                        pass
+                hm = re.search(r"(\d+)\s+habitacion", feat_text, re.I)
+                if hm:
+                    rooms = int(hm.group(1))
+                bm = re.search(r"(\d+)\s+ba[ñn]o", feat_text, re.I)
+                if bm:
+                    bathrooms = int(bm.group(1))
 
-            loc_el = card.select_one("[class*='location'], [class*='address'], .location")
+            # Location: "Sant Cugat del Vallès - Eixample"
+            loc_el = card.select_one("p.list-item-location, [class*='location']")
             district = city = None
             if loc_el:
-                loc_text = loc_el.get_text(strip=True)
-                parts = [p.strip() for p in loc_text.split(",")]
+                loc_text = loc_el.get_text(" ", strip=True)
+                parts = [p.strip() for p in re.split(r"\s+[-–]\s+", loc_text)]
                 if len(parts) >= 2:
-                    district = parts[0].lower()
-                    city = parts[-1].lower()
+                    city = parts[0].lower()
+                    district = parts[1].lower()
                 elif parts:
                     city = parts[0].lower()
 
-            title_el = card.select_one("h2, h3, [class*='title']")
-            title = title_el.get_text(strip=True)[:200] if title_el else ""
+            # Description helps with year/features detection
+            desc_el = card.select_one(".list-item-description, [itemprop='description']")
+            description = desc_el.get_text(" ", strip=True) if desc_el else ""
 
             return RawListing(
                 portal=self.PORTAL_NAME,
@@ -92,8 +121,10 @@ class HabitacliaScraper(BaseScraper):
                 price=price,
                 area_m2=area_m2,
                 rooms=rooms,
+                bathrooms=bathrooms,
                 district=district,
                 city=city or "desconocido",
+                description=description[:500],
                 raw_html_hash=self.http.hash_content(f"{price}{area_m2}"),
             )
         except Exception as e:
