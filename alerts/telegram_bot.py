@@ -1,5 +1,4 @@
 """Telegram alerts and daily digest for real estate investment opportunities."""
-import asyncio
 import logging
 import os
 
@@ -133,30 +132,22 @@ class TelegramAlerter:
         return "\n".join(lines)
 
     def _send_sync(self, message: str) -> bool:
-        """Send a Telegram message, handling both sync and async contexts."""
+        """Send a Telegram message via the HTTP Bot API (no SDK deps)."""
+        import requests
+        url = f"https://api.telegram.org/bot{self._token}/sendMessage"
         try:
-            return asyncio.run(self._send_async(message))
-        except RuntimeError:
-            try:
-                loop = asyncio.get_event_loop()
-                return loop.run_until_complete(self._send_async(message))
-            except Exception as e:
-                logger.error(f"Telegram send failed (event loop): {e}")
-                return False
-
-    async def _send_async(self, message: str) -> bool:
-        try:
-            from telegram import Bot
-            bot = Bot(token=self._token)
-            await bot.send_message(
-                chat_id=self._chat_id,
-                text=message,
-                parse_mode="Markdown",
-                disable_web_page_preview=False,
-            )
-            return True
+            resp = requests.post(url, json={
+                "chat_id": self._chat_id,
+                "text": message,
+                "parse_mode": "Markdown",
+                "disable_web_page_preview": False,
+            }, timeout=15)
+            if resp.status_code == 200 and resp.json().get("ok"):
+                return True
+            logger.error(f"Telegram send failed ({resp.status_code}): {resp.text[:200]}")
+            return False
         except Exception as e:
-            logger.error(f"Telegram send failed: {e}")
+            logger.error(f"Telegram send exception: {e}")
             return False
 
     def _format_message(self, listing: dict, metrics: dict, score: float) -> str:
