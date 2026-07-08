@@ -52,23 +52,34 @@ class TelegramAlerter:
         return success
 
     def send_daily_digest(self) -> bool:
-        """Send a daily summary of the top investment opportunities from the DB."""
+        """Send a daily summary of NEW opportunities (first seen in last 24h).
+        Sends nothing if no new listings — no noise.
+        """
         if not self._enabled:
             return False
 
-        top_listings = self._get_top_listings(limit=5, min_score=self._min_score)
+        top_listings = self._get_top_listings(limit=5, min_score=self._min_score, hours=24)
+        if not top_listings:
+            logger.info("Daily digest: no new listings in last 24h → skipping send")
+            return False
         message = self._format_digest(top_listings)
         success = self._send_sync(message)
         if success:
-            logger.info(f"Daily digest sent: {len(top_listings)} top opportunities")
+            logger.info(f"Daily digest sent: {len(top_listings)} NEW top opportunities (24h)")
         return success
 
-    def _get_top_listings(self, limit: int = 5, min_score: float = 0) -> list[dict]:
-        """Query DB for top scoring active listings."""
+    def _get_top_listings(self, limit: int = 5, min_score: float = 0, hours: int = 24) -> list[dict]:
+        """Query DB for top-scoring listings FIRST SEEN in the last `hours`.
+
+        The user only wants new opportunities, not the same top-5 every day.
+        """
         try:
+            from datetime import datetime, timedelta, timezone
             from models.db import get_engine
             from models.schema import listings, investment_metrics
             from sqlalchemy import select, and_
+
+            since = datetime.now(timezone.utc) - timedelta(hours=hours)
 
             with get_engine().connect() as conn:
                 rows = conn.execute(
@@ -90,6 +101,7 @@ class TelegramAlerter:
                     .join(investment_metrics, investment_metrics.c.listing_id == listings.c.id)
                     .where(and_(
                         listings.c.is_active == True,
+                        listings.c.first_seen_at >= since,
                         investment_metrics.c.investment_score >= min_score,
                     ))
                     .order_by(investment_metrics.c.investment_score.desc())

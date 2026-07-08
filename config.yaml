@@ -109,15 +109,39 @@ portals:
       - "https://www.habitaclia.com/viviendas-el_guinardo-barcelona.htm"
     max_pages: 5
 
-  # ── NEED PROXY (disabled by default) ────────────────────────────────────
-  # Uncomment/enable when SCRAPER_PROXY is set in .env
+  # ── NEED PROXY — enabled anyway so they auto-work when SCRAPER_PROXY is set ──
+  # Without proxy they return 403 and are silently skipped (no error)
   idealista:
-    enabled: false                    # needs residential proxy
-    search_urls: []
+    enabled: true
+    search_urls:
+      - "https://www.idealista.com/venta-viviendas/sant-just-desvern/"
+      - "https://www.idealista.com/venta-viviendas/molins-de-rei/"
+      - "https://www.idealista.com/venta-viviendas/sant-feliu-de-llobregat/"
+      - "https://www.idealista.com/venta-viviendas/sant-cugat-del-valles/"
+      - "https://www.idealista.com/venta-viviendas/castelldefels/"
+      - "https://www.idealista.com/venta-viviendas/premia-de-dalt/"
+      - "https://www.idealista.com/venta-viviendas/premia-de-mar/"
+      - "https://www.idealista.com/venta-viviendas/vilassar-de-mar/"
+      - "https://www.idealista.com/venta-viviendas/vilassar-de-dalt/"
+      - "https://www.idealista.com/venta-viviendas/esplugues-de-llobregat/"
+      - "https://www.idealista.com/venta-viviendas/barcelona/sant-marti/el-camp-de-larpa-del-clot/"
+      - "https://www.idealista.com/venta-viviendas/barcelona/horta-guinardo/el-guinardo/"
     max_pages: 5
   fotocasa:
-    enabled: false                    # needs residential proxy
-    search_urls: []
+    enabled: true
+    search_urls:
+      - "https://www.fotocasa.es/es/comprar/viviendas/sant-just-desvern/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/molins-de-rei/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/sant-feliu-de-llobregat/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/sant-cugat-del-valles/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/castelldefels/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/premia-de-dalt/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/premia-de-mar/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/vilassar-de-mar/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/vilassar-de-dalt/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/esplugues-de-llobregat/todas-las-zonas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sant-marti/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/horta-guinardo/l"
     max_pages: 5
 
   # ── Bank-owned portals: not relevant for Barcelona metro residence search ──

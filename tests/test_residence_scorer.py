@@ -160,3 +160,37 @@ def test_scorer_rejects_too_small():
     scorer = ResidenceScorer(MOCK_CONFIG)
     bd = scorer.score(_mk(area_m2=40))
     assert not bd.hard_filters_pass
+
+
+def test_scorer_rejects_rented():
+    scorer = ResidenceScorer(MOCK_CONFIG)
+    for text in [
+        "Piso alquilado con inquilino actual",
+        "Alquilada con contrato vigente",
+        "Piso con inquilino, rentabilidad garantizada",
+        "Renta antigua, arrendado desde 2015",
+    ]:
+        bd = scorer.score(_mk(title=text, description="ascensor balcón"))
+        assert not bd.hard_filters_pass, f"Debería rechazar: {text}"
+        assert any("alquil" in r.lower() or "inquilino" in r.lower() for r in bd.reasons_fail)
+
+
+def test_scorer_rejects_occupied():
+    scorer = ResidenceScorer(MOCK_CONFIG)
+    for text in [
+        "Piso ocupado ilegalmente",
+        "Vivienda okupada por terceros",
+        "Con okupas dentro",
+        "Usurpación en curso",
+    ]:
+        bd = scorer.score(_mk(title=text, description="ascensor balcón"))
+        assert not bd.hard_filters_pass, f"Debería rechazar: {text}"
+        assert any("okup" in r.lower() or "ocupad" in r.lower() for r in bd.reasons_fail)
+
+
+def test_scorer_accepts_normal_listing():
+    scorer = ResidenceScorer(MOCK_CONFIG)
+    # No mention of rented/occupied → should not reject on this basis
+    bd = scorer.score(_mk(title="Piso en el centro con vistas",
+                          description="Balcón, ascensor, 2010"))
+    assert bd.hard_filters_pass

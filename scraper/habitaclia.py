@@ -65,14 +65,20 @@ class HabitacliaScraper(BaseScraper):
             # Title from link title attr or text
             title = (link.get("title") or link.get_text(strip=True))[:200]
 
-            # Price: usually in .list-item-price or amidst list-item-feature line
+            # Price: extract FIRST euro amount only (some cards show
+            # "349.000 € ha bajado 1.000 €" — must not concatenate)
             price = None
             price_el = card.select_one(".list-item-price, [class*='item-price'], [itemprop='price']")
             if price_el:
-                price = self.parse_price(price_el.get_text())
+                price_text = price_el.get_text(" ", strip=True)
+                pm = re.search(r"([\d\.]+)\s*€", price_text)
+                if pm:
+                    try:
+                        price = float(pm.group(1).replace(".", ""))
+                    except ValueError:
+                        pass
             if price is None:
-                # Fallback: search full card text for large euro amounts
-                pm = re.search(r"([\d\.]{5,})\s*€\b(?!/)", card.get_text(" ", strip=True))
+                pm = re.search(r"([\d\.]{5,})\s*€", card.get_text(" ", strip=True))
                 if pm:
                     try:
                         price = float(pm.group(1).replace(".", ""))

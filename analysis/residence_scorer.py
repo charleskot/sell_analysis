@@ -48,6 +48,20 @@ _BALCONY_RE = re.compile(r"\bbalc[oó]n(?:es)?\b|\bterraza\b|\bterrat\b|\bpatio\
 _VIEWS_RE = re.compile(r"\bvistas?\b|\bpanor[aá]mic\w*\b|\bmar\b|\bmonta[nñ]a\b", re.I)
 _YEAR_RE = re.compile(r"\bconstru[íi]do\s+(?:en\s+)?(\d{4})\b|\ba[nñ]o\s+(?:de\s+construcci[oó]n[:\s]+)?(\d{4})\b", re.I)
 
+# Rented or occupied → discard (buying a home to live in, not investment)
+_RENTED_RE = re.compile(
+    r"\balquilad[oa]\b|\bcon\s+inquilino\b|\barrendad[oa]\b|"
+    r"\brenta\s+antigua\b|\bcontrato\s+de\s+alquiler\b|"
+    r"\balquiler\s+vigente\b|\brentabilidad\s+garantizada\b",
+    re.I,
+)
+_OCCUPIED_RE = re.compile(
+    r"\bocupad[oa]\b|\bokupad[oa]\b|\bokupas?\b|"
+    r"\busurpaci[oó]n\b|\busurpad[oa]\b|"
+    r"\bcon\s+ocupantes?\b|\bilegalmente\s+ocupad[oa]\b",
+    re.I,
+)
+
 
 def extract_features(listing: dict) -> dict:
     """Parse text fields to detect elevator, balcony, views, year built."""
@@ -117,6 +131,16 @@ class ResidenceScorer:
 
     def score(self, listing: dict) -> MatchBreakdown:
         bd = MatchBreakdown()
+
+        # ── Hard filter: rented / occupied / squatted ────────────────────────
+        # Buying to live in — no tenants, no okupas
+        text = " ".join(str(listing.get(k) or "") for k in ("title", "description"))
+        if _RENTED_RE.search(text):
+            bd.reasons_fail.append("Alquilado / con inquilino")
+            return bd
+        if _OCCUPIED_RE.search(text):
+            bd.reasons_fail.append("Ocupado / okupado")
+            return bd
 
         price = listing.get("price")
         area = listing.get("area_m2")
