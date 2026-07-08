@@ -8,7 +8,10 @@ from pathlib import Path
 from sqlalchemy import create_engine, select, update, insert
 from sqlalchemy.engine import Engine
 
-from models.schema import metadata, listings, investment_metrics, alerts_sent, rent_zone_averages
+from models.schema import (
+    metadata, listings, investment_metrics, alerts_sent,
+    rent_zone_averages, feedback, telegram_state,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -176,7 +179,8 @@ def was_alert_sent_recently(listing_id: str, cooldown_hours: int = 168) -> bool:
     return row is not None
 
 
-def record_alert_sent(listing_id: str, alert_type: str, message_preview: str) -> None:
+def record_alert_sent(listing_id: str, alert_type: str, message_preview: str,
+                      chat_message_id: int | None = None) -> None:
     with session_scope() as conn:
         conn.execute(
             insert(alerts_sent).values(
@@ -184,8 +188,80 @@ def record_alert_sent(listing_id: str, alert_type: str, message_preview: str) ->
                 alert_type=alert_type,
                 sent_at=datetime.now(timezone.utc),
                 message_preview=message_preview[:500],
+                chat_message_id=chat_message_id,
             )
         )
+
+
+# ── Feedback ────────────────────────────────────────────────────────────
+
+def record_feedback(listing_id: str, verdict: str, note: str = "") -> None:
+    """verdict: 'yes' | 'no' | 'maybe'"""
+    with session_scope() as conn:
+        conn.execute(
+            insert(feedback).values(
+                listing_id=listing_id,
+                verdict=verdict,
+                note=note[:1000],
+                created_at=datetime.now(timezone.utc),
+            )
+        )
+
+
+def get_feedback_summary() -> dict:
+    """Return counts by verdict + listings user liked/disliked."""
+    from sqlalchemy import func
+    with session_scope() as conn:
+        counts = dict(conn.execute(
+            select(feedback.c.verdict, func.count())
+            .group_by(feedback.c.verdict)
+        ).fetchall())
+    return counts
+
+
+def get_liked_listings(verdict: str = "yes", limit: int = 20) -> list[dict]:
+    """Return listings the user liked/disliked, most recent first."""
+    with session_scope() as conn:
+        rows = conn.execute(
+            select(
+                feedback.c.verdict, feedback.c.note, feedback.c.created_at,
+                listings.c.url, listings.c.city, listings.c.district,
+                listings.c.price, listings.c.area_m2, listings.c.rooms,
+                listings.c.title,
+            )
+            .select_from(feedback.join(listings, feedback.c.listing_id == listings.c.id))
+            .where(feedback.c.verdict == verdict)
+            .order_by(feedback.c.created_at.desc())
+            .limit(limit)
+        ).fetchall()
+    return [dict(r._mapping) for r in rows]
+
+
+# ── Telegram bookkeeping ────────────────────────────────────────────────
+
+def get_telegram_state(key: str, default: str = "") -> str:
+    with session_scope() as conn:
+        row = conn.execute(
+            select(telegram_state).where(telegram_state.c.key == key)
+        ).fetchone()
+    return row.value if row else default
+
+
+def set_telegram_state(key: str, value: str) -> None:
+    now = datetime.now(timezone.utc)
+    with session_scope() as conn:
+        existing = conn.execute(
+            select(telegram_state).where(telegram_state.c.key == key)
+        ).fetchone()
+        if existing:
+            conn.execute(
+                update(telegram_state).where(telegram_state.c.key == key)
+                .values(value=value, updated_at=now)
+            )
+        else:
+            conn.execute(
+                insert(telegram_state).values(key=key, value=value, updated_at=now)
+            )
 
 
 def update_rent_zone_average(city: str, district: str | None, avg_rent_per_m2: float, sample_size: int) -> None:

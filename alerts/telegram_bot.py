@@ -43,13 +43,158 @@ class TelegramAlerter:
             return False
 
         message = self._format_message(listing, metrics, score)
-        success = self._send_sync(message)
+        keyboard = self._feedback_keyboard(listing_id)
+        message_id = self._send_sync(message, reply_markup=keyboard)
 
-        if success:
-            record_alert_sent(listing_id, "telegram", message[:200])
+        if message_id:
+            record_alert_sent(listing_id, "telegram", message[:200], chat_message_id=message_id)
             logger.info(f"Telegram alert sent for {listing_id} (score {score:.0f})")
+            return True
+        return False
 
-        return success
+    @staticmethod
+    def _feedback_keyboard(listing_id: str) -> dict:
+        """Inline keyboard with 3 feedback buttons per alert."""
+        return {
+            "inline_keyboard": [[
+                {"text": "👍 Me interesa", "callback_data": f"fb:yes:{listing_id}"},
+                {"text": "🤔 Ver luego", "callback_data": f"fb:maybe:{listing_id}"},
+                {"text": "👎 No", "callback_data": f"fb:no:{listing_id}"},
+            ]]
+        }
+
+    def poll_feedback(self) -> int:
+        """Poll Telegram for callback_query (button clicks) and text replies.
+        Records feedback in DB. Returns number of events processed."""
+        if not self._enabled:
+            return 0
+
+        import requests
+        from models.db import (
+            get_telegram_state, set_telegram_state, record_feedback,
+            get_engine,
+        )
+        from models.schema import alerts_sent
+        from sqlalchemy import select
+
+        offset = get_telegram_state("last_update_id", "0")
+        try:
+            offset_int = int(offset) + 1
+        except ValueError:
+            offset_int = 0
+
+        try:
+            r = requests.get(
+                f"https://api.telegram.org/bot{self._token}/getUpdates",
+                params={"offset": offset_int, "timeout": 0, "allowed_updates": '["callback_query","message"]'},
+                timeout=15,
+            )
+            data = r.json()
+        except Exception as e:
+            logger.error(f"poll_feedback getUpdates failed: {e}")
+            return 0
+
+        if not data.get("ok"):
+            logger.error(f"getUpdates non-ok: {data}")
+            return 0
+
+        n = 0
+        max_id = int(offset)
+        for upd in data.get("result", []):
+            max_id = max(max_id, upd["update_id"])
+
+            # 1) Button click
+            cb = upd.get("callback_query")
+            if cb:
+                cb_data = cb.get("data", "")
+                if cb_data.startswith("fb:"):
+                    parts = cb_data.split(":", 2)
+                    if len(parts) == 3:
+                        _, verdict, lid = parts
+                        try:
+                            record_feedback(lid, verdict)
+                            n += 1
+                            # Acknowledge the button so it doesn't hang
+                            self._answer_callback(cb["id"], self._feedback_ack(verdict))
+                            # Edit message to append feedback line
+                            msg = cb.get("message", {})
+                            self._append_feedback_line(
+                                msg.get("chat", {}).get("id"),
+                                msg.get("message_id"),
+                                msg.get("text", ""),
+                                verdict,
+                            )
+                        except Exception as e:
+                            logger.error(f"record_feedback failed: {e}")
+                continue
+
+            # 2) Text reply to an alert (free-form note)
+            msg = upd.get("message")
+            if msg and msg.get("reply_to_message"):
+                replied_to_id = msg["reply_to_message"].get("message_id")
+                note = msg.get("text", "").strip()
+                if replied_to_id and note:
+                    # Look up which listing the reply refers to
+                    with get_engine().connect() as conn:
+                        row = conn.execute(
+                            select(alerts_sent.c.listing_id)
+                            .where(alerts_sent.c.chat_message_id == replied_to_id)
+                            .order_by(alerts_sent.c.id.desc())
+                            .limit(1)
+                        ).fetchone()
+                    if row:
+                        try:
+                            record_feedback(row.listing_id, "note", note)
+                            n += 1
+                            logger.info(f"Text feedback saved for {row.listing_id}: {note[:50]}")
+                        except Exception as e:
+                            logger.error(f"record_feedback (note) failed: {e}")
+
+        set_telegram_state("last_update_id", str(max_id))
+        if n:
+            logger.info(f"poll_feedback: {n} events recorded")
+        return n
+
+    @staticmethod
+    def _feedback_ack(verdict: str) -> str:
+        return {
+            "yes": "👍 Guardado como 'me interesa'",
+            "no": "👎 Guardado como 'no me gusta'",
+            "maybe": "🤔 Guardado como 'ver luego'",
+        }.get(verdict, "Guardado")
+
+    def _answer_callback(self, callback_query_id: str, text: str) -> None:
+        import requests
+        try:
+            requests.post(
+                f"https://api.telegram.org/bot{self._token}/answerCallbackQuery",
+                json={"callback_query_id": callback_query_id, "text": text},
+                timeout=10,
+            )
+        except Exception as e:
+            logger.debug(f"answerCallbackQuery failed: {e}")
+
+    def _append_feedback_line(self, chat_id, message_id, current_text: str, verdict: str) -> None:
+        """Edit the alert message to reflect the recorded feedback."""
+        if not chat_id or not message_id:
+            return
+        import requests
+        label = self._feedback_ack(verdict)
+        new_text = f"{current_text}\n\n_{label}_"
+        try:
+            requests.post(
+                f"https://api.telegram.org/bot{self._token}/editMessageText",
+                json={
+                    "chat_id": chat_id,
+                    "message_id": message_id,
+                    "text": new_text,
+                    "parse_mode": "Markdown",
+                    "disable_web_page_preview": False,
+                },
+                timeout=10,
+            )
+        except Exception as e:
+            logger.debug(f"editMessageText failed: {e}")
 
     def send_daily_digest(self) -> bool:
         """Send a daily summary of NEW opportunities (first seen in last 24h).
@@ -63,10 +208,11 @@ class TelegramAlerter:
             logger.info("Daily digest: no new listings in last 24h → skipping send")
             return False
         message = self._format_digest(top_listings)
-        success = self._send_sync(message)
-        if success:
+        result = self._send_sync(message)
+        if result:
             logger.info(f"Daily digest sent: {len(top_listings)} NEW top opportunities (24h)")
-        return success
+            return True
+        return False
 
     def _get_top_listings(self, limit: int = 5, min_score: float = 0, hours: int = 24) -> list[dict]:
         """Query DB for top-scoring listings FIRST SEEN in the last `hours`.
@@ -143,19 +289,25 @@ class TelegramAlerter:
 
         return "\n".join(lines)
 
-    def _send_sync(self, message: str) -> bool:
-        """Send a Telegram message via the HTTP Bot API (no SDK deps)."""
+    def _send_sync(self, message: str, reply_markup: dict | None = None) -> int | bool:
+        """Send a Telegram message. Returns the message_id on success (truthy),
+        False on failure. reply_markup adds inline buttons.
+        """
         import requests
         url = f"https://api.telegram.org/bot{self._token}/sendMessage"
+        payload = {
+            "chat_id": self._chat_id,
+            "text": message,
+            "parse_mode": "Markdown",
+            "disable_web_page_preview": False,
+        }
+        if reply_markup:
+            payload["reply_markup"] = reply_markup
         try:
-            resp = requests.post(url, json={
-                "chat_id": self._chat_id,
-                "text": message,
-                "parse_mode": "Markdown",
-                "disable_web_page_preview": False,
-            }, timeout=15)
-            if resp.status_code == 200 and resp.json().get("ok"):
-                return True
+            resp = requests.post(url, json=payload, timeout=15)
+            data = resp.json()
+            if resp.status_code == 200 and data.get("ok"):
+                return int(data["result"].get("message_id") or 0) or True
             logger.error(f"Telegram send failed ({resp.status_code}): {resp.text[:200]}")
             return False
         except Exception as e:

@@ -144,7 +144,46 @@ def digest(
     if ok:
         console.print("[green]✓ Resumen enviado por Telegram[/green]")
     else:
-        console.print("[red]Error enviando el resumen. Revisa el token.[/red]")
+        console.print("[yellow]Sin viviendas nuevas en 24h — no se envió nada[/yellow]")
+
+
+@app.command()
+def feedback(
+    poll: bool = typer.Option(False, "--poll", help="Consultar Telegram y guardar clicks/respuestas nuevas"),
+    verdict: str = typer.Option("yes", "--verdict", help="yes | no | maybe (para listar)"),
+    verbose: bool = typer.Option(False, "--verbose", "-v"),
+):
+    """Muestra el feedback recibido y opcionalmente hace polling manual."""
+    setup_logging(verbose)
+    config = load_config()
+    init_db(config)
+
+    from alerts.telegram_bot import TelegramAlerter
+    from models.db import get_feedback_summary, get_liked_listings
+
+    if poll:
+        alerter = TelegramAlerter(config)
+        n = alerter.poll_feedback()
+        console.print(f"[cyan]Poll completado: {n} eventos nuevos[/cyan]")
+
+    summary = get_feedback_summary()
+    console.print("\n[bold]Resumen de feedback:[/bold]")
+    total = sum(summary.values()) or 0
+    for v_key, label in [("yes", "👍 Me interesa"), ("maybe", "🤔 Ver luego"), ("no", "👎 No"), ("note", "💬 Notas")]:
+        console.print(f"  {label}: {summary.get(v_key, 0)}")
+    console.print(f"  [dim]total: {total}[/dim]\n")
+
+    rows = get_liked_listings(verdict=verdict, limit=15)
+    if rows:
+        console.print(f"[bold]Últimas viviendas con verdict='{verdict}':[/bold]")
+        for r in rows:
+            price = r.get("price") or 0
+            city = (r.get("city") or "").title()
+            dist = (r.get("district") or "").title()
+            loc = f"{dist}, {city}" if dist else city
+            note = r.get("note") or ""
+            note_str = f" — nota: {note[:60]}" if note else ""
+            console.print(f"  • {loc:35s} {price:>10,.0f}€  {r.get('url', '')}{note_str}")
 
 
 @app.command()

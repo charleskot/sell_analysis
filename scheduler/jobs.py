@@ -135,6 +135,13 @@ class PipelineOrchestrator:
         logger.info("Sending daily digest...")
         self.alerter.send_daily_digest()
 
+    def run_feedback_poll(self) -> None:
+        """Poll Telegram for button clicks / text replies from the user."""
+        try:
+            self.alerter.poll_feedback()
+        except Exception as e:
+            logger.error(f"Feedback poll failed: {e}")
+
     def _compute_metrics(self, listing: dict) -> dict | None:
         if self.mode == "residence":
             return self._compute_residence_metrics(listing)
@@ -250,5 +257,19 @@ def create_scheduler(config: dict):
         name="Daily Telegram digest",
     )
 
-    logger.info(f"Scheduler configured: purchase every {scrape_hours}h, rental every {rental_days}d, digest daily at 09:00")
+    # Feedback polling: every 2 minutes (records button clicks and replies)
+    scheduler.add_job(
+        func=orchestrator.run_feedback_poll,
+        trigger="interval",
+        minutes=2,
+        id="feedback_poll",
+        max_instances=1,
+        coalesce=True,
+        name="Telegram feedback poll",
+    )
+
+    logger.info(
+        f"Scheduler configured: purchase every {scrape_hours}h, rental every {rental_days}d, "
+        f"digest daily at 09:00, feedback poll every 2min"
+    )
     return scheduler, orchestrator

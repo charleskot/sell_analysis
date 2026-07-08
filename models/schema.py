@@ -71,4 +71,26 @@ alerts_sent = Table(
     Column("alert_type", String, default="telegram"),
     Column("sent_at", DateTime, default=lambda: datetime.now(timezone.utc)),
     Column("message_preview", Text, default=""),
+    Column("chat_message_id", Integer, nullable=True),   # for edit_message on feedback
+)
+
+# User feedback on alerted listings (👍/👎/🤔 + optional free text).
+# Used to tune future scoring.
+feedback = Table(
+    "feedback",
+    metadata,
+    Column("id", Integer, primary_key=True, autoincrement=True),
+    Column("listing_id", String, nullable=False),
+    Column("verdict", String, nullable=False),          # 'yes', 'no', 'maybe'
+    Column("note", Text, default=""),                    # optional free-text reply
+    Column("created_at", DateTime, default=lambda: datetime.now(timezone.utc)),
+)
+
+# Bookkeeping for Telegram getUpdates polling (avoids re-processing events)
+telegram_state = Table(
+    "telegram_state",
+    metadata,
+    Column("key", String, primary_key=True),
+    Column("value", String, nullable=False),
+    Column("updated_at", DateTime, default=lambda: datetime.now(timezone.utc)),
 )
