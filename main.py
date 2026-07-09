@@ -12,6 +12,20 @@ from rich import print as rprint
 
 load_dotenv()
 
+# Loud env dump at startup — hides secrets but confirms vars are present
+def _dump_env():
+    import os as _os
+    tk = _os.environ.get("TELEGRAM_TOKEN", "")
+    ck = _os.environ.get("TELEGRAM_CHAT_ID", "")
+    tk_preview = f"{tk[:8]}...{tk[-4:]}" if tk else "(EMPTY)"
+    print(f"[STARTUP] TELEGRAM_TOKEN = {tk_preview}", flush=True)
+    print(f"[STARTUP] TELEGRAM_CHAT_ID = {ck or '(EMPTY)'}", flush=True)
+    # Also list any env var starting with TELE
+    tele_keys = [k for k in _os.environ if k.upper().startswith("TELE")]
+    print(f"[STARTUP] All TELE* env vars: {tele_keys}", flush=True)
+
+_dump_env()
+
 app = typer.Typer(help="Analizador de Inversión Inmobiliaria España")
 console = Console()
 
