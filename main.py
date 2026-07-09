@@ -93,12 +93,25 @@ def scrape(
         except Exception as e:
             console.print(f"[red]Error en primera pasada:[/red] {e}")
 
+        # Also drain any pending Telegram feedback immediately
+        print("[STARTUP] Running one-shot feedback poll before scheduler loop", flush=True)
+        try:
+            orchestrator.run_feedback_poll()
+            print("[STARTUP] Feedback poll ok", flush=True)
+        except Exception as e:
+            print(f"[STARTUP] Feedback poll error: {e}", flush=True)
+
         console.print(f"[green]Scheduler activo. Próximo scraping en {config['scheduler']['scrape_interval_hours']}h[/green]")
-        console.print("Presiona Ctrl+C para detener.")
+        print("[STARTUP] Calling scheduler.start() — entering main loop", flush=True)
         try:
             scheduler.start()
         except (KeyboardInterrupt, SystemExit):
             console.print("[yellow]Scheduler detenido.[/yellow]")
+        except Exception as e:
+            print(f"[FATAL] scheduler.start() crashed: {e!r}", flush=True)
+            import traceback
+            traceback.print_exc()
+            raise
 
 
 @app.command()
