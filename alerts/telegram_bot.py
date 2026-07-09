@@ -14,8 +14,20 @@ class TelegramAlerter:
         self._cooldown_hours = alert_cfg.get("cooldown_hours", 168)
         self._enabled = bool(self._token and self._chat_id and not self._token.startswith("${"))
 
-        if not self._enabled:
-            logger.info("Telegram alerts disabled (no token/chat_id configured)")
+        # Loud startup log so it's easy to see on Railway
+        if self._enabled:
+            token_preview = f"{self._token[:8]}...{self._token[-4:]}"
+            logger.info(
+                f"Telegram alerts ENABLED (token={token_preview}, "
+                f"chat_id={self._chat_id}, min_score={self._min_score})"
+            )
+        else:
+            has_token = bool(self._token) and not self._token.startswith("${")
+            has_chat = bool(self._chat_id) and not self._chat_id.startswith("${")
+            logger.warning(
+                f"Telegram alerts DISABLED — has_token={has_token}, has_chat_id={has_chat}. "
+                f"Set TELEGRAM_TOKEN and TELEGRAM_CHAT_ID env vars."
+            )
 
     def _resolve(self, value: str) -> str:
         """Resolve ${ENV_VAR} references."""
@@ -151,8 +163,8 @@ class TelegramAlerter:
                             logger.error(f"record_feedback (note) failed: {e}")
 
         set_telegram_state("last_update_id", str(max_id))
-        if n:
-            logger.info(f"poll_feedback: {n} events recorded")
+        total = len(data.get("result", []))
+        logger.info(f"poll_feedback: {n} feedback events, {total} raw updates, offset={offset_int}")
         return n
 
     @staticmethod
