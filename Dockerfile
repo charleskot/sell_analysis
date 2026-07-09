@@ -1,23 +1,23 @@
 FROM python:3.11-slim
 
-# Chromium para Selenium (portales con JS como Idealista/Fotocasa)
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    chromium \
-    chromium-driver \
-    && rm -rf /var/lib/apt/lists/*
-
-ENV CHROME_BIN=/usr/bin/chromium
-ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
+ENV TZ=Europe/Madrid
 
 WORKDIR /app
+
+# System deps for lxml + timezone
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    tzdata \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN mkdir -p data logs
+# Persistent data dir (mount a Railway volume here)
+RUN mkdir -p /app/data
 
-EXPOSE 8501
+# Run the scheduler: scrape + digest + feedback poll
+CMD ["python", "main.py", "scrape"]
