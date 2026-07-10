@@ -77,10 +77,26 @@ class PipelineOrchestrator:
 
     def run_purchase_scrape(self) -> dict:
         """Main scraping job. Returns summary stats."""
-        from models.db import upsert_listing, upsert_metrics
+        from models.db import upsert_listing, upsert_metrics, get_engine
+        from models.schema import listings as listings_tbl
+        from sqlalchemy import select, func
 
         portals_cfg = self.config.get("portals", {})
         stats = {"new": 0, "updated": 0, "errors": 0, "total": 0, "alerts_sent": 0}
+
+        # Cold start detection: if DB is empty at the start of this scrape,
+        # DON'T send individual alerts — the whole catalogue looks 'new' but
+        # isn't. Just index everything. Next scrape (12h later) will alert
+        # only listings that are actually new since this run.
+        with get_engine().connect() as conn:
+            initial_count = conn.execute(select(func.count()).select_from(listings_tbl)).scalar() or 0
+        cold_start = initial_count == 0
+        if cold_start:
+            logger.warning(
+                "COLD START: DB is empty. Indexing only, alerts suppressed for this run. "
+                "Next scrape (12h) will alert on truly new listings."
+            )
+        stats["cold_start"] = cold_start
 
         for portal_name, portal_cfg in portals_cfg.items():
             if not portal_cfg.get("enabled", False):
@@ -114,9 +130,10 @@ class PipelineOrchestrator:
                                 listing_id = f"{raw.portal}_{raw.external_id}"
                                 upsert_metrics(listing_id, metrics)
 
-                                # Alert only for NEW listings above threshold
+                                # Alert only for NEW listings above threshold.
+                                # In cold-start mode (empty DB at scrape start), suppress all alerts.
                                 score = metrics.get("investment_score", 0) or 0
-                                if is_new and self.alerter.send_alert(listing_id, raw_dict, metrics, score):
+                                if not cold_start and is_new and self.alerter.send_alert(listing_id, raw_dict, metrics, score):
                                     stats["alerts_sent"] += 1
 
                         except Exception as e:
@@ -128,6 +145,21 @@ class PipelineOrchestrator:
                     stats["errors"] += 1
 
         logger.info(f"Scrape complete: {stats}")
+
+        # After cold start, send a single friendly Telegram message summarising
+        # what was indexed. From next scrape onwards, individual alerts fire.
+        if cold_start and stats["new"] > 0 and self.alerter.enabled:
+            try:
+                msg = (
+                    f"🏠 *Bot inicializado*\n\n"
+                    f"Indexadas {stats['new']} viviendas en tus zonas objetivo.\n"
+                    f"A partir del próximo scrape (12h) solo te avisaré de "
+                    f"viviendas *realmente nuevas* que cumplan tus filtros."
+                )
+                self.alerter._send_sync(msg)
+            except Exception as e:
+                logger.warning(f"Cold-start summary send failed: {e}")
+
         return stats
 
     def run_daily_digest(self) -> None:
