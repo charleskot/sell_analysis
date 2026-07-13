@@ -53,18 +53,17 @@ class IdealistaScraper(BaseScraper):
             logger.info(f"Idealista page {page}: {current_url}")
             listings: list[RawListing] = []
 
-            # 1) Plain HTTP (works with residential proxy)
-            if self.http.has_proxy:
-                listings, next_http_url = self._fetch_via_http(current_url)
-                if listings:
-                    for listing in listings:
-                        yield listing
-                    if not next_http_url:
-                        break
-                    current_url = next_http_url
-                    page += 1
-                    time.sleep(random.uniform(2, 4))
-                    continue
+            # 1) Plain HTTP — try always; works with residential IP OR proxy
+            listings, next_http_url = self._fetch_via_http(current_url)
+            if listings:
+                for listing in listings:
+                    yield listing
+                if not next_http_url:
+                    break
+                current_url = next_http_url
+                page += 1
+                time.sleep(random.uniform(2, 4))
+                continue
 
             # 2) Selenium fallback
             if not listings and self._check_selenium():
@@ -73,13 +72,7 @@ class IdealistaScraper(BaseScraper):
                 return  # Selenium handles its own pagination loop
 
             if not listings:
-                if not self.http.has_proxy:
-                    logger.warning(
-                        "Idealista: no proxy configured and Selenium unavailable. "
-                        "Set scraping.proxy in config.yaml (residential proxy required)."
-                    )
-                else:
-                    logger.warning(f"Idealista: no listings on page {page}, stopping.")
+                logger.warning(f"Idealista: no listings on page {page}, stopping.")
                 break
 
     # ------------------------------------------------------------------

@@ -48,11 +48,10 @@ class FotocasaScraper(BaseScraper):
             logger.info(f"Fotocasa page {page}: {current_url}")
             listings: list[RawListing] = []
 
-            # 1) Try plain HTTP (works with residential proxy)
-            if self.http.has_proxy:
-                listings = self._fetch_via_http(current_url)
+            # 1) Try plain HTTP always — works with residential IP OR proxy
+            listings = self._fetch_via_http(current_url)
 
-            # 2) Selenium fallback
+            # 2) Selenium fallback if HTTP failed
             if not listings and self._check_selenium():
                 listings, next_url_selenium = self._fetch_via_selenium(current_url)
                 if listings:
@@ -65,13 +64,7 @@ class FotocasaScraper(BaseScraper):
                     continue
 
             if not listings:
-                if not self.http.has_proxy:
-                    logger.warning(
-                        "Fotocasa: no proxy configured and Selenium unavailable. "
-                        "Set scraping.proxy in config.yaml (residential proxy required)."
-                    )
-                else:
-                    logger.warning(f"Fotocasa: no listings on page {page}, stopping.")
+                logger.warning(f"Fotocasa: no listings on page {page}, stopping.")
                 break
 
             for listing in listings:
