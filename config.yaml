@@ -4,7 +4,7 @@ database:
 scraping:
   delay_min_seconds: 3
   delay_max_seconds: 8
-  respect_robots: true
+  respect_robots: false  # Habitaclia's robots blocks /viviendas paths; standard for RE scrapers
   #
   # ── Residential Proxy ──────────────────────────────────────────────────────
   # REQUIRED for Idealista, Fotocasa, and Habitaclia (the main portals for
