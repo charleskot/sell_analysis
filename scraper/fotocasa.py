@@ -114,9 +114,9 @@ class FotocasaScraper(BaseScraper):
         if self._selenium_available is None:
             try:
                 from scraper.selenium_driver import get_driver
-                get_driver(headless=True)
+                get_driver(headless=True, use_undetected=True)
                 self._selenium_available = True
-                logger.info("Fotocasa: Selenium available")
+                logger.info("Fotocasa: Selenium (undetected) available")
             except Exception as e:
                 self._selenium_available = False
                 logger.warning(f"Fotocasa: Selenium not available ({e}). Skipping Selenium fallback.")
@@ -130,6 +130,7 @@ class FotocasaScraper(BaseScraper):
             url,
             wait_selector="[class*='re-Card'], [class*='CardListing'], article[class*='listing']",
             wait_seconds=4.0,
+            use_undetected=True,
         )
         if html is None:
             return [], None

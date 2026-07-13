@@ -44,6 +44,16 @@ if ! command -v git >/dev/null 2>&1; then
     exit 1
 fi
 
+# Google Chrome — needed for Idealista/Fotocasa Selenium fallback
+if [ ! -d "/Applications/Google Chrome.app" ] && [ ! -d "$HOME/Applications/Google Chrome.app" ]; then
+    echo "==> Google Chrome not found, installing via brew…"
+    if ! command -v brew >/dev/null 2>&1; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        eval "$(/opt/homebrew/bin/brew shellenv)" 2>/dev/null || eval "$(/usr/local/bin/brew shellenv)" 2>/dev/null
+    fi
+    brew install --cask google-chrome || echo "⚠️  Chrome install failed — Idealista/Fotocasa will be skipped"
+fi
+
 # ── 2. Clone or update repo ──────────────────────────────────────────────
 if [ -d "$INSTALL_DIR/.git" ]; then
     echo "==> Updating existing checkout"
