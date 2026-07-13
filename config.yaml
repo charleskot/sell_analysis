@@ -58,6 +58,7 @@ common_requirements:
   require_elevator: true                # ascensor obligatorio
   require_balcony: false                # no obligatorio
   min_floor: 3                          # planta ≥ 3 (después de la 2ª)
+  max_published_ago_hours: 48           # solo anuncios publicados en las últimas 48h
 
 # ═══════════════════════════════════════════════════════════════════════════
 # Portals - URLs per target location

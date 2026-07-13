@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
-from scraper.base import BaseScraper, RawListing
+from scraper.base import BaseScraper, RawListing, parse_ago_to_hours
 
 logger = logging.getLogger(__name__)
 
@@ -119,6 +119,10 @@ class HabitacliaScraper(BaseScraper):
             desc_el = card.select_one(".list-item-description, [itemprop='description']")
             description = desc_el.get_text(" ", strip=True) if desc_el else ""
 
+            # Publication age: '.list-item-date' contains 'actualizado hace X horas/días'
+            date_el = card.select_one(".list-item-date, span.list-item-date")
+            published_ago_hours = parse_ago_to_hours(date_el.get_text(strip=True)) if date_el else None
+
             return RawListing(
                 portal=self.PORTAL_NAME,
                 external_id=external_id,
@@ -131,6 +135,7 @@ class HabitacliaScraper(BaseScraper):
                 district=district,
                 city=city or "desconocido",
                 description=description[:500],
+                published_ago_hours=published_ago_hours,
                 raw_html_hash=self.http.hash_content(f"{price}{area_m2}"),
             )
         except Exception as e:

@@ -18,7 +18,7 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
-from scraper.base import BaseScraper, RawListing
+from scraper.base import BaseScraper, RawListing, parse_ago_to_hours
 from scraper.http_client import HttpClient
 
 logger = logging.getLogger(__name__)
@@ -246,6 +246,9 @@ class IdealistaScraper(BaseScraper):
                 if img.get("src", "") and "logo" not in img["src"]
             ]
 
+            # Publication age: Idealista cards may include 'Actualizado hace X días' or 'Nuevo'
+            published_ago_hours = parse_ago_to_hours(item.get_text(" ", strip=True))
+
             return RawListing(
                 portal=self.PORTAL_NAME,
                 external_id=external_id,
@@ -259,6 +262,7 @@ class IdealistaScraper(BaseScraper):
                 district=district,
                 city=city or "desconocido",
                 photo_urls=photos,
+                published_ago_hours=published_ago_hours,
                 raw_html_hash=self.http.hash_content(f"{price}{area_m2}{rooms}"),
             )
         except Exception as e:

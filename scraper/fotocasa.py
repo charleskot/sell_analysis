@@ -15,7 +15,7 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
-from scraper.base import BaseScraper, RawListing
+from scraper.base import BaseScraper, RawListing, parse_ago_to_hours
 from scraper.http_client import HttpClient
 
 logger = logging.getLogger(__name__)
@@ -238,6 +238,9 @@ class FotocasaScraper(BaseScraper):
                 if img.get("src", "") and not img["src"].endswith(".svg") and "placeholder" not in img["src"]
             ]
 
+            # Publication age from card text (searches 'hace X días', 'nuevo', etc)
+            published_ago_hours = parse_ago_to_hours(card.get_text(" ", strip=True))
+
             return RawListing(
                 portal=self.PORTAL_NAME,
                 external_id=str(external_id),
@@ -251,6 +254,7 @@ class FotocasaScraper(BaseScraper):
                 latitude=lat,
                 longitude=lon,
                 photo_urls=photos,
+                published_ago_hours=published_ago_hours,
                 raw_html_hash=self.http.hash_content(f"{price}{area_m2}{rooms}"),
             )
         except Exception as e:
@@ -286,6 +290,21 @@ class FotocasaScraper(BaseScraper):
                 if m.get("url")
             ][:5]
 
+            # Publication date from JSON
+            published_ago_hours = None
+            pub_date = item.get("publicationDate") or item.get("updatedDate")
+            if pub_date:
+                try:
+                    from datetime import datetime, timezone
+                    from dateutil import parser as _dp
+                    dt = _dp.parse(pub_date) if isinstance(pub_date, str) else datetime.fromtimestamp(pub_date / 1000, tz=timezone.utc)
+                    if dt.tzinfo is None:
+                        dt = dt.replace(tzinfo=timezone.utc)
+                    delta = datetime.now(timezone.utc) - dt
+                    published_ago_hours = int(delta.total_seconds() // 3600)
+                except Exception:
+                    pass
+
             return RawListing(
                 portal=self.PORTAL_NAME,
                 external_id=external_id,
@@ -299,6 +318,7 @@ class FotocasaScraper(BaseScraper):
                 latitude=float(lat) if lat else None,
                 longitude=float(lon) if lon else None,
                 photo_urls=photos,
+                published_ago_hours=published_ago_hours,
                 raw_html_hash=self.http.hash_content(f"{price}{area_m2}"),
             )
         except Exception as e:

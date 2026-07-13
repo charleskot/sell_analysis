@@ -82,7 +82,10 @@ class PipelineOrchestrator:
         from sqlalchemy import select, func
 
         portals_cfg = self.config.get("portals", {})
-        stats = {"new": 0, "updated": 0, "errors": 0, "total": 0, "alerts_sent": 0}
+        max_age_hours = self.config.get("common_requirements", {}).get("max_published_ago_hours", 48)
+
+        stats = {"new": 0, "updated": 0, "errors": 0, "total": 0, "alerts_sent": 0,
+                 "too_old": 0, "by_portal": {}}
 
         # Cold start detection: if DB is empty at the start of this scrape,
         # DON'T send individual alerts — the whole catalogue looks 'new' but
@@ -111,13 +114,25 @@ class PipelineOrchestrator:
             search_urls = portal_cfg.get("search_urls", [])
             max_pages = portal_cfg.get("max_pages", 3)
 
+            portal_stats = stats["by_portal"].setdefault(portal_name, {"scraped": 0, "kept": 0, "too_old": 0})
+
             for search_url in search_urls:
                 logger.info(f"Scraping {portal_name}: {search_url}")
                 try:
                     for raw in scraper.search_listings(search_url, max_pages):
                         stats["total"] += 1
+                        portal_stats["scraped"] += 1
                         try:
                             raw_dict = raw.to_dict()
+
+                            # ── Filter by publication age ──────────────────
+                            age_h = raw_dict.get("published_ago_hours")
+                            if age_h is not None and age_h > max_age_hours:
+                                stats["too_old"] += 1
+                                portal_stats["too_old"] += 1
+                                continue
+
+                            portal_stats["kept"] += 1
                             is_new = upsert_listing(raw_dict)
                             if is_new:
                                 stats["new"] += 1
@@ -145,16 +160,28 @@ class PipelineOrchestrator:
                     stats["errors"] += 1
 
         logger.info(f"Scrape complete: {stats}")
+        # Explicit per-portal summary — spot dead portals immediately
+        for pname, pstats in stats["by_portal"].items():
+            status = "✅" if pstats["scraped"] > 0 else "❌"
+            logger.info(
+                f"  {status} {pname}: scraped={pstats['scraped']}, "
+                f"kept={pstats['kept']}, filtered_too_old={pstats['too_old']}"
+            )
 
         # After cold start, send a single friendly Telegram message summarising
         # what was indexed. From next scrape onwards, individual alerts fire.
         if cold_start and stats["new"] > 0 and self.alerter.enabled:
             try:
+                por_portal = " · ".join(
+                    f"{p}={s['kept']}" for p, s in stats["by_portal"].items() if s["scraped"] > 0
+                )
                 msg = (
                     f"🏠 *Bot inicializado*\n\n"
-                    f"Indexadas {stats['new']} viviendas en tus zonas objetivo.\n"
-                    f"A partir del próximo scrape (12h) solo te avisaré de "
-                    f"viviendas *realmente nuevas* que cumplan tus filtros."
+                    f"Indexadas *{stats['new']}* viviendas de últimas 48h.\n"
+                    f"Portales: {por_portal}\n"
+                    f"Descartadas por antigüedad: {stats['too_old']}\n\n"
+                    f"A partir del próximo scrape (12h) solo te aviso de "
+                    f"viviendas *realmente nuevas* que cumplan filtros."
                 )
                 self.alerter._send_sync(msg)
             except Exception as e:

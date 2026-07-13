@@ -1,5 +1,6 @@
 """Base scraper ABC and RawListing dataclass."""
 import logging
+import re
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Iterator
@@ -8,6 +9,44 @@ from scraper.http_client import HttpClient
 from scraper.robots import RobotsChecker
 
 logger = logging.getLogger(__name__)
+
+
+# ── Publication age helper ───────────────────────────────────────────────
+_AGO_RE = re.compile(
+    r"hace\s+(\d+)\s*(minutos?|horas?|d[íi]as?|semanas?|meses|años?)",
+    re.I,
+)
+_TODAY_RE = re.compile(r"\b(hoy|nuevo)\b", re.I)
+
+
+def parse_ago_to_hours(text: str) -> int | None:
+    """Parse 'hace 3 días', 'hace 2 horas', 'hoy', 'nuevo' → hours.
+    Returns None if no age pattern found."""
+    if not text:
+        return None
+    text = text.lower()
+
+    if _TODAY_RE.search(text):
+        return 0
+
+    m = _AGO_RE.search(text)
+    if not m:
+        return None
+    n = int(m.group(1))
+    unit = m.group(2)
+    if unit.startswith("minuto"):
+        return 0
+    if unit.startswith("hora"):
+        return n
+    if unit.startswith("día") or unit.startswith("dia"):
+        return n * 24
+    if unit.startswith("semana"):
+        return n * 24 * 7
+    if unit == "meses":
+        return n * 24 * 30
+    if unit.startswith("año"):
+        return n * 24 * 365
+    return None
 
 
 @dataclass
@@ -30,6 +69,7 @@ class RawListing:
     longitude: float | None = None
     photo_urls: list[str] = field(default_factory=list)
     raw_html_hash: str | None = None
+    published_ago_hours: int | None = None   # None = unknown
 
     def to_dict(self) -> dict:
         return {
@@ -51,6 +91,7 @@ class RawListing:
             "longitude": self.longitude,
             "photo_urls": self.photo_urls,
             "raw_html_hash": self.raw_html_hash,
+            "published_ago_hours": self.published_ago_hours,
         }
 
 

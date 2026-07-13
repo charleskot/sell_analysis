@@ -278,3 +278,23 @@ def test_scorer_accepts_good_condition():
     for cond in ["nuevo", "buen_estado", "desconocido"]:
         bd = scorer.score(_mk_bcn(condition=cond))
         assert bd.hard_filters_pass, f"debería aceptar condition={cond}"
+
+
+# ── parse_ago_to_hours tests (scraper.base) ─────────────────────────────
+from scraper.base import parse_ago_to_hours
+
+
+def test_parse_ago_hours():
+    assert parse_ago_to_hours("hace 5 horas") == 5
+    assert parse_ago_to_hours("actualizado hace 3 días") == 72
+    assert parse_ago_to_hours("hace 1 semana") == 168
+    assert parse_ago_to_hours("hoy") == 0
+    assert parse_ago_to_hours("Nuevo") == 0
+    assert parse_ago_to_hours("hace 30 minutos") == 0
+    assert parse_ago_to_hours("hace 2 meses") == 1440
+
+
+def test_parse_ago_hours_none():
+    assert parse_ago_to_hours(None) is None
+    assert parse_ago_to_hours("") is None
+    assert parse_ago_to_hours("sin fecha") is None

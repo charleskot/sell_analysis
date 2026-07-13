@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
-from scraper.base import BaseScraper, RawListing
+from scraper.base import BaseScraper, RawListing, parse_ago_to_hours
 
 logger = logging.getLogger(__name__)
 
@@ -134,6 +134,16 @@ class PisosScraper(BaseScraper):
                 if src and not src.endswith(".svg") and "logo" not in src:
                     photos.append(src)
 
+            # Publication age: pisos.com only shows 'Nuevo' badge (no exact date).
+            # If 'Nuevo' present → assume <24h. Else try 'hace X' in the card.
+            card_text = card.get_text(" ", strip=True)
+            published_ago_hours = parse_ago_to_hours(card_text)
+            if published_ago_hours is None:
+                # Look for date-like elements as fallback
+                date_el = card.select_one("[class*='date'], [class*='time'], time")
+                if date_el:
+                    published_ago_hours = parse_ago_to_hours(date_el.get_text(strip=True))
+
             return RawListing(
                 portal=self.PORTAL_NAME,
                 external_id=external_id,
@@ -149,6 +159,7 @@ class PisosScraper(BaseScraper):
                 city=city or "desconocido",
                 zip_code=zip_code,
                 photo_urls=photos,
+                published_ago_hours=published_ago_hours,
                 raw_html_hash=self.http.hash_content(f"{price}{area_m2}{rooms}"),
             )
         except Exception as e:
