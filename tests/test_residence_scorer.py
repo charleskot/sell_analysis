@@ -102,10 +102,10 @@ def test_scorer_rejects_over_budget_recent_soft():
 
 def test_scorer_accepts_soft_range_recent():
     scorer = ResidenceScorer(MOCK_CONFIG)
-    # Between hard 285k and soft 315k → accept (negotiable)
+    # Between hard 285k and soft 315k → accept
     bd = scorer.score(_mk(price=300000, rooms=3))
     assert bd.hard_filters_pass
-    assert "negociable" in " ".join(bd.reasons_pass)
+    assert bd.matches_profile == "recent"
 
 
 def test_scorer_rejects_too_old():
@@ -194,3 +194,87 @@ def test_scorer_accepts_normal_listing():
     bd = scorer.score(_mk(title="Piso en el centro con vistas",
                           description="Balcón, ascensor, 2010"))
     assert bd.hard_filters_pass
+
+
+# ── New: floor + forbid_condition tests ─────────────────────────────────
+
+from analysis.residence_scorer import parse_floor
+
+MIN_FLOOR_CONFIG = {
+    "target_locations": [{"city": "barcelona"}],
+    "residence_criteria": {
+        "profile_general": {
+            "label": "General",
+            "max_price": 335000,
+            "min_rooms": 3,
+            "forbid_condition": ["reformar"],
+        },
+    },
+    "common_requirements": {
+        "min_area_m2": 60,
+        "require_elevator": True,
+        "min_floor": 3,
+    },
+}
+
+
+def _mk_bcn(**kw):
+    base = {
+        "city": "barcelona", "district": "el clot",
+        "price": 300000, "area_m2": 80, "rooms": 3,
+        "condition": "buen_estado", "floor": "3ª",
+        "title": "Piso con ascensor", "description": "año 2010",
+    }
+    base.update(kw)
+    return base
+
+
+def test_parse_floor_numeric():
+    assert parse_floor("3") == 3
+    assert parse_floor("3ª") == 3
+    assert parse_floor("Planta 5") == 5
+
+
+def test_parse_floor_words():
+    assert parse_floor("Bajo") == 0
+    assert parse_floor("Planta baja") == 0
+    assert parse_floor("Principal") == 2
+    assert parse_floor("Ático") == 10
+
+
+def test_parse_floor_none():
+    assert parse_floor(None) is None
+    assert parse_floor("") is None
+
+
+def test_scorer_rejects_low_floor():
+    scorer = ResidenceScorer(MIN_FLOOR_CONFIG)
+    bd = scorer.score(_mk_bcn(floor="1ª"))
+    assert not bd.hard_filters_pass
+    assert any("planta" in r.lower() for r in bd.reasons_fail)
+
+
+def test_scorer_accepts_high_floor():
+    scorer = ResidenceScorer(MIN_FLOOR_CONFIG)
+    bd = scorer.score(_mk_bcn(floor="4ª"))
+    assert bd.hard_filters_pass
+
+
+def test_scorer_rejects_missing_floor_when_required():
+    scorer = ResidenceScorer(MIN_FLOOR_CONFIG)
+    bd = scorer.score(_mk_bcn(floor=None))
+    assert not bd.hard_filters_pass
+
+
+def test_scorer_rejects_forbidden_condition():
+    scorer = ResidenceScorer(MIN_FLOOR_CONFIG)
+    bd = scorer.score(_mk_bcn(condition="reformar"))
+    assert not bd.hard_filters_pass
+    assert any("estado" in r.lower() for r in bd.reasons_fail)
+
+
+def test_scorer_accepts_good_condition():
+    scorer = ResidenceScorer(MIN_FLOOR_CONFIG)
+    for cond in ["nuevo", "buen_estado", "desconocido"]:
+        bd = scorer.score(_mk_bcn(condition=cond))
+        assert bd.hard_filters_pass, f"debería aceptar condition={cond}"

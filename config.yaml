@@ -23,125 +23,86 @@ scraping:
 search_mode: residence
 
 # ── Target locations ──────────────────────────────────────────────────────
-# Add/remove locations here. Each entry defines a city (canonical name)
-# and optionally allowed_districts (whitelist) or excluded_districts (blacklist).
+# TEST MODE: solo Barcelona, barrios específicos alrededor de Maragall/Clot
 target_locations:
-  - city: sant just desvern
-  - city: molins de rei
-  - city: sant feliu de llobregat
-  - city: sant cugat del vallès
-  - city: castelldefels
-    # Solo zonas concretas, principalmente Montemar
-    preferred_districts: ["montemar", "el poal", "els canyars", "vista alegre", "playa"]
-    excluded_districts: ["muntanya circular", "bellamar-poal", "zona industrial"]
-  - city: premià de dalt
-  - city: premià de mar
-    # Solo debajo de Gran Via (zona costa/centro)
-    preferred_districts: ["centre", "eixample", "sant cristòfol", "santa anna", "costa", "platja", "playa"]
-    excluded_districts: ["muntanya", "abril"]
-  - city: vilassar de mar
-  - city: vilassar de dalt
-  - city: esplugues de llobregat
-    preferred_districts: ["centre", "pueblo", "poble", "casc antic"]
   - city: barcelona
-    preferred_districts: ["camp de l'arpa del clot", "camp de l'arpa", "el clot", "el guinardó", "guinardó"]
+    preferred_districts:
+      - "maragall"
+      - "el guinardó"
+      - "guinardó"
+      - "el camp de l'arpa del clot"
+      - "camp de l'arpa"
+      - "camp de l arpa"
+      - "el clot"
+      - "clot"
+      - "la sagrada família"
+      - "la sagrada familia"
+      - "sagrada família"
+      - "sagrada familia"
+      - "navas"
+      - "la sagrera"
 
-# ── Residence criteria: two profiles ──────────────────────────────────────
+# ── Residence criteria: single profile ─────────────────────────────────────
 residence_criteria:
-  # Perfil A: obra nueva, ≤ 360k, ≥ 2 hab
-  profile_new:
-    label: "Obra nueva"
-    max_price: 360000
-    min_rooms: 2
-    require_condition: ["nuevo"]      # only new-build
-    max_years_old: null
+  profile_general:
+    label: "General"
+    max_price: 335000                  # tope hasta 335k
+    min_rooms: 3                        # más de 2 hab
+    require_condition: null             # any condition allowed
+    forbid_condition: ["reformar"]      # no reformar (casi para entrar a vivir)
+    max_years_old: null                 # no restringido
 
-  # Perfil B: hasta 20 años, ≥ 3 hab, ≤ 285k (negociable hasta 315k)
-  profile_recent:
-    label: "Reciente (≤20 años)"
-    max_price: 285000
-    max_price_soft: 315000            # slightly above → soft-match (negotiable)
-    min_rooms: 3
-    max_years_old: 20
-    require_condition: null           # any condition allowed
-
-# ── Common requirements (both profiles) ───────────────────────────────────
+# ── Common requirements ────────────────────────────────────────────────────
 common_requirements:
-  min_area_m2: 60                     # minimum apartment size
-  require_elevator: true              # ascensor
-  require_balcony: true               # balcón, terraza o patio
-  prefer_views: true                  # "vistas amplias" — used as bonus, not hard filter
+  min_area_m2: 60                       # tamaño razonable
+  require_elevator: true                # ascensor obligatorio
+  require_balcony: false                # no obligatorio
+  min_floor: 3                          # planta ≥ 3 (después de la 2ª)
 
 # ═══════════════════════════════════════════════════════════════════════════
 # Portals - URLs per target location
 # ═══════════════════════════════════════════════════════════════════════════
 portals:
-  # ── WORKS WITHOUT PROXY (verified) ──────────────────────────────────────
+  # ── Runs on residential IP (Mac) → all 4 portals available ─────────────
   pisos:
     enabled: true
     search_urls:
-      - "https://www.pisos.com/venta/pisos-sant_just_desvern/"
-      - "https://www.pisos.com/venta/pisos-molins_de_rei/"
-      - "https://www.pisos.com/venta/pisos-sant_feliu_de_llobregat/"
-      - "https://www.pisos.com/venta/pisos-sant_cugat_del_valles/"
-      - "https://www.pisos.com/venta/pisos-castelldefels/"
-      - "https://www.pisos.com/venta/pisos-premia_de_dalt/"
-      - "https://www.pisos.com/venta/pisos-premia_de_mar/"
-      - "https://www.pisos.com/venta/pisos-vilassar_de_mar/"
-      - "https://www.pisos.com/venta/pisos-vilassar_de_dalt/"
-      - "https://www.pisos.com/venta/pisos-esplugues_de_llobregat/"
       - "https://www.pisos.com/venta/pisos-barcelona-el_guinardo/"
+      - "https://www.pisos.com/venta/pisos-barcelona-la_sagrada_familia/"
+      - "https://www.pisos.com/venta/pisos-barcelona-el_clot/"
+      - "https://www.pisos.com/venta/pisos-barcelona-navas/"
     max_pages: 5
 
   habitaclia:
     enabled: true
     search_urls:
-      - "https://www.habitaclia.com/viviendas-sant_just_desvern.htm"
-      - "https://www.habitaclia.com/viviendas-molins_de_rei.htm"
-      - "https://www.habitaclia.com/viviendas-sant_cugat_del_valles.htm"
-      - "https://www.habitaclia.com/viviendas-castelldefels.htm"
-      - "https://www.habitaclia.com/viviendas-premia_de_mar.htm"
-      - "https://www.habitaclia.com/viviendas-premia_de_dalt-barcelona.htm"
-      - "https://www.habitaclia.com/viviendas-vilassar_de_mar-barcelona.htm"
-      - "https://www.habitaclia.com/viviendas-vilassar_de_dalt-barcelona.htm"
-      - "https://www.habitaclia.com/viviendas-esplugues_de_llobregat_l-barcelona.htm"
       - "https://www.habitaclia.com/viviendas-el_camp_del_arpa_del_clot-barcelona.htm"
+      - "https://www.habitaclia.com/viviendas-el_clot-barcelona.htm"
+      - "https://www.habitaclia.com/viviendas-la_sagrada_familia-barcelona.htm"
+      - "https://www.habitaclia.com/viviendas-navas-barcelona.htm"
       - "https://www.habitaclia.com/viviendas-el_guinardo-barcelona.htm"
+      - "https://www.habitaclia.com/viviendas-la_sagrera-barcelona.htm"
     max_pages: 5
 
-  # ── NEED PROXY — enabled anyway so they auto-work when SCRAPER_PROXY is set ──
-  # Without proxy they return 403 and are silently skipped (no error)
   idealista:
     enabled: true
     search_urls:
-      - "https://www.idealista.com/venta-viviendas/sant-just-desvern/"
-      - "https://www.idealista.com/venta-viviendas/molins-de-rei/"
-      - "https://www.idealista.com/venta-viviendas/sant-feliu-de-llobregat/"
-      - "https://www.idealista.com/venta-viviendas/sant-cugat-del-valles/"
-      - "https://www.idealista.com/venta-viviendas/castelldefels/"
-      - "https://www.idealista.com/venta-viviendas/premia-de-dalt/"
-      - "https://www.idealista.com/venta-viviendas/premia-de-mar/"
-      - "https://www.idealista.com/venta-viviendas/vilassar-de-mar/"
-      - "https://www.idealista.com/venta-viviendas/vilassar-de-dalt/"
-      - "https://www.idealista.com/venta-viviendas/esplugues-de-llobregat/"
-      - "https://www.idealista.com/venta-viviendas/barcelona/sant-marti/el-camp-de-larpa-del-clot/"
-      - "https://www.idealista.com/venta-viviendas/barcelona/horta-guinardo/el-guinardo/"
+      - "https://www.idealista.com/venta-viviendas/barcelona/eixample/la-sagrada-familia/con-precio-hasta_335000,de-tres-dormitorios,de-cuatro-cinco-habitaciones,ascensor/"
+      - "https://www.idealista.com/venta-viviendas/barcelona/sant-marti/el-camp-de-larpa-del-clot/con-precio-hasta_335000,de-tres-dormitorios,de-cuatro-cinco-habitaciones,ascensor/"
+      - "https://www.idealista.com/venta-viviendas/barcelona/sant-marti/el-clot/con-precio-hasta_335000,de-tres-dormitorios,de-cuatro-cinco-habitaciones,ascensor/"
+      - "https://www.idealista.com/venta-viviendas/barcelona/sant-andreu/navas/con-precio-hasta_335000,de-tres-dormitorios,de-cuatro-cinco-habitaciones,ascensor/"
+      - "https://www.idealista.com/venta-viviendas/barcelona/horta-guinardo/el-guinardo/con-precio-hasta_335000,de-tres-dormitorios,de-cuatro-cinco-habitaciones,ascensor/"
+      - "https://www.idealista.com/venta-viviendas/barcelona/sant-andreu/la-sagrera/con-precio-hasta_335000,de-tres-dormitorios,de-cuatro-cinco-habitaciones,ascensor/"
     max_pages: 5
   fotocasa:
     enabled: true
     search_urls:
-      - "https://www.fotocasa.es/es/comprar/viviendas/sant-just-desvern/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/molins-de-rei/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/sant-feliu-de-llobregat/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/sant-cugat-del-valles/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/castelldefels/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/premia-de-dalt/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/premia-de-mar/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/vilassar-de-mar/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/vilassar-de-dalt/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/esplugues-de-llobregat/todas-las-zonas/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sant-marti/l"
-      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/horta-guinardo/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/la-sagrada-familia/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/el-clot/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/el-camp-de-l-arpa-del-clot/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/navas/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/el-guinardo/l"
+      - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/la-sagrera/l"
     max_pages: 5
 
   # ── Bank-owned portals: not relevant for Barcelona metro residence search ──

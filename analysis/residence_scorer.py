@@ -1,13 +1,11 @@
 """Residence match scorer: evaluates listings against personal-home criteria.
 
-Unlike InvestmentScorer (which optimises yield), this scores how well a listing
-matches the user's stated preferences for a primary residence.
+Config-driven: any number of profiles under `residence_criteria`. Each profile
+has its own hard filters (price, rooms, condition). A listing that matches ANY
+profile passes; the winning profile name is stored in the breakdown.
 
-Two profiles evaluated:
-  A) New-build: max_price 360k, ≥2 rooms
-  B) Recent (≤20 years): max_price 285k (soft 315k), ≥3 rooms
-
-Common requirements: elevator, balcony, ≥60m², preferred/allowed districts.
+Common requirements (elevator, balcony, min area, min floor, districts) apply
+to all profiles.
 """
 import logging
 import re
@@ -19,12 +17,12 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class MatchBreakdown:
-    matches_profile: str | None = None      # "new" | "recent" | None
+    matches_profile: str | None = None      # profile name that matched (e.g. "general")
     hard_filters_pass: bool = False
-    price_score: float = 0.0                # closer to budget → higher
-    location_score: float = 0.0             # preferred district bonus
-    features_score: float = 0.0             # elevator, balcony, views
-    size_score: float = 0.0                 # more rooms/m² → higher
+    price_score: float = 0.0
+    location_score: float = 0.0
+    features_score: float = 0.0
+    size_score: float = 0.0
     condition_score: float = 0.0
     total: float = 0.0
     reasons_pass: list[str] = None
@@ -48,7 +46,6 @@ _BALCONY_RE = re.compile(r"\bbalc[oó]n(?:es)?\b|\bterraza\b|\bterrat\b|\bpatio\
 _VIEWS_RE = re.compile(r"\bvistas?\b|\bpanor[aá]mic\w*\b|\bmar\b|\bmonta[nñ]a\b", re.I)
 _YEAR_RE = re.compile(r"\bconstru[íi]do\s+(?:en\s+)?(\d{4})\b|\ba[nñ]o\s+(?:de\s+construcci[oó]n[:\s]+)?(\d{4})\b", re.I)
 
-# Rented or occupied → discard (buying a home to live in, not investment)
 _RENTED_RE = re.compile(
     r"\balquilad[oa]\b|\bcon\s+inquilino\b|\barrendad[oa]\b|"
     r"\brenta\s+antigua\b|\bcontrato\s+de\s+alquiler\b|"
@@ -64,9 +61,7 @@ _OCCUPIED_RE = re.compile(
 
 
 def extract_features(listing: dict) -> dict:
-    """Parse text fields to detect elevator, balcony, views, year built."""
     text = " ".join(str(listing.get(k) or "") for k in ("title", "description"))
-
     has_elevator = None
     if _NO_ELEVATOR_RE.search(text):
         has_elevator = False
@@ -92,6 +87,42 @@ def extract_features(listing: dict) -> dict:
     }
 
 
+def parse_floor(raw: str | None) -> int | None:
+    """Parse a floor string into an integer (0 = ground floor, 0.5 not used).
+
+    Handles: '3ª', '3', 'Planta 3', 'Bajo', 'Entresuelo', 'Principal', 'Ático', etc.
+    Returns None if unparseable.
+    """
+    if not raw:
+        return None
+    s = str(raw).lower().strip()
+
+    if not s or s in ("null", "none", "-"):
+        return None
+
+    # Words → floor number
+    word_map = {
+        "bajo": 0, "planta baja": 0, "pb": 0,
+        "entresuelo": 1, "entlo": 1,
+        "principal": 2, "pral": 2,
+        "ático": 10, "atico": 10, "áticos": 10,
+        "sobreático": 11, "sobreatico": 11,
+    }
+    for word, val in word_map.items():
+        if word in s:
+            return val
+
+    # Numeric extraction: "3ª", "3", "3ra", "planta 3", etc.
+    m = re.search(r"(\d+)", s)
+    if m:
+        try:
+            n = int(m.group(1))
+            return n if 0 <= n <= 30 else None
+        except ValueError:
+            pass
+    return None
+
+
 # ── Main scorer ──────────────────────────────────────────────────────────────
 
 class ResidenceScorer:
@@ -102,7 +133,6 @@ class ResidenceScorer:
         self._city_index = {t["city"].lower(): t for t in self._targets}
 
     def _match_target_location(self, city: str, district: str | None) -> tuple[dict | None, str]:
-        """Return (target_entry, status). status: 'preferred' | 'ok' | 'excluded' | 'not_targeted'."""
         city_key = (city or "").lower().strip()
         district_key = (district or "").lower().strip()
 
@@ -124,16 +154,17 @@ class ResidenceScorer:
             if preferred:
                 if any(pref in district_key for pref in preferred):
                     return target, "preferred"
-                # If preferred list exists but no match → not in accepted area
                 return target, "not_preferred"
 
+        # No district info — if there's a preferred list, we can't verify
+        if preferred:
+            return target, "not_preferred"
         return target, "ok"
 
     def score(self, listing: dict) -> MatchBreakdown:
         bd = MatchBreakdown()
 
         # ── Hard filter: rented / occupied / squatted ────────────────────────
-        # Buying to live in — no tenants, no okupas
         text = " ".join(str(listing.get(k) or "") for k in ("title", "description"))
         if _RENTED_RE.search(text):
             bd.reasons_fail.append("Alquilado / con inquilino")
@@ -145,11 +176,11 @@ class ResidenceScorer:
         price = listing.get("price")
         area = listing.get("area_m2")
         rooms = listing.get("rooms")
+        floor_raw = listing.get("floor")
         condition = (listing.get("condition") or "desconocido").lower()
         city = listing.get("city") or ""
         district = listing.get("district")
 
-        # Feature extraction (elevator, balcony, views, year)
         features = extract_features(listing)
         has_elevator = features["has_elevator"]
         has_balcony = features["has_balcony"]
@@ -165,76 +196,91 @@ class ResidenceScorer:
             bd.reasons_fail.append(f"Barrio excluido: {district}")
             return bd
         if loc_status == "not_preferred":
-            bd.reasons_fail.append(f"Barrio no está en la zona preferida ({city}): {district}")
+            bd.reasons_fail.append(f"Barrio no preferido ({city}): {district}")
             return bd
 
-        # ── Hard filter: price/area/rooms sanity ─────────────────────────────
+        # ── Hard filter: price/area/rooms data present ───────────────────────
         if not price or not area or not rooms:
             bd.reasons_fail.append("Datos incompletos (precio/m²/hab)")
             return bd
 
+        # ── Hard filter: min area ────────────────────────────────────────────
         min_area = self._common.get("min_area_m2", 60)
         if area < min_area:
             bd.reasons_fail.append(f"Superficie {area:.0f}m² < mínimo {min_area}m²")
             return bd
 
-        # ── Profile matching ─────────────────────────────────────────────────
-        profile_new = self._criteria.get("profile_new", {})
-        profile_recent = self._criteria.get("profile_recent", {})
+        # ── Hard filter: min floor ───────────────────────────────────────────
+        min_floor = self._common.get("min_floor")
+        floor_num = parse_floor(floor_raw)
+        if min_floor is not None:
+            if floor_num is None:
+                # Unknown floor + strict requirement → reject
+                bd.reasons_fail.append(f"Planta no declarada (mínimo {min_floor}ª)")
+                return bd
+            if floor_num < min_floor:
+                bd.reasons_fail.append(f"Planta {floor_num} < mínimo {min_floor}")
+                return bd
 
-        matches_new = self._matches_profile(price, rooms, condition, year_built, profile_new)
-        matches_recent = self._matches_profile(price, rooms, condition, year_built, profile_recent)
-
-        if not matches_new and not matches_recent:
-            reasons = []
-            if condition == "nuevo":
-                if price > profile_new.get("max_price", 999_999_999):
-                    reasons.append(f"Obra nueva {price:,.0f}€ > 360k€")
-            if year_built and datetime.now().year - year_built > 20:
-                reasons.append(f"Antigüedad {datetime.now().year - year_built}a > 20a")
-            if rooms < 2:
-                reasons.append(f"{rooms} hab. < mínimo 2")
-            bd.reasons_fail.append(" | ".join(reasons) or "No cumple ninguno de los 2 perfiles")
+        # ── Hard filter: forbid_condition (across ALL profiles) ──────────────
+        # (a listing whose condition is forbidden fails regardless of profile)
+        forbid_global = set()
+        for prof in self._criteria.values():
+            for c in prof.get("forbid_condition") or []:
+                forbid_global.add(c.lower())
+        if condition in forbid_global:
+            bd.reasons_fail.append(f"Estado no aceptado: {condition}")
             return bd
 
-        if matches_new:
-            bd.matches_profile = "new"
-            bd.reasons_pass.append("Obra nueva ≤360k, ≥2 hab")
-        elif matches_recent:
-            bd.matches_profile = "recent"
-            soft = profile_recent.get("max_price_soft", 315_000)
-            if price > profile_recent.get("max_price", 285_000):
-                bd.reasons_pass.append(f"Reciente ≤20a, ≥3 hab (precio {price:,.0f}€ negociable)")
-            else:
-                bd.reasons_pass.append("Reciente ≤20a, ≥3 hab, ≤285k")
+        # ── Profile matching: try each defined profile ───────────────────────
+        matched_profile_name = None
+        matched_profile = None
+        for name, prof in self._criteria.items():
+            if self._matches_profile(price, rooms, condition, year_built, prof):
+                matched_profile_name = name.replace("profile_", "")
+                matched_profile = prof
+                break
 
-        # ── Hard filter: elevator / balcony ──────────────────────────────────
-        # If required and explicitly denied → fail. If unknown → soft-warn.
+        if not matched_profile:
+            reasons = []
+            for name, prof in self._criteria.items():
+                soft_max = prof.get("max_price_soft") or prof.get("max_price")
+                if soft_max and price > soft_max:
+                    reasons.append(f"{name}: precio {price:,.0f}€ > {soft_max:,.0f}€")
+                if prof.get("min_rooms") and rooms < prof["min_rooms"]:
+                    reasons.append(f"{name}: {rooms} hab < {prof['min_rooms']}")
+                required = prof.get("require_condition")
+                if required and condition not in required:
+                    reasons.append(f"{name}: condición {condition} no en {required}")
+            bd.reasons_fail.append(" | ".join(reasons[:3]) or "No cumple ningún perfil")
+            return bd
+
+        bd.matches_profile = matched_profile_name
+        bd.reasons_pass.append(matched_profile.get("label", matched_profile_name))
+
+        # ── Hard filter: elevator ────────────────────────────────────────────
         if self._common.get("require_elevator") and has_elevator is False:
             bd.reasons_fail.append("Sin ascensor (obligatorio)")
             return bd
 
-        # ── Now compute soft score (0-100) ───────────────────────────────────
+        # ── Hard filter: balcony (only if required) ──────────────────────────
+        # If the listing description doesn't mention balcony BUT require_balcony=True,
+        # we do soft-warn (many listings just don't mention it, don't want to lose them)
+
+        # ── Soft score (0-100) ───────────────────────────────────────────────
         bd.hard_filters_pass = True
 
-        # Price score: better if further under budget
-        if bd.matches_profile == "new":
-            max_p = profile_new.get("max_price", 360_000)
-        else:
-            max_p = profile_recent.get("max_price_soft", 315_000)
+        max_p = matched_profile.get("max_price_soft") or matched_profile.get("max_price", 400_000)
         ratio = price / max_p
-        # 100 at 60% of budget, linearly down to 30 at 100%
         bd.price_score = max(30.0, min(100.0, 100.0 - (ratio - 0.6) * 175.0))
 
-        # Location score: preferred district > ok
         bd.location_score = 100.0 if loc_status == "preferred" else 70.0
 
-        # Features score: elevator, balcony, views
         feat = 0
         if has_elevator is True:
             feat += 40
         elif has_elevator is None:
-            feat += 20  # unknown → half credit
+            feat += 20
         if has_balcony is True:
             feat += 40
         elif has_balcony is None:
@@ -245,16 +291,13 @@ class ResidenceScorer:
         if has_balcony is None and self._common.get("require_balcony"):
             bd.reasons_pass.append("⚠ balcón no confirmado")
 
-        # Size score
-        rooms_norm = min(rooms, 4) / 4  # 4+ rooms → 100
+        rooms_norm = min(rooms, 4) / 4
         area_norm = min(area, 120) / 120
         bd.size_score = round((rooms_norm * 0.4 + area_norm * 0.6) * 100, 1)
 
-        # Condition score
         cond_map = {"nuevo": 100, "buen_estado": 80, "desconocido": 60, "reformar": 30}
         bd.condition_score = float(cond_map.get(condition, 60))
 
-        # Total weighted
         bd.total = round(
             bd.price_score * 0.30
             + bd.location_score * 0.25
@@ -278,6 +321,10 @@ class ResidenceScorer:
 
         required = profile.get("require_condition")
         if required and condition not in required:
+            return False
+
+        forbidden = profile.get("forbid_condition") or []
+        if condition in [c.lower() for c in forbidden]:
             return False
 
         max_years = profile.get("max_years_old")

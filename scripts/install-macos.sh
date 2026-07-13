@@ -25,9 +25,18 @@ fi
 PY_VERSION=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
 echo "==> Python version: $PY_VERSION"
 
-if [[ "$PY_VERSION" < "3.10" ]]; then
-    echo "❌ Need Python 3.10+. Install with: brew install python@3.11"
-    exit 1
+# Numeric version check (bash lex-compare would call 3.9 >= 3.10)
+if ! python3 -c 'import sys; sys.exit(0 if sys.version_info >= (3,10) else 1)'; then
+    echo "❌ Need Python 3.10+. Installing python@3.11 via Homebrew…"
+    if ! command -v brew >/dev/null 2>&1; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        eval "$(/opt/homebrew/bin/brew shellenv)" 2>/dev/null || eval "$(/usr/local/bin/brew shellenv)" 2>/dev/null
+    fi
+    brew install python@3.11
+    # Use the new python3.11 for the venv
+    PYTHON_BIN="$(brew --prefix python@3.11)/bin/python3.11"
+else
+    PYTHON_BIN="$(command -v python3)"
 fi
 
 if ! command -v git >/dev/null 2>&1; then
@@ -49,8 +58,8 @@ fi
 
 # ── 3. Python venv + deps ────────────────────────────────────────────────
 if [ ! -d "$INSTALL_DIR/venv" ]; then
-    echo "==> Creating venv"
-    python3 -m venv "$INSTALL_DIR/venv"
+    echo "==> Creating venv with $PYTHON_BIN"
+    "$PYTHON_BIN" -m venv "$INSTALL_DIR/venv"
 fi
 "$INSTALL_DIR/venv/bin/pip" install --upgrade pip -q
 "$INSTALL_DIR/venv/bin/pip" install -r "$INSTALL_DIR/requirements.txt" -q
