@@ -27,6 +27,11 @@ class HabitacliaScraper(BaseScraper):
             logger.info(f"Habitaclia page {page}: {current_url}")
             html = self._get_html(current_url, referer=BASE_URL if page == 1 else search_url)
 
+            # If HTTP returns block page ('Pardon Our Interruption'), try Selenium
+            if html and ("Pardon Our Interruption" in html or len(html) < 20000):
+                logger.warning(f"Habitaclia HTTP blocked (page {page}), trying Selenium")
+                html = self._selenium_get(current_url)
+
             if html is None:
                 break
 
@@ -48,6 +53,14 @@ class HabitacliaScraper(BaseScraper):
                 page += 1
             else:
                 break
+
+    def _selenium_get(self, url: str) -> str | None:
+        try:
+            from scraper.selenium_driver import get_page_html
+            return get_page_html(url, wait_selector="article.list-item, .list-item", wait_seconds=3.0, use_undetected=True)
+        except Exception as e:
+            logger.warning(f"Habitaclia Selenium failed: {e}")
+            return None
 
     def _parse_card(self, card) -> RawListing | None:
         try:
