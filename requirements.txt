@@ -8,6 +8,7 @@ python-dotenv==1.0.1
 typer==0.9.0
 rich==13.7.0
 python-dateutil==2.8.2
-selenium==4.28.1
+selenium==4.15.2
 undetected-chromedriver==3.5.5
 setuptools==75.6.0
+websockets==12.0
