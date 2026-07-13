@@ -60,15 +60,13 @@ def init_db(config: dict) -> None:
 @app.command()
 def scrape(
     portal: str = typer.Option("all", help="Portal a scrapear: all, idealista, fotocasa, pisos, habitaclia"),
-    once: bool = typer.Option(False, "--once", help="Ejecutar una sola vez y salir (sin scheduler)"),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Logging detallado"),
 ):
-    """Ejecuta el scraper. Por defecto arranca el scheduler automático."""
+    """Arranca el scheduler permanente (scrape cada 12h + digest + feedback poll)."""
     setup_logging(verbose)
     config = load_config()
     init_db(config)
 
-    # Filter portals if specific portal requested
     if portal != "all":
         for p in config["portals"]:
             if p != portal:
@@ -76,42 +74,57 @@ def scrape(
 
     from scheduler.jobs import PipelineOrchestrator, create_scheduler
 
-    if once:
-        console.print(f"[cyan]Ejecutando scraper (modo único)...[/cyan]")
-        orchestrator = PipelineOrchestrator(config)
+    console.print("[cyan]Iniciando scheduler...[/cyan]")
+    scheduler, orchestrator = create_scheduler(config)
+
+    console.print("[cyan]Ejecutando primera pasada...[/cyan]")
+    try:
         stats = orchestrator.run_purchase_scrape()
-        console.print(f"[green]Completado:[/green] {stats['new']} nuevos, {stats['updated']} actualizados, {stats['errors']} errores")
-    else:
-        console.print("[cyan]Iniciando scheduler...[/cyan]")
-        scheduler, orchestrator = create_scheduler(config)
+        console.print(f"[green]Primera pasada:[/green] {stats}")
+    except Exception as e:
+        console.print(f"[red]Error en primera pasada:[/red] {e}")
 
-        # Run immediately on start
-        console.print("[cyan]Ejecutando primera pasada...[/cyan]")
-        try:
-            stats = orchestrator.run_purchase_scrape()
-            console.print(f"[green]Primera pasada:[/green] {stats}")
-        except Exception as e:
-            console.print(f"[red]Error en primera pasada:[/red] {e}")
+    print("[STARTUP] Running one-shot feedback poll before scheduler loop", flush=True)
+    try:
+        orchestrator.run_feedback_poll()
+        print("[STARTUP] Feedback poll ok", flush=True)
+    except Exception as e:
+        print(f"[STARTUP] Feedback poll error: {e}", flush=True)
 
-        # Also drain any pending Telegram feedback immediately
-        print("[STARTUP] Running one-shot feedback poll before scheduler loop", flush=True)
-        try:
-            orchestrator.run_feedback_poll()
-            print("[STARTUP] Feedback poll ok", flush=True)
-        except Exception as e:
-            print(f"[STARTUP] Feedback poll error: {e}", flush=True)
+    console.print(f"[green]Scheduler activo. Próximo scraping en {config['scheduler']['scrape_interval_hours']}h[/green]")
+    print("[STARTUP] Calling scheduler.start() — entering main loop", flush=True)
+    try:
+        scheduler.start()
+    except (KeyboardInterrupt, SystemExit):
+        console.print("[yellow]Scheduler detenido.[/yellow]")
+    except Exception as e:
+        print(f"[FATAL] scheduler.start() crashed: {e!r}", flush=True)
+        import traceback
+        traceback.print_exc()
+        raise
 
-        console.print(f"[green]Scheduler activo. Próximo scraping en {config['scheduler']['scrape_interval_hours']}h[/green]")
-        print("[STARTUP] Calling scheduler.start() — entering main loop", flush=True)
-        try:
-            scheduler.start()
-        except (KeyboardInterrupt, SystemExit):
-            console.print("[yellow]Scheduler detenido.[/yellow]")
-        except Exception as e:
-            print(f"[FATAL] scheduler.start() crashed: {e!r}", flush=True)
-            import traceback
-            traceback.print_exc()
-            raise
+
+@app.command("scrape-once")
+def scrape_once(
+    portal: str = typer.Option("all", help="Portal a scrapear: all, idealista, fotocasa, pisos, habitaclia"),
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Logging detallado"),
+):
+    """Ejecuta un solo scrape y sale (para pruebas)."""
+    setup_logging(verbose)
+    config = load_config()
+    init_db(config)
+
+    if portal != "all":
+        for p in config["portals"]:
+            if p != portal:
+                config["portals"][p]["enabled"] = False
+
+    from scheduler.jobs import PipelineOrchestrator
+
+    console.print("[cyan]Ejecutando scraper (modo único)...[/cyan]")
+    orchestrator = PipelineOrchestrator(config)
+    stats = orchestrator.run_purchase_scrape()
+    console.print(f"[green]Completado:[/green] {stats}")
 
 
 @app.command()
