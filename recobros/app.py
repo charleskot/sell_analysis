@@ -15,10 +15,10 @@ import streamlit as st
 from recobros.db import get_conn
 from recobros.importer import importar_csv, generar_plan, n_cuotas_estimado
 from recobros.logic import (
-    ETAPAS_RECOBRO, HIGH_TICKET_MIN, actualizar_contacto, asignar_gestor,
-    cargar_panel, cobros_mensuales, embudo_recobros, generar_alarmas,
-    registrar_actividad, registrar_pago, resumen_aging, resumen_por_comercial,
-    set_etapa,
+    ETAPA_DEFECTO, ETAPAS_RECOBRO, HIGH_TICKET_MIN, actualizar_contacto,
+    asignar_gestor, cargar_panel, cobros_mensuales, embudo_recobros,
+    generar_alarmas, registrar_actividad, registrar_pago, registrar_pronto_pago,
+    resumen_aging, resumen_por_comercial, set_etapa,
 )
 from recobros.sync import sync_excel
 
@@ -44,6 +44,13 @@ def eur(x) -> str:
     return f"{x:,.0f}€".replace(",", ".")
 
 
+def _v(valor, default=""):
+    """Devuelve default si el valor es None o NaN (pandas convierte NULL en NaN)."""
+    if valor is None or (isinstance(valor, float) and pd.isna(valor)):
+        return default
+    return valor
+
+
 def render_kpis(panel: pd.DataFrame):
     activos = panel[panel["saldo_pendiente"] > 0.01]
     morosos = panel[panel["estado"].astype(str).str.startswith("Moroso")]
@@ -60,7 +67,7 @@ def render_kpis(panel: pd.DataFrame):
 
 
 def _fmt_etapa(e) -> str:
-    return str(e or "pendiente_contactar").replace("_", " ").capitalize()
+    return str(e or ETAPA_DEFECTO).replace("_", " ").capitalize()
 
 
 def render_tabla(panel: pd.DataFrame):
@@ -88,6 +95,7 @@ def render_tabla(panel: pd.DataFrame):
                 "ultima_gestion", "tipo_pago", "edicion", "comercial", "precio"]].copy()
     vista["estado"] = vista["estado"].astype(str).map(lambda e: f"{COLOR_ESTADO.get(e,'')} {e}")
     vista["etapa_recobro"] = vista["etapa_recobro"].map(_fmt_etapa)
+    vista["gestor_recobro"] = vista["gestor_recobro"].fillna("")
     vista.columns = ["ID", "Alumno", "Estado", "Etapa", "Gestor", "Días retraso",
                      "Deuda vencida €", "Saldo pendiente €", "Próx. vencimiento",
                      "Próx. cuota €", "Última gestión", "Tipo pago", "Edición",
@@ -185,9 +193,9 @@ def render_ficha(conn, panel: pd.DataFrame):
     st.caption(f"Matrícula: {r['fecha_matricula']} · {r['tipo_pago']} · {r['edicion']} · "
                f"Comercial: {r['comercial']} · Canal: {r['canal']}")
 
-    # Funnel de recobros: etapa (la mueve el gestor) + asignación
+    # Funnel de cobro: etapa (la mueve el gestor) + asignación
     et1, et2 = st.columns([2, 2])
-    etapa_actual = r.get("etapa_recobro") or "pendiente_contactar"
+    etapa_actual = r.get("etapa_recobro") or ETAPA_DEFECTO
     nueva_etapa = et1.selectbox(
         "Etapa de recobro", ETAPAS_RECOBRO,
         index=ETAPAS_RECOBRO.index(etapa_actual) if etapa_actual in ETAPAS_RECOBRO else 0,
@@ -195,7 +203,7 @@ def render_ficha(conn, panel: pd.DataFrame):
     if nueva_etapa != etapa_actual:
         set_etapa(conn, alumno_id, nueva_etapa)
         st.rerun()
-    gestor_actual = r.get("gestor_recobro") or ""
+    gestor_actual = _v(r.get("gestor_recobro"), "")
     nuevo_gestor = et2.text_input("Gestor asignado", value=gestor_actual, key=f"ges_{alumno_id}")
     if nuevo_gestor != gestor_actual:
         asignar_gestor(conn, alumno_id, nuevo_gestor)
@@ -276,6 +284,28 @@ def render_ficha(conn, panel: pd.DataFrame):
                 if sobrante > 0.01:
                     st.warning(f"Pago aplicado. Sobrante sin cuota a la que aplicar: {eur(sobrante)}")
                 st.rerun()
+
+        st.subheader("🏷️ Descuento pronto pago")
+        saldo = float(_v(r.get("saldo_pendiente"), 0))
+        pp_importe = _v(r.get("pronto_pago_importe"), 0)
+        if pp_importe:
+            lim_val = _v(r.get("pronto_pago_limite"), "")
+            lim = f" · válido hasta {lim_val}" if lim_val else ""
+            st.info(f"Oferta activa: {_v(r.get('pronto_pago_pct'), 0):.0f}% dto → "
+                    f"pagar {eur(pp_importe)}{lim}")
+        if saldo <= 0:
+            st.caption("Sin saldo pendiente: nada que ofrecer.")
+        else:
+            with st.form(f"pp_{alumno_id}"):
+                pct = st.slider("Descuento por pagar ahora (%)", 0, 50,
+                                int(_v(r.get("pronto_pago_pct"), 0)), 5)
+                importe_pactado = round(saldo * (1 - pct / 100), 2)
+                st.metric("Pagaría ahora", eur(importe_pactado),
+                          delta=f"-{eur(saldo - importe_pactado)}", delta_color="inverse")
+                limite = st.date_input("Válido hasta", value=None, key=f"ppl_{alumno_id}")
+                if st.form_submit_button("Guardar oferta") and pct > 0:
+                    registrar_pronto_pago(conn, alumno_id, pct, importe_pactado, limite)
+                    st.rerun()
 
         st.subheader("📞 Registrar gestión")
         with st.form(f"act_{alumno_id}", clear_on_submit=True):

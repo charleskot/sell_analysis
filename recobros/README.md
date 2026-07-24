@@ -33,20 +33,23 @@ scraping y fuera de git).
   las cuotas pendientes más antiguas) y **registrar una gestión** (con fecha de
   compromiso para las promesas de pago). Permite **regenerar el plan** si se
   renegocian los plazos.
-- **Funnel de recobros (7 etapas)**: cada caso tiene una etapa que mueve el
-  gestor desde la ficha (`pendiente_contactar` → `contactado` → `en_negociacion`
-  → `compromiso_pago` → `cierre_satisfactorio`, con salidas `ilocalizado` y
-  `cierre_fallido`). Se asigna un **gestor** a cada caso. Etapa y gestor son
-  filtrables y visibles en la tabla.
-- **Embudo de recobros**: los casos por etapa, medido en dinero (deuda vencida y
+- **Funnel de cobro (4 etapas)**: cada caso tiene una etapa que mueve el gestor
+  desde la ficha — `pendiente` → `en_gestion` → `cobrado` / `incobrable`.
+  Enfocado en **cobrar** (no en negociar). Se asigna un **gestor** a cada caso.
+  Etapa y gestor son filtrables y visibles en la tabla.
+- **Embudo de cobro**: los casos por etapa, medido en dinero (deuda vencida y
   recobrado), no en nº de casos; los casos ya cobrados permanecen en su etapa.
+- **Descuento por pronto pago**: desde la ficha se ofrece un descuento por pagar
+  ya (slider de %), calcula el importe a pagar y su ahorro, con fecha límite; la
+  oferta queda registrada en el historial de gestiones.
 - **Analíticas de cartera**: distribución por estado de morosidad (aging),
   deuda por comercial y cobros por mes.
 - **Exportación**: la lista filtrada de alumnos se descarga en CSV.
 
-> El **estado de morosidad** (por tiempo, automático) y la **etapa de recobro**
+> El **estado de morosidad** (por tiempo, automático) y la **etapa de cobro**
 > (el trabajo del caso, la mueve el gestor) son dos ejes distintos y
-> complementarios, igual que en el sistema de Hofmann.
+> complementarios. A diferencia de Hofmann (funnel de negociación), aquí el
+> funnel está orientado a **cobrar**.
 
 ## Modelo de negocio reflejado (high vs low ticket)
 

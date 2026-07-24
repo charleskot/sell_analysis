@@ -83,11 +83,10 @@ def cargar_panel(conn, hoy: date | None = None) -> pd.DataFrame:
     return df.sort_values(["estado", "dias_retraso"], ascending=[True, False])
 
 
-# ── Funnel de recobros: etapas que mueve el gestor desde la ficha ────────────
-ETAPAS_RECOBRO = [
-    "pendiente_contactar", "contactado", "en_negociacion", "compromiso_pago",
-    "cierre_satisfactorio", "ilocalizado", "cierre_fallido",
-]
+# ── Funnel de cobro: etapas que mueve el gestor desde la ficha ───────────────
+# Enfoque en cobrar (no en negociar): flujo mínimo.
+ETAPAS_RECOBRO = ["pendiente", "en_gestion", "cobrado", "incobrable"]
+ETAPA_DEFECTO = "pendiente"
 
 
 def set_etapa(conn, alumno_id: int, etapa: str):
@@ -103,12 +102,29 @@ def asignar_gestor(conn, alumno_id: int, gestor: str):
     conn.commit()
 
 
+def registrar_pronto_pago(conn, alumno_id: int, descuento_pct: float,
+                          importe_pactado: float, limite: date | None = None, nota: str = ""):
+    """Registra una oferta de descuento por pronto pago para cerrar la deuda ya.
+
+    Guarda la oferta en el alumno y la deja como gestión en el historial.
+    """
+    conn.execute(
+        "UPDATE alumnos SET pronto_pago_pct = ?, pronto_pago_importe = ?, pronto_pago_limite = ? "
+        "WHERE id = ?",
+        (descuento_pct, importe_pactado, limite.isoformat() if limite else None, alumno_id))
+    detalle = f"Descuento pronto pago {descuento_pct:.0f}% → pagar {importe_pactado:,.0f}€"
+    if limite:
+        detalle += f" antes del {limite.isoformat()}"
+    registrar_actividad(conn, alumno_id, "pronto_pago", nota or detalle, fecha_compromiso=limite)
+    conn.commit()
+
+
 def embudo_recobros(panel: pd.DataFrame) -> pd.DataFrame:
     """Embudo medido en dinero (no en nº de casos). Los 100% cobrados se quedan."""
     if panel.empty:
         return pd.DataFrame(columns=["etapa", "casos", "deuda_vencida", "recobrado"])
     p = panel.copy()
-    p["etapa_recobro"] = p["etapa_recobro"].fillna("pendiente_contactar")
+    p["etapa_recobro"] = p["etapa_recobro"].fillna(ETAPA_DEFECTO)
     p["recobrado"] = p["total_pagado"].fillna(0)
     g = p.groupby("etapa_recobro").agg(
         casos=("id", "count"),

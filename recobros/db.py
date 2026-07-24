@@ -27,8 +27,11 @@ CREATE TABLE IF NOT EXISTS alumnos (
     ref_externa TEXT,                       -- id del pedido Woo / contacto HubSpot
     hubspot_estado TEXT,                    -- último estado de morosidad empujado a HubSpot
     hubspot_sync_fecha TEXT,                -- cuándo se empujó por última vez
-    etapa_recobro TEXT DEFAULT 'pendiente_contactar',  -- funnel de recobros (7 etapas)
-    gestor_recobro TEXT                     -- gestor asignado al caso (assignment)
+    etapa_recobro TEXT DEFAULT 'pendiente', -- funnel de cobro: pendiente/en_gestion/cobrado/incobrable
+    gestor_recobro TEXT,                    -- gestor asignado al caso (assignment)
+    pronto_pago_pct REAL,                   -- % de descuento por pronto pago ofrecido
+    pronto_pago_importe REAL,               -- importe pactado a pagar con el descuento
+    pronto_pago_limite TEXT                 -- fecha límite de la oferta (ISO)
 );
 
 CREATE TABLE IF NOT EXISTS cuotas (
@@ -75,10 +78,22 @@ _MIGRACIONES = {
         "ref_externa": "TEXT",
         "hubspot_estado": "TEXT",
         "hubspot_sync_fecha": "TEXT",
-        "etapa_recobro": "TEXT DEFAULT 'pendiente_contactar'",
+        "etapa_recobro": "TEXT DEFAULT 'pendiente'",
         "gestor_recobro": "TEXT",
+        "pronto_pago_pct": "REAL",
+        "pronto_pago_importe": "REAL",
+        "pronto_pago_limite": "TEXT",
     },
 }
+
+# Etapas antiguas (funnel de negociación) -> nuevas (funnel de cobro).
+_REMAP_ETAPAS = {
+    "pendiente_contactar": "pendiente", "contactado": "pendiente",
+    "en_negociacion": "en_gestion", "compromiso_pago": "en_gestion",
+    "ilocalizado": "en_gestion", "cierre_satisfactorio": "cobrado",
+    "cierre_fallido": "incobrable",
+}
+_ETAPAS_VALIDAS = ("pendiente", "en_gestion", "cobrado", "incobrable")
 
 
 def _migrar(conn: sqlite3.Connection):
@@ -87,6 +102,13 @@ def _migrar(conn: sqlite3.Connection):
         for col, definicion in columnas.items():
             if col not in existentes:
                 conn.execute(f"ALTER TABLE {tabla} ADD COLUMN {col} {definicion}")
+    # remapea etapas del funnel antiguo y normaliza cualquier valor desconocido
+    for viejo, nuevo in _REMAP_ETAPAS.items():
+        conn.execute("UPDATE alumnos SET etapa_recobro = ? WHERE etapa_recobro = ?", (nuevo, viejo))
+    marcadores = ",".join("?" * len(_ETAPAS_VALIDAS))
+    conn.execute(
+        f"UPDATE alumnos SET etapa_recobro = 'pendiente' "
+        f"WHERE etapa_recobro IS NULL OR etapa_recobro NOT IN ({marcadores})", _ETAPAS_VALIDAS)
     conn.commit()
 
 
