@@ -176,6 +176,28 @@ def generar_alarmas(conn, panel: pd.DataFrame, hoy: date | None = None) -> pd.Da
     return df.sort_values(["prioridad", "alumno"]).reset_index(drop=True)
 
 
+# ── Sincronización con HubSpot: estado de morosidad ─────────────────────────
+
+# Valor interno del panel -> valor que se escribe en la propiedad de HubSpot.
+# Ajusta la derecha a las opciones reales del desplegable de HubSpot si difieren.
+ESTADO_HUBSPOT = {
+    "Moroso +90d": "moroso_90",
+    "Moroso 61-90d": "moroso_60",
+    "Moroso 31-60d": "moroso_30",
+    "Moroso 1-30d": "moroso_30",
+    "Vence pronto": "al_dia",
+    "Al día": "al_dia",
+    "Financiado (Nemuru)": "financiado",
+    "Completado": "completado",
+    "Sin plan": "al_dia",
+}
+
+
+def estado_hubspot(estado) -> str:
+    """Traduce el estado del panel al valor de la propiedad de morosidad de HubSpot."""
+    return ESTADO_HUBSPOT.get(str(estado), "al_dia")
+
+
 # ── Analíticas de cartera ──────────────────────────────────────────────────
 
 def resumen_aging(panel: pd.DataFrame) -> pd.DataFrame:

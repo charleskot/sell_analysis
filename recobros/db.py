@@ -22,7 +22,11 @@ CREATE TABLE IF NOT EXISTS alumnos (
     tipo_cli TEXT,
     telefono TEXT,
     email TEXT,
-    notas TEXT
+    notas TEXT,
+    origen TEXT DEFAULT 'excel',            -- excel | woocommerce | hubspot
+    ref_externa TEXT,                       -- id del pedido Woo / contacto HubSpot
+    hubspot_estado TEXT,                    -- último estado de morosidad empujado a HubSpot
+    hubspot_sync_fecha TEXT                 -- cuándo se empujó por última vez
 );
 
 CREATE TABLE IF NOT EXISTS cuotas (
@@ -62,6 +66,26 @@ CREATE INDEX IF NOT EXISTS idx_actividades_alumno ON actividades(alumno_id);
 """
 
 
+# Columnas añadidas después de la primera versión: se aplican a bases ya creadas.
+_MIGRACIONES = {
+    "alumnos": {
+        "origen": "TEXT DEFAULT 'excel'",
+        "ref_externa": "TEXT",
+        "hubspot_estado": "TEXT",
+        "hubspot_sync_fecha": "TEXT",
+    },
+}
+
+
+def _migrar(conn: sqlite3.Connection):
+    for tabla, columnas in _MIGRACIONES.items():
+        existentes = {r["name"] for r in conn.execute(f"PRAGMA table_info({tabla})")}
+        for col, definicion in columnas.items():
+            if col not in existentes:
+                conn.execute(f"ALTER TABLE {tabla} ADD COLUMN {col} {definicion}")
+    conn.commit()
+
+
 def get_conn(db_path: Path | str = DB_PATH) -> sqlite3.Connection:
     db_path = Path(db_path)
     db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -69,4 +93,5 @@ def get_conn(db_path: Path | str = DB_PATH) -> sqlite3.Connection:
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
     conn.executescript(SCHEMA)
+    _migrar(conn)
     return conn

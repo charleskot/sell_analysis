@@ -54,17 +54,58 @@ scraping y fuera de git).
 `Moroso 61-90d` · `Moroso +90d` · `Completado` · `Financiado (Nemuru)` ·
 `Sin plan`. Se recalculan en cada carga con la fecha actual.
 
+## Fuentes de datos e integraciones
+
+El panel se alimenta de tres fuentes que se consolidan **por email** (sin
+duplicar a la misma persona) en la misma base de datos:
+
+| Fuente | Módulo | Rol |
+|--------|--------|-----|
+| **Excel/CSV histórico** | `sources/excel_source.py` | Matrículas de antes del ecommerce nuevo. Se suben desde la barra lateral del panel o por CLI. Columnas con nombres flexibles (sinónimos). |
+| **WooCommerce** | `sources/woocommerce.py` | Ventas, plazos y pagos en vivo (REST API v3). |
+| **HubSpot** | `sources/hubspot.py` | Enriquece los datos de contacto (tel/email) y **recibe el estado de morosidad** (CRM API v3). |
+
+`sources/base.py` define el registro normalizado (`AlumnoRecord`) y la fusión
+por email (`upsert_alumnos`). `sync.py` orquesta el flujo y trae una CLI:
+
+```bash
+python -m recobros.sync excel data/matriculas_2023.xlsx  # subir histórico
+python -m recobros.sync woo                                # importar pedidos Woo
+python -m recobros.sync hubspot-contactos                 # enriquecer contactos
+python -m recobros.sync push-estados                      # escribir morosidad en HubSpot
+python -m recobros.sync all                               # woo + contactos + push
+```
+
+Sin credenciales, los pasos de Woo/HubSpot funcionan en **dry-run** (no llaman a
+la API), de modo que el flujo completo se puede probar sin claves.
+
+### Configuración (variables de entorno — ver `.env.example`)
+
+| Variable | Uso |
+|----------|-----|
+| `HUBSPOT_TOKEN` | Token privado de la app de HubSpot. |
+| `HUBSPOT_PROP_MOROSIDAD` | Nombre interno de la propiedad de contacto donde se escribe el estado (def: `estado_recobro`). |
+| `WOO_URL`, `WOO_KEY`, `WOO_SECRET` | Credenciales de la tienda WooCommerce. |
+
+**Pendiente de confirmar desde el proyecto `bihsales`** para pasar de dry-run a
+producción: (1) las claves de arriba; (2) el nombre interno real y los valores
+del desplegable de la propiedad de morosidad en HubSpot (mapeo en
+`logic.ESTADO_HUBSPOT`); (3) qué plugin gestiona los plazos en WooCommerce, para
+afinar `WooClient._tipo_pago_desde_pedido`.
+
 ## Estructura
 
 | Archivo | Responsabilidad |
 |---------|-----------------|
 | `db.py` | Esquema SQLite y conexión (`alumnos`, `cuotas`, `pagos`, `actividades`). |
-| `importer.py` | Importación idempotente de `alumnos.csv` y generación de planes. |
-| `logic.py` | Estados, cálculo del panel, aplicación de pagos, alarmas, contacto y analíticas. |
+| `importer.py` | Importación de `alumnos.csv` y generación de planes de cuotas. |
+| `logic.py` | Estados, cálculo del panel, pagos, alarmas, analíticas y mapeo a HubSpot. |
+| `sources/` | Fuentes de datos (base, excel, woocommerce, hubspot). |
+| `sync.py` | Orquestador de sincronización + CLI. |
 | `app.py` | Interfaz Streamlit. |
-| `requirements.txt` | Dependencias del módulo (`pandas`, `streamlit`). |
+| `requirements.txt` | Dependencias (`pandas`, `streamlit`, `requests`, `openpyxl`). |
 
-Tests en `tests/test_recobros.py` (16 casos): `pytest tests/test_recobros.py`.
+Tests: `pytest tests/test_recobros.py tests/test_sources.py` (29 casos).
 
 ## Integración en Versa
 

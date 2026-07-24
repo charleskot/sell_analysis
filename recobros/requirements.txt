@@ -1,4 +1,7 @@
 # Dependencias del panel de recobros (módulo autónomo).
-# db.py e importer.py solo usan la stdlib; logic.py y app.py necesitan:
+# db.py, importer.py y sources/base.py solo usan la stdlib.
+# El resto (logic, app, sources, sync) necesita:
 pandas>=2.0
 streamlit>=1.30
+requests>=2.31        # conectores HubSpot / WooCommerce
+openpyxl>=3.1         # lectura de subidas .xlsx

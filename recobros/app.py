@@ -19,6 +19,7 @@ from recobros.logic import (
     generar_alarmas, registrar_actividad, registrar_pago,
     resumen_aging, resumen_por_comercial,
 )
+from recobros.sync import sync_excel
 
 st.set_page_config(page_title="Panel de Recobros", page_icon="💶", layout="wide")
 
@@ -264,6 +265,20 @@ def main():
     if st.sidebar.button("🔄 Reimportar alumnos.csv"):
         n = importar_csv()
         st.sidebar.success(f"{n} alumnos nuevos importados")
+        st.rerun()
+
+    st.sidebar.subheader("Subir matrículas (Excel/CSV)")
+    st.sidebar.caption("Histórico pre-ecommerce. Se fusiona por email sin duplicar.")
+    subida = st.sidebar.file_uploader("Archivo", type=["xlsx", "xls", "csv"],
+                                      label_visibility="collapsed")
+    if subida is not None and st.sidebar.button("Importar archivo"):
+        tmp = Path(st.session_state.get("_tmpdir", ".")) / f"_subida_{subida.name}"
+        tmp.write_bytes(subida.getbuffer())
+        try:
+            res = sync_excel(str(tmp), conn)
+            st.sidebar.success(f"Nuevos {res['nuevos']} · actualizados {res['actualizados']}")
+        finally:
+            tmp.unlink(missing_ok=True)
         st.rerun()
 
     panel = cargar_panel(conn)
