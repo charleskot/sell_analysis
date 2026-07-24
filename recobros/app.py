@@ -15,8 +15,9 @@ import streamlit as st
 from recobros.db import get_conn
 from recobros.importer import importar_csv, generar_plan, n_cuotas_estimado
 from recobros.logic import (
-    HIGH_TICKET_MIN, cargar_panel, generar_alarmas,
-    registrar_actividad, registrar_pago,
+    HIGH_TICKET_MIN, actualizar_contacto, cargar_panel, cobros_mensuales,
+    generar_alarmas, registrar_actividad, registrar_pago,
+    resumen_aging, resumen_por_comercial,
 )
 
 st.set_page_config(page_title="Panel de Recobros", page_icon="💶", layout="wide")
@@ -82,6 +83,8 @@ def render_tabla(panel: pd.DataFrame):
                      "Última gestión", "Tipo pago", "Edición", "Comercial", "Precio €"]
     st.dataframe(vista, use_container_width=True, hide_index=True, height=520)
     st.caption(f"{len(df)} alumnos · deuda vencida filtrada: {eur(df['deuda_vencida'].sum())}")
+    st.download_button("⬇️ Exportar esta lista (CSV)", vista.to_csv(index=False).encode("utf-8"),
+                       file_name="recobros_lista.csv", mime="text/csv")
 
 
 def render_alarmas(conn, panel: pd.DataFrame):
@@ -95,6 +98,41 @@ def render_alarmas(conn, panel: pd.DataFrame):
         alarmas[["tipo", "alumno_id", "alumno", "detalle"]].rename(
             columns={"tipo": "Alarma", "alumno_id": "ID", "alumno": "Alumno", "detalle": "Detalle"}),
         use_container_width=True, hide_index=True, height=480)
+
+
+def render_analiticas(conn, panel: pd.DataFrame):
+    st.subheader("Cartera por estado de morosidad")
+    aging = resumen_aging(panel)
+    if not aging.empty:
+        c1, c2 = st.columns([3, 2])
+        with c1:
+            st.bar_chart(aging.set_index("estado")["saldo_pendiente"], height=300)
+        with c2:
+            tabla = aging.copy()
+            tabla["saldo_pendiente"] = tabla["saldo_pendiente"].map(eur)
+            tabla["deuda_vencida"] = tabla["deuda_vencida"].map(eur)
+            tabla.columns = ["Estado", "Alumnos", "Saldo pendiente", "Deuda vencida"]
+            st.dataframe(tabla, use_container_width=True, hide_index=True)
+
+    st.divider()
+    st.subheader("Deuda por comercial")
+    por_com = resumen_por_comercial(panel)
+    if por_com.empty:
+        st.caption("Sin deuda pendiente.")
+    else:
+        tabla = por_com.copy()
+        tabla["deuda_vencida"] = tabla["deuda_vencida"].map(eur)
+        tabla["saldo_pendiente"] = tabla["saldo_pendiente"].map(eur)
+        tabla.columns = ["Comercial", "Alumnos", "Deuda vencida", "Saldo pendiente"]
+        st.dataframe(tabla, use_container_width=True, hide_index=True)
+
+    st.divider()
+    st.subheader("Cobros por mes")
+    cobros = cobros_mensuales(conn)
+    if cobros.empty:
+        st.caption("Aún no hay pagos registrados en el panel.")
+    else:
+        st.bar_chart(cobros.set_index("mes")["cobrado"], height=280)
 
 
 def render_ficha(conn, panel: pd.DataFrame):
@@ -116,6 +154,28 @@ def render_ficha(conn, panel: pd.DataFrame):
               delta_color="inverse")
     st.caption(f"Matrícula: {r['fecha_matricula']} · {r['tipo_pago']} · {r['edicion']} · "
                f"Comercial: {r['comercial']} · Canal: {r['canal']}")
+
+    tel = (r.get("telefono") or "").strip() if isinstance(r.get("telefono"), str) else ""
+    mail = (r.get("email") or "").strip() if isinstance(r.get("email"), str) else ""
+    enlaces = []
+    if tel:
+        enlaces.append(f"[📞 Llamar](tel:{tel})")
+        enlaces.append(f"[💬 WhatsApp](https://wa.me/{tel.lstrip('+').replace(' ', '')})")
+    if mail:
+        enlaces.append(f"[✉️ Email](mailto:{mail})")
+    if enlaces:
+        st.markdown(" · ".join(enlaces))
+
+    with st.expander("📇 Datos de contacto", expanded=not (tel or mail)):
+        with st.form(f"contacto_{alumno_id}"):
+            c_tel = st.text_input("Teléfono", value=tel, placeholder="+34...")
+            c_mail = st.text_input("Email", value=mail)
+            c_notas = st.text_area("Notas del alumno",
+                                   value=(r.get("notas") or "") if isinstance(r.get("notas"), str) else "")
+            if st.form_submit_button("Guardar contacto"):
+                actualizar_contacto(conn, alumno_id, c_tel, c_mail, c_notas)
+                st.success("Contacto actualizado.")
+                st.rerun()
 
     col_izq, col_der = st.columns([3, 2])
 
@@ -217,14 +277,16 @@ def main():
     render_kpis(panel)
     st.divider()
 
-    tab_alumnos, tab_alarmas, tab_ficha = st.tabs(
-        ["📋 Alumnos", "🚨 Alarmas", "👤 Ficha / Gestión"])
+    tab_alumnos, tab_alarmas, tab_ficha, tab_analiticas = st.tabs(
+        ["📋 Alumnos", "🚨 Alarmas", "👤 Ficha / Gestión", "📊 Analíticas"])
     with tab_alumnos:
         render_tabla(vista_panel)
     with tab_alarmas:
         render_alarmas(conn, vista_panel)
     with tab_ficha:
         render_ficha(conn, vista_panel)
+    with tab_analiticas:
+        render_analiticas(conn, panel)
 
 
 if __name__ == "__main__":

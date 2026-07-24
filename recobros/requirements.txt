@@ -1,0 +1,4 @@
+# Dependencias del panel de recobros (módulo autónomo).
+# db.py e importer.py solo usan la stdlib; logic.py y app.py necesitan:
+pandas>=2.0
+streamlit>=1.30

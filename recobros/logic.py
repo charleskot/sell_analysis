@@ -119,6 +119,16 @@ def registrar_actividad(conn, alumno_id: int, tipo: str, nota: str,
     conn.commit()
 
 
+def actualizar_contacto(conn, alumno_id: int, telefono: str = "",
+                        email: str = "", notas: str = ""):
+    """Guarda los datos de contacto que la persona de recobros necesita para gestionar."""
+    conn.execute(
+        "UPDATE alumnos SET telefono = ?, email = ?, notas = ? WHERE id = ?",
+        (telefono or None, email or None, notas or None, alumno_id),
+    )
+    conn.commit()
+
+
 def generar_alarmas(conn, panel: pd.DataFrame, hoy: date | None = None) -> pd.DataFrame:
     """Alarmas accionables para la persona de recobros, ordenadas por prioridad.
 
@@ -164,3 +174,39 @@ def generar_alarmas(conn, panel: pd.DataFrame, hoy: date | None = None) -> pd.Da
 
     df = pd.DataFrame(alarmas, columns=["prioridad", "tipo", "alumno_id", "alumno", "detalle"])
     return df.sort_values(["prioridad", "alumno"]).reset_index(drop=True)
+
+
+# ── Analíticas de cartera ──────────────────────────────────────────────────
+
+def resumen_aging(panel: pd.DataFrame) -> pd.DataFrame:
+    """Distribución de la cartera por estado: nº de alumnos y saldo pendiente."""
+    if panel.empty:
+        return pd.DataFrame(columns=["estado", "alumnos", "saldo_pendiente", "deuda_vencida"])
+    g = panel.groupby("estado", observed=True).agg(
+        alumnos=("id", "count"),
+        saldo_pendiente=("saldo_pendiente", "sum"),
+        deuda_vencida=("deuda_vencida", "sum"),
+    ).reindex(ESTADOS).dropna(how="all").reset_index()
+    g["alumnos"] = g["alumnos"].fillna(0).astype(int)
+    return g
+
+
+def resumen_por_comercial(panel: pd.DataFrame) -> pd.DataFrame:
+    """Deuda vencida y saldo pendiente agrupados por comercial que cerró la matrícula."""
+    if panel.empty:
+        return pd.DataFrame(columns=["comercial", "alumnos", "deuda_vencida", "saldo_pendiente"])
+    activos = panel[panel["saldo_pendiente"] > 0.01]
+    g = activos.groupby("comercial", dropna=False).agg(
+        alumnos=("id", "count"),
+        deuda_vencida=("deuda_vencida", "sum"),
+        saldo_pendiente=("saldo_pendiente", "sum"),
+    ).reset_index()
+    return g.sort_values("deuda_vencida", ascending=False).reset_index(drop=True)
+
+
+def cobros_mensuales(conn, meses: int = 12) -> pd.DataFrame:
+    """Importe cobrado por mes (según los pagos registrados en el panel)."""
+    df = pd.read_sql_query(
+        "SELECT strftime('%Y-%m', fecha) AS mes, SUM(importe) AS cobrado "
+        "FROM pagos GROUP BY mes ORDER BY mes DESC LIMIT ?", conn, params=(meses,))
+    return df.sort_values("mes").reset_index(drop=True)
