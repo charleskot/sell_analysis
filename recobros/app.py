@@ -15,9 +15,10 @@ import streamlit as st
 from recobros.db import get_conn
 from recobros.importer import importar_csv, generar_plan, n_cuotas_estimado
 from recobros.logic import (
-    HIGH_TICKET_MIN, actualizar_contacto, cargar_panel, cobros_mensuales,
-    generar_alarmas, registrar_actividad, registrar_pago,
-    resumen_aging, resumen_por_comercial,
+    ETAPAS_RECOBRO, HIGH_TICKET_MIN, actualizar_contacto, asignar_gestor,
+    cargar_panel, cobros_mensuales, embudo_recobros, generar_alarmas,
+    registrar_actividad, registrar_pago, resumen_aging, resumen_por_comercial,
+    set_etapa,
 )
 from recobros.sync import sync_excel
 
@@ -58,16 +59,23 @@ def render_kpis(panel: pd.DataFrame):
     c5.metric("Cobrado este mes", eur(pagos_mes))
 
 
+def _fmt_etapa(e) -> str:
+    return str(e or "pendiente_contactar").replace("_", " ").capitalize()
+
+
 def render_tabla(panel: pd.DataFrame):
-    col1, col2, col3, col4 = st.columns([2, 2, 2, 3])
+    col1, col2, col3, col4, col5 = st.columns([2, 2, 2, 2, 3])
     estados_sel = col1.multiselect("Estado", panel["estado"].astype(str).unique().tolist())
-    tipos_sel = col2.multiselect("Tipo de pago", sorted(panel["tipo_pago"].dropna().unique()))
-    ediciones_sel = col3.multiselect("Edición", sorted(panel["edicion"].dropna().unique()))
-    busqueda = col4.text_input("Buscar alumno", placeholder="Nombre...")
+    etapas_sel = col2.multiselect("Etapa recobro", ETAPAS_RECOBRO, format_func=_fmt_etapa)
+    tipos_sel = col3.multiselect("Tipo de pago", sorted(panel["tipo_pago"].dropna().unique()))
+    ediciones_sel = col4.multiselect("Edición", sorted(panel["edicion"].dropna().unique()))
+    busqueda = col5.text_input("Buscar alumno", placeholder="Nombre...")
 
     df = panel
     if estados_sel:
         df = df[df["estado"].astype(str).isin(estados_sel)]
+    if etapas_sel:
+        df = df[df["etapa_recobro"].fillna("pendiente_contactar").isin(etapas_sel)]
     if tipos_sel:
         df = df[df["tipo_pago"].isin(tipos_sel)]
     if ediciones_sel:
@@ -75,13 +83,15 @@ def render_tabla(panel: pd.DataFrame):
     if busqueda:
         df = df[df["nombre"].str.contains(busqueda, case=False, na=False)]
 
-    vista = df[["id", "nombre", "estado", "dias_retraso", "deuda_vencida", "saldo_pendiente",
-                "proximo_vencimiento", "proximo_importe", "ultima_gestion",
-                "tipo_pago", "edicion", "comercial", "precio"]].copy()
+    vista = df[["id", "nombre", "estado", "etapa_recobro", "gestor_recobro", "dias_retraso",
+                "deuda_vencida", "saldo_pendiente", "proximo_vencimiento", "proximo_importe",
+                "ultima_gestion", "tipo_pago", "edicion", "comercial", "precio"]].copy()
     vista["estado"] = vista["estado"].astype(str).map(lambda e: f"{COLOR_ESTADO.get(e,'')} {e}")
-    vista.columns = ["ID", "Alumno", "Estado", "Días retraso", "Deuda vencida €",
-                     "Saldo pendiente €", "Próx. vencimiento", "Próx. cuota €",
-                     "Última gestión", "Tipo pago", "Edición", "Comercial", "Precio €"]
+    vista["etapa_recobro"] = vista["etapa_recobro"].map(_fmt_etapa)
+    vista.columns = ["ID", "Alumno", "Estado", "Etapa", "Gestor", "Días retraso",
+                     "Deuda vencida €", "Saldo pendiente €", "Próx. vencimiento",
+                     "Próx. cuota €", "Última gestión", "Tipo pago", "Edición",
+                     "Comercial", "Precio €"]
     st.dataframe(vista, use_container_width=True, hide_index=True, height=520)
     st.caption(f"{len(df)} alumnos · deuda vencida filtrada: {eur(df['deuda_vencida'].sum())}")
     st.download_button("⬇️ Exportar esta lista (CSV)", vista.to_csv(index=False).encode("utf-8"),
@@ -136,6 +146,25 @@ def render_analiticas(conn, panel: pd.DataFrame):
         st.bar_chart(cobros.set_index("mes")["cobrado"], height=280)
 
 
+def render_embudo(panel: pd.DataFrame):
+    st.subheader("Embudo de recobros")
+    st.caption("Etapas del caso que mueve el gestor. Medido en dinero, no en nº de casos "
+               "— los casos ya cobrados se quedan en su etapa.")
+    emb = embudo_recobros(panel)
+    if emb.empty:
+        st.info("No hay alumnos con los filtros actuales.")
+        return
+    emb_vis = emb.copy()
+    emb_vis["etapa"] = emb_vis["etapa"].str.replace("_", " ").str.capitalize()
+    st.bar_chart(emb_vis.set_index("etapa")["deuda_vencida"], height=300)
+    tabla = emb.copy()
+    tabla["etapa"] = tabla["etapa"].str.replace("_", " ").str.capitalize()
+    tabla["deuda_vencida"] = tabla["deuda_vencida"].map(eur)
+    tabla["recobrado"] = tabla["recobrado"].map(eur)
+    tabla.columns = ["Etapa", "Casos", "Deuda vencida", "Recobrado"]
+    st.dataframe(tabla, use_container_width=True, hide_index=True)
+
+
 def render_ficha(conn, panel: pd.DataFrame):
     opciones = {f"[{r['id']}] {r['nombre']} — {COLOR_ESTADO.get(str(r['estado']),'')} {r['estado']}": r["id"]
                 for _, r in panel.iterrows()}
@@ -155,6 +184,22 @@ def render_ficha(conn, panel: pd.DataFrame):
               delta_color="inverse")
     st.caption(f"Matrícula: {r['fecha_matricula']} · {r['tipo_pago']} · {r['edicion']} · "
                f"Comercial: {r['comercial']} · Canal: {r['canal']}")
+
+    # Funnel de recobros: etapa (la mueve el gestor) + asignación
+    et1, et2 = st.columns([2, 2])
+    etapa_actual = r.get("etapa_recobro") or "pendiente_contactar"
+    nueva_etapa = et1.selectbox(
+        "Etapa de recobro", ETAPAS_RECOBRO,
+        index=ETAPAS_RECOBRO.index(etapa_actual) if etapa_actual in ETAPAS_RECOBRO else 0,
+        format_func=lambda e: e.replace("_", " ").capitalize(), key=f"et_{alumno_id}")
+    if nueva_etapa != etapa_actual:
+        set_etapa(conn, alumno_id, nueva_etapa)
+        st.rerun()
+    gestor_actual = r.get("gestor_recobro") or ""
+    nuevo_gestor = et2.text_input("Gestor asignado", value=gestor_actual, key=f"ges_{alumno_id}")
+    if nuevo_gestor != gestor_actual:
+        asignar_gestor(conn, alumno_id, nuevo_gestor)
+        st.rerun()
 
     tel = (r.get("telefono") or "").strip() if isinstance(r.get("telefono"), str) else ""
     mail = (r.get("email") or "").strip() if isinstance(r.get("email"), str) else ""
@@ -292,14 +337,16 @@ def main():
     render_kpis(panel)
     st.divider()
 
-    tab_alumnos, tab_alarmas, tab_ficha, tab_analiticas = st.tabs(
-        ["📋 Alumnos", "🚨 Alarmas", "👤 Ficha / Gestión", "📊 Analíticas"])
+    tab_alumnos, tab_alarmas, tab_ficha, tab_embudo, tab_analiticas = st.tabs(
+        ["📋 Alumnos", "🚨 Alarmas", "👤 Ficha / Gestión", "🔻 Embudo", "📊 Analíticas"])
     with tab_alumnos:
         render_tabla(vista_panel)
     with tab_alarmas:
         render_alarmas(conn, vista_panel)
     with tab_ficha:
         render_ficha(conn, vista_panel)
+    with tab_embudo:
+        render_embudo(vista_panel)
     with tab_analiticas:
         render_analiticas(conn, panel)
 

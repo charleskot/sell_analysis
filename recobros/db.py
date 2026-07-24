@@ -26,7 +26,9 @@ CREATE TABLE IF NOT EXISTS alumnos (
     origen TEXT DEFAULT 'excel',            -- excel | woocommerce | hubspot
     ref_externa TEXT,                       -- id del pedido Woo / contacto HubSpot
     hubspot_estado TEXT,                    -- último estado de morosidad empujado a HubSpot
-    hubspot_sync_fecha TEXT                 -- cuándo se empujó por última vez
+    hubspot_sync_fecha TEXT,                -- cuándo se empujó por última vez
+    etapa_recobro TEXT DEFAULT 'pendiente_contactar',  -- funnel de recobros (7 etapas)
+    gestor_recobro TEXT                     -- gestor asignado al caso (assignment)
 );
 
 CREATE TABLE IF NOT EXISTS cuotas (
@@ -73,6 +75,8 @@ _MIGRACIONES = {
         "ref_externa": "TEXT",
         "hubspot_estado": "TEXT",
         "hubspot_sync_fecha": "TEXT",
+        "etapa_recobro": "TEXT DEFAULT 'pendiente_contactar'",
+        "gestor_recobro": "TEXT",
     },
 }
 

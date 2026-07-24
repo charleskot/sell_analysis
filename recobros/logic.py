@@ -83,6 +83,42 @@ def cargar_panel(conn, hoy: date | None = None) -> pd.DataFrame:
     return df.sort_values(["estado", "dias_retraso"], ascending=[True, False])
 
 
+# ── Funnel de recobros: etapas que mueve el gestor desde la ficha ────────────
+ETAPAS_RECOBRO = [
+    "pendiente_contactar", "contactado", "en_negociacion", "compromiso_pago",
+    "cierre_satisfactorio", "ilocalizado", "cierre_fallido",
+]
+
+
+def set_etapa(conn, alumno_id: int, etapa: str):
+    if etapa not in ETAPAS_RECOBRO:
+        raise ValueError(f"etapa inválida: {etapa}")
+    conn.execute("UPDATE alumnos SET etapa_recobro = ? WHERE id = ?", (etapa, alumno_id))
+    conn.commit()
+
+
+def asignar_gestor(conn, alumno_id: int, gestor: str):
+    conn.execute("UPDATE alumnos SET gestor_recobro = ? WHERE id = ?",
+                 (gestor or None, alumno_id))
+    conn.commit()
+
+
+def embudo_recobros(panel: pd.DataFrame) -> pd.DataFrame:
+    """Embudo medido en dinero (no en nº de casos). Los 100% cobrados se quedan."""
+    if panel.empty:
+        return pd.DataFrame(columns=["etapa", "casos", "deuda_vencida", "recobrado"])
+    p = panel.copy()
+    p["etapa_recobro"] = p["etapa_recobro"].fillna("pendiente_contactar")
+    p["recobrado"] = p["total_pagado"].fillna(0)
+    g = p.groupby("etapa_recobro").agg(
+        casos=("id", "count"),
+        deuda_vencida=("deuda_vencida", "sum"),
+        recobrado=("recobrado", "sum"),
+    )
+    orden = [e for e in ETAPAS_RECOBRO if e in g.index]
+    return g.reindex(orden).reset_index().rename(columns={"etapa_recobro": "etapa"})
+
+
 def registrar_pago(conn, alumno_id: int, fecha: date, importe: float,
                    metodo: str = "", nota: str = ""):
     """Registra un pago y lo aplica en cascada a las cuotas pendientes más antiguas."""
