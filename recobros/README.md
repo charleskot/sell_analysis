@@ -27,11 +27,15 @@ scraping y fuera de git).
   edición y nombre.
 - **Alarmas** priorizadas y accionables: promesas incumplidas, morosos críticos
   (+60 días), vencidos sin gestión reciente y cuotas que vencen pronto.
-- **Ficha por alumno**: plan de cuotas, historial de pagos y de gestiones, con
-  formularios para **registrar un pago** (se aplica en cascada a las cuotas
-  pendientes más antiguas) y **registrar una gestión** (con fecha de compromiso
-  para las promesas de pago). Permite **regenerar el plan** si se renegocian los
-  plazos.
+- **Ficha por alumno**: datos de contacto editables con enlaces directos para
+  llamar, escribir por WhatsApp o email; plan de cuotas, historial de pagos y de
+  gestiones, con formularios para **registrar un pago** (se aplica en cascada a
+  las cuotas pendientes más antiguas) y **registrar una gestión** (con fecha de
+  compromiso para las promesas de pago). Permite **regenerar el plan** si se
+  renegocian los plazos.
+- **Analíticas de cartera**: distribución por estado de morosidad (aging),
+  deuda por comercial y cobros por mes.
+- **Exportación**: la lista filtrada de alumnos se descarga en CSV.
 
 ## Modelo de negocio reflejado (high vs low ticket)
 
@@ -56,8 +60,11 @@ scraping y fuera de git).
 |---------|-----------------|
 | `db.py` | Esquema SQLite y conexión (`alumnos`, `cuotas`, `pagos`, `actividades`). |
 | `importer.py` | Importación idempotente de `alumnos.csv` y generación de planes. |
-| `logic.py` | Estados, cálculo del panel, aplicación de pagos, alarmas. |
+| `logic.py` | Estados, cálculo del panel, aplicación de pagos, alarmas, contacto y analíticas. |
 | `app.py` | Interfaz Streamlit. |
+| `requirements.txt` | Dependencias del módulo (`pandas`, `streamlit`). |
+
+Tests en `tests/test_recobros.py` (16 casos): `pytest tests/test_recobros.py`.
 
 ## Integración en Versa
 
