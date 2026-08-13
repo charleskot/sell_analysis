@@ -1,26 +1,50 @@
 database:
   path: data/real_estate.db
 
+# ═══════════════════════════════════════════════════════════════════════════
+# ACQUISITION: portal alert emails (primary) — see docs/EMAIL_SETUP.md
+#
+# Scraping is dead for the portals that matter: Idealista and Fotocasa return
+# 403 even from a residential IP, Habitaclia serves an anti-bot interstitial,
+# and the bank portals are now SPAs with no server-rendered listings.
+# Alert emails carry the same data, arrive pushed, and cannot be blocked.
+# ═══════════════════════════════════════════════════════════════════════════
+email_ingest:
+  enabled: true
+  backend: gmail_api          # gmail_api (OAuth, read-only) | imap (app password)
+  token_path: data/gmail_token.json
+  query: ""                   # optional extra Gmail search terms
+
 scraping:
-  delay_min_seconds: 8       # más lento, evita que Habitaclia nos flag como bot
+  enabled: false              # portals block us; kept for when that changes
+  delay_min_seconds: 8
   delay_max_seconds: 15
   respect_robots: false
-  #
-  # ── Residential Proxy ──────────────────────────────────────────────────────
-  # REQUIRED for Idealista, Fotocasa, and Habitaclia (the main portals for
-  # Barcelona metro area). Without proxy these portals return 403.
-  #
-  # Set SCRAPER_PROXY in .env  →  http://user:pass@host:port
-  # ──────────────────────────────────────────────────────────────────────────
-  proxy: ""
+  proxy: ""                   # SCRAPER_PROXY env var overrides this
   proxy_list: []
   max_retries: 3
   selenium_fallback: false
 
 # ═══════════════════════════════════════════════════════════════════════════
-# SEARCH MODE: primary residence (not investment)
+# SEARCH MODE: buy-to-let investment
 # ═══════════════════════════════════════════════════════════════════════════
-search_mode: residence
+search_mode: investment
+
+# ── Financing profile ──────────────────────────────────────────────────────
+# Drives cuota, cashflow, cash-on-cash and DSCR. Adjust to whatever your
+# bank actually offers you.
+financing:
+  ltv_pct: 80                 # % financed by the bank (20% down payment)
+  annual_rate_pct: 3.0        # nominal annual interest rate
+  years: 30                   # mortgage term
+
+# ── Alert thresholds ───────────────────────────────────────────────────────
+# A listing must clear ONE of these to be worth interrupting you for.
+investment_thresholds:
+  min_net_yield_pct: 4.5      # net yield after costs, IBI, vacancy
+  min_monthly_cashflow: 0     # positive cashflow from month one
+  max_price: 350000           # ceiling regardless of how good the numbers look
+  min_rooms: 2
 
 # ── Target locations ──────────────────────────────────────────────────────
 # TEST MODE: solo Barcelona, barrios específicos alrededor de Maragall/Clot

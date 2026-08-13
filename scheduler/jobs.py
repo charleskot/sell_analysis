@@ -189,6 +189,90 @@ class PipelineOrchestrator:
 
         return stats
 
+    def run_email_ingest(self) -> dict:
+        """Read portal alert emails, score them, alert on the good ones.
+
+        This replaces scraping as the primary acquisition path: alert emails
+        arrive pushed, carry the same fields, and cannot be blocked.
+        """
+        from ingest.email_parsers import parse_email
+        from models.db import upsert_listing, upsert_metrics
+
+        stats = {"emails": 0, "parsed": 0, "new": 0, "updated": 0,
+                 "alerts_sent": 0, "errors": 0, "by_portal": {}}
+
+        reader = self._get_mail_reader()
+        if reader is None:
+            return stats
+
+        try:
+            messages = reader.fetch_new() if hasattr(reader, "fetch_new") else reader.fetch_unseen()
+        except Exception as e:
+            logger.error(f"Email fetch failed: {e}")
+            stats["errors"] += 1
+            return stats
+
+        stats["emails"] = len(messages)
+
+        for msg in messages:
+            try:
+                listings = parse_email(msg.sender, msg.subject, msg.html, msg.text)
+            except Exception as e:
+                logger.error(f"Parse failed for {msg.subject[:50]!r}: {e}")
+                stats["errors"] += 1
+                continue
+
+            for raw in listings:
+                stats["parsed"] += 1
+                portal_stats = stats["by_portal"].setdefault(
+                    raw.portal, {"parsed": 0, "alerts": 0}
+                )
+                portal_stats["parsed"] += 1
+
+                try:
+                    raw_dict = raw.to_dict()
+                    is_new = upsert_listing(raw_dict)
+                    stats["new" if is_new else "updated"] += 1
+
+                    metrics = self._compute_metrics(raw_dict)
+                    if not metrics:
+                        continue
+
+                    listing_id = f"{raw.portal}_{raw.external_id}"
+                    upsert_metrics(listing_id, metrics)
+
+                    score = metrics.get("investment_score", 0) or 0
+                    if is_new and self.alerter.send_alert(listing_id, raw_dict, metrics, score):
+                        stats["alerts_sent"] += 1
+                        portal_stats["alerts"] += 1
+
+                except Exception as e:
+                    logger.error(f"Error processing {raw.url}: {e}")
+                    stats["errors"] += 1
+
+        logger.info(f"Email ingest complete: {stats}")
+        for portal, pstats in stats["by_portal"].items():
+            logger.info(f"  📧 {portal}: {pstats['parsed']} anuncios, {pstats['alerts']} alertas")
+
+        return stats
+
+    def _get_mail_reader(self):
+        """Pick the configured mail backend. Cached after first call."""
+        if hasattr(self, "_mail_reader"):
+            return self._mail_reader
+
+        backend = (self.config.get("email_ingest", {}) or {}).get("backend", "gmail_api")
+
+        if backend == "imap":
+            from ingest.mailbox import Mailbox
+            reader = Mailbox(self.config)
+        else:
+            from ingest.gmail_api import GmailReader
+            reader = GmailReader(self.config)
+
+        self._mail_reader = reader if reader.enabled else None
+        return self._mail_reader
+
     def run_daily_digest(self) -> None:
         """Send daily digest of top opportunities via Telegram."""
         logger.info("Sending daily digest...")
@@ -255,6 +339,7 @@ class PipelineOrchestrator:
             purchase_costs_pct=purchase_costs_pct,
             expense_ratio=expense_ratio,
             capital_growth_pct=growth_pct,
+            financing=self.config.get("financing"),
         )
 
         # Compute investment score
@@ -282,18 +367,35 @@ def create_scheduler(config: dict):
     orchestrator = PipelineOrchestrator(config)
     scheduler = BlockingScheduler(timezone="Europe/Madrid")
 
-    scrape_hours = config.get("scheduler", {}).get("scrape_interval_hours", 12)
-    rental_days = config.get("scheduler", {}).get("rental_scrape_interval_days", 7)
+    sched_cfg = config.get("scheduler", {})
+    scrape_hours = sched_cfg.get("scrape_interval_hours", 12)
+    rental_days = sched_cfg.get("rental_scrape_interval_days", 7)
+    mail_minutes = sched_cfg.get("email_poll_minutes", 10)
 
-    scheduler.add_job(
-        func=orchestrator.run_purchase_scrape,
-        trigger="interval",
-        hours=scrape_hours,
-        id="purchase_scrape",
-        max_instances=1,
-        coalesce=True,
-        name="Purchase listings scrape",
-    )
+    # Primary acquisition path: portal alert emails. Runs frequently because
+    # a good deal in Barcelona is gone in hours, and polling email is cheap.
+    if config.get("email_ingest", {}).get("enabled", True):
+        scheduler.add_job(
+            func=orchestrator.run_email_ingest,
+            trigger="interval",
+            minutes=mail_minutes,
+            id="email_ingest",
+            max_instances=1,
+            coalesce=True,
+            name="Portal alert email ingest",
+        )
+
+    # Secondary: scraping, for whatever portals still let us in.
+    if config.get("scraping", {}).get("enabled", True):
+        scheduler.add_job(
+            func=orchestrator.run_purchase_scrape,
+            trigger="interval",
+            hours=scrape_hours,
+            id="purchase_scrape",
+            max_instances=1,
+            coalesce=True,
+            name="Purchase listings scrape",
+        )
 
     scheduler.add_job(
         func=orchestrator.run_rental_scrape,

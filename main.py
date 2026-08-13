@@ -104,6 +104,75 @@ def scrape(
         raise
 
 
+@app.command("mail-auth")
+def mail_auth(
+    port: int = typer.Option(8765, help="Puerto local para el redirect de Google"),
+):
+    """Autoriza el acceso de solo lectura al Gmail de alertas (una sola vez)."""
+    from ingest.gmail_oauth import GmailAuthError, run_auth_flow, save_refresh_token
+
+    config = load_config()
+
+    console.print("[cyan]Autorización de Gmail (permiso de solo lectura)[/cyan]")
+    console.print("Se abrirá el navegador. Elige la cuenta del buzón de alertas.\n")
+
+    try:
+        refresh_token, email = run_auth_flow(config, port=port)
+    except GmailAuthError as e:
+        console.print(f"[red]Error:[/red] {e}")
+        raise typer.Exit(code=1)
+
+    path = save_refresh_token(config, refresh_token, email)
+    console.print(f"\n[green]✅ Autorizado:[/green] {email or '(cuenta desconocida)'}")
+    console.print(f"[green]Token guardado en:[/green] {path}")
+    console.print("\nComprueba la conexión con: [cyan]python main.py mail-check[/cyan]")
+
+
+@app.command("mail-check")
+def mail_check(verbose: bool = typer.Option(False, "--verbose", "-v")):
+    """Verifica el acceso al buzón sin procesar nada."""
+    setup_logging(verbose)
+    config = load_config()
+    init_db(config)
+
+    backend = (config.get("email_ingest", {}) or {}).get("backend", "gmail_api")
+    if backend == "imap":
+        from ingest.mailbox import Mailbox
+        reader = Mailbox(config)
+    else:
+        from ingest.gmail_api import GmailReader
+        reader = GmailReader(config)
+
+    ok, message = reader.check_connection()
+    if ok:
+        console.print(f"[green]✅ Conexión correcta[/green] — {message}")
+    else:
+        console.print(f"[red]❌ Fallo:[/red] {message}")
+        raise typer.Exit(code=1)
+
+
+@app.command("mail-once")
+def mail_once(verbose: bool = typer.Option(False, "--verbose", "-v")):
+    """Lee las alertas nuevas del buzón una vez y sale (para pruebas)."""
+    setup_logging(verbose)
+    config = load_config()
+    init_db(config)
+
+    from scheduler.jobs import PipelineOrchestrator
+
+    console.print("[cyan]Leyendo correo de alertas...[/cyan]")
+    orchestrator = PipelineOrchestrator(config)
+    stats = orchestrator.run_email_ingest()
+
+    console.print(
+        f"\n[green]Resultado:[/green] {stats['emails']} emails · "
+        f"{stats['parsed']} anuncios · {stats['new']} nuevos · "
+        f"{stats['alerts_sent']} alertas enviadas"
+    )
+    for portal, pstats in stats.get("by_portal", {}).items():
+        console.print(f"  📧 {portal}: {pstats['parsed']} anuncios, {pstats['alerts']} alertas")
+
+
 @app.command("scrape-once")
 def scrape_once(
     portal: str = typer.Option("all", help="Portal a scrapear: all, idealista, fotocasa, pisos, habitaclia"),
