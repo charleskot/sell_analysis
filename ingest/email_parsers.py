@@ -35,7 +35,9 @@ PORTAL_SPECS = [
     {
         "portal": "habitaclia",
         "sender_match": ["habitaclia.com"],
-        "url_re": re.compile(r"https?://(?:www\.)?habitaclia\.com/[^\s\"'<>]*?-(\d{6,})\.htm", re.I),
+        # Habitaclia ids are suffixed as "-i12345678.htm"; some older links
+        # omit the "i", so it is optional.
+        "url_re": re.compile(r"https?://(?:www\.)?habitaclia\.com/[^\s\"'<>]*?-i?(\d{6,})\.htm", re.I),
     },
     {
         "portal": "servihabitat",
