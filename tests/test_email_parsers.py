@@ -252,3 +252,111 @@ def test_parse_email_tracking_does_not_break_multi_listing():
     assert len(listings) == 2
     assert by_id["1111"].price == 200000
     assert by_id["2222"].price == 300000
+
+
+# ── Title and location extraction ────────────────────────────────────────
+# Shapes below are taken from real Habitaclia alert emails.
+
+def test_extract_title_skips_url_and_spec_noise():
+    from ingest.email_parsers import extract_title
+    block = (
+        'https://www.habitaclia.com/i123/x.htm" target="_blank" style="none"> '
+        '| | | 220.000 € | | Piso en Barcelona - El Poble Sec - Pau | 52m 2 | 2 hab.'
+    )
+    assert extract_title(block) == "Piso en Barcelona - El Poble Sec - Pau"
+
+
+def test_extract_title_falls_back_to_subject():
+    from ingest.email_parsers import extract_title
+    assert extract_title("| | 100 € |", "Asunto de la alerta") == "Asunto de la alerta"
+
+
+def test_extract_location_city_and_district():
+    from ingest.email_parsers import extract_location
+    assert extract_location("Piso en Barcelona - El Poble Sec - Paral·lel") == (
+        "barcelona", "el poble sec",
+    )
+    assert extract_location("Ático en Sant Adrià de Besòs - Port Forum") == (
+        "sant adrià de besòs", "port forum",
+    )
+
+
+def test_extract_location_city_only():
+    from ingest.email_parsers import extract_location
+    assert extract_location("Casa en Sabadell") == ("sabadell", None)
+
+
+def test_extract_location_drops_truncated_district():
+    """Habitaclia truncates long titles; a '...' fragment is not a district."""
+    from ingest.email_parsers import extract_location
+    city, district = extract_location("Piso en Barcelona - Pa...")
+    assert city == "barcelona"
+    assert district is None
+
+
+def test_extract_location_unparseable():
+    from ingest.email_parsers import extract_location
+    assert extract_location("Oportunidad Anuncio nuevo") == (None, None)
+
+
+# ── Habitaclia alert-redirect URLs ───────────────────────────────────────
+
+def test_parse_habitaclia_alert_redirect_url():
+    """Alert emails link through /i{id}/... redirects, not canonical URLs."""
+    body = (
+        '<a href="https://www.habitaclia.com/i36598004379142/28112891/'
+        'express28112891/alertas/email/lo-34/20260813-e_nuevo_img.htm">x</a>'
+        "<div>220.000 €</div><div>52m 2</div><div>2 hab.</div>"
+        "<div>Piso en Barcelona - El Poble Sec - Pau</div>"
+    )
+    listings = parse_email("alertas@email.habitaclia.com", "novedades", body)
+    assert len(listings) == 1
+    got = listings[0]
+    assert got.external_id == "36598004379142"
+    assert got.price == 220000
+    assert got.area_m2 == 52
+    assert got.city == "barcelona"
+
+
+def test_parse_area_accepts_spaced_superscript():
+    """Habitaclia renders m² as 'm 2' once the markup is flattened."""
+    assert parse_area("52m 2") == 52
+    assert parse_area("109 m 2") == 109
+
+
+def test_price_range_filter_ignores_mortgage_quota():
+    """Alert emails advertise 'CUOTA DE HIPOTECA DESDE 719,80€' next to the
+    price — a quota must never be mistaken for a sale price."""
+    assert parse_price("719,80€") is None
+    assert parse_price("1.050€") is None      # monthly rent
+
+
+# ── Property signature (cross-agency dedup) ──────────────────────────────
+
+def test_property_signature_stable_across_listing_ids():
+    """The same flat marketed by two agencies has two listing ids but must
+    produce one signature, so the user gets one alert."""
+    from alerts.telegram_bot import TelegramAlerter
+    a = {"price": 199000, "area_m2": 91, "rooms": 3, "city": "gavà"}
+    b = {"price": 199000.0, "area_m2": 91.0, "rooms": 3, "city": "Gavà "}
+    assert TelegramAlerter.property_signature(a) == TelegramAlerter.property_signature(b)
+
+
+def test_property_signature_differs_for_different_flats():
+    from alerts.telegram_bot import TelegramAlerter
+    a = {"price": 199000, "area_m2": 91, "rooms": 3, "city": "gavà"}
+    b = {"price": 199000, "area_m2": 91, "rooms": 4, "city": "gavà"}
+    assert TelegramAlerter.property_signature(a) != TelegramAlerter.property_signature(b)
+
+
+@pytest.mark.parametrize("incomplete", [
+    {"price": None, "area_m2": 91, "rooms": 3, "city": "gavà"},
+    {"price": 199000, "area_m2": None, "rooms": 3, "city": "gavà"},
+    {"price": 199000, "area_m2": 91, "rooms": None, "city": "gavà"},
+    {"price": 199000, "area_m2": 91, "rooms": 3, "city": "desconocido"},
+    {"price": 199000, "area_m2": 91, "rooms": 3, "city": ""},
+])
+def test_property_signature_none_when_incomplete(incomplete):
+    """Never dedup on partial data — two unrelated flats would collide."""
+    from alerts.telegram_bot import TelegramAlerter
+    assert TelegramAlerter.property_signature(incomplete) is None

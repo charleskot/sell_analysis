@@ -43,8 +43,15 @@ class TelegramAlerter:
     def should_alert(self, score: float) -> bool:
         return self._enabled and score >= self._min_score
 
-    def send_alert(self, listing_id: str, listing: dict, metrics: dict, score: float) -> bool:
-        """Send individual property alert if score meets threshold and cooldown allows."""
+    def send_alert(self, listing_id: str, listing: dict, metrics: dict, score: float,
+                   dedup_key: str | None = None) -> bool:
+        """Send individual property alert if score meets threshold and cooldown allows.
+
+        dedup_key suppresses repeat alerts for the *same property* listed under
+        different ids. In Spain the same flat is routinely marketed by several
+        agencies, each with its own listing id, so the per-id cooldown alone
+        would send one alert per agency for one flat.
+        """
         from models.db import was_alert_sent_recently, record_alert_sent
 
         if not self.should_alert(score):
@@ -54,15 +61,40 @@ class TelegramAlerter:
             logger.debug(f"Alert cooldown active for {listing_id}")
             return False
 
+        if dedup_key and was_alert_sent_recently(dedup_key, self._cooldown_hours):
+            logger.info(f"Skipping {listing_id}: same property already alerted ({dedup_key})")
+            return False
+
         message = self._format_message(listing, metrics, score)
         keyboard = self._feedback_keyboard(listing_id)
         message_id = self._send_sync(message, reply_markup=keyboard)
 
         if message_id:
             record_alert_sent(listing_id, "telegram", message[:200], chat_message_id=message_id)
+            if dedup_key:
+                # Recorded against the property signature so a re-listing by
+                # another agency is recognised as the same flat.
+                record_alert_sent(dedup_key, "telegram", "", chat_message_id=message_id)
             logger.info(f"Telegram alert sent for {listing_id} (score {score:.0f})")
             return True
         return False
+
+    @staticmethod
+    def property_signature(listing: dict) -> str | None:
+        """Stable fingerprint for 'the same flat', independent of listing id.
+
+        Price, built area, rooms and city together identify a property closely
+        enough in practice. Returns None when any component is missing, so an
+        incomplete listing is never deduped against an unrelated one.
+        """
+        price = listing.get("price")
+        area = listing.get("area_m2")
+        rooms = listing.get("rooms")
+        city = (listing.get("city") or "").strip().lower()
+
+        if not price or not area or rooms is None or not city or city == "desconocido":
+            return None
+        return f"sig:{city}:{price:.0f}:{area:.0f}:{rooms}"
 
     @staticmethod
     def _feedback_keyboard(listing_id: str) -> dict:

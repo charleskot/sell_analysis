@@ -242,7 +242,10 @@ class PipelineOrchestrator:
                     upsert_metrics(listing_id, metrics)
 
                     score = metrics.get("investment_score", 0) or 0
-                    if is_new and self.alerter.send_alert(listing_id, raw_dict, metrics, score):
+                    dedup_key = self.alerter.property_signature(raw_dict)
+                    if is_new and self.alerter.send_alert(
+                        listing_id, raw_dict, metrics, score, dedup_key=dedup_key
+                    ):
                         stats["alerts_sent"] += 1
                         portal_stats["alerts"] += 1
 
@@ -320,6 +323,25 @@ class PipelineOrchestrator:
             return None
         if area < 20 or area > 2_000:
             logger.debug(f"Skipping unrealistic area {area}m²")
+            return None
+
+        # €/m² sanity band. Rent is estimated as €/m² × area, so an area that
+        # is actually the plot (masías, casas con terreno) or a parsing slip
+        # produces a fictitious rent and a spectacular fake yield — exactly
+        # the listings that would float to the top of the ranking.
+        #
+        # A genuine home in the Barcelona metro area does not trade below
+        # ~800 €/m². Anything under that means the area is not the built area,
+        # so the rent estimate cannot be trusted and neither can the yield.
+        sanity = self.config.get("analysis", {}).get("sanity", {})
+        min_ppm2 = sanity.get("min_price_per_m2", 800)
+        max_ppm2 = sanity.get("max_price_per_m2", 15_000)
+        ppm2 = price / area
+        if ppm2 < min_ppm2 or ppm2 > max_ppm2:
+            logger.info(
+                f"Skipping implausible €/m² ({ppm2:,.0f}) for {price:,.0f}€ / {area:.0f}m² "
+                f"— area is probably the plot, not the built area"
+            )
             return None
 
         # Get purchase costs for this city/region

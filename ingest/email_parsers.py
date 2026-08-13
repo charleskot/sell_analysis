@@ -36,9 +36,14 @@ PORTAL_SPECS = [
     {
         "portal": "habitaclia",
         "sender_match": ["habitaclia.com"],
-        # Habitaclia ids are suffixed as "-i12345678.htm"; some older links
-        # omit the "i", so it is optional.
-        "url_re": re.compile(r"https?://(?:www\.)?habitaclia\.com/[^\s\"'<>]*?-i?(\d{6,})\.htm", re.I),
+        # Two shapes, verified against real alert emails:
+        #   /i34685004369863/28112891/express.../alertas/email/...  (alert redirect)
+        #   /comprar-piso-el_clot-i9876543.htm                      (canonical)
+        # The redirect form is what alert emails actually use.
+        "url_re": re.compile(
+            r"https?://(?:www\.)?habitaclia\.com/(?:i(\d{8,})/|[^\s\"'<>]*?-i?(\d{6,})\.htm)",
+            re.I,
+        ),
     },
     {
         "portal": "servihabitat",
@@ -66,7 +71,9 @@ PORTAL_SPECS = [
 # ── Field patterns (Spanish, portal-agnostic) ────────────────────────────
 
 _PRICE_RE = re.compile(r"(\d{1,3}(?:[.\s]\d{3})+|\d{5,7})\s*€", re.I)
-_AREA_RE = re.compile(r"(\d{2,4})\s*m(?:2|²|\^2)\b", re.I)
+# Portals write the unit inconsistently: "78 m²", "78m2", and — in Habitaclia
+# alert emails — "78m 2", where the superscript became a spaced digit.
+_AREA_RE = re.compile(r"(\d{2,4})\s*m\s*(?:2|²|\^2)\b", re.I)
 _ROOMS_RE = re.compile(r"(\d{1,2})\s*(?:hab|dorm|habitaci|dormitori)\w*", re.I)
 _BATHS_RE = re.compile(r"(\d{1,2})\s*(?:baño|bany|aseo)\w*", re.I)
 _FLOOR_RE = re.compile(
@@ -161,6 +168,72 @@ def clean_url(url: str) -> str:
         return url
 
 
+# Flattened blocks are pipe-separated. A usable title is a segment with real
+# words in it — not a URL fragment, a bare figure, or leftover markup.
+_TITLE_NOISE_RE = re.compile(
+    r"https?://|target=|style=|utm_|^\W*$|^\s*[\d.,\s]+\s*(?:€|m\s*2|hab)?\s*$",
+    re.I,
+)
+
+# "Piso en Barcelona - El Poble Sec - Paral·lel" / "Ático en Sabadell - Centre"
+_LOCATION_RE = re.compile(
+    r"\b(?:piso|[áa]tico|d[úu]plex|casa|chalet|apartamento|estudio|loft|masía|masia|"
+    r"planta\s+baja|bajos?|adosad[oa]|paread[oa]|torre|finca)\s+en\s+([^|]+)",
+    re.I,
+)
+
+
+def extract_title(block: str, fallback: str = "") -> str:
+    """Pick the most title-like segment out of a flattened listing block."""
+    for segment in (s.strip() for s in block.split("|")):
+        if len(segment) < 12 or _TITLE_NOISE_RE.search(segment):
+            continue
+        # Needs enough letters to be prose rather than a spec line
+        if sum(c.isalpha() for c in segment) < 8:
+            continue
+        return segment[:200]
+    return fallback[:200]
+
+
+def extract_location(title: str) -> tuple[str | None, str | None]:
+    """Parse '<type> en <City> - <District> - <Area>' into (city, district).
+
+    Getting this right matters: the scorer prices per zone, so a Maresme flat
+    filed under Barcelona would be valued against the wrong comparables.
+    """
+    m = _LOCATION_RE.search(title or "")
+    if not m:
+        return None, None
+
+    parts = [p.strip(" .-–") for p in m.group(1).split(" - ")]
+    parts = [p for p in parts if p]
+    if not parts:
+        return None, None
+
+    city = parts[0].lower() or None
+    district = parts[1].lower() if len(parts) > 1 else None
+
+    # Truncated segments ("Pa...") carry no information
+    if district and (district.endswith("...") or len(district) < 3):
+        district = None
+    if city and city.endswith("..."):
+        city = city.rstrip(". ") or None
+
+    return city, district
+
+
+def _match_id(match: re.Match) -> str | None:
+    """First non-empty capture group.
+
+    Portal patterns use alternation when a portal links listings in more than
+    one shape, so the id can land in any group.
+    """
+    for group in match.groups():
+        if group:
+            return group
+    return None
+
+
 def unwrap_tracking(body: str) -> str:
     """Expose listing URLs hidden inside click-tracking wrappers.
 
@@ -245,7 +318,9 @@ def parse_email(sender: str, subject: str, html: str, text: str = "") -> list[Ra
     # price/m²/rooms following. The later block is the one carrying the data.
     by_id: dict[str, tuple[str, tuple[int, int]]] = {}
     for m in spec["url_re"].finditer(search_body):
-        by_id[m.group(1)] = (clean_url(m.group(0)), m.span())
+        ext_id = _match_id(m)
+        if ext_id:
+            by_id[ext_id] = (clean_url(m.group(0)), m.span())
 
     if not by_id:
         logger.warning(
@@ -281,20 +356,23 @@ def parse_email(sender: str, subject: str, html: str, text: str = "") -> list[Ra
             logger.info(f"Email ingest: rejected {portal}/{ext_id} (ocupado/alquilado/subasta)")
             continue
 
+        title = extract_title(block, subject)
+        city, district = extract_location(title)
+
         listings.append(
             RawListing(
                 portal=portal,
                 external_id=ext_id,
                 url=url,
-                title=(block[:180].strip() or subject[:180]),
+                title=title,
                 price=price,
                 area_m2=area,
                 rooms=rooms,
                 bathrooms=parse_baths(block),
                 floor=parse_floor(block),
                 description=block[:600],
-                city="barcelona",          # refined by location matching downstream
-                district=None,
+                city=city or "desconocido",
+                district=district,
                 published_ago_hours=0,     # an alert email IS the new-listing signal
             )
         )

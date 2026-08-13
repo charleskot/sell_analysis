@@ -158,6 +158,13 @@ scheduler:
 # Legacy investment analysis (kept but not used when search_mode=residence)
 # ═══════════════════════════════════════════════════════════════════════════
 analysis:
+  # Guards against listings whose m² is the plot rather than the built area
+  # (masías, casas con terreno). Rent is estimated per m², so those produce a
+  # fake rent and a fake yield that would rank first.
+  sanity:
+    min_price_per_m2: 800
+    max_price_per_m2: 15000
+
   assumed_expenses_pct: 0.25
   purchase_costs_pct:
     default: 0.10
