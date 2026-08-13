@@ -199,3 +199,56 @@ def test_parse_fotocasa_email():
     listings = parse_email("noreply@fotocasa.es", "alerta", body)
     assert len(listings) == 1
     assert listings[0].portal == "fotocasa"
+
+
+# ── Click-tracking wrappers ──────────────────────────────────────────────
+
+def test_unwrap_tracking_exposes_wrapped_url():
+    from ingest.email_parsers import unwrap_tracking
+    wrapped = "https://links.idealista.com/r/?u=https%3A%2F%2Fwww.idealista.com%2Finmueble%2F999%2F"
+    out = unwrap_tracking(wrapped)
+    assert "https://www.idealista.com/inmueble/999/" in out
+    # Original must be preserved so offsets into it stay valid
+    assert out.startswith(wrapped)
+
+
+def test_unwrap_tracking_handles_double_encoding():
+    from ingest.email_parsers import unwrap_tracking
+    wrapped = "https://t.co/x?u=https%253A%252F%252Fwww.idealista.com%252Finmueble%252F777%252F"
+    assert "https://www.idealista.com/inmueble/777/" in unwrap_tracking(wrapped)
+
+
+def test_unwrap_tracking_noop_when_nothing_encoded():
+    from ingest.email_parsers import unwrap_tracking
+    plain = "https://www.idealista.com/inmueble/123/"
+    assert unwrap_tracking(plain) == plain
+
+
+def test_parse_email_with_tracking_wrapped_links():
+    """Portals route alert links through tracking domains — the listing URL
+    only becomes visible after percent-decoding."""
+    body = """
+    <a href="https://links.idealista.com/r/?u=https%3A%2F%2Fwww.idealista.com%2Finmueble%2F88888888%2F">
+      Piso en El Clot
+    </a>
+    <div>275.000 €</div><div>76 m²</div><div>3 hab.</div>
+    """
+    listings = parse_email("noresponder@idealista.com", "Nuevo inmueble", body)
+    assert len(listings) == 1
+    assert listings[0].external_id == "88888888"
+    assert listings[0].price == 275000
+    assert listings[0].area_m2 == 76
+
+
+def test_parse_email_tracking_does_not_break_multi_listing():
+    body = """
+    <a href="https://links.idealista.com/r/?u=https%3A%2F%2Fwww.idealista.com%2Finmueble%2F1111%2F">A</a>
+    <div>200.000 €</div><div>60 m²</div><div>2 hab.</div>
+    <a href="https://links.idealista.com/r/?u=https%3A%2F%2Fwww.idealista.com%2Finmueble%2F2222%2F">B</a>
+    <div>300.000 €</div><div>90 m²</div><div>4 hab.</div>
+    """
+    listings = parse_email("noresponder@idealista.com", "alerta", body)
+    by_id = {l.external_id: l for l in listings}
+    assert len(listings) == 2
+    assert by_id["1111"].price == 200000
+    assert by_id["2222"].price == 300000

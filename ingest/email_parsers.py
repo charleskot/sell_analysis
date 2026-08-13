@@ -10,6 +10,7 @@ Adding a new portal = one entry in PORTAL_SPECS. No new code.
 """
 import logging
 import re
+import urllib.parse
 from html import unescape
 from urllib.parse import urlparse, urlunparse
 
@@ -160,6 +161,33 @@ def clean_url(url: str) -> str:
         return url
 
 
+def unwrap_tracking(body: str) -> str:
+    """Expose listing URLs hidden inside click-tracking wrappers.
+
+    Portals route alert links through their own tracking domains, with the
+    real destination percent-encoded in a query parameter:
+
+        https://links.idealista.com/r/?u=https%3A%2F%2Fwww.idealista.com%2Finmueble%2F123%2F
+
+    The listing regexes would never see that. Appending a decoded copy of the
+    body makes them match without disturbing the original offsets, which the
+    block splitting depends on.
+
+    Decoding is applied repeatedly because some wrappers double-encode.
+    """
+    if not body:
+        return body
+
+    decoded = body
+    for _ in range(3):
+        prev = decoded
+        decoded = urllib.parse.unquote(decoded)
+        if decoded == prev:
+            break
+
+    return body if decoded == body else f"{body}\n{decoded}"
+
+
 def detect_portal(sender: str, body: str) -> dict | None:
     """Match by sender first (reliable), fall back to body URL sniffing."""
     sender = (sender or "").lower()
@@ -167,8 +195,9 @@ def detect_portal(sender: str, body: str) -> dict | None:
         if any(s in sender for s in spec["sender_match"]):
             return spec
     # Forwarded emails lose the original sender — sniff the body
+    searchable = unwrap_tracking(body or "")
     for spec in PORTAL_SPECS:
-        if spec["url_re"].search(body or ""):
+        if spec["url_re"].search(searchable):
             return spec
     return None
 
@@ -206,25 +235,34 @@ def parse_email(sender: str, subject: str, html: str, text: str = "") -> list[Ra
 
     portal = spec["portal"]
 
+    # Tracking-wrapped links only become visible once decoded. The decoded
+    # copy is appended, so offsets into the original half stay valid.
+    search_body = unwrap_tracking(body)
+
     # Collect listing URLs in document order, de-duplicated by listing id.
     # Keep the LAST occurrence of each id: alert emails link a listing first
     # from its thumbnail (no data around it) and again from its title, with
     # price/m²/rooms following. The later block is the one carrying the data.
     by_id: dict[str, tuple[str, tuple[int, int]]] = {}
-    for m in spec["url_re"].finditer(body):
+    for m in spec["url_re"].finditer(search_body):
         by_id[m.group(1)] = (clean_url(m.group(0)), m.span())
 
     if not by_id:
-        logger.debug(f"Email ingest: no {portal} listing URLs in email {subject!r}")
+        logger.warning(
+            f"Email ingest: {portal} email {subject[:60]!r} matched the sender but "
+            "produced no listing URLs — the link format may have changed."
+        )
         return []
 
     ordered = sorted(
         ((ext_id, url, span) for ext_id, (url, span) in by_id.items()),
         key=lambda t: t[2][0],
     )
-    blocks = _split_blocks(body, [span for _, _, span in ordered])
+    # Split the same string the spans were measured against — matches found
+    # in the appended decoded half would otherwise slice out of bounds.
+    blocks = _split_blocks(search_body, [span for _, _, span in ordered])
     ordered = [(ext_id, url) for ext_id, url, _ in ordered]
-    flat = strip_html(body)
+    flat = strip_html(search_body)
 
     listings: list[RawListing] = []
     for i, (ext_id, url) in enumerate(ordered):
