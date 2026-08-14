@@ -158,11 +158,44 @@ search_profiles:
     min_population: 20000
     reject_unknown_population: true
 
+    # Do not send what could not be checked. The cheapest flats are cheap
+    # because they are occupied or unmortgageable, and the alert email never
+    # says so — the page does. If the page could not be read, the listing
+    # stays unsent rather than arriving with an unverifiable 9% yield.
+    require_verified_condition: true
+
     # Zones ruled out by hand. Left empty nothing is excluded; add whatever
     # you decide against after visiting.
     excluded_zones: []
 
-  # ── 3. New build ────────────────────────────────────────────────────────
+  # ── 3. Home, further out and bigger ─────────────────────────────────────
+  # The trade the buyer is willing to make: leave the city, gain square
+  # metres. Same purpose as the Barcelona search — no rental maths — but
+  # stricter on what the flat has to be, since distance has to buy something.
+  - name: vivienda_fuera
+    label: "🏠 Para vivir (fuera)"
+    enabled: true
+    purpose: home
+    max_price: 330000
+    min_rooms: 3
+    min_area_m2: 80
+
+    # High floor, and light. Moving out of Barcelona for a dark second floor
+    # would be paying the commute for nothing.
+    min_floor: 2
+    require_any_of: [balcon, balcón, terraza, terrat, patio]
+    prefer_bright: true
+
+    areas:
+      - city: premia de mar
+      - city: castelldefels
+      - city: gava
+      - city: mataro
+
+    condition_in: [nuevo, buen_estado]
+    needs_work_below_price: 240000
+
+  # ── 4. New build ────────────────────────────────────────────────────────
   # Disabled: no portal alert feeds it yet, so it would never fire. Enable it
   # once an "obra nueva" alert exists, within 40 min of Barcelona.
   - name: obra_nueva

@@ -218,6 +218,38 @@ class Profile:
             return None
         return "necesita reforma"
 
+    def _check_features(self, listing: dict) -> str | None:
+        """Require at least one of a set of words to appear in the advert.
+
+        Used for things a listing either mentions or does not — a balcony, a
+        terrace. Absence is treated as absence: adverts that have one say so,
+        because it sells the flat.
+        """
+        required = self.spec.get("require_any_of") or []
+        if not required:
+            return None
+
+        text = normalise(
+            " ".join(str(listing.get(k) or "") for k in ("title", "description"))
+        )
+        if any(normalise(term) in text for term in required):
+            return None
+        return f"no menciona {' ni '.join(required[:3])}"
+
+    def _check_verified(self, metrics: dict) -> str | None:
+        """Require the listing's own page to have been read and cleared.
+
+        Alert emails omit the condition for most listings, and the cheapest
+        flats are cheap precisely because they are occupied or unmortgageable.
+        Silence is therefore not neutral: unverified plus suspiciously cheap
+        is the shape of exactly the listing that must not be sent.
+        """
+        if not self.spec.get("require_verified_condition"):
+            return None
+        if metrics.get("condition_unknown"):
+            return "estado sin verificar (no he podido leer el anuncio)"
+        return None
+
     def _check_financials(self, metrics: dict) -> tuple[bool, str | None]:
         """Returns (has_financial_criteria, failure_reason)."""
         min_yield = self.spec.get("min_net_yield_pct")
@@ -274,6 +306,8 @@ class Profile:
             self._check_location(city, district),
             self._check_services(city),
             self._check_condition(listing, price),
+            self._check_features(listing),
+            self._check_verified(metrics),
         ):
             if failure:
                 return False, failure

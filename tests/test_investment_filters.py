@@ -625,3 +625,93 @@ def test_purchase_above_everything_becomes_a_loan():
     assert m["cash_gap"] > 0
     assert m["gap_loan_payment"] > 0
     assert m["reserve_used"] == 10000     # the whole buffer, then borrowing
+
+
+# ── Unverifiable listings must not be sent as investments ────────────────
+
+def test_investment_rejects_listing_whose_page_could_not_be_read():
+    """The cheapest flats are cheap because they are occupied or
+    unmortgageable, and the email never says so. Silence is not neutral."""
+    profile = Profile({**INVERSION, "require_verified_condition": True})
+    ok, reason = profile.match(
+        {"price": 90000, "city": "badalona"},
+        {**_inv_metrics(), "condition_unknown": True},
+    )
+    assert not ok
+    assert "verificar" in reason
+
+
+def test_investment_accepts_once_the_page_has_been_read():
+    profile = Profile({**INVERSION, "require_verified_condition": True})
+    ok, _ = profile.match(
+        {"price": 90000, "city": "badalona"},
+        {**_inv_metrics(), "condition_unknown": False},
+    )
+    assert ok
+
+
+def test_home_does_not_require_verification():
+    """A home is chosen by visiting it; the advert is a starting point."""
+    ok, _ = Profile(VIVIENDA).match(_home(), {"condition_unknown": True})
+    assert ok
+
+
+# ── Further out, but bigger ──────────────────────────────────────────────
+
+FUERA = {
+    "name": "vivienda_fuera", "label": "🏠 fuera", "purpose": "home",
+    "max_price": 330000, "min_rooms": 3, "min_area_m2": 80, "min_floor": 2,
+    "require_any_of": ["balcon", "terraza", "patio"],
+    "areas": [{"city": "premia de mar"}, {"city": "castelldefels"},
+              {"city": "gava"}, {"city": "mataro"}],
+}
+
+
+def _outer(**kw):
+    base = {"price": 280000, "area_m2": 95, "rooms": 3, "city": "mataró",
+            "district": "centre", "floor": "3ª",
+            "title": "Piso amplio", "description": "con balcón y mucha luz"}
+    base.update(kw)
+    return base
+
+
+def test_outer_home_accepts_bigger_flat_further_out():
+    ok, _ = Profile(FUERA).match(_outer(), {})
+    assert ok
+
+
+def test_outer_home_rejects_small_flat():
+    """Leaving the city has to buy square metres, or it buys nothing."""
+    ok, reason = Profile(FUERA).match(_outer(area_m2=72), {})
+    assert not ok
+    assert "m²" in reason
+
+
+def test_outer_home_rejects_two_rooms():
+    ok, _ = Profile(FUERA).match(_outer(rooms=2), {})
+    assert not ok
+
+
+def test_outer_home_rejects_low_floor():
+    ok, _ = Profile(FUERA).match(_outer(floor="1ª"), {})
+    assert not ok
+
+
+def test_outer_home_requires_outdoor_space():
+    ok, reason = Profile(FUERA).match(
+        _outer(description="piso reformado, muy luminoso"), {}
+    )
+    assert not ok
+    assert "menciona" in reason
+
+
+@pytest.mark.parametrize("word", ["balcón", "terraza", "patio", "BALCON"])
+def test_outer_home_accepts_any_outdoor_wording(word):
+    ok, _ = Profile(FUERA).match(_outer(description=f"Piso con {word}"), {})
+    assert ok
+
+
+def test_outer_home_stays_in_its_towns():
+    ok, reason = Profile(FUERA).match(_outer(city="terrassa"), {})
+    assert not ok
+    assert "ciudad" in reason
