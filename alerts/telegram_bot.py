@@ -478,6 +478,17 @@ class TelegramAlerter:
 
         # The rent figure comes from zone averages, not comparables for this
         # flat — worth saying, because every number above depends on it.
+        if metrics.get("reform_cost"):
+            msg += (
+                f"\n🔨 Incluye <b>{metrics['reform_cost']:,.0f}€</b> estimados de reforma "
+                f"(500€/m²), ya sumados a la entrada y descontados de la rentabilidad.\n"
+            )
+        elif metrics.get("condition_unknown"):
+            msg += (
+                "\n❓ <b>Estado sin confirmar</b> — este anuncio llegó sin descripción, "
+                "así que no sé si necesita reforma. Si la necesita, la rentabilidad baja.\n"
+            )
+
         if metrics.get("rent_capped_zone"):
             msg += (
                 "\n⚠️ <b>Zona tensionada</b> — el alquiler está topado por el "

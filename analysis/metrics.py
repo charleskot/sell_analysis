@@ -90,6 +90,7 @@ def compute_leverage(
     gap_loan_years: int = 8,
     broker_fee_pct: float = 0.0,
     broker_fee_min: float = 0.0,
+    extra_cash_cost: float = 0.0,
 ) -> dict:
     """Cash needed, monthly cashflow and returns under real financing.
 
@@ -112,7 +113,9 @@ def compute_leverage(
     if broker_fee_pct or broker_fee_min:
         broker_fee = max(price * broker_fee_pct, broker_fee_min)
 
-    cash_needed = round(down_payment + costs + broker_fee, 2)
+    # Works are not mortgageable, so they sit in the entry alongside the
+    # deposit and the taxes.
+    cash_needed = round(down_payment + costs + broker_fee + extra_cash_cost, 2)
 
     payment = monthly_mortgage_payment(loan, annual_rate_pct, years)
 
@@ -163,25 +166,34 @@ def compute_all_metrics(
     expense_ratio: float = 0.25,
     capital_growth_pct: float = 2.5,
     financing: dict | None = None,
+    reform_cost: float = 0.0,
 ) -> dict:
     """Compute all investment metrics and return as dict.
 
     financing: {'ltv_pct', 'annual_rate_pct', 'years'} — when provided, adds
     leverage metrics (cuota, cashflow, cash-on-cash, DSCR).
+
+    reform_cost: money the flat needs before it can be let. Banks lend
+    against the purchase price, not the works, so this lands entirely on the
+    buyer and belongs in the entry — a yield computed without it describes a
+    flat that does not yet exist.
     """
     if not price or not area_m2 or not estimated_monthly_rent:
         return {}
 
     annual_rent = monthly_to_annual_rent(estimated_monthly_rent)
     net_annual = annual_rent * (1 - expense_ratio)
-    total_inv = total_investment(price, purchase_costs_pct)
+    total_inv = total_investment(price, purchase_costs_pct) + reform_cost
 
     metrics = {
         "estimated_monthly_rent": round(estimated_monthly_rent, 2),
         "estimated_annual_rent": round(annual_rent, 2),
         "total_investment": total_inv,
-        "gross_yield_pct": gross_rental_yield(annual_rent, price, purchase_costs_pct),
-        "net_yield_pct": net_rental_yield(annual_rent, price, purchase_costs_pct, expense_ratio),
+        "reform_cost": round(reform_cost, 2),
+        # Yields are computed against the full outlay, works included: the
+        # return on money spent, not on the asking price.
+        "gross_yield_pct": round((annual_rent / total_inv) * 100, 2) if total_inv else None,
+        "net_yield_pct": round((net_annual / total_inv) * 100, 2) if total_inv else None,
         "roi_pct": roi(net_annual, total_inv),
         "payback_years": payback_period_years(total_inv, net_annual),
         "price_per_m2": price_per_m2(price, area_m2),
@@ -204,6 +216,7 @@ def compute_all_metrics(
                 gap_loan_years=financing.get("gap_loan_years", 8),
                 broker_fee_pct=financing.get("broker_fee_pct", 0.0),
                 broker_fee_min=financing.get("broker_fee_min", 0.0),
+                extra_cash_cost=reform_cost,
             )
         )
 

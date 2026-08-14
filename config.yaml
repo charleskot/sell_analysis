@@ -269,6 +269,12 @@ analysis:
     min_price_per_m2: 800
     max_price_per_m2: 15000
 
+  # Full refurbishment in the Barcelona area, per m² of built area. A rough
+  # figure — kitchen, bathroom, floors, wiring — but far closer than zero,
+  # which is what a listing marked "para reformar" was being costed at.
+  # Only applied when the advert says the flat needs work.
+  reform_cost_per_m2: 500
+
   assumed_expenses_pct: 0.25
   purchase_costs_pct:
     default: 0.12

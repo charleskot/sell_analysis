@@ -412,3 +412,48 @@ def test_tensioned_lookup_handles_missing_and_odd_spellings():
     assert is_tensioned(None) is False
     assert is_tensioned("") is False
     assert is_tensioned("badalona") == is_tensioned("Badalona")
+
+
+# ── Condition the advert never stated ────────────────────────────────────
+# Alert emails often carry price, m² and rooms and nothing else. Silence
+# about the state of a flat is not evidence that it is fine.
+
+def _orch():
+    import yaml
+    from models.db import init_engine, create_all_tables
+    from scheduler.jobs import PipelineOrchestrator
+    init_engine(":memory:")
+    create_all_tables()
+    return PipelineOrchestrator(yaml.safe_load(open("config.yaml")))
+
+
+def _listing(**kw):
+    base = {"price": 133500, "area_m2": 75, "rooms": 4, "city": "sabadell",
+            "title": "133.500 € Piso en Sabadell - Espronceda", "description": ""}
+    base.update(kw)
+    return base
+
+
+def test_condition_marked_unknown_when_advert_says_nothing():
+    m = _orch()._compute_metrics(_listing())
+    assert m["condition_unknown"] is True
+    assert m["needs_reform"] is False
+
+
+def test_condition_known_when_advert_describes_it():
+    m = _orch()._compute_metrics(
+        _listing(description="Totalmente reformado, listo para entrar a vivir")
+    )
+    assert m["condition_unknown"] is False
+
+
+def test_reform_cost_is_added_to_the_entry_and_lowers_the_yield():
+    """Works are not mortgageable, so they land on the buyer and belong in
+    the entry. Costing them at zero describes a flat that does not exist."""
+    orch = _orch()
+    plain = orch._compute_metrics(_listing(description="Piso reformado, buen estado"))
+    works = orch._compute_metrics(_listing(description="Oportunidad para reformar a su gusto"))
+
+    assert works["reform_cost"] > 0
+    assert works["cash_needed"] > plain["cash_needed"]
+    assert works["net_yield_pct"] < plain["net_yield_pct"]

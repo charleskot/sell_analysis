@@ -388,6 +388,19 @@ class PipelineOrchestrator:
         # Estimate rent
         monthly_rent = self.rent_estimator.estimate_monthly_rent(city, district, area)
 
+        # A flat advertised as needing work cannot be let until it is done,
+        # and the bank does not lend for the works. Costing it at zero was
+        # describing a flat that does not exist yet: the Sabadell listing read
+        # 6,09% while its own advert said "oportunidad para reformar".
+        import re as _re
+
+        text = " ".join(str(listing.get(k) or "") for k in ("title", "description"))
+        needs_work = bool(_re.search(r"\bpara\s+reformar\b|\ba\s+reformar\b|"
+                                     r"\breformar\b|\ba\s+reformar\b|\breforma\s+integral\b",
+                                     text, _re.I))
+        reform_per_m2 = self.config.get("analysis", {}).get("reform_cost_per_m2", 0)
+        reform_cost = (area * reform_per_m2) if (needs_work and reform_per_m2) else 0.0
+
         metrics = compute_all_metrics(
             price=price,
             area_m2=area,
@@ -396,7 +409,24 @@ class PipelineOrchestrator:
             expense_ratio=expense_ratio,
             capital_growth_pct=growth_pct,
             financing=self.config.get("financing"),
+            reform_cost=reform_cost,
         )
+        metrics["needs_reform"] = needs_work
+
+        # Some alert emails carry no description at all — the Sabadell listing
+        # arrived as price, m² and rooms and nothing else, while its advert on
+        # the portal said "oportunidad para reformar". Condition cannot be
+        # ruled out from silence, so say so rather than imply the flat is fine.
+        # Word count is a poor test — what is left after stripping the URL is
+        # mostly the email's own furniture ("Modificar", "Dejar de recibir").
+        # Ask the question directly instead: did the advert say anything at
+        # all about the state of the flat?
+        says_condition = bool(_re.search(
+            r"\breformad\w*\b|\breformar\b|\breforma\b|\bnuev[oa]\b|\bseminuev\w*\b|"
+            r"\ba\s+estrenar\b|\bbuen\s+estado\b|\bentrar\s+a\s+vivir\b|"
+            r"\bimpecable\b|\bpara\s+actualizar\b|\boriginal\b|\bobra\s+nueva\b",
+            text, _re.I))
+        metrics["condition_unknown"] = not says_condition
 
         # Compute investment score
         zone_avg_ppm2 = self.scorer.get_zone_avg_price_per_m2(city, district)
