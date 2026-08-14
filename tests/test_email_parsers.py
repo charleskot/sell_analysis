@@ -481,3 +481,37 @@ def test_keeps_ordinary_listing_mentioning_investment_generically():
     <div>Buena inversión de futuro, listo para entrar a vivir</div>
     """
     assert len(parse_email("no-reply@idealista.com", "alerta", body)) == 1
+
+
+# ── Truncated alert emails ───────────────────────────────────────────────
+
+def test_warns_when_the_email_is_a_sample_not_a_feed(caplog):
+    """Portals cap an alert at ~30 listings and state the real count in the
+    subject. A wide search then delivers 4% of what exists, and the gap is
+    invisible — it looks exactly like a quiet day."""
+    import logging
+    body = "".join(
+        f'<a href="https://www.habitaclia.com/i1000000000000{i}/x/y.htm">P</a>'
+        f"<div>200.000 €</div><div>70 m²</div><div>3 hab.</div>"
+        for i in range(5)
+    )
+    with caplog.at_level(logging.WARNING):
+        listings = parse_email(
+            "alertas@email.habitaclia.com",
+            "689 novedades en comarca Barcelonès en comprar vivienda",
+            body,
+        )
+    assert len(listings) == 5
+    assert any("demasiado amplia" in r.message for r in caplog.records)
+
+
+def test_no_warning_when_the_email_carries_what_it_claims(caplog):
+    import logging
+    body = "".join(
+        f'<a href="https://www.habitaclia.com/i2000000000000{i}/x/y.htm">P</a>'
+        f"<div>200.000 €</div><div>70 m²</div><div>3 hab.</div>"
+        for i in range(5)
+    )
+    with caplog.at_level(logging.WARNING):
+        parse_email("alertas@email.habitaclia.com", "5 novedades en comarca X", body)
+    assert not any("demasiado amplia" in r.message for r in caplog.records)

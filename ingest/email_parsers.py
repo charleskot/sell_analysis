@@ -481,5 +481,21 @@ def parse_email(sender: str, subject: str, html: str, text: str = "") -> list[Ra
             )
         )
 
+    # Portals cap an alert email at ~30 listings however many they found, and
+    # say the real number in the subject. A wide search therefore delivers a
+    # sample, not a feed: "689 novedades en comarca Barcelonès" arrives with
+    # 27 of them, and the missing 96% are invisible — indistinguishable from
+    # a quiet day. The only fix is narrower alerts, so say so loudly.
+    announced = re.search(r"(\d+)\s+(?:novedades|anuncios|inmuebles)", subject or "", re.I)
+    if announced:
+        claimed = int(announced.group(1))
+        if claimed > len(listings) * 1.5 and claimed > 30:
+            logger.warning(
+                f"Email ingest: {portal} anuncia {claimed} novedades y el correo solo "
+                f"trae {len(listings)} ({100 * len(listings) // claimed}%). "
+                f"La alerta del portal es demasiado amplia y está truncada — "
+                f"conviene dividirla en búsquedas más estrechas."
+            )
+
     logger.info(f"Email ingest: {portal} → {len(listings)} listings from {subject[:60]!r}")
     return listings
