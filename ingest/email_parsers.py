@@ -180,25 +180,38 @@ _PROPERTY_TYPES = (
     r"planta\s+baja|bajos?|adosad[oa]|paread[oa]|torre|finca"
 )
 
-# Habitaclia: "Piso en Barcelona - El Poble Sec - Paral·lel"
-_LOCATION_EN_RE = re.compile(rf"\b(?:{_PROPERTY_TYPES})\s+en\s+([^|]+)", re.I)
+# A listing title starts with the property type. Qualifiers may sit between
+# the type and the location ("Casa o chalet independiente en ..."), so allow
+# a short run of words there.
+_TITLE_HEAD_RE = re.compile(rf"\b(?:{_PROPERTY_TYPES})\b", re.I)
 
-# Fotocasa: "apartamento · D'Aribau, Barcelona" / "apartamento , Badalona"
-_LOCATION_COMMA_RE = re.compile(
-    rf"\b(?:{_PROPERTY_TYPES})\s*(?:·\s*([^,|]+?))?\s*,\s*([^,|]+)", re.I
+# Everything after the type: " en <place>" (Habitaclia, Idealista) or
+# " · <street>, <city>" (Fotocasa).
+_LOCATION_TAIL_RE = re.compile(
+    rf"\b(?:{_PROPERTY_TYPES})\b[^,|]{{0,40}}?(?:\s+en\s+|\s*·\s*|\s*,\s*)([^|]+)",
+    re.I,
 )
 
 
 def extract_title(block: str, fallback: str = "") -> str:
-    """Pick the most title-like segment out of a flattened listing block."""
+    """Pick the most title-like segment out of a flattened listing block.
+
+    A listing title names the property type — "Piso en...", "Casa o chalet
+    independiente en...". Preferring those avoids picking up the surrounding
+    furniture: without it the chosen title was "Ver 46 fotos y visita 360",
+    which also carries no location to parse.
+    """
+    candidates = []
     for segment in (s.strip() for s in block.split("|")):
         if len(segment) < 12 or _TITLE_NOISE_RE.search(segment):
             continue
-        # Needs enough letters to be prose rather than a spec line
         if sum(c.isalpha() for c in segment) < 8:
             continue
-        return segment[:200]
-    return fallback[:200]
+        if _TITLE_HEAD_RE.match(segment):
+            return segment[:200]
+        candidates.append(segment)
+
+    return (candidates[0] if candidates else fallback)[:200]
 
 
 def _clean_place(value: str | None) -> str | None:
@@ -231,25 +244,37 @@ def extract_location(title: str) -> tuple[str | None, str | None]:
     Getting this right matters: rent is estimated per zone, so a Mataró flat
     filed under Barcelona would be valued against the wrong comparables.
     """
-    title = title or ""
+    m = _LOCATION_TAIL_RE.search(title or "")
+    if not m:
+        return None, None
 
-    m = _LOCATION_EN_RE.search(title)
-    if m:
-        # Only whitespace is stripped here: _clean_place needs to still see any
-        # trailing "..." to recognise a truncated fragment.
-        parts = [p for p in (p.strip() for p in m.group(1).split(" - ")) if p]
+    tail = m.group(1)
+
+    # Habitaclia goes broad-to-narrow: "Barcelona - El Poble Sec - Paral·lel"
+    if " - " in tail:
+        # Only whitespace is stripped: _clean_place must still see a trailing
+        # "..." to recognise a truncated fragment.
+        parts = [p for p in (p.strip() for p in tail.split(" - ")) if p]
         if parts:
-            city = _clean_place(parts[0])
-            district = _clean_place(parts[1]) if len(parts) > 1 else None
-            if city:
-                return city, district
+            return (
+                _clean_place(parts[0]),
+                _clean_place(parts[1]) if len(parts) > 1 else None,
+            )
 
-    m = _LOCATION_COMMA_RE.search(title)
-    if m:
-        # City sits after the comma; anything before it is street or area
-        return _clean_place(m.group(2)), _clean_place(m.group(1))
+    # Idealista and Fotocasa go narrow-to-broad, ending in the town:
+    #   "Paseo Mirador, Bellamar, Castelldefels"  ->  city Castelldefels
+    #   "D'Aribau, Barcelona"                     ->  city Barcelona
+    if "," in tail:
+        parts = [p for p in (p.strip() for p in tail.split(",")) if p]
+        if parts:
+            city = _clean_place(parts[-1])
+            district = _clean_place(parts[-2]) if len(parts) > 1 else None
+            # A house number is not a district
+            if district and district.isdigit():
+                district = _clean_place(parts[-3]) if len(parts) > 2 else None
+            return city, district
 
-    return None, None
+    return _clean_place(tail), None
 
 
 def _match_id(match: re.Match) -> str | None:

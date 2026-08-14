@@ -13,7 +13,11 @@ email_ingest:
   enabled: true
   backend: gmail_api          # gmail_api (OAuth, read-only) | imap (app password)
   token_path: data/gmail_token.json
-  query: ""                   # optional extra Gmail search terms
+
+  # Must include Spam: Gmail files portal alerts there routinely — every
+  # Idealista alert was sitting in Spam while the inbox looked empty, which
+  # reads exactly like "no new listings". Trash is excluded on purpose.
+  query: "in:anywhere -in:trash"
 
 scraping:
   enabled: false              # portals block us; kept for when that changes

@@ -401,3 +401,43 @@ def test_card_block_spans_whole_card_regardless_of_link_order():
     assert len(listings) == 2
     assert by_id["111111"].price == 200000
     assert by_id["222222"].price == 300000
+
+
+# ── Idealista location format ────────────────────────────────────────────
+# Idealista and Fotocasa order narrow-to-broad (street, district, town);
+# Habitaclia orders broad-to-narrow (town - district - area).
+
+def test_extract_location_idealista_narrow_to_broad():
+    from ingest.email_parsers import extract_location
+    assert extract_location(
+        "Casa o chalet independiente en Paseo Mirador, Bellamar, Castelldefels"
+    ) == ("castelldefels", "bellamar")
+
+
+def test_extract_location_skips_house_number_as_district():
+    from ingest.email_parsers import extract_location
+    city, district = extract_location(
+        "Piso en Rambla de la Marina, 260, Bellvitge, Hospitalet de Llobregat"
+    )
+    assert city == "hospitalet de llobregat"
+    assert district == "bellvitge"
+
+
+def test_extract_location_allows_words_between_type_and_place():
+    """'Casa o chalet independiente en X' — qualifiers sit between the
+    property type and the location."""
+    from ingest.email_parsers import extract_location
+    assert extract_location("Casa o chalet adosado en Sitges")[0] == "sitges"
+
+
+def test_extract_title_prefers_the_property_line():
+    """Without this the title became 'Ver 46 fotos y visita 360', which also
+    carries no location to parse."""
+    from ingest.email_parsers import extract_title
+    block = "Ver 46 fotos y visita 360 | Piso en Carrer Padilla, El Clot, Barcelona | 285.000 €"
+    assert extract_title(block).startswith("Piso en Carrer Padilla")
+
+
+def test_extract_title_falls_back_when_no_property_line():
+    from ingest.email_parsers import extract_title
+    assert extract_title("Ver 46 fotos y visita 360 | 285.000 €") == "Ver 46 fotos y visita 360"

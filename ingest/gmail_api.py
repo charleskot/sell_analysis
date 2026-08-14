@@ -32,11 +32,16 @@ FIRST_RUN_LOOKBACK_S = 3600  # on a fresh install only look 1h back, not forever
 class GmailReader:
     """Fetches unprocessed portal alert emails."""
 
+    # Portal alerts are bulk mail and land in Spam often enough that ignoring
+    # the folder loses whole portals silently: Idealista's alerts were all
+    # filtered there while the inbox looked simply empty. Trash stays excluded,
+    # since deleting a message is a deliberate act.
+    DEFAULT_QUERY = "in:anywhere -in:trash"
+
     def __init__(self, config: dict):
         self.config = config
         cfg = config.get("email_ingest", {}) or {}
-        # Restrict to messages that could plausibly be portal alerts
-        self.query = cfg.get("query", "").strip()
+        self.query = (cfg.get("query") or self.DEFAULT_QUERY).strip()
         self.enabled = self._check_enabled()
 
     def _check_enabled(self) -> bool:
