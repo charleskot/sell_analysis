@@ -86,6 +86,7 @@ def compute_leverage(
     annual_rate_pct: float,
     years: int,
     available_cash: float | None = None,
+    comfortable_cash: float | None = None,
     gap_loan_rate_pct: float | None = None,
     gap_loan_years: int = 8,
     broker_fee_pct: float = 0.0,
@@ -133,6 +134,13 @@ def compute_leverage(
     monthly_cashflow = round(net_monthly_rent - total_payment, 2)
     annual_cashflow = round(monthly_cashflow * 12, 2)
 
+    # How far into the buffer this purchase reaches. Spendable money and
+    # money one is comfortable spending are different things, and the
+    # difference is worth surfacing rather than averaging away.
+    reserve_used = 0.0
+    if comfortable_cash is not None:
+        reserve_used = max(0.0, min(cash_needed, available_cash or cash_needed) - comfortable_cash)
+
     # Cash-on-cash measures the return on money actually put in, so when part
     # of the entry is borrowed the denominator is the buyer's own cash.
     own_cash = min(cash_needed, available_cash) if available_cash is not None else cash_needed
@@ -148,6 +156,7 @@ def compute_leverage(
         "broker_fee": round(broker_fee, 2),
         "cash_needed": cash_needed,
         "cash_gap": round(gap, 2),
+        "reserve_used": round(reserve_used, 2),
         "gap_loan_payment": round(gap_payment, 2),
         "monthly_payment": round(payment, 2),
         "monthly_payment_total": total_payment,
@@ -212,6 +221,7 @@ def compute_all_metrics(
                 annual_rate_pct=financing.get("annual_rate_pct", 3.0),
                 years=financing.get("years", 30),
                 available_cash=financing.get("available_cash"),
+                comfortable_cash=financing.get("comfortable_cash"),
                 gap_loan_rate_pct=financing.get("gap_loan_rate_pct"),
                 gap_loan_years=financing.get("gap_loan_years", 8),
                 broker_fee_pct=financing.get("broker_fee_pct", 0.0),

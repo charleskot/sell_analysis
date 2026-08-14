@@ -57,8 +57,14 @@ financing:
   # ~12% costs; anything above this is borrowed, and that loan has its own
   # monthly payment. Leaving it out makes every deal look affordable and
   # every cashflow look better than it is.
-  available_cash: 30000
-  gap_loan_rate_pct: 5.5      # personal loan for the shortfall
+  # Two different numbers. available_cash is what the buyer can actually
+  # deploy; comfortable_cash is what he would rather not exceed. Anything
+  # between them is reserve — spendable, but worth being told about, since
+  # "this one eats into your buffer" is a different decision from "this one
+  # fits".
+  available_cash: 40000
+  comfortable_cash: 30000
+  gap_loan_rate_pct: 5.5      # personal loan for anything above 40.000 €
   gap_loan_years: 8
 
   # Mortgage broker, paid only if one is needed. Usual shape in Spain is a
@@ -138,10 +144,11 @@ search_profiles:
     min_net_yield_pct: 6.0
     min_monthly_cashflow: 0
 
-    # Entry money must fit the 30.000 € available — borrowing to cover the
-    # entry means the flat is not funding itself, which is the whole point.
-    # ~22% of price in deposit and costs puts the ceiling near 135.000 €.
-    max_cash_needed: 30000
+    # Entry must fit the 40.000 € the buyer can reach, without borrowing:
+    # a flat that needs a loan just to be entered is not funding itself.
+    # At ~22% of price in deposit and costs that is a ~180.000 € ceiling.
+    # Between 30.000 € and 40.000 € the alert says it is using the reserve.
+    max_cash_needed: 40000
     max_cash_gap: 0
 
     # Town size, as a proxy for everyday services: supermarket, health

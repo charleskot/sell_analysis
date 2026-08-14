@@ -588,3 +588,40 @@ def test_summary_says_so_plainly_when_nothing_matches():
     """An empty result must read as an answer, not as a failure."""
     reply = _pipeline()._summary_text()
     assert "Nada encaja" in reply
+
+
+# ── Comfortable money vs money that exists ───────────────────────────────
+# The buyer holds 40.000 € but would rather not go past 30.000 €. Spending
+# the difference is allowed and worth being told about.
+
+def test_purchase_within_comfort_uses_no_reserve():
+    from analysis.metrics import compute_leverage
+    m = compute_leverage(price=120000, monthly_rent=800, purchase_costs_pct=0.12,
+                         expense_ratio=0.25, ltv_pct=90, annual_rate_pct=3.0, years=30,
+                         available_cash=40000, comfortable_cash=30000,
+                         gap_loan_rate_pct=5.5)
+    assert m["cash_needed"] < 30000
+    assert m["reserve_used"] == 0
+    assert m["cash_gap"] == 0
+
+
+def test_purchase_above_comfort_reports_the_reserve_it_eats():
+    from analysis.metrics import compute_leverage
+    m = compute_leverage(price=160000, monthly_rent=900, purchase_costs_pct=0.12,
+                         expense_ratio=0.25, ltv_pct=90, annual_rate_pct=3.0, years=30,
+                         available_cash=40000, comfortable_cash=30000,
+                         gap_loan_rate_pct=5.5)
+    assert 30000 < m["cash_needed"] <= 40000
+    assert m["reserve_used"] == pytest.approx(m["cash_needed"] - 30000, abs=1)
+    assert m["cash_gap"] == 0        # still his own money, no loan
+
+
+def test_purchase_above_everything_becomes_a_loan():
+    from analysis.metrics import compute_leverage
+    m = compute_leverage(price=250000, monthly_rent=1200, purchase_costs_pct=0.12,
+                         expense_ratio=0.25, ltv_pct=90, annual_rate_pct=3.0, years=30,
+                         available_cash=40000, comfortable_cash=30000,
+                         gap_loan_rate_pct=5.5)
+    assert m["cash_gap"] > 0
+    assert m["gap_loan_payment"] > 0
+    assert m["reserve_used"] == 10000     # the whole buffer, then borrowing
