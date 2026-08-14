@@ -147,10 +147,16 @@ class PipelineOrchestrator:
                                 listing_id = f"{raw.portal}_{raw.external_id}"
                                 upsert_metrics(listing_id, metrics)
 
-                                # Alert only for NEW listings above threshold.
-                                # In cold-start mode (empty DB at scrape start), suppress all alerts.
+                                # The scraping path predates search profiles and
+                                # still gates on the composite score itself,
+                                # since send_alert no longer does.
                                 score = metrics.get("investment_score", 0) or 0
-                                if not cold_start and is_new and self.alerter.send_alert(listing_id, raw_dict, metrics, score):
+                                if (
+                                    not cold_start
+                                    and is_new
+                                    and self.alerter.should_alert(score)
+                                    and self.alerter.send_alert(listing_id, raw_dict, metrics, score)
+                                ):
                                     stats["alerts_sent"] += 1
 
                         except Exception as e:

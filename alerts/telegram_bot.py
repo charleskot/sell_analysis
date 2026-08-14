@@ -54,9 +54,14 @@ class TelegramAlerter:
         """
         from models.db import was_alert_sent_recently, record_alert_sent
 
-        if not self.should_alert(score):
+        if not self._enabled:
             return False
 
+        # Deliberately no score threshold here. Whether a listing is worth
+        # sending is the caller's decision — the search profiles make it now.
+        # The composite score measures rental return, which says nothing about
+        # a home to live in: the flats matching that profile score 30-40 and
+        # were being dropped in silence.
         if was_alert_sent_recently(listing_id, self._cooldown_hours):
             logger.debug(f"Alert cooldown active for {listing_id}")
             return False

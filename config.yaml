@@ -213,7 +213,10 @@ alerts:
   telegram:
     token: "${TELEGRAM_TOKEN}"
     chat_id: "${TELEGRAM_CHAT_ID}"
-    min_score_threshold: 60           # residence match score threshold
+    # Only used by the legacy scraping path and the daily digest ranking.
+    # Alerts from the email pipeline are gated by search_profiles, not by
+    # this score: rental return is meaningless for a home to live in.
+    min_score_threshold: 60
     cooldown_hours: 24
 
 scheduler:
