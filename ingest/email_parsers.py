@@ -175,11 +175,17 @@ _TITLE_NOISE_RE = re.compile(
     re.I,
 )
 
-# "Piso en Barcelona - El Poble Sec - Paral·lel" / "Ático en Sabadell - Centre"
-_LOCATION_RE = re.compile(
-    r"\b(?:piso|[áa]tico|d[úu]plex|casa|chalet|apartamento|estudio|loft|masía|masia|"
-    r"planta\s+baja|bajos?|adosad[oa]|paread[oa]|torre|finca)\s+en\s+([^|]+)",
-    re.I,
+_PROPERTY_TYPES = (
+    r"piso|[áa]tico|d[úu]plex|casa|chalet|apartamento|estudio|loft|masía|masia|"
+    r"planta\s+baja|bajos?|adosad[oa]|paread[oa]|torre|finca"
+)
+
+# Habitaclia: "Piso en Barcelona - El Poble Sec - Paral·lel"
+_LOCATION_EN_RE = re.compile(rf"\b(?:{_PROPERTY_TYPES})\s+en\s+([^|]+)", re.I)
+
+# Fotocasa: "apartamento · D'Aribau, Barcelona" / "apartamento , Badalona"
+_LOCATION_COMMA_RE = re.compile(
+    rf"\b(?:{_PROPERTY_TYPES})\s*(?:·\s*([^,|]+?))?\s*,\s*([^,|]+)", re.I
 )
 
 
@@ -195,31 +201,55 @@ def extract_title(block: str, fallback: str = "") -> str:
     return fallback[:200]
 
 
-def extract_location(title: str) -> tuple[str | None, str | None]:
-    """Parse '<type> en <City> - <District> - <Area>' into (city, district).
+def _clean_place(value: str | None) -> str | None:
+    """Normalise a place name, discarding truncated fragments.
 
-    Getting this right matters: the scorer prices per zone, so a Maresme flat
+    Truncation is checked before stripping punctuation — otherwise the
+    trailing dots are gone by the time we look for them.
+    """
+    if not value:
+        return None
+
+    truncated = value.strip().endswith("...")
+    place = value.strip(" .-–·").lower()
+    if not place:
+        return None
+
+    # "Pa..." carries no information; "Llefià (Art..." still identifies a zone
+    if truncated and len(place) < 4:
+        return None
+    return place
+
+
+def extract_location(title: str) -> tuple[str | None, str | None]:
+    """Parse a listing title into (city, district).
+
+    Two formats, both taken from real alert emails:
+      Habitaclia  "Piso en Barcelona - El Poble Sec - Paral·lel"
+      Fotocasa    "apartamento · D'Aribau, Barcelona"
+
+    Getting this right matters: rent is estimated per zone, so a Mataró flat
     filed under Barcelona would be valued against the wrong comparables.
     """
-    m = _LOCATION_RE.search(title or "")
-    if not m:
-        return None, None
+    title = title or ""
 
-    parts = [p.strip(" .-–") for p in m.group(1).split(" - ")]
-    parts = [p for p in parts if p]
-    if not parts:
-        return None, None
+    m = _LOCATION_EN_RE.search(title)
+    if m:
+        # Only whitespace is stripped here: _clean_place needs to still see any
+        # trailing "..." to recognise a truncated fragment.
+        parts = [p for p in (p.strip() for p in m.group(1).split(" - ")) if p]
+        if parts:
+            city = _clean_place(parts[0])
+            district = _clean_place(parts[1]) if len(parts) > 1 else None
+            if city:
+                return city, district
 
-    city = parts[0].lower() or None
-    district = parts[1].lower() if len(parts) > 1 else None
+    m = _LOCATION_COMMA_RE.search(title)
+    if m:
+        # City sits after the comma; anything before it is street or area
+        return _clean_place(m.group(2)), _clean_place(m.group(1))
 
-    # Truncated segments ("Pa...") carry no information
-    if district and (district.endswith("...") or len(district) < 3):
-        district = None
-    if city and city.endswith("..."):
-        city = city.rstrip(". ") or None
-
-    return city, district
+    return None, None
 
 
 def _match_id(match: re.Match) -> str | None:
@@ -312,14 +342,19 @@ def parse_email(sender: str, subject: str, html: str, text: str = "") -> list[Ra
     # copy is appended, so offsets into the original half stay valid.
     search_body = unwrap_tracking(body)
 
-    # Collect listing URLs in document order, de-duplicated by listing id.
-    # Keep the LAST occurrence of each id: alert emails link a listing first
-    # from its thumbnail (no data around it) and again from its title, with
-    # price/m²/rooms following. The later block is the one carrying the data.
+    # Collect listing URLs in document order, keyed by listing id, keeping the
+    # FIRST occurrence of each.
+    #
+    # A card links the same listing several times (thumbnail, title, "Ver
+    # anuncio" button) and portals order those differently: Habitaclia puts the
+    # data after the title link, Fotocasa puts the button after the price. So
+    # neither "first link" nor "last link" alone bounds the card correctly.
+    # Anchoring on the first occurrence and running to the next listing's first
+    # occurrence spans the whole card either way.
     by_id: dict[str, tuple[str, tuple[int, int]]] = {}
     for m in spec["url_re"].finditer(search_body):
         ext_id = _match_id(m)
-        if ext_id:
+        if ext_id and ext_id not in by_id:
             by_id[ext_id] = (clean_url(m.group(0)), m.span())
 
     if not by_id:

@@ -360,3 +360,44 @@ def test_property_signature_none_when_incomplete(incomplete):
     """Never dedup on partial data — two unrelated flats would collide."""
     from alerts.telegram_bot import TelegramAlerter
     assert TelegramAlerter.property_signature(incomplete) is None
+
+
+# ── Fotocasa location format ─────────────────────────────────────────────
+
+def test_extract_location_fotocasa_comma_format():
+    """Fotocasa writes '<type> · <street>, <City>' instead of '<type> en <City>'."""
+    from ingest.email_parsers import extract_location
+    assert extract_location("apartamento · D'Aribau, Barcelona") == ("barcelona", "d'aribau")
+    assert extract_location("apartamento , Badalona") == ("badalona", None)
+
+
+def test_extract_location_prefers_en_format_when_both_present():
+    from ingest.email_parsers import extract_location
+    city, _ = extract_location("Piso en Terrassa - Ca n'Aurell, algo")
+    assert city == "terrassa"
+
+
+def test_extract_location_keeps_partial_but_meaningful_district():
+    """A long truncated fragment still identifies the zone; a 2-letter one doesn't."""
+    from ingest.email_parsers import extract_location
+    assert extract_location("Apartamento en Badalona - Llefià (Art...")[1] == "llefià (art"
+    assert extract_location("Piso en Barcelona - Pa...")[1] is None
+
+
+def test_card_block_spans_whole_card_regardless_of_link_order():
+    """Habitaclia puts the data after the title link, Fotocasa puts the
+    'Ver anuncio' link after the price. Anchoring on the first occurrence of
+    each listing covers both."""
+    body = (
+        '<a href="https://www.fotocasa.es/es/comprar/vivienda/bcn/111111/d">img</a>'
+        "<div>200.000 €</div><div>60 m²</div><div>2 hab.</div>"
+        '<a href="https://www.fotocasa.es/es/comprar/vivienda/bcn/111111/d">Ver anuncio</a>'
+        '<a href="https://www.fotocasa.es/es/comprar/vivienda/bcn/222222/d">img</a>'
+        "<div>300.000 €</div><div>90 m²</div><div>4 hab.</div>"
+        '<a href="https://www.fotocasa.es/es/comprar/vivienda/bcn/222222/d">Ver anuncio</a>'
+    )
+    listings = parse_email("enviosfotocasa@fotocasa.es", "3 anuncios", body)
+    by_id = {l.external_id: l for l in listings}
+    assert len(listings) == 2
+    assert by_id["111111"].price == 200000
+    assert by_id["222222"].price == 300000
