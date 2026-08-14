@@ -90,6 +90,13 @@ search_profiles:
     max_price: 330000
     min_rooms: 2
     max_rooms: 4
+    min_area_m2: 65
+
+    # No ground floors. Darker, noisier, easier to break into and harder to
+    # resell — as decisive for a home as the price. Entresuelo and semisótano
+    # count as the same thing, and are caught from the description when the
+    # structured field is empty.
+    min_floor: 1
 
     # Districts are scoped to their town on purpose: "Passeig Maragall" is a
     # street in Gavà as well as a neighbourhood in Barcelona, and an unscoped

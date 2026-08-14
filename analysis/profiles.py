@@ -87,6 +87,42 @@ class Profile:
             return f"{rooms} hab > {max_rooms}"
         return None
 
+    def _check_size(self, area: float | None) -> str | None:
+        min_area = self.spec.get("min_area_m2")
+        if not min_area or area is None:
+            return None
+        if area < min_area:
+            return f"{area:.0f}m² < mínimo {min_area}m²"
+        return None
+
+    def _check_floor(self, listing: dict) -> str | None:
+        """Reject ground floors and the like.
+
+        A bajo is darker, noisier and easier to break into, and resells worse
+        — which matters as much for a home as the price does.
+        """
+        min_floor = self.spec.get("min_floor")
+        if min_floor is None:
+            return None
+
+        from analysis.residence_scorer import parse_floor
+
+        floor = parse_floor(listing.get("floor"))
+        if floor is None:
+            # Fall back to the description: portals often name the floor there
+            # even when the structured field is empty.
+            text = " ".join(str(listing.get(k) or "") for k in ("title", "description"))
+            if re.search(r"\bbajos?\b|\bplanta\s+baja\b|\bentresuelo\b|\bsemis[oó]tano\b",
+                         text, re.I):
+                return "es un bajo o entresuelo"
+            if self.spec.get("reject_unknown_floor", False):
+                return "planta no declarada"
+            return None
+
+        if floor < min_floor:
+            return f"planta {floor} < mínimo {min_floor}"
+        return None
+
     def _check_services(self, city: str) -> str | None:
         """Reject towns too small to have everyday services.
 
@@ -233,6 +269,8 @@ class Profile:
         for failure in (
             self._check_price(price),
             self._check_rooms(listing.get("rooms")),
+            self._check_size(listing.get("area_m2")),
+            self._check_floor(listing),
             self._check_location(city, district),
             self._check_services(city),
             self._check_condition(listing, price),

@@ -484,3 +484,52 @@ def test_reject_rules_catch_page_wording(page_text):
 def test_reject_rules_leave_ordinary_listings_alone(page_text):
     from ingest.email_parsers import _REJECT_RE
     assert _REJECT_RE.search(page_text) is None
+
+
+# ── Size and floor, for a home ───────────────────────────────────────────
+
+CASA = {**VIVIENDA, "purpose": "home", "min_area_m2": 65, "min_floor": 1}
+
+
+def test_home_rejects_small_flat():
+    ok, reason = Profile(CASA).match(_home(area_m2=52), {})
+    assert not ok
+    assert "m²" in reason
+
+
+def test_home_accepts_at_the_size_limit():
+    ok, _ = Profile(CASA).match(_home(area_m2=65), {})
+    assert ok
+
+
+def test_home_rejects_ground_floor():
+    ok, reason = Profile(CASA).match(_home(floor="Bajo"), {})
+    assert not ok
+    assert "planta" in reason
+
+
+def test_home_rejects_ground_floor_named_only_in_the_description():
+    """Portals often leave the floor field empty and say it in the text."""
+    ok, reason = Profile(CASA).match(
+        _home(floor=None, description="Bonito bajo con patio, reformado"), {}
+    )
+    assert not ok
+    assert "bajo" in reason
+
+
+@pytest.mark.parametrize("text", ["planta baja", "entresuelo", "semisótano"])
+def test_home_rejects_ground_floor_synonyms(text):
+    ok, _ = Profile(CASA).match(_home(floor=None, description=f"Piso en {text}"), {})
+    assert not ok
+
+
+def test_home_accepts_first_floor_and_above():
+    for floor in ("1ª", "3", "Ático"):
+        ok, _ = Profile(CASA).match(_home(floor=floor), {})
+        assert ok, floor
+
+
+def test_home_keeps_listing_when_floor_is_simply_unstated():
+    """Silence about the floor is a parsing gap, not a ground floor."""
+    ok, _ = Profile(CASA).match(_home(floor=None, description="Piso reformado"), {})
+    assert ok
