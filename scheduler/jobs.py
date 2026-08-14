@@ -267,7 +267,12 @@ class PipelineOrchestrator:
                             stats["by_profile"].get(profile.name, 0) + 1
                         )
 
-                    metrics = {**metrics, "matched_profiles": labels}
+                    # The alert is laid out by purpose, so carry it through
+                    metrics = {
+                        **metrics,
+                        "matched_profiles": labels,
+                        "matched_purpose": hits[0][0].purpose,
+                    }
 
                     score = metrics.get("investment_score", 0) or 0
                     dedup_key = self.alerter.property_signature(raw_dict)

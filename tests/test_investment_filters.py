@@ -125,13 +125,17 @@ def test_home_accepts_move_in_ready():
 INVERSION = {
     "name": "inversion",
     "label": "💰 Inversión",
+    "purpose": "investment",
     "min_net_yield_pct": 6.0,
-    "max_cash_needed": 50000,
+    "min_monthly_cashflow": 0,
+    "max_cash_needed": 30000,
+    "max_cash_gap": 0,
 }
 
 
 def _inv_metrics(**kw):
-    base = {"net_yield_pct": 7.0, "monthly_cashflow": 300.0, "cash_needed": 40000}
+    base = {"net_yield_pct": 7.0, "monthly_cashflow": 300.0,
+            "cash_needed": 25000, "cash_gap": 0}
     base.update(kw)
     return base
 
@@ -139,7 +143,7 @@ def _inv_metrics(**kw):
 def test_investment_accepts_good_yield_within_budget():
     ok, reason = Profile(INVERSION).match({"price": 130000, "city": "badalona"}, _inv_metrics())
     assert ok
-    assert "yield" in reason
+    assert "rentabilidad" in reason
 
 
 def test_investment_rejects_low_yield():
@@ -147,7 +151,7 @@ def test_investment_rejects_low_yield():
         {"price": 130000, "city": "badalona"}, _inv_metrics(net_yield_pct=4.0)
     )
     assert not ok
-    assert "yield" in reason
+    assert "rentabilidad" in reason
 
 
 def test_investment_rejects_when_cash_needed_exceeds_budget():
@@ -242,3 +246,66 @@ def test_upsert_refreshes_url_and_title():
 
     assert row.url.endswith("x.htm")
     assert row.title == "Piso en Barcelona - El Clot"
+
+
+# ── The two purposes read the same numbers differently ───────────────────
+# A home is lived in: there is no rent, so yield and cashflow say nothing,
+# and stretching for it is an accepted cost. An investment must fund itself.
+
+VIVIENDA_HOME = {**VIVIENDA, "purpose": "home"}
+
+
+def test_home_accepts_a_flat_that_would_lose_money_as_a_rental():
+    """The reason a home is bought has nothing to do with rental return."""
+    ok, reason = Profile(VIVIENDA_HOME).match(
+        _home(price=330000),
+        {"net_yield_pct": 1.8, "monthly_cashflow": -924, "cash_needed": 72600,
+         "monthly_payment_total": 1500},
+    )
+    assert ok
+    assert "cashflow" not in reason
+
+
+def test_home_reason_leads_with_entry_and_payment():
+    _, reason = Profile(VIVIENDA_HOME).match(
+        _home(), {"cash_needed": 66000, "monthly_payment_total": 1250}
+    )
+    assert "entrada" in reason and "cuota" in reason
+
+
+def test_home_accepts_needing_a_loan_for_the_entry():
+    """Borrowing to complete the entry is acceptable for a home."""
+    ok, _ = Profile(VIVIENDA_HOME).match(
+        _home(price=300000),
+        {"cash_needed": 66000, "cash_gap": 36000, "monthly_payment_total": 1400},
+    )
+    assert ok
+
+
+def test_investment_rejects_needing_a_loan_for_the_entry():
+    """For an investment the same borrowing means it is not funding itself."""
+    ok, reason = Profile(INVERSION).match(
+        {"price": 200000, "city": "mataró"},
+        _inv_metrics(cash_needed=29000, cash_gap=14000),
+    )
+    assert not ok
+    assert "prestados" in reason
+
+
+def test_investment_rejects_negative_cashflow_despite_good_yield():
+    """Both bars must clear: a good yield that still loses money monthly is
+    not paying its own way."""
+    ok, reason = Profile(INVERSION).match(
+        {"price": 130000, "city": "badalona"},
+        _inv_metrics(net_yield_pct=7.5, monthly_cashflow=-120),
+    )
+    assert not ok
+    assert "cashflow" in reason
+
+
+def test_investment_rejects_entry_above_available_cash():
+    ok, reason = Profile(INVERSION).match(
+        {"price": 200000, "city": "sabadell"}, _inv_metrics(cash_needed=44000)
+    )
+    assert not ok
+    assert "necesita" in reason

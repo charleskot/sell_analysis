@@ -44,12 +44,24 @@ def _place_matches(needle: str, haystack: str) -> bool:
 
 
 class Profile:
-    """One saved search with its own criteria."""
+    """One saved search with its own criteria.
+
+    `purpose` separates two opposite readings of the same numbers:
+
+      home        the buyer lives there. There is no rent, so yield and
+                  cashflow are meaningless, and stretching — a second loan
+                  for the entry — is an accepted cost of getting the flat.
+
+      investment  the flat has to fund itself. It must be reachable with
+                  the cash in hand, and pay its own way from month one.
+                  Borrowing to cover the entry defeats the point.
+    """
 
     def __init__(self, spec: dict):
         self.name = spec.get("name", "sin_nombre")
         self.label = spec.get("label", self.name)
         self.enabled = spec.get("enabled", True)
+        self.purpose = spec.get("purpose", "investment")
         self.spec = spec
 
     # ── Individual conditions ────────────────────────────────────────────
@@ -141,8 +153,9 @@ class Profile:
         min_yield = self.spec.get("min_net_yield_pct")
         min_cashflow = self.spec.get("min_monthly_cashflow")
         max_cash = self.spec.get("max_cash_needed")
+        max_gap = self.spec.get("max_cash_gap")
 
-        if min_yield is None and min_cashflow is None and max_cash is None:
+        if all(v is None for v in (min_yield, min_cashflow, max_cash, max_gap)):
             return False, None
 
         # Upfront cash is a hard constraint: no yield makes an unaffordable
@@ -150,23 +163,30 @@ class Profile:
         if max_cash is not None:
             cash_needed = metrics.get("cash_needed")
             if cash_needed is not None and cash_needed > max_cash:
-                return True, f"necesita {cash_needed:,.0f}€ > {max_cash:,.0f}€ disponibles"
+                return True, f"necesita {cash_needed:,.0f}€ > {max_cash:,.0f}€"
+
+        # An investment that needs a loan just to cover its own entry is not
+        # funding itself, however good the yield looks.
+        if max_gap is not None:
+            gap = metrics.get("cash_gap")
+            if gap is not None and gap > max_gap:
+                return True, f"habría que pedir {gap:,.0f}€ prestados para la entrada"
 
         net_yield = metrics.get("net_yield_pct") or 0
         cashflow = metrics.get("monthly_cashflow")
 
-        reasons = []
-        if min_yield is not None and net_yield >= min_yield:
-            reasons.append(f"yield neto {net_yield:.2f}%")
-        if min_cashflow is not None and cashflow is not None and cashflow > min_cashflow:
-            reasons.append(f"cashflow {cashflow:+,.0f}€/mes")
+        # Both bars must clear when both are set: a flat that yields well on
+        # paper but loses money every month is not paying its own way.
+        if min_yield is not None and net_yield < min_yield:
+            return True, f"rentabilidad neta {net_yield:.2f}% < {min_yield}%"
 
-        if reasons:
-            return True, None
+        if min_cashflow is not None:
+            if cashflow is None:
+                return True, "sin cashflow calculable"
+            if cashflow <= min_cashflow:
+                return True, f"cashflow {cashflow:+,.0f}€/mes"
 
-        if min_yield is not None:
-            return True, f"yield neto {net_yield:.2f}% < {min_yield}%"
-        return True, "cashflow insuficiente"
+        return True, None
 
     # ── Public API ───────────────────────────────────────────────────────
 
@@ -189,10 +209,23 @@ class Profile:
         if failure:
             return False, failure
 
+        # The reason is what the alert leads with, so it has to be the number
+        # that matters for this purpose. Rent figures on a home the buyer will
+        # live in are noise — there is no rent.
+        if self.purpose == "home":
+            cash_needed = metrics.get("cash_needed")
+            payment = metrics.get("monthly_payment_total") or metrics.get("monthly_payment")
+            parts = []
+            if cash_needed is not None:
+                parts.append(f"entrada {cash_needed:,.0f}€")
+            if payment:
+                parts.append(f"cuota {payment:,.0f}€/mes")
+            return True, " · ".join(parts) or "cumple zona, precio y estado"
+
         if had_financials:
             net_yield = metrics.get("net_yield_pct") or 0
             cashflow = metrics.get("monthly_cashflow")
-            parts = [f"yield neto {net_yield:.2f}%"]
+            parts = [f"rentabilidad neta {net_yield:.2f}%"]
             if cashflow is not None:
                 parts.append(f"cashflow {cashflow:+,.0f}€/mes")
             return True, " · ".join(parts)

@@ -428,6 +428,23 @@ class TelegramAlerter:
             f"💰 {price:,.0f}€ · {area:.0f}m² · {rooms} hab · {ppm2:,.0f}€/m²\n"
         )
 
+        # A home and an investment are judged on different numbers. Rent,
+        # yield and cashflow describe a flat that is let out; on one the buyer
+        # will live in they are noise, and showing "cashflow -924€/mes" on the
+        # flat someone wants to move into misreads the whole purchase.
+        if metrics.get("matched_purpose") == "home":
+            cash_needed = metrics.get("cash_needed")
+            gap = metrics.get("cash_gap") or 0
+            payment = metrics.get("monthly_payment_total") or metrics.get("monthly_payment")
+            if cash_needed is not None:
+                msg += f"\n🏦 Entrada + gastos: <b>{cash_needed:,.0f}€</b>\n"
+                if gap > 0:
+                    msg += f"   ↳ de tu bolsillo {cash_needed - gap:,.0f}€ + crédito {gap:,.0f}€\n"
+            if payment:
+                msg += f"📉 Cuota total: <b>{payment:,.0f}€/mes</b>\n"
+            msg += f"\n<a href=\"{self._esc(url)}\">Ver anuncio</a>"
+            return msg
+
         # Leverage figures are the ones that decide an investment, so they lead
         # when financing is configured.
         cash_needed = metrics.get("cash_needed")

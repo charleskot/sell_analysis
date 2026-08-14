@@ -72,6 +72,10 @@ search_profiles:
   - name: vivienda
     label: "🏠 Para vivir"
     enabled: true
+    # No financial bar at all. The buyer lives here, so there is no rent and
+    # no cashflow to judge; paying more, and borrowing more, is an accepted
+    # cost of getting the right flat. Zone, price, size and condition decide.
+    purpose: home
     max_price: 330000
     min_rooms: 2
     max_rooms: 4
@@ -105,18 +109,22 @@ search_profiles:
   - name: inversion
     label: "💰 Inversión"
     enabled: true
+    purpose: investment
 
     # No zone restriction: anywhere in Catalonia within driving distance.
     # Distance is not enforced — the portal alerts already bound the area, and
     # nothing in the listing data gives a reliable travel time.
-    min_net_yield_pct: 6.0
 
-    # Total entry money: 10% deposit + ~12% costs = ~22% of the price.
-    # 30.000 € of that is the buyer's own; the rest is the personal loan,
-    # whose payment is already subtracted from the cashflow below. Capped at
-    # 60.000 € to bound how much of the entry gets borrowed — roughly a
-    # 270.000 € ceiling on price.
-    max_cash_needed: 60000
+    # An investment has to stand on its own: reachable with the cash in hand,
+    # and paying its own way from month one. Both bars must clear.
+    min_net_yield_pct: 6.0
+    min_monthly_cashflow: 0
+
+    # Entry money must fit the 30.000 € available — borrowing to cover the
+    # entry means the flat is not funding itself, which is the whole point.
+    # ~22% of price in deposit and costs puts the ceiling near 135.000 €.
+    max_cash_needed: 30000
+    max_cash_gap: 0
 
   # ── 3. New build ────────────────────────────────────────────────────────
   # Disabled: no portal alert feeds it yet, so it would never fire. Enable it
