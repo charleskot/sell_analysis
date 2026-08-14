@@ -208,6 +208,7 @@ class PipelineOrchestrator:
 
         stats = {"emails": 0, "parsed": 0, "new": 0, "updated": 0,
                  "alerts_sent": 0, "filtered_out": 0, "errors": 0,
+                 "enriched": 0, "dropped_after_enrich": 0, "rejected_after_enrich": 0,
                  "by_portal": {}, "by_profile": {}}
 
         reader = self._get_mail_reader()
@@ -258,6 +259,45 @@ class PipelineOrchestrator:
                         stats["filtered_out"] += 1
                         continue
 
+                    # Only now, for the handful that matched, is it worth
+                    # reading the listing's own page. The email left out the
+                    # condition for most of them, and "para reformar" changes
+                    # the numbers by tens of thousands — enough to disqualify
+                    # a match that looked fine a moment ago.
+                    if metrics.get("condition_unknown"):
+                        enriched = self._enrich(raw_dict)
+                        if enriched:
+                            stats["enriched"] += 1
+                            raw_dict = enriched
+
+                            # The reject rules ran against the email, which
+                            # said nothing. The page does: three of the four
+                            # best-yielding flats turned out to be occupied or
+                            # explicitly unmortgageable, with the yield being
+                            # the premium for exactly that.
+                            from ingest.email_parsers import _REJECT_RE
+
+                            blocker = _REJECT_RE.search(
+                                f"{raw_dict.get('title', '')} {raw_dict.get('description', '')}"
+                            )
+                            if blocker:
+                                logger.info(
+                                    f"{listing_id} rejected after reading its page: "
+                                    f"{blocker.group(0)!r}"
+                                )
+                                stats["rejected_after_enrich"] += 1
+                                continue
+
+                            metrics = self._compute_metrics(raw_dict) or metrics
+                            hits = self.profile_matcher.match(raw_dict, metrics)
+                            if not hits:
+                                logger.info(
+                                    f"{listing_id} dropped after reading its page: "
+                                    f"{metrics.get('needs_reform') and 'needs work' or 'no longer matches'}"
+                                )
+                                stats["dropped_after_enrich"] += 1
+                                continue
+
                     # A listing can satisfy more than one search; name them all
                     # so the alert says why it is being shown.
                     labels = " + ".join(p.label for p, _ in hits)
@@ -292,6 +332,33 @@ class PipelineOrchestrator:
             logger.info(f"  📧 {portal}: {pstats['parsed']} anuncios, {pstats['alerts']} alertas")
 
         return stats
+
+    def _enrich(self, listing: dict) -> dict | None:
+        """Recover the description from the listing's own page.
+
+        Returns an updated copy, or None when the page could not be read —
+        which is the normal outcome for portals that refuse this IP, and must
+        leave the listing exactly as it was rather than half-updated.
+        """
+        from ingest.enrich import fetch_description
+
+        if not self.config.get("enrichment", {}).get("enabled", True):
+            return None
+
+        try:
+            description = fetch_description(listing.get("url", ""))
+        except Exception as e:
+            logger.warning(f"enrich failed for {listing.get('url', '')[:60]}: {e}")
+            return None
+
+        if not description:
+            return None
+
+        # Appended, not replaced: the email's text carries the location and
+        # spec line that the parser already keyed off.
+        merged = dict(listing)
+        merged["description"] = f"{listing.get('description', '')} {description}".strip()
+        return merged
 
     def _get_mail_reader(self):
         """Pick the configured mail backend. Cached after first call."""

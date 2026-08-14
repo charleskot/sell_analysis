@@ -114,6 +114,11 @@ _REJECT_RE = re.compile(
     r"\bno\s+se\s+puede\s+visitar\b|\bsin\s+posibilidad\s+de\s+visita\b|"
     r"\bno\s+visitable\b|\bsin\s+visita\b|"
     r"\bposesi[oó]n\s+no\s+garantizada\b|\bsin\s+posesi[oó]n\b|"
+    # Wording the listing pages actually use, recovered by reading them
+    r"\bno\s+permite\s+hipoteca\b|\bno\s+se\s+puede\s+hipotecar\b|"
+    r"\bno\s+hipotecable\b|\bsin\s+posibilidad\s+de\s+hipoteca\b|"
+    r"\bcondiciones\s+especiales\s+de\s+compra\b|"
+    r"\bno\s+se\s+puede\s+visitar\s+ni\s+hipotecar\b|"
     r"\bcon\s+cargas\b|\bpendiente\s+de\s+lanzamiento\b|"
     # Legal forms a mortgage will not cover
     r"\bnuda\s+propiedad\b|\busufruct\w*\b|\bsubasta\b|\bproindiviso\b|"

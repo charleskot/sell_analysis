@@ -457,3 +457,30 @@ def test_reform_cost_is_added_to_the_entry_and_lowers_the_yield():
     assert works["reform_cost"] > 0
     assert works["cash_needed"] > plain["cash_needed"]
     assert works["net_yield_pct"] < plain["net_yield_pct"]
+
+
+# ── Disqualifying wording the emails never carried ───────────────────────
+# Recovered by reading the listing pages: three of the four best-yielding
+# flats were occupied or explicitly unmortgageable, and the yield was the
+# premium for exactly that.
+
+@pytest.mark.parametrize("page_text", [
+    "badalona (barcelona). okupado (no se puede visitar ni hipotecar)..",
+    'sin posesión "ocupado" (no se puede visitar ni hipotecar)',
+    "CONDICIONES ESPECIALES DE COMPRA: 1º.- No permite hipoteca sobre el inmueble",
+    "Vivienda no hipotecable, solo compra al contado",
+    "Sin posibilidad de hipoteca",
+])
+def test_reject_rules_catch_page_wording(page_text):
+    from ingest.email_parsers import _REJECT_RE
+    assert _REJECT_RE.search(page_text) is not None
+
+
+@pytest.mark.parametrize("page_text", [
+    "oportunidad para reformar a su gusto. Vivienda amplia y luminosa",
+    "precioso piso reformado a estrenar con ascensor en sant andreu",
+    "La Casa Agency tiene el placer de presentar esta magnífica vivienda",
+])
+def test_reject_rules_leave_ordinary_listings_alone(page_text):
+    from ingest.email_parsers import _REJECT_RE
+    assert _REJECT_RE.search(page_text) is None

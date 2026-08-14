@@ -19,6 +19,17 @@ email_ingest:
   # reads exactly like "no new listings". Trash is excluded on purpose.
   query: "in:anywhere -in:trash"
 
+# ── Reading the listing page ───────────────────────────────────────────────
+# Alert emails omit the condition for most listings, and "para reformar" is
+# worth tens of thousands in works the bank will not finance. For the few
+# that match a profile, the page itself is read to recover it.
+#
+# Same treatment for every portal; it simply succeeds where the portal
+# allows. Idealista and Fotocasa refuse datacenter IPs, so those keep their
+# "condition unknown" flag rather than gaining a false one.
+enrichment:
+  enabled: true
+
 scraping:
   enabled: false              # portals block us; kept for when that changes
   delay_min_seconds: 8
