@@ -403,19 +403,41 @@ class TelegramAlerter:
 
         gross_yield = metrics.get("gross_yield_pct", 0) or 0
         net_yield = metrics.get("net_yield_pct", 0) or 0
-        payback = metrics.get("payback_years", 0) or 0
         monthly_rent = metrics.get("estimated_monthly_rent", 0) or 0
+        ppm2 = metrics.get("price_per_m2", 0) or 0
 
+        # Which of the user's searches this listing answers
+        header = metrics.get("matched_profiles") or "Nueva oportunidad"
         stars = "⭐" * min(5, int(score / 20))
 
         msg = (
-            f"*{stars} NUEVA OPORTUNIDAD — Score: {score:.0f}/100*\n\n"
+            f"*{header}*  {stars}\n\n"
             f"📍 {location}\n"
-            f"💰 Precio: {price:,.0f}€ | {area:.0f}m² | {rooms} hab\n"
-            f"📈 Rentabilidad bruta: *{gross_yield:.1f}%*\n"
-            f"📊 Rentabilidad neta: {net_yield:.1f}%\n"
-            f"🏠 Alquiler estimado: {monthly_rent:.0f}€/mes\n"
-            f"⏳ Payback: {payback:.0f} años\n\n"
-            f"[Ver anuncio]({url})"
+            f"💰 {price:,.0f}€ · {area:.0f}m² · {rooms} hab · {ppm2:,.0f}€/m²\n"
         )
+
+        # Leverage figures are the ones that decide an investment, so they lead
+        # when financing is configured.
+        cash_needed = metrics.get("cash_needed")
+        cashflow = metrics.get("monthly_cashflow")
+        payment = metrics.get("monthly_payment")
+
+        if cash_needed is not None and cashflow is not None:
+            msg += (
+                f"\n🏦 Entrada + gastos: *{cash_needed:,.0f}€*\n"
+                f"📉 Cuota: {payment:,.0f}€/mes\n"
+                f"💵 Alquiler estimado: {monthly_rent:,.0f}€/mes\n"
+                f"{'🟢' if cashflow > 0 else '🔴'} Cashflow: *{cashflow:+,.0f}€/mes*\n"
+                f"📈 Rentabilidad neta: *{net_yield:.1f}%*  (bruta {gross_yield:.1f}%)\n"
+            )
+        else:
+            msg += (
+                f"\n💵 Alquiler estimado: {monthly_rent:,.0f}€/mes\n"
+                f"📈 Rentabilidad neta: *{net_yield:.1f}%*  (bruta {gross_yield:.1f}%)\n"
+            )
+
+        # The rent figure comes from zone averages, not comparables for this
+        # flat — worth saying, because every number above depends on it.
+        msg += f"\n_Alquiler estimado por zona, contrastar antes de decidir._\n"
+        msg += f"\n[Ver anuncio]({url})"
         return msg

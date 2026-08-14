@@ -38,13 +38,75 @@ financing:
   annual_rate_pct: 3.0        # nominal annual interest rate
   years: 30                   # mortgage term
 
-# ── Alert thresholds ───────────────────────────────────────────────────────
-# A listing must clear ONE of these to be worth interrupting you for.
-investment_thresholds:
-  min_net_yield_pct: 4.5      # net yield after costs, IBI, vacancy
-  min_monthly_cashflow: 0     # positive cashflow from month one
-  max_price: 350000           # ceiling regardless of how good the numbers look
-  min_rooms: 2
+# ═══════════════════════════════════════════════════════════════════════════
+# SEARCH PROFILES
+#
+# Three searches running at once over the same mailbox. They are separate
+# because their criteria contradict each other: the home to live in is about
+# a specific set of streets and needing no work, the investment is about a
+# number and could be anywhere in Catalonia.
+#
+# A listing alerts if it matches ANY enabled profile, and the alert says
+# which one. Place names are matched ignoring accents and apostrophes.
+# ═══════════════════════════════════════════════════════════════════════════
+search_profiles:
+
+  # ── 1. Home to live in ──────────────────────────────────────────────────
+  - name: vivienda
+    label: "🏠 Para vivir"
+    enabled: true
+    max_price: 330000
+    min_rooms: 2
+    max_rooms: 4
+
+    # Districts are scoped to their town on purpose: "Passeig Maragall" is a
+    # street in Gavà as well as a neighbourhood in Barcelona, and an unscoped
+    # list files the Gavà flat under a Barcelona search.
+    # An entry with no districts accepts the whole town.
+    areas:
+      - city: barcelona
+        districts:
+          - camp de l arpa      # accents and apostrophes are ignored
+          - el clot
+          - maragall
+          - sagrada familia
+          - navas
+          - la sagrera
+          - sant andreu
+          - el guinardo
+      # Llobregat side, accepted in full
+      - city: sant feliu de llobregat
+      - city: sant just desvern
+      - city: esplugues
+
+    # Move-in ready. Below the price named here a refurbishment stops being a
+    # drawback and becomes part of the deal, so the requirement lifts.
+    condition_in: [nuevo, buen_estado]
+    needs_work_below_price: 240000
+
+  # ── 2. Investment ───────────────────────────────────────────────────────
+  - name: inversion
+    label: "💰 Inversión"
+    enabled: true
+
+    # No zone restriction: anywhere in Catalonia within driving distance.
+    # Distance is not enforced — the portal alerts already bound the area, and
+    # nothing in the listing data gives a reliable travel time.
+    min_net_yield_pct: 6.0
+
+    # Cash out of pocket, not purchase price: deposit plus taxes and fees.
+    # With 20% down and 10% costs this admits flats up to roughly 165.000 €.
+    max_cash_needed: 50000
+
+  # ── 3. New build ────────────────────────────────────────────────────────
+  # Disabled: no portal alert feeds it yet, so it would never fire. Enable it
+  # once an "obra nueva" alert exists, within 40 min of Barcelona.
+  - name: obra_nueva
+    label: "🏗 Obra nueva"
+    enabled: false
+    max_price: 400000
+    min_rooms: 2
+    condition_in: [nuevo]
 
 # ── Target locations ──────────────────────────────────────────────────────
 # TEST MODE: solo Barcelona, barrios específicos alrededor de Maragall/Clot

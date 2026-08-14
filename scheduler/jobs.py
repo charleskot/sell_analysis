@@ -13,6 +13,7 @@ class PipelineOrchestrator:
         from analysis.rent_estimator import RentEstimator
         from analysis.scorer import InvestmentScorer
         from analysis.residence_scorer import ResidenceScorer
+        from analysis.profiles import ProfileMatcher
         from alerts.telegram_bot import TelegramAlerter
 
         self.config = config
@@ -21,6 +22,7 @@ class PipelineOrchestrator:
         self.rent_estimator = RentEstimator(config)
         self.scorer = InvestmentScorer(config)
         self.residence_scorer = ResidenceScorer(config)
+        self.profile_matcher = ProfileMatcher(config)
         self.alerter = TelegramAlerter(config)
         self._scrapers = self._init_scrapers()
         logger.info(f"Pipeline initialised in '{self.mode}' mode")
@@ -199,7 +201,8 @@ class PipelineOrchestrator:
         from models.db import upsert_listing, upsert_metrics
 
         stats = {"emails": 0, "parsed": 0, "new": 0, "updated": 0,
-                 "alerts_sent": 0, "errors": 0, "by_portal": {}}
+                 "alerts_sent": 0, "filtered_out": 0, "errors": 0,
+                 "by_portal": {}, "by_profile": {}}
 
         reader = self._get_mail_reader()
         if reader is None:
@@ -241,13 +244,33 @@ class PipelineOrchestrator:
                     listing_id = f"{raw.portal}_{raw.external_id}"
                     upsert_metrics(listing_id, metrics)
 
+                    if not is_new:
+                        continue
+
+                    hits = self.profile_matcher.match(raw_dict, metrics)
+                    if not hits:
+                        stats["filtered_out"] += 1
+                        continue
+
+                    # A listing can satisfy more than one search; name them all
+                    # so the alert says why it is being shown.
+                    labels = " + ".join(p.label for p, _ in hits)
+                    reason = hits[0][1]
+                    for profile, _ in hits:
+                        stats["by_profile"][profile.name] = (
+                            stats["by_profile"].get(profile.name, 0) + 1
+                        )
+
+                    metrics = {**metrics, "matched_profiles": labels}
+
                     score = metrics.get("investment_score", 0) or 0
                     dedup_key = self.alerter.property_signature(raw_dict)
-                    if is_new and self.alerter.send_alert(
+                    if self.alerter.send_alert(
                         listing_id, raw_dict, metrics, score, dedup_key=dedup_key
                     ):
                         stats["alerts_sent"] += 1
                         portal_stats["alerts"] += 1
+                        logger.info(f"Alerta {listing_id} [{labels}]: {reason}")
 
                 except Exception as e:
                     logger.error(f"Error processing {raw.url}: {e}")
