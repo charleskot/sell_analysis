@@ -23,25 +23,33 @@ logger = logging.getLogger(__name__)
 # sender_match: substring matched against the From address
 # url_re:       finds listing URLs in the email body; group(1) = external id
 PORTAL_SPECS = [
+    # Each pattern must span the WHOLE link, not just as far as the id: the
+    # match is what gets stored and opened later. Habitaclia links through a
+    # redirect whose path carries the alert reference, and truncating it after
+    # "/i{id}/" produced a 404 — the alert arrived with a dead link.
     {
         "portal": "idealista",
         "sender_match": ["idealista.com", "idealista.es"],
-        "url_re": re.compile(r"https?://(?:www\.)?idealista\.com/(?:\w+/)?inmueble/(\d+)/?", re.I),
+        "url_re": re.compile(
+            r"https?://(?:www\.)?idealista\.com/(?:\w+/)?inmueble/(\d+)[^\s\"'<>]*", re.I
+        ),
     },
     {
         "portal": "fotocasa",
         "sender_match": ["fotocasa.es", "fotocasa.com"],
-        "url_re": re.compile(r"https?://(?:www\.)?fotocasa\.es/[^\s\"'<>]*?(\d{6,})(?:[/?#]|$)", re.I),
+        "url_re": re.compile(
+            r"https?://(?:www\.)?fotocasa\.es/[^\s\"'<>]*?/(\d{6,})/[^\s\"'<>]*", re.I
+        ),
     },
     {
         "portal": "habitaclia",
         "sender_match": ["habitaclia.com"],
         # Two shapes, verified against real alert emails:
-        #   /i34685004369863/28112891/express.../alertas/email/...  (alert redirect)
-        #   /comprar-piso-el_clot-i9876543.htm                      (canonical)
-        # The redirect form is what alert emails actually use.
+        #   /i34685004369863/28112891/express.../alertas/email/....htm  (redirect)
+        #   /comprar-piso-el_clot-i9876543.htm                          (canonical)
         "url_re": re.compile(
-            r"https?://(?:www\.)?habitaclia\.com/(?:i(\d{8,})/|[^\s\"'<>]*?-i?(\d{6,})\.htm)",
+            r"https?://(?:www\.)?habitaclia\.com/"
+            r"(?:i(\d{8,})/[^\s\"'<>]*|[^\s\"'<>]*?-i?(\d{6,})\.htm)",
             re.I,
         ),
     },
