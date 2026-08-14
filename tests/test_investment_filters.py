@@ -533,3 +533,58 @@ def test_home_keeps_listing_when_floor_is_simply_unstated():
     """Silence about the floor is a parsing gap, not a ground floor."""
     ok, _ = Profile(CASA).match(_home(floor=None, description="Piso reformado"), {})
     assert ok
+
+
+# ── Typed instructions ───────────────────────────────────────────────────
+# This is a chat, not a CLI. Being told "unknown command" for writing
+# "que tenemos?" instead of "/top" is how a tool ends up unused.
+
+def _pipeline():
+    import yaml
+    from models.db import init_engine, create_all_tables
+    from scheduler.jobs import PipelineOrchestrator
+    init_engine(":memory:")
+    create_all_tables()
+    return PipelineOrchestrator(yaml.safe_load(open("config.yaml")))
+
+
+@pytest.mark.parametrize("phrase", [
+    "que tenemos",
+    "qué tenemos?",
+    "dime lo que tenemos",
+    "TOP",
+    "resumen",
+    "que hay",
+    "lista",
+])
+def test_asking_what_we_have_is_understood_however_it_is_written(phrase):
+    reply = _pipeline().handle_command(phrase)
+    assert reply
+    assert "No he entendido" not in reply
+
+
+@pytest.mark.parametrize("phrase", ["estado", "¿funciona?", "sigues vivo"])
+def test_health_question_is_understood(phrase):
+    reply = _pipeline().handle_command(phrase)
+    assert "Funcionando" in reply
+
+
+def test_help_lists_what_can_be_asked():
+    reply = _pipeline().handle_command("ayuda")
+    assert "qué tenemos" in reply and "estado" in reply
+
+
+def test_unrelated_message_gets_a_useful_nudge():
+    reply = _pipeline().handle_command("cuanto vale el bitcoin")
+    assert "No he entendido" in reply
+    assert "qué tenemos" in reply
+
+
+def test_empty_message_is_ignored():
+    assert _pipeline().handle_command("   ") is None
+
+
+def test_summary_says_so_plainly_when_nothing_matches():
+    """An empty result must read as an answer, not as a failure."""
+    reply = _pipeline()._summary_text()
+    assert "Nada encaja" in reply

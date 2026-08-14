@@ -112,9 +112,15 @@ class TelegramAlerter:
             ]]
         }
 
-    def poll_feedback(self) -> int:
-        """Poll Telegram for callback_query (button clicks) and text replies.
-        Records feedback in DB. Returns number of events processed."""
+    def poll_feedback(self, command_handler=None) -> int:
+        """Poll Telegram for button clicks, text replies and commands.
+
+        command_handler is called with any standalone message — one that is
+        not a reply to an alert — and whatever string it returns is sent back.
+        It lives outside this class because answering "what have we got"
+        needs the profile matcher, which the alerter has no business knowing
+        about.
+        """
         if not self._enabled:
             return 0
 
@@ -177,8 +183,23 @@ class TelegramAlerter:
                             logger.error(f"record_feedback failed: {e}")
                 continue
 
-            # 2) Text reply to an alert (free-form note)
             msg = upd.get("message")
+
+            # 2) A standalone message is an instruction, not a note
+            if msg and not msg.get("reply_to_message") and command_handler:
+                text = (msg.get("text") or "").strip()
+                if text:
+                    try:
+                        reply = command_handler(text)
+                    except Exception as e:
+                        logger.error(f"command handler failed: {e}")
+                        reply = "Algo ha fallado al preparar la respuesta."
+                    if reply:
+                        self._send_sync(reply)
+                        n += 1
+                        continue
+
+            # 3) Text reply to an alert (free-form note)
             if msg and msg.get("reply_to_message"):
                 replied_to_id = msg["reply_to_message"].get("message_id")
                 note = msg.get("text", "").strip()

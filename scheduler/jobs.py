@@ -383,11 +383,158 @@ class PipelineOrchestrator:
         self.alerter.send_daily_digest()
 
     def run_feedback_poll(self) -> None:
-        """Poll Telegram for button clicks / text replies from the user."""
+        """Poll Telegram for button clicks, replies and typed instructions."""
         try:
-            self.alerter.poll_feedback()
+            self.alerter.poll_feedback(command_handler=self.handle_command)
         except Exception as e:
             logger.error(f"Feedback poll failed: {e}")
+
+    # ── Talking back ─────────────────────────────────────────────────────
+
+    def handle_command(self, text: str) -> str | None:
+        """Answer a message typed into the chat.
+
+        Deliberately forgiving about wording: this is a chat, not a CLI, and
+        being told "no entiendo ese comando" for writing "que tenemos?"
+        instead of "/top" is the kind of thing that makes a tool go unused.
+        """
+        from analysis.profiles import normalise
+
+        words = normalise(text)
+        if not words:
+            return None
+
+        def asks(*terms):
+            return any(t in words for t in terms)
+
+        if asks("ayuda", "help", "comandos", "que puedes"):
+            return self._help_text()
+
+        if asks("tenemos", "top", "lista", "listado", "oportunidades",
+                "resumen", "que hay", "pisos", "dime"):
+            return self._summary_text()
+
+        if asks("estado", "status", "funciona", "vivo", "salud"):
+            return self._health_text()
+
+        return (
+            "No he entendido eso.\n\n"
+            "Prueba con <b>qué tenemos</b> para ver las oportunidades, "
+            "<b>estado</b> para saber si sigo vivo, o <b>ayuda</b>."
+        )
+
+    @staticmethod
+    def _help_text() -> str:
+        return (
+            "<b>Puedes escribirme</b>\n\n"
+            "• <b>qué tenemos</b> — todo lo que encaja ahora mismo\n"
+            "• <b>estado</b> — si sigo funcionando y cuándo miré el correo\n"
+            "• <b>ayuda</b> — esto\n\n"
+            "<i>Respondo en la siguiente pasada, así que puedo tardar hasta "
+            "una hora.</i>"
+        )
+
+    def _current_matches(self) -> list[tuple[dict, dict, object, str]]:
+        """Every stored listing that still satisfies a profile."""
+        from models.db import get_engine
+        from models.schema import listings as listings_tbl
+        from sqlalchemy import select
+
+        with get_engine().connect() as conn:
+            rows = [dict(r._mapping) for r in conn.execute(select(listings_tbl))]
+
+        found = []
+        for listing in rows:
+            metrics = self._compute_metrics(listing)
+            if not metrics:
+                continue
+            for profile, reason in self.profile_matcher.match(listing, metrics):
+                found.append((listing, metrics, profile, reason))
+        return found
+
+    def _summary_text(self) -> str:
+        matches = self._current_matches()
+        if not matches:
+            return (
+                "<b>Nada encaja ahora mismo.</b>\n\n"
+                "Sigo mirando el correo. Te aviso en cuanto aparezca algo."
+            )
+
+        def money(v):
+            return f"{v:,.0f}".replace(",", ".") if v else "?"
+
+        by_purpose: dict[str, list] = {}
+        seen: set = set()
+        for listing, metrics, profile, reason in sorted(matches, key=lambda t: t[0]["price"] or 0):
+            # The same flat is often listed by several agencies
+            key = (listing.get("price"), listing.get("area_m2"))
+            if key in seen:
+                continue
+            seen.add(key)
+            by_purpose.setdefault(profile.purpose, []).append((listing, metrics, profile))
+
+        lines = ["<b>📋 Lo que tenemos ahora</b>", ""]
+
+        for purpose, heading in (("investment", "💰 <b>INVERSIÓN</b>"),
+                                 ("home", "🏠 <b>PARA VIVIR</b>")):
+            items = by_purpose.get(purpose)
+            if not items:
+                continue
+            lines.append(heading)
+            for listing, metrics, _ in items:
+                where = listing.get("district") or listing.get("city") or "?"
+                lines.append(
+                    f'• <a href="{listing["url"]}">{money(listing["price"])}€ · {where}</a>'
+                )
+                if purpose == "investment":
+                    lines.append(
+                        f"  {money(listing.get('area_m2'))}m² · entrada "
+                        f"{money(metrics.get('cash_needed'))}€ · neta "
+                        f"{metrics.get('net_yield_pct') or 0:.1f}% · cashflow "
+                        f"{metrics.get('monthly_cashflow') or 0:+,.0f}€/mes".replace(",", ".")
+                    )
+                else:
+                    lines.append(
+                        f"  {money(listing.get('area_m2'))}m² · entrada "
+                        f"{money(metrics.get('cash_needed'))}€ · cuota "
+                        f"{money(metrics.get('monthly_payment_total') or metrics.get('monthly_payment'))}€/mes"
+                    )
+                if metrics.get("rent_capped_zone") and purpose == "investment":
+                    lines.append("  ⚠️ zona tensionada: el alquiler está topado")
+                if metrics.get("reform_cost"):
+                    lines.append(f"  🔨 incluye {money(metrics['reform_cost'])}€ de reforma")
+            lines.append("")
+
+        return "\n".join(lines).strip()
+
+    def _health_text(self) -> str:
+        import datetime as dt
+
+        from models.db import get_engine, get_telegram_state
+        from models.schema import listings as listings_tbl
+        from sqlalchemy import func, select
+
+        with get_engine().connect() as conn:
+            total = conn.execute(select(func.count()).select_from(listings_tbl)).scalar() or 0
+
+        cursor = get_telegram_state("gmail_last_internal_date_ms", "")
+        when = "nunca"
+        if cursor:
+            try:
+                when = dt.datetime.fromtimestamp(
+                    int(cursor) / 1000, tz=dt.timezone.utc
+                ).strftime("%d/%m %H:%M UTC")
+            except ValueError:
+                pass
+
+        return (
+            "<b>✅ Funcionando</b>\n\n"
+            f"Anuncios analizados: <b>{total}</b>\n"
+            f"Último correo leído: {when}\n"
+            f"Perfiles activos: {len(self.profile_matcher.profiles)}\n\n"
+            "<i>Reviso el correo cada media hora en teoría; GitHub retrasa las "
+            "ejecuciones, así que en la práctica es cerca de una hora.</i>"
+        )
 
     def _compute_metrics(self, listing: dict) -> dict | None:
         if self.mode == "residence":
