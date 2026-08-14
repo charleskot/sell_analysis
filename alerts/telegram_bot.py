@@ -435,9 +435,20 @@ class TelegramAlerter:
         payment = metrics.get("monthly_payment")
 
         if cash_needed is not None and cashflow is not None:
+            gap = metrics.get("cash_gap") or 0
+            gap_payment = metrics.get("gap_loan_payment") or 0
+            total_payment = metrics.get("monthly_payment_total") or payment
+
+            msg += f"\n🏦 Entrada + gastos: <b>{cash_needed:,.0f}€</b>\n"
+            # Naming the shortfall matters: it is the difference between a
+            # deal the buyer can fund and one that needs a second loan.
+            if gap > 0:
+                msg += f"   ↳ de tu bolsillo {cash_needed - gap:,.0f}€ + crédito {gap:,.0f}€\n"
+            msg += f"📉 Cuota hipoteca: {payment:,.0f}€/mes\n"
+            if gap_payment > 0:
+                msg += f"📉 Cuota crédito: {gap_payment:,.0f}€/mes\n"
+                msg += f"   ↳ total {total_payment:,.0f}€/mes\n"
             msg += (
-                f"\n🏦 Entrada + gastos: <b>{cash_needed:,.0f}€</b>\n"
-                f"📉 Cuota: {payment:,.0f}€/mes\n"
                 f"💵 Alquiler estimado: {monthly_rent:,.0f}€/mes\n"
                 f"{'🟢' if cashflow > 0 else '🔴'} Cashflow: <b>{cashflow:+,.0f}€/mes</b>\n"
                 f"📈 Rentabilidad neta: <b>{net_yield:.1f}%</b>  (bruta {gross_yield:.1f}%)\n"

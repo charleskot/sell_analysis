@@ -90,12 +90,36 @@ _FLOOR_RE = re.compile(
     re.I,
 )
 
-# Rejection patterns — these never become opportunities
+# Rejection patterns.
+#
+# These are not preferences: each one describes a property a bank will not
+# grant a mortgage on. Buying any of them requires paying cash, so for a
+# buyer who needs financing they are not opportunities at any price.
+#
+# "Solo inversores" and its variants are the seller saying exactly that in
+# marketing language — the flat cannot be viewed, cannot be appraised, or
+# comes with someone living in it.
 _REJECT_RE = re.compile(
-    r"\balquilad[oa]\b|\bcon\s+inquilino\b|\barrendad[oa]\b|"
-    r"\bocupad[oa]\b|\bokupad[oa]\b|\bokupas?\b|\busurpaci[oó]n\b|"
-    r"\bnuda\s+propiedad\b|\bsubasta\b|\bproindiviso\b|"
-    r"\bposesi[oó]n\s+no\s+garantizada\b|\bsin\s+posesi[oó]n\b",
+    # Tenanted
+    r"\balquilad[oa]s?\b|\bcon\s+inquilin[oa]s?\b|\barrendad[oa]s?\b|"
+    r"\brenta\s+antigua\b|\bcontrato\s+de\s+alquiler\b|\balquiler\s+vigente\b|"
+    r"\bcon\s+rentabilidad\s+garantizada\b|\bcon\s+contrato\s+vigente\b|"
+    # Occupied
+    r"\bocupad[oa]s?\b|\bokupad[oa]s?\b|\bokupas?\b|\busurpaci[oó]n\b|"
+    r"\busurpad[oa]s?\b|\bcon\s+ocupantes?\b|\bilegalmente\s+ocupad[oa]\b|"
+    r"\bocupaci[oó]n\s+ilegal\b|"
+    # Not financeable / not viewable
+    r"\bsolo\s+inversor\w*\b|\bs[oó]lo\s+inversor\w*\b|\bapt[oa]\s+inversor\w*\b|"
+    r"\bpara\s+inversor\w*\b|\bideal\s+inversor\w*\b|\bproducto\s+de\s+inversi[oó]n\b|"
+    r"\bno\s+se\s+puede\s+visitar\b|\bsin\s+posibilidad\s+de\s+visita\b|"
+    r"\bno\s+visitable\b|\bsin\s+visita\b|"
+    r"\bposesi[oó]n\s+no\s+garantizada\b|\bsin\s+posesi[oó]n\b|"
+    r"\bcon\s+cargas\b|\bpendiente\s+de\s+lanzamiento\b|"
+    # Legal forms a mortgage will not cover
+    r"\bnuda\s+propiedad\b|\busufruct\w*\b|\bsubasta\b|\bproindiviso\b|"
+    r"\bmultipropiedad\b|\bderecho\s+de\s+superficie\b|"
+    # Not a home, or not mortgageable as one
+    r"\bsuelo\s+urbanizable\b|\bparcela\b|\bsolar\b",
     re.I,
 )
 

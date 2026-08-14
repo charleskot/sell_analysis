@@ -85,11 +85,21 @@ def compute_leverage(
     ltv_pct: float,
     annual_rate_pct: float,
     years: int,
+    available_cash: float | None = None,
+    gap_loan_rate_pct: float | None = None,
+    gap_loan_years: int = 8,
+    broker_fee_pct: float = 0.0,
+    broker_fee_min: float = 0.0,
 ) -> dict:
-    """Cash needed, monthly cashflow and cash-on-cash return with a mortgage.
+    """Cash needed, monthly cashflow and returns under real financing.
 
-    Banks in Spain lend against the *purchase price* (or appraisal, whichever
-    is lower) — transaction costs always come out of the buyer's pocket.
+    Banks lend against the purchase price (or appraisal, whichever is lower),
+    so transaction costs always come out of the buyer's own pocket.
+
+    When the buyer's cash does not cover that, the shortfall is normally
+    borrowed as a personal loan — much shorter and dearer than a mortgage.
+    Ignoring it flatters the numbers badly: the deal looks affordable and the
+    cashflow looks positive while a second monthly payment goes unaccounted.
     """
     if not price or price <= 0:
         return {}
@@ -97,25 +107,47 @@ def compute_leverage(
     loan = price * (ltv_pct / 100)
     down_payment = price - loan
     costs = price * purchase_costs_pct
-    cash_needed = round(down_payment + costs, 2)
+
+    broker_fee = 0.0
+    if broker_fee_pct or broker_fee_min:
+        broker_fee = max(price * broker_fee_pct, broker_fee_min)
+
+    cash_needed = round(down_payment + costs + broker_fee, 2)
 
     payment = monthly_mortgage_payment(loan, annual_rate_pct, years)
 
+    # Shortfall between what the purchase demands and what the buyer holds
+    gap = 0.0
+    gap_payment = 0.0
+    if available_cash is not None:
+        gap = max(0.0, cash_needed - available_cash)
+        if gap > 0 and gap_loan_rate_pct:
+            gap_payment = monthly_mortgage_payment(gap, gap_loan_rate_pct, gap_loan_years)
+
+    total_payment = round(payment + gap_payment, 2)
+
     net_monthly_rent = monthly_rent * (1 - expense_ratio)
-    monthly_cashflow = round(net_monthly_rent - payment, 2)
+    monthly_cashflow = round(net_monthly_rent - total_payment, 2)
     annual_cashflow = round(monthly_cashflow * 12, 2)
 
-    coc = round((annual_cashflow / cash_needed) * 100, 2) if cash_needed > 0 else None
+    # Cash-on-cash measures the return on money actually put in, so when part
+    # of the entry is borrowed the denominator is the buyer's own cash.
+    own_cash = min(cash_needed, available_cash) if available_cash is not None else cash_needed
+    coc = round((annual_cashflow / own_cash) * 100, 2) if own_cash > 0 else None
 
-    # Debt service coverage — banks typically want >= 1.25
-    dscr = round((net_monthly_rent / payment), 2) if payment > 0 else None
+    # Debt service coverage — lenders typically want >= 1.25
+    dscr = round((net_monthly_rent / total_payment), 2) if total_payment > 0 else None
 
     return {
         "loan_amount": round(loan, 2),
         "down_payment": round(down_payment, 2),
         "purchase_costs": round(costs, 2),
+        "broker_fee": round(broker_fee, 2),
         "cash_needed": cash_needed,
-        "monthly_payment": payment,
+        "cash_gap": round(gap, 2),
+        "gap_loan_payment": round(gap_payment, 2),
+        "monthly_payment": round(payment, 2),
+        "monthly_payment_total": total_payment,
         "monthly_cashflow": monthly_cashflow,
         "annual_cashflow": annual_cashflow,
         "cash_on_cash_pct": coc,
@@ -167,6 +199,11 @@ def compute_all_metrics(
                 ltv_pct=financing.get("ltv_pct", 80),
                 annual_rate_pct=financing.get("annual_rate_pct", 3.0),
                 years=financing.get("years", 30),
+                available_cash=financing.get("available_cash"),
+                gap_loan_rate_pct=financing.get("gap_loan_rate_pct"),
+                gap_loan_years=financing.get("gap_loan_years", 8),
+                broker_fee_pct=financing.get("broker_fee_pct", 0.0),
+                broker_fee_min=financing.get("broker_fee_min", 0.0),
             )
         )
 

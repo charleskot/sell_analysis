@@ -441,3 +441,43 @@ def test_extract_title_prefers_the_property_line():
 def test_extract_title_falls_back_when_no_property_line():
     from ingest.email_parsers import extract_title
     assert extract_title("Ver 46 fotos y visita 360 | 285.000 €") == "Ver 46 fotos y visita 360"
+
+
+# ── Not mortgageable ─────────────────────────────────────────────────────
+# The buyer needs financing, so these are not opportunities at any price:
+# a bank will not lend on them.
+
+@pytest.mark.parametrize("phrase", [
+    "Solo inversores",
+    "Sólo inversores, no se puede visitar",
+    "Apto inversores",
+    "Ideal inversor",
+    "Producto de inversión",
+    "No visitable",
+    "Sin posibilidad de visita",
+    "Posesión no garantizada",
+    "Inmueble con cargas",
+    "Pendiente de lanzamiento",
+    "Se vende en nuda propiedad",
+    "Usufructo vitalicio",
+    "Multipropiedad",
+    "Suelo urbanizable",
+])
+def test_rejects_listings_no_bank_will_finance(phrase):
+    body = f"""
+    <a href="https://www.idealista.com/inmueble/77777777/">Piso</a>
+    <div>120.000 €</div><div>70 m²</div><div>3 hab.</div>
+    <div>{phrase}</div>
+    """
+    assert parse_email("no-reply@idealista.com", "alerta", body) == []
+
+
+def test_keeps_ordinary_listing_mentioning_investment_generically():
+    """'Inversión' alone is marketing filler and must not disqualify a flat
+    that is otherwise normal — only the phrases meaning 'cash buyers only'."""
+    body = """
+    <a href="https://www.idealista.com/inmueble/88888888/">Piso</a>
+    <div>150.000 €</div><div>70 m²</div><div>3 hab.</div>
+    <div>Buena inversión de futuro, listo para entrar a vivir</div>
+    """
+    assert len(parse_email("no-reply@idealista.com", "alerta", body)) == 1

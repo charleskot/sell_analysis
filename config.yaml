@@ -38,9 +38,22 @@ search_mode: investment
 # Drives cuota, cashflow, cash-on-cash and DSCR. Adjust to whatever your
 # bank actually offers you.
 financing:
-  ltv_pct: 80                 # % financed by the bank (20% down payment)
-  annual_rate_pct: 3.0        # nominal annual interest rate
-  years: 30                   # mortgage term
+  ltv_pct: 90                 # banks are lending 90% again; 10% down payment
+  annual_rate_pct: 3.0        # mortgage rate
+  years: 30
+
+  # What the buyer actually holds. The purchase demands 10% deposit plus
+  # ~12% costs; anything above this is borrowed, and that loan has its own
+  # monthly payment. Leaving it out makes every deal look affordable and
+  # every cashflow look better than it is.
+  available_cash: 30000
+  gap_loan_rate_pct: 5.5      # personal loan for the shortfall
+  gap_loan_years: 8
+
+  # Mortgage broker, paid only if one is needed. Usual shape in Spain is a
+  # percentage with a floor.
+  broker_fee_pct: 0.0
+  broker_fee_min: 0
 
 # ═══════════════════════════════════════════════════════════════════════════
 # SEARCH PROFILES
@@ -98,9 +111,12 @@ search_profiles:
     # nothing in the listing data gives a reliable travel time.
     min_net_yield_pct: 6.0
 
-    # Cash out of pocket, not purchase price: deposit plus taxes and fees.
-    # With 20% down and 10% costs this admits flats up to roughly 165.000 €.
-    max_cash_needed: 50000
+    # Total entry money: 10% deposit + ~12% costs = ~22% of the price.
+    # 30.000 € of that is the buyer's own; the rest is the personal loan,
+    # whose payment is already subtracted from the cashflow below. Capped at
+    # 60.000 € to bound how much of the entry gets borrowed — roughly a
+    # 270.000 € ceiling on price.
+    max_cash_needed: 60000
 
   # ── 3. New build ────────────────────────────────────────────────────────
   # Disabled: no portal alert feeds it yet, so it would never fire. Enable it
@@ -236,9 +252,9 @@ analysis:
 
   assumed_expenses_pct: 0.25
   purchase_costs_pct:
-    default: 0.10
+    default: 0.12
     madrid: 0.07
-    barcelona: 0.10
+    barcelona: 0.12       # ITP 10% + notaría, registro y gestoría
     andalucia: 0.09
     valencia: 0.10
   min_yield_alert_pct: 6.0
