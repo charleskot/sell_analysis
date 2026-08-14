@@ -237,7 +237,7 @@ class TelegramAlerter:
                     "chat_id": chat_id,
                     "message_id": message_id,
                     "text": new_text,
-                    "parse_mode": "Markdown",
+                    "parse_mode": "HTML",
                     "disable_web_page_preview": False,
                 },
                 timeout=10,
@@ -319,7 +319,7 @@ class TelegramAlerter:
                 f"El scraper sigue buscando en tus zonas — te avisaré en cuanto aparezca algo."
             )
 
-        lines = [f"🏠 *Top {len(listings_data)} viviendas — {now}*\n"]
+        lines = [f"🏠 <b>Top {len(listings_data)} viviendas — {now}</b>\n"]
         for i, r in enumerate(listings_data, 1):
             score = r.get("investment_score") or 0
             price = r.get("price") or 0
@@ -331,9 +331,9 @@ class TelegramAlerter:
             url = r.get("url", "")
             stars = "⭐" * min(5, max(1, int(score / 20)))
             lines.append(
-                f"{i}. {stars} *{score:.0f}/100* — {location}\n"
+                f"{i}. {stars} <b>{score:.0f}/100</b> — {self._esc(location)}\n"
                 f"   💰 {price:,.0f}€ | {area:.0f}m² | {rooms} hab\n"
-                f"   [Ver anuncio]({url})"
+                f'   <a href="{self._esc(url)}">Ver anuncio</a>'
             )
 
         return "\n".join(lines)
@@ -347,7 +347,7 @@ class TelegramAlerter:
         payload = {
             "chat_id": self._chat_id,
             "text": message,
-            "parse_mode": "Markdown",
+            "parse_mode": "HTML",
             "disable_web_page_preview": False,
         }
         if reply_markup:
@@ -362,6 +362,13 @@ class TelegramAlerter:
         except Exception as e:
             logger.error(f"Telegram send exception: {e}")
             return False
+
+    @staticmethod
+    def _esc(text) -> str:
+        """Escape the three characters Telegram's HTML mode treats as markup."""
+        return (str(text).replace("&", "&amp;")
+                         .replace("<", "&lt;")
+                         .replace(">", "&gt;"))
 
     def _format_message(self, listing: dict, metrics: dict, score: float) -> str:
         # Detect residence-mode by presence of match_profile
@@ -388,13 +395,13 @@ class TelegramAlerter:
         reasons_txt = "\n".join(f"  ✓ {r}" for r in reasons) if reasons else ""
 
         msg = (
-            f"*{stars} NUEVA VIVIENDA — Match {score:.0f}/100 — {profile_label}*\n\n"
-            f"📍 {location}\n"
+            f"<b>{stars} NUEVA VIVIENDA — Match {score:.0f}/100 — {self._esc(profile_label)}</b>\n\n"
+            f"📍 {self._esc(location)}\n"
             f"💰 {price:,.0f}€ | {area:.0f}m² | {rooms} hab"
         )
         if floor:
-            msg += f" | {floor}"
-        msg += f"\n{reasons_txt}\n\n[Ver anuncio]({url})"
+            msg += f" | {self._esc(floor)}"
+        msg += f'\n{self._esc(reasons_txt)}\n\n<a href="{self._esc(url)}">Ver anuncio</a>'
         return msg
 
     def _format_investment_message(self, listing: dict, metrics: dict, score: float) -> str:
@@ -416,8 +423,8 @@ class TelegramAlerter:
         stars = "⭐" * min(5, int(score / 20))
 
         msg = (
-            f"*{header}*  {stars}\n\n"
-            f"📍 {location}\n"
+            f"<b>{self._esc(header)}</b>  {stars}\n\n"
+            f"📍 {self._esc(location)}\n"
             f"💰 {price:,.0f}€ · {area:.0f}m² · {rooms} hab · {ppm2:,.0f}€/m²\n"
         )
 
@@ -429,20 +436,20 @@ class TelegramAlerter:
 
         if cash_needed is not None and cashflow is not None:
             msg += (
-                f"\n🏦 Entrada + gastos: *{cash_needed:,.0f}€*\n"
+                f"\n🏦 Entrada + gastos: <b>{cash_needed:,.0f}€</b>\n"
                 f"📉 Cuota: {payment:,.0f}€/mes\n"
                 f"💵 Alquiler estimado: {monthly_rent:,.0f}€/mes\n"
-                f"{'🟢' if cashflow > 0 else '🔴'} Cashflow: *{cashflow:+,.0f}€/mes*\n"
-                f"📈 Rentabilidad neta: *{net_yield:.1f}%*  (bruta {gross_yield:.1f}%)\n"
+                f"{'🟢' if cashflow > 0 else '🔴'} Cashflow: <b>{cashflow:+,.0f}€/mes</b>\n"
+                f"📈 Rentabilidad neta: <b>{net_yield:.1f}%</b>  (bruta {gross_yield:.1f}%)\n"
             )
         else:
             msg += (
                 f"\n💵 Alquiler estimado: {monthly_rent:,.0f}€/mes\n"
-                f"📈 Rentabilidad neta: *{net_yield:.1f}%*  (bruta {gross_yield:.1f}%)\n"
+                f"📈 Rentabilidad neta: <b>{net_yield:.1f}%</b>  (bruta {gross_yield:.1f}%)\n"
             )
 
         # The rent figure comes from zone averages, not comparables for this
         # flat — worth saying, because every number above depends on it.
-        msg += f"\n_Alquiler estimado por zona, contrastar antes de decidir._\n"
-        msg += f"\n[Ver anuncio]({url})"
+        msg += f"\n<i>Alquiler estimado por zona, contrastar antes de decidir.</i>\n"
+        msg += f'\n<a href="{self._esc(url)}">Ver anuncio</a>'
         return msg
