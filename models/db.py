@@ -85,6 +85,11 @@ def upsert_listing(raw: dict) -> bool:
 
             conn.execute(
                 update(listings).where(listings.c.id == listing_id).values(
+                    # url and title are refreshed too: a listing already known
+                    # may have been stored with a link that never worked, and
+                    # without these the bad value survives every later pass.
+                    url=raw.get("url"),
+                    title=raw.get("title", ""),
                     price=price,
                     area_m2=area,
                     price_per_m2=ppm2,

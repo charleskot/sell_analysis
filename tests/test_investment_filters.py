@@ -206,3 +206,39 @@ def test_investment_without_metrics_is_rejected():
     """No numbers means no way to tell it is an investment."""
     ok, _ = Profile(INVERSION).match({"price": 100000, "city": "reus"}, {})
     assert not ok
+
+
+# ── Refreshing a known listing ───────────────────────────────────────────
+
+def test_upsert_refreshes_url_and_title():
+    """A listing stored with a broken link must be repairable by re-reading
+    the email. Without this the bad URL survives every later pass, and the
+    user keeps clicking through to a 404."""
+    from models.db import upsert_listing, get_engine, init_engine, create_all_tables
+    from models.schema import listings
+    from sqlalchemy import select
+
+    init_engine(":memory:")
+    create_all_tables()
+
+    base = {
+        "portal": "habitaclia", "external_id": "999999",
+        "url": "https://www.habitaclia.com/i999999/",     # truncated, 404
+        "title": "viejo", "price": 200000, "area_m2": 70, "rooms": 3,
+        "city": "barcelona",
+    }
+    assert upsert_listing(base) is True
+
+    fixed = {**base,
+             "url": "https://www.habitaclia.com/i999999/123/alertas/email/x.htm",
+             "title": "Piso en Barcelona - El Clot"}
+    assert upsert_listing(fixed) is False     # known listing, not new
+
+    with get_engine().connect() as conn:
+        row = conn.execute(
+            select(listings.c.url, listings.c.title)
+            .where(listings.c.id == "habitaclia_999999")
+        ).first()
+
+    assert row.url.endswith("x.htm")
+    assert row.title == "Piso en Barcelona - El Clot"
