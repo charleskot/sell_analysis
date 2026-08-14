@@ -87,6 +87,32 @@ class Profile:
             return f"{rooms} hab > {max_rooms}"
         return None
 
+    def _check_services(self, city: str) -> str | None:
+        """Reject towns too small to have everyday services.
+
+        Size stands in for supermarket, health centre, school and train —
+        the things that decide whether a flat lets quickly and sells again
+        without a year on the market. A village of 2.000 people may be
+        cheap, but the exit is the problem, not the entry.
+        """
+        min_pop = self.spec.get("min_population")
+        if not min_pop:
+            return None
+
+        from analysis.municipalities import population_of
+
+        pop = population_of(city)
+        if pop is None:
+            # Unknown is not the same as small. Whether that is acceptable is
+            # the profile's call: for an investment it usually is not.
+            if self.spec.get("reject_unknown_population", False):
+                return f"población de '{city}' desconocida"
+            return None
+
+        if pop < min_pop:
+            return f"{city} tiene ~{pop:,} hab. (mínimo {min_pop:,})"
+        return None
+
     def _check_location(self, city: str, district: str | None) -> str | None:
         """Match against areas, each tying a set of districts to its town.
 
@@ -98,6 +124,14 @@ class Profile:
         excluded = self.spec.get("excluded_cities") or []
         if excluded and any(_place_matches(x, city) for x in excluded):
             return f"ciudad '{city}' excluida"
+
+        # Zones the buyer has ruled out. Matched against district and city
+        # together, so either level can be named.
+        excluded_zones = self.spec.get("excluded_zones") or []
+        if excluded_zones:
+            where = f"{district or ''} {city or ''}"
+            if any(_place_matches(z, where) for z in excluded_zones):
+                return f"zona excluida: {district or city}"
 
         areas = self.spec.get("areas") or []
         if not areas:
@@ -200,6 +234,7 @@ class Profile:
             self._check_price(price),
             self._check_rooms(listing.get("rooms")),
             self._check_location(city, district),
+            self._check_services(city),
             self._check_condition(listing, price),
         ):
             if failure:

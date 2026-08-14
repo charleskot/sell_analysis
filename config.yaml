@@ -126,6 +126,17 @@ search_profiles:
     max_cash_needed: 30000
     max_cash_gap: 0
 
+    # Town size, as a proxy for everyday services: supermarket, health
+    # centre, school, train. Mercadona opens above roughly this size. A
+    # village of 2.000 may be cheap, but the exit is the problem — a flat
+    # there takes far longer to let and to sell again.
+    min_population: 20000
+    reject_unknown_population: true
+
+    # Zones ruled out by hand. Left empty nothing is excluded; add whatever
+    # you decide against after visiting.
+    excluded_zones: []
+
   # ── 3. New build ────────────────────────────────────────────────────────
   # Disabled: no portal alert feeds it yet, so it would never fire. Enable it
   # once an "obra nueva" alert exists, within 40 min of Barcelona.

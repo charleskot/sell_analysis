@@ -309,3 +309,82 @@ def test_investment_rejects_entry_above_available_cash():
     )
     assert not ok
     assert "necesita" in reason
+
+
+# ── Town size as a services proxy ────────────────────────────────────────
+# Size stands in for supermarket, health centre, school and train — what
+# decides whether a flat lets quickly and sells again without a long wait.
+
+from analysis.municipalities import population_of
+
+SERVICIOS = {
+    "name": "inversion", "label": "💰", "purpose": "investment",
+    "min_population": 20000, "reject_unknown_population": True,
+}
+
+
+def test_population_lookup_handles_portal_spellings():
+    assert population_of("Barcelona") == population_of("barcelona")
+    assert population_of("Hospitalet de Llobregat (L')") is not None
+    assert population_of("Premià de Mar") == population_of("premia de mar")
+
+
+def test_population_unknown_town_returns_none():
+    """Unknown must stay distinguishable from small."""
+    assert population_of("Villarriba del Inventado") is None
+    assert population_of(None) is None
+
+
+def test_rejects_village_below_services_threshold():
+    ok, reason = Profile(SERVICIOS).match(
+        {"price": 100000, "city": "Collbató"}, {"net_yield_pct": 9.0}
+    )
+    assert not ok
+    assert "hab" in reason
+
+
+def test_accepts_town_with_services():
+    ok, _ = Profile(SERVICIOS).match(
+        {"price": 100000, "city": "Mataró"}, {"net_yield_pct": 9.0}
+    )
+    assert ok
+
+
+def test_rejects_unknown_town_when_configured():
+    ok, reason = Profile(SERVICIOS).match(
+        {"price": 100000, "city": "Aldea Perdida"}, {"net_yield_pct": 9.0}
+    )
+    assert not ok
+    assert "desconocida" in reason
+
+
+def test_unknown_town_allowed_when_not_configured():
+    profile = Profile({**SERVICIOS, "reject_unknown_population": False})
+    ok, _ = profile.match({"price": 100000, "city": "Aldea Perdida"}, {"net_yield_pct": 9.0})
+    assert ok
+
+
+def test_no_population_filter_when_unset():
+    profile = Profile({"name": "x", "label": "x", "purpose": "investment"})
+    ok, _ = profile.match({"price": 100000, "city": "Collbató"}, {})
+    assert ok
+
+
+# ── Zones ruled out by hand ──────────────────────────────────────────────
+
+def test_excluded_zone_rejects_by_district():
+    profile = Profile({**SERVICIOS, "excluded_zones": ["sant roc"]})
+    ok, reason = Profile({**SERVICIOS, "excluded_zones": ["sant roc"]}).match(
+        {"price": 90000, "city": "Badalona", "district": "Sant Roc (Artigues)"},
+        {"net_yield_pct": 9.0},
+    )
+    assert not ok
+    assert "excluida" in reason
+
+
+def test_excluded_zone_leaves_other_districts_alone():
+    ok, _ = Profile({**SERVICIOS, "excluded_zones": ["sant roc"]}).match(
+        {"price": 90000, "city": "Badalona", "district": "Canyadó"},
+        {"net_yield_pct": 9.0},
+    )
+    assert ok
