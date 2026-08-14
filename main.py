@@ -173,6 +173,99 @@ def mail_once(verbose: bool = typer.Option(False, "--verbose", "-v")):
         console.print(f"  📧 {portal}: {pstats['parsed']} anuncios, {pstats['alerts']} alertas")
 
 
+@app.command("db-dump")
+def db_dump(
+    path: str = typer.Option("state/db.sql", help="Fichero de salida"),
+):
+    """Vuelca la base de datos a SQL de texto (para versionarla en el repo).
+
+    Texto y no el .db binario: los cambios se pueden revisar y git los
+    almacena como diffs en vez de reescribir el fichero entero.
+    """
+    import sqlite3
+    from pathlib import Path
+
+    config = load_config()
+    db_path = Path(config["database"]["path"])
+    if not db_path.exists():
+        console.print(f"[yellow]No hay base de datos en {db_path}, nada que volcar.[/yellow]")
+        raise typer.Exit(code=0)
+
+    out = Path(path)
+    out.parent.mkdir(parents=True, exist_ok=True)
+
+    conn = sqlite3.connect(db_path)
+    try:
+        with out.open("w", encoding="utf-8") as fh:
+            for line in conn.iterdump():
+                fh.write(f"{line}\n")
+    finally:
+        conn.close()
+
+    console.print(f"[green]Volcado:[/green] {out} ({out.stat().st_size / 1024:.0f} KB)")
+
+
+@app.command("db-restore")
+def db_restore(
+    path: str = typer.Option("state/db.sql", help="Fichero SQL de entrada"),
+):
+    """Reconstruye la base de datos desde el volcado de texto."""
+    import sqlite3
+    from pathlib import Path
+
+    config = load_config()
+    src = Path(path)
+    if not src.exists():
+        console.print(f"[yellow]No existe {src} — se empezará en frío.[/yellow]")
+        raise typer.Exit(code=0)
+
+    db_path = Path(config["database"]["path"])
+    db_path.parent.mkdir(parents=True, exist_ok=True)
+    if db_path.exists():
+        db_path.unlink()
+
+    conn = sqlite3.connect(db_path)
+    try:
+        conn.executescript(src.read_text(encoding="utf-8"))
+        conn.commit()
+        n = conn.execute("SELECT COUNT(*) FROM listings").fetchone()[0]
+    finally:
+        conn.close()
+
+    console.print(f"[green]Restaurado:[/green] {n} anuncios desde {src}")
+
+
+@app.command("tick")
+def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
+    """Un ciclo completo: lee alertas, avisa, y recoge tu feedback.
+
+    Pensado para ejecución periódica sin proceso permanente (cron / GitHub
+    Actions), donde el scheduler de APScheduler no tiene dónde vivir.
+    """
+    setup_logging(verbose)
+    config = load_config()
+    init_db(config)
+
+    from scheduler.jobs import PipelineOrchestrator
+
+    orchestrator = PipelineOrchestrator(config)
+
+    stats = orchestrator.run_email_ingest()
+    console.print(
+        f"[green]Correo:[/green] {stats['emails']} emails · "
+        f"{stats['parsed']} anuncios · {stats['new']} nuevos · "
+        f"{stats['alerts_sent']} alertas"
+    )
+    for portal, pstats in stats.get("by_portal", {}).items():
+        console.print(f"  📧 {portal}: {pstats['parsed']} anuncios, {pstats['alerts']} alertas")
+
+    # Button presses and replies since the previous tick
+    try:
+        orchestrator.run_feedback_poll()
+    except Exception as e:
+        console.print(f"[yellow]Feedback poll falló:[/yellow] {e}")
+
+
 @app.command("scrape-once")
 def scrape_once(
     portal: str = typer.Option("all", help="Portal a scrapear: all, idealista, fotocasa, pisos, habitaclia"),

@@ -358,10 +358,17 @@ def parse_email(sender: str, subject: str, html: str, text: str = "") -> list[Ra
             by_id[ext_id] = (clean_url(m.group(0)), m.span())
 
     if not by_id:
-        logger.warning(
-            f"Email ingest: {portal} email {subject[:60]!r} matched the sender but "
-            "produced no listing URLs — the link format may have changed."
-        )
+        # Portals also send welcome and account mail from the same address.
+        # Only an email that actually advertises prices should raise the alarm;
+        # warning on every transactional message trains the reader to ignore it.
+        looks_like_an_alert = _PRICE_RE.search(strip_html(search_body)) is not None
+        if looks_like_an_alert:
+            logger.warning(
+                f"Email ingest: {portal} email {subject[:60]!r} shows prices but no "
+                "listing URLs matched — the link format has probably changed."
+            )
+        else:
+            logger.debug(f"Email ingest: {portal} non-alert email {subject[:60]!r}, skipping")
         return []
 
     ordered = sorted(

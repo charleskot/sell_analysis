@@ -1,0 +1,89 @@
+name: Pisos bot
+
+# Runs the bot without a server. Each run is a full cycle: read the alert
+# mailbox, score what arrived, notify on Telegram, collect feedback.
+#
+# State (which emails were processed, which listings are known, what was
+# already alerted) lives in state/db.sql — a text dump of the SQLite database,
+# restored at the start of each run and written back at the end. Text rather
+# than the binary .db so changes are reviewable and git can delta them.
+
+on:
+  schedule:
+    # Every 30 minutes. GitHub queues scheduled runs, so expect some drift.
+    - cron: "*/30 * * * *"
+    # Daily digest at 07:00 UTC (09:00 Madrid in summer, 08:00 in winter)
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "Command to run"
+        required: false
+        default: tick
+        type: choice
+        options: [tick, digest, mail-check]
+
+# Never let two runs touch state/db.sql at once — the loser would push a
+# dump built from a stale database and silently undo the other's progress.
+concurrency:
+  group: pisos-bot-state
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -q -r requirements.txt
+
+      - name: Restore database from state dump
+        run: python main.py db-restore
+
+      - name: Run bot
+        env:
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ "${{ github.event.schedule }}" = "0 7 * * *" ]; then
+            CMD=digest
+          else
+            CMD="${{ github.event.inputs.command || 'tick' }}"
+          fi
+          echo "Running: $CMD"
+          python main.py "$CMD"
+
+      - name: Save database back to state dump
+        if: always()
+        run: python main.py db-dump
+
+      # Runs even if the bot failed: a crash after alerts were sent must not
+      # lose the record of having sent them, or the next run repeats them.
+      - name: Commit state if changed
+        if: always()
+        run: |
+          git config user.name "pisos-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add state/db.sql
+          if git diff --staged --quiet; then
+            echo "No state change"
+          else
+            git commit -m "state: bot run $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+            # Another run may have pushed while this one was working
+            git pull --rebase --autostash origin ${{ github.ref_name }} || true
+            git push
+          fi
