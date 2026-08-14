@@ -388,3 +388,27 @@ def test_excluded_zone_leaves_other_districts_alone():
         {"net_yield_pct": 9.0},
     )
     assert ok
+
+
+# ── Rent-capped zones ────────────────────────────────────────────────────
+# In a declared zone the lawful rent is set by the Generalitat's index, so
+# a yield built on market averages is an upper bound there, not a forecast.
+
+from analysis.municipalities import is_tensioned
+
+
+def test_metro_municipalities_are_flagged_as_capped():
+    for city in ("Barcelona", "Badalona", "Sabadell", "Mataró",
+                 "L'Hospitalet de Llobregat", "Terrassa"):
+        assert is_tensioned(city), city
+
+
+def test_small_towns_outside_the_declaration_are_not_flagged():
+    for city in ("Collbató", "Cànoves i Samalús", "Castellví de Rosanes"):
+        assert not is_tensioned(city)
+
+
+def test_tensioned_lookup_handles_missing_and_odd_spellings():
+    assert is_tensioned(None) is False
+    assert is_tensioned("") is False
+    assert is_tensioned("badalona") == is_tensioned("Badalona")

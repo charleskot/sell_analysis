@@ -139,6 +139,69 @@ POPULATION = {
 }
 
 
+# ── Rent-capped municipalities ───────────────────────────────────────────
+#
+# Catalonia declared these "zones de mercat residencial tensionat" under Ley
+# 12/2023, in force since March 2024. In them a new rental contract cannot
+# exceed the Generalitat's reference index, and that ceiling is frequently
+# below the market average.
+#
+# This matters more than it looks: rent here is estimated from market
+# averages, so in a capped municipality the yield shown is an upper bound
+# the buyer may not legally be allowed to charge. The whole investment case
+# rests on a rent that might not be lawful.
+#
+# The declaration is renewed and extended periodically — treat this as a
+# flag meaning "check the index before committing", not as legal advice.
+TENSIONED = {
+    # Barcelonès
+    "barcelona", "hospitalet de llobregat", "badalona",
+    "santa coloma de gramenet", "sant adria de besos",
+    # Baix Llobregat
+    "cornella de llobregat", "sant boi de llobregat", "el prat de llobregat",
+    "viladecans", "gava", "castelldefels", "esplugues de llobregat",
+    "sant feliu de llobregat", "sant joan despi", "sant just desvern",
+    "molins de rei", "sant vicenc dels horts", "martorell",
+    "sant andreu de la barca", "olesa de montserrat", "esparreguera",
+    "pallejà", "corbera de llobregat", "vallirana", "abrera",
+    # Vallès Occidental
+    "terrassa", "sabadell", "rubi", "cerdanyola del valles", "ripollet",
+    "montcada i reixac", "barbera del valles", "sant cugat del valles",
+    "castellar del valles", "sant quirze del valles", "badia del valles",
+    "santa perpetua de mogoda", "palau solita i plegamans",
+    # Vallès Oriental
+    "granollers", "mollet del valles", "parets del valles", "cardedeu",
+    "la garriga", "montornes del valles", "les franqueses del valles",
+    "caldes de montbui", "la roca del valles", "sant celoni",
+    # Maresme
+    "mataro", "premia de mar", "el masnou", "vilassar de mar", "premia de dalt",
+    "arenys de mar", "pineda de mar", "calella", "canet de mar", "malgrat de mar",
+    "montgat", "tiana", "alella", "argentona", "vilassar de dalt",
+    "sant andreu de llavaneres",
+    # Garraf / Penedès
+    "vilanova i la geltru", "sitges", "vilafranca del penedes", "cubelles",
+    # Other provinces
+    "girona", "salt", "figueres", "olot", "blanes", "lloret de mar",
+    "banyoles", "palafrugell", "sant feliu de guixols",
+    "tarragona", "reus", "cambrils", "salou", "el vendrell", "calafell",
+    "valls", "tortosa", "amposta",
+    "lleida", "manresa", "vic", "igualada", "balaguer", "tarrega", "mollerussa",
+}
+
+
+def is_tensioned(city: str | None) -> bool:
+    """Whether a municipality has a legal cap on new rental contracts."""
+    from analysis.profiles import normalise
+
+    if not city:
+        return False
+
+    key = normalise(city)
+    if key in TENSIONED:
+        return True
+    return any(name in key or key in name for name in TENSIONED)
+
+
 def population_of(city: str | None) -> int | None:
     """Population of a municipality, or None when it is not in the table.
 

@@ -413,6 +413,21 @@ class PipelineOrchestrator:
         metrics["investment_score"] = breakdown.total
         metrics["score_breakdown"] = breakdown.to_dict()
 
+        # Rent cap. The estimate above comes from market averages, but in a
+        # declared zone the lawful rent is whatever the Generalitat's index
+        # allows — often less. Flagging it keeps the yield honest: it is an
+        # upper bound there, not a figure to underwrite a purchase with.
+        from analysis.municipalities import is_tensioned
+
+        tensioned = is_tensioned(city)
+        metrics["rent_capped_zone"] = tensioned
+
+        if tensioned:
+            haircut = self.config.get("analysis", {}).get("tensioned_rent_haircut_pct", 0)
+            if haircut:
+                metrics["estimated_monthly_rent_uncapped"] = metrics["estimated_monthly_rent"]
+                metrics["rent_haircut_pct"] = haircut
+
         return metrics
 
 

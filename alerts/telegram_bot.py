@@ -478,6 +478,13 @@ class TelegramAlerter:
 
         # The rent figure comes from zone averages, not comparables for this
         # flat — worth saying, because every number above depends on it.
+        if metrics.get("rent_capped_zone"):
+            msg += (
+                "\n⚠️ <b>Zona tensionada</b> — el alquiler está topado por el "
+                "índice de la Generalitat, que suele quedar por debajo de la media. "
+                "La rentabilidad de arriba es un techo, no una previsión: "
+                "consulta el índice antes de comprometerte.\n"
+            )
         msg += f"\n<i>Alquiler estimado por zona, contrastar antes de decidir.</i>\n"
         msg += f'\n<a href="{self._esc(url)}">Ver anuncio</a>'
         return msg
