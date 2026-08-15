@@ -77,6 +77,30 @@ class GmailReader:
         from models.db import set_telegram_state
         set_telegram_state(STATE_KEY, str(ts_ms))
 
+    def account_address(self) -> str | None:
+        """Which mailbox the refresh token actually opens.
+
+        Nothing in the repo records it — the token is the whole credential —
+        so the only way to be sure which account the bot is reading is to
+        ask Google.
+        """
+        if not self.enabled:
+            return None
+        try:
+            token = get_access_token(self.config)
+            resp = requests.get(
+                f"{API_BASE}/profile",
+                headers={"Authorization": f"Bearer {token}"},
+                timeout=15,
+            )
+            if resp.status_code != 200:
+                logger.error(f"Gmail profile failed ({resp.status_code})")
+                return None
+            return resp.json().get("emailAddress")
+        except (GmailAuthError, requests.RequestException) as e:
+            logger.error(f"Gmail profile failed: {e}")
+            return None
+
     # ── API calls ────────────────────────────────────────────────────────
 
     def _list_message_ids(self, token: str, after_epoch_s: int) -> list[str]:

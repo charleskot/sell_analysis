@@ -519,10 +519,9 @@ class PipelineOrchestrator:
         return (
             "<b>Puedes escribirme</b>\n\n"
             "• <b>qué tenemos</b> — todo lo que encaja ahora mismo\n"
-            "• <b>estado</b> — si sigo funcionando y cuándo miré el correo\n"
+            "• <b>estado</b> — qué buzón leo, cuándo lo miré y si sigo vivo\n"
             "• <b>ayuda</b> — esto\n\n"
-            "<i>Respondo en la siguiente pasada, así que puedo tardar hasta "
-            "una hora.</i>"
+            "<i>Respondo en la siguiente pasada, o sea en 3 minutos o menos.</i>"
         )
 
     def _current_matches(self) -> list[tuple[dict, dict, object, str]]:
@@ -618,13 +617,26 @@ class PipelineOrchestrator:
             except ValueError:
                 pass
 
+        # Nothing on disk records which account the bot reads — the OAuth
+        # refresh token is the whole credential — so it has to be asked.
+        mailbox = None
+        try:
+            reader = self._get_mail_reader()
+            # The IMAP backend has no equivalent; it is configured with an
+            # address rather than a token, so it never needed one.
+            ask = getattr(reader, "account_address", None)
+            if ask:
+                mailbox = ask()
+        except Exception as e:
+            logger.error(f"No pude leer la dirección del buzón: {e}")
+
         return (
             "<b>✅ Funcionando</b>\n\n"
+            f"Buzón que leo: <b>{mailbox or 'no he podido comprobarlo'}</b>\n"
             f"Anuncios analizados: <b>{total}</b>\n"
             f"Último correo leído: {when}\n"
             f"Perfiles activos: {len(self.profile_matcher.profiles)}\n\n"
-            "<i>Reviso el correo cada media hora en teoría; GitHub retrasa las "
-            "ejecuciones, así que en la práctica es cerca de una hora.</i>"
+            "<i>Reviso el correo cada 3 minutos, en marcha continua.</i>"
         )
 
     def _compute_metrics(self, listing: dict) -> dict | None:
