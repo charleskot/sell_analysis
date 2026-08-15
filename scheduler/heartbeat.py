@@ -18,32 +18,49 @@ from pathlib import Path
 logger = logging.getLogger(__name__)
 
 PATH = Path("state/.heartbeat")
-PULSE_PATH = Path("state/.pulse")
+
+
+PULSE_KEY = "last_pulse_at"
 
 
 def pulse_due(minutes: int) -> bool:
     """Whether it is time to tell the chat the bot is still running.
 
-    Kept out of the database on purpose, like the heartbeat: a timestamp
-    committed every half hour is still noise in the history. The cost is
-    that a restarted loop pulses once immediately, which is harmless — a
-    fresh runner has genuinely just started.
+    The clock lives in the database, not in a file. A file looked cheaper —
+    no commit every half hour — but the runner did not keep it between
+    cycles, so every cycle believed it had never pulsed and sent another
+    line: one every three minutes instead of one every thirty. The database
+    is the only store here that is deliberately restored at start and saved
+    after each cycle, which is exactly the property this needs.
     """
     if not minutes:
         return False
+
+    from models.db import get_telegram_state
+
     try:
-        last_at = datetime.fromisoformat(PULSE_PATH.read_text().strip())
-    except (OSError, ValueError):
+        raw = get_telegram_state(PULSE_KEY, "")
+    except Exception as e:                       # database not ready yet
+        logger.warning(f"No pude leer el último pulso: {e}")
         return True
+    if not raw:
+        return True
+    try:
+        last_at = datetime.fromisoformat(raw)
+    except ValueError:
+        return True
+    if last_at.tzinfo is None:
+        last_at = last_at.replace(tzinfo=timezone.utc)
     return (datetime.now(timezone.utc) - last_at).total_seconds() >= minutes * 60
 
 
 def mark_pulse() -> None:
     """Never raises: failing to record a pulse must not end a cycle."""
+    from models.db import set_telegram_state
+
     try:
-        PULSE_PATH.parent.mkdir(parents=True, exist_ok=True)
-        PULSE_PATH.write_text(datetime.now(timezone.utc).isoformat())
-    except OSError as e:
+        set_telegram_state(PULSE_KEY, datetime.now(timezone.utc).isoformat())
+    except Exception as e:
         logger.warning(f"No pude registrar el pulso: {e}")
 
 

@@ -137,48 +137,92 @@ def test_corrupt_heartbeat_is_reported_not_raised(tmp_path, monkeypatch):
 
 
 # ── Pulse: a line every half hour, so silence is never ambiguous ────────────
+#
+# The clock lives in the database rather than a file. A file looked cheaper,
+# but the runner did not keep it between cycles, so every cycle believed it
+# had never pulsed: a line every three minutes instead of every thirty.
 
-def test_pulse_is_due_when_never_sent(tmp_path, monkeypatch):
+
+@pytest.fixture
+def db(tmp_path):
+    import models.db as models_db
+
+    models_db.init_engine(str(tmp_path / "t.db"))
+    models_db.create_all_tables()
+    yield models_db
+    models_db._engine = None
+
+
+def test_pulse_is_due_when_never_sent(db):
     from scheduler import heartbeat
 
-    monkeypatch.setattr(heartbeat, "PULSE_PATH", tmp_path / ".pulse")
     assert heartbeat.pulse_due(30) is True
 
 
-def test_pulse_is_not_due_again_immediately(tmp_path, monkeypatch):
+def test_pulse_is_not_due_again_immediately(db):
     from scheduler import heartbeat
 
-    monkeypatch.setattr(heartbeat, "PULSE_PATH", tmp_path / ".pulse")
     heartbeat.mark_pulse()
     assert heartbeat.pulse_due(30) is False
 
 
-def test_pulse_is_due_once_the_interval_has_passed(tmp_path, monkeypatch):
+def test_pulse_survives_between_cycles(db):
+    """The whole point: a second process must see the first one's pulse."""
+    from scheduler import heartbeat
+
+    heartbeat.mark_pulse()
+    stored = db.get_telegram_state(heartbeat.PULSE_KEY, "")
+    assert stored
+    assert heartbeat.pulse_due(30) is False
+
+
+def test_pulse_is_due_once_the_interval_has_passed(db):
     from datetime import datetime, timedelta, timezone
 
     from scheduler import heartbeat
 
-    path = tmp_path / ".pulse"
-    path.write_text((datetime.now(timezone.utc) - timedelta(minutes=31)).isoformat())
-    monkeypatch.setattr(heartbeat, "PULSE_PATH", path)
+    db.set_telegram_state(
+        heartbeat.PULSE_KEY,
+        (datetime.now(timezone.utc) - timedelta(minutes=31)).isoformat(),
+    )
     assert heartbeat.pulse_due(30) is True
 
 
-def test_pulse_can_be_switched_off(tmp_path, monkeypatch):
+def test_pulse_can_be_switched_off(db):
     from scheduler import heartbeat
 
-    monkeypatch.setattr(heartbeat, "PULSE_PATH", tmp_path / "absent")
     assert heartbeat.pulse_due(0) is False
 
 
-def test_corrupt_pulse_file_errs_towards_reporting(tmp_path, monkeypatch):
+def test_corrupt_pulse_value_errs_towards_reporting(db):
     """Better one extra line than a silence nobody can explain."""
     from scheduler import heartbeat
 
-    path = tmp_path / ".pulse"
-    path.write_text("no es una fecha")
-    monkeypatch.setattr(heartbeat, "PULSE_PATH", path)
+    db.set_telegram_state(heartbeat.PULSE_KEY, "no es una fecha")
     assert heartbeat.pulse_due(30) is True
+
+
+def test_naive_pulse_timestamp_does_not_crash_the_cycle(db):
+    """An older value written without a timezone must not raise."""
+    from datetime import datetime, timedelta
+
+    from scheduler import heartbeat
+
+    db.set_telegram_state(
+        heartbeat.PULSE_KEY, (datetime.utcnow() - timedelta(minutes=31)).isoformat()
+    )
+    assert heartbeat.pulse_due(30) is True
+
+
+def test_pulse_without_a_database_still_reports(monkeypatch):
+    """Bookkeeping must never be the reason a cycle dies."""
+    import models.db as models_db
+
+    from scheduler import heartbeat
+
+    monkeypatch.setattr(models_db, "_engine", None)
+    assert heartbeat.pulse_due(30) is True
+    heartbeat.mark_pulse()
 
 
 def test_quiet_pulse_says_it_is_working():
