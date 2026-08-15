@@ -424,6 +424,15 @@ class PipelineOrchestrator:
                 pending.append(entry)
 
         logger.info(f"Digest: {len(entries)} matches, {len(pending)} not yet sent")
+
+        # "3 encajan, ya te las mandé todas" is not news, it is a message
+        # whose entire content is that there is no message. Sent once a day
+        # it was merely pointless; sent every cycle, as a failed date guard
+        # made it, it was the complaint.
+        if not pending:
+            logger.info("Nada nuevo que resumir — no se envía nada")
+            return False
+
         ok = self.alerter.send_digest_header(len(entries), len(pending))
 
         for entry in pending:

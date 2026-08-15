@@ -158,16 +158,70 @@ def test_money_uses_spanish_separators(alerter):
 
 # ── The daily note that frames the cards ───────────────────────────────────
 
-def test_nothing_matching_is_reported_rather_than_silent(alerter):
-    """Silence reads as a broken bot, which is exactly the complaint."""
-    assert "Nada encaja" in alerter._digest_header_text(0, 0)
-
-
-def test_all_matches_already_sent_says_so(alerter):
-    text = alerter._digest_header_text(3, 0)
-    assert "ya te las mandé" in text
-    assert "Nada nuevo" in text
-
-
 def test_pending_matches_are_announced(alerter):
     assert "2</b> nueva" in alerter._digest_header_text(3, 2)
+
+
+# ── Nothing new means nothing sent ─────────────────────────────────────────
+#
+# The digest header went out every three minutes saying "3 encajan, ya te las
+# mandé todas" — a message whose entire content is that there is no message.
+# A date guard was supposed to hold it to once a day and did not hold on the
+# runner, so the guard is no longer what stands between the user and the
+# noise: having something to say is.
+
+class _Recorder:
+    """Stands in for the parts of the orchestrator the digest touches."""
+
+    def __init__(self, entries, already):
+        self.entries, self.already = entries, already
+        self.headers, self.cards = [], []
+
+    # alerter surface
+    def property_signature(self, listing):
+        return listing["id"]
+
+    def already_sent(self, listing_id, dedup_key=None):
+        return listing_id in self.already
+
+    def send_digest_header(self, total, pending):
+        self.headers.append((total, pending))
+        return True
+
+    def send_alert(self, listing_id, listing, metrics, score, dedup_key=None):
+        self.cards.append(listing_id)
+        return True
+
+
+def run_digest(entries, already):
+    from scheduler.jobs import PipelineOrchestrator
+
+    orch = PipelineOrchestrator.__new__(PipelineOrchestrator)
+    rec = _Recorder(entries, already)
+    orch.alerter = rec
+    orch.digest_entries = lambda *a, **k: entries
+    return rec, PipelineOrchestrator.run_daily_digest(orch)
+
+
+def _entry(listing_id):
+    return {"listing": {"id": listing_id}, "metrics": {}, "is_new": True}
+
+
+def test_all_matches_already_sent_sends_nothing():
+    rec, ok = run_digest([_entry("a"), _entry("b")], already={"a", "b"})
+    assert rec.headers == []
+    assert rec.cards == []
+    assert ok is False
+
+
+def test_no_matches_at_all_sends_nothing():
+    rec, ok = run_digest([], already=set())
+    assert rec.headers == []
+    assert ok is False
+
+
+def test_something_new_is_announced_and_sent():
+    rec, ok = run_digest([_entry("a"), _entry("b")], already={"a"})
+    assert rec.headers == [(2, 1)]
+    assert rec.cards == ["b"]
+    assert ok is True

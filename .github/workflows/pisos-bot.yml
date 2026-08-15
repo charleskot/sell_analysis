@@ -18,6 +18,14 @@ name: Pisos bot
 # already alerted) lives in state/db.sql — a text dump of the SQLite
 # database, restored when the loop starts and committed by scripts/save-state.sh
 # after every cycle that changed something.
+#
+# The loop runs one command and only one. It used to also run the daily
+# digest, guarded by a date written to the database — and on the runner, for
+# reasons that never reproduced locally, that date did not stick, so the
+# digest went out every three minutes saying "3 match, I already sent them
+# all". The tick sends each new match on its own as it appears, so the daily
+# summary was adding a ritual nobody asked for on top of a guard that did
+# not hold. It is still available by hand for anyone who wants it.
 
 on:
   schedule:
@@ -104,7 +112,6 @@ jobs:
             # mailbox never costs a reply.
             BOT_CYCLE=$cycle python main.py tick \
               || echo "tick falló, se reintenta en el siguiente ciclo"
-            python main.py digest --if-due || true
 
             bash scripts/save-state.sh || true
             echo "::endgroup::"
