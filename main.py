@@ -328,12 +328,25 @@ def scrape_rentals(
 
 @app.command()
 def digest(
+    if_due: bool = typer.Option(
+        False, "--if-due",
+        help="Enviar solo si hoy todavía no se ha enviado (para el bucle continuo)",
+    ),
     verbose: bool = typer.Option(False, "--verbose", "-v"),
 ):
     """Envía el resumen diario de top oportunidades por Telegram."""
     setup_logging(verbose)
     config = load_config()
     init_db(config)
+
+    from datetime import datetime, timezone
+    from models.db import get_telegram_state, set_telegram_state
+    from scheduler.jobs import digest_due
+
+    now = datetime.now(timezone.utc)
+    if if_due and not digest_due(now, get_telegram_state("last_digest_date", "")):
+        console.print("[dim]Resumen diario: aún no toca.[/dim]")
+        return
 
     from alerts.telegram_bot import TelegramAlerter
     alerter = TelegramAlerter(config)
@@ -343,6 +356,10 @@ def digest(
 
     console.print("[cyan]Enviando resumen diario...[/cyan]")
     ok = alerter.send_daily_digest()
+    if if_due:
+        # Recorded whether or not anything went out: a quiet day is still a
+        # day that was handled, and the loop ticks every few minutes.
+        set_telegram_state("last_digest_date", now.strftime("%Y-%m-%d"))
     if ok:
         console.print("[green]✓ Resumen enviado por Telegram[/green]")
     else:

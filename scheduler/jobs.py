@@ -4,6 +4,26 @@ from datetime import datetime, timezone
 
 logger = logging.getLogger(__name__)
 
+DIGEST_HOUR_UTC = 7  # 09:00 Madrid in summer, 08:00 in winter
+
+
+def digest_due(now: datetime, last_sent_date: str, hour_utc: int = DIGEST_HOUR_UTC) -> bool:
+    """Whether the daily digest still owes today's send.
+
+    The bot no longer has a cron slot of its own for the digest: it runs
+    inside a long-lived loop that ticks every few minutes, so it has to
+    decide for itself. `last_sent_date` is the ISO date of the last digest
+    ("" if never), stored alongside the rest of the bot's state.
+
+    Late is better than never: once the hour has passed, any tick that day
+    will send it. That matters because the loop restarts every few hours and
+    may simply not be running at 07:00 sharp.
+    """
+    today = now.strftime("%Y-%m-%d")
+    if last_sent_date == today:
+        return False
+    return now.hour >= hour_utc
+
 
 class PipelineOrchestrator:
     """Coordinates: scrape → DB → analysis → alerts."""
