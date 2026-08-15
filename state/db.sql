@@ -675,5 +675,5 @@ CREATE TABLE telegram_state (
 );
 INSERT INTO "telegram_state" VALUES('gmail_last_internal_date_ms','1786714225000','2026-08-14 13:50:21.531758');
 INSERT INTO "telegram_state" VALUES('last_update_id','832113671','2026-08-15 09:27:17.496648');
-INSERT INTO "telegram_state" VALUES('last_pulse_at','2026-08-15T16:00:47.671384+00:00','2026-08-15 16:00:47.671400');
+INSERT INTO "telegram_state" VALUES('last_pulse_at','2026-08-15T16:31:12.296296+00:00','2026-08-15 16:31:12.296310');
 COMMIT;
