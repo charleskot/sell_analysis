@@ -361,20 +361,14 @@ class TelegramAlerter:
     def _digest_header_text(self, total: int, pending: int) -> str:
         from datetime import datetime
 
+        # Only ever called with something to announce. The "nothing new"
+        # wordings that used to live here were the noise: a message whose
+        # whole content was that there was no message.
         today = datetime.now().strftime("%d/%m")
-        if total == 0:
-            body = ("Nada encaja todavía con tus búsquedas.\n"
-                    "<i>Sigo leyendo el correo cada 3 minutos. En cuanto salga algo, "
-                    "te llega aquí al momento.</i>")
-        elif pending == 0:
-            body = (f"<b>{total}</b> encajan ahora mismo, y ya te las mandé todas.\n"
-                    "<i>Nada nuevo desde entonces.</i>")
-        else:
-            plural = "s" if pending > 1 else ""
-            body = (f"<b>{total}</b> encajan · te mando <b>{pending}</b> "
-                    f"nueva{plural} ahora ↓")
-
-        return f"📊 <b>Resumen — {today}</b>\n\n{body}"
+        plural = "s" if pending > 1 else ""
+        return (f"📊 <b>Resumen — {today}</b>\n\n"
+                f"<b>{total}</b> encajan · te mando <b>{pending}</b> "
+                f"nueva{plural} ahora ↓")
 
     @staticmethod
     def _money(value) -> str:
