@@ -1,44 +1,59 @@
 name: Pisos bot
 
-# Runs the bot without a server. Each run is a full cycle: read the alert
-# mailbox, score what arrived, notify on Telegram, collect feedback.
+# Runs the bot without a server, and without paying for one.
+#
+# Earlier this workflow was a cron that did one cycle and exited. That never
+# worked: GitHub treats schedules as best-effort and delays them heavily, so
+# even at "*/10" the real gap between runs was 17-104 minutes (median 40).
+# Asking for more frequent crons does not make any single one punctual.
+#
+# So the job no longer exits after one cycle. It stays alive for hours and
+# ticks every few minutes from inside, which GitHub cannot delay. A job may
+# run for at most 6 hours, so the schedule below exists only to keep a
+# successor queued: the concurrency group holds it until the running loop
+# finishes, and it starts within seconds of that. Actions minutes are
+# unmetered on public repositories, so a permanently-running job is free.
 #
 # State (which emails were processed, which listings are known, what was
-# already alerted) lives in state/db.sql — a text dump of the SQLite database,
-# restored at the start of each run and written back at the end. Text rather
-# than the binary .db so changes are reviewable and git can delta them.
+# already alerted) lives in state/db.sql — a text dump of the SQLite
+# database, restored when the loop starts and committed by scripts/save-state.sh
+# after every cycle that changed something.
 
 on:
   schedule:
-    # Every 10 minutes. GitHub treats schedules as best-effort and delays
-    # them heavily under load — at */30 the real gap was 50-80 minutes. More
-    # scheduled attempts do not make any single one punctual, but they raise
-    # the chance that one fires soon after an alert email lands.
-    - cron: "*/10 * * * *"
-    # Daily digest at 07:00 UTC (09:00 Madrid in summer, 08:00 in winter)
-    - cron: "0 7 * * *"
+    # Not "run now" — "be next in line". One of these lands within minutes of
+    # the running loop finishing, so the chain does not break.
+    - cron: "*/5 * * * *"
   workflow_dispatch:
     inputs:
       command:
-        description: "Command to run"
+        description: "Command to run once, interrupting the loop"
         required: false
         default: tick
         type: choice
         options: [tick, digest, mail-check]
 
-# Never let two runs touch state/db.sql at once — the loser would push a
-# dump built from a stale database and silently undo the other's progress.
+# Never let two runs touch state/db.sql at once — the loser would push a dump
+# built from a stale database and silently undo the other's progress.
+# A manual dispatch is a deliberate "do it now", so it takes the slot from the
+# loop; the next scheduled run restarts the loop behind it.
 concurrency:
   group: pisos-bot-state
-  cancel-in-progress: false
+  cancel-in-progress: ${{ github.event_name == 'workflow_dispatch' }}
 
 permissions:
   contents: write
 
+env:
+  # Just under the 6-hour ceiling GitHub imposes on a single job.
+  LOOP_MINUTES: 340
+  # How often the bot checks the mailbox and answers Telegram.
+  CYCLE_SECONDS: 180
+
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 350
 
     steps:
       - uses: actions/checkout@v4
@@ -54,7 +69,18 @@ jobs:
       - name: Restore database from state dump
         run: python main.py db-restore
 
-      - name: Run bot
+      - name: Run one command now
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python main.py "${{ github.event.inputs.command || 'tick' }}"
+
+      - name: Watch the mailbox continuously
+        if: github.event_name != 'workflow_dispatch'
         env:
           GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
           GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
@@ -62,31 +88,30 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          if [ "${{ github.event.schedule }}" = "0 7 * * *" ]; then
-            CMD=digest
-          else
-            CMD="${{ github.event.inputs.command || 'tick' }}"
-          fi
-          echo "Running: $CMD"
-          python main.py "$CMD"
+          set -uo pipefail
+          deadline=$(( $(date +%s) + LOOP_MINUTES * 60 ))
+          cycle=0
 
-      - name: Save database back to state dump
-        if: always()
-        run: python main.py db-dump
+          while :; do
+            cycle=$((cycle + 1))
+            echo "::group::Ciclo $cycle — $(date -u +%H:%M:%SZ)"
 
-      # Runs even if the bot failed: a crash after alerts were sent must not
-      # lose the record of having sent them, or the next run repeats them.
-      - name: Commit state if changed
+            # A failed cycle must not end the loop: a Gmail hiccup or a
+            # Telegram timeout should cost three minutes, not six hours.
+            python main.py tick || echo "tick falló, se reintenta en el siguiente ciclo"
+            python main.py digest --if-due || true
+
+            bash scripts/save-state.sh || true
+            echo "::endgroup::"
+
+            [ "$(date +%s)" -ge "$deadline" ] && break
+            sleep "$CYCLE_SECONDS"
+          done
+
+          echo "Turno completado tras $cycle ciclos; el siguiente run toma el relevo."
+
+      # Runs even if the loop crashed or was cancelled: alerts already sent
+      # must not be forgotten, or the next run repeats them.
+      - name: Save state
         if: always()
-        run: |
-          git config user.name "pisos-bot"
-          git config user.email "bot@users.noreply.github.com"
-          git add state/db.sql
-          if git diff --staged --quiet; then
-            echo "No state change"
-          else
-            git commit -m "state: bot run $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
-            # Another run may have pushed while this one was working
-            git pull --rebase --autostash origin ${{ github.ref_name }} || true
-            git push
-          fi
+        run: bash scripts/save-state.sh || true

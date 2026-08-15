@@ -259,6 +259,12 @@ def set_telegram_state(key: str, value: str) -> None:
             select(telegram_state).where(telegram_state.c.key == key)
         ).fetchone()
         if existing:
+            # Rewriting the same value would only move updated_at, which makes
+            # the committed SQL dump differ on every single run. The bot saves
+            # state by committing that dump, so a no-op write would produce a
+            # commit every few minutes and hide the runs that did something.
+            if existing.value == value:
+                return
             conn.execute(
                 update(telegram_state).where(telegram_state.c.key == key)
                 .values(value=value, updated_at=now)
