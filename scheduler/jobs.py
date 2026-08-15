@@ -630,11 +630,17 @@ class PipelineOrchestrator:
         except Exception as e:
             logger.error(f"No pude leer la dirección del buzón: {e}")
 
+        # "Último correo leído: ayer" on its own is ambiguous: it means the
+        # same thing whether no portal has written since yesterday or the bot
+        # died yesterday. The heartbeat separates the two.
+        from scheduler import heartbeat
+
         return (
             "<b>✅ Funcionando</b>\n\n"
+            f"Última pasada: {heartbeat.describe()}\n"
             f"Buzón que leo: <b>{mailbox or 'no he podido comprobarlo'}</b>\n"
+            f"Último correo <i>nuevo</i>: {when}\n"
             f"Anuncios analizados: <b>{total}</b>\n"
-            f"Último correo leído: {when}\n"
             f"Perfiles activos: {len(self.profile_matcher.profiles)}\n\n"
             "<i>Reviso el correo cada 3 minutos, en marcha continua.</i>"
         )

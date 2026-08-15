@@ -79,3 +79,58 @@ def test_repeat_state_write_does_not_touch_the_row(tmp_path):
     assert row.updated_at != before
 
     db._engine = None
+
+
+# ── Heartbeat: telling "alive but quiet" from "dead" ────────────────────────
+
+def test_heartbeat_reports_a_quiet_cycle(tmp_path, monkeypatch):
+    """A quiet mailbox and a dead bot look identical without this."""
+    from scheduler import heartbeat
+
+    monkeypatch.setattr(heartbeat, "PATH", tmp_path / ".heartbeat")
+    heartbeat.beat(cycle=12, emails=0, new=0)
+    text = heartbeat.describe()
+    assert "ciclo 12" in text
+    assert "sin correo nuevo" in text
+    assert "menos de un minuto" in text
+
+
+def test_heartbeat_reports_what_arrived(tmp_path, monkeypatch):
+    from scheduler import heartbeat
+
+    monkeypatch.setattr(heartbeat, "PATH", tmp_path / ".heartbeat")
+    heartbeat.beat(cycle=3, emails=2, new=7)
+    assert "2 correos, 7 anuncios nuevos" in heartbeat.describe()
+
+
+def test_heartbeat_surfaces_a_failed_cycle(tmp_path, monkeypatch):
+    from scheduler import heartbeat
+
+    monkeypatch.setattr(heartbeat, "PATH", tmp_path / ".heartbeat")
+    heartbeat.beat(cycle=4, error="Gmail 401")
+    assert "⚠️ falló: Gmail 401" in heartbeat.describe()
+
+
+def test_heartbeat_absent_says_so_rather_than_lying(tmp_path, monkeypatch):
+    from scheduler import heartbeat
+
+    monkeypatch.setattr(heartbeat, "PATH", tmp_path / "nope")
+    assert "aún no he completado un ciclo" in heartbeat.describe()
+
+
+def test_heartbeat_never_raises_on_an_unwritable_path(tmp_path, monkeypatch):
+    """Bookkeeping must not be able to kill a cycle."""
+    from scheduler import heartbeat
+
+    monkeypatch.setattr(heartbeat, "PATH", tmp_path / "a-file" / "x" / "y")
+    (tmp_path / "a-file").write_text("not a directory")
+    heartbeat.beat(cycle=1)
+
+
+def test_corrupt_heartbeat_is_reported_not_raised(tmp_path, monkeypatch):
+    from scheduler import heartbeat
+
+    path = tmp_path / ".heartbeat"
+    path.write_text("{not json")
+    monkeypatch.setattr(heartbeat, "PATH", path)
+    assert "aún no he completado un ciclo" in heartbeat.describe()

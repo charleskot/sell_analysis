@@ -1,5 +1,6 @@
 """Entry point: CLI interface for the Real Estate Investment Analyzer."""
 import logging
+import os
 import sys
 from pathlib import Path
 
@@ -246,11 +247,27 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     config = load_config()
     init_db(config)
 
+    from scheduler import heartbeat
     from scheduler.jobs import PipelineOrchestrator
 
     orchestrator = PipelineOrchestrator(config)
 
-    stats = orchestrator.run_email_ingest()
+    # Answer the chat before doing anything slow or failure-prone. Reading
+    # the mailbox used to come first and was not guarded, so a Gmail hiccup
+    # ended the whole tick before the reply was ever sent: the user typed
+    # into a bot that had already died that cycle, and every cycle after.
+    try:
+        orchestrator.run_feedback_poll()
+    except Exception as e:
+        console.print(f"[yellow]Feedback poll falló:[/yellow] {e}")
+
+    try:
+        stats = orchestrator.run_email_ingest()
+    except Exception as e:
+        console.print(f"[red]Lectura de correo falló:[/red] {e}")
+        heartbeat.beat(cycle=os.environ.get("BOT_CYCLE", "?"), error=str(e)[:120])
+        raise typer.Exit(code=1)
+
     console.print(
         f"[green]Correo:[/green] {stats['emails']} emails · "
         f"{stats['parsed']} anuncios · {stats['new']} nuevos · "
@@ -259,11 +276,11 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     for portal, pstats in stats.get("by_portal", {}).items():
         console.print(f"  📧 {portal}: {pstats['parsed']} anuncios, {pstats['alerts']} alertas")
 
-    # Button presses and replies since the previous tick
-    try:
-        orchestrator.run_feedback_poll()
-    except Exception as e:
-        console.print(f"[yellow]Feedback poll falló:[/yellow] {e}")
+    heartbeat.beat(
+        cycle=os.environ.get("BOT_CYCLE", "?"),
+        emails=stats["emails"], new=stats["new"], alerts=stats["alerts_sent"],
+        errors=stats.get("errors", 0),
+    )
 
 
 @app.command("scrape-once")
@@ -344,9 +361,15 @@ def digest(
     from scheduler.jobs import digest_due
 
     now = datetime.now(timezone.utc)
-    if if_due and not digest_due(now, get_telegram_state("last_digest_date", "")):
-        console.print("[dim]Resumen diario: aún no toca.[/dim]")
-        return
+    if if_due:
+        if not digest_due(now, get_telegram_state("last_digest_date", "")):
+            console.print("[dim]Resumen diario: aún no toca.[/dim]")
+            return
+        # Marked before sending, not after. Anything that goes wrong between
+        # here and the last line used to leave the date unwritten, so the
+        # next cycle three minutes later sent the digest again — which is
+        # exactly what happened, twice in one morning.
+        set_telegram_state("last_digest_date", now.strftime("%Y-%m-%d"))
 
     from scheduler.jobs import PipelineOrchestrator
 
@@ -357,10 +380,6 @@ def digest(
 
     console.print("[cyan]Enviando resumen diario...[/cyan]")
     ok = orchestrator.run_daily_digest()
-    if if_due:
-        # Recorded whether or not anything went out: a quiet day is still a
-        # day that was handled, and the loop ticks every few minutes.
-        set_telegram_state("last_digest_date", now.strftime("%Y-%m-%d"))
     if ok:
         console.print("[green]✓ Resumen enviado por Telegram[/green]")
     else:

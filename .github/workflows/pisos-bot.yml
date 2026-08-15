@@ -100,7 +100,10 @@ jobs:
 
             # A failed cycle must not end the loop: a Gmail hiccup or a
             # Telegram timeout should cost three minutes, not six hours.
-            python main.py tick || echo "tick falló, se reintenta en el siguiente ciclo"
+            # The chat is answered before the mailbox is read, so a broken
+            # mailbox never costs a reply.
+            BOT_CYCLE=$cycle python main.py tick \
+              || echo "tick falló, se reintenta en el siguiente ciclo"
             python main.py digest --if-due || true
 
             bash scripts/save-state.sh || true
