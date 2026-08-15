@@ -266,6 +266,38 @@ class TelegramAlerter:
         except Exception as e:
             logger.debug(f"editMessageText failed: {e}")
 
+    def send_pulse(self, stats: dict | None = None, error: str | None = None) -> bool:
+        """Proof of life, whether or not there is anything to report.
+
+        Silence is ambiguous: a quiet mailbox and a dead bot read exactly
+        the same from the chat, and the bot did sit dead for twenty hours
+        without either side noticing. A line every half hour costs almost
+        nothing and removes the ambiguity entirely.
+        """
+        if not self._enabled:
+            return False
+        return bool(self._send_sync(self._pulse_text(stats, error)))
+
+    def _pulse_text(self, stats: dict | None, error: str | None) -> str:
+        from datetime import datetime
+
+        now = datetime.now().strftime("%H:%M")
+        if error:
+            return (f"🔴 <b>{now}</b> · sigo en marcha, pero <b>falla la lectura del "
+                    f"correo</b>\n<i>{self._esc(error)}</i>")
+
+        stats = stats or {}
+        alerts = stats.get("alerts_sent") or 0
+        if alerts:
+            # An alert already proved the bot is alive, so this only counts up.
+            return f"🟢 <b>{now}</b> · {alerts} enviadas en esta pasada ↑"
+
+        parsed = stats.get("parsed") or 0
+        if parsed:
+            return (f"🟢 <b>{now}</b> · funcionando · {parsed} anuncios revisados, "
+                    f"<b>ninguno encaja</b>")
+        return f"🟢 <b>{now}</b> · funcionando · <b>sin novedades</b>"
+
     def already_sent(self, listing_id: str, dedup_key: str | None = None) -> bool:
         """Whether this flat has already gone out, under any listing id."""
         from models.db import was_alert_sent_recently

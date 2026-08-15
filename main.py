@@ -261,11 +261,18 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     except Exception as e:
         console.print(f"[yellow]Feedback poll falló:[/yellow] {e}")
 
+    pulse_minutes = config.get("alerts", {}).get("telegram", {}).get("pulse_minutes", 0)
+
     try:
         stats = orchestrator.run_email_ingest()
     except Exception as e:
         console.print(f"[red]Lectura de correo falló:[/red] {e}")
         heartbeat.beat(cycle=os.environ.get("BOT_CYCLE", "?"), error=str(e)[:120])
+        # Rate-limited like the healthy pulse: a mailbox that stays broken
+        # must not turn into a message every three minutes.
+        if heartbeat.pulse_due(pulse_minutes):
+            orchestrator.alerter.send_pulse(error=str(e)[:200])
+            heartbeat.mark_pulse()
         raise typer.Exit(code=1)
 
     console.print(
@@ -281,6 +288,10 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
         emails=stats["emails"], new=stats["new"], alerts=stats["alerts_sent"],
         errors=stats.get("errors", 0),
     )
+
+    if heartbeat.pulse_due(pulse_minutes):
+        orchestrator.alerter.send_pulse(stats)
+        heartbeat.mark_pulse()
 
 
 @app.command("scrape-once")

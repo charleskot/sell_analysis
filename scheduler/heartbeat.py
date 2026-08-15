@@ -18,6 +18,33 @@ from pathlib import Path
 logger = logging.getLogger(__name__)
 
 PATH = Path("state/.heartbeat")
+PULSE_PATH = Path("state/.pulse")
+
+
+def pulse_due(minutes: int) -> bool:
+    """Whether it is time to tell the chat the bot is still running.
+
+    Kept out of the database on purpose, like the heartbeat: a timestamp
+    committed every half hour is still noise in the history. The cost is
+    that a restarted loop pulses once immediately, which is harmless — a
+    fresh runner has genuinely just started.
+    """
+    if not minutes:
+        return False
+    try:
+        last_at = datetime.fromisoformat(PULSE_PATH.read_text().strip())
+    except (OSError, ValueError):
+        return True
+    return (datetime.now(timezone.utc) - last_at).total_seconds() >= minutes * 60
+
+
+def mark_pulse() -> None:
+    """Never raises: failing to record a pulse must not end a cycle."""
+    try:
+        PULSE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        PULSE_PATH.write_text(datetime.now(timezone.utc).isoformat())
+    except OSError as e:
+        logger.warning(f"No pude registrar el pulso: {e}")
 
 
 def beat(**facts) -> None:

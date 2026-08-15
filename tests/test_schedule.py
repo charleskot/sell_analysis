@@ -134,3 +134,81 @@ def test_corrupt_heartbeat_is_reported_not_raised(tmp_path, monkeypatch):
     path.write_text("{not json")
     monkeypatch.setattr(heartbeat, "PATH", path)
     assert "aún no he completado un ciclo" in heartbeat.describe()
+
+
+# ── Pulse: a line every half hour, so silence is never ambiguous ────────────
+
+def test_pulse_is_due_when_never_sent(tmp_path, monkeypatch):
+    from scheduler import heartbeat
+
+    monkeypatch.setattr(heartbeat, "PULSE_PATH", tmp_path / ".pulse")
+    assert heartbeat.pulse_due(30) is True
+
+
+def test_pulse_is_not_due_again_immediately(tmp_path, monkeypatch):
+    from scheduler import heartbeat
+
+    monkeypatch.setattr(heartbeat, "PULSE_PATH", tmp_path / ".pulse")
+    heartbeat.mark_pulse()
+    assert heartbeat.pulse_due(30) is False
+
+
+def test_pulse_is_due_once_the_interval_has_passed(tmp_path, monkeypatch):
+    from datetime import datetime, timedelta, timezone
+
+    from scheduler import heartbeat
+
+    path = tmp_path / ".pulse"
+    path.write_text((datetime.now(timezone.utc) - timedelta(minutes=31)).isoformat())
+    monkeypatch.setattr(heartbeat, "PULSE_PATH", path)
+    assert heartbeat.pulse_due(30) is True
+
+
+def test_pulse_can_be_switched_off(tmp_path, monkeypatch):
+    from scheduler import heartbeat
+
+    monkeypatch.setattr(heartbeat, "PULSE_PATH", tmp_path / "absent")
+    assert heartbeat.pulse_due(0) is False
+
+
+def test_corrupt_pulse_file_errs_towards_reporting(tmp_path, monkeypatch):
+    """Better one extra line than a silence nobody can explain."""
+    from scheduler import heartbeat
+
+    path = tmp_path / ".pulse"
+    path.write_text("no es una fecha")
+    monkeypatch.setattr(heartbeat, "PULSE_PATH", path)
+    assert heartbeat.pulse_due(30) is True
+
+
+def test_quiet_pulse_says_it_is_working():
+    from alerts.telegram_bot import TelegramAlerter
+
+    text = TelegramAlerter({})._pulse_text({"parsed": 0, "alerts_sent": 0}, None)
+    assert "funcionando" in text
+    assert "sin novedades" in text
+
+
+def test_pulse_reports_listings_that_did_not_fit():
+    """"Nothing arrived" and "plenty arrived, none good" are different facts."""
+    from alerts.telegram_bot import TelegramAlerter
+
+    text = TelegramAlerter({})._pulse_text({"parsed": 34, "alerts_sent": 0}, None)
+    assert "34 anuncios revisados" in text
+    assert "ninguno encaja" in text
+
+
+def test_pulse_defers_to_the_alerts_it_just_sent():
+    from alerts.telegram_bot import TelegramAlerter
+
+    text = TelegramAlerter({})._pulse_text({"parsed": 9, "alerts_sent": 2}, None)
+    assert "2 enviadas" in text
+
+
+def test_broken_mailbox_is_reported_loudly():
+    from alerts.telegram_bot import TelegramAlerter
+
+    text = TelegramAlerter({})._pulse_text(None, "Gmail 401 invalid_grant")
+    assert "🔴" in text
+    assert "falla la lectura del correo" in text
+    assert "invalid_grant" in text

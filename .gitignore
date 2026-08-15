@@ -11,3 +11,4 @@ dist/
 
 # Written every cycle by the running loop; never worth committing
 state/.heartbeat
+state/.pulse

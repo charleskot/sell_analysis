@@ -328,6 +328,12 @@ alerts:
     min_score_threshold: 60
     cooldown_hours: 24
 
+    # Proof of life. Silence is ambiguous — a quiet mailbox and a dead bot
+    # look identical from the chat — and the bot was in fact dead for twenty
+    # hours without either of us noticing. Every this many minutes it says
+    # what it did, even when the answer is "nothing". Set to 0 to switch off.
+    pulse_minutes: 30
+
 scheduler:
   scrape_interval_hours: 12
   rental_scrape_interval_days: 30    # rental data less important for residence search
