@@ -515,3 +515,74 @@ def test_no_warning_when_the_email_carries_what_it_claims(caplog):
     with caplog.at_level(logging.WARNING):
         parse_email("alertas@email.habitaclia.com", "5 novedades en comarca X", body)
     assert not any("demasiado amplia" in r.message for r in caplog.records)
+
+
+# ── Bank portals ───────────────────────────────────────────────────────────
+#
+# Added without ever having seen one of their emails. Their patterns ended at
+# the id, the same mistake that made Habitaclia links 404: the match is what
+# gets stored and opened, so anything after the id was thrown away.
+
+import pytest
+
+from ingest.email_parsers import PORTAL_SPECS, parse_email
+
+
+def spec_for(portal):
+    return next(s for s in PORTAL_SPECS if s["portal"] == portal)
+
+
+@pytest.mark.parametrize("portal,url,ext_id", [
+    ("servihabitat",
+     "https://www.servihabitat.com/es/inmueble/12345678/piso-en-mataro-barcelona",
+     "12345678"),
+    ("solvia",
+     "https://www.solvia.es/es/inmuebles/vivienda/9876543/piso-sabadell?utm=alerta",
+     "9876543"),
+    ("altamira",
+     "https://www.altamirainmuebles.com/venta/vivienda/1234567/piso-en-reus",
+     "1234567"),
+    ("aliseda",
+     "https://www.aliseda.es/inmueble/7654321/piso-en-lleida",
+     "7654321"),
+])
+def test_bank_url_is_captured_whole(portal, url, ext_id):
+    """A truncated link is a link that 404s when he taps it."""
+    m = spec_for(portal)["url_re"].search(f'<a href="{url}">Ver</a>')
+    assert m is not None
+    assert m.group(0) == url
+    assert ext_id in m.groups()
+
+
+def test_bank_alert_with_prices_but_no_links_is_reported():
+    """Otherwise it looks exactly like a portal with nothing to send."""
+    problems = []
+    body = '<html><p>Piso en Mataró</p><p>186.000 €</p><a href="https://otro.com/x">Ver</a></html>'
+    listings = parse_email("alertas@servihabitat.com", "Novedades", body, problems=problems)
+    assert listings == []
+    assert problems == [("servihabitat", "Novedades")]
+
+
+def test_transactional_mail_is_not_reported_as_a_failure():
+    """Warning on every account email trains the reader to ignore warnings."""
+    problems = []
+    body = "<html><p>Bienvenido a Servihabitat, confirma tu cuenta.</p></html>"
+    parse_email("no-reply@servihabitat.com", "Bienvenido", body, problems=problems)
+    assert problems == []
+
+
+def test_warning_names_the_portals_and_asks_for_the_email():
+    from alerts.telegram_bot import TelegramAlerter
+
+    text = TelegramAlerter({})._unreadable_text(
+        [("servihabitat", "12 novedades"), ("solvia", "Tus alertas")]
+    )
+    assert "servihabitat, solvia" in text
+    assert "12 novedades" in text
+    assert "Reenvíame ese email" in text
+
+
+def test_nothing_to_warn_about_sends_nothing():
+    from alerts.telegram_bot import TelegramAlerter
+
+    assert TelegramAlerter({}).send_unreadable_warning([]) is False

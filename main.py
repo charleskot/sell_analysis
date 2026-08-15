@@ -283,6 +283,12 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     for portal, pstats in stats.get("by_portal", {}).items():
         console.print(f"  📧 {portal}: {pstats['parsed']} anuncios, {pstats['alerts']} alertas")
 
+    # Not rate-limited: each unreadable email is seen once, because the
+    # mailbox cursor moves past it. Staying quiet here is what let a portal
+    # go unparsed for days while looking like a portal with nothing to say.
+    if stats.get("unreadable"):
+        orchestrator.alerter.send_unreadable_warning(stats["unreadable"])
+
     heartbeat.beat(
         cycle=os.environ.get("BOT_CYCLE", "?"),
         emails=stats["emails"], new=stats["new"], alerts=stats["alerts_sent"],

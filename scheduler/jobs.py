@@ -229,7 +229,7 @@ class PipelineOrchestrator:
         stats = {"emails": 0, "parsed": 0, "new": 0, "updated": 0,
                  "alerts_sent": 0, "filtered_out": 0, "errors": 0,
                  "enriched": 0, "dropped_after_enrich": 0, "rejected_after_enrich": 0,
-                 "by_portal": {}, "by_profile": {}}
+                 "by_portal": {}, "by_profile": {}, "unreadable": []}
 
         reader = self._get_mail_reader()
         if reader is None:
@@ -246,7 +246,10 @@ class PipelineOrchestrator:
 
         for msg in messages:
             try:
-                listings = parse_email(msg.sender, msg.subject, msg.html, msg.text)
+                listings = parse_email(
+                    msg.sender, msg.subject, msg.html, msg.text,
+                    problems=stats["unreadable"],
+                )
             except Exception as e:
                 logger.error(f"Parse failed for {msg.subject[:50]!r}: {e}")
                 stats["errors"] += 1

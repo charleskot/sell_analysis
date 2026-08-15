@@ -27,6 +27,10 @@ PORTAL_SPECS = [
     # match is what gets stored and opened later. Habitaclia links through a
     # redirect whose path carries the alert reference, and truncating it after
     # "/i{id}/" produced a 404 — the alert arrived with a dead link.
+    #
+    # The bank portals were written the same wrong way, ending at the id, and
+    # are corrected here before their first alert rather than after: their
+    # listing URLs carry a slug after the id, which a truncated match drops.
     {
         "portal": "idealista",
         "sender_match": ["idealista.com", "idealista.es"],
@@ -56,22 +60,30 @@ PORTAL_SPECS = [
     {
         "portal": "servihabitat",
         "sender_match": ["servihabitat.com", "servihabitat.es"],
-        "url_re": re.compile(r"https?://(?:www\.)?servihabitat\.com/[^\s\"'<>]*?(\d{5,})", re.I),
+        "url_re": re.compile(
+            r"https?://(?:www\.)?servihabitat\.com/[^\s\"'<>]*?(\d{6,})[^\s\"'<>]*", re.I
+        ),
     },
     {
         "portal": "solvia",
         "sender_match": ["solvia.es"],
-        "url_re": re.compile(r"https?://(?:www\.)?solvia\.es/[^\s\"'<>]*?(\d{5,})", re.I),
+        "url_re": re.compile(
+            r"https?://(?:www\.)?solvia\.es/[^\s\"'<>]*?(\d{6,})[^\s\"'<>]*", re.I
+        ),
     },
     {
         "portal": "altamira",
         "sender_match": ["altamirainmuebles.com", "altamira"],
-        "url_re": re.compile(r"https?://(?:www\.)?altamirainmuebles\.com/[^\s\"'<>]*?(\d{5,})", re.I),
+        "url_re": re.compile(
+            r"https?://(?:www\.)?altamirainmuebles\.com/[^\s\"'<>]*?(\d{6,})[^\s\"'<>]*", re.I
+        ),
     },
     {
         "portal": "aliseda",
         "sender_match": ["aliseda.es", "alisedainmobiliaria"],
-        "url_re": re.compile(r"https?://(?:www\.)?aliseda\.es/[^\s\"'<>]*?(\d{5,})", re.I),
+        "url_re": re.compile(
+            r"https?://(?:www\.)?aliseda\.es/[^\s\"'<>]*?(\d{6,})[^\s\"'<>]*", re.I
+        ),
     },
 ]
 
@@ -387,8 +399,18 @@ def _split_blocks(body: str, match_spans: list[tuple[int, int]]) -> list[str]:
     return blocks
 
 
-def parse_email(sender: str, subject: str, html: str, text: str = "") -> list[RawListing]:
-    """Extract listings from one alert email. Returns [] if unrecognised."""
+def parse_email(sender: str, subject: str, html: str, text: str = "",
+                problems: list | None = None) -> list[RawListing]:
+    """Extract listings from one alert email. Returns [] if unrecognised.
+
+    `problems` collects (portal, subject) for mail that is plainly an alert —
+    it quotes prices — yet yielded no listings. That means the portal's link
+    format does not match what we expect, and the failure is otherwise
+    completely silent: it looks exactly like a portal with nothing to send.
+    Habitaclia sat in that state for days. Four bank portals were added
+    without ever having seen one of their emails, so the odds of it happening
+    again are high, and the caller passes this list in to be told.
+    """
     body = html or text
     if not body:
         return []
@@ -429,6 +451,8 @@ def parse_email(sender: str, subject: str, html: str, text: str = "") -> list[Ra
                 f"Email ingest: {portal} email {subject[:60]!r} shows prices but no "
                 "listing URLs matched — the link format has probably changed."
             )
+            if problems is not None:
+                problems.append((portal, subject or ""))
         else:
             logger.debug(f"Email ingest: {portal} non-alert email {subject[:60]!r}, skipping")
         return []
