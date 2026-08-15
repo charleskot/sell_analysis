@@ -298,6 +298,29 @@ class TelegramAlerter:
                     f"<b>ninguno encaja</b>")
         return f"🟢 <b>{now}</b> · funcionando · <b>sin novedades</b>"
 
+    def send_unreadable_warning(self, problems: list) -> bool:
+        """Tell the chat that a portal wrote and we could not read it.
+
+        This failure is otherwise invisible: a portal whose link format we do
+        not match looks exactly like a portal with nothing to send. Habitaclia
+        sat in that state for days. Four bank portals were added without ever
+        having seen one of their emails, so it is worth saying out loud.
+        """
+        if not self._enabled or not problems:
+            return False
+        return bool(self._send_sync(self._unreadable_text(problems)))
+
+    def _unreadable_text(self, problems: list) -> str:
+        portals = sorted({p for p, _ in problems})
+        subject = problems[0][1][:80]
+        return (
+            f"⚠️ <b>No sé leer el correo de {self._esc(', '.join(portals))}</b>\n\n"
+            f"Trae precios, así que es una alerta de verdad, pero no reconozco el "
+            f"formato de sus enlaces y me quedo sin los anuncios.\n\n"
+            f"<i>{self._esc(subject)}</i>\n\n"
+            f"Reenvíame ese email y lo arreglo."
+        )
+
     def already_sent(self, listing_id: str, dedup_key: str | None = None) -> bool:
         """Whether this flat has already gone out, under any listing id."""
         from models.db import was_alert_sent_recently
