@@ -256,3 +256,109 @@ def test_broken_mailbox_is_reported_loudly():
     assert "🔴" in text
     assert "falla la lectura del correo" in text
     assert "invalid_grant" in text
+
+
+# ── Quiet hours ────────────────────────────────────────────────────────────
+#
+# Suppressing a message is the easy half. Not losing the flat is the point:
+# nothing is recorded as sent while quiet, so the first waking cycle sends it.
+
+from datetime import datetime as _dt, timezone as _tz
+
+
+def cfg(**over):
+    quiet = {"from": 23, "to": 8}
+    quiet.update(over)
+    return {"alerts": {"telegram": {"quiet_hours": quiet}}}
+
+
+def utc(hour, minute=0):
+    return _dt(2026, 8, 15, hour, minute, tzinfo=_tz.utc)
+
+
+def test_night_is_quiet():
+    from scheduler.quiet_hours import is_quiet
+
+    assert is_quiet(cfg(), utc(1)) is True     # 03:00 Madrid
+
+
+def test_daytime_is_not_quiet():
+    from scheduler.quiet_hours import is_quiet
+
+    assert is_quiet(cfg(), utc(12)) is False   # 14:00 Madrid
+
+
+def test_window_is_read_in_madrid_time_not_utc():
+    """22:30 UTC is 00:30 in Madrid in summer — quiet, though UTC says 22."""
+    from scheduler.quiet_hours import is_quiet
+
+    assert is_quiet(cfg(), utc(22, 30)) is True
+
+
+def test_just_before_the_window_still_sends():
+    from scheduler.quiet_hours import is_quiet
+
+    assert is_quiet(cfg(), utc(20, 30)) is False   # 22:30 Madrid
+
+
+def test_first_hour_after_waking_sends():
+    from scheduler.quiet_hours import is_quiet
+
+    assert is_quiet(cfg(), utc(6, 30)) is False    # 08:30 Madrid
+
+
+def test_a_daytime_window_does_not_wrap():
+    from scheduler.quiet_hours import is_quiet
+
+    assert is_quiet(cfg(**{"from": 1, "to": 6}), utc(2)) is True    # 04:00 Madrid
+    # 22:00 Madrid is outside 1→6. A window that wrapped would call it quiet.
+    assert is_quiet(cfg(**{"from": 1, "to": 6}), utc(20)) is False
+
+
+def test_no_window_configured_means_never_quiet():
+    from scheduler.quiet_hours import is_quiet
+
+    assert is_quiet({}, utc(3)) is False
+    assert is_quiet({"alerts": {"telegram": {}}}, utc(3)) is False
+
+
+def test_equal_bounds_are_not_a_permanent_silence():
+    """A misconfigured 8→8 must not mute the bot for ever."""
+    from scheduler.quiet_hours import is_quiet
+
+    assert is_quiet(cfg(**{"from": 8, "to": 8}), utc(3)) is False
+
+
+# ── Never lose a listing found at night ────────────────────────────────────
+
+def test_quiet_alert_is_not_recorded_as_sent(db, monkeypatch):
+    """If it were recorded, the morning sweep would skip it for ever."""
+    from alerts.telegram_bot import TelegramAlerter
+    import scheduler.quiet_hours as quiet
+
+    alerter = TelegramAlerter({"alerts": {"telegram": {
+        "token": "t", "chat_id": "c", "quiet_hours": {"from": 23, "to": 8}}}})
+    monkeypatch.setattr(quiet, "is_quiet", lambda *a, **k: True)
+
+    assert alerter.send_alert("habitaclia_1", {"price": 1}, {}, 0) is False
+    assert alerter.already_sent("habitaclia_1") is False
+
+
+def test_ever_sent_outlives_the_cooldown_window(db):
+    """The sweep re-examines stored listings, so 'recently' is the wrong
+    question: every listing leaves a 24-hour window eventually, and the
+    catalogue would go out again once a day, for ever."""
+    from datetime import timedelta
+
+    from alerts.telegram_bot import TelegramAlerter
+    from models.schema import alerts_sent
+
+    with db.session_scope() as conn:
+        conn.execute(alerts_sent.insert().values(
+            listing_id="habitaclia_9", alert_type="telegram", message_preview="",
+            sent_at=_dt.now(_tz.utc) - timedelta(days=30),
+        ))
+
+    alerter = TelegramAlerter({"alerts": {"telegram": {"cooldown_hours": 24}}})
+    assert db.was_alert_sent_recently("habitaclia_9", 24) is False
+    assert alerter.already_sent("habitaclia_9") is True

@@ -261,7 +261,9 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     except Exception as e:
         console.print(f"[yellow]Feedback poll falló:[/yellow] {e}")
 
-    pulse_minutes = config.get("alerts", {}).get("telegram", {}).get("pulse_minutes", 0)
+    tg_cfg = config.get("alerts", {}).get("telegram", {})
+    pulse_minutes = tg_cfg.get("pulse_minutes", 0)
+    failure_minutes = tg_cfg.get("failure_notice_minutes", 60)
 
     try:
         stats = orchestrator.run_email_ingest()
@@ -270,9 +272,11 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
         heartbeat.beat(cycle=os.environ.get("BOT_CYCLE", "?"), error=str(e)[:120])
         # Rate-limited like the healthy pulse: a mailbox that stays broken
         # must not turn into a message every three minutes.
-        if heartbeat.pulse_due(pulse_minutes):
+        from scheduler.quiet_hours import is_quiet
+
+        if not is_quiet(config) and heartbeat.failure_notice_due(failure_minutes):
             orchestrator.alerter.send_pulse(error=str(e)[:200])
-            heartbeat.mark_pulse()
+            heartbeat.mark_failure_notice()
         raise typer.Exit(code=1)
 
     console.print(
@@ -288,6 +292,12 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     # go unparsed for days while looking like a portal with nothing to say.
     if stats.get("unreadable"):
         orchestrator.alerter.send_unreadable_warning(stats["unreadable"])
+
+    # Anything suppressed overnight, or lost to an outage, goes out here.
+    # The alert path only fires on freshly parsed email and that email is
+    # never read twice, so without this sweep a listing found at three in
+    # the morning would stay in the database unmentioned for ever.
+    stats["alerts_sent"] += orchestrator.send_pending()
 
     heartbeat.beat(
         cycle=os.environ.get("BOT_CYCLE", "?"),

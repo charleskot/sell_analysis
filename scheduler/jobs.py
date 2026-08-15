@@ -435,6 +435,33 @@ class PipelineOrchestrator:
             )
         return ok
 
+    def send_pending(self) -> int:
+        """Send every current match that has never gone out.
+
+        The safety net under quiet hours. A flat found at three in the
+        morning is suppressed rather than recorded, so without this sweep it
+        would sit in the database unmentioned for ever — the alert path only
+        fires on freshly parsed email, and that email is never read twice.
+
+        It also repairs anything lost to a Telegram outage or a crash
+        between sending and saving state.
+        """
+        sent = 0
+        for entry in self.digest_entries():
+            listing = entry["listing"]
+            signature = self.alerter.property_signature(listing)
+            if self.alerter.already_sent(listing["id"], signature):
+                continue
+            if self.alerter.send_alert(
+                listing["id"], listing, entry["metrics"],
+                entry["metrics"].get("investment_score") or 0,
+                dedup_key=signature,
+            ):
+                sent += 1
+        if sent:
+            logger.info(f"Pendientes enviados: {sent}")
+        return sent
+
     def digest_entries(self, hours: int = 24) -> list[dict]:
         """Every current match, deduplicated, newest-first within each price."""
         from datetime import datetime, timedelta, timezone

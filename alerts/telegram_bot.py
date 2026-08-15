@@ -12,6 +12,7 @@ class TelegramAlerter:
         self._chat_id = self._resolve(alert_cfg.get("chat_id", ""))
         self._min_score = alert_cfg.get("min_score_threshold", 70)
         self._cooldown_hours = alert_cfg.get("cooldown_hours", 168)
+        self._config = config
         self._enabled = bool(self._token and self._chat_id and not self._token.startswith("${"))
 
         # Loud startup log so it's easy to see on Railway
@@ -53,8 +54,16 @@ class TelegramAlerter:
         would send one alert per agency for one flat.
         """
         from models.db import was_alert_sent_recently, record_alert_sent
+        from scheduler.quiet_hours import is_quiet
 
         if not self._enabled:
+            return False
+
+        # Nothing is recorded as sent while quiet, so this listing is picked
+        # up and sent by the first waking cycle rather than lost. Suppressing
+        # the message is the easy half; not dropping the flat is the point.
+        if is_quiet(self._config):
+            logger.info(f"Horario nocturno: {listing_id} esperará a mañana")
             return False
 
         # Deliberately no score threshold here. Whether a listing is worth
@@ -322,12 +331,18 @@ class TelegramAlerter:
         )
 
     def already_sent(self, listing_id: str, dedup_key: str | None = None) -> bool:
-        """Whether this flat has already gone out, under any listing id."""
-        from models.db import was_alert_sent_recently
+        """Whether this flat has ever gone out, under any listing id.
 
-        if was_alert_sent_recently(listing_id, self._cooldown_hours):
+        Ever, not recently: this gates the sweeps that re-examine stored
+        listings, and every listing leaves a 24-hour window eventually. On
+        the cooldown question a nightly sweep would re-send the catalogue
+        once a day, for ever.
+        """
+        from models.db import was_alert_ever_sent
+
+        if was_alert_ever_sent(listing_id):
             return True
-        return bool(dedup_key and was_alert_sent_recently(dedup_key, self._cooldown_hours))
+        return bool(dedup_key and was_alert_ever_sent(dedup_key))
 
     def send_digest_header(self, total: int, pending: int) -> bool:
         """The daily line that frames whatever cards follow it.

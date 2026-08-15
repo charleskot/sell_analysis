@@ -328,11 +328,26 @@ alerts:
     min_score_threshold: 60
     cooldown_hours: 24
 
-    # Proof of life. Silence is ambiguous — a quiet mailbox and a dead bot
-    # look identical from the chat — and the bot was in fact dead for twenty
-    # hours without either of us noticing. Every this many minutes it says
-    # what it did, even when the answer is "nothing". Set to 0 to switch off.
-    pulse_minutes: 30
+    # Proof of life, off by request: only send when there is something to
+    # send. Silence is ambiguous — a quiet mailbox and a dead bot read the
+    # same — so the check moved to being asked rather than announced: write
+    # "estado" and the bot reports its last cycle. Set a number of minutes
+    # here to bring the announcement back.
+    pulse_minutes: 0
+
+    # A mailbox that will not open is not a heartbeat, it is an event: the
+    # bot went twenty hours dead once and nothing said so. Reported at most
+    # this often, so a failure that persists does not become a message every
+    # three minutes.
+    failure_notice_minutes: 60
+
+    # Night. Local hours, because "de noche" means his night and Spain is
+    # one or two hours off UTC depending on the season. A listing found in
+    # this window is not dropped — nothing is recorded as sent while quiet,
+    # so the first waking cycle sends it.
+    quiet_hours:
+      from: 23
+      to: 8
 
 scheduler:
   scrape_interval_hours: 12
