@@ -266,11 +266,19 @@ def test_home_accepts_a_flat_that_would_lose_money_as_a_rental():
     assert "cashflow" not in reason
 
 
-def test_home_reason_leads_with_entry_and_payment():
+def test_home_reason_names_the_criteria_cleared():
+    """It used to restate the entry cash and the payment.
+
+    Both are shown in full a few lines above in the alert, so the reason
+    said nothing new while leaving out the thing the reader cannot derive:
+    on what grounds this flat answers the search.
+    """
     _, reason = Profile(VIVIENDA_HOME).match(
         _home(), {"cash_needed": 66000, "monthly_payment_total": 1250}
     )
-    assert "entrada" in reason and "cuota" in reason
+    assert "hab (pides ≥2)" in reason
+    assert "El Clot está en tu lista" in reason
+    assert "entrada" not in reason
 
 
 def test_home_accepts_needing_a_loan_for_the_entry():

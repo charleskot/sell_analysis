@@ -8,3 +8,7 @@ __pycache__/
 *.egg-info/
 dist/
 .pytest_cache/
+
+# Written every cycle by the running loop; never worth committing
+state/.heartbeat
+state/.pulse

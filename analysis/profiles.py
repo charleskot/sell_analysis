@@ -316,28 +316,67 @@ class Profile:
         if failure:
             return False, failure
 
-        # The reason is what the alert leads with, so it has to be the number
-        # that matters for this purpose. Rent figures on a home the buyer will
-        # live in are noise — there is no rent.
+        # The reason says which of the requirements this flat clears. It used
+        # to restate the entry cash and the monthly payment, both of which the
+        # alert already shows in full a few lines above — so it told the
+        # reader nothing they could not already see, while the thing they
+        # cannot derive, which search this answers and on what grounds, went
+        # unsaid.
+        criteria = self._criteria_met(listing)
+
         if self.purpose == "home":
-            cash_needed = metrics.get("cash_needed")
-            payment = metrics.get("monthly_payment_total") or metrics.get("monthly_payment")
-            parts = []
-            if cash_needed is not None:
-                parts.append(f"entrada {cash_needed:,.0f}€")
-            if payment:
-                parts.append(f"cuota {payment:,.0f}€/mes")
-            return True, " · ".join(parts) or "cumple zona, precio y estado"
+            return True, " · ".join(criteria) or "cumple zona, precio y estado"
 
         if had_financials:
             net_yield = metrics.get("net_yield_pct") or 0
             cashflow = metrics.get("monthly_cashflow")
             parts = [f"rentabilidad neta {net_yield:.2f}%"]
             if cashflow is not None:
-                parts.append(f"cashflow {cashflow:+,.0f}€/mes")
-            return True, " · ".join(parts)
+                parts.append(f"cashflow {cashflow:+,.0f}€/mes".replace(",", "."))
+            return True, " · ".join(parts + criteria)
 
-        return True, "cumple criterios de zona, precio y estado"
+        return True, " · ".join(criteria) or "cumple criterios de zona, precio y estado"
+
+    def _criteria_met(self, listing: dict) -> list[str]:
+        """The requirements this listing clears, named against the bar set.
+
+        "66m² (pides ≥65)" is worth a line; "66m²" on its own is already in
+        the card.
+        """
+        out = []
+
+        area = listing.get("area_m2")
+        min_area = self.spec.get("min_area_m2")
+        if area and min_area:
+            out.append(f"{area:.0f}m² (pides ≥{min_area:.0f})")
+
+        rooms = listing.get("rooms")
+        min_rooms = self.spec.get("min_rooms")
+        if rooms is not None and min_rooms:
+            out.append(f"{rooms} hab (pides ≥{min_rooms})")
+
+        if self.spec.get("min_floor"):
+            out.append("no es bajo")
+
+        required = self.spec.get("require_any_of") or []
+        if required:
+            haystack = normalise(
+                f"{listing.get('title', '')} {listing.get('description', '')}"
+            )
+            found = next((f for f in required if normalise(f) in haystack), None)
+            if found:
+                out.append(found)
+
+        where = listing.get("district") or listing.get("city")
+        if where and self.spec.get("areas"):
+            out.append(f"{where.title()} está en tu lista")
+
+        condition = listing.get("condition")
+        if condition and self.spec.get("condition_in"):
+            out.append({"nuevo": "obra nueva", "buen_estado": "buen estado",
+                        "a_reformar": "a reformar"}.get(condition, condition))
+
+        return out
 
 
 class ProfileMatcher:

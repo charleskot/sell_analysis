@@ -332,6 +332,7 @@ class PipelineOrchestrator:
                         **metrics,
                         "matched_profiles": labels,
                         "matched_purpose": hits[0][0].purpose,
+                        "match_reason": reason,
                     }
 
                     score = metrics.get("investment_score", 0) or 0
@@ -397,10 +398,80 @@ class PipelineOrchestrator:
         self._mail_reader = reader if reader.enabled else None
         return self._mail_reader
 
-    def run_daily_digest(self) -> None:
-        """Send daily digest of top opportunities via Telegram."""
+    def run_daily_digest(self) -> bool:
+        """Send the daily digest, built from the same matching as the alerts.
+
+        It used to run its own query against the old 0-100 score and skip the
+        profiles entirely, so it recommended flats no search would have
+        accepted and said nothing about why.
+        """
         logger.info("Sending daily digest...")
-        self.alerter.send_daily_digest()
+        entries = self.digest_entries()
+
+        # One flat per message, in the same full card as an alert, and never
+        # one that has already gone out. A five-listing list left room for a
+        # star rating and nothing else — which is how the digest came to
+        # recommend flats without saying anything about them.
+        pending = []
+        for entry in entries:
+            listing = entry["listing"]
+            if not self.alerter.already_sent(
+                listing["id"], self.alerter.property_signature(listing)
+            ):
+                pending.append(entry)
+
+        logger.info(f"Digest: {len(entries)} matches, {len(pending)} not yet sent")
+        ok = self.alerter.send_digest_header(len(entries), len(pending))
+
+        for entry in pending:
+            listing = entry["listing"]
+            self.alerter.send_alert(
+                listing["id"], listing, entry["metrics"],
+                entry["metrics"].get("investment_score") or 0,
+                dedup_key=self.alerter.property_signature(listing),
+            )
+        return ok
+
+    def digest_entries(self, hours: int = 24) -> list[dict]:
+        """Every current match, deduplicated, newest-first within each price."""
+        from datetime import datetime, timedelta, timezone
+
+        since = datetime.now(timezone.utc) - timedelta(hours=hours)
+
+        merged: dict = {}
+        for listing, metrics, profile, reason in self._current_matches():
+            # The same flat reaches us through several agencies and portals
+            key = self.alerter.property_signature(listing)
+            if key in merged:
+                merged[key]["labels"].append(profile.label)
+                continue
+
+            first_seen = listing.get("first_seen_at")
+            if first_seen is not None and first_seen.tzinfo is None:
+                first_seen = first_seen.replace(tzinfo=timezone.utc)
+
+            merged[key] = {
+                "listing": listing,
+                "metrics": metrics,
+                "profile": profile,
+                "reason": reason,
+                "labels": [profile.label],
+                "is_new": bool(first_seen and first_seen >= since),
+            }
+
+        entries = sorted(
+            merged.values(),
+            # New first, then cheapest — the order someone actually reads in.
+            key=lambda e: (not e["is_new"], e["listing"].get("price") or 0),
+        )
+        for entry in entries:
+            entry["metrics"] = {
+                **entry["metrics"],
+                "matched_profiles": " + ".join(entry["labels"]),
+                "matched_purpose": entry["profile"].purpose,
+                "match_reason": entry["reason"],
+            }
+        return entries
 
     def run_feedback_poll(self) -> None:
         """Poll Telegram for button clicks, replies and typed instructions."""
@@ -448,10 +519,9 @@ class PipelineOrchestrator:
         return (
             "<b>Puedes escribirme</b>\n\n"
             "• <b>qué tenemos</b> — todo lo que encaja ahora mismo\n"
-            "• <b>estado</b> — si sigo funcionando y cuándo miré el correo\n"
+            "• <b>estado</b> — qué buzón leo, cuándo lo miré y si sigo vivo\n"
             "• <b>ayuda</b> — esto\n\n"
-            "<i>Respondo en la siguiente pasada, así que puedo tardar hasta "
-            "una hora.</i>"
+            "<i>Respondo en la siguiente pasada, o sea en 3 minutos o menos.</i>"
         )
 
     def _current_matches(self) -> list[tuple[dict, dict, object, str]]:
@@ -547,13 +617,32 @@ class PipelineOrchestrator:
             except ValueError:
                 pass
 
+        # Nothing on disk records which account the bot reads — the OAuth
+        # refresh token is the whole credential — so it has to be asked.
+        mailbox = None
+        try:
+            reader = self._get_mail_reader()
+            # The IMAP backend has no equivalent; it is configured with an
+            # address rather than a token, so it never needed one.
+            ask = getattr(reader, "account_address", None)
+            if ask:
+                mailbox = ask()
+        except Exception as e:
+            logger.error(f"No pude leer la dirección del buzón: {e}")
+
+        # "Último correo leído: ayer" on its own is ambiguous: it means the
+        # same thing whether no portal has written since yesterday or the bot
+        # died yesterday. The heartbeat separates the two.
+        from scheduler import heartbeat
+
         return (
             "<b>✅ Funcionando</b>\n\n"
+            f"Última pasada: {heartbeat.describe()}\n"
+            f"Buzón que leo: <b>{mailbox or 'no he podido comprobarlo'}</b>\n"
+            f"Último correo <i>nuevo</i>: {when}\n"
             f"Anuncios analizados: <b>{total}</b>\n"
-            f"Último correo leído: {when}\n"
             f"Perfiles activos: {len(self.profile_matcher.profiles)}\n\n"
-            "<i>Reviso el correo cada media hora en teoría; GitHub retrasa las "
-            "ejecuciones, así que en la práctica es cerca de una hora.</i>"
+            "<i>Reviso el correo cada 3 minutos, en marcha continua.</i>"
         )
 
     def _compute_metrics(self, listing: dict) -> dict | None:
