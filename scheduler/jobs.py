@@ -332,6 +332,7 @@ class PipelineOrchestrator:
                         **metrics,
                         "matched_profiles": labels,
                         "matched_purpose": hits[0][0].purpose,
+                        "match_reason": reason,
                     }
 
                     score = metrics.get("investment_score", 0) or 0
@@ -406,9 +407,30 @@ class PipelineOrchestrator:
         """
         logger.info("Sending daily digest...")
         entries = self.digest_entries()
-        logger.info(f"Digest: {len(entries)} matches, "
-                    f"{sum(1 for e in entries if e['is_new'])} new in 24h")
-        return self.alerter.send_digest(entries)
+
+        # One flat per message, in the same full card as an alert, and never
+        # one that has already gone out. A five-listing list left room for a
+        # star rating and nothing else — which is how the digest came to
+        # recommend flats without saying anything about them.
+        pending = []
+        for entry in entries:
+            listing = entry["listing"]
+            if not self.alerter.already_sent(
+                listing["id"], self.alerter.property_signature(listing)
+            ):
+                pending.append(entry)
+
+        logger.info(f"Digest: {len(entries)} matches, {len(pending)} not yet sent")
+        ok = self.alerter.send_digest_header(len(entries), len(pending))
+
+        for entry in pending:
+            listing = entry["listing"]
+            self.alerter.send_alert(
+                listing["id"], listing, entry["metrics"],
+                entry["metrics"].get("investment_score") or 0,
+                dedup_key=self.alerter.property_signature(listing),
+            )
+        return ok
 
     def digest_entries(self, hours: int = 24) -> list[dict]:
         """Every current match, deduplicated, newest-first within each price."""
@@ -447,6 +469,7 @@ class PipelineOrchestrator:
                 **entry["metrics"],
                 "matched_profiles": " + ".join(entry["labels"]),
                 "matched_purpose": entry["profile"].purpose,
+                "match_reason": entry["reason"],
             }
         return entries
 

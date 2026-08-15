@@ -266,18 +266,45 @@ class TelegramAlerter:
         except Exception as e:
             logger.debug(f"editMessageText failed: {e}")
 
-    def send_digest(self, entries: list[dict]) -> bool:
-        """Send the daily digest of everything that currently matches.
+    def already_sent(self, listing_id: str, dedup_key: str | None = None) -> bool:
+        """Whether this flat has already gone out, under any listing id."""
+        from models.db import was_alert_sent_recently
 
-        `entries` come from the same profile matching as the alerts, already
-        deduplicated. This used to be its own SQL query ordered by the old
-        0-100 score, which is how a 58 m² one-bedroom in a town no home
-        search covers ended up at the top of a "Top 5 viviendas" list, with
-        no analysis attached to explain itself.
+        if was_alert_sent_recently(listing_id, self._cooldown_hours):
+            return True
+        return bool(dedup_key and was_alert_sent_recently(dedup_key, self._cooldown_hours))
+
+    def send_digest_header(self, total: int, pending: int) -> bool:
+        """The daily line that frames whatever cards follow it.
+
+        The digest used to be one long list of five listings. Each entry had
+        room for a star rating and nothing else, which is how it came to
+        recommend flats without saying anything about them. The listings now
+        go out one per message, in the same full card as an alert, and this
+        is the note that introduces them — or reports that there is nothing,
+        which is information too rather than silence.
         """
         if not self._enabled:
             return False
-        return bool(self._send_sync(self._format_digest(entries)))
+        return bool(self._send_sync(self._digest_header_text(total, pending)))
+
+    def _digest_header_text(self, total: int, pending: int) -> str:
+        from datetime import datetime
+
+        today = datetime.now().strftime("%d/%m")
+        if total == 0:
+            body = ("Nada encaja todavía con tus búsquedas.\n"
+                    "<i>Sigo leyendo el correo cada 3 minutos. En cuanto salga algo, "
+                    "te llega aquí al momento.</i>")
+        elif pending == 0:
+            body = (f"<b>{total}</b> encajan ahora mismo, y ya te las mandé todas.\n"
+                    "<i>Nada nuevo desde entonces.</i>")
+        else:
+            plural = "s" if pending > 1 else ""
+            body = (f"<b>{total}</b> encajan · te mando <b>{pending}</b> "
+                    f"nueva{plural} ahora ↓")
+
+        return f"📊 <b>Resumen — {today}</b>\n\n{body}"
 
     @staticmethod
     def _money(value) -> str:
@@ -285,120 +312,6 @@ class TelegramAlerter:
         if value is None:
             return "?"
         return f"{value:,.0f}".replace(",", ".")
-
-    def _format_digest(self, entries: list[dict]) -> str:
-        from datetime import datetime
-
-        today = datetime.now().strftime("%d/%m/%Y")
-        if not entries:
-            return (
-                f"📊 <b>Resumen — {today}</b>\n\n"
-                "Nada encaja ahora mismo con ninguna de tus búsquedas.\n"
-                "<i>Sigo leyendo el correo cada 3 minutos.</i>"
-            )
-
-        fresh = sum(1 for e in entries if e.get("is_new"))
-        lines = [
-            f"📊 <b>Resumen — {today}</b>",
-            f"<i>{len(entries)} encajan · {fresh} nuevas en 24h</i>",
-            "",
-        ]
-
-        for purpose, heading in (("investment", "💰 <b>PARA INVERTIR</b>"),
-                                 ("home", "🏠 <b>PARA VIVIR</b>")):
-            group = [e for e in entries if e["profile"].purpose == purpose]
-            if not group:
-                continue
-            lines.append(heading)
-            lines.append("")
-            for i, entry in enumerate(group[:5], 1):
-                lines.append(self._digest_entry(i, entry, purpose))
-                lines.append("")
-            if len(group) > 5:
-                lines.append(f"<i>…y {len(group) - 5} más. Escribe "
-                             f"<b>qué tenemos</b> para verlas todas.</i>")
-                lines.append("")
-
-        return "\n".join(lines).strip()
-
-    def _digest_entry(self, i: int, entry: dict, purpose: str) -> str:
-        """One listing, with the analysis that decides it.
-
-        A digest line without the numbers is worse than no digest: it looks
-        like a recommendation while hiding everything the recommendation
-        rests on.
-        """
-        from analysis.municipalities import population_of
-
-        listing, metrics = entry["listing"], entry["metrics"]
-        city = (listing.get("city") or "").title()
-        district = (listing.get("district") or "").title()
-        where = f"{district}, {city}" if district else city or "?"
-        url = listing.get("url", "")
-        area = listing.get("area_m2")
-        ppm2 = metrics.get("price_per_m2")
-
-        flag = "🆕 " if entry.get("is_new") else ""
-        out = [f"{i}. {flag}<b>{self._esc(where)} — {self._money(listing.get('price'))}€</b>"]
-
-        spec = [f"{self._money(area)}m²" if area else None,
-                f"{listing.get('rooms')} hab" if listing.get("rooms") else None,
-                f"{self._money(ppm2)}€/m²" if ppm2 else None,
-                self._condition_label(listing, metrics)]
-        out.append("   " + " · ".join(s for s in spec if s))
-
-        cash = metrics.get("cash_needed")
-        gap = metrics.get("cash_gap") or 0
-        total_payment = metrics.get("monthly_payment_total") or metrics.get("monthly_payment")
-        if cash is not None:
-            cash_line = f"   🏦 Entrada {self._money(cash)}€"
-            if gap > 0:
-                cash_line += f" (tuyo {self._money(cash - gap)}€ + crédito {self._money(gap)}€)"
-            if total_payment:
-                cash_line += f" · 📉 cuota {self._money(total_payment)}€/mes"
-            out.append(cash_line)
-
-        if purpose == "investment":
-            rent = metrics.get("estimated_monthly_rent")
-            cashflow = metrics.get("monthly_cashflow")
-            net = metrics.get("net_yield_pct") or 0
-            gross = metrics.get("gross_yield_pct") or 0
-            if rent:
-                out.append(f"   💵 Alquiler est. {self._money(rent)}€/mes")
-            if cashflow is not None:
-                sign = "🟢" if cashflow > 0 else "🔴"
-                out.append(f"   {sign} Cashflow {cashflow:+,.0f}€/mes".replace(",", ".")
-                           + f" · 📈 neta <b>{net:.1f}%</b> (bruta {gross:.1f}%)")
-            else:
-                out.append(f"   📈 Rentabilidad neta <b>{net:.1f}%</b> (bruta {gross:.1f}%)")
-
-        # The zone, in the two terms there is actual data for: how big the
-        # town is, and whether its rents are legally capped. Both are about
-        # letting the flat out, so neither belongs on one he will live in —
-        # a rent cap does not affect the buyer of his own home.
-        if purpose == "investment":
-            zone = []
-            pop = population_of(listing.get("city"))
-            if pop:
-                zone.append(f"{self._money(pop)} hab")
-            if metrics.get("rent_capped_zone"):
-                zone.append("⚠️ zona tensionada (alquiler topado)")
-            if zone:
-                out.append(f"   🏙 {' · '.join(zone)}")
-
-        if metrics.get("reform_cost"):
-            out.append(f"   🔨 Reforma estimada {self._money(metrics['reform_cost'])}€ "
-                       f"(ya sumada arriba)")
-        elif metrics.get("condition_unknown"):
-            out.append("   ❓ Estado sin confirmar — no pude leer la ficha")
-
-        # Which of his searches this answers. The matcher's own reason string
-        # restates the money already shown a line above; the search name is
-        # the thing he cannot work out for himself from the numbers.
-        if metrics.get("matched_profiles"):
-            out.append(f"   ✓ {self._esc(metrics['matched_profiles'])}")
-        out.append(f'   <a href="{self._esc(url)}">Ver anuncio</a>')
-        return "\n".join(out)
 
     @staticmethod
     def _condition_label(listing: dict, metrics: dict) -> str | None:
@@ -438,133 +351,229 @@ class TelegramAlerter:
         return (str(text).replace("&", "&amp;")
                          .replace("<", "&lt;")
                          .replace(">", "&gt;"))
-
     def _format_message(self, listing: dict, metrics: dict, score: float) -> str:
-        # Detect residence-mode by presence of match_profile
-        if metrics.get("match_profile"):
-            return self._format_residence_message(listing, metrics, score)
-        return self._format_investment_message(listing, metrics, score)
+        """One property, with everything known about it.
 
-    def _format_residence_message(self, listing: dict, metrics: dict, score: float) -> str:
-        price = listing.get("price", 0)
-        area = listing.get("area_m2", 0)
-        rooms = listing.get("rooms", "?")
+        Two formatters used to diverge here, and the one for homes had grown
+        thin: location, price, size, done. The buyer was then opening every
+        listing to find out the floor, the condition, whether the price had
+        already been cut and what the flat actually is — which is the work
+        this bot exists to save.
+        """
+        purpose = metrics.get("matched_purpose")
+        if purpose is None:
+            purpose = "home" if metrics.get("match_profile") else "investment"
+
         city = (listing.get("city") or "").title()
-        district = (listing.get("district") or "").title() if listing.get("district") else ""
-        location = f"{district}, {city}" if district else city
-        url = listing.get("url", "")
-        floor = listing.get("floor") or ""
-
-        bd = metrics.get("score_breakdown", {})
-        profile = metrics.get("match_profile", "?")
-        profile_label = "Obra nueva" if profile == "new" else "Reciente (≤20a)"
-        stars = "⭐" * min(5, max(1, int(score / 20)))
-
-        reasons = bd.get("reasons_pass", [])
-        reasons_txt = "\n".join(f"  ✓ {r}" for r in reasons) if reasons else ""
-
-        msg = (
-            f"<b>{stars} NUEVA VIVIENDA — Match {score:.0f}/100 — {self._esc(profile_label)}</b>\n\n"
-            f"📍 {self._esc(location)}\n"
-            f"💰 {price:,.0f}€ | {area:.0f}m² | {rooms} hab"
-        )
-        if floor:
-            msg += f" | {self._esc(floor)}"
-        msg += f'\n{self._esc(reasons_txt)}\n\n<a href="{self._esc(url)}">Ver anuncio</a>'
-        return msg
-
-    def _format_investment_message(self, listing: dict, metrics: dict, score: float) -> str:
-        price = listing.get("price", 0)
-        area = listing.get("area_m2", 0)
-        rooms = listing.get("rooms", "?")
-        city = (listing.get("city") or "").title()
-        district = (listing.get("district") or "").title() if listing.get("district") else ""
-        location = f"{district}, {city}" if district else city
+        district = (listing.get("district") or "").title()
+        where = f"{district}, {city}" if district else city or "?"
+        price = listing.get("price") or 0
         url = listing.get("url", "")
 
-        gross_yield = metrics.get("gross_yield_pct", 0) or 0
-        net_yield = metrics.get("net_yield_pct", 0) or 0
-        monthly_rent = metrics.get("estimated_monthly_rent", 0) or 0
-        ppm2 = metrics.get("price_per_m2", 0) or 0
+        banner = "🏠 <b>PARA VIVIR</b>" if purpose == "home" else "💰 <b>PARA INVERTIR</b>"
+        labels = metrics.get("matched_profiles") or ""
+        out = [f"{banner}{'  ·  ' + self._esc(labels) if labels else ''}", ""]
+        out.append(f"📍 <b>{self._esc(where)}</b>")
 
-        # Which of the user's searches this listing answers
-        header = metrics.get("matched_profiles") or "Nueva oportunidad"
-        stars = "⭐" * min(5, int(score / 20))
+        spec = [f"<b>{self._money(price)}€</b>"]
+        if listing.get("area_m2"):
+            spec.append(f"{self._money(listing['area_m2'])}m²")
+        if listing.get("rooms") is not None:
+            spec.append(f"{listing['rooms']} hab")
+        if listing.get("bathrooms"):
+            spec.append(f"{listing['bathrooms']} baños")
+        if metrics.get("price_per_m2"):
+            spec.append(f"{self._money(metrics['price_per_m2'])}€/m²")
+        out.append("💰 " + " · ".join(spec))
 
-        msg = (
-            f"<b>{self._esc(header)}</b>  {stars}\n\n"
-            f"📍 {self._esc(location)}\n"
-            f"💰 {price:,.0f}€ · {area:.0f}m² · {rooms} hab · {ppm2:,.0f}€/m²\n"
-        )
+        # What the flat is, physically. Floor and condition decide a home as
+        # firmly as the price does, and neither was being shown. The portal
+        # is not part of that — it rides along with the link instead, so a
+        # listing that arrived without floor or condition does not get a
+        # line saying only "habitaclia".
+        building = [self._esc(listing["floor"]) if listing.get("floor") else None,
+                    self._condition_label(listing, metrics)]
+        building = [b for b in building if b]
+        if building:
+            out.append("🏗 " + " · ".join(building))
 
-        # A home and an investment are judged on different numbers. Rent,
-        # yield and cashflow describe a flat that is let out; on one the buyer
-        # will live in they are noise, and showing "cashflow -924€/mes" on the
-        # flat someone wants to move into misreads the whole purchase.
-        if metrics.get("matched_purpose") == "home":
-            cash_needed = metrics.get("cash_needed")
-            gap = metrics.get("cash_gap") or 0
-            payment = metrics.get("monthly_payment_total") or metrics.get("monthly_payment")
-            if cash_needed is not None:
-                msg += f"\n🏦 Entrada + gastos: <b>{cash_needed:,.0f}€</b>\n"
-                if gap > 0:
-                    msg += f"   ↳ de tu bolsillo {cash_needed - gap:,.0f}€ + crédito {gap:,.0f}€\n"
-            if payment:
-                msg += f"📉 Cuota total: <b>{payment:,.0f}€/mes</b>\n"
-            msg += f"\n<a href=\"{self._esc(url)}\">Ver anuncio</a>"
-            return msg
+        age = self._age_line(listing)
+        if age:
+            out.append(age)
+        drop = self._price_move_line(listing)
+        if drop:
+            out.append(drop)
 
-        # Leverage figures are the ones that decide an investment, so they lead
-        # when financing is configured.
-        cash_needed = metrics.get("cash_needed")
-        cashflow = metrics.get("monthly_cashflow")
-        payment = metrics.get("monthly_payment")
+        out.append("")
+        out.extend(self._money_block(metrics, purpose))
 
-        if cash_needed is not None and cashflow is not None:
-            gap = metrics.get("cash_gap") or 0
-            gap_payment = metrics.get("gap_loan_payment") or 0
-            total_payment = metrics.get("monthly_payment_total") or payment
+        if purpose == "investment":
+            out.extend(self._zone_block(listing, metrics))
 
-            msg += f"\n🏦 Entrada + gastos: <b>{cash_needed:,.0f}€</b>\n"
-            # Naming the shortfall matters: it is the difference between a
-            # deal the buyer can fund and one that needs a second loan.
+        out.extend(self._caveat_block(metrics, purpose))
+
+        reasons = (metrics.get("score_breakdown") or {}).get("reasons_pass") or []
+        if metrics.get("match_reason"):
+            reasons = [metrics["match_reason"], *reasons]
+        if reasons:
+            out.append("")
+            out.append("<b>Por qué encaja</b>")
+            out.extend(f"  ✓ {self._esc(r)}" for r in reasons)
+
+        blurb = self._blurb(listing)
+        if blurb:
+            out.append("")
+            out.append(f"📝 <i>{self._esc(blurb)}</i>")
+
+        out.append("")
+        portal = listing.get("portal")
+        out.append(f'<a href="{self._esc(url)}">Ver anuncio'
+                   f'{" en " + self._esc(portal) if portal else ""}</a>')
+        return "\n".join(out)
+
+    def _money_block(self, metrics: dict, purpose: str) -> list[str]:
+        """Entry cash and monthly payment — the two numbers that decide it."""
+        out = []
+        cash = metrics.get("cash_needed")
+        gap = metrics.get("cash_gap") or 0
+        mortgage = metrics.get("monthly_payment")
+        gap_payment = metrics.get("gap_loan_payment") or 0
+        total = metrics.get("monthly_payment_total") or mortgage
+
+        if cash is not None:
+            out.append(f"🏦 Entrada + gastos: <b>{self._money(cash)}€</b>")
+            # Naming the shortfall matters: it separates a deal fundable with
+            # the money in hand from one needing a second loan to enter.
             if gap > 0:
-                msg += f"   ↳ de tu bolsillo {cash_needed - gap:,.0f}€ + crédito {gap:,.0f}€\n"
-            msg += f"📉 Cuota hipoteca: {payment:,.0f}€/mes\n"
-            if gap_payment > 0:
-                msg += f"📉 Cuota crédito: {gap_payment:,.0f}€/mes\n"
-                msg += f"   ↳ total {total_payment:,.0f}€/mes\n"
-            msg += (
-                f"💵 Alquiler estimado: {monthly_rent:,.0f}€/mes\n"
-                f"{'🟢' if cashflow > 0 else '🔴'} Cashflow: <b>{cashflow:+,.0f}€/mes</b>\n"
-                f"📈 Rentabilidad neta: <b>{net_yield:.1f}%</b>  (bruta {gross_yield:.1f}%)\n"
-            )
-        else:
-            msg += (
-                f"\n💵 Alquiler estimado: {monthly_rent:,.0f}€/mes\n"
-                f"📈 Rentabilidad neta: <b>{net_yield:.1f}%</b>  (bruta {gross_yield:.1f}%)\n"
-            )
+                out.append(f"   ↳ de tu bolsillo {self._money(cash - gap)}€ "
+                           f"+ crédito {self._money(gap)}€")
+            if metrics.get("reserve_used"):
+                out.append("   ↳ usando la reserva por encima de los 30.000€")
+        if mortgage:
+            out.append(f"📉 Cuota hipoteca: {self._money(mortgage)}€/mes")
+        if gap_payment > 0:
+            out.append(f"📉 Cuota crédito: {self._money(gap_payment)}€/mes")
+            out.append(f"   ↳ total <b>{self._money(total)}€/mes</b>")
 
-        # The rent figure comes from zone averages, not comparables for this
-        # flat — worth saying, because every number above depends on it.
+        if purpose == "investment":
+            rent = metrics.get("estimated_monthly_rent")
+            cashflow = metrics.get("monthly_cashflow")
+            net = metrics.get("net_yield_pct") or 0
+            gross = metrics.get("gross_yield_pct") or 0
+            payback = metrics.get("payback_years")
+            if rent:
+                out.append(f"💵 Alquiler estimado: {self._money(rent)}€/mes")
+            if cashflow is not None:
+                sign = "🟢" if cashflow > 0 else "🔴"
+                out.append(f"{sign} Cashflow: <b>{cashflow:+,.0f}€/mes</b>".replace(",", "."))
+            out.append(f"📈 Rentabilidad neta: <b>{net:.1f}%</b>  (bruta {gross:.1f}%)")
+            if payback:
+                out.append(f"⏳ Se paga sola en {payback:.0f} años")
+        return out
+
+    def _zone_block(self, listing: dict, metrics: dict) -> list[str]:
+        """The zone, in the terms there is actual data for."""
+        from analysis.municipalities import population_of
+
+        pop = population_of(listing.get("city"))
+        if not pop:
+            return []
+        # Town size stands in for everyday services and, more to the point,
+        # for how long the flat takes to let and to sell again.
+        return ["", f"🏙 {(listing.get('city') or '').title()} · {self._money(pop)} habitantes"]
+
+    def _caveat_block(self, metrics: dict, purpose: str) -> list[str]:
+        """Everything that makes the numbers above less certain.
+
+        The rent caveats are only caveats if the flat is being let. On a home
+        they describe a purchase nobody is making.
+        """
+        out = []
         if metrics.get("reform_cost"):
-            msg += (
-                f"\n🔨 Incluye <b>{metrics['reform_cost']:,.0f}€</b> estimados de reforma "
-                f"(500€/m²), ya sumados a la entrada y descontados de la rentabilidad.\n"
-            )
+            out.append("")
+            out.append(f"🔨 Incluye <b>{self._money(metrics['reform_cost'])}€</b> estimados de "
+                       f"reforma (500€/m²), ya sumados a la entrada y descontados de la "
+                       f"rentabilidad.")
         elif metrics.get("condition_unknown"):
-            msg += (
-                "\n❓ <b>Estado sin confirmar</b> — este anuncio llegó sin descripción, "
-                "así que no sé si necesita reforma. Si la necesita, la rentabilidad baja.\n"
-            )
+            out.append("")
+            out.append("❓ <b>Estado sin confirmar</b> — no pude leer la ficha, así que no sé "
+                       "si necesita reforma. Si la necesita, los números empeoran.")
+
+        if purpose != "investment":
+            return out
 
         if metrics.get("rent_capped_zone"):
-            msg += (
-                "\n⚠️ <b>Zona tensionada</b> — el alquiler está topado por el "
-                "índice de la Generalitat, que suele quedar por debajo de la media. "
-                "La rentabilidad de arriba es un techo, no una previsión: "
-                "consulta el índice antes de comprometerte.\n"
-            )
-        msg += f"\n<i>Alquiler estimado por zona, contrastar antes de decidir.</i>\n"
-        msg += f'\n<a href="{self._esc(url)}">Ver anuncio</a>'
-        return msg
+            out.append("")
+            out.append("⚠️ <b>Zona tensionada</b> — el alquiler está topado por el índice de la "
+                       "Generalitat, que suele quedar por debajo de la media. La rentabilidad "
+                       "de arriba es un techo, no una previsión.")
+        if metrics.get("estimated_monthly_rent"):
+            out.append("")
+            out.append("<i>Alquiler estimado por media de zona, no por comparables de este "
+                       "piso. Contrástalo antes de decidir.</i>")
+        return out
+
+    def _age_line(self, listing: dict) -> str | None:
+        """How long it has been on the market, as far as we have seen it.
+
+        A flat that has sat for weeks is a different conversation from one
+        that appeared this morning.
+        """
+        from datetime import datetime, timezone
+
+        first = listing.get("first_seen_at")
+        if not first:
+            return None
+        if first.tzinfo is None:
+            first = first.replace(tzinfo=timezone.utc)
+        days = (datetime.now(timezone.utc) - first).days
+        if days <= 0:
+            return "🆕 Visto hoy por primera vez"
+        if days == 1:
+            return "📅 Lo vi por primera vez ayer"
+        return f"📅 Lo vi por primera vez hace {days} días"
+
+    def _price_move_line(self, listing: dict) -> str | None:
+        """Whether the asking price has already moved, and by how much.
+
+        A cut is the clearest signal a seller is negotiable, and it is data
+        the bot has been quietly accumulating without ever showing it.
+        """
+        history = listing.get("price_history") or []
+        current = listing.get("price")
+        if not history or not current:
+            return None
+        try:
+            first = float(history[0]["price"])
+        except (KeyError, TypeError, ValueError, IndexError):
+            return None
+        if not first or abs(first - current) < 1:
+            return None
+        delta = current - first
+        pct = delta / first * 100
+        if delta < 0:
+            return (f"📉 Ha bajado desde {self._money(first)}€ "
+                    f"(<b>{self._money(delta)}€</b>, {pct:.1f}%)")
+        return f"📈 Ha subido desde {self._money(first)}€ (+{self._money(delta)}€, +{pct:.1f}%)"
+
+    @staticmethod
+    def _blurb(listing: dict, limit: int = 260) -> str | None:
+        """The opening of the seller's own description.
+
+        Everything else in the card is a number the bot derived; this is the
+        only place the flat gets to describe itself. But what the email
+        parsers salvage is often not prose at all — leftover table pipes,
+        tracking URLs and half-escaped tags from the alert email. Showing
+        that is worse than showing nothing, so anything carrying markup is
+        dropped rather than cleaned: a half-repaired fragment still reads as
+        a broken bot.
+        """
+        text = " ".join((listing.get("description") or "").split())
+        if len(text) < 40:
+            return None
+        if any(marker in text for marker in ("http", "<", ">", "&gt;", "&lt;", "&amp;", "|")):
+            return None
+        if len(text) <= limit:
+            return text
+        cut = text[:limit].rsplit(" ", 1)[0]
+        return f"{cut}…"
