@@ -84,6 +84,33 @@ INSERT INTO "alerts_sent" VALUES(13,'habitaclia_587004231507','telegram','2026-0
 💵 Alquiler estimado: 1,012€/mes
 🟢 Cashflow: <b>+309€',191);
 INSERT INTO "alerts_sent" VALUES(14,'sig:sabadell:133500:75:4','telegram','2026-08-14 11:26:08.824219','',191);
+INSERT INTO "alerts_sent" VALUES(15,'habitaclia_47833000003396','telegram','2026-08-15 12:02:50.530401','🏠 <b>PARA VIVIR</b>  ·  🏠 Para vivir
+
+📍 <b>Sant Feliu De Llobregat</b>
+💰 <b>210.000€</b> · 66m² · 3 hab · 3.182€/m²
+📅 Lo vi por primera vez ayer
+
+🏦 Entrada + gastos: <b>46.200€</b>
+   ↳ de tu bolsillo',277);
+INSERT INTO "alerts_sent" VALUES(16,'sig:sant feliu de llobregat:210000:66:3','telegram','2026-08-15 12:02:50.533522','',277);
+INSERT INTO "alerts_sent" VALUES(17,'habitaclia_56807000000576','telegram','2026-08-15 12:02:50.934836','🏠 <b>PARA VIVIR</b>  ·  🏠 Para vivir (fuera)
+
+📍 <b>Centre-Estació, Gavà</b>
+💰 <b>319.000€</b> · 82m² · 3 hab · 2 baños · 3.890€/m²
+📅 Lo vi por primera vez ayer
+
+🏦 Entrada + gastos: <b>70.180€</b>
+   ↳',278);
+INSERT INTO "alerts_sent" VALUES(18,'sig:gavà:319000:82:3','telegram','2026-08-15 12:02:50.936730','',278);
+INSERT INTO "alerts_sent" VALUES(19,'habitaclia_21552004506792','telegram','2026-08-15 12:02:51.342559','🏠 <b>PARA VIVIR</b>  ·  🏠 Para vivir
+
+📍 <b>Sant Andreu De Pa, Barcelona</b>
+💰 <b>330.000€</b> · 65m² · 2 hab · 5.077€/m²
+📅 Lo vi por primera vez ayer
+
+🏦 Entrada + gastos: <b>72.600€</b>
+   ↳ de tu bol',279);
+INSERT INTO "alerts_sent" VALUES(20,'sig:barcelona:330000:65:2','telegram','2026-08-15 12:02:51.344816','',279);
 CREATE TABLE feedback (
 	id INTEGER NOT NULL, 
 	listing_id VARCHAR NOT NULL, 
