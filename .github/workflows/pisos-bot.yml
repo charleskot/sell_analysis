@@ -27,16 +27,16 @@ on:
   workflow_dispatch:
     inputs:
       command:
-        description: "Command to run once, interrupting the loop"
+        description: "loop = arrancar el bucle ya; el resto = un ciclo suelto"
         required: false
-        default: tick
+        default: loop
         type: choice
-        options: [tick, digest, mail-check]
+        options: [loop, tick, digest, mail-check]
 
 # Never let two runs touch state/db.sql at once — the loser would push a dump
 # built from a stale database and silently undo the other's progress.
 # A manual dispatch is a deliberate "do it now", so it takes the slot from the
-# loop; the next scheduled run restarts the loop behind it.
+# loop; the next scheduled run — or a dispatch with command=loop — restarts it.
 concurrency:
   group: pisos-bot-state
   cancel-in-progress: ${{ github.event_name == 'workflow_dispatch' }}
@@ -70,7 +70,7 @@ jobs:
         run: python main.py db-restore
 
       - name: Run one command now
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.command != 'loop'
         env:
           GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
           GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
@@ -79,8 +79,10 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python main.py "${{ github.event.inputs.command || 'tick' }}"
 
+      # Also reachable by hand: the chain has to be startable without waiting
+      # for a schedule that GitHub may sit on for the best part of an hour.
       - name: Watch the mailbox continuously
-        if: github.event_name != 'workflow_dispatch'
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.command == 'loop'
         env:
           GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
           GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
