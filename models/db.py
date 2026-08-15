@@ -171,6 +171,21 @@ def upsert_metrics(listing_id: str, metrics: dict) -> None:
             conn.execute(insert(investment_metrics).values(listing_id=listing_id, **data))
 
 
+def was_alert_ever_sent(listing_id: str) -> bool:
+    """Whether this flat has ever gone out, with no time limit.
+
+    The cooldown window is the wrong question for anything that re-examines
+    stored listings rather than freshly parsed ones: every listing falls out
+    of a 24-hour window eventually, so a nightly sweep would re-send the
+    whole catalogue once a day.
+    """
+    with session_scope() as conn:
+        row = conn.execute(
+            select(alerts_sent).where(alerts_sent.c.listing_id == listing_id)
+        ).fetchone()
+    return row is not None
+
+
 def was_alert_sent_recently(listing_id: str, cooldown_hours: int = 168) -> bool:
     from datetime import timedelta
     cutoff = datetime.now(timezone.utc) - timedelta(hours=cooldown_hours)

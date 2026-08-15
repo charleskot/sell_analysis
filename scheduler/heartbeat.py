@@ -21,17 +21,18 @@ PATH = Path("state/.heartbeat")
 
 
 PULSE_KEY = "last_pulse_at"
+FAILURE_KEY = "last_failure_notice_at"
 
 
-def pulse_due(minutes: int) -> bool:
-    """Whether it is time to tell the chat the bot is still running.
+def due(key: str, minutes: int) -> bool:
+    """Whether `minutes` have passed since this kind of message last went out.
 
     The clock lives in the database, not in a file. A file looked cheaper —
     no commit every half hour — but the runner did not keep it between
-    cycles, so every cycle believed it had never pulsed and sent another
-    line: one every three minutes instead of one every thirty. The database
-    is the only store here that is deliberately restored at start and saved
-    after each cycle, which is exactly the property this needs.
+    cycles, so every cycle believed it had never sent and sent another line:
+    one every three minutes instead of one every thirty. The database is the
+    only store here that is deliberately restored at start and saved after
+    each cycle, which is exactly the property this needs.
     """
     if not minutes:
         return False
@@ -39,9 +40,9 @@ def pulse_due(minutes: int) -> bool:
     from models.db import get_telegram_state
 
     try:
-        raw = get_telegram_state(PULSE_KEY, "")
+        raw = get_telegram_state(key, "")
     except Exception as e:                       # database not ready yet
-        logger.warning(f"No pude leer el último pulso: {e}")
+        logger.warning(f"No pude leer la última marca de {key}: {e}")
         return True
     if not raw:
         return True
@@ -54,14 +55,30 @@ def pulse_due(minutes: int) -> bool:
     return (datetime.now(timezone.utc) - last_at).total_seconds() >= minutes * 60
 
 
-def mark_pulse() -> None:
-    """Never raises: failing to record a pulse must not end a cycle."""
+def mark(key: str) -> None:
+    """Never raises: bookkeeping must not be able to end a cycle."""
     from models.db import set_telegram_state
 
     try:
-        set_telegram_state(PULSE_KEY, datetime.now(timezone.utc).isoformat())
+        set_telegram_state(key, datetime.now(timezone.utc).isoformat())
     except Exception as e:
-        logger.warning(f"No pude registrar el pulso: {e}")
+        logger.warning(f"No pude registrar {key}: {e}")
+
+
+def pulse_due(minutes: int) -> bool:
+    return due(PULSE_KEY, minutes)
+
+
+def mark_pulse() -> None:
+    mark(PULSE_KEY)
+
+
+def failure_notice_due(minutes: int) -> bool:
+    return due(FAILURE_KEY, minutes)
+
+
+def mark_failure_notice() -> None:
+    mark(FAILURE_KEY)
 
 
 def beat(**facts) -> None:
