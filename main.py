@@ -348,14 +348,15 @@ def digest(
         console.print("[dim]Resumen diario: aún no toca.[/dim]")
         return
 
-    from alerts.telegram_bot import TelegramAlerter
-    alerter = TelegramAlerter(config)
-    if not alerter.enabled:
+    from scheduler.jobs import PipelineOrchestrator
+
+    orchestrator = PipelineOrchestrator(config)
+    if not orchestrator.alerter.enabled:
         console.print("[red]Telegram no configurado. Añade TELEGRAM_TOKEN y TELEGRAM_CHAT_ID al .env[/red]")
         return
 
     console.print("[cyan]Enviando resumen diario...[/cyan]")
-    ok = alerter.send_daily_digest()
+    ok = orchestrator.run_daily_digest()
     if if_due:
         # Recorded whether or not anything went out: a quiet day is still a
         # day that was handled, and the loop ticks every few minutes.

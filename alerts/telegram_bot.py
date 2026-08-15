@@ -266,98 +266,146 @@ class TelegramAlerter:
         except Exception as e:
             logger.debug(f"editMessageText failed: {e}")
 
-    def send_daily_digest(self) -> bool:
-        """Send a daily summary of NEW opportunities (first seen in last 24h).
-        Sends nothing if no new listings — no noise.
+    def send_digest(self, entries: list[dict]) -> bool:
+        """Send the daily digest of everything that currently matches.
+
+        `entries` come from the same profile matching as the alerts, already
+        deduplicated. This used to be its own SQL query ordered by the old
+        0-100 score, which is how a 58 m² one-bedroom in a town no home
+        search covers ended up at the top of a "Top 5 viviendas" list, with
+        no analysis attached to explain itself.
         """
         if not self._enabled:
             return False
+        return bool(self._send_sync(self._format_digest(entries)))
 
-        top_listings = self._get_top_listings(limit=5, min_score=self._min_score, hours=24)
-        if not top_listings:
-            logger.info("Daily digest: no new listings in last 24h → skipping send")
-            return False
-        message = self._format_digest(top_listings)
-        result = self._send_sync(message)
-        if result:
-            logger.info(f"Daily digest sent: {len(top_listings)} NEW top opportunities (24h)")
-            return True
-        return False
+    @staticmethod
+    def _money(value) -> str:
+        """Spanish thousands separator. 186.000, not 186,000."""
+        if value is None:
+            return "?"
+        return f"{value:,.0f}".replace(",", ".")
 
-    def _get_top_listings(self, limit: int = 5, min_score: float = 0, hours: int = 24) -> list[dict]:
-        """Query DB for top-scoring listings FIRST SEEN in the last `hours`.
-
-        The user only wants new opportunities, not the same top-5 every day.
-        """
-        try:
-            from datetime import datetime, timedelta, timezone
-            from models.db import get_engine
-            from models.schema import listings, investment_metrics
-            from sqlalchemy import select, and_
-
-            since = datetime.now(timezone.utc) - timedelta(hours=hours)
-
-            with get_engine().connect() as conn:
-                rows = conn.execute(
-                    select(
-                        listings.c.portal,
-                        listings.c.url,
-                        listings.c.price,
-                        listings.c.area_m2,
-                        listings.c.rooms,
-                        listings.c.city,
-                        listings.c.district,
-                        listings.c.condition,
-                        investment_metrics.c.investment_score,
-                        investment_metrics.c.gross_yield_pct,
-                        investment_metrics.c.net_yield_pct,
-                        investment_metrics.c.estimated_monthly_rent,
-                        investment_metrics.c.payback_years,
-                    )
-                    .join(investment_metrics, investment_metrics.c.listing_id == listings.c.id)
-                    .where(and_(
-                        listings.c.is_active == True,
-                        listings.c.first_seen_at >= since,
-                        investment_metrics.c.investment_score >= min_score,
-                    ))
-                    .order_by(investment_metrics.c.investment_score.desc())
-                    .limit(limit)
-                ).fetchall()
-
-            return [dict(r._mapping) for r in rows]
-        except Exception as e:
-            logger.error(f"Error fetching top listings for digest: {e}")
-            return []
-
-    def _format_digest(self, listings_data: list[dict]) -> str:
+    def _format_digest(self, entries: list[dict]) -> str:
         from datetime import datetime
-        now = datetime.now().strftime("%d/%m/%Y")
 
-        if not listings_data:
+        today = datetime.now().strftime("%d/%m/%Y")
+        if not entries:
             return (
-                f"📊 *Resumen diario — {now}*\n\n"
-                f"No hay viviendas con match ≥ {self._min_score:.0f} en este momento.\n"
-                f"El scraper sigue buscando en tus zonas — te avisaré en cuanto aparezca algo."
+                f"📊 <b>Resumen — {today}</b>\n\n"
+                "Nada encaja ahora mismo con ninguna de tus búsquedas.\n"
+                "<i>Sigo leyendo el correo cada 3 minutos.</i>"
             )
 
-        lines = [f"🏠 <b>Top {len(listings_data)} viviendas — {now}</b>\n"]
-        for i, r in enumerate(listings_data, 1):
-            score = r.get("investment_score") or 0
-            price = r.get("price") or 0
-            area = r.get("area_m2") or 0
-            rooms = r.get("rooms") or "?"
-            city = (r.get("city") or "").title()
-            district = (r.get("district") or "").title()
-            location = f"{district}, {city}" if district else city
-            url = r.get("url", "")
-            stars = "⭐" * min(5, max(1, int(score / 20)))
-            lines.append(
-                f"{i}. {stars} <b>{score:.0f}/100</b> — {self._esc(location)}\n"
-                f"   💰 {price:,.0f}€ | {area:.0f}m² | {rooms} hab\n"
-                f'   <a href="{self._esc(url)}">Ver anuncio</a>'
-            )
+        fresh = sum(1 for e in entries if e.get("is_new"))
+        lines = [
+            f"📊 <b>Resumen — {today}</b>",
+            f"<i>{len(entries)} encajan · {fresh} nuevas en 24h</i>",
+            "",
+        ]
 
-        return "\n".join(lines)
+        for purpose, heading in (("investment", "💰 <b>PARA INVERTIR</b>"),
+                                 ("home", "🏠 <b>PARA VIVIR</b>")):
+            group = [e for e in entries if e["profile"].purpose == purpose]
+            if not group:
+                continue
+            lines.append(heading)
+            lines.append("")
+            for i, entry in enumerate(group[:5], 1):
+                lines.append(self._digest_entry(i, entry, purpose))
+                lines.append("")
+            if len(group) > 5:
+                lines.append(f"<i>…y {len(group) - 5} más. Escribe "
+                             f"<b>qué tenemos</b> para verlas todas.</i>")
+                lines.append("")
+
+        return "\n".join(lines).strip()
+
+    def _digest_entry(self, i: int, entry: dict, purpose: str) -> str:
+        """One listing, with the analysis that decides it.
+
+        A digest line without the numbers is worse than no digest: it looks
+        like a recommendation while hiding everything the recommendation
+        rests on.
+        """
+        from analysis.municipalities import population_of
+
+        listing, metrics = entry["listing"], entry["metrics"]
+        city = (listing.get("city") or "").title()
+        district = (listing.get("district") or "").title()
+        where = f"{district}, {city}" if district else city or "?"
+        url = listing.get("url", "")
+        area = listing.get("area_m2")
+        ppm2 = metrics.get("price_per_m2")
+
+        flag = "🆕 " if entry.get("is_new") else ""
+        out = [f"{i}. {flag}<b>{self._esc(where)} — {self._money(listing.get('price'))}€</b>"]
+
+        spec = [f"{self._money(area)}m²" if area else None,
+                f"{listing.get('rooms')} hab" if listing.get("rooms") else None,
+                f"{self._money(ppm2)}€/m²" if ppm2 else None,
+                self._condition_label(listing, metrics)]
+        out.append("   " + " · ".join(s for s in spec if s))
+
+        cash = metrics.get("cash_needed")
+        gap = metrics.get("cash_gap") or 0
+        total_payment = metrics.get("monthly_payment_total") or metrics.get("monthly_payment")
+        if cash is not None:
+            cash_line = f"   🏦 Entrada {self._money(cash)}€"
+            if gap > 0:
+                cash_line += f" (tuyo {self._money(cash - gap)}€ + crédito {self._money(gap)}€)"
+            if total_payment:
+                cash_line += f" · 📉 cuota {self._money(total_payment)}€/mes"
+            out.append(cash_line)
+
+        if purpose == "investment":
+            rent = metrics.get("estimated_monthly_rent")
+            cashflow = metrics.get("monthly_cashflow")
+            net = metrics.get("net_yield_pct") or 0
+            gross = metrics.get("gross_yield_pct") or 0
+            if rent:
+                out.append(f"   💵 Alquiler est. {self._money(rent)}€/mes")
+            if cashflow is not None:
+                sign = "🟢" if cashflow > 0 else "🔴"
+                out.append(f"   {sign} Cashflow {cashflow:+,.0f}€/mes".replace(",", ".")
+                           + f" · 📈 neta <b>{net:.1f}%</b> (bruta {gross:.1f}%)")
+            else:
+                out.append(f"   📈 Rentabilidad neta <b>{net:.1f}%</b> (bruta {gross:.1f}%)")
+
+        # The zone, in the two terms there is actual data for: how big the
+        # town is, and whether its rents are legally capped. Both are about
+        # letting the flat out, so neither belongs on one he will live in —
+        # a rent cap does not affect the buyer of his own home.
+        if purpose == "investment":
+            zone = []
+            pop = population_of(listing.get("city"))
+            if pop:
+                zone.append(f"{self._money(pop)} hab")
+            if metrics.get("rent_capped_zone"):
+                zone.append("⚠️ zona tensionada (alquiler topado)")
+            if zone:
+                out.append(f"   🏙 {' · '.join(zone)}")
+
+        if metrics.get("reform_cost"):
+            out.append(f"   🔨 Reforma estimada {self._money(metrics['reform_cost'])}€ "
+                       f"(ya sumada arriba)")
+        elif metrics.get("condition_unknown"):
+            out.append("   ❓ Estado sin confirmar — no pude leer la ficha")
+
+        # Which of his searches this answers. The matcher's own reason string
+        # restates the money already shown a line above; the search name is
+        # the thing he cannot work out for himself from the numbers.
+        if metrics.get("matched_profiles"):
+            out.append(f"   ✓ {self._esc(metrics['matched_profiles'])}")
+        out.append(f'   <a href="{self._esc(url)}">Ver anuncio</a>')
+        return "\n".join(out)
+
+    @staticmethod
+    def _condition_label(listing: dict, metrics: dict) -> str | None:
+        if metrics.get("condition_unknown"):
+            return None
+        return {"nuevo": "obra nueva", "buen_estado": "buen estado",
+                "a_reformar": "a reformar"}.get(listing.get("condition"))
 
     def _send_sync(self, message: str, reply_markup: dict | None = None) -> int | bool:
         """Send a Telegram message. Returns the message_id on success (truthy),

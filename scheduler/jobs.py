@@ -397,10 +397,58 @@ class PipelineOrchestrator:
         self._mail_reader = reader if reader.enabled else None
         return self._mail_reader
 
-    def run_daily_digest(self) -> None:
-        """Send daily digest of top opportunities via Telegram."""
+    def run_daily_digest(self) -> bool:
+        """Send the daily digest, built from the same matching as the alerts.
+
+        It used to run its own query against the old 0-100 score and skip the
+        profiles entirely, so it recommended flats no search would have
+        accepted and said nothing about why.
+        """
         logger.info("Sending daily digest...")
-        self.alerter.send_daily_digest()
+        entries = self.digest_entries()
+        logger.info(f"Digest: {len(entries)} matches, "
+                    f"{sum(1 for e in entries if e['is_new'])} new in 24h")
+        return self.alerter.send_digest(entries)
+
+    def digest_entries(self, hours: int = 24) -> list[dict]:
+        """Every current match, deduplicated, newest-first within each price."""
+        from datetime import datetime, timedelta, timezone
+
+        since = datetime.now(timezone.utc) - timedelta(hours=hours)
+
+        merged: dict = {}
+        for listing, metrics, profile, reason in self._current_matches():
+            # The same flat reaches us through several agencies and portals
+            key = self.alerter.property_signature(listing)
+            if key in merged:
+                merged[key]["labels"].append(profile.label)
+                continue
+
+            first_seen = listing.get("first_seen_at")
+            if first_seen is not None and first_seen.tzinfo is None:
+                first_seen = first_seen.replace(tzinfo=timezone.utc)
+
+            merged[key] = {
+                "listing": listing,
+                "metrics": metrics,
+                "profile": profile,
+                "reason": reason,
+                "labels": [profile.label],
+                "is_new": bool(first_seen and first_seen >= since),
+            }
+
+        entries = sorted(
+            merged.values(),
+            # New first, then cheapest — the order someone actually reads in.
+            key=lambda e: (not e["is_new"], e["listing"].get("price") or 0),
+        )
+        for entry in entries:
+            entry["metrics"] = {
+                **entry["metrics"],
+                "matched_profiles": " + ".join(entry["labels"]),
+                "matched_purpose": entry["profile"].purpose,
+            }
+        return entries
 
     def run_feedback_poll(self) -> None:
         """Poll Telegram for button clicks, replies and typed instructions."""

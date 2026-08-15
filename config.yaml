@@ -164,9 +164,25 @@ search_profiles:
     # stays unsent rather than arriving with an unverifiable 9% yield.
     require_verified_condition: true
 
-    # Zones ruled out by hand. Left empty nothing is excluded; add whatever
-    # you decide against after visiting.
-    excluded_zones: []
+    # Zones ruled out by hand. There is no free, structured dataset for
+    # "how conflictive is this neighbourhood", so this list stands in for
+    # one, using the criterion there IS published data for: the lowest
+    # household-income neighbourhoods of their metropolitan area (INE Atlas
+    # de distribución de renta). That is the same signal that drives the
+    # risk an investor actually carries here — longer voids, harder resale,
+    # tenants who cannot absorb a rent rise.
+    #
+    # These are a starting point, not a verdict. Edit freely: anything named
+    # here is dropped before the yield is even computed.
+    excluded_zones:
+      - sant roc            # Badalona
+      - la salut            # Badalona
+      - can puiggener       # Sabadell
+      - la mina             # Sant Adrià de Besòs
+      - ciutat meridiana    # Barcelona
+      - torre baro          # Barcelona
+      - vallbona            # Barcelona
+      - sant cosme          # El Prat de Llobregat
 
   # ── 3. Home, further out and bigger ─────────────────────────────────────
   # The trade the buyer is willing to make: leave the city, gain square
