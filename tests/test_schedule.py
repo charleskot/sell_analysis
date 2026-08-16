@@ -362,3 +362,85 @@ def test_ever_sent_outlives_the_cooldown_window(db):
     alerter = TelegramAlerter({"alerts": {"telegram": {"cooldown_hours": 24}}})
     assert db.was_alert_sent_recently("habitaclia_9", 24) is False
     assert alerter.already_sent("habitaclia_9") is True
+
+
+# ── A dead mailbox must not look like a quiet one ──────────────────────────
+#
+# Google disabled the OAuth client on 14/08. Every cycle for the next
+# forty-four hours reported "no new messages", because an auth failure
+# returned an empty list. Not one listing reached the user, and the bot
+# reported itself healthy throughout.
+
+def test_auth_failure_raises_instead_of_looking_empty(monkeypatch):
+    from ingest.gmail_api import GmailReader, MailboxUnavailable
+    import ingest.gmail_api as gmail
+    from ingest.gmail_oauth import GmailAuthError
+
+    reader = GmailReader.__new__(GmailReader)
+    reader.config, reader.query, reader.enabled = {}, "", True
+    monkeypatch.setattr(gmail, "get_access_token",
+                        lambda *a: (_ for _ in ()).throw(GmailAuthError("disabled_client")))
+
+    with pytest.raises(MailboxUnavailable, match="disabled_client"):
+        reader.fetch_new()
+
+
+def test_api_error_raises_instead_of_looking_empty(monkeypatch, db):
+    from ingest.gmail_api import GmailReader, MailboxUnavailable
+    import ingest.gmail_api as gmail
+
+    class Resp:
+        status_code = 401
+        text = '{"error": "disabled_client"}'
+
+    reader = GmailReader.__new__(GmailReader)
+    reader.config, reader.query, reader.enabled = {}, "", True
+    monkeypatch.setattr(gmail, "get_access_token", lambda *a: "tok")
+    monkeypatch.setattr(gmail.requests, "get", lambda *a, **k: Resp())
+
+    with pytest.raises(MailboxUnavailable, match="401"):
+        reader.fetch_new()
+
+
+def test_an_empty_mailbox_is_still_just_empty(monkeypatch, db):
+    """The distinction has to cut both ways or it is not a distinction."""
+    from ingest.gmail_api import GmailReader
+    import ingest.gmail_api as gmail
+
+    class Resp:
+        status_code = 200
+
+        @staticmethod
+        def json():
+            return {}
+
+    reader = GmailReader.__new__(GmailReader)
+    reader.config, reader.query, reader.enabled = {}, "", True
+    monkeypatch.setattr(gmail, "get_access_token", lambda *a: "tok")
+    monkeypatch.setattr(gmail.requests, "get", lambda *a, **k: Resp())
+
+    assert reader.fetch_new() == []
+
+
+def test_staleness_is_measured_from_the_stored_cursor(db):
+    from datetime import datetime, timedelta, timezone
+
+    from scheduler.heartbeat import mailbox_stale_for
+
+    two_days = datetime.now(timezone.utc) - timedelta(hours=44)
+    db.set_telegram_state("gmail_last_internal_date_ms",
+                          str(int(two_days.timestamp() * 1000)))
+    assert 43 < mailbox_stale_for() < 45
+
+
+def test_staleness_is_unknown_before_the_first_email(db):
+    from scheduler.heartbeat import mailbox_stale_for
+
+    assert mailbox_stale_for() is None
+
+
+def test_a_corrupt_cursor_does_not_crash_the_cycle(db):
+    from scheduler.heartbeat import mailbox_stale_for
+
+    db.set_telegram_state("gmail_last_internal_date_ms", "no es un número")
+    assert mailbox_stale_for() is None

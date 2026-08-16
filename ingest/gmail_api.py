@@ -29,6 +29,16 @@ OVERLAP_SECONDS = 120       # re-scan window, guards against clock skew
 FIRST_RUN_LOOKBACK_S = 3600  # on a fresh install only look 1h back, not forever
 
 
+class MailboxUnavailable(RuntimeError):
+    """The mailbox could not be read at all.
+
+    Distinct from "no new mail", and the distinction is the whole point: an
+    expired token returned an empty list, which the caller could not tell
+    from a quiet Saturday. The mailbox stayed dead for forty-four hours and
+    nothing said so, while the bot reported itself healthy.
+    """
+
+
 class GmailReader:
     """Fetches unprocessed portal alert emails."""
 
@@ -115,8 +125,9 @@ class GmailReader:
             timeout=30,
         )
         if resp.status_code != 200:
-            logger.error(f"Gmail list failed ({resp.status_code}): {resp.text[:200]}")
-            return []
+            raise MailboxUnavailable(
+                f"Gmail respondió {resp.status_code}: {resp.text[:120]}"
+            )
         return [m["id"] for m in resp.json().get("messages", [])]
 
     def _get_message(self, token: str, msg_id: str) -> tuple[RawEmail, int] | None:
@@ -155,24 +166,30 @@ class GmailReader:
     # ── Public API ───────────────────────────────────────────────────────
 
     def fetch_new(self) -> list[RawEmail]:
-        """Fetch messages newer than the last processed one. [] on failure."""
+        """Messages newer than the last processed one.
+
+        Raises MailboxUnavailable when the mailbox cannot be read. It used to
+        return [] for that too, which made a dead token look exactly like a
+        quiet mailbox — and that is how forty-four hours passed with the bot
+        reporting itself healthy and no listing ever reaching the user.
+        """
         if not self.enabled:
             return []
 
         try:
             token = get_access_token(self.config)
         except GmailAuthError as e:
-            logger.error(f"Gmail auth failed: {e}")
-            return []
+            raise MailboxUnavailable(f"no pude autenticarme: {e}") from e
 
         last_ts_ms = self._get_last_ts_ms()
         after_s = max(0, int(last_ts_ms / 1000) - OVERLAP_SECONDS)
 
         try:
             msg_ids = self._list_message_ids(token, after_s)
+        except MailboxUnavailable:
+            raise
         except Exception as e:
-            logger.error(f"Gmail list error: {e}")
-            return []
+            raise MailboxUnavailable(f"fallo listando mensajes: {e}") from e
 
         if not msg_ids:
             logger.info("Gmail ingest: no new messages")

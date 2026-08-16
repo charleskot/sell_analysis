@@ -128,3 +128,24 @@ def describe() -> str:
         else:
             parts.append("sin correo nuevo")
     return " · ".join(parts)
+
+
+def mailbox_stale_for(hours: float | None = None) -> float | None:
+    """How long since a portal email was last processed, in hours.
+
+    The mailbox went forty-four hours without producing a single message
+    while every API call returned 200 and the bot reported itself healthy.
+    Nothing was broken in a way any error could reveal — the alerts had
+    simply stopped arriving — and only reading the stored cursor by hand
+    surfaced it. Returns None when nothing has ever been processed.
+    """
+    from models.db import get_telegram_state
+
+    raw = get_telegram_state("gmail_last_internal_date_ms", "")
+    if not raw:
+        return None
+    try:
+        last = datetime.fromtimestamp(int(raw) / 1000, timezone.utc)
+    except (ValueError, OSError, OverflowError):
+        return None
+    return (datetime.now(timezone.utc) - last).total_seconds() / 3600

@@ -299,6 +299,22 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     # the morning would stay in the database unmentioned for ever.
     stats["alerts_sent"] += orchestrator.send_pending()
 
+    # The mailbox can also fail without any call failing: the portals simply
+    # stop arriving, or an alert gets deleted. Forty-four hours passed that
+    # way, every request returning 200, the bot reporting itself healthy and
+    # not one listing reaching anyone.
+    stale_after = tg_cfg.get("stale_mailbox_hours", 12)
+    stale = heartbeat.mailbox_stale_for()
+    if stale_after and stale and stale > stale_after:
+        from scheduler.quiet_hours import is_quiet
+
+        if not is_quiet(config) and heartbeat.failure_notice_due(failure_minutes):
+            orchestrator.alerter.send_pulse(
+                error=f"llevo {stale:.0f} horas sin recibir un solo anuncio. "
+                      f"O los portales han dejado de enviar, o sus alertas se han caído."
+            )
+            heartbeat.mark_failure_notice()
+
     heartbeat.beat(
         cycle=os.environ.get("BOT_CYCLE", "?"),
         emails=stats["emails"], new=stats["new"], alerts=stats["alerts_sent"],

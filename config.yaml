@@ -341,6 +341,14 @@ alerts:
     # three minutes.
     failure_notice_minutes: 60
 
+    # A mailbox can also fail without any call failing: the portals just stop
+    # arriving. Forty-four hours passed that way — every request returning
+    # 200, the bot reporting itself healthy — because Google had disabled the
+    # OAuth client and an empty result was indistinguishable from a quiet
+    # Saturday. Below, going this long without a single listing is itself
+    # reported.
+    stale_mailbox_hours: 12
+
     # Hard ceiling on everything that leaves this bot.
     #
     # Every message passes one chokepoint, and the chokepoint counts. Once a

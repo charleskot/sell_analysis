@@ -235,8 +235,15 @@ class PipelineOrchestrator:
         if reader is None:
             return stats
 
+        from ingest.gmail_api import MailboxUnavailable
+
         try:
             messages = reader.fetch_new() if hasattr(reader, "fetch_new") else reader.fetch_unseen()
+        except MailboxUnavailable:
+            # Deliberately not swallowed. A mailbox that will not open is the
+            # one failure that stops everything downstream, and it used to
+            # look identical to a quiet Saturday.
+            raise
         except Exception as e:
             logger.error(f"Email fetch failed: {e}")
             stats["errors"] += 1
