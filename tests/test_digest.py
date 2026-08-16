@@ -225,3 +225,15 @@ def test_something_new_is_announced_and_sent():
     assert rec.headers == [(2, 1)]
     assert rec.cards == ["b"]
     assert ok is True
+
+
+def test_a_date_stored_as_text_does_not_lose_the_alert(alerter):
+    """Depending on how the row was loaded this is a datetime or a string.
+    A card that raises builds no message, and the listing is never sent."""
+    text = card(alerter, listing={"first_seen_at": "2026-08-14 10:00:00"})
+    assert "186.000€" in text
+
+
+def test_an_unparseable_date_is_skipped_not_fatal(alerter):
+    text = card(alerter, listing={"first_seen_at": "ayer por la tarde"})
+    assert "186.000€" in text

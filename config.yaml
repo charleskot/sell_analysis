@@ -172,7 +172,13 @@ search_profiles:
     # because they are occupied or unmortgageable, and the alert email never
     # says so — the page does. If the page could not be read, the listing
     # stays unsent rather than arriving with an unverifiable 9% yield.
-    require_verified_condition: true
+    # Off by request. It held back everything: Idealista, Fotocasa and
+    # Habitaclia all refuse to be read, so 82% of listings could not have
+    # their condition checked and the profile matched nothing at all.
+    # Anything unverifiable now arrives stamped SOSPECHOSO with the tells
+    # spelled out — cheaper than the zone, few photos, unread advert — and
+    # the judgement moves to the person who can open the page.
+    require_verified_condition: false
 
     # Zones ruled out by hand. There is no free, structured dataset for
     # "how conflictive is this neighbourhood", so this list stands in for
