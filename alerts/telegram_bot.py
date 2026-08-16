@@ -2,6 +2,8 @@
 import logging
 import os
 
+from alerts import budget
+
 logger = logging.getLogger(__name__)
 
 
@@ -81,7 +83,7 @@ class TelegramAlerter:
 
         message = self._format_message(listing, metrics, score)
         keyboard = self._feedback_keyboard(listing_id)
-        message_id = self._send_sync(message, reply_markup=keyboard)
+        message_id = self._send_sync(message, reply_markup=keyboard, kind="piso")
 
         if message_id:
             record_alert_sent(listing_id, "telegram", message[:200], chat_message_id=message_id)
@@ -204,7 +206,7 @@ class TelegramAlerter:
                         logger.error(f"command handler failed: {e}")
                         reply = "Algo ha fallado al preparar la respuesta."
                     if reply:
-                        self._send_sync(reply)
+                        self._send_sync(reply, kind="respuesta")
                         n += 1
                         continue
 
@@ -285,7 +287,7 @@ class TelegramAlerter:
         """
         if not self._enabled:
             return False
-        return bool(self._send_sync(self._pulse_text(stats, error)))
+        return bool(self._send_sync(self._pulse_text(stats, error), kind="fallo"))
 
     def _pulse_text(self, stats: dict | None, error: str | None) -> str:
         from datetime import datetime
@@ -317,7 +319,7 @@ class TelegramAlerter:
         """
         if not self._enabled or not problems:
             return False
-        return bool(self._send_sync(self._unreadable_text(problems)))
+        return bool(self._send_sync(self._unreadable_text(problems), kind="fallo"))
 
     def _unreadable_text(self, problems: list) -> str:
         portals = sorted({p for p, _ in problems})
@@ -356,7 +358,7 @@ class TelegramAlerter:
         """
         if not self._enabled:
             return False
-        return bool(self._send_sync(self._digest_header_text(total, pending)))
+        return bool(self._send_sync(self._digest_header_text(total, pending), kind="resumen"))
 
     def _digest_header_text(self, total: int, pending: int) -> str:
         from datetime import datetime
@@ -384,11 +386,28 @@ class TelegramAlerter:
         return {"nuevo": "obra nueva", "buen_estado": "buen estado",
                 "a_reformar": "a reformar"}.get(listing.get("condition"))
 
-    def _send_sync(self, message: str, reply_markup: dict | None = None) -> int | bool:
-        """Send a Telegram message. Returns the message_id on success (truthy),
-        False on failure. reply_markup adds inline buttons.
+    def _send_sync(self, message: str, reply_markup: dict | None = None,
+                   kind: str = budget.UNLABELLED) -> int | bool:
+        """Send a Telegram message, if the day's budget still allows it.
+
+        The single point everything leaves through, and therefore the only
+        place worth counting. Twice in one day a bug turned a scheduled
+        message into one every three minutes; both times the fix reasoned
+        about the code path that caused it, which defends against the
+        mistake already made rather than the next one. The ceiling here is
+        absolute: budget spent means the message is dropped, whatever asked
+        for it.
+
+        `kind` must be declared in config. An unlabelled send is refused,
+        so a future code path that forgets to say what it is goes silent
+        instead of unbounded.
         """
         import requests
+        allowed, why = budget.check(self._config, kind)
+        if not allowed:
+            logger.warning(f"Mensaje '{kind}' NO enviado: {why}")
+            return False
+
         url = f"https://api.telegram.org/bot{self._token}/sendMessage"
         payload = {
             "chat_id": self._chat_id,
@@ -402,6 +421,7 @@ class TelegramAlerter:
             resp = requests.post(url, json=payload, timeout=15)
             data = resp.json()
             if resp.status_code == 200 and data.get("ok"):
+                budget.record(kind)
                 return int(data["result"].get("message_id") or 0) or True
             logger.error(f"Telegram send failed ({resp.status_code}): {resp.text[:200]}")
             return False

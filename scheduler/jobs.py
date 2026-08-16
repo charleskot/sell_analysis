@@ -235,8 +235,15 @@ class PipelineOrchestrator:
         if reader is None:
             return stats
 
+        from ingest.gmail_api import MailboxUnavailable
+
         try:
             messages = reader.fetch_new() if hasattr(reader, "fetch_new") else reader.fetch_unseen()
+        except MailboxUnavailable:
+            # Deliberately not swallowed. A mailbox that will not open is the
+            # one failure that stops everything downstream, and it used to
+            # look identical to a quiet Saturday.
+            raise
         except Exception as e:
             logger.error(f"Email fetch failed: {e}")
             stats["errors"] += 1
@@ -674,8 +681,11 @@ class PipelineOrchestrator:
         # died yesterday. The heartbeat separates the two.
         from scheduler import heartbeat
 
+        from alerts import budget
+
         return (
             "<b>✅ Funcionando</b>\n\n"
+            f"Mensajes enviados: {budget.describe(self.config)}\n"
             f"Última pasada: {heartbeat.describe()}\n"
             f"Buzón que leo: <b>{mailbox or 'no he podido comprobarlo'}</b>\n"
             f"Último correo <i>nuevo</i>: {when}\n"

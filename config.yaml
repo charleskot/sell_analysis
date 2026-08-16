@@ -19,6 +19,16 @@ email_ingest:
   # reads exactly like "no new listings". Trash is excluded on purpose.
   query: "in:anywhere -in:trash"
 
+  # Fetch only mail from the portals we parse, instead of everything new.
+  #
+  # For a mailbox that exists only to receive alerts this changes nothing.
+  # It matters when the mailbox also carries real correspondence: without
+  # it the bot downloads every new message before deciding, and those
+  # messages pass through a CI runner whose read token lives in a public
+  # repository's secrets. Built from the portal registry, so adding a portal
+  # cannot leave the filter behind.
+  only_portal_senders: true
+
 # ── Reading the listing page ───────────────────────────────────────────────
 # Alert emails omit the condition for most listings, and "para reformar" is
 # worth tens of thousands in works the bank will not finance. For the few
@@ -340,6 +350,33 @@ alerts:
     # this often, so a failure that persists does not become a message every
     # three minutes.
     failure_notice_minutes: 60
+
+    # A mailbox can also fail without any call failing: the portals just stop
+    # arriving. Forty-four hours passed that way — every request returning
+    # 200, the bot reporting itself healthy — because Google had disabled the
+    # OAuth client and an empty result was indistinguishable from a quiet
+    # Saturday. Below, going this long without a single listing is itself
+    # reported.
+    stale_mailbox_hours: 12
+
+    # Hard ceiling on everything that leaves this bot.
+    #
+    # Every message passes one chokepoint, and the chokepoint counts. Once a
+    # budget is spent the message is dropped and logged, no matter what part
+    # of the code asked for it. This is not tuning: it is the guarantee that
+    # a bug of mine cannot turn into a phone buzzing every three minutes,
+    # which it did twice in one day and cost a day of trust to find.
+    #
+    # An unlabelled message is refused outright. Any future code path that
+    # sends without declaring what it is gets blocked rather than trusted.
+    limits:
+      total_per_day: 25
+      per_kind:
+        piso: 20          # a listing that matches and has never been sent
+        fallo: 2          # the mailbox will not open
+        resumen: 1        # the manual daily summary
+        respuesta: 25     # answers to messages he typed himself
+        otro: 0           # anything that forgot to say what it is
 
     # Night. Local hours, because "de noche" means his night and Spain is
     # one or two hours off UTC depending on the season. A listing found in

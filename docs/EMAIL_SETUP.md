@@ -3,6 +3,28 @@
 El bot lee las alertas que los portales inmobiliarios envían por email.
 Necesita permiso de **solo lectura** sobre un buzón dedicado.
 
+## Antes de nada: usa un dominio propio, no una Gmail gratuita
+
+El 14/08/2026 Google deshabilitó `pisos.charles@gmail.com` por completo —
+no el token, la cuenta — alegando que podía haber sido creada por un
+programa automático. Un buzón dedicado, recién creado, que solo recibe
+correo de portales y nunca envía, encaja exactamente en el patrón que
+Google barre. El bot estuvo 44 horas ciego y ninguna alerta de esos días
+existe ya en ninguna parte.
+
+Con una dirección en un dominio propio (Google Workspace) eso no pasa, y
+además desbloquea la diferencia que de verdad importa: la pantalla de
+consentimiento puede marcarse como **Interna**, y una app interna:
+
+- no necesita verificación de Google,
+- no caduca sus refresh tokens a los 7 días como las apps externas en
+  modo de prueba,
+- no está sujeta a los barridos antiabuso de las cuentas gratuitas.
+
+Las instrucciones de abajo asumen ese caso. Si de verdad no hay dominio
+disponible, el backend `imap` lee cualquier buzón con host, usuario y
+contraseña de aplicación, y evita Google del todo.
+
 ## Por qué OAuth y no una contraseña normal
 
 Google está retirando progresivamente las contraseñas de aplicación (IMAP).
@@ -16,11 +38,14 @@ enviar, borrar ni modificar nada del buzón.
    **"Proyecto nuevo"** → nombre `pisos-bot` → **Crear**
 2. Buscador de arriba: **"Gmail API"** → **Habilitar**
 3. Menú ☰ → **"APIs y servicios"** → **"Pantalla de consentimiento de OAuth"**
-   - Tipo de usuario: **Externo** → Crear
+   - Tipo de usuario: **Interna** ← solo aparece si el proyecto pertenece a
+     un dominio de Workspace, y es la opción que evita la verificación y la
+     caducidad del token a los 7 días
    - Nombre de la aplicación: `pisos-bot`
    - Correo de asistencia y de contacto: tu correo
    - Guardar y continuar hasta el final
-   - En **"Usuarios de prueba"** → **Añadir** → el correo del buzón de alertas
+   - Con **Interna** no hay lista de usuarios de prueba: cualquier cuenta
+     del dominio puede autorizar
 4. Menú ☰ → **"APIs y servicios"** → **"Credenciales"**
    - **"Crear credenciales"** → **"ID de cliente de OAuth"**
    - Tipo de aplicación: **Aplicación de escritorio**
