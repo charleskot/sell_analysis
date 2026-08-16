@@ -723,3 +723,66 @@ def test_outer_home_stays_in_its_towns():
     ok, reason = Profile(FUERA).match(_outer(city="terrassa"), {})
     assert not ok
     assert "ciudad" in reason
+
+
+# ── Knowing the condition, and knowing that you do not ─────────────────────
+#
+# A 130 m² flat in Sabadell at 176.026 €, sold by "transmisión directa",
+# reached the user as a verified investment. Habitaclia labels every card
+# "Anuncio nuevo"; the condition detector matched the word "nuevo" in that
+# label and concluded it knew the state of the flat. Knowing it meant not
+# reading the page, and not reading the page meant require_verified_condition
+# had nothing to object to.
+
+import pytest as _pytest
+
+from scheduler.jobs import CONDITION_WORDS
+
+
+@_pytest.mark.parametrize("chrome", [
+    "Anuncio nuevo",                        # Habitaclia's own card label
+    "Nuevo piso en tu búsqueda: barcelona",  # Idealista's subject line
+    "12 novedades en comarca Barcelonès",
+    "Nueva búsqueda guardada",
+])
+def test_email_furniture_is_not_a_statement_about_the_flat(chrome):
+    assert CONDITION_WORDS.search(chrome) is None
+
+
+@_pytest.mark.parametrize("described", [
+    "Piso REFORMADO A ESTRENAR con ascensor",
+    "vivienda en buen estado, para entrar a vivir",
+    "obra nueva, entrega 2027",
+    "piso nuevo de nueva construcción",
+    "seminuevo, impecable",
+    "para reformar integral",
+    "piso para actualizar",
+])
+def test_a_real_description_is_recognised(described):
+    assert CONDITION_WORDS.search(described) is not None
+
+
+@_pytest.mark.parametrize("wording", [
+    "Transmisión directa del inmueble",
+    "venta directa del banco",
+    "sin derecho a visita",
+    "no se garantiza la posesión",
+    "entrega de llaves no garantizada",
+    "consultar estado posesorio",
+])
+def test_bank_wording_is_rejected(wording):
+    """Reads as neutral sales language and is not: the servicer cannot show
+    the flat, usually because somebody is living in it."""
+    from ingest.email_parsers import _REJECT_RE
+
+    assert _REJECT_RE.search(wording) is not None
+
+
+def test_ordinary_sales_language_still_passes():
+    """A reject list that eats normal adverts is worse than none."""
+    from ingest.email_parsers import _REJECT_RE
+
+    for ok in ("Venta directa del propietario, sin comisiones",
+               "Piso reformado con terraza y ascensor",
+               "Oportunidad de inversión inmobiliaria en el centro"):
+        assert _REJECT_RE.search(ok) is None, ok

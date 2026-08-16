@@ -132,6 +132,12 @@ _REJECT_RE = re.compile(
     r"\bcondiciones\s+especiales\s+de\s+compra\b|"
     r"\bno\s+se\s+puede\s+visitar\s+ni\s+hipotecar\b|"
     r"\bcon\s+cargas\b|\bpendiente\s+de\s+lanzamiento\b|"
+    # Bank and servicer wording. These read as neutral sales language and are
+    # not: a flat sold by "transmisión directa" with no viewing is one the
+    # servicer cannot show, usually because someone is living in it.
+    r"\btransmisi[oó]n\s+directa\b|\bventa\s+directa\s+del\s+banco\b|"
+    r"\bsin\s+derecho\s+a\s+visita\b|\bno\s+se\s+garantiza\s+la\s+posesi[oó]n\b|"
+    r"\bentrega\s+de\s+llaves\s+no\s+garantizada\b|\bestado\s+posesorio\b|"
     # Legal forms a mortgage will not cover
     r"\bnuda\s+propiedad\b|\busufruct\w*\b|\bsubasta\b|\bproindiviso\b|"
     r"\bmultipropiedad\b|\bderecho\s+de\s+superficie\b|"
