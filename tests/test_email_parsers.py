@@ -586,3 +586,33 @@ def test_nothing_to_warn_about_sends_nothing():
     from alerts.telegram_bot import TelegramAlerter
 
     assert TelegramAlerter({}).send_unreadable_warning([]) is False
+
+
+# ── Fetching only what we parse ────────────────────────────────────────────
+
+def test_sender_filter_covers_every_registered_portal():
+    """A portal missing from the filter would be dropped in silence."""
+    from ingest.gmail_api import GmailReader
+
+    query = GmailReader.portal_sender_filter()
+    for spec in PORTAL_SPECS:
+        assert any(m in query for m in spec["sender_match"]), spec["portal"]
+
+
+def test_sender_filter_is_off_unless_asked_for():
+    from ingest.gmail_api import GmailReader
+
+    reader = GmailReader.__new__(GmailReader)
+    GmailReader.__init__(reader, {"email_ingest": {"query": "in:anywhere"}})
+    assert reader.query == "in:anywhere"
+
+
+def test_sender_filter_narrows_the_query_when_enabled():
+    from ingest.gmail_api import GmailReader
+
+    reader = GmailReader.__new__(GmailReader)
+    GmailReader.__init__(reader, {"email_ingest": {
+        "query": "in:anywhere -in:trash", "only_portal_senders": True}})
+    assert reader.query.startswith("from:(")
+    assert "idealista.com" in reader.query
+    assert "in:anywhere -in:trash" in reader.query

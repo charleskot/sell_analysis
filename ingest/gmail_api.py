@@ -52,7 +52,30 @@ class GmailReader:
         self.config = config
         cfg = config.get("email_ingest", {}) or {}
         self.query = (cfg.get("query") or self.DEFAULT_QUERY).strip()
+        if cfg.get("only_portal_senders"):
+            self.query = f"{self.portal_sender_filter()} {self.query}".strip()
         self.enabled = self._check_enabled()
+
+    @staticmethod
+    def portal_sender_filter() -> str:
+        """Restrict the fetch to senders we actually parse.
+
+        Without this the bot downloads every new message in the mailbox and
+        then decides. That is acceptable for a mailbox that exists only to
+        receive portal alerts, and not acceptable for one that also carries
+        work mail: the messages pass through a CI runner and the read token
+        lives in a public repository's secrets.
+
+        Built from the portal registry, so adding a portal cannot leave the
+        filter behind — a stale filter here would silently drop that portal.
+        """
+        from ingest.email_parsers import PORTAL_SPECS
+
+        domains = sorted({
+            match for spec in PORTAL_SPECS for match in spec["sender_match"]
+            if "." in match
+        })
+        return "from:(" + " OR ".join(domains) + ")"
 
     def _check_enabled(self) -> bool:
         import os

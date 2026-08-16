@@ -19,6 +19,16 @@ email_ingest:
   # reads exactly like "no new listings". Trash is excluded on purpose.
   query: "in:anywhere -in:trash"
 
+  # Fetch only mail from the portals we parse, instead of everything new.
+  #
+  # For a mailbox that exists only to receive alerts this changes nothing.
+  # It matters when the mailbox also carries real correspondence: without
+  # it the bot downloads every new message before deciding, and those
+  # messages pass through a CI runner whose read token lives in a public
+  # repository's secrets. Built from the portal registry, so adding a portal
+  # cannot leave the filter behind.
+  only_portal_senders: true
+
 # ── Reading the listing page ───────────────────────────────────────────────
 # Alert emails omit the condition for most listings, and "para reformar" is
 # worth tens of thousands in works the bank will not finance. For the few
