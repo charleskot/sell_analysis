@@ -6,6 +6,25 @@ logger = logging.getLogger(__name__)
 
 DIGEST_HOUR_UTC = 7  # 09:00 Madrid in summer, 08:00 in winter
 
+# Does the advert say anything at all about the state of the flat?
+#
+# Bare "nuevo" is deliberately absent. Habitaclia labels every card "Anuncio
+# nuevo" and Idealista's subjects read "Nuevo piso en tu búsqueda", so the
+# word appears on listings nobody described at all. A false "I know the
+# condition" is worse than silence: it skips reading the page, and then
+# require_verified_condition passes something that was never verified. A
+# 130 m² flat in Sabadell at 176.026 €, sold by "transmisión directa",
+# reached the user exactly that way.
+import re as _re_mod
+
+CONDITION_WORDS = _re_mod.compile(
+    r"\breformad\w*\b|\breformar\b|\breforma\b|\bseminuev\w*\b|"
+    r"\ba\s+estrenar\b|\bbuen\s+estado\b|\bentrar\s+a\s+vivir\b|"
+    r"\bimpecable\b|\bpara\s+actualizar\b|\bobra\s+nueva\b|"
+    r"\bnueva\s+construcci[oó]n\b|\b(?:piso|vivienda|casa)\s+nuev[oa]\b",
+    _re_mod.I,
+)
+
 
 def digest_due(now: datetime, last_sent_date: str, hour_utc: int = DIGEST_HOUR_UTC) -> bool:
     """Whether the daily digest still owes today's send.
@@ -793,11 +812,7 @@ class PipelineOrchestrator:
         # mostly the email's own furniture ("Modificar", "Dejar de recibir").
         # Ask the question directly instead: did the advert say anything at
         # all about the state of the flat?
-        says_condition = bool(_re.search(
-            r"\breformad\w*\b|\breformar\b|\breforma\b|\bnuev[oa]\b|\bseminuev\w*\b|"
-            r"\ba\s+estrenar\b|\bbuen\s+estado\b|\bentrar\s+a\s+vivir\b|"
-            r"\bimpecable\b|\bpara\s+actualizar\b|\boriginal\b|\bobra\s+nueva\b",
-            text, _re.I))
+        says_condition = bool(CONDITION_WORDS.search(text))
         metrics["condition_unknown"] = not says_condition
 
         # Compute investment score

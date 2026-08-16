@@ -3,6 +3,24 @@
 El bot lee las alertas que los portales inmobiliarios envían por email.
 Necesita permiso de **solo lectura** sobre un buzón dedicado.
 
+## Cómo comprobar si el buzón está vivo
+
+Un buzón caído y un buzón tranquilo se leen igual desde el chat: no llega
+nada. Cuando haya dudas, esta es la orden que lo resuelve en 30 segundos —
+Actions → Pisos bot → Run workflow → `mail-check`.
+
+Si falla, el log dice exactamente por qué. Los dos que ya han ocurrido:
+
+| Error | Qué significa | Qué hacer |
+|---|---|---|
+| `disabled_client` | Google deshabilitó la app OAuth, normalmente porque cayó la cuenta que la creó | Crear el cliente en un proyecto de la organización |
+| `invalid_grant` | El refresh token ha caducado o se ha revocado | Reautorizar con `mail-auth` y actualizar el secreto |
+| `SERVICE_DISABLED` | La Gmail API no está habilitada en ese proyecto | Habilitarla y esperar unos minutos |
+
+El bot ya no se queda callado ante ninguno de los tres: cualquier fallo al
+abrir el buzón se avisa por Telegram en menos de una hora, y pasar más de
+`stale_mailbox_hours` sin un solo anuncio también.
+
 ## Antes de nada: usa un dominio propio, no una Gmail gratuita
 
 El 14/08/2026 Google deshabilitó `pisos.charles@gmail.com` por completo —
