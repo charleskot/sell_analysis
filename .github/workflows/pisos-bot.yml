@@ -97,6 +97,9 @@ jobs:
           GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Optional. Unset, the bot behaves exactly as before; the portals
+          # that refuse datacenter addresses simply stay unreadable.
+          SCRAPER_PROXY: ${{ secrets.SCRAPER_PROXY }}
         run: |
           set -uo pipefail
           deadline=$(( $(date +%s) + LOOP_MINUTES * 60 ))
