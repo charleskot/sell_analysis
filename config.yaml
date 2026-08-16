@@ -341,6 +341,25 @@ alerts:
     # three minutes.
     failure_notice_minutes: 60
 
+    # Hard ceiling on everything that leaves this bot.
+    #
+    # Every message passes one chokepoint, and the chokepoint counts. Once a
+    # budget is spent the message is dropped and logged, no matter what part
+    # of the code asked for it. This is not tuning: it is the guarantee that
+    # a bug of mine cannot turn into a phone buzzing every three minutes,
+    # which it did twice in one day and cost a day of trust to find.
+    #
+    # An unlabelled message is refused outright. Any future code path that
+    # sends without declaring what it is gets blocked rather than trusted.
+    limits:
+      total_per_day: 25
+      per_kind:
+        piso: 20          # a listing that matches and has never been sent
+        fallo: 2          # the mailbox will not open
+        resumen: 1        # the manual daily summary
+        respuesta: 25     # answers to messages he typed himself
+        otro: 0           # anything that forgot to say what it is
+
     # Night. Local hours, because "de noche" means his night and Spain is
     # one or two hours off UTC depending on the season. A listing found in
     # this window is not dropped — nothing is recorded as sent while quiet,

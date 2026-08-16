@@ -674,8 +674,11 @@ class PipelineOrchestrator:
         # died yesterday. The heartbeat separates the two.
         from scheduler import heartbeat
 
+        from alerts import budget
+
         return (
             "<b>✅ Funcionando</b>\n\n"
+            f"Mensajes enviados: {budget.describe(self.config)}\n"
             f"Última pasada: {heartbeat.describe()}\n"
             f"Buzón que leo: <b>{mailbox or 'no he podido comprobarlo'}</b>\n"
             f"Último correo <i>nuevo</i>: {when}\n"
