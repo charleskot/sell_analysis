@@ -830,6 +830,35 @@ class PipelineOrchestrator:
         metrics["investment_score"] = breakdown.total
         metrics["score_breakdown"] = breakdown.to_dict()
 
+        # Why this one might be occupied or unmortgageable, when nobody has
+        # said so outright. The portals that would say so refuse to be read,
+        # so these are the tells left in the data — the same ones a person
+        # notices at a glance and then has to open the advert to confirm.
+        suspicion = []
+
+        ppm2 = metrics.get("price_per_m2")
+        if ppm2 and zone_avg_ppm2:
+            discount = 100 * (1 - ppm2 / zone_avg_ppm2)
+            # A genuine bargain runs 10-20% under the zone. Forty per cent
+            # under is not a bargain, it is a reason.
+            if discount >= 35:
+                suspicion.append(
+                    f"{discount:.0f}% por debajo de la zona "
+                    f"({ppm2:,.0f} vs {zone_avg_ppm2:,.0f}€/m²)".replace(",", ".")
+                )
+
+        photos = listing.get("photo_urls") or []
+        if isinstance(photos, list) and 0 < len(photos) <= 2:
+            # A flat nobody can enter is photographed from the street.
+            suspicion.append(f"solo {len(photos)} foto{'s' if len(photos) > 1 else ''}")
+        elif not photos:
+            suspicion.append("sin fotos")
+
+        if metrics.get("condition_unknown"):
+            suspicion.append("no he podido leer la ficha")
+
+        metrics["suspicion"] = suspicion
+
         # Rent cap. The estimate above comes from market averages, but in a
         # declared zone the lawful rent is whatever the Generalitat's index
         # allows — often less. Flagging it keeps the yield honest: it is an

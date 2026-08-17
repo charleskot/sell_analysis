@@ -616,3 +616,30 @@ def test_sender_filter_narrows_the_query_when_enabled():
     assert reader.query.startswith("from:(")
     assert "idealista.com" in reader.query
     assert "in:anywhere -in:trash" in reader.query
+
+
+# ── Reading the listing page through a proxy ───────────────────────────────
+
+def test_no_proxy_configured_changes_nothing(monkeypatch):
+    from ingest.enrich import _proxies
+
+    monkeypatch.delenv("SCRAPER_PROXY", raising=False)
+    assert _proxies() is None
+
+
+def test_a_configured_proxy_is_used_for_both_schemes(monkeypatch):
+    """Idealista and Fotocasa answer 403 to a datacenter address, and this is
+    the one request in the bot they refuse."""
+    from ingest.enrich import _proxies
+
+    monkeypatch.setenv("SCRAPER_PROXY", "http://user:pass@proxy.example:8000")
+    assert _proxies() == {"http": "http://user:pass@proxy.example:8000",
+                          "https": "http://user:pass@proxy.example:8000"}
+
+
+def test_blank_proxy_is_treated_as_unset(monkeypatch):
+    """An empty secret in CI must not become a broken proxy setting."""
+    from ingest.enrich import _proxies
+
+    monkeypatch.setenv("SCRAPER_PROXY", "   ")
+    assert _proxies() is None

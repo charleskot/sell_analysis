@@ -173,6 +173,11 @@ class TelegramAlerter:
             cb = upd.get("callback_query")
             if cb:
                 cb_data = cb.get("data", "")
+                if cb_data == "fb:done":
+                    # The stamp left in place of the buttons. Tapping it is
+                    # not a new verdict; acknowledge so it does not spin.
+                    self._answer_callback(cb["id"], "Ya clasificado")
+                    continue
                 if cb_data.startswith("fb:"):
                     parts = cb_data.split(":", 2)
                     if len(parts) == 3:
@@ -255,27 +260,45 @@ class TelegramAlerter:
         except Exception as e:
             logger.debug(f"answerCallbackQuery failed: {e}")
 
+    VERDICT_STAMP = {
+        "yes": "✅ ME INTERESA",
+        "no": "❌ DESCARTADO",
+        "maybe": "🤔 VER LUEGO",
+    }
+
     def _append_feedback_line(self, chat_id, message_id, current_text: str, verdict: str) -> None:
-        """Edit the alert message to reflect the recorded feedback."""
+        """Stamp the verdict onto the card, replacing the buttons.
+
+        Only the keyboard is touched. Rewriting the text meant re-sending it
+        as plain text — Telegram hands the body back with the markup already
+        stripped — which flattened "Ver anuncio" into a word you cannot tap.
+        It also wrote the confirmation in Markdown while sending as HTML, so
+        the underscores arrived literally.
+
+        Replacing the keyboard leaves the card intact and settles it
+        visually: three taps to judge become one stamp, and a card already
+        judged no longer looks like one still waiting, which is what made
+        scrolling back confusing.
+        """
         if not chat_id or not message_id:
             return
         import requests
-        label = self._feedback_ack(verdict)
-        new_text = f"{current_text}\n\n_{label}_"
+
+        stamp = self.VERDICT_STAMP.get(verdict, "GUARDADO")
         try:
             requests.post(
-                f"https://api.telegram.org/bot{self._token}/editMessageText",
+                f"https://api.telegram.org/bot{self._token}/editMessageReplyMarkup",
                 json={
                     "chat_id": chat_id,
                     "message_id": message_id,
-                    "text": new_text,
-                    "parse_mode": "HTML",
-                    "disable_web_page_preview": False,
+                    "reply_markup": {"inline_keyboard": [[
+                        {"text": stamp, "callback_data": "fb:done"},
+                    ]]},
                 },
                 timeout=10,
             )
         except Exception as e:
-            logger.debug(f"editMessageText failed: {e}")
+            logger.debug(f"editMessageReplyMarkup failed: {e}")
 
     def send_pulse(self, stats: dict | None = None, error: str | None = None) -> bool:
         """Proof of life, whether or not there is anything to report.
@@ -455,6 +478,8 @@ class TelegramAlerter:
         url = listing.get("url", "")
 
         banner = "🏠 <b>PARA VIVIR</b>" if purpose == "home" else "💰 <b>PARA INVERTIR</b>"
+        if purpose == "investment" and metrics.get("suspicion"):
+            banner = "⚠️ <b>SOSPECHOSO</b> · " + banner
         labels = metrics.get("matched_profiles") or ""
         out = [f"{banner}{'  ·  ' + self._esc(labels) if labels else ''}", ""]
         out.append(f"📍 <b>{self._esc(where)}</b>")
@@ -495,6 +520,15 @@ class TelegramAlerter:
             out.extend(self._zone_block(listing, metrics))
 
         out.extend(self._caveat_block(metrics, purpose))
+
+        # Led with, not buried: if this is a flat somebody is living in, it
+        # is the only thing on the card that matters.
+        if purpose == "investment" and metrics.get("suspicion"):
+            out.append("")
+            out.append("⚠️ <b>Míralo con lupa</b>")
+            out.extend(f"  • {self._esc(r)}" for r in metrics["suspicion"])
+            out.append("<i>Comprueba en la ficha si está ocupado o si el banco "
+                       "no da hipoteca. Las fotos del exterior son mala señal.</i>")
 
         reasons = (metrics.get("score_breakdown") or {}).get("reasons_pass") or []
         if metrics.get("match_reason"):
@@ -608,6 +642,13 @@ class TelegramAlerter:
         first = listing.get("first_seen_at")
         if not first:
             return None
+        if isinstance(first, str):
+            # Depending on how the row was loaded this is a datetime or the
+            # text SQLite stored. A card that raises here is an alert lost.
+            try:
+                first = datetime.fromisoformat(first)
+            except ValueError:
+                return None
         if first.tzinfo is None:
             first = first.replace(tzinfo=timezone.utc)
         days = (datetime.now(timezone.utc) - first).days

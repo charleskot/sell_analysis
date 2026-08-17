@@ -44,6 +44,24 @@ _DESCRIPTION_SELECTORS = [
 _MAX_CHARS = 4000
 
 
+def _proxies() -> dict | None:
+    """Route through a residential proxy when one is configured.
+
+    This is the one request in the whole bot that a portal actively refuses.
+    Idealista and Fotocasa answer 403 to a datacenter address, so the flats
+    they list can never have their condition checked, and an investment
+    profile that insists on checking then matches nothing at all.
+
+    Unset by default: without SCRAPER_PROXY the behaviour is exactly what it
+    was. A proxy is not a promise either — these portals fingerprint more
+    than the address — but it is the part we can control.
+    """
+    import os
+
+    proxy = os.environ.get("SCRAPER_PROXY", "").strip()
+    return {"http": proxy, "https": proxy} if proxy else None
+
+
 def fetch_description(url: str) -> str | None:
     """Return the listing's description text, or None if unreachable.
 
@@ -61,7 +79,8 @@ def fetch_description(url: str) -> str | None:
         return None
 
     try:
-        resp = requests.get(url, headers=_HEADERS, timeout=TIMEOUT_SECONDS, allow_redirects=True)
+        resp = requests.get(url, headers=_HEADERS, timeout=TIMEOUT_SECONDS,
+                            allow_redirects=True, proxies=_proxies())
     except Exception as e:
         logger.info(f"enrich: request failed for {url[:60]}: {e}")
         return None
