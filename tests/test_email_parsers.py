@@ -643,3 +643,46 @@ def test_blank_proxy_is_treated_as_unset(monkeypatch):
 
     monkeypatch.setenv("SCRAPER_PROXY", "   ")
     assert _proxies() is None
+
+
+# ── An alert too wide to fit in an email ───────────────────────────────────
+
+def test_a_truncated_alert_is_reported():
+    """Habitaclia announced 405 listings and delivered 26. Nothing is broken
+    — the portal truncates its own mail — but from the chat it reads as the
+    bot missing things."""
+    truncations = []
+    body = "<html>" + "".join(
+        f'<a href="https://www.habitaclia.com/i{i}0000000/1/x/alertas/email/y.htm">'
+        f'Piso</a> 150.000 € 70m2 3 hab' for i in range(10, 40)
+    ) + "</html>"
+    parse_email("alertas@email.habitaclia.com", "405 novedades en comarca Barcelonès",
+                body, truncations=truncations)
+    assert truncations
+    portal, claimed, got, subject = truncations[0]
+    assert portal == "habitaclia"
+    assert claimed == 405
+    assert got < claimed
+
+
+def test_an_alert_that_fits_is_not_reported():
+    """Warning about every alert would train the reader to ignore warnings."""
+    truncations = []
+    body = "<html>" + "".join(
+        f'<a href="https://www.habitaclia.com/i{i}0000000/1/x/alertas/email/y.htm">'
+        f'Piso</a> 150.000 € 70m2 3 hab' for i in range(10, 40)
+    ) + "</html>"
+    parse_email("alertas@email.habitaclia.com", "12 novedades en comarca Garraf",
+                body, truncations=truncations)
+    assert truncations == []
+
+
+def test_the_warning_names_the_search_and_the_loss():
+    from alerts.telegram_bot import TelegramAlerter
+
+    text = TelegramAlerter({})._truncation_text(
+        [("habitaclia", 405, 26, "405 novedades en comarca Barcelonès")]
+    )
+    assert "405" in text and "26" in text and "6%" in text
+    assert "Barcelonès" in text
+    assert "más estrechas" in text

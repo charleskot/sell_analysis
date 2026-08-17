@@ -406,7 +406,8 @@ def _split_blocks(body: str, match_spans: list[tuple[int, int]]) -> list[str]:
 
 
 def parse_email(sender: str, subject: str, html: str, text: str = "",
-                problems: list | None = None) -> list[RawListing]:
+                problems: list | None = None,
+                truncations: list | None = None) -> list[RawListing]:
     """Extract listings from one alert email. Returns [] if unrecognised.
 
     `problems` collects (portal, subject) for mail that is plainly an alert —
@@ -520,6 +521,8 @@ def parse_email(sender: str, subject: str, html: str, text: str = "",
     if announced:
         claimed = int(announced.group(1))
         if claimed > len(listings) * 1.5 and claimed > 30:
+            if truncations is not None:
+                truncations.append((portal, claimed, len(listings), subject or ""))
             logger.warning(
                 f"Email ingest: {portal} anuncia {claimed} novedades y el correo solo "
                 f"trae {len(listings)} ({100 * len(listings) // claimed}%). "

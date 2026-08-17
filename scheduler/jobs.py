@@ -248,7 +248,7 @@ class PipelineOrchestrator:
         stats = {"emails": 0, "parsed": 0, "new": 0, "updated": 0,
                  "alerts_sent": 0, "filtered_out": 0, "errors": 0,
                  "enriched": 0, "dropped_after_enrich": 0, "rejected_after_enrich": 0,
-                 "by_portal": {}, "by_profile": {}, "unreadable": []}
+                 "by_portal": {}, "by_profile": {}, "unreadable": [], "truncated": []}
 
         reader = self._get_mail_reader()
         if reader is None:
@@ -275,6 +275,7 @@ class PipelineOrchestrator:
                 listings = parse_email(
                     msg.sender, msg.subject, msg.html, msg.text,
                     problems=stats["unreadable"],
+                    truncations=stats["truncated"],
                 )
             except Exception as e:
                 logger.error(f"Parse failed for {msg.subject[:50]!r}: {e}")
@@ -313,39 +314,19 @@ class PipelineOrchestrator:
                     # condition for most of them, and "para reformar" changes
                     # the numbers by tens of thousands — enough to disqualify
                     # a match that looked fine a moment ago.
-                    if metrics.get("condition_unknown"):
-                        enriched = self._enrich(raw_dict)
-                        if enriched:
-                            stats["enriched"] += 1
-                            raw_dict = enriched
-
-                            # The reject rules ran against the email, which
-                            # said nothing. The page does: three of the four
-                            # best-yielding flats turned out to be occupied or
-                            # explicitly unmortgageable, with the yield being
-                            # the premium for exactly that.
-                            from ingest.email_parsers import _REJECT_RE
-
-                            blocker = _REJECT_RE.search(
-                                f"{raw_dict.get('title', '')} {raw_dict.get('description', '')}"
-                            )
-                            if blocker:
-                                logger.info(
-                                    f"{listing_id} rejected after reading its page: "
-                                    f"{blocker.group(0)!r}"
-                                )
-                                stats["rejected_after_enrich"] += 1
-                                continue
-
-                            metrics = self._compute_metrics(raw_dict) or metrics
-                            hits = self.profile_matcher.match(raw_dict, metrics)
-                            if not hits:
-                                logger.info(
-                                    f"{listing_id} dropped after reading its page: "
-                                    f"{metrics.get('needs_reform') and 'needs work' or 'no longer matches'}"
-                                )
-                                stats["dropped_after_enrich"] += 1
-                                continue
+                    # Read the advert before sending. Shared with the sweep
+                    # on purpose: this logic used to live only here, and the
+                    # sweep added later went straight past it, which is how a
+                    # flat whose advert shouts "NO SE PUEDE VISITAR NI
+                    # FINANCIAR" reached the user anyway.
+                    checked = self.verify(raw_dict, metrics)
+                    if checked is None:
+                        stats["rejected_after_enrich"] += 1
+                        continue
+                    if checked[0] is not raw_dict:
+                        stats["enriched"] += 1
+                    raw_dict, metrics = checked
+                    hits = self.profile_matcher.match(raw_dict, metrics) or hits
 
                     # A listing can satisfy more than one search; name them all
                     # so the alert says why it is being shown.
@@ -470,6 +451,52 @@ class PipelineOrchestrator:
             )
         return ok
 
+    def verify(self, listing: dict, metrics: dict) -> tuple[dict, dict] | None:
+        """Read the advert before sending, and drop it if it disqualifies.
+
+        The alert email carries price, size and rooms; whether somebody is
+        living in the flat is only ever on the portal's own page. A listing
+        in Rubí went out at 99.000 € for 76 m² whose advert opened with
+        "POSIBLE OCUPACION DEL INMUEBLE, NO SE PUEDE VISITAR NI FINANCIAR" —
+        every one of those phrases already in the reject list, on a page that
+        reads fine. It went out because it left by a path that never read it.
+
+        Returns the listing and metrics to send with, or None to drop. Lives
+        here, once, because it exists to be shared: this used to be inline in
+        the ingest, and the sweep added later bypassed it entirely.
+        """
+        if not metrics.get("condition_unknown"):
+            return listing, metrics
+
+        enriched = self._enrich(listing)
+        if not enriched:
+            # Genuinely unreadable. The card says so and names it as a
+            # reason to look closer, rather than implying the flat is fine.
+            return listing, metrics
+
+        from ingest.email_parsers import _REJECT_RE
+
+        blocker = _REJECT_RE.search(
+            f"{enriched.get('title', '')} {enriched.get('description', '')}"
+        )
+        if blocker:
+            logger.info(f"{listing.get('id')} descartado al leer la ficha: "
+                        f"{blocker.group(0)!r}")
+            return None
+
+        fresh = self._compute_metrics(enriched) or metrics
+        hits = self.profile_matcher.match(enriched, fresh)
+        if not hits:
+            logger.info(f"{listing.get('id')} ya no encaja al leer la ficha")
+            return None
+
+        return enriched, {
+            **fresh,
+            "matched_profiles": " + ".join(p.label for p, _ in hits),
+            "matched_purpose": hits[0][0].purpose,
+            "match_reason": hits[0][1],
+        }
+
     def send_pending(self) -> int:
         """Send every current match that has never gone out.
 
@@ -487,9 +514,15 @@ class PipelineOrchestrator:
             signature = self.alerter.property_signature(listing)
             if self.alerter.already_sent(listing["id"], signature):
                 continue
+
+            checked = self.verify(listing, entry["metrics"])
+            if checked is None:
+                continue
+            listing, metrics = checked
+
             if self.alerter.send_alert(
-                listing["id"], listing, entry["metrics"],
-                entry["metrics"].get("investment_score") or 0,
+                listing["id"], listing, metrics,
+                metrics.get("investment_score") or 0,
                 dedup_key=signature,
             ):
                 sent += 1

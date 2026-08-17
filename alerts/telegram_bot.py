@@ -355,6 +355,33 @@ class TelegramAlerter:
             f"Reenvíame ese email y lo arreglo."
         )
 
+    def send_truncation_warning(self, truncations: list) -> bool:
+        """Tell the chat which alert is too wide to fit in an email.
+
+        Habitaclia announced 855 new listings across eight emails and the
+        emails carried 141 — a "comarca Barcelonès" alert delivered 26 of
+        405. Nothing is broken: the portal truncates its own mail. But from
+        the chat it reads as the bot missing things, and the fix is on the
+        portal, so it has to reach the person who can make it.
+        """
+        if not self._enabled or not truncations:
+            return False
+        return bool(self._send_sync(self._truncation_text(truncations), kind="fallo"))
+
+    def _truncation_text(self, truncations: list) -> str:
+        worst = sorted(truncations, key=lambda t: t[2] / max(t[1], 1))[:3]
+        lines = ["⚠️ <b>Una alerta tuya es demasiado amplia</b>", ""]
+        for portal, claimed, got, subject in worst:
+            lines.append(f"<b>{self._esc(portal)}</b> dice traer {claimed} anuncios "
+                         f"y el correo solo trae <b>{got}</b> "
+                         f"({100 * got // max(claimed, 1)}%)")
+            lines.append(f"  <i>{self._esc(subject[:70])}</i>")
+        lines.append("")
+        lines.append("El portal corta el correo. Divide esa búsqueda en otras más "
+                     "estrechas — por barrio, o con tope de precio — y dejarás de "
+                     "perder anuncios.")
+        return "\n".join(lines)
+
     def already_sent(self, listing_id: str, dedup_key: str | None = None) -> bool:
         """Whether this flat has ever gone out, under any listing id.
 
