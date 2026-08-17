@@ -293,6 +293,12 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     if stats.get("unreadable"):
         orchestrator.alerter.send_unreadable_warning(stats["unreadable"])
 
+    # The portal truncating its own alert reads, from the chat, exactly like
+    # the bot missing listings. The fix is on the portal, so it has to reach
+    # the person who can make it.
+    if stats.get("truncated"):
+        orchestrator.alerter.send_truncation_warning(stats["truncated"])
+
     # Anything suppressed overnight, or lost to an outage, goes out here.
     # The alert path only fires on freshly parsed email and that email is
     # never read twice, so without this sweep a listing found at three in

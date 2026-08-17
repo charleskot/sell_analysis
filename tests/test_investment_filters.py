@@ -786,3 +786,76 @@ def test_ordinary_sales_language_still_passes():
                "Piso reformado con terraza y ascensor",
                "Oportunidad de inversión inmobiliaria en el centro"):
         assert _REJECT_RE.search(ok) is None, ok
+
+
+# ── Reading the advert before sending ──────────────────────────────────────
+#
+# A flat in Rubí went out at 99.000 € for 76 m² whose advert opens with
+# "POSIBLE OCUPACION DEL INMUEBLE, NO SE PUEDE VISITAR NI FINANCIAR". Every
+# one of those phrases was already in the reject list, and the page reads
+# fine. It went out because it left by a path that never read it: the check
+# lived inline in the ingest, and the sweep added later walked straight past.
+
+class _Orchestrator:
+    """The orchestrator's verify(), with its collaborators stubbed."""
+
+    def __init__(self, page=None, matches=True):
+        from analysis.profiles import ProfileMatcher
+        from scheduler.jobs import PipelineOrchestrator
+
+        self.verify = PipelineOrchestrator.verify.__get__(self)
+        self._page = page
+        self.profile_matcher = ProfileMatcher({"search_profiles": [INVERSION]})
+        self._matches = matches
+        self.enriched_calls = 0
+
+    def _enrich(self, listing):
+        self.enriched_calls += 1
+        if self._page is None:
+            return None
+        return {**listing, "description": self._page}
+
+    def _compute_metrics(self, listing):
+        return _inv_metrics() if self._matches else {"net_yield_pct": 0.1}
+
+
+LISTING = {"id": "habitaclia_1", "price": 99000, "area_m2": 76,
+           "rooms": 3, "city": "rubi", "title": "Piso en Rubí"}
+
+
+def test_a_known_condition_is_not_re_read():
+    """Fetching a page costs a request the portal may refuse; only do it
+    when the answer is actually missing."""
+    orch = _Orchestrator()
+    listing, metrics = orch.verify(LISTING, {"condition_unknown": False})
+    assert orch.enriched_calls == 0
+    assert listing is LISTING
+
+
+def test_an_advert_that_disqualifies_stops_the_send():
+    orch = _Orchestrator(page="¡¡¡ POSIBLE OCUPACION DEL INMUEBLE, "
+                              "NO SE PUEDE VISITAR NI FINANCIAR !!!")
+    assert orch.verify(LISTING, {"condition_unknown": True}) is None
+
+
+def test_a_page_that_cannot_be_read_is_sent_still_marked():
+    """Unreadable is not the same as disqualifying. The card says so and
+    names it as a reason to look closer."""
+    orch = _Orchestrator(page=None)
+    result = orch.verify(LISTING, {"condition_unknown": True})
+    assert result is not None
+    assert result[1]["condition_unknown"] is True
+
+
+def test_a_clean_advert_carries_its_description_forward():
+    orch = _Orchestrator(page="Piso reformado, luminoso, con ascensor")
+    listing, metrics = orch.verify(LISTING, {"condition_unknown": True})
+    assert "reformado" in listing["description"]
+    assert metrics["matched_profiles"]
+
+
+def test_a_listing_that_stops_matching_once_read_is_dropped():
+    """The page can change the numbers enough to disqualify a match that
+    looked fine from the email alone."""
+    orch = _Orchestrator(page="Piso normal y corriente", matches=False)
+    assert orch.verify(LISTING, {"condition_unknown": True}) is None
