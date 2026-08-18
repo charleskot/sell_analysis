@@ -257,16 +257,30 @@ def extract_title(block: str, fallback: str = "") -> str:
     which also carries no location to parse.
     """
     candidates = []
+    starts_with_type = None
     for segment in (s.strip() for s in block.split("|")):
         if len(segment) < 12 or _TITLE_NOISE_RE.search(segment):
             continue
         if sum(c.isalpha() for c in segment) < 8:
             continue
-        if _TITLE_HEAD_RE.match(segment):
-            return segment[:200]
+
+        # Best case: a segment naming both the property type and where it is.
+        # Habitaclia writes that segment with the price in front of it —
+        # "375.000 € Piso en Barcelona - Baix Guinardó" — so requiring the
+        # title to *start* with the type rejected it, and the bare header
+        # "En Barcelona" won instead. That cost the district on 265 listings
+        # whose email said it plainly, and the city on all of them, which is
+        # the single largest reason listings were being discarded.
+        located = _LOCATION_TAIL_RE.search(segment)
+        if located:
+            return segment[located.start():][:200]
+
+        if starts_with_type is None and _TITLE_HEAD_RE.match(segment):
+            starts_with_type = segment
         candidates.append(segment)
 
-    return (candidates[0] if candidates else fallback)[:200]
+    best = starts_with_type or (candidates[0] if candidates else fallback)
+    return best[:200]
 
 
 def _clean_place(value: str | None) -> str | None:

@@ -686,3 +686,43 @@ def test_the_warning_names_the_search_and_the_loss():
     assert "405" in text and "26" in text and "6%" in text
     assert "Barcelonès" in text
     assert "más estrechas" in text
+
+
+# ── Picking the segment that actually names the place ──────────────────────
+#
+# Habitaclia puts the price in front of the title — "375.000 € Piso en
+# Barcelona - Baix Guinardó" — and a bare header "En Barcelona" beside it.
+# Requiring the title to *start* with a property type rejected the first and
+# accepted the second, losing the district on 265 listings whose email said
+# it plainly, and the city on all of them. It was the single largest reason
+# listings were being discarded.
+
+from ingest.email_parsers import extract_location, extract_title
+
+HABITACLIA_BLOCK = ("| | | En Barcelona | 375.000 € Piso en Barcelona - "
+                    "Baix Guinardó (Ho... | 85m 2 | 3 hab. | |")
+
+
+def test_the_title_with_a_place_wins_over_a_bare_header():
+    assert extract_title(HABITACLIA_BLOCK, "") == "Piso en Barcelona - Baix Guinardó (Ho..."
+
+
+def test_the_price_in_front_is_not_part_of_the_title():
+    assert not extract_title(HABITACLIA_BLOCK, "").startswith("375")
+
+
+def test_city_and_district_survive_that_choice():
+    city, district = extract_location(extract_title(HABITACLIA_BLOCK, ""))
+    assert city == "barcelona"
+    assert district.startswith("baix guinardó")
+
+
+def test_a_title_already_starting_with_the_type_still_works():
+    block = "| Piso en Barcelona - El Clot | 300.000 € | 70m 2 |"
+    assert extract_location(extract_title(block, "")) == ("barcelona", "el clot")
+
+
+def test_furniture_is_still_rejected():
+    """Without the noise filter the chosen title was "Ver 46 fotos"."""
+    block = "| Ver 46 fotos y visita 360 | 375.000 € Piso en Gavà - Centre | 85m 2 |"
+    assert extract_title(block, "").startswith("Piso en Gavà")
