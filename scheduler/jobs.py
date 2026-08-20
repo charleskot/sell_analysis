@@ -516,6 +516,17 @@ class PipelineOrchestrator:
 
         enriched = self._enrich(listing)
         if not enriched:
+            # Unreadable page plus a price no honest flat asks is not a
+            # bargain to inspect, it is a distressed-sale tell. The NPL in
+            # Gavà sat 61% under its zone; nothing legitimate is 55% below
+            # everything around it while hiding its own advert. Below that
+            # bar, unreadable listings still go out marked SOSPECHOSO.
+            for reason in metrics.get("suspicion") or []:
+                pct = _re_mod.match(r"(\d+)% por debajo", reason)
+                if pct and int(pct.group(1)) >= 55:
+                    logger.info(f"{listing.get('id')} descartado: ficha ilegible "
+                                f"y {pct.group(1)}% por debajo de la zona")
+                    return None
             # Genuinely unreadable. The card says so and names it as a
             # reason to look closer, rather than implying the flat is fine.
             return listing, metrics

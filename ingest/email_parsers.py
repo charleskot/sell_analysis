@@ -150,6 +150,13 @@ _REJECT_RE = re.compile(
     r"\btransmisi[oó]n\s+directa\b|\bventa\s+directa\s+del\s+banco\b|"
     r"\bsin\s+derecho\s+a\s+visita\b|\bno\s+se\s+garantiza\s+la\s+posesi[oó]n\b|"
     r"\bentrega\s+de\s+llaves\s+no\s+garantizada\b|\bestado\s+posesorio\b|"
+    # Not a property sale at all: buying the defaulted loan secured on the
+    # flat. The advert itself says "NO supone la compra directa del
+    # inmueble", and one reached the user as a 12% investment because "npl"
+    # meant nothing to the filter and the page could not be read.
+    r"\bnpl\b|\bnon.?performing\b|\bcesi[oó]n\s+de\s+remate\b|"
+    r"\bposici[oó]n\s+acreedora\b|\bcompra\s+del?\s+cr[eé]dito\b|"
+    r"\badquisici[oó]n\s+de(?:l|\s+un)?\s+cr[eé]dito\s+hipotecario\b|"
     # Legal forms a mortgage will not cover
     r"\bnuda\s+propiedad\b|\busufruct\w*\b|\bsubasta\b|\bproindiviso\b|"
     r"\bmultipropiedad\b|\bderecho\s+de\s+superficie\b|"
