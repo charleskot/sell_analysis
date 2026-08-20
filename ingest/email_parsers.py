@@ -71,7 +71,10 @@ PORTAL_SPECS = [
         # destination only exists in the redirect's Location header. Without
         # both facts these emails parsed to zero listings while looking like
         # ordinary alert mail.
-        "sender_match": ["solvia.es", "infosolvia"],
+        # infosolvia.com with the dot: the mailbox fetch filter is built
+        # from the entries that look like domains, and a bare "infosolvia"
+        # was skipped — so Solvia's mail was never even downloaded.
+        "sender_match": ["solvia.es", "infosolvia.com"],
         "resolve_wrapped": True,
         # /propiedades/ keeps the unsubscribe and account links out: the
         # "baja-servicio" URL matched the loose pattern and became a listing.
