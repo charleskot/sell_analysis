@@ -137,21 +137,40 @@ class GmailReader:
     # ── API calls ────────────────────────────────────────────────────────
 
     def _list_message_ids(self, token: str, after_epoch_s: int) -> list[str]:
+        """All matching ids, paginated.
+
+        A single page of MAX_PER_POLL used to be the whole answer, and the
+        cursor then advanced to the newest message seen — so whenever more
+        than one page had accumulated (a quiet weekend, a deliberate
+        seven-day recheck), everything between page one and the cursor was
+        skipped silently. Capped well above any real backlog.
+        """
         query = f"after:{after_epoch_s}"
         if self.query:
             query = f"{query} {self.query}"
 
-        resp = requests.get(
-            f"{API_BASE}/messages",
-            headers={"Authorization": f"Bearer {token}"},
-            params={"q": query, "maxResults": MAX_PER_POLL},
-            timeout=30,
-        )
-        if resp.status_code != 200:
-            raise MailboxUnavailable(
-                f"Gmail respondió {resp.status_code}: {resp.text[:120]}"
+        ids: list[str] = []
+        page_token = None
+        while len(ids) < 500:
+            params = {"q": query, "maxResults": MAX_PER_POLL}
+            if page_token:
+                params["pageToken"] = page_token
+            resp = requests.get(
+                f"{API_BASE}/messages",
+                headers={"Authorization": f"Bearer {token}"},
+                params=params,
+                timeout=30,
             )
-        return [m["id"] for m in resp.json().get("messages", [])]
+            if resp.status_code != 200:
+                raise MailboxUnavailable(
+                    f"Gmail respondió {resp.status_code}: {resp.text[:120]}"
+                )
+            payload = resp.json()
+            ids += [m["id"] for m in payload.get("messages", [])]
+            page_token = payload.get("nextPageToken")
+            if not page_token:
+                break
+        return ids
 
     def _get_message(self, token: str, msg_id: str) -> tuple[RawEmail, int] | None:
         """Returns (email, internalDate_ms) or None."""
