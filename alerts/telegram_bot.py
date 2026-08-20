@@ -55,7 +55,7 @@ class TelegramAlerter:
         agencies, each with its own listing id, so the per-id cooldown alone
         would send one alert per agency for one flat.
         """
-        from models.db import was_alert_sent_recently, record_alert_sent
+        from models.db import record_alert_sent
         from scheduler.quiet_hours import is_quiet
 
         if not self._enabled:
@@ -73,12 +73,14 @@ class TelegramAlerter:
         # The composite score measures rental return, which says nothing about
         # a home to live in: the flats matching that profile score 30-40 and
         # were being dropped in silence.
-        if was_alert_sent_recently(listing_id, self._cooldown_hours):
-            logger.debug(f"Alert cooldown active for {listing_id}")
-            return False
 
-        if dedup_key and was_alert_sent_recently(dedup_key, self._cooldown_hours):
-            logger.info(f"Skipping {listing_id}: same property already alerted ({dedup_key})")
+        # Ever, not within a cooldown window. A window made sense when the
+        # only way to reach here was a freshly parsed email, which is read
+        # once; it stops making sense the moment the same listing can be
+        # re-read — repairing a bad parse would re-send everything older
+        # than the window. Nothing here ever wants the same flat twice.
+        if self.already_sent(listing_id, dedup_key):
+            logger.debug(f"{listing_id} ya enviado, no se repite")
             return False
 
         message = self._format_message(listing, metrics, score)

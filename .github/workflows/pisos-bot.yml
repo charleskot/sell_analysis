@@ -39,7 +39,7 @@ on:
         required: false
         default: loop
         type: choice
-        options: [loop, tick, digest, mail-check]
+        options: [loop, tick, digest, mail-check, mail-recheck]
 
 # Never let two runs touch state/db.sql at once — the loser would push a dump
 # built from a stale database and silently undo the other's progress.

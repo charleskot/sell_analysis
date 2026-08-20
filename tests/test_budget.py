@@ -138,3 +138,33 @@ def test_an_unlabelled_send_is_refused_by_default(db):
         "limits": {"total_per_day": 9, "per_kind": {"piso": 5}},
     }}})
     assert alerter._send_sync("hola") is False
+
+
+# ── Never the same flat twice ──────────────────────────────────────────────
+#
+# The guard used to be a 24-hour cooldown, which was fine while the only way
+# to reach send_alert was a freshly parsed email — read once. It stops being
+# fine the moment mail can be deliberately re-read to repair a bad parse:
+# everything alerted more than a day ago would go out again.
+
+def test_a_listing_alerted_long_ago_is_not_sent_again(db, monkeypatch):
+    from datetime import datetime, timedelta, timezone
+
+    from alerts.telegram_bot import TelegramAlerter
+    from models.schema import alerts_sent
+
+    with db.session_scope() as conn:
+        conn.execute(alerts_sent.insert().values(
+            listing_id="habitaclia_7", alert_type="telegram", message_preview="",
+            sent_at=datetime.now(timezone.utc) - timedelta(days=30),
+        ))
+
+    alerter = TelegramAlerter({"alerts": {"telegram": {
+        "token": "t", "chat_id": "c", "cooldown_hours": 24,
+        "limits": {"total_per_day": 9, "per_kind": {"piso": 9}},
+    }}})
+    sent = []
+    monkeypatch.setattr("requests.post", lambda *a, **k: sent.append(1))
+
+    assert alerter.send_alert("habitaclia_7", {"price": 1}, {}, 0) is False
+    assert sent == []

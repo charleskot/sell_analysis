@@ -174,6 +174,53 @@ def mail_once(verbose: bool = typer.Option(False, "--verbose", "-v")):
         console.print(f"  📧 {portal}: {pstats['parsed']} anuncios, {pstats['alerts']} alertas")
 
 
+@app.command("mail-recheck")
+def mail_recheck(
+    days: int = typer.Option(7, help="Cuántos días atrás volver a leer"),
+    verbose: bool = typer.Option(False, "--verbose", "-v"),
+):
+    """Relee el correo de los últimos días para reparar lo mal interpretado.
+
+    A parser fix only helps the mail that arrives after it. When the fix
+    recovers something the stored listings are missing — 265 of them had no
+    city because the wrong segment of the email was read as the title — the
+    mail is still in the mailbox and re-reading repairs them in place.
+
+    Safe to run: an alert already sent is never sent again, so this corrects
+    the record without repeating anything. Anything that only now matches,
+    because the bot finally knows where it is, is sent once.
+    """
+    setup_logging(verbose)
+    config = load_config()
+    init_db(config)
+
+    import time as _time
+    from models.db import get_telegram_state, set_telegram_state
+    from ingest.gmail_api import STATE_KEY
+
+    previous = get_telegram_state(STATE_KEY, "")
+    rewound = int((_time.time() - days * 86400) * 1000)
+    set_telegram_state(STATE_KEY, str(rewound))
+    console.print(f"[cyan]Releyendo el correo de los últimos {days} días…[/cyan]")
+
+    from scheduler.jobs import PipelineOrchestrator
+
+    try:
+        stats = PipelineOrchestrator(config).run_email_ingest()
+    except Exception:
+        # Leave the cursor where it was rather than silently re-reading
+        # everything again on the next cycle.
+        if previous:
+            set_telegram_state(STATE_KEY, previous)
+        raise
+
+    console.print(
+        f"[green]Releídos:[/green] {stats['emails']} correos · "
+        f"{stats['parsed']} anuncios · {stats['new']} nuevos · "
+        f"{stats['alerts_sent']} alertas"
+    )
+
+
 @app.command("db-dump")
 def db_dump(
     path: str = typer.Option("state/db.sql", help="Fichero de salida"),
