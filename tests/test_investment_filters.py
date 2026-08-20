@@ -859,3 +859,47 @@ def test_a_listing_that_stops_matching_once_read_is_dropped():
     looked fine from the email alone."""
     orch = _Orchestrator(page="Piso normal y corriente", matches=False)
     assert orch.verify(LISTING, {"condition_unknown": True}) is None
+
+
+# ── A loan is not a flat ───────────────────────────────────────────────────
+#
+# "npl piso ... NPL - Non Performing Loan ... esta operación NO supone la
+# compra directa del inmueble" reached the user as a 12% investment: the
+# email title said "npl piso", which meant nothing to the filter, and the
+# page could not be read from the runner, so the page-level reject — which
+# would have caught "venta sin posesión" — never saw it.
+
+@pytest.mark.parametrize("wording", [
+    "npl piso en Can Tintorer",
+    "Oportunidad NPL con garantía inmobiliaria",
+    "non-performing loan",
+    "cesión de remate",
+    "el comprador adquiere la posición acreedora del préstamo",
+    "adquisición de un crédito hipotecario con garantía",
+])
+def test_loan_sales_are_rejected(wording):
+    from ingest.email_parsers import _REJECT_RE
+
+    assert _REJECT_RE.search(wording) is not None, wording
+
+
+def test_ordinary_investment_marketing_still_passes():
+    """"Oportunidad de inversión" is what every seller writes on a normal
+    rentable flat; rejecting it would eat half the honest catalogue."""
+    from ingest.email_parsers import _REJECT_RE
+
+    assert _REJECT_RE.search("Gran oportunidad de inversión inmobiliaria "
+                             "en el centro, piso reformado y luminoso") is None
+
+
+def test_unreadable_plus_extreme_discount_is_dropped():
+    """Nothing legitimate sits 55% under its whole zone while hiding its
+    advert. Below the bar, unreadable listings still go out marked."""
+    orch = _Orchestrator(page=None)
+    dropped = orch.verify(LISTING, {"condition_unknown": True,
+                                    "suspicion": ["61% por debajo de la zona (890 vs 2.256€/m²)"]})
+    assert dropped is None
+
+    kept = orch.verify(LISTING, {"condition_unknown": True,
+                                 "suspicion": ["40% por debajo de la zona (1.203 vs 2.003€/m²)"]})
+    assert kept is not None
