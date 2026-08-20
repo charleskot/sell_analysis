@@ -66,9 +66,18 @@ PORTAL_SPECS = [
     },
     {
         "portal": "solvia",
-        "sender_match": ["solvia.es"],
+        # Alert mail comes from infosolvia.com, and every listing link is
+        # wrapped in a SendGrid redirect whose payload is encrypted — the
+        # destination only exists in the redirect's Location header. Without
+        # both facts these emails parsed to zero listings while looking like
+        # ordinary alert mail.
+        "sender_match": ["solvia.es", "infosolvia"],
+        "resolve_wrapped": True,
+        # /propiedades/ keeps the unsubscribe and account links out: the
+        # "baja-servicio" URL matched the loose pattern and became a listing.
         "url_re": re.compile(
-            r"https?://(?:www\.)?solvia\.es/[^\s\"'<>]*?(\d{6,})[^\s\"'<>]*", re.I
+            r"https?://(?:www\.)?solvia\.es/[^\s\"'<>]*?propiedades/[^\s\"'<>]*?(\d{6,})[^\s\"'<>]*",
+            re.I,
         ),
     },
     {
@@ -145,6 +154,39 @@ _REJECT_RE = re.compile(
     r"\bsuelo\s+urbanizable\b|\bparcela\b|\bsolar\b",
     re.I,
 )
+
+# SendGrid click-tracking wrapper. The inner URL is encrypted, so the only
+# way to the destination is the redirect itself.
+_SENDGRID_RE = re.compile(r'https?://[^\s"\'<>]*?\.ct\.sendgrid\.net/ls/click[^\s"\'<>]*')
+
+
+def resolve_wrapped_links(body: str, max_links: int = 30) -> str:
+    """Replace SendGrid tracking links with the URLs they redirect to.
+
+    One HEAD request per distinct link, redirects not followed — only the
+    Location header is wanted. Failures leave the original link in place, so
+    the worst case is exactly the input. Capped because a broken email must
+    not turn into an unbounded crawl.
+    """
+    import requests as _rq
+
+    resolved: dict[str, str] = {}
+
+    def _sub(m: re.Match) -> str:
+        link = m.group(0)
+        if link not in resolved:
+            if len(resolved) >= max_links:
+                return link
+            try:
+                resp = _rq.head(link, timeout=10, allow_redirects=False)
+                resolved[link] = resp.headers.get("Location") or link
+            except Exception as e:
+                logger.debug(f"redirect no resuelto: {e}")
+                resolved[link] = link
+        return resolved[link]
+
+    return _SENDGRID_RE.sub(_sub, body)
+
 
 _TAG_RE = re.compile(r"<[^>]+>")
 _WS_RE = re.compile(r"[\s ]+")
@@ -297,6 +339,19 @@ def _clean_place(value: str | None) -> str | None:
     if not place:
         return None
 
+    # Bank listings name the street before the town — "C/ Calderón de la
+    # Barca/Badalona", "c/ Tercio... en Badalona (Barcelona)" — and a street
+    # is not a place the profiles can match. Peel down to the town: last
+    # slash segment, drop a trailing "(provincia)", keep what follows a
+    # final " en ".
+    if "/" in place:
+        place = place.split("/")[-1].strip()
+    place = re.sub(r"\s*\([^)]*\)\s*$", "", place).strip()
+    if " en " in f" {place} ":
+        place = place.rsplit(" en ", 1)[-1].strip()
+    if not place:
+        return None
+
     # "Pa..." carries no information; "Llefià (Art..." still identifies a zone
     if truncated and len(place) < 4:
         return None
@@ -442,6 +497,11 @@ def parse_email(sender: str, subject: str, html: str, text: str = "",
         return []
 
     portal = spec["portal"]
+
+    # Replaced in place, not appended: the resolved URL must sit where the
+    # wrapped link sat, so the price and rooms beside it stay in its block.
+    if spec.get("resolve_wrapped"):
+        body = resolve_wrapped_links(body)
 
     # Tracking-wrapped links only become visible once decoded. The decoded
     # copy is appended, so offsets into the original half stay valid.
