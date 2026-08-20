@@ -26,6 +26,52 @@ CONDITION_WORDS = _re_mod.compile(
 )
 
 
+# What the seller says about light and orientation. Never inferred from
+# absence: "no dice nada de luz" is not "oscuro".
+BRIGHT_RE = _re_mod.compile(
+    r"\bluminos[oa]\b|\bmucha\s+luz\b|\bsoleado\b|\bexterior\b|"
+    r"\borientaci[oó]n\s+(?:sur|este|sureste|suroeste)\b|\btodo\s+exterior\b",
+    _re_mod.I,
+)
+INTERIOR_RE = _re_mod.compile(r"\binterior\b", _re_mod.I)
+
+
+def zone_market_stats(city: str | None, district: str | None) -> dict | None:
+    """The €/m² spread of the zone, from the listings already ingested.
+
+    Percentiles rather than the mean: one 15.000 €/m² penthouse drags a mean
+    anywhere, while p25–p75 says what flats in this zone actually ask. The
+    district is used when it has enough listings to mean something; the town
+    otherwise; fewer than five listings is no market at all.
+    """
+    from sqlalchemy import select
+    from models.db import get_engine
+    from models.schema import listings
+
+    if not city or city == "desconocido":
+        return None
+
+    def _prices(use_district: bool) -> list[float]:
+        conds = [listings.c.city == city, listings.c.price_per_m2.isnot(None),
+                 listings.c.price_per_m2 > 200]
+        if use_district:
+            if not district:
+                return []
+            conds.append(listings.c.district == district)
+        with get_engine().connect() as conn:
+            rows = conn.execute(select(listings.c.price_per_m2).where(*conds)).fetchall()
+        return sorted(r[0] for r in rows)
+
+    for use_district, scope in ((True, district), (False, city)):
+        vals = _prices(use_district)
+        if len(vals) >= 5:
+            def pct(p):
+                return vals[min(len(vals) - 1, int(p * len(vals)))]
+            return {"n": len(vals), "scope": scope,
+                    "p25": pct(0.25), "median": pct(0.5), "p75": pct(0.75)}
+    return None
+
+
 def digest_due(now: datetime, last_sent_date: str, hour_utc: int = DIGEST_HOUR_UTC) -> bool:
     """Whether the daily digest still owes today's send.
 
@@ -891,6 +937,34 @@ class PipelineOrchestrator:
             suspicion.append("no he podido leer la ficha")
 
         metrics["suspicion"] = suspicion
+
+        # The zone, in numbers the reader can argue with: what flats there
+        # actually ask per m², and where this one sits against the median.
+        market = zone_market_stats(city, district)
+        if market:
+            if ppm2 and market["median"]:
+                market["delta_pct"] = round(100 * (ppm2 / market["median"] - 1))
+            metrics["zone_market"] = market
+
+        text_all = f"{listing.get('title', '')} {listing.get('description', '')}"
+        hits = sorted({m.group(0).lower() for m in BRIGHT_RE.finditer(text_all)})
+        if hits:
+            metrics["bright"] = hits
+        elif INTERIOR_RE.search(text_all):
+            metrics["interior"] = True
+
+        # The only structured danger signal there is data for: the lowest
+        # household-income neighbourhoods (INE), the same list the investment
+        # profile excludes outright. Shown as information wherever it applies,
+        # because "cheap" and "in this list" together explain each other.
+        watch = []
+        for spec_profile in self.config.get("search_profiles") or []:
+            watch += spec_profile.get("excluded_zones") or []
+        if watch:
+            from analysis.profiles import _place_matches
+            where_txt = f"{listing.get('district') or ''} {listing.get('city') or ''}"
+            if any(_place_matches(z, where_txt) for z in watch):
+                metrics["watchlist_zone"] = True
 
         # Rent cap. The estimate above comes from market averages, but in a
         # declared zone the lawful rent is whatever the Generalitat's index

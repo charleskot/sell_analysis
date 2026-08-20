@@ -535,6 +535,12 @@ class TelegramAlerter:
         if building:
             out.append("🏗 " + " · ".join(building))
 
+        # What the seller says about light — never inferred from silence
+        if metrics.get("bright"):
+            out.append("☀️ " + " · ".join(metrics["bright"][:3]))
+        elif metrics.get("interior"):
+            out.append("🌑 interior (menos luz)")
+
         age = self._age_line(listing)
         if age:
             out.append(age)
@@ -545,8 +551,18 @@ class TelegramAlerter:
         out.append("")
         out.extend(self._money_block(metrics, purpose))
 
+        out.extend(self._market_block(metrics))
+
         if purpose == "investment":
             out.extend(self._zone_block(listing, metrics))
+
+        # The only structured danger signal there is data for. Named as what
+        # it is — income, not crime — so the reader knows what was measured.
+        if metrics.get("watchlist_zone"):
+            out.append("")
+            out.append("🚨 <b>Barrio entre los de menor renta del área</b> (Atlas INE): "
+                       "más difícil de alquilar y revender. Visita la zona antes "
+                       "de decidir.")
 
         out.extend(self._caveat_block(metrics, purpose))
 
@@ -616,6 +632,31 @@ class TelegramAlerter:
             out.append(f"📈 Rentabilidad neta: <b>{net:.1f}%</b>  (bruta {gross:.1f}%)")
             if payback:
                 out.append(f"⏳ Se paga sola en {payback:.0f} años")
+        return out
+
+    def _market_block(self, metrics: dict) -> list[str]:
+        """What the zone actually asks per m², and where this flat sits.
+
+        Built from the listings the bot itself has ingested — the same pool
+        the reader is choosing from — not from a published index. The spread
+        (p25–p75) says more than any single average, and the delta against
+        the median is the number that turns "48% under the zone" from a
+        suspicion into a measurement.
+        """
+        zm = metrics.get("zone_market")
+        if not zm:
+            return []
+        out = ["", f"📊 Mercado en {self._esc(str(zm['scope']).title())} "
+                   f"({zm['n']} anuncios): {self._money(zm['p25'])}–"
+                   f"{self._money(zm['p75'])}€/m² · mediana {self._money(zm['median'])}€/m²"]
+        delta = zm.get("delta_pct")
+        if delta is not None:
+            if delta <= -8:
+                out.append(f"   ↳ este piso está un <b>{-delta}% por debajo</b> de la mediana")
+            elif delta >= 8:
+                out.append(f"   ↳ este piso está un <b>{delta}% por encima</b> de la mediana")
+            else:
+                out.append("   ↳ este piso está en la media de su zona")
         return out
 
     def _zone_block(self, listing: dict, metrics: dict) -> list[str]:

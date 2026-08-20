@@ -537,8 +537,8 @@ def spec_for(portal):
      "https://www.servihabitat.com/es/inmueble/12345678/piso-en-mataro-barcelona",
      "12345678"),
     ("solvia",
-     "https://www.solvia.es/es/inmuebles/vivienda/9876543/piso-sabadell?utm=alerta",
-     "9876543"),
+     "https://www.solvia.es/es/propiedades/comprar/Piso-Badalona-4-dormitorio-155147-192449?utm_source=Solvia",
+     "155147"),
     ("altamira",
      "https://www.altamirainmuebles.com/venta/vivienda/1234567/piso-en-reus",
      "1234567"),
@@ -726,3 +726,64 @@ def test_furniture_is_still_rejected():
     """Without the noise filter the chosen title was "Ver 46 fotos"."""
     block = "| Ver 46 fotos y visita 360 | 375.000 € Piso en Gavà - Centre | 85m 2 |"
     assert extract_title(block, "").startswith("Piso en Gavà")
+
+
+# ── Solvia: wrapped links and street-first place names ─────────────────────
+#
+# Solvia's alert mail comes from infosolvia.com and wraps every link in a
+# SendGrid redirect whose payload is encrypted — the destination exists only
+# in the redirect's Location header. These emails parsed to zero listings
+# for days while looking like ordinary alert mail.
+
+def test_solvia_sender_is_recognised():
+    spec = detect_portal("noreply@infosolvia.com", "")
+    assert spec and spec["portal"] == "solvia"
+
+
+def test_unsubscribe_link_is_not_a_listing():
+    """The loose pattern turned /baja-servicio into a 350.000 € flat."""
+    spec = spec_for("solvia")
+    assert spec["url_re"].search(
+        "http://www.solvia.es/es/baja-servicio?u=123456789") is None
+
+
+def test_wrapped_links_are_replaced_in_place(monkeypatch):
+    """In place, not appended: the price beside the link must stay in its
+    block when the body is split per listing."""
+    from ingest import email_parsers
+
+    class Resp:
+        headers = {"Location": "http://www.solvia.es/es/propiedades/comprar/Piso-Badalona-3-dormitorio-157004-194375"}
+
+    monkeypatch.setattr(email_parsers, "resolve_wrapped_links",
+                        email_parsers.resolve_wrapped_links)
+    import requests as rq
+    monkeypatch.setattr(rq, "head", lambda *a, **k: Resp())
+
+    body = ('<a href="https://u8697835.ct.sendgrid.net/ls/click?upn=abc">Piso</a>'
+            " 77.800 € 66m2 3 hab.")
+    out = email_parsers.resolve_wrapped_links(body)
+    assert "sendgrid" not in out
+    assert "157004" in out
+    assert "77.800 €" in out
+
+
+def test_a_failed_redirect_leaves_the_body_untouched(monkeypatch):
+    import requests as rq
+
+    from ingest.email_parsers import resolve_wrapped_links
+
+    def boom(*a, **k):
+        raise OSError("timeout")
+    monkeypatch.setattr(rq, "head", boom)
+
+    body = 'x https://u1.ct.sendgrid.net/ls/click?upn=abc y'
+    assert resolve_wrapped_links(body) == body
+
+
+def test_street_first_places_peel_down_to_the_town():
+    from ingest.email_parsers import _clean_place
+
+    assert _clean_place("C/ Calderón de la Barca/Badalona") == "badalona"
+    assert _clean_place("c/ Tercio de Ntra Señora en Badalona (Barcelona)") == "badalona"
+    assert _clean_place("Sant Feliu de Llobregat") == "sant feliu de llobregat"
