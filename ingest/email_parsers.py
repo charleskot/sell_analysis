@@ -160,6 +160,15 @@ _REJECT_RE = re.compile(
     # Legal forms a mortgage will not cover
     r"\bnuda\s+propiedad\b|\busufruct\w*\b|\bsubasta\b|\bproindiviso\b|"
     r"\bmultipropiedad\b|\bderecho\s+de\s+superficie\b|"
+    # A shop dressed as a flat. Sold as "piso" but legally still a local
+    # comercial: no housing mortgage, no cédula, and the next buyer walks
+    # away for the same reason. Precise phrases only — bare "local" would
+    # eat every advert that mentions the shops downstairs.
+    r"\blocal\s+(?:comercial\s+)?(?:convertido|reconvertido|transformado|"
+    r"habilitado|acondicionado|reformado)\s+(?:en|como|a)\s+(?:vivienda|piso|loft)\b|"
+    r"\bantiguo\s+local\b|\bes\s+un\s+local\b|\bcambio\s+de\s+uso\b|"
+    r"\bde\s+uso\s+comercial\b|\bsin\s+c[eé]dula\b|"
+    r"\bpendiente\s+de\s+c[eé]dula\b|\bsin\s+divisi[oó]n\s+horizontal\b|"
     # Not a home, or not mortgageable as one
     r"\bsuelo\s+urbanizable\b|\bparcela\b|\bsolar\b",
     re.I,
