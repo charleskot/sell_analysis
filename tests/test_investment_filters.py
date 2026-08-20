@@ -903,3 +903,37 @@ def test_unreadable_plus_extreme_discount_is_dropped():
     kept = orch.verify(LISTING, {"condition_unknown": True,
                                  "suspicion": ["40% por debajo de la zona (1.203 vs 2.003€/m²)"]})
     assert kept is not None
+
+
+# ── A shop dressed as a flat ───────────────────────────────────────────────
+#
+# Sold as "piso", legally still a local comercial: no housing mortgage, no
+# cédula de habitabilidad, and the resale fails for the same reason.
+
+@pytest.mark.parametrize("wording", [
+    "antiguo local comercial reformado",
+    "local convertido en vivienda con cocina equipada",
+    "local comercial habilitado como piso",
+    "local transformado a loft de diseño",
+    "actualmente de uso comercial, ideal para cambio de uso",
+    "en trámite de cambio de uso a vivienda",
+    "se vende sin cédula de habitabilidad",
+    "pendiente de cédula",
+    "sin división horizontal",
+])
+def test_converted_shops_are_rejected(wording):
+    from ingest.email_parsers import _REJECT_RE
+
+    assert _REJECT_RE.search(wording) is not None, wording
+
+
+@pytest.mark.parametrize("wording", [
+    "piso luminoso cerca de todos los locales y comercios de la zona",
+    "bajos comerciales en la finca, portero",
+    "vivienda con cédula de habitabilidad vigente",
+])
+def test_flats_that_merely_mention_shops_still_pass(wording):
+    """Bare "local" appears in half the honest catalogue."""
+    from ingest.email_parsers import _REJECT_RE
+
+    assert _REJECT_RE.search(wording) is None, wording
