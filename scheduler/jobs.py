@@ -516,6 +516,20 @@ class PipelineOrchestrator:
 
         enriched = self._enrich(listing)
         if not enriched:
+            # The portal refused the direct read, but a public reader can
+            # still fetch the page. Scanned for disqualifying wording only:
+            # its text includes the portal's navigation, and mistaking that
+            # for the seller's description would fabricate a condition.
+            from ingest.enrich import fetch_page_text_fallback
+            from ingest.email_parsers import _REJECT_RE
+
+            page_text = fetch_page_text_fallback(listing.get("url"))
+            if page_text:
+                blocker = _REJECT_RE.search(page_text)
+                if blocker:
+                    logger.info(f"{listing.get('id')} descartado vía lector: "
+                                f"{blocker.group(0)!r}")
+                    return None
             # Unreadable page plus a price no honest flat asks is not a
             # bargain to inspect, it is a distressed-sale tell. The NPL in
             # Gavà sat 61% under its zone; nothing legitimate is 55% below

@@ -937,3 +937,42 @@ def test_flats_that_merely_mention_shops_still_pass(wording):
     from ingest.email_parsers import _REJECT_RE
 
     assert _REJECT_RE.search(wording) is None, wording
+
+
+# ── The fallback reader closes the occupied-flat leak ──────────────────────
+#
+# Habitaclia refuses the runner's address, so the advert saying "NO SE PUEDE
+# VISITAR" in capitals was unreadable and occupied flats kept arriving marked
+# merely as suspicious. A public reader fetches the page from its own
+# infrastructure; its text is scanned for disqualifying wording only, since
+# it includes the portal's navigation and "Obra nueva" sits in every menu.
+
+def test_occupied_wording_via_fallback_reader_drops_the_listing(monkeypatch):
+    import ingest.enrich as enrich_mod
+
+    orch = _Orchestrator(page=None)
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback",
+                        lambda url: "menú Obra nueva | ¡¡¡ POSIBLE OCUPACION "
+                                    "DEL INMUEBLE, NO SE PUEDE VISITAR !!!")
+    assert orch.verify(LISTING, {"condition_unknown": True}) is None
+
+
+def test_clean_fallback_text_still_sends_marked(monkeypatch):
+    """Navigation containing "Obra nueva" must not fabricate a condition."""
+    import ingest.enrich as enrich_mod
+
+    orch = _Orchestrator(page=None)
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback",
+                        lambda url: "menú Obra nueva | piso normal en venta, "
+                                    "tres habitaciones con ascensor")
+    result = orch.verify(LISTING, {"condition_unknown": True})
+    assert result is not None
+    assert result[1]["condition_unknown"] is True
+
+
+def test_reader_unavailable_keeps_the_old_behaviour(monkeypatch):
+    import ingest.enrich as enrich_mod
+
+    orch = _Orchestrator(page=None)
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback", lambda url: None)
+    assert orch.verify(LISTING, {"condition_unknown": True}) is not None
