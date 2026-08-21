@@ -44,6 +44,36 @@ _DESCRIPTION_SELECTORS = [
 _MAX_CHARS = 4000
 
 
+def fetch_page_text_fallback(url: str) -> str | None:
+    """Read a blocked listing page through the public r.jina.ai reader.
+
+    Habitaclia, Idealista and Fotocasa refuse the runner's address, so the
+    advert that says "NO SE PUEDE VISITAR" in capitals was unreadable and
+    occupied flats kept reaching the user marked merely as suspicious. The
+    reader fetches from its own infrastructure and returns plain text.
+
+    Used ONLY to scan for disqualifying wording. The text includes the
+    portal's own navigation — which contains phrases like "Obra nueva" — so
+    treating it as the flat's description would fabricate a condition the
+    seller never stated.
+    """
+    if not url or not url.startswith("http"):
+        return None
+    try:
+        import requests
+
+        resp = requests.get(f"https://r.jina.ai/{url}", timeout=45,
+                            headers={"X-Return-Format": "text"})
+    except Exception as e:
+        logger.info(f"enrich: fallback reader failed for {url[:60]}: {e}")
+        return None
+    if resp.status_code != 200 or len(resp.text) < 500:
+        logger.info(f"enrich: fallback reader {resp.status_code}, "
+                    f"{len(resp.text)} bytes for {url[:60]}")
+        return None
+    return resp.text[:20_000]
+
+
 def _proxies() -> dict | None:
     """Route through a residential proxy when one is configured.
 
