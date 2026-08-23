@@ -530,6 +530,19 @@ class PipelineOrchestrator:
                     logger.info(f"{listing.get('id')} descartado vía lector: "
                                 f"{blocker.group(0)!r}")
                     return None
+            else:
+                # Nothing could read the page — not the runner, not the
+                # reader. For an investment that is now a drop, not a
+                # marked card: "send it flagged" was tried, the reader's
+                # silent refusals turned it into a stream of occupied
+                # flats, and the user paid for every one by opening it.
+                # A home match still goes out marked: those are not the
+                # distressed stock where occupation hides.
+                hits = self.profile_matcher.match(listing, metrics)
+                if hits and all(p.purpose == "investment" for p, _ in hits):
+                    logger.info(f"{listing.get('id')} no verificable por "
+                                f"ninguna vía — inversión no se envía")
+                    return None
             # Unreadable page plus a price no honest flat asks is not a
             # bargain to inspect, it is a distressed-sale tell. The NPL in
             # Gavà sat 61% under its zone; nothing legitimate is 55% below

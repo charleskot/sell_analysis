@@ -59,19 +59,45 @@ def fetch_page_text_fallback(url: str) -> str | None:
     """
     if not url or not url.startswith("http"):
         return None
-    try:
-        import requests
+    import time
 
-        resp = requests.get(f"https://r.jina.ai/{url}", timeout=45,
-                            headers={"X-Return-Format": "text"})
-    except Exception as e:
-        logger.info(f"enrich: fallback reader failed for {url[:60]}: {e}")
-        return None
-    if resp.status_code != 200 or len(resp.text) < 500:
-        logger.info(f"enrich: fallback reader {resp.status_code}, "
-                    f"{len(resp.text)} bytes for {url[:60]}")
-        return None
-    return resp.text[:20_000]
+    import requests
+
+    # The reader rate-limits by IP and GitHub runners share theirs, so a
+    # sweep of twenty listings back-to-back gets refused halfway through.
+    # Pace the calls and retry once: a second request a few seconds later
+    # usually lands in the next window. An audit found 19 of 34 sent cards
+    # were occupied — every one readable — because refusals were silent.
+    for attempt in (1, 2):
+        _pace()
+        try:
+            resp = requests.get(f"https://r.jina.ai/{url}", timeout=45,
+                                headers={"X-Return-Format": "text"})
+        except Exception as e:
+            logger.warning(f"enrich: fallback reader intento {attempt} falló "
+                           f"para {url[:60]}: {e}")
+            resp = None
+        if resp is not None and resp.status_code == 200 and len(resp.text) >= 500:
+            return resp.text[:20_000]
+        if resp is not None:
+            logger.warning(f"enrich: fallback reader intento {attempt} → "
+                           f"{resp.status_code}, {len(resp.text)} bytes")
+        if attempt == 1:
+            time.sleep(6)
+    return None
+
+
+_LAST_READER_CALL = [0.0]
+
+
+def _pace(min_gap_s: float = 3.5) -> None:
+    """Keep reader calls under its per-IP rate limit."""
+    import time
+
+    wait = _LAST_READER_CALL[0] + min_gap_s - time.monotonic()
+    if wait > 0:
+        time.sleep(wait)
+    _LAST_READER_CALL[0] = time.monotonic()
 
 
 def _proxies() -> dict | None:

@@ -186,6 +186,34 @@ def was_alert_ever_sent(listing_id: str) -> bool:
     return row is not None
 
 
+def was_similar_listing_sent(city: str | None, price: float | None,
+                             area: float | None) -> bool:
+    """Whether a flat this similar has already gone out.
+
+    The exact fingerprint (city:price:area:rooms) misses the commonest
+    duplicate: the same flat listed by several agencies, each measuring it
+    their own way. Esplugues at 270.000 € went out as 70 m²/2 hab, then
+    85 m²/3 hab, then 85 m²/2 hab — one flat, three cards. Identical asking
+    price in the same town with area within 25% is that flat again; two
+    genuinely different flats colliding on all three at once is rare enough
+    to be worth the trade.
+    """
+    if not city or city == "desconocido" or not price or not area:
+        return False
+    with session_scope() as conn:
+        row = conn.execute(
+            select(alerts_sent.c.id)
+            .select_from(alerts_sent.join(listings, listings.c.id == alerts_sent.c.listing_id))
+            .where(
+                listings.c.city == city,
+                listings.c.price == price,
+                listings.c.area_m2.between(area * 0.75, area * 1.25),
+            )
+            .limit(1)
+        ).fetchone()
+    return row is not None
+
+
 def was_alert_sent_recently(listing_id: str, cooldown_hours: int = 168) -> bool:
     from datetime import timedelta
     cutoff = datetime.now(timezone.utc) - timedelta(hours=cooldown_hours)
