@@ -83,6 +83,16 @@ class TelegramAlerter:
             logger.debug(f"{listing_id} ya enviado, no se repite")
             return False
 
+        # The same flat, listed again by another agency that measured it
+        # differently. Identical asking price in the same town with a
+        # similar area is that flat, not a new one.
+        from models.db import was_similar_listing_sent
+
+        if was_similar_listing_sent(listing.get("city"), listing.get("price"),
+                                    listing.get("area_m2")):
+            logger.info(f"{listing_id}: mismo piso ya enviado con otras medidas")
+            return False
+
         message = self._format_message(listing, metrics, score)
         keyboard = self._feedback_keyboard(listing_id)
         message_id = self._send_sync(message, reply_markup=keyboard, kind="piso")

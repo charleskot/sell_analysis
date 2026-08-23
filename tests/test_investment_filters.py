@@ -27,6 +27,7 @@ def test_normalise_handles_none_and_empty():
 VIVIENDA = {
     "name": "vivienda",
     "label": "🏠 Para vivir",
+    "purpose": "home",
     "max_price": 330000,
     "min_rooms": 2,
     "max_rooms": 4,
@@ -976,3 +977,93 @@ def test_reader_unavailable_keeps_the_old_behaviour(monkeypatch):
     orch = _Orchestrator(page=None)
     monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback", lambda url: None)
     assert orch.verify(LISTING, {"condition_unknown": True}) is not None
+
+
+# ── Fail closed: an unverifiable investment is not sent at all ─────────────
+#
+# "Send it flagged" was tried. The reader's silent refusals on the runner
+# turned it into a stream of occupied flats — an audit found 19 of 34 sent
+# cards disqualifiable, every page readable — and the user paid for each
+# one by opening it. A home match still goes out marked: that stock is not
+# where occupation hides.
+
+def test_unverifiable_investment_is_dropped(monkeypatch):
+    import ingest.enrich as enrich_mod
+
+    orch = _Orchestrator(page=None)   # matcher holds only INVERSION
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback", lambda url: None)
+    listing = {**LISTING, "price": 130000}
+    assert orch.verify(listing, {**_inv_metrics(), "condition_unknown": True}) is None
+
+
+def test_unverifiable_home_still_goes_out_marked(monkeypatch):
+    import ingest.enrich as enrich_mod
+    from analysis.profiles import ProfileMatcher
+
+    orch = _Orchestrator(page=None)
+    orch.profile_matcher = ProfileMatcher({"search_profiles": [VIVIENDA]})
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback", lambda url: None)
+    home = _home()
+    result = orch.verify(home, {"condition_unknown": True})
+    assert result is not None
+    assert result[1]["condition_unknown"] is True
+
+
+# ── The same flat measured three different ways ────────────────────────────
+
+def _sent(db, listing_id, city, price, area):
+    from datetime import datetime, timezone
+
+    from models.db import upsert_listing
+    from models.schema import alerts_sent as sent_tbl
+
+    upsert_listing({"portal": listing_id.split("_")[0], "external_id": listing_id.split("_")[1],
+                    "url": "https://x.example/1", "price": price, "area_m2": area,
+                    "rooms": 2, "city": city})
+    with db.session_scope() as conn:
+        conn.execute(sent_tbl.insert().values(
+            listing_id=listing_id, alert_type="telegram", message_preview="",
+            sent_at=datetime.now(timezone.utc)))
+
+
+@pytest.fixture
+def db(tmp_path):
+    import models.db as models_db
+
+    models_db.init_engine(str(tmp_path / "t.db"))
+    models_db.create_all_tables()
+    yield models_db
+    models_db._engine = None
+
+
+def test_same_price_similar_area_is_the_same_flat(db):
+    """270.000 € in Esplugues went out as 70 m², then 85 m², then 85 m²
+    again — one flat, three cards, because each agency measured it its way."""
+    from models.db import was_similar_listing_sent
+
+    _sent(db, "habitaclia_100", "esplugues de llobregat", 270000, 70)
+    assert was_similar_listing_sent("esplugues de llobregat", 270000, 85) is True
+
+
+def test_a_different_price_is_a_different_flat(db):
+    from models.db import was_similar_listing_sent
+
+    _sent(db, "habitaclia_101", "esplugues de llobregat", 270000, 70)
+    assert was_similar_listing_sent("esplugues de llobregat", 265000, 70) is False
+
+
+def test_a_very_different_area_is_a_different_flat(db):
+    from models.db import was_similar_listing_sent
+
+    _sent(db, "habitaclia_102", "esplugues de llobregat", 270000, 70)
+    assert was_similar_listing_sent("esplugues de llobregat", 270000, 120) is False
+
+
+def test_missing_data_never_blocks(db):
+    """An incomplete listing must not be deduped against an unrelated one."""
+    from models.db import was_similar_listing_sent
+
+    _sent(db, "habitaclia_103", "esplugues de llobregat", 270000, 70)
+    assert was_similar_listing_sent(None, 270000, 70) is False
+    assert was_similar_listing_sent("desconocido", 270000, 70) is False
+    assert was_similar_listing_sent("esplugues de llobregat", None, 70) is False
