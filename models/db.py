@@ -224,6 +224,59 @@ def daily_counters() -> dict:
     return {}
 
 
+def get_verify_verdict(listing_id: str) -> tuple[str, str] | None:
+    """The stored page-verification verdict for a listing, if any.
+
+    Returns (verdict, iso_timestamp): "rechazada" when the advert's own page
+    disqualified the flat — final, the page said what it said — or
+    "ilegible" when nothing could read the page, which is worth retrying
+    once the reader has had a few hours to recover.
+    """
+    import json as _json
+
+    if not listing_id:
+        return None
+    try:
+        raw = get_telegram_state("verify_verdicts", "")
+        data = _json.loads(raw) if raw else {}
+        entry = data.get(listing_id)
+        if entry:
+            return entry.get("v", ""), entry.get("at", "")
+    except Exception:
+        pass
+    return None
+
+
+def set_verify_verdict(listing_id: str, verdict: str) -> None:
+    """Remember why a listing failed verification. Never raises: bookkeeping.
+
+    Without this, the pending sweep re-read the same rejected adverts every
+    cycle: 68 listings × one paced reader fetch each × 480 cycles a day.
+    The funnel counter reached 5.896 "occupied" in a day that saw perhaps a
+    dozen distinct flats, and the reader time spent re-condemning them was
+    time not spent verifying anything new.
+    """
+    import json as _json
+    from datetime import datetime as _dt, timezone as _tz
+
+    if not listing_id:
+        return
+    try:
+        raw = get_telegram_state("verify_verdicts", "")
+        data = _json.loads(raw) if raw else {}
+        if not isinstance(data, dict):
+            data = {}
+        data[listing_id] = {"v": verdict,
+                            "at": _dt.now(_tz.utc).isoformat()}
+        if len(data) > 800:
+            oldest_first = sorted(data.items(),
+                                  key=lambda kv: kv[1].get("at", ""))
+            data = dict(oldest_first[-800:])
+        set_telegram_state("verify_verdicts", _json.dumps(data))
+    except Exception as e:
+        logger.warning(f"No pude guardar veredicto de {listing_id}: {e}")
+
+
 def was_similar_listing_sent(city: str | None, price: float | None,
                              area: float | None,
                              district: str | None = None) -> bool:

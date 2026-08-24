@@ -9,6 +9,22 @@ import pytest
 from analysis.profiles import Profile, ProfileMatcher, normalise
 
 
+@pytest.fixture(autouse=True)
+def _fresh_engine():
+    """Each test starts without a database engine.
+
+    Several tests open their own — inline or via the `db` fixture — and one
+    left open leaks state into every test after it: a verification verdict
+    stored under a listing id reused across tests turned an unrelated
+    assertion false depending on execution order.
+    """
+    import models.db as models_db
+
+    models_db._engine = None
+    yield
+    models_db._engine = None
+
+
 # ── Place-name normalisation ─────────────────────────────────────────────
 
 def test_normalise_strips_accents_and_punctuation():
@@ -1111,3 +1127,109 @@ def test_small_towns_keep_the_city_level_rule(db):
     _sent(db, "habitaclia_203", "esplugues de llobregat", 270000, 70)
     assert was_similar_listing_sent("esplugues de llobregat", 270000, 85,
                                     "c/ otra calle") is True
+
+
+# ── The portal's truncated district names ──────────────────────────────────
+#
+# Habitaclia cuts district names to fit its template: "Guinardó (Horta
+# Guinardó)" arrives as "Guinardó (Horta G". The config names the barrio
+# "el guinardo", and with the article in the way neither string contains
+# the other — a 164.000 € flat squarely inside the wanted zone failed the
+# zone check, and a 240.000 € one never matched at all. The same miss let
+# "Lloreda (Salut" in Badalona slip past the excluded zone "la salut".
+
+def test_truncated_district_still_matches_its_barrio():
+    spec = {**VIVIENDA,
+            "areas": [{"city": "barcelona", "districts": ["el guinardo"]}]}
+    ok, _ = Profile(spec).match(_home(district="guinardó (horta g"), {})
+    assert ok
+
+
+def test_adjacent_barrio_sharing_the_name_counts_as_the_zone():
+    """Baix Guinardó sits between Maragall and Sagrada Família — inside the
+    area the barrio list draws — and shares the Guinardó name."""
+    spec = {**VIVIENDA,
+            "areas": [{"city": "barcelona", "districts": ["el guinardo"]}]}
+    ok, _ = Profile(spec).match(_home(district="baix guinardó (ho"), {})
+    assert ok
+
+
+def test_unrelated_barrio_still_out_of_zone():
+    spec = {**VIVIENDA,
+            "areas": [{"city": "barcelona", "districts": ["el guinardo"]}]}
+    ok, reason = Profile(spec).match(_home(district="les corts"), {})
+    assert not ok
+    assert "fuera de zona" in reason
+
+
+def test_truncated_excluded_zone_is_still_excluded():
+    spec = {**INVERSION, "excluded_zones": ["la salut"]}
+    ok, reason = Profile(spec).match(
+        {"price": 114000, "city": "badalona", "district": "lloreda (salut"},
+        _inv_metrics(),
+    )
+    assert not ok
+    assert "excluida" in reason
+
+
+# ── A verdict once reached is not re-litigated every cycle ─────────────────
+#
+# The pending sweep calls verify() for every never-sent match, every cycle.
+# Verdicts were not stored, so the same ~68 rejected adverts were re-fetched
+# through the paced reader every three minutes: the funnel counted 5.896
+# "occupied" in a day that saw perhaps a dozen distinct flats, and the
+# reader time burned on re-condemning them starved the listings that
+# actually needed a first read.
+
+def test_a_rejected_page_is_not_re_read(db, monkeypatch):
+    import ingest.enrich as enrich_mod
+
+    calls = {"n": 0}
+
+    def reader(url):
+        calls["n"] += 1
+        return "¡¡¡ POSIBLE OCUPACION DEL INMUEBLE, NO SE PUEDE VISITAR !!!"
+
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback", reader)
+    orch = _Orchestrator(page=None)
+    assert orch.verify(LISTING, {"condition_unknown": True}) is None
+    assert calls["n"] == 1
+
+    assert orch.verify(LISTING, {"condition_unknown": True}) is None
+    assert calls["n"] == 1            # the stored verdict answers
+    assert orch.enriched_calls == 1   # the direct read is skipped too
+
+
+def test_an_unreadable_page_is_retried_after_hours_not_minutes(db, monkeypatch):
+    import ingest.enrich as enrich_mod
+
+    calls = {"n": 0}
+
+    def reader(url):
+        calls["n"] += 1
+        return None
+
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback", reader)
+    orch = _Orchestrator(page=None)   # matcher holds only INVERSION
+    listing = {**LISTING, "price": 130000}
+    metrics = {**_inv_metrics(), "condition_unknown": True}
+
+    assert orch.verify(listing, metrics) is None
+    assert orch.verify(listing, metrics) is None
+    assert calls["n"] == 1
+
+    from models.db import daily_counters
+    assert daily_counters().get("no_verificable") == 1
+
+    # Hours later the reader deserves another chance.
+    import json
+    from datetime import datetime, timedelta, timezone
+    from models.db import get_telegram_state, set_telegram_state
+
+    stored = json.loads(get_telegram_state("verify_verdicts"))
+    stored[listing["id"]]["at"] = (
+        datetime.now(timezone.utc) - timedelta(hours=7)).isoformat()
+    set_telegram_state("verify_verdicts", json.dumps(stored))
+
+    assert orch.verify(listing, metrics) is None
+    assert calls["n"] == 2
