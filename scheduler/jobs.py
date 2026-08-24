@@ -529,6 +529,8 @@ class PipelineOrchestrator:
                 if blocker:
                     logger.info(f"{listing.get('id')} descartado vía lector: "
                                 f"{blocker.group(0)!r}")
+                    from models.db import bump_daily
+                    bump_daily("ocupado_ficha")
                     return None
             else:
                 # Nothing could read the page — not the runner, not the
@@ -542,6 +544,8 @@ class PipelineOrchestrator:
                 if hits and all(p.purpose == "investment" for p, _ in hits):
                     logger.info(f"{listing.get('id')} no verificable por "
                                 f"ninguna vía — inversión no se envía")
+                    from models.db import bump_daily
+                    bump_daily("no_verificable")
                     return None
             # Unreadable page plus a price no honest flat asks is not a
             # bargain to inspect, it is a distressed-sale tell. The NPL in
@@ -566,6 +570,8 @@ class PipelineOrchestrator:
         if blocker:
             logger.info(f"{listing.get('id')} descartado al leer la ficha: "
                         f"{blocker.group(0)!r}")
+            from models.db import bump_daily
+            bump_daily("ocupado_ficha")
             return None
 
         fresh = self._compute_metrics(enriched) or metrics
@@ -690,6 +696,9 @@ class PipelineOrchestrator:
         if asks("estado", "status", "funciona", "vivo", "salud"):
             return self._health_text()
 
+        if asks("embudo", "hoy", "funnel", "cuantos", "cuántos"):
+            return self._funnel_text()
+
         return (
             "No he entendido eso.\n\n"
             "Prueba con <b>qué tenemos</b> para ver las oportunidades, "
@@ -701,6 +710,7 @@ class PipelineOrchestrator:
         return (
             "<b>Puedes escribirme</b>\n\n"
             "• <b>qué tenemos</b> — todo lo que encaja ahora mismo\n"
+            "• <b>embudo</b> — cuántos entraron hoy y dónde murió cada uno\n"
             "• <b>estado</b> — qué buzón leo, cuándo lo miré y si sigo vivo\n"
             "• <b>ayuda</b> — esto\n\n"
             "<i>Respondo en la siguiente pasada, o sea en 3 minutos o menos.</i>"
@@ -778,6 +788,46 @@ class PipelineOrchestrator:
             lines.append("")
 
         return "\n".join(lines).strip()
+
+    def _funnel_text(self) -> str:
+        """Where today's flats died, so the answer stops needing an engineer.
+
+        "Plenty are published and nothing reaches me" and "the filters are
+        doing their job" describe the same silence. Only the numbers tell
+        them apart, and they were only in the logs.
+        """
+        from sqlalchemy import func, select
+        from models.db import daily_counters, get_engine
+        from models.schema import listings as listings_tbl
+        from alerts import budget
+
+        with get_engine().connect() as conn:
+            new_today = conn.execute(
+                select(func.count()).select_from(listings_tbl)
+                .where(func.date(listings_tbl.c.first_seen_at) == func.date(func.datetime("now")))
+            ).scalar() or 0
+
+        sent = (budget.describe(self.config) or "").split(" de ")[0] or "0"
+        drops = daily_counters()
+        lines = [
+            "<b>📈 Embudo de hoy</b>",
+            "",
+            f"Anuncios nuevos leídos: <b>{new_today}</b>",
+            f"Fichas enviadas: <b>{sent.strip()}</b>",
+        ]
+        labels = {"ocupado_ficha": "la ficha dice ocupado/no financiable",
+                  "no_verificable": "inversión sin poder verificar (no se envía)",
+                  "duplicado": "mismo piso ya enviado con otras medidas"}
+        if drops:
+            lines.append("")
+            lines.append("Descartados en la última milla:")
+            for k, n in sorted(drops.items(), key=lambda t: -t[1]):
+                lines.append(f"  • {n} — {labels.get(k, k)}")
+        lines.append("")
+        lines.append("<i>El resto no pasó tus filtros de zona, precio, tamaño "
+                     "o planta. Los correos de Habitaclia siguen llegando "
+                     "recortados: divide esas alertas para ver más.</i>")
+        return "\n".join(lines)
 
     def _health_text(self) -> str:
         import datetime as dt

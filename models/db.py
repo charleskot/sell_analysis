@@ -186,6 +186,44 @@ def was_alert_ever_sent(listing_id: str) -> bool:
     return row is not None
 
 
+def bump_daily(counter: str) -> None:
+    """Count one funnel event for today. Never raises: bookkeeping.
+
+    The user's recurring question is "where do the flats die", and until now
+    only the logs knew. These counters make the bot able to answer it in
+    the chat instead of the answer needing an engineer.
+    """
+    import json as _json
+    from datetime import datetime as _dt, timezone as _tz
+
+    key = "funnel_today"
+    today = _dt.now(_tz.utc).strftime("%Y-%m-%d")
+    try:
+        raw = get_telegram_state(key, "")
+        data = _json.loads(raw) if raw else {}
+        if data.get("day") != today:
+            data = {"day": today, "counts": {}}
+        data["counts"][counter] = data["counts"].get(counter, 0) + 1
+        set_telegram_state(key, _json.dumps(data))
+    except Exception as e:
+        logger.warning(f"No pude contar {counter}: {e}")
+
+
+def daily_counters() -> dict:
+    """Today's funnel tally, empty if none or unreadable."""
+    import json as _json
+    from datetime import datetime as _dt, timezone as _tz
+
+    try:
+        raw = get_telegram_state("funnel_today", "")
+        data = _json.loads(raw) if raw else {}
+        if data.get("day") == _dt.now(_tz.utc).strftime("%Y-%m-%d"):
+            return dict(data.get("counts") or {})
+    except Exception:
+        pass
+    return {}
+
+
 def was_similar_listing_sent(city: str | None, price: float | None,
                              area: float | None) -> bool:
     """Whether a flat this similar has already gone out.

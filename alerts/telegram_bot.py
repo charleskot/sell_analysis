@@ -91,6 +91,8 @@ class TelegramAlerter:
         if was_similar_listing_sent(listing.get("city"), listing.get("price"),
                                     listing.get("area_m2")):
             logger.info(f"{listing_id}: mismo piso ya enviado con otras medidas")
+            from models.db import bump_daily
+            bump_daily("duplicado")
             return False
 
         message = self._format_message(listing, metrics, score)
