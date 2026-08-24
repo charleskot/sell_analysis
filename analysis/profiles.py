@@ -33,14 +33,33 @@ def normalise(text: str | None) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+_ARTICLES_RE = re.compile(r"\b(?:el|la|els|les|los|las|lo|l)\b")
+
+
+def _strip_articles(text: str) -> str:
+    return re.sub(r"\s+", " ", _ARTICLES_RE.sub(" ", text)).strip()
+
+
 def _place_matches(needle: str, haystack: str) -> bool:
     """Substring match on normalised place names, either direction.
 
     Config says "hospitalet", the portal says "hospitalet de llobregat";
     config says "sant andreu", the portal says "sant andreu de palomar".
+
+    Articles are dropped on a second pass because the two sides rarely
+    agree on them: config says "el guinardo", Habitaclia truncates the
+    district to "Guinardó (Horta G" — no substring in either direction, and
+    a 164.000 € flat squarely inside the wanted zone died on this check.
+    The same miss let "Lloreda (Salut" in Badalona slip past the excluded
+    zone written as "la salut".
     """
     n, h = normalise(needle), normalise(haystack)
-    return bool(n and h and (n in h or h in n))
+    if not n or not h:
+        return False
+    if n in h or h in n:
+        return True
+    ns, hs = _strip_articles(n), _strip_articles(h)
+    return bool(ns and hs and (ns in hs or hs in ns))
 
 
 class Profile:

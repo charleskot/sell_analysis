@@ -36,6 +36,25 @@ BRIGHT_RE = _re_mod.compile(
 INTERIOR_RE = _re_mod.compile(r"\binterior\b", _re_mod.I)
 
 
+def _verdict_stale(iso_timestamp: str, hours: int) -> bool:
+    """Whether a stored "unreadable" verdict is old enough to retry.
+
+    "Rejected" is final — the page said what it said — but "unreadable"
+    only describes the reader on one afternoon, so it expires. An
+    unparseable timestamp counts as stale: retrying one page too early is
+    cheaper than never retrying it.
+    """
+    from datetime import datetime, timedelta, timezone
+
+    try:
+        at = datetime.fromisoformat(iso_timestamp)
+        if at.tzinfo is None:
+            at = at.replace(tzinfo=timezone.utc)
+    except (TypeError, ValueError):
+        return True
+    return datetime.now(timezone.utc) - at > timedelta(hours=hours)
+
+
 def zone_market_stats(city: str | None, district: str | None) -> dict | None:
     """The €/m² spread of the zone, from the listings already ingested.
 
@@ -514,7 +533,22 @@ class PipelineOrchestrator:
         if not metrics.get("condition_unknown"):
             return listing, metrics
 
-        enriched = self._enrich(listing)
+        # A verdict already reached stands: re-reading a page that said
+        # "occupied" yesterday says "occupied" today, and the pending sweep
+        # calls this for every never-sent match every cycle. Before verdicts
+        # were stored, the same ~68 rejected adverts were re-fetched every
+        # three minutes, all day.
+        from models.db import get_verify_verdict, set_verify_verdict
+
+        cached = get_verify_verdict(listing.get("id") or "")
+        if cached and cached[0] == "rechazada":
+            return None
+        page_unreadable_known = bool(
+            cached and cached[0] == "ilegible"
+            and not _verdict_stale(cached[1], hours=6)
+        )
+
+        enriched = None if page_unreadable_known else self._enrich(listing)
         if not enriched:
             # The portal refused the direct read, but a public reader can
             # still fetch the page. Scanned for disqualifying wording only:
@@ -523,7 +557,8 @@ class PipelineOrchestrator:
             from ingest.enrich import fetch_page_text_fallback
             from ingest.email_parsers import _REJECT_RE
 
-            page_text = fetch_page_text_fallback(listing.get("url"))
+            page_text = (None if page_unreadable_known
+                         else fetch_page_text_fallback(listing.get("url")))
             if page_text:
                 blocker = _REJECT_RE.search(page_text)
                 if blocker:
@@ -531,8 +566,11 @@ class PipelineOrchestrator:
                                 f"{blocker.group(0)!r}")
                     from models.db import bump_daily
                     bump_daily("ocupado_ficha")
+                    set_verify_verdict(listing.get("id") or "", "rechazada")
                     return None
             else:
+                if not page_unreadable_known:
+                    set_verify_verdict(listing.get("id") or "", "ilegible")
                 # Nothing could read the page — not the runner, not the
                 # reader. For an investment that is now a drop, not a
                 # marked card: "send it flagged" was tried, the reader's
@@ -542,10 +580,13 @@ class PipelineOrchestrator:
                 # distressed stock where occupation hides.
                 hits = self.profile_matcher.match(listing, metrics)
                 if hits and all(p.purpose == "investment" for p, _ in hits):
-                    logger.info(f"{listing.get('id')} no verificable por "
-                                f"ninguna vía — inversión no se envía")
-                    from models.db import bump_daily
-                    bump_daily("no_verificable")
+                    if not page_unreadable_known:
+                        # Counted when the read was actually attempted, not
+                        # on every cycle the stored verdict short-circuits.
+                        logger.info(f"{listing.get('id')} no verificable por "
+                                    f"ninguna vía — inversión no se envía")
+                        from models.db import bump_daily
+                        bump_daily("no_verificable")
                     return None
             # Unreadable page plus a price no honest flat asks is not a
             # bargain to inspect, it is a distressed-sale tell. The NPL in
@@ -572,12 +613,14 @@ class PipelineOrchestrator:
                         f"{blocker.group(0)!r}")
             from models.db import bump_daily
             bump_daily("ocupado_ficha")
+            set_verify_verdict(listing.get("id") or "", "rechazada")
             return None
 
         fresh = self._compute_metrics(enriched) or metrics
         hits = self.profile_matcher.match(enriched, fresh)
         if not hits:
             logger.info(f"{listing.get('id')} ya no encaja al leer la ficha")
+            set_verify_verdict(listing.get("id") or "", "rechazada")
             return None
 
         return enriched, {
