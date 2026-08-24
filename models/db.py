@@ -225,7 +225,8 @@ def daily_counters() -> dict:
 
 
 def was_similar_listing_sent(city: str | None, price: float | None,
-                             area: float | None) -> bool:
+                             area: float | None,
+                             district: str | None = None) -> bool:
     """Whether a flat this similar has already gone out.
 
     The exact fingerprint (city:price:area:rooms) misses the commonest
@@ -239,17 +240,40 @@ def was_similar_listing_sent(city: str | None, price: float | None,
     if not city or city == "desconocido" or not price or not area:
         return False
     with session_scope() as conn:
-        row = conn.execute(
-            select(alerts_sent.c.id)
+        rows = conn.execute(
+            select(listings.c.district)
             .select_from(alerts_sent.join(listings, listings.c.id == alerts_sent.c.listing_id))
             .where(
                 listings.c.city == city,
                 listings.c.price == price,
                 listings.c.area_m2.between(area * 0.75, area * 1.25),
             )
-            .limit(1)
-        ).fetchone()
-    return row is not None
+        ).fetchall()
+    if not rows:
+        return False
+
+    # In a town, identical price and similar area is the same flat. In a
+    # big city it is a coincidence: 330.000 € — the user's exact ceiling,
+    # the commonest price on his feed — with ~65 m² matched a Guinardó flat
+    # against an unrelated one in Sant Andreu, and a legitimate match died
+    # as a "duplicate". Above this population, the neighbourhoods must
+    # agree too; when either side lacks one, err towards sending — the
+    # exact-id and fingerprint checks still guard true repeats.
+    from analysis.municipalities import population_of
+
+    if (population_of(city) or 0) <= 200_000:
+        return True
+
+    from analysis.profiles import normalise
+
+    mine = normalise(district)
+    if not mine:
+        return False
+    for (other,) in rows:
+        theirs = normalise(other)
+        if theirs and (mine in theirs or theirs in mine):
+            return True
+    return False
 
 
 def was_alert_sent_recently(listing_id: str, cooldown_hours: int = 168) -> bool:

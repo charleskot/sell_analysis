@@ -1067,3 +1067,47 @@ def test_missing_data_never_blocks(db):
     assert was_similar_listing_sent(None, 270000, 70) is False
     assert was_similar_listing_sent("desconocido", 270000, 70) is False
     assert was_similar_listing_sent("esplugues de llobregat", None, 70) is False
+
+
+# ── A coincidence in a big city is not a duplicate ─────────────────────────
+#
+# 330.000 € — the user's exact ceiling, the commonest price on his feed —
+# with ~65 m² matched a Guinardó flat against an unrelated one in Sant
+# Andreu, and a legitimate match died as a "duplicate". In a town the
+# price+area rule stands; in a city the neighbourhoods must agree too.
+
+def test_same_price_in_a_big_city_needs_the_same_district(db):
+    from models.db import was_similar_listing_sent
+
+    _sent(db, "habitaclia_200", "barcelona", 330000, 65)
+    # different barrio → different flat
+    assert was_similar_listing_sent("barcelona", 330000, 67, "el guinardó") is False
+
+
+def test_same_district_in_a_big_city_still_blocks(db):
+    from models.db import was_similar_listing_sent
+    from models.schema import listings as lt
+    from sqlalchemy import update
+
+    _sent(db, "habitaclia_201", "barcelona", 330000, 65)
+    with db.session_scope() as conn:
+        conn.execute(update(lt).where(lt.c.id == "habitaclia_201")
+                     .values(district="el guinardó"))
+    assert was_similar_listing_sent("barcelona", 330000, 67, "El Guinardó") is True
+
+
+def test_missing_district_in_a_big_city_errs_towards_sending(db):
+    from models.db import was_similar_listing_sent
+
+    _sent(db, "habitaclia_202", "barcelona", 330000, 65)
+    assert was_similar_listing_sent("barcelona", 330000, 67, None) is False
+
+
+def test_small_towns_keep_the_city_level_rule(db):
+    """Esplugues re-lists carry street names as districts — requiring them
+    to match would undo the fix that merged those cards."""
+    from models.db import was_similar_listing_sent
+
+    _sent(db, "habitaclia_203", "esplugues de llobregat", 270000, 70)
+    assert was_similar_listing_sent("esplugues de llobregat", 270000, 85,
+                                    "c/ otra calle") is True
