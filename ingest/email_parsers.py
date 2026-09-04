@@ -377,6 +377,24 @@ def _clean_place(value: str | None) -> str | None:
     return place
 
 
+def _resolve_city(place: str | None) -> str | None:
+    """Complete a town name the portal truncated, when it can only be one.
+
+    Idealista cuts its alert line at a fixed width and writes the town last,
+    so it arrives as "Barcel...", "Barcelon...", "Esplugues d...". Every
+    exact-match query then treats those as different cities: the zone price
+    statistics split across the spellings, the duplicate check stops
+    recognising the flat it already sent, and a truncated Barcelona is a
+    town of unknown size, which turns off the district requirement that
+    keeps unrelated flats from being merged.
+    """
+    if not place:
+        return place
+    from analysis.municipalities import resolve_truncated
+
+    return resolve_truncated(place) or place
+
+
 def extract_location(title: str) -> tuple[str | None, str | None]:
     """Parse a listing title into (city, district).
 
@@ -400,7 +418,7 @@ def extract_location(title: str) -> tuple[str | None, str | None]:
         parts = [p for p in (p.strip() for p in tail.split(" - ")) if p]
         if parts:
             return (
-                _clean_place(parts[0]),
+                _resolve_city(_clean_place(parts[0])),
                 _clean_place(parts[1]) if len(parts) > 1 else None,
             )
 
@@ -410,14 +428,14 @@ def extract_location(title: str) -> tuple[str | None, str | None]:
     if "," in tail:
         parts = [p for p in (p.strip() for p in tail.split(",")) if p]
         if parts:
-            city = _clean_place(parts[-1])
+            city = _resolve_city(_clean_place(parts[-1]))
             district = _clean_place(parts[-2]) if len(parts) > 1 else None
             # A house number is not a district
             if district and district.isdigit():
                 district = _clean_place(parts[-3]) if len(parts) > 2 else None
             return city, district
 
-    return _clean_place(tail), None
+    return _resolve_city(_clean_place(tail)), None
 
 
 def _match_id(match: re.Match) -> str | None:

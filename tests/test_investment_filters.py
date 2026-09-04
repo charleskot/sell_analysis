@@ -1233,3 +1233,94 @@ def test_an_unreadable_page_is_retried_after_hours_not_minutes(db, monkeypatch):
 
     assert orch.verify(listing, metrics) is None
     assert calls["n"] == 2
+
+
+# ── Half of Idealista arrived without a surface ────────────────────────────
+#
+# Idealista truncates its alert line at a fixed width, so 51% of its
+# listings reach us with no m² and the town cut short: "Piso en Calle de la
+# Marquesa..., El Guinardó, Barcel...". Rent is estimated per m², so no
+# surface means no metrics, and both the ingest and the sweep dropped the
+# listing outright — six flats in the user's own barrios in one week, among
+# them Camp de l'Arpa at 325.000 €, never counted and never mentioned. The
+# home search never wanted those numbers.
+
+def test_a_listing_without_surface_still_reaches_the_matcher():
+    from scheduler.jobs import PipelineOrchestrator
+
+    orch = object.__new__(PipelineOrchestrator)
+    listing = {"id": "idealista_1", "price": 325000, "rooms": 3, "area_m2": None,
+               "city": "barcelona", "district": "el guinardó",
+               "title": "Piso en Calle de la Marquesa, El Guinardó, Barcel..."}
+    metrics = PipelineOrchestrator._minimal_metrics(orch, listing)
+
+    assert metrics["metrics_unavailable"] is True
+    assert metrics["condition_unknown"] is True   # still gets its page read
+    ok, _ = Profile({**VIVIENDA,
+                     "areas": [{"city": "barcelona",
+                                "districts": ["el guinardo"]}]}).match(listing, metrics)
+    assert ok
+
+
+def test_a_described_listing_without_surface_is_not_marked_unverified():
+    from scheduler.jobs import PipelineOrchestrator
+
+    orch = object.__new__(PipelineOrchestrator)
+    metrics = PipelineOrchestrator._minimal_metrics(
+        orch, {"title": "Piso reformado", "description": "listo para entrar a vivir"})
+    assert metrics["condition_unknown"] is False
+
+
+def test_an_investment_without_numbers_is_still_rejected():
+    """No surface means no yield, and an investment without a yield is not
+    an investment — the fallback must not smuggle one through."""
+    from scheduler.jobs import PipelineOrchestrator
+
+    orch = object.__new__(PipelineOrchestrator)
+    listing = {"id": "idealista_2", "price": 130000, "rooms": 3, "area_m2": None,
+               "city": "badalona", "title": "Piso en Badalona"}
+    metrics = PipelineOrchestrator._minimal_metrics(orch, listing)
+    ok, reason = Profile(INVERSION).match(listing, metrics)
+    assert not ok
+    assert "rentabilidad" in reason
+
+
+# ── Truncated town names are completed, not invented ───────────────────────
+
+@pytest.mark.parametrize("fragment,expected", [
+    ("barcel", "barcelona"),
+    ("barcelon", "barcelona"),
+    ("esplugues d", "esplugues de llobregat"),
+])
+def test_a_truncated_town_is_completed_when_it_can_only_be_one(fragment, expected):
+    from analysis.municipalities import resolve_truncated
+
+    assert resolve_truncated(fragment) == expected
+
+
+def test_a_complete_name_is_returned_untouched():
+    """The table's keys have no accents, so completing a name that needs no
+    completing would rewrite "Sant Adrià de Besòs" as "sant adria de besos"
+    and split the zone in two."""
+    from analysis.municipalities import resolve_truncated
+    from ingest.email_parsers import extract_location
+
+    assert resolve_truncated("barcelona") is None
+    assert extract_location("Piso en Sant Adrià de Besòs - La Mina")[0] == "sant adrià de besòs"
+
+
+@pytest.mark.parametrize("fragment", ["sant", "mat", "s", "xyz"])
+def test_an_ambiguous_fragment_is_left_alone(fragment):
+    """Guessing between two real towns files the flat in the wrong one."""
+    from analysis.municipalities import resolve_truncated
+
+    assert resolve_truncated(fragment) is None
+
+
+def test_the_parser_completes_the_town_idealista_cut_off():
+    from ingest.email_parsers import extract_location
+
+    city, district = extract_location(
+        "Piso en Calle de la Marquesa de Caldes de Montbui, El Guinardó, Barcel...")
+    assert city == "barcelona"
+    assert district == "el guinardó"
