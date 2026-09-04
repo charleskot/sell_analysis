@@ -359,12 +359,15 @@ class PipelineOrchestrator:
                     is_new = upsert_listing(raw_dict)
                     stats["new" if is_new else "updated"] += 1
 
-                    metrics = self._compute_metrics(raw_dict)
-                    if not metrics:
-                        continue
-
                     listing_id = f"{raw.portal}_{raw.external_id}"
-                    upsert_metrics(listing_id, metrics)
+                    metrics = self._compute_metrics(raw_dict)
+                    if metrics:
+                        upsert_metrics(listing_id, metrics)
+                    else:
+                        # No surface, so no yields — but a home search does
+                        # not need them, and dropping the listing here made
+                        # it invisible to every later pass as well.
+                        metrics = self._minimal_metrics(raw_dict)
 
                     if not is_new:
                         continue
@@ -671,8 +674,14 @@ class PipelineOrchestrator:
 
         merged: dict = {}
         for listing, metrics, profile, reason in self._current_matches():
-            # The same flat reaches us through several agencies and portals
-            key = self.alerter.property_signature(listing)
+            # The same flat reaches us through several agencies and portals.
+            # A listing that cannot be fingerprinted — Idealista truncates
+            # the line before the surface on half its alerts — keeps its own
+            # id as the key. It used to take the signature verbatim, so every
+            # such listing collapsed onto the single key None and all but the
+            # first vanished: five flats in the user's barrios, merged into
+            # one unrelated advert and never seen again.
+            key = self.alerter.property_signature(listing) or f"id:{listing['id']}"
             if key in merged:
                 merged[key]["labels"].append(profile.label)
                 continue
@@ -770,9 +779,7 @@ class PipelineOrchestrator:
 
         found = []
         for listing in rows:
-            metrics = self._compute_metrics(listing)
-            if not metrics:
-                continue
+            metrics = self._compute_metrics(listing) or self._minimal_metrics(listing)
             for profile, reason in self.profile_matcher.match(listing, metrics):
                 found.append((listing, metrics, profile, reason))
         return found
@@ -922,6 +929,31 @@ class PipelineOrchestrator:
             f"Perfiles activos: {len(self.profile_matcher.profiles)}\n\n"
             "<i>Reviso el correo cada 3 minutos, en marcha continua.</i>"
         )
+
+    def _minimal_metrics(self, listing: dict) -> dict:
+        """The little that can be said about a listing with no surface.
+
+        Rent is estimated per m², so every yield, every €/m² and the whole
+        suspicion machinery need an area, and _compute_metrics returns None
+        without one. Both the ingest and the sweep then skipped the listing
+        outright — invisible, uncounted, never mentioned.
+
+        Half of Idealista's alert emails truncate the listing line before the
+        surface ("Piso en Calle de la Marquesa..., El Guinardó, Barcel..."),
+        so half of the portal the user cares most about was being dropped on
+        a technicality: six flats in his own barrios in one week, among them
+        Camp de l'Arpa at 325.000 € and Baix Guinardó at 310.000 €. The home
+        search never wanted those numbers — it asks for a barrio, a price and
+        a number of rooms, all of which arrived intact.
+
+        The condition still gets read from the advert, so these listings go
+        through the same page verification as everything else.
+        """
+        text = " ".join(str(listing.get(k) or "") for k in ("title", "description"))
+        return {
+            "condition_unknown": not bool(CONDITION_WORDS.search(text)),
+            "metrics_unavailable": True,
+        }
 
     def _compute_metrics(self, listing: dict) -> dict | None:
         if self.mode == "residence":

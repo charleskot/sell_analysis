@@ -690,6 +690,16 @@ class TelegramAlerter:
         they describe a purchase nobody is making.
         """
         out = []
+        if metrics.get("metrics_unavailable"):
+            # Said plainly, because the card is visibly missing the €/m², the
+            # entry cash and the market comparison that every other card has,
+            # and silence there reads as "this flat has no numbers" rather
+            # than "the email arrived without its surface".
+            out.append("")
+            out.append("📐 <b>El anuncio llegó sin los m²</b> — el correo de Idealista corta "
+                       "la línea. Sin superficie no puedo calcular €/m², entrada ni "
+                       "comparación con la zona: ábrelo para verlos.")
+
         if metrics.get("reform_cost"):
             out.append("")
             out.append(f"🔨 Incluye <b>{self._money(metrics['reform_cost'])}€</b> estimados de "

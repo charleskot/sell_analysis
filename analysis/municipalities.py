@@ -223,3 +223,30 @@ def population_of(city: str | None) -> int | None:
         if name in key or key in name:
             return pop
     return None
+
+def resolve_truncated(fragment: str | None) -> str | None:
+    """Complete a municipality name the portal cut short.
+
+    Idealista truncates its alert lines at a fixed width, so the town — which
+    it writes last — arrives as "Barcel...", "Barcelon...", "Sant Feliu de
+    Llob...". Stored that way it is a different city from "barcelona" for
+    every exact-match query: the zone's price statistics split across three
+    spellings, the duplicate check never recognises the flat it already sent,
+    and population_of returns None so a city gets treated as a village.
+
+    Returns the single municipality the fragment can only be, or None when
+    it matches none or several — a guess between two real towns would file
+    the flat in the wrong one, which is worse than leaving it as it came.
+    """
+    from analysis.profiles import normalise
+
+    key = normalise(fragment)
+    if not key or len(key) < 4:
+        return None
+    if key in POPULATION:
+        # Already a whole name: nothing to complete, and returning the
+        # table's own key would strip the accents off "Sant Adrià de Besòs".
+        return None
+
+    hits = [name for name in POPULATION if name.startswith(key)]
+    return hits[0] if len(hits) == 1 else None
