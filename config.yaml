@@ -448,8 +448,22 @@ rental_scraping:
 # Fallback rent per m² (used only if search_mode=investment)
 # ═══════════════════════════════════════════════════════════════════════════
 fallback_rent_per_m2:
+  # Alquiler medio por m² y mes. Se usa cuando no hay datos propios de la
+  # zona en rent_zone_averages — que ahora mismo es SIEMPRE, porque esa
+  # tabla está vacía y los scrapers de alquiler están desactivados.
+  #
+  # Antes aquí sólo estaban las capitales, y todo pueblo de la provincia
+  # heredaba el 75% de Barcelona: 13,5 €/m² para Terrassa, para Mataró y
+  # también para Manresa, que alquila casi la mitad. Peor aún, las
+  # ciudades fuera de la provincia caían al 5,5 por defecto — Tarragona,
+  # Vic, Vilafranca y Lleida salían a 385 € por un piso de 70 m², así que
+  # ninguna alcanzaba jamás el mínimo de rentabilidad y se descartaban sin
+  # decir nada. Eso hacía imposible buscar fuera del área metropolitana.
+  #
+  # Estos valores son ESTIMACIONES de mercado, no datos medidos. Sirven
+  # para ordenar y descartar, no para decidir una compra: el número real
+  # hay que contrastarlo con tres alquileres de la misma calle.
   madrid: 16.5
-  barcelona: 18.0
   valencia: 11.0
   sevilla: 10.5
   zaragoza: 9.0
@@ -458,7 +472,90 @@ fallback_rent_per_m2:
   palma: 14.0
   alicante: 11.5
   granada: 9.5
-  default: 5.5
+
+  # ── Barcelona ciudad y primera corona ──────────────────────────────
+  barcelona: 18.0
+  esplugues de llobregat: 16.0
+  sant just desvern: 16.5
+  castelldefels: 16.0
+  sitges: 16.0
+  hospitalet de llobregat: 15.5
+  cornellà de llobregat: 15.0
+  sant joan despí: 15.0
+  badalona: 14.5
+  sant adrià de besòs: 14.5
+  santa coloma de gramenet: 14.0
+  sant feliu de llobregat: 14.0
+  gavà: 14.0
+  prat de llobregat: 14.0
+  molins de rei: 14.0
+  sant boi de llobregat: 13.5
+  viladecans: 13.5
+  cerdanyola del vallès: 13.5
+  premià de mar: 13.0
+
+  # ── Segunda corona: Vallès, Maresme, Baix Llobregat ────────────────
+  mataró: 12.5
+  arenys de mar: 12.5
+  ripollet: 12.5
+  montcada i reixac: 12.5
+  barberà del vallès: 12.5
+  sabadell: 12.0
+  granollers: 12.0
+  mollet del vallès: 12.0
+  rubí: 12.0
+  vilanova i la geltrú: 12.0
+  terrassa: 11.5
+  canet de mar: 11.5
+  martorell: 11.5
+  sant andreu de la barca: 11.5
+  castellar del vallès: 11.5
+  parets del vallès: 11.5
+  santa perpètua de mogoda: 11.5
+  badia del vallès: 11.5
+  calella: 11.0
+  franqueses del vallès: 11.0
+  sant pere de ribes: 11.0
+  pineda de mar: 10.5
+  malgrat de mar: 10.5
+  olesa de montserrat: 10.5
+  sant celoni: 10.5
+  canovelles: 10.5
+  caldes de montbui: 10.5
+  esparreguera: 10.0
+  cubelles: 10.0
+  tordera: 9.5
+
+  # ── A una hora de Barcelona: donde el precio de compra cae a la
+  #    mitad y la competencia de inversores casi desaparece ───────────
+  girona: 12.5
+  lloret de mar: 10.5
+  salou: 10.5
+  blanes: 10.0
+  cambrils: 10.0
+  vic: 9.5
+  vilafranca del penedès: 9.5
+  tarragona: 9.5
+  calafell: 9.5
+  figueres: 9.0
+  olot: 9.0
+  el vendrell: 9.0
+  manresa: 8.5
+  igualada: 8.5
+  reus: 8.5
+  valls: 8.0
+  lleida: 8.0
+  berga: 8.0
+  solsona: 7.5
+  mollerussa: 7.5
+  tortosa: 7.0
+  amposta: 7.0
+  balaguer: 7.0
+
+  # Un municipio que no esté en la lista cae aquí. Deliberadamente bajo:
+  # inventar un alquiler alto donde no se sabe nada fabrica una
+  # rentabilidad falsa, y eso es justo lo que no debe llegar al chat.
+  default: 7.0
 
 # ═══════════════════════════════════════════════════════════════════════════
 # Location scores (0-100) — used only if search_mode=investment
