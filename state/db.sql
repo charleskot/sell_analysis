@@ -23975,7 +23975,7 @@ CREATE TABLE telegram_state (
 	updated_at DATETIME, 
 	PRIMARY KEY ("key")
 );
-INSERT INTO "telegram_state" VALUES('gmail_last_internal_date_ms','1789536669000','2026-09-16 05:35:33.973549');
+INSERT INTO "telegram_state" VALUES('gmail_last_internal_date_ms','1789537559000','2026-09-16 05:48:40.918373');
 INSERT INTO "telegram_state" VALUES('last_update_id','832113681','2026-08-19 10:43:00.824849');
 INSERT INTO "telegram_state" VALUES('last_pulse_at','2026-08-15T16:31:12.296296+00:00','2026-08-15 16:31:12.296310');
 INSERT INTO "telegram_state" VALUES('sent_today','{"day": "2026-09-16", "counts": {"fallo": 1}}','2026-09-16 00:22:27.645699');
