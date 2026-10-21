@@ -586,6 +586,12 @@ def parse_email(sender: str, subject: str, html: str, text: str = "",
     flat = strip_html(search_body)
 
     listings: list[RawListing] = []
+    # Why each listing was dropped. The email's own link numbering says how
+    # many flats it carried — positions run to lo-94 — and only four or five
+    # come out of it. A silent `continue` cannot say whether the rest were
+    # header noise, blocks whose price landed outside them, or genuine
+    # rejects, so each one is counted and reported below.
+    dropped = {"sin_precio": 0, "rechazado": 0}
     for i, (ext_id, url) in enumerate(ordered):
         block = blocks[i] if i < len(blocks) else flat
 
@@ -595,11 +601,13 @@ def parse_email(sender: str, subject: str, html: str, text: str = "",
 
         # A block with no price is almost always a header/footer false positive
         if price is None:
+            dropped["sin_precio"] += 1
             continue
 
         # Hard reject: tenanted / occupied / auction / bare ownership
         if _REJECT_RE.search(block):
             logger.info(f"Email ingest: rejected {portal}/{ext_id} (ocupado/alquilado/subasta)")
+            dropped["rechazado"] += 1
             continue
 
         title = extract_title(block, subject)
@@ -641,5 +649,20 @@ def parse_email(sender: str, subject: str, html: str, text: str = "",
                 f"conviene dividirla en búsquedas más estrechas."
             )
 
-    logger.info(f"Email ingest: {portal} → {len(listings)} listings from {subject[:60]!r}")
+    # Most of an alert email going missing is not a quiet day at the portal,
+    # and until now it looked exactly like one. Reported loudly, with the
+    # reason tally, so the cause is visible from the runner log instead of
+    # having to be inferred from link positions weeks later.
+    found = len(ordered)
+    if found and len(listings) < found * 0.6:
+        logger.warning(
+            f"Email ingest: {portal} encontró {found} enlaces de anuncio y solo "
+            f"salieron {len(listings)} — descartados: "
+            f"{dropped['sin_precio']} sin precio en su bloque, "
+            f"{dropped['rechazado']} por ocupado/alquilado. "
+            f"Asunto: {subject[:70]!r}"
+        )
+
+    logger.info(f"Email ingest: {portal} → {len(listings)} listings from {subject[:60]!r} "
+                f"(enlaces {found}, descartados {sum(dropped.values())})")
     return listings
