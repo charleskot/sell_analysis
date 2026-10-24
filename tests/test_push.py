@@ -216,3 +216,8 @@ def test_a_generic_barrio_names_its_town():
 def test_a_town_without_barrio_is_just_the_town():
     title, _ = TelegramAlerter._push_text({**FLAT, "district": None, "city": "molins de rei"}, {})
     assert title.endswith("Molins De Rei")
+
+
+def test_an_unverified_flat_says_so_on_the_phone():
+    _, body = TelegramAlerter._push_text(FLAT, {"unverified": True})
+    assert "sin verificar" in body
