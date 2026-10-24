@@ -599,3 +599,49 @@ location_scores:
     "nou barris": 55
     "sant andreu": 60
     "ciutat vella": 65
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Searches read straight from the portal with a headless browser
+# ═══════════════════════════════════════════════════════════════════════════
+# Habitaclia's alert emails are summaries: "1.772 novedades en comarca
+# Barcelonès" arrives carrying four flats. Its search pages list every one,
+# thirty-odd to a page, with floor, bathrooms and price cuts the emails
+# never had. Each search names its own city and barrio, because the card's
+# location line cannot be trusted to: "Manresa, Barcelona" is town then
+# province, and read like "Sant Andreu, Barcelona Capital" it filed every
+# Manresa flat under Barcelona.
+#
+# maxPrice is applied by Habitaclia itself; sorting by date is not
+# available, so new listings are found by comparing with what was already
+# seen, not by trusting the order of the page.
+browser_scraping:
+  habitaclia:
+    enabled: true
+    max_pages: 3
+    searches:
+      # ── To live in (vivienda, up to 330.000 €) ──────────────────────────
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/navas/s?maxPrice=330000"
+        city: barcelona
+        district: navas
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-clot/s?maxPrice=330000"
+        city: barcelona
+        district: el clot
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-camp-de-l-arpa-del-clot/s?maxPrice=330000"
+        city: barcelona
+        district: camp de l arpa
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-guinardo/s?maxPrice=330000"
+        city: barcelona
+        district: el guinardo
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/la-sagrera/s?maxPrice=330000"
+        city: barcelona
+        district: la sagrera
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/eixample/la-sagrada-familia/s?maxPrice=330000"
+        city: barcelona
+        district: sagrada familia
+      # ── To invest (up to 130.000 €, within an hour) ─────────────────────
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/manresa/s?maxPrice=130000"
+        city: manresa
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/igualada/s?maxPrice=130000"
+        city: igualada
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/vilafranca-del-penedes/s?maxPrice=130000"
+        city: vilafranca del penedès
