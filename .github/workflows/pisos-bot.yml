@@ -78,9 +78,12 @@ jobs:
         run: python main.py db-restore
 
       # Habitaclia's search pages are built by JavaScript, so reading them
-      # takes a real browser. Only installed where something uses it.
+      # takes a real browser. Installed for the loop and the probe; a failed
+      # install must not cost the mailbox, so the loop carries on without it
+      # and the browser step just logs that it is unavailable.
       - name: Install headless browser
-        if: github.event.inputs.command == 'browser-probe'
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.command == 'loop' || github.event.inputs.command == 'browser-probe'
+        continue-on-error: true
         run: python -m playwright install --with-deps chromium
 
       - name: Run one command now
