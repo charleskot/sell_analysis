@@ -548,6 +548,17 @@ class PipelineOrchestrator:
         if not is_new or not alert:
             return
 
+        # The listing's own words first, whatever the source. Emails were
+        # always screened this way while being parsed; the browser's cards
+        # were not, and a card can say "ocupado" as plainly as an email.
+        from ingest.email_parsers import _REJECT_RE
+
+        blocker = _REJECT_RE.search(f"{raw_dict.get('title', '')} {raw_dict.get('description', '')}")
+        if blocker:
+            stats["rejected_after_enrich"] += 1
+            logger.info(f"{listing_id} descartado por su propio texto: {blocker.group(0)!r}")
+            return
+
         hits = self.profile_matcher.match(raw_dict, metrics)
         if not hits:
             stats["filtered_out"] += 1
@@ -673,118 +684,108 @@ class PipelineOrchestrator:
         return ok
 
     def verify(self, listing: dict, metrics: dict) -> tuple[dict, dict] | None:
-        """Read the advert before sending, and drop it if it disqualifies.
+        """Read the whole advert before sending, and drop it if it disqualifies.
 
-        The alert email carries price, size and rooms; whether somebody is
-        living in the flat is only ever on the portal's own page. A listing
-        in Rubí went out at 99.000 € for 76 m² whose advert opened with
-        "POSIBLE OCUPACION DEL INMUEBLE, NO SE PUEDE VISITAR NI FINANCIAR" —
-        every one of those phrases already in the reject list, on a page that
-        reads fine. It went out because it left by a path that never read it.
+        Whether somebody lives in a flat is only ever said in the seller's
+        own description. A listing in Rubí went out at 99.000 € for 76 m²
+        whose advert opened with "POSIBLE OCUPACION DEL INMUEBLE, NO SE PUEDE
+        VISITAR NI FINANCIAR", because it left by a path that never read it.
 
-        Returns the listing and metrics to send with, or None to drop. Lives
-        here, once, because it exists to be shared: this used to be inline in
-        the ingest, and the sweep added later bypassed it entirely.
+        Every match is read now, not only those whose condition was unknown:
+        a card that says "reformado" says nothing about who is living there.
+        Of the eighteen cheapest flats the browser found in its first days,
+        ten were occupied, sold without possession, at auction, in "cesión de
+        remate" or let — and not one of their cards said so; every one of
+        their pages did. Habitaclia answers a plain request with a summary
+        of about 150 characters ("Venta de piso en … Consulta los detalles en
+        habitaclia"), which used to count as a page read and clean; when the
+        direct read is that thin, the reader fetches the whole page.
+
+        The reader's text is scanned for disqualifying wording only: it
+        includes the portal's navigation, and taking that for the seller's
+        description would invent a condition.
+
+        Returns the listing and metrics to send with, or None to drop.
         """
-        if not metrics.get("condition_unknown"):
-            return listing, metrics
+        from ingest.email_parsers import _REJECT_RE
+        from ingest.enrich import fetch_page_text_fallback
+        from models.db import bump_daily, get_verify_verdict, set_verify_verdict
 
-        # A verdict already reached stands: re-reading a page that said
-        # "occupied" yesterday says "occupied" today, and the pending sweep
-        # calls this for every never-sent match every cycle. Before verdicts
-        # were stored, the same ~68 rejected adverts were re-fetched every
-        # three minutes, all day.
-        from models.db import get_verify_verdict, set_verify_verdict
-
-        cached = get_verify_verdict(listing.get("id") or "")
+        lid = listing.get("id") or ""
+        cached = get_verify_verdict(lid)
         if cached and cached[0] == "rechazada":
             return None
+        # A page read clean is not re-read on every pass of the sweep — the
+        # same waste the "rechazada" verdict once stopped — but a day later
+        # it is, in case the advert changed.
+        if cached and cached[0] == "limpia" and not _verdict_stale(cached[1], hours=24):
+            return listing, metrics
         page_unreadable_known = bool(
             cached and cached[0] == "ilegible"
             and not _verdict_stale(cached[1], hours=6)
         )
 
         enriched = None if page_unreadable_known else self._enrich(listing)
-        if not enriched:
-            # The portal refused the direct read, but a public reader can
-            # still fetch the page. Scanned for disqualifying wording only:
-            # its text includes the portal's navigation, and mistaking that
-            # for the seller's description would fabricate a condition.
-            from ingest.enrich import fetch_page_text_fallback
-            from ingest.email_parsers import _REJECT_RE
+        added = ""
+        if enriched:
+            added = (enriched.get("description") or "")[len(listing.get("description") or ""):]
+        full_text = None
+        if not page_unreadable_known and len(added.strip()) < 600:
+            full_text = fetch_page_text_fallback(listing.get("url"))
 
-            page_text = (None if page_unreadable_known
-                         else fetch_page_text_fallback(listing.get("url")))
-            if page_text:
-                blocker = _REJECT_RE.search(page_text)
-                if blocker:
-                    logger.info(f"{listing.get('id')} descartado vía lector: "
-                                f"{blocker.group(0)!r}")
-                    from models.db import bump_daily
-                    bump_daily("ocupado_ficha")
-                    set_verify_verdict(listing.get("id") or "", "rechazada")
-                    return None
-            else:
+        if enriched or full_text:
+            scan = " ".join(filter(None, [
+                str(listing.get("title") or ""),
+                str((enriched or listing).get("description") or ""),
+                full_text,
+            ]))
+            blocker = _REJECT_RE.search(scan)
+            if blocker:
+                logger.info(f"{lid} descartado al leer la ficha: {blocker.group(0)!r}")
+                bump_daily("ocupado_ficha")
+                set_verify_verdict(lid, "rechazada")
+                return None
+        else:
+            # Nothing could read the page — not the runner, not the reader.
+            # An investment is dropped: "send it flagged" was tried, and the
+            # reader's silent refusals turned it into a stream of occupied
+            # flats. A home match still goes out, marked as unverified.
+            if not page_unreadable_known:
+                set_verify_verdict(lid, "ilegible")
+            hits = self.profile_matcher.match(listing, metrics)
+            if hits and all(p.purpose == "investment" for p, _ in hits):
                 if not page_unreadable_known:
-                    set_verify_verdict(listing.get("id") or "", "ilegible")
-                # Nothing could read the page — not the runner, not the
-                # reader. For an investment that is now a drop, not a
-                # marked card: "send it flagged" was tried, the reader's
-                # silent refusals turned it into a stream of occupied
-                # flats, and the user paid for every one by opening it.
-                # A home match still goes out marked: those are not the
-                # distressed stock where occupation hides.
-                hits = self.profile_matcher.match(listing, metrics)
-                if hits and all(p.purpose == "investment" for p, _ in hits):
-                    if not page_unreadable_known:
-                        # Counted when the read was actually attempted, not
-                        # on every cycle the stored verdict short-circuits.
-                        logger.info(f"{listing.get('id')} no verificable por "
-                                    f"ninguna vía — inversión no se envía")
-                        from models.db import bump_daily
-                        bump_daily("no_verificable")
-                    return None
-            # Unreadable page plus a price no honest flat asks is not a
-            # bargain to inspect, it is a distressed-sale tell. The NPL in
-            # Gavà sat 61% under its zone; nothing legitimate is 55% below
-            # everything around it while hiding its own advert. Below that
-            # bar, unreadable listings still go out marked SOSPECHOSO.
+                    logger.info(f"{lid} no verificable por ninguna vía — inversión no se envía")
+                    bump_daily("no_verificable")
+                return None
+            # Unreadable plus a price no honest flat asks is a distressed-sale
+            # tell: the NPL in Gavà sat 61% under its zone.
             for reason in metrics.get("suspicion") or []:
                 pct = _re_mod.match(r"(\d+)% por debajo", reason)
                 if pct and int(pct.group(1)) >= 55:
-                    logger.info(f"{listing.get('id')} descartado: ficha ilegible "
-                                f"y {pct.group(1)}% por debajo de la zona")
+                    logger.info(f"{lid} descartado: ficha ilegible y "
+                                f"{pct.group(1)}% por debajo de la zona")
                     return None
-            # Genuinely unreadable. The card says so and names it as a
-            # reason to look closer, rather than implying the flat is fine.
-            return listing, metrics
+            return listing, {**metrics, "condition_unknown": True}
 
-        from ingest.email_parsers import _REJECT_RE
-
-        blocker = _REJECT_RE.search(
-            f"{enriched.get('title', '')} {enriched.get('description', '')}"
-        )
-        if blocker:
-            logger.info(f"{listing.get('id')} descartado al leer la ficha: "
-                        f"{blocker.group(0)!r}")
-            from models.db import bump_daily
-            bump_daily("ocupado_ficha")
-            set_verify_verdict(listing.get("id") or "", "rechazada")
-            return None
-
-        fresh = self._compute_metrics(enriched) or metrics
-        hits = self.profile_matcher.match(enriched, fresh)
-        if not hits:
-            logger.info(f"{listing.get('id')} ya no encaja al leer la ficha")
-            set_verify_verdict(listing.get("id") or "", "rechazada")
-            return None
-
-        return enriched, {
-            **fresh,
-            "matched_profiles": " + ".join(p.label for p, _ in hits),
-            "matched_purpose": hits[0][0].purpose,
-            "match_reason": hits[0][1],
-        }
+        # Readable and clean. What the direct read added can change the
+        # match — "para reformar" moves the numbers — so it is matched again.
+        if enriched:
+            fresh = self._compute_metrics(enriched) or metrics
+            hits = self.profile_matcher.match(enriched, fresh)
+            if not hits:
+                logger.info(f"{lid} ya no encaja al leer la ficha")
+                set_verify_verdict(lid, "rechazada")
+                return None
+            set_verify_verdict(lid, "limpia")
+            return enriched, {
+                **fresh,
+                "matched_profiles": " + ".join(p.label for p, _ in hits),
+                "matched_purpose": hits[0][0].purpose,
+                "match_reason": hits[0][1],
+            }
+        set_verify_verdict(lid, "limpia")
+        return listing, metrics
 
     def send_pending(self) -> int:
         """Send every current match that has never gone out.
