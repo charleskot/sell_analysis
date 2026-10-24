@@ -85,9 +85,20 @@ class Profile:
 
     # ── Individual conditions ────────────────────────────────────────────
 
-    def _check_price(self, price: float) -> str | None:
+    def _check_price(self, price: float, listing: dict | None = None) -> str | None:
         max_price = self.spec.get("max_price")
         if max_price and price > max_price:
+            # A ceiling the buyer will break for the right flat. Between the
+            # budget and `stretch_max_price` only an exceptional one passes —
+            # "si fuera a más es porque estamos viendo un piso muy bueno que
+            # amerita pagarlo" — and the card says why it was let through.
+            stretch = self.spec.get("stretch_max_price")
+            if stretch and price <= stretch and listing is not None:
+                why = self._exceptional(listing)
+                if why:
+                    return None
+                return (f"precio {price:,.0f}€ > {max_price:,.0f}€ "
+                        f"y no tiene nada que justifique pasarse")
             return f"precio {price:,.0f}€ > {max_price:,.0f}€"
         min_price = self.spec.get("min_price")
         if min_price and price < min_price:
@@ -140,6 +151,106 @@ class Profile:
 
         if floor < min_floor:
             return f"planta {floor} < mínimo {min_floor}"
+        return None
+
+    _OUTDOOR_RE = re.compile(r"\bbalc[oó]n|\bterraza|\bterrat\b|\bpatio\b", re.I)
+    _BRIGHT_RE = re.compile(r"\bluminos[oa]|\bmucha\s+luz\b|\bsoleado\b|\bexterior\b|"
+                            r"\btodo\s+exterior\b|\borientaci[oó]n\s+(?:sur|este|sureste|suroeste)\b",
+                            re.I)
+    _RENOVATED_RE = re.compile(r"\breformad[oa]\b|\bseminuev[oa]\b|\ba\s+estrenar\b|"
+                               r"\bobra\s+nueva\b|\bcon\s+reforma\s+integral\b|"
+                               r"\breforma\s+integral\s+(?:reciente|realizada|hecha)\b", re.I)
+
+    def _exceptional(self, listing: dict) -> str | None:
+        """Why a flat over budget is still worth showing, or None.
+
+        Outdoor space is the price of entry — a terrace or balcony is the
+        thing most worth paying extra for in a city flat — and on top of it
+        one of: real size, real light, or no work to do.
+        """
+        text = " ".join(str(listing.get(k) or "") for k in ("title", "description"))
+        if not self._OUTDOOR_RE.search(text):
+            return None
+        area = listing.get("area_m2") or 0
+        if area >= self.spec.get("stretch_min_area_m2", 85):
+            return f"{area:.0f}m² con exterior"
+        if self._BRIGHT_RE.search(text):
+            return "exterior y luminoso"
+        if self._RENOVATED_RE.search(text):
+            return "reformado y con exterior"
+        return None
+
+    _NO_LIFT_RE = re.compile(r"\bsin\s+ascensor\b|\bno\s+(?:tiene|dispone\s+de|hay)\s+ascensor\b|"
+                             r"\bsin\s+elevador\b", re.I)
+
+    def _check_lift(self, listing: dict) -> str | None:
+        """A lift, or a floor low enough not to need one.
+
+        "Con ascensor, y si es sin ascensor pues en primera o segunda
+        planta." Only a stated absence counts against a flat: most adverts
+        that have a lift say so, but many that are silent have one too, and
+        rejecting on silence would throw away good flats for a missing word.
+        """
+        max_walkup = self.spec.get("lift_or_max_floor")
+        if max_walkup is None:
+            return None
+        text = " ".join(str(listing.get(k) or "") for k in ("title", "description"))
+        if not self._NO_LIFT_RE.search(text):
+            return None
+
+        from analysis.residence_scorer import parse_floor
+
+        floor = parse_floor(listing.get("floor"))
+        if floor is None:
+            m = re.search(r"\b(\d{1,2})\s*[ªº°]\s*(?:planta)?|\bplanta\s+(\d{1,2})\b", text, re.I)
+            if m:
+                floor = int(m.group(1) or m.group(2))
+        if floor is None:
+            return "sin ascensor y no consta la planta"
+        if floor > max_walkup:
+            return f"sin ascensor en planta {floor}"
+        return None
+
+    _HEAVY_REFORM_RE = re.compile(
+        r"\b(?:para|a)\s+reformar\s+(?:integral|íntegramente|integramente|por\s+completo|"
+        r"completamente|entero|entera|totalmente)|"
+        r"\b(?:necesita|precisa|requiere)\s+(?:una\s+)?reforma\s+(?:integral|completa|total)|"
+        r"\b(?:para|a)\s+rehabilitar\b|\bpara\s+derribar\b|\bpara\s+demoler\b",
+        re.I,
+    )
+
+    def _check_heavy_reform(self, listing: dict) -> str | None:
+        """Light work is fine; a gutting is not.
+
+        "Con reforma o para entrar a vivir, poca reforma si es necesario."
+        Only a flat that *needs* the full job is refused. "Con reforma
+        integral" in an advert usually means the job is already done, so
+        it is not read as a defect.
+        """
+        if not self.spec.get("reject_heavy_reform"):
+            return None
+        text = " ".join(str(listing.get(k) or "") for k in ("title", "description"))
+        if self._HEAVY_REFORM_RE.search(text):
+            return "necesita reforma integral"
+        return None
+
+    _INTERIOR_RE = re.compile(
+        r"\b(?:piso|vivienda|apartamento|estudio)\s+interior\b|\b(?:es|todo|totalmente)\s+interior\b",
+        re.I,
+    )
+
+    def _check_interior(self, listing: dict) -> str | None:
+        """Refuse a flat its own advert calls interior — no street windows.
+
+        Narrow on purpose: "patio interior", "diseño interior" and "acceso
+        al interior" describe something else, and silence about light is
+        never read as darkness.
+        """
+        if not self.spec.get("reject_interior"):
+            return None
+        text = " ".join(str(listing.get(k) or "") for k in ("title", "description"))
+        if self._INTERIOR_RE.search(text):
+            return "es un piso interior"
         return None
 
     def _check_services(self, city: str) -> str | None:
@@ -318,7 +429,7 @@ class Profile:
         district = listing.get("district")
 
         for failure in (
-            self._check_price(price),
+            self._check_price(price, listing),
             self._check_rooms(listing.get("rooms")),
             self._check_size(listing.get("area_m2")),
             self._check_floor(listing),
@@ -326,6 +437,9 @@ class Profile:
             self._check_services(city),
             self._check_condition(listing, price),
             self._check_features(listing),
+            self._check_lift(listing),
+            self._check_heavy_reform(listing),
+            self._check_interior(listing),
             self._check_verified(metrics),
         ):
             if failure:
@@ -342,6 +456,12 @@ class Profile:
         # cannot derive, which search this answers and on what grounds, went
         # unsaid.
         criteria = self._criteria_met(listing)
+
+        max_price = self.spec.get("max_price")
+        if max_price and price > max_price:
+            criteria.insert(0, f"⚠️ {price - max_price:,.0f}€ por encima de tus "
+                               f"{max_price:,.0f}€ — te lo paso por: {self._exceptional(listing)}"
+                            .replace(",", "."))
 
         if self.purpose == "home":
             return True, " · ".join(criteria) or "cumple zona, precio y estado"

@@ -99,50 +99,78 @@ search_profiles:
   - name: vivienda
     label: "🏠 Para vivir"
     enabled: true
-    # No financial bar at all. The buyer lives here, so there is no rent and
-    # no cashflow to judge; paying more, and borrowing more, is an accepted
-    # cost of getting the right flat. Zone, price, size and condition decide.
+    # A home, not an investment: there is no rent and no cashflow to judge.
+    # Zone, price, size, light, lift and condition decide. Set by the buyer
+    # on 24 October 2026, replacing the earlier search.
     purpose: home
-    max_price: 330000
-    min_rooms: 2
-    max_rooms: 4
-    min_area_m2: 65
 
-    # No ground floors. Darker, noisier, easier to break into and harder to
-    # resell — as decisive for a home as the price. Entresuelo and semisótano
-    # count as the same thing, and are caught from the description when the
-    # structured field is empty.
+    # 285.000 € is the budget. Up to 320.000 € only an exceptional flat goes
+    # out — "si fuera a más es porque estamos viendo un piso muy bueno que
+    # amerita pagarlo" — meaning outdoor space plus real size, real light or
+    # no work to do. The card says how far over it is and why it passed.
+    max_price: 285000
+    stretch_max_price: 320000
+    stretch_min_area_m2: 85
+
+    min_area_m2: 70
+    min_rooms: 2
+
+    # A lift, or a walk-up no higher than the second floor. Only a stated
+    # "sin ascensor" counts against a flat; silence is not read as absence.
+    lift_or_max_floor: 2
+    # No ground floors: they are the opposite of the light he asked for.
     min_floor: 1
 
-    # Districts are scoped to their town on purpose: "Passeig Maragall" is a
-    # street in Gavà as well as a neighbourhood in Barcelona, and an unscoped
-    # list files the Gavà flat under a Barcelona search.
-    # An entry with no districts accepts the whole town.
+    # Light: a flat its own advert calls interior is refused.
+    reject_interior: true
+    prefer_bright: true
+
+    # Renovated, ready to move in, or needing a little work — not a gutting.
+    # "Con reforma integral" usually means the job is done, so only adverts
+    # that *need* one are refused.
+    reject_heavy_reform: true
+
+    # Districts are scoped to their town: "Congrés" is a barrio in Badalona
+    # as well as in Barcelona, and only one of them is wanted. An entry with
+    # no districts accepts the whole town. Matching ignores accents,
+    # apostrophes and articles, so "el guinardo" also covers "Baix Guinardó".
     areas:
+      # ── Zona 1 · Baix Llobregat, whole towns ──────────────────────────
+      - city: molins de rei
+      - city: sant feliu de llobregat
+      - city: esplugues
+      - city: sant just desvern
+      - city: cornella
+      # ── Zona 2 · Badalona ─────────────────────────────────────────────
+      - city: badalona
+        districts: [centre, bufala, bonavista, morera, montigala, sant crist]
+      # ── Zona 3 · Santa Coloma: the centre, its best-priced barrio, on L1
+      - city: santa coloma de gramenet
+        districts: [centre]
+      # ── Zona 4 · Barcelona, and Zona 6 · La Marina del Port (L10) ─────
       - city: barcelona
         districts:
-          - camp de l arpa      # accents and apostrophes are ignored
-          - el clot
+          - el guinardo
+          - baix guinardo       # the Maragall end of Guinardó
           - maragall
-          - sagrada familia
           - navas
           - la sagrera
-          - sant andreu
-          - el guinardo
-      # Llobregat side, accepted in full
-      - city: sant feliu de llobregat
-      - city: sant just desvern
-      - city: esplugues
-
-    # Move-in ready. Below the price named here a refurbishment stops being a
-    # drawback and becomes part of the deal, so the requirement lifts.
-    condition_in: [nuevo, buen_estado]
-    needs_work_below_price: 240000
+          - congres             # El Congrés i els Indians
+          - turo de la peira
+          - can peguera         # Habitaclia files it under Turó de la Peira
+          - vilapicina
+          - torre llobeta
+          - el clot
+          - camp de l arpa
+          - marina del port
+      # ── Zona 5 · L'Hospitalet: its highest-income barrios, on L1 ──────
+      - city: hospitalet
+        districts: [centre, sant josep, sanfeliu]
 
   # ── 2. Investment ───────────────────────────────────────────────────────
   - name: inversion
     label: "💰 Inversión"
-    enabled: true
+    enabled: false   # 24-oct-2026: the buyer is looking to live, not to invest
     purpose: investment
 
     # No zone restriction: anywhere in Catalonia within driving distance.
@@ -206,7 +234,7 @@ search_profiles:
   # stricter on what the flat has to be, since distance has to buy something.
   - name: vivienda_fuera
     label: "🏠 Para vivir (fuera)"
-    enabled: true
+    enabled: false   # 24-oct-2026: the buyer is looking to live, not to invest
     purpose: home
     max_price: 330000
     min_rooms: 3
@@ -622,30 +650,68 @@ browser_scraping:
     # and the loop ticks every three. Half an hour is fresh enough for
     # flats and gentle enough on the portal.
     interval_minutes: 30
+    # Each search asks Habitaclia itself for ≤320.000 € (the stretch ceiling —
+    # the 285.000 € budget and the exception are applied by the profile) and
+    # ≥70 m², which cuts the pages to read by more than half.
     searches:
-      # ── To live in (vivienda, up to 330.000 €) ──────────────────────────
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/navas/s?maxPrice=330000"
-        city: barcelona
-        district: navas
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-clot/s?maxPrice=330000"
-        city: barcelona
-        district: el clot
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-camp-de-l-arpa-del-clot/s?maxPrice=330000"
-        city: barcelona
-        district: camp de l arpa
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-guinardo/s?maxPrice=330000"
+      # ── Zona 1 · Baix Llobregat ──
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/molins-de-rei/s?maxPrice=320000&minSurface=70"
+        city: molins de rei
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/sant-feliu-de-llobregat/s?maxPrice=320000&minSurface=70"
+        city: sant feliu de llobregat
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/esplugues-de-llobregat/s?maxPrice=320000&minSurface=70"
+        city: esplugues de llobregat
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/sant-just-desvern/s?maxPrice=320000&minSurface=70"
+        city: sant just desvern
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/cornella-de-llobregat/s?maxPrice=320000&minSurface=70"
+        city: cornellà de llobregat
+      # ── Zona 2 · Badalona ──
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/centre/s?maxPrice=320000&minSurface=70"
+        city: badalona
+        district: centre
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/bonavista-bufala-morera/s?maxPrice=320000&minSurface=70"
+        city: badalona
+        district: bufala
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/montigala-sant-crist/s?maxPrice=320000&minSurface=70"
+        city: badalona
+        district: montigala
+      # ── Zona 3 · Santa Coloma ──
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/santa-coloma-de-gramenet/centre/s?maxPrice=320000&minSurface=70"
+        city: santa coloma de gramenet
+        district: centre
+      # ── Zona 4 · Barcelona ──
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-guinardo/s?maxPrice=320000&minSurface=70"
         city: barcelona
         district: el guinardo
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/la-sagrera/s?maxPrice=330000"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-baix-guinardo/s?maxPrice=320000&minSurface=70"
+        city: barcelona
+        district: baix guinardo
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/navas/s?maxPrice=320000&minSurface=70"
+        city: barcelona
+        district: navas
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/la-sagrera/s?maxPrice=320000&minSurface=70"
         city: barcelona
         district: la sagrera
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/eixample/la-sagrada-familia/s?maxPrice=330000"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/el-congres-i-els-indians/s?maxPrice=320000&minSurface=70"
         city: barcelona
-        district: sagrada familia
-      # ── To invest (up to 130.000 €, within an hour) ─────────────────────
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/manresa/s?maxPrice=130000"
-        city: manresa
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/igualada/s?maxPrice=130000"
-        city: igualada
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/vilafranca-del-penedes/s?maxPrice=130000"
-        city: vilafranca del penedès
+        district: congres
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/nou-barris/el-turo-de-la-peira/s?maxPrice=320000&minSurface=70"
+        city: barcelona
+        district: turo de la peira
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/nou-barris/vilapicina-i-la-torre-llobeta/s?maxPrice=320000&minSurface=70"
+        city: barcelona
+        district: vilapicina
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-clot/s?maxPrice=320000&minSurface=70"
+        city: barcelona
+        district: el clot
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-camp-de-l-arpa-del-clot/s?maxPrice=320000&minSurface=70"
+        city: barcelona
+        district: camp de l arpa
+      # ── Zona 5 · L'Hospitalet ──
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/l-hospitalet-de-llobregat/centre-sant-josep-sanfeliu/s?maxPrice=320000&minSurface=70"
+        city: hospitalet de llobregat
+        district: centre
+      # ── Zona 6 · Montjuïc / Zona Franca ──
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sants-montjuic/la-marina-del-port/s?maxPrice=320000&minSurface=70"
+        city: barcelona
+        district: marina del port
