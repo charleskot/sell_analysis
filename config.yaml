@@ -370,6 +370,11 @@ alerts:
   # them after an outage is noise, not information.
   fresh_hours: 24
   telegram:
+    # Off since 24-oct-2026: the user follows the phone notifications only
+    # ("no quiero telegram, no le veré más"). Every flat and every failure
+    # notice goes to ntfy instead. It only actually switches off when
+    # NTFY_TOPIC is set, so a missing secret cannot leave the bot mute.
+    enabled: false
     token: "${TELEGRAM_TOKEN}"
     chat_id: "${TELEGRAM_CHAT_ID}"
     # Only used by the legacy scraping path and the daily digest ranking.

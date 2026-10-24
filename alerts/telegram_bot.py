@@ -1,6 +1,7 @@
 """Telegram alerts and daily digest for real estate investment opportunities."""
 import logging
 import os
+import re
 
 from alerts import budget
 
@@ -16,6 +17,19 @@ class TelegramAlerter:
         self._cooldown_hours = alert_cfg.get("cooldown_hours", 168)
         self._config = config
         self._enabled = bool(self._token and self._chat_id and not self._token.startswith("${"))
+
+        # The user stopped reading Telegram ("no quiero telegram, no le veré
+        # más"); everything goes to the phone instead. But switching Telegram
+        # off with no push channel configured would leave the bot mute — the
+        # failure that once cost three weeks of a dead mailbox nobody heard
+        # about — so it only switches off when there is somewhere else to go.
+        if alert_cfg.get("enabled") is False and self._enabled:
+            if self._push_topic():
+                self._enabled = False
+                logger.info("Telegram desactivado: todo sale como notificación del móvil")
+            else:
+                logger.warning("Telegram desactivado en config pero falta NTFY_TOPIC: "
+                               "se mantiene Telegram para no quedarse mudo")
 
         # Loud startup log so it's easy to see on Railway
         if self._enabled:
@@ -58,7 +72,10 @@ class TelegramAlerter:
         from models.db import record_alert_sent
         from scheduler.quiet_hours import is_quiet
 
-        if not self._enabled:
+        # Either channel is enough to go on. The user cares about the phone
+        # notification and not about the chat, so the push must not depend
+        # on Telegram being configured, up, or within its limits.
+        if not self._enabled and not self._push_topic():
             return False
 
         # Nothing is recorded as sent while quiet, so this listing is picked
@@ -98,24 +115,59 @@ class TelegramAlerter:
             bump_daily("duplicado")
             return False
 
-        message = self._format_message(listing, metrics, score)
-        keyboard = self._feedback_keyboard(listing_id)
-        message_id = self._send_sync(message, reply_markup=keyboard, kind="piso")
+        # One budget for the flat, whichever channels carry it: checked once
+        # here so a refusal silences both, and spent once below.
+        allowed, why = budget.check(self._config, "piso")
+        if not allowed:
+            logger.warning(f"Piso {listing_id} NO enviado: {why}")
+            return False
 
-        if message_id:
-            record_alert_sent(listing_id, "telegram", message[:200], chat_message_id=message_id)
-            if dedup_key:
-                # Recorded against the property signature so a re-listing by
-                # another agency is recognised as the same flat.
-                record_alert_sent(dedup_key, "telegram", "", chat_message_id=message_id)
-            logger.info(f"Telegram alert sent for {listing_id} (score {score:.0f})")
-            # Mirrored here, after the card went out and was recorded, so the
-            # phone notification inherits every gate the card passed — the
-            # profile, the page check, the duplicate rule, quiet hours, the
-            # daily budget — and can never fire for a flat the chat did not get.
-            self._push(listing, metrics)
-            return True
-        return False
+        message = self._format_message(listing, metrics, score)
+        message_id = None
+        if self._enabled:
+            keyboard = self._feedback_keyboard(listing_id)
+            # _send_sync spends the budget itself when the card goes out.
+            message_id = self._send_sync(message, reply_markup=keyboard, kind="piso")
+
+        # Every gate above — profile, page check, duplicate rule, quiet
+        # hours, budget — has been passed by the time this runs, so the phone
+        # gets exactly the flats the chat would, and not one more.
+        pushed = self._push(listing, metrics)
+
+        if not message_id and not pushed:
+            return False
+        if not message_id:
+            budget.record("piso")     # the card did not go out to spend it
+
+        # Recorded the moment either channel delivered, so the same flat is
+        # never sent again on either — "nunca nunca repetido".
+        channel = "telegram" if message_id else "push"
+        chat_id = message_id if isinstance(message_id, int) and message_id > 1 else None
+        record_alert_sent(listing_id, channel, message[:200], chat_message_id=chat_id)
+        if dedup_key:
+            # Recorded against the property signature so a re-listing by
+            # another agency is recognised as the same flat.
+            record_alert_sent(dedup_key, channel, "", chat_message_id=chat_id)
+        logger.info(f"Piso {listing_id} enviado por "
+                    f"{'Telegram' if message_id else ''}{' + ' if message_id and pushed else ''}"
+                    f"{'notificación' if pushed else ''}")
+        return True
+
+    @staticmethod
+    def _lift_label(listing: dict, purpose: str | None) -> str | None:
+        """Whether there is a lift, as the advert says it.
+
+        One of the two things the buyer filters on, so it is named even
+        when the advert is silent: the search lets a silent flat through
+        rather than lose it for a missing word, and the card says so, so
+        the gap is his to check rather than hidden.
+        """
+        text = " ".join(str(listing.get(k) or "") for k in ("title", "description")).lower()
+        if re.search(r"\bsin\s+ascensor\b|\bno\s+(?:tiene|dispone\s+de|hay)\s+ascensor\b", text):
+            return "🚶 sin ascensor"
+        if "ascensor" in text:
+            return "🛗 con ascensor"
+        return "ascensor: no consta" if purpose == "home" else None
 
     @staticmethod
     def _push_text(listing: dict, metrics: dict) -> tuple[str, str]:
@@ -144,17 +196,58 @@ class TelegramAlerter:
             body += "\n" + reason.split(" · ")[0]
         return title, body
 
-    def _push(self, listing: dict, metrics: dict) -> None:
-        """Send the same flat as a phone notification through ntfy.
+    def _can_notify(self) -> bool:
+        """Whether any channel can carry a message: the chat or the phone."""
+        return self._enabled or bool(self._push_topic())
+
+    def _push_plain(self, html_text: str, kind: str) -> bool:
+        """A system message — not a flat — as a phone notification.
+
+        The text was written for Telegram's HTML mode; tags are stripped
+        and the first line becomes the title. Failure notices go out at the
+        highest priority, which on a phone breaks through quiet focus modes:
+        a dead mailbox is the one message that cannot wait.
+        """
+        import html as _html
+
+        topic = self._push_topic()
+        if not topic:
+            return False
+        text = _html.unescape(re.sub(r"<[^>]+>", "", html_text or "")).strip()
+        lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+        if not lines:
+            return False
+        server = ((self._config.get("alerts") or {}).get("ntfy") or {}).get(
+            "server", "https://ntfy.sh").rstrip("/")
+        payload = {"topic": topic, "title": lines[0][:120],
+                   "message": ("\n".join(lines[1:]) or lines[0])[:3500],
+                   "priority": 5 if kind == "fallo" else 3,
+                   "tags": ["warning"] if kind == "fallo" else ["information_source"]}
+        try:
+            import requests
+
+            resp = requests.post(server + "/", json=payload, timeout=10)
+            return resp.status_code < 300
+        except Exception as e:
+            logger.warning(f"ntfy no disponible: {e}")
+            return False
+
+    @staticmethod
+    def _push_topic() -> str:
+        return os.environ.get("NTFY_TOPIC", "").strip()
+
+    def _push(self, listing: dict, metrics: dict) -> bool:
+        """Send the flat as a phone notification through ntfy. True if sent.
 
         The topic name is the only key — anyone who knows it can read and
         post — so it lives in a secret (NTFY_TOPIC), never in this public
         repository. Unset, nothing happens. Never raises: a notification
-        service being down must not cost the card that already went out.
+        service being down must not cost the Telegram card, nor the other
+        way round.
         """
-        topic = os.environ.get("NTFY_TOPIC", "").strip()
+        topic = self._push_topic()
         if not topic:
-            return
+            return False
         server = ((self._config.get("alerts") or {}).get("ntfy") or {}).get(
             "server", "https://ntfy.sh").rstrip("/")
         title, body = self._push_text(listing, metrics)
@@ -170,8 +263,11 @@ class TelegramAlerter:
             resp = requests.post(server + "/", json=payload, timeout=10)
             if resp.status_code >= 300:
                 logger.warning(f"ntfy rechazó el aviso: HTTP {resp.status_code}")
+                return False
+            return True
         except Exception as e:
             logger.warning(f"ntfy no disponible: {e}")
+            return False
 
     @staticmethod
     def property_signature(listing: dict) -> str | None:
@@ -386,7 +482,7 @@ class TelegramAlerter:
         without either side noticing. A line every half hour costs almost
         nothing and removes the ambiguity entirely.
         """
-        if not self._enabled:
+        if not self._can_notify():
             return False
         return bool(self._send_sync(self._pulse_text(stats, error), kind="fallo"))
 
@@ -418,7 +514,7 @@ class TelegramAlerter:
         sat in that state for days. Four bank portals were added without ever
         having seen one of their emails, so it is worth saying out loud.
         """
-        if not self._enabled or not problems:
+        if not self._can_notify() or not problems:
             return False
         return bool(self._send_sync(self._unreadable_text(problems), kind="fallo"))
 
@@ -442,7 +538,7 @@ class TelegramAlerter:
         the chat it reads as the bot missing things, and the fix is on the
         portal, so it has to reach the person who can make it.
         """
-        if not self._enabled or not truncations:
+        if not self._can_notify() or not truncations:
             return False
         return bool(self._send_sync(self._truncation_text(truncations), kind="fallo"))
 
@@ -484,7 +580,7 @@ class TelegramAlerter:
         is the note that introduces them — or reports that there is nothing,
         which is information too rather than silence.
         """
-        if not self._enabled:
+        if not self._can_notify():
             return False
         return bool(self._send_sync(self._digest_header_text(total, pending), kind="resumen"))
 
@@ -534,6 +630,15 @@ class TelegramAlerter:
         allowed, why = budget.check(self._config, kind)
         if not allowed:
             logger.warning(f"Mensaje '{kind}' NO enviado: {why}")
+            return False
+
+        # Without Telegram, everything that would have gone to the chat goes
+        # to the phone — above all the "something is broken" notices, which
+        # are the ones nobody can afford to miss.
+        if not self._enabled:
+            if self._push_plain(message, kind):
+                budget.record(kind)
+                return True
             return False
 
         url = f"https://api.telegram.org/bot{self._token}/sendMessage"
@@ -606,6 +711,7 @@ class TelegramAlerter:
         # listing that arrived without floor or condition does not get a
         # line saying only "habitaclia".
         building = [self._esc(listing["floor"]) if listing.get("floor") else None,
+                    self._lift_label(listing, purpose),
                     self._condition_label(listing, metrics)]
         building = [b for b in building if b]
         if building:
