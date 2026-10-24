@@ -1061,11 +1061,21 @@ def test_same_price_similar_area_is_the_same_flat(db):
     assert was_similar_listing_sent("esplugues de llobregat", 270000, 85) is True
 
 
-def test_a_different_price_is_a_different_flat(db):
+def test_a_small_price_change_is_still_the_same_flat(db):
+    """"Nunca nunca repetido." The same flat re-listed after a small cut —
+    299.000 € in August, 295.000 € in October, both in Esplugues — went out
+    twice when the rule demanded an identical price."""
     from models.db import was_similar_listing_sent
 
     _sent(db, "habitaclia_101", "esplugues de llobregat", 270000, 70)
-    assert was_similar_listing_sent("esplugues de llobregat", 265000, 70) is False
+    assert was_similar_listing_sent("esplugues de llobregat", 265000, 70, rooms=2) is True
+
+
+def test_a_clearly_different_price_is_a_different_flat(db):
+    from models.db import was_similar_listing_sent
+
+    _sent(db, "habitaclia_104", "esplugues de llobregat", 270000, 70)
+    assert was_similar_listing_sent("esplugues de llobregat", 258000, 70, rooms=2) is False
 
 
 def test_a_very_different_area_is_a_different_flat(db):

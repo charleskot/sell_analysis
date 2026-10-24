@@ -281,54 +281,173 @@ def set_verify_verdict(listing_id: str, verdict: str) -> None:
         logger.warning(f"No pude guardar veredicto de {listing_id}: {e}")
 
 
-def was_similar_listing_sent(city: str | None, price: float | None,
-                             area: float | None,
-                             district: str | None = None) -> bool:
-    """Whether a flat this similar has already gone out.
+_STREET_TYPES_RE = None
 
-    The exact fingerprint (city:price:area:rooms) misses the commonest
-    duplicate: the same flat listed by several agencies, each measuring it
-    their own way. Esplugues at 270.000 € went out as 70 m²/2 hab, then
-    85 m²/3 hab, then 85 m²/2 hab — one flat, three cards. Identical asking
-    price in the same town with area within 25% is that flat again; two
-    genuinely different flats colliding on all three at once is rare enough
-    to be worth the trade.
+
+def _street_of(title: str | None) -> str:
+    """The street a title names, normalised, or "".
+
+    "Piso en Calle de Besalú, El Camp de l'Arpa..."  -> "besalu"
+    "Piso con ascensor en venta en CL LAS NAVAS DE TOLOSA" -> "las navas de tolosa"
+    "Piso en Barcelona - Navas (Sant Andreu)"        -> ""   (no street)
     """
-    if not city or city == "desconocido" or not price or not area:
-        return False
-    with session_scope() as conn:
-        rows = conn.execute(
-            select(listings.c.district)
-            .select_from(alerts_sent.join(listings, listings.c.id == alerts_sent.c.listing_id))
-            .where(
-                listings.c.city == city,
-                listings.c.price == price,
-                listings.c.area_m2.between(area * 0.75, area * 1.25),
-            )
-        ).fetchall()
-    if not rows:
-        return False
-
-    # In a town, identical price and similar area is the same flat. In a
-    # big city it is a coincidence: 330.000 € — the user's exact ceiling,
-    # the commonest price on his feed — with ~65 m² matched a Guinardó flat
-    # against an unrelated one in Sant Andreu, and a legitimate match died
-    # as a "duplicate". Above this population, the neighbourhoods must
-    # agree too; when either side lacks one, err towards sending — the
-    # exact-id and fingerprint checks still guard true repeats.
-    from analysis.municipalities import population_of
-
-    if (population_of(city) or 0) <= 200_000:
-        return True
-
+    import re
     from analysis.profiles import normalise
 
-    mine = normalise(district)
-    if not mine:
+    global _STREET_TYPES_RE
+    if _STREET_TYPES_RE is None:
+        _STREET_TYPES_RE = re.compile(
+            r"^(?:calle|cl|c|carrer|avenida|avda|av|avinguda|paseo|passeig|pg|plaza|placa|"
+            r"pza|pz|pl|ronda|rambla|travessera|trav|camino|cami|via|pasaje|passatge|ptge|"
+            r"carretera|ctra|gran via|urbanizacion|urb)\s+(?:(?:de|del|dels|de la|de les|"
+            r"d|la|el|les|los|las)\s+)?(.+)$")
+    if not title:
+        return ""
+    m = re.search(r"\ben (?:venta en )?(.+)$", title, re.I)
+    segment = (m.group(1) if m else title).split(",")[0]
+    seg = normalise(segment)
+    sm = _STREET_TYPES_RE.match(seg)
+    if not sm:
+        return ""
+    street = re.sub(r"\s+\d.*$", "", sm.group(1)).strip()
+    return street if len(street) >= 3 else ""
+
+
+def _place_hint(listing: dict) -> str:
+    """The barrio, or what is left of it in a truncated title.
+
+    Habitaclia's emails cut "Esplugues de Llobregat - Can Vidalet" to
+    "... - Can ...", so the stored district is empty; the fragment still
+    tells "can" from "centre" and "el gall".
+    """
+    from analysis.profiles import normalise
+
+    district = normalise(listing.get("district"))
+    if district:
+        return district
+    title = listing.get("title") or ""
+    if " - " in title:
+        return normalise(title.split(" - ", 1)[1].replace("...", " "))[:30]
+    return ""
+
+
+def _compatible(a: str, b: str) -> bool:
+    """Neither says something the other contradicts: one is a prefix of,
+    or contained in, the other. Truncated fragments are prefixes."""
+    return a.startswith(b) or b.startswith(a) or a in b or b in a
+
+
+def same_flat(a: dict, b: dict) -> bool:
+    """Whether two listings are, in all likelihood, the same flat.
+
+    The same flat reaches the user through several agencies and both
+    portals, each measuring and pricing it its own way. Exact fingerprints
+    missed it four ways, all seen in the cards actually sent:
+
+      - no surface: one Camp de l'Arpa flat at 325.000 € went out four
+        times through four Idealista agencies, none of which gave its m²;
+      - no room count, which leaves no fingerprint at all;
+      - a small price change: re-listed at 295.000 € after 299.000 €;
+      - the town spelt two ways ("Vilanova i la Geltrú" / "...Geltru").
+
+    The user's rule is "nunca nunca repetido", so this errs towards calling
+    two listings the same. At an identical price: surface within 25%,
+    rooms within one. With the price up to 2% apart: surface within 12%
+    and the same rooms. Two genuinely different flats that close in the same place
+    — identical units in one building — will show as one card, which is the
+    accepted cost. Where the barrio is known on both sides and differs, they
+    are different flats; in a city over 200.000 people the barrio must
+    agree, because there a coincidence of price and size is common.
+    Without a surface on both sides the evidence is thinner, so the price
+    must agree within 1% and the barrio and rooms must match.
+    """
+    from analysis.profiles import normalise, _place_matches
+    from analysis.municipalities import population_of
+
+    ca, cb = normalise(a.get("city")), normalise(b.get("city"))
+    if not ca or not cb or "desconocido" in (ca, cb):
         return False
-    for (other,) in rows:
-        theirs = normalise(other)
-        if theirs and (mine in theirs or theirs in mine):
+    if not (ca == cb or ca.startswith(cb) or cb.startswith(ca)):
+        return False
+
+    pa, pb = a.get("price"), b.get("price")
+    if not pa or not pb:
+        return False
+    dprice = abs(pa - pb) / max(pa, pb)
+    if dprice > 0.02:
+        return False
+    same_price = dprice == 0
+
+    # Agencies count rooms differently (the Esplugues flat went out as 2 and
+    # 3 hab at one price), so at an identical price one apart is allowed.
+    # When the price differs too, two differences at once are more likely
+    # two flats, so the rooms must agree.
+    ra, rb = a.get("rooms"), b.get("rooms")
+    if ra is not None and rb is not None:
+        if abs(ra - rb) > (1 if same_price else 0):
+            return False
+
+    # Two named streets that differ are two flats, whatever else agrees:
+    # "Calle de Besalú" and "Calle del Pistó" both asked 325.000 € in Camp
+    # de l'Arpa, neither gave its surface, and the barrio-and-price rule
+    # alone made them one.
+    sa, sb = _street_of(a.get("title")), _street_of(b.get("title"))
+    if sa and sb and not _compatible(sa, sb):
+        return False
+
+    da, db_ = a.get("district"), b.get("district")
+    both_districts = bool(normalise(da)) and bool(normalise(db_))
+    same_place = both_districts and (_place_matches(da, db_) or _place_matches(db_, da))
+    if both_districts and not same_place:
+        return False
+
+    # Where a district is missing, what the title still says about the
+    # barrio has to agree: "Can ..." is not "Centre" or "El Gall".
+    ha, hb = _place_hint(a), _place_hint(b)
+    if ha and hb and not _compatible(ha, hb) and not same_place:
+        return False
+    if ha and hb and _compatible(ha, hb):
+        same_place = True
+
+    big_city = (population_of(a.get("city")) or 0) > 200_000
+    if big_city and not same_place:
+        return False
+
+    # Built and useful area differ by up to a quarter — the Esplugues flat
+    # went out as 70 m² and 85 m² at the same price — so an identical price
+    # allows that much. A price that also moved allows less.
+    aa, ab = a.get("area_m2"), b.get("area_m2")
+    if aa and ab:
+        return abs(aa - ab) / max(aa, ab) <= (0.25 if same_price else 0.12)
+
+    # One side has no surface: thinner evidence, so ask for more of it.
+    return (same_place and dprice <= 0.01
+            and (ra is None or rb is None or ra == rb))
+
+
+def was_similar_listing_sent(city: str | None, price: float | None,
+                             area: float | None, district: str | None = None,
+                             rooms: int | None = None, title: str | None = None) -> bool:
+    """Whether a flat that is, in all likelihood, this one has gone out.
+
+    See same_flat for what "the same" means. Candidates are narrowed by
+    price in SQL — the one field every alert carries — and judged in Python,
+    where town names can be normalised.
+    """
+    if not city or city == "desconocido" or not price:
+        return False
+    me = {"city": city, "price": price, "area_m2": area,
+          "district": district, "rooms": rooms, "title": title}
+    with session_scope() as conn:
+        rows = conn.execute(
+            select(listings.c.city, listings.c.district, listings.c.price,
+                   listings.c.area_m2, listings.c.rooms, listings.c.title)
+            .select_from(alerts_sent.join(listings, listings.c.id == alerts_sent.c.listing_id))
+            .where(listings.c.price.between(price * 0.98, price * 1.02))
+        ).fetchall()
+    for c, d, p, a, r, t in rows:
+        if same_flat(me, {"city": c, "district": d, "price": p, "area_m2": a,
+                          "rooms": r, "title": t}):
             return True
     return False
 
