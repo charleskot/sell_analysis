@@ -283,6 +283,47 @@ def db_restore(
     console.print(f"[green]Restaurado:[/green] {n} anuncios desde {src}")
 
 
+@app.command("browser-probe")
+def browser_probe(verbose: bool = typer.Option(False, "--verbose", "-v")):
+    """Leer las búsquedas del navegador y contar lo que sale. No escribe nada.
+
+    Exists to answer one question before anything depends on it: does the
+    portal answer the CI runner the way it answers a laptop? A datacenter
+    address can be refused where a residential one is not, and nothing
+    tested elsewhere proves otherwise.
+    """
+    setup_logging(verbose)
+    config = load_config()
+    cfg = (config.get("browser_scraping") or {}).get("habitaclia") or {}
+    searches = cfg.get("searches") or []
+    if not searches:
+        console.print("[yellow]No hay búsquedas configuradas.[/yellow]")
+        raise typer.Exit(1)
+
+    from scraper.habitaclia_browser import scrape
+
+    total, failed = 0, 0
+    for s in searches:
+        label = s.get("district") or s.get("city") or s["url"][-40:]
+        try:
+            found = scrape(s["url"], max_pages=cfg.get("max_pages", 3),
+                           city=s.get("city"), district=s.get("district"))
+        except Exception as e:
+            failed += 1
+            console.print(f"[red]✗ {label}: {type(e).__name__}: {str(e)[:120]}[/red]")
+            continue
+        full = sum(1 for x in found if x["price"] and x["area_m2"] and x["rooms"])
+        total += len(found)
+        console.print(f"✓ {label:<18} {len(found):>3} pisos · {full:>3} completos")
+        for x in found[:2]:
+            console.print(f"    {x['price']:>9,.0f}€  {x['area_m2'] or '?'}m²  "
+                          f"{x['rooms'] or '?'}hab  {x['title'][:50]}")
+
+    console.print(f"\nTotal: {total} pisos en {len(searches) - failed}/{len(searches)} búsquedas")
+    if failed == len(searches):
+        raise typer.Exit(1)
+
+
 @app.command("tick")
 def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     """Un ciclo completo: lee alertas, avisa, y recoge tu feedback.
