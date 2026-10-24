@@ -201,6 +201,7 @@ class GmailReader:
                 subject=_decode(msg.get("Subject")),
                 html=html,
                 text=text,
+                received_ms=int(payload.get("internalDate", 0)),
             ),
             int(payload.get("internalDate", 0)),
         )
