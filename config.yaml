@@ -154,6 +154,7 @@ search_profiles:
           - baix guinardo       # the Maragall end of Guinardó
           - maragall
           - navas
+          - sant andreu         # Sant Andreu de Palomar
           - la sagrera
           - congres             # El Congrés i els Indians
           - turo de la peira
@@ -689,6 +690,9 @@ browser_scraping:
       - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/navas/s?maxPrice=320000&minSurface=70"
         city: barcelona
         district: navas
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/sant-andreu-de-palomar/s?maxPrice=320000&minSurface=70"
+        city: barcelona
+        district: sant andreu
       - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/la-sagrera/s?maxPrice=320000&minSurface=70"
         city: barcelona
         district: la sagrera
