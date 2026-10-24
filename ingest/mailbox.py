@@ -27,6 +27,9 @@ class RawEmail:
     subject: str
     html: str
     text: str
+    # When the mailbox received it, epoch ms; 0 when unknown (IMAP). The
+    # listings inside are only news if the email is — see fresh_hours.
+    received_ms: int = 0
 
     @property
     def body(self) -> str:

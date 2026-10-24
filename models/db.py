@@ -139,7 +139,11 @@ def upsert_listing(raw: dict) -> bool:
                     photo_urls=raw.get("photo_urls", []),
                     raw_html_hash=raw.get("raw_html_hash"),
                     price_history=[],
-                    first_seen_at=now,
+                    # An alert email read days late still dates the listing
+                    # to when the portal announced it, not to when we caught
+                    # up — otherwise a backlog looks brand new to every
+                    # freshness check downstream.
+                    first_seen_at=raw.get("first_seen_at") or now,
                     last_seen_at=now,
                     is_active=True,
                 )

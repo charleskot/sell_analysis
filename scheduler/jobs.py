@@ -335,7 +335,22 @@ class PipelineOrchestrator:
 
         stats["emails"] = len(messages)
 
+        from datetime import datetime as _dt, timedelta as _td, timezone as _tz
+
+        fresh_hours = (self.config.get("alerts") or {}).get("fresh_hours", 24)
+        now_utc = _dt.now(_tz.utc)
+
         for msg in messages:
+            # An email read late — the mailbox was down, the token revoked —
+            # still feeds prices, zones and the duplicate check, but it is not
+            # news. Its listings are dated to when the portal sent them, so
+            # the sweep sees them as old too, and none of them is alerted.
+            received_ms = getattr(msg, "received_ms", 0) or 0
+            received_at = (_dt.fromtimestamp(received_ms / 1000, _tz.utc)
+                           if received_ms else None)
+            stale_mail = bool(received_at and now_utc - received_at > _td(hours=fresh_hours))
+            if stale_mail:
+                stats["stale_emails"] = stats.get("stale_emails", 0) + 1
             try:
                 listings = parse_email(
                     msg.sender, msg.subject, msg.html, msg.text,
@@ -356,6 +371,8 @@ class PipelineOrchestrator:
 
                 try:
                     raw_dict = raw.to_dict()
+                    if stale_mail:
+                        raw_dict["first_seen_at"] = received_at
                     is_new = upsert_listing(raw_dict)
                     stats["new" if is_new else "updated"] += 1
 
@@ -369,7 +386,7 @@ class PipelineOrchestrator:
                         # it invisible to every later pass as well.
                         metrics = self._minimal_metrics(raw_dict)
 
-                    if not is_new:
+                    if not is_new or stale_mail:
                         continue
 
                     hits = self.profile_matcher.match(raw_dict, metrics)
@@ -644,9 +661,32 @@ class PipelineOrchestrator:
         It also repairs anything lost to a Telegram outage or a crash
         between sending and saving state.
         """
+        from datetime import datetime, timedelta, timezone
+
+        # Only what is news. The sweep exists to catch what quiet hours or
+        # an outage held back for a few hours; without a bound it also walks
+        # the whole history, and after the rent table changed it found 601
+        # never-sent matches from before 30 September and began delivering
+        # them twenty a day — cards for flats advertised weeks earlier and
+        # most likely gone. The user's rule, in his words: only what is
+        # coming out at each moment.
+        fresh_hours = (self.config.get("alerts") or {}).get("fresh_hours", 24)
+        cutoff = datetime.now(timezone.utc) - timedelta(hours=fresh_hours)
+
         sent = 0
         for entry in self.digest_entries():
             listing = entry["listing"]
+            first_seen = listing.get("first_seen_at")
+            if isinstance(first_seen, str):
+                try:
+                    first_seen = datetime.fromisoformat(first_seen)
+                except ValueError:
+                    first_seen = None
+            if first_seen is not None:
+                if first_seen.tzinfo is None:
+                    first_seen = first_seen.replace(tzinfo=timezone.utc)
+                if first_seen < cutoff:
+                    continue
             signature = self.alerter.property_signature(listing)
             if self.alerter.already_sent(listing["id"], signature):
                 continue

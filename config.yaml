@@ -335,6 +335,11 @@ portals:
 # Alerts
 # ═══════════════════════════════════════════════════════════════════════════
 alerts:
+  # Only what is news. A listing first seen longer ago than this is never
+  # alerted, by the live path or by the sweep that catches up after quiet
+  # hours. A flat advertised weeks ago is most likely gone, and a burst of
+  # them after an outage is noise, not information.
+  fresh_hours: 24
   telegram:
     token: "${TELEGRAM_TOKEN}"
     chat_id: "${TELEGRAM_CHAT_ID}"
