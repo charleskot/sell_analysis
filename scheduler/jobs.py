@@ -437,6 +437,7 @@ class PipelineOrchestrator:
         seed_date = now - timedelta(hours=fresh_hours + 1)
         portal_stats = stats["by_portal"].setdefault("habitaclia", {"parsed": 0, "alerts": 0})
 
+        empty_first_reads: list[str] = []
         for search in cfg["searches"]:
             url = search["url"]
             label = search.get("district") or search.get("city") or url[-40:]
@@ -468,6 +469,23 @@ class PipelineOrchestrator:
                 seeded.add(url)
                 stats["seeded"] += 1
                 logger.info(f"Navegador: {label} sembrada con {len(found)} pisos (sin avisar)")
+            elif first_time:
+                empty_first_reads.append(url)
+
+        # An empty search is genuinely empty when the same pass found flats
+        # elsewhere: the portal answered and the markup still parses, so the
+        # zero is real. Sant Just Desvern had no flat of 70 m² under
+        # 320.000 € on the day it was added; left unseeded, the first flat
+        # ever to appear there would have been taken for the seed and
+        # silenced — in exactly the zone where one listing matters most.
+        # When nothing anywhere came back, the page is the suspect, and
+        # nothing is seeded.
+        if empty_first_reads and stats["parsed"] > 0:
+            for url in empty_first_reads:
+                seeded.add(url)
+                stats["seeded"] += 1
+            logger.info(f"Navegador: {len(empty_first_reads)} búsquedas vacías dadas por "
+                        f"sembradas (el resto de la pasada sí encontró pisos)")
 
         set_telegram_state("browser_seeded", json.dumps(sorted(seeded)))
         set_telegram_state("browser_last_run_at", now.isoformat())

@@ -158,17 +158,33 @@ def test_a_failed_search_is_not_seeded_and_does_not_stop_the_others(db, pages):
     assert o.alerter.sent == []
 
 
-def test_an_empty_page_does_not_count_as_the_seed(db, pages):
-    """Blocked or re-skinned pages come back empty; seeding on that would
-    let the first real read afterwards alert everything on it."""
+def test_an_empty_pass_seeds_nothing(db, pages):
+    """Every search empty is the shape of a blocked or re-skinned page;
+    seeding on that would let the first real read afterwards alert
+    everything on it."""
     data, _ = pages
     data[URL_A] = []
-    o = _Orch([{"url": URL_A}])
+    data[URL_B] = []
+    o = _Orch([{"url": URL_A}, {"url": URL_B}])
     o.run_browser_scrape(force=True)
 
     data[URL_A] = [_flat("a1"), _flat("a2"), _flat("a3")]
     o.run_browser_scrape(force=True)
     assert o.alerter.sent == []
+
+
+def test_an_empty_search_beside_working_ones_is_genuinely_empty(db, pages):
+    """Sant Just Desvern had nothing of 70 m² under 320.000 € the day it
+    was added. Its first ever flat must be news, not the seed."""
+    data, _ = pages
+    data[URL_A] = [_flat("a1")]
+    data[URL_B] = []
+    o = _Orch([{"url": URL_A}, {"url": URL_B}])
+    assert o.run_browser_scrape(force=True)["seeded"] == 2
+
+    data[URL_B] = [_flat("primero_en_sant_just")]
+    o.run_browser_scrape(force=True)
+    assert o.alerter.sent == ["habitaclia_primero_en_sant_just"]
 
 
 def test_a_search_added_later_is_seeded_on_its_own(db, pages):
