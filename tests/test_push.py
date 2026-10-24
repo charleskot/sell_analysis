@@ -14,8 +14,12 @@ FLAT = {"price": 289000, "district": "navas", "city": "barcelona", "area_m2": 75
         "title": "Piso con ascensor en venta en Navas", "description": ""}
 
 
-def alerter():
-    return TelegramAlerter({"alerts": {"telegram": {"token": "123:abc", "chat_id": "42"}}})
+LIMITS = {"total_per_day": 25, "per_kind": {"piso": 20, "fallo": 2, "resumen": 1, "respuesta": 25}}
+
+
+def alerter(**telegram):
+    cfg = {"token": "123:abc", "chat_id": "42", "limits": LIMITS, **telegram}
+    return TelegramAlerter({"alerts": {"telegram": cfg}})
 
 
 def test_the_notification_says_what_decides_a_flat():
@@ -127,8 +131,76 @@ def test_a_repeat_sends_neither_card_nor_notification(live):
     assert len(posts) == 1
 
 
-def test_a_card_telegram_refused_is_not_mirrored(live, monkeypatch):
+def test_a_card_telegram_refused_still_reaches_the_phone(live, monkeypatch):
+    """The phone is what the user reads. Telegram failing must not cost it."""
     a, posts = live
     monkeypatch.setattr(a, "_send_sync", lambda *args, **kw: None)
-    assert not _send(a, "habitaclia_2", FLAT)
+    assert _send(a, "habitaclia_2", FLAT)
+    assert len(posts) == 1
+
+
+def test_a_flat_that_reached_only_the_phone_is_still_never_repeated(live, monkeypatch):
+    a, posts = live
+    monkeypatch.setattr(a, "_send_sync", lambda *args, **kw: None)
+    _send(a, "habitaclia_3", FLAT)
+    assert not _send(a, "idealista_3", {**FLAT, "price": 288000})
+    assert len(posts) == 1
+
+
+def test_an_exhausted_budget_silences_both_channels(live, monkeypatch):
+    from alerts import budget
+
+    a, posts = live
+    monkeypatch.setattr(budget, "check", lambda *args, **kw: (False, "tope"))
+    assert not _send(a, "habitaclia_4", FLAT)
     assert posts == []
+
+
+# ── Telegram switched off: everything to the phone ─────────────────────────
+
+def test_telegram_off_sends_flats_only_to_the_phone(monkeypatch, db, posts):
+    import scheduler.quiet_hours as qh
+
+    monkeypatch.setenv("NTFY_TOPIC", "secreto")
+    monkeypatch.setattr(qh, "is_quiet", lambda *a, **k: False)
+    a = alerter(enabled=False)
+    tg = []
+    monkeypatch.setattr(a, "_send_sync", lambda *args, **kw: tg.append(1) or 1)
+    assert _send(a, "habitaclia_5", FLAT)
+    assert tg == [] and len(posts) == 1
+
+
+def test_telegram_off_without_a_phone_channel_keeps_telegram(monkeypatch):
+    """Switching the chat off with no push configured would leave the bot
+    mute — the way a dead mailbox once went unheard for three weeks."""
+    monkeypatch.delenv("NTFY_TOPIC", raising=False)
+    assert alerter(enabled=False).enabled
+
+
+def test_a_failure_notice_reaches_the_phone_urgently(monkeypatch, db, posts):
+    monkeypatch.setenv("NTFY_TOPIC", "secreto")
+    a = alerter(enabled=False)
+    assert a.send_pulse(error="no pude autenticarme con Gmail")
+    (_, payload), = posts
+    assert payload["priority"] == 5
+    assert "<" not in payload["title"] + payload["message"]
+
+
+# ── The card names the lift, one of the two things he filters on ───────────
+
+@pytest.mark.parametrize("text,label", [
+    ("Piso con ascensor en venta en Navas", "🛗 con ascensor"),
+    ("Piso sin ascensor, segunda planta", "🚶 sin ascensor"),
+    ("Finca que no tiene ascensor", "🚶 sin ascensor"),
+    ("Piso exterior en Navas", "ascensor: no consta"),
+])
+def test_the_card_says_whether_there_is_a_lift(text, label):
+    assert TelegramAlerter._lift_label({"title": text}, "home") == label
+
+
+def test_the_card_shows_the_lift_next_to_the_floor():
+    card = alerter()._format_message({**FLAT, "title": "Piso sin ascensor en Navas",
+                                      "floor": "2ª planta"},
+                                     {"matched_purpose": "home"}, 0)
+    line = next(l for l in card.splitlines() if l.startswith("🏗"))
+    assert "2ª planta" in line and "sin ascensor" in line
