@@ -787,3 +787,42 @@ def test_street_first_places_peel_down_to_the_town():
     assert _clean_place("C/ Calderón de la Barca/Badalona") == "badalona"
     assert _clean_place("c/ Tercio de Ntra Señora en Badalona (Barcelona)") == "badalona"
     assert _clean_place("Sant Feliu de Llobregat") == "sant feliu de llobregat"
+
+
+# ── Idealista puts dashes inside barrio names ───────────────────────────────
+#
+# Its titles run narrow-to-broad with the town after the last comma, and
+# many barrio names contain " - ". Read as Habitaclia's "Town - Barrio",
+# the street became the city: 17% of Idealista listings landed in towns
+# like "riera alta" or "calle de campr", which the investment search drops
+# as unknown, without a word. All examples are real stored titles.
+
+import pytest as _pytest
+
+
+@_pytest.mark.parametrize("title,city", [
+    ("Piso en Riera Alta - Llatí, Santa Coloma de Gramenet", "santa coloma de gramenet"),
+    ("Piso en Nord - Sant Andreu, Ripollet", "ripollet"),
+    ("Finca rústica en Carretera de Mata, Escorxador - El Palau, Mataró", "mataró"),
+    ("Piso en Calle de Sant Iscle, Can Peguera - El Turó de la Peira, Barcelona", "barcelona"),
+])
+def test_a_dash_inside_an_idealista_barrio_does_not_make_the_street_the_city(title, city):
+    from ingest.email_parsers import extract_location
+
+    assert extract_location(title)[0] == city
+
+
+def test_a_street_named_after_a_town_is_not_that_town():
+    """"Calle de Girona, Barri Antic - Centre, Viladecans" was filed in
+    Girona: the dash branch took the street, and the street is a town."""
+    from ingest.email_parsers import extract_location
+
+    assert extract_location(
+        "Piso en Calle de Girona, Barri Antic - Centre, Viladecans")[0] == "viladecans"
+
+
+def test_habitaclias_dash_format_still_reads_town_then_barrio():
+    from ingest.email_parsers import extract_location
+
+    assert extract_location("Piso en Barcelona - El Poble Sec - Paral·lel") == \
+        ("barcelona", "el poble sec")
