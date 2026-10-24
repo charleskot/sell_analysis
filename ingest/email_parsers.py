@@ -411,29 +411,54 @@ def extract_location(title: str) -> tuple[str | None, str | None]:
 
     tail = m.group(1)
 
-    # Habitaclia goes broad-to-narrow: "Barcelona - El Poble Sec - Paral·lel"
-    if " - " in tail:
-        # Only whitespace is stripped: _clean_place must still see a trailing
-        # "..." to recognise a truncated fragment.
+    def by_dash() -> tuple[str | None, str | None]:
+        # Habitaclia goes broad-to-narrow: "Barcelona - El Poble Sec -
+        # Paral·lel". Only whitespace is stripped: _clean_place must still
+        # see a trailing "..." to recognise a truncated fragment.
         parts = [p for p in (p.strip() for p in tail.split(" - ")) if p]
-        if parts:
-            return (
-                _resolve_city(_clean_place(parts[0])),
-                _clean_place(parts[1]) if len(parts) > 1 else None,
-            )
+        if not parts:
+            return None, None
+        return (_resolve_city(_clean_place(parts[0])),
+                _clean_place(parts[1]) if len(parts) > 1 else None)
 
-    # Idealista and Fotocasa go narrow-to-broad, ending in the town:
-    #   "Paseo Mirador, Bellamar, Castelldefels"  ->  city Castelldefels
-    #   "D'Aribau, Barcelona"                     ->  city Barcelona
-    if "," in tail:
+    def by_comma() -> tuple[str | None, str | None]:
+        # Idealista and Fotocasa go narrow-to-broad, ending in the town:
+        #   "Paseo Mirador, Bellamar, Castelldefels"  ->  city Castelldefels
+        #   "D'Aribau, Barcelona"                     ->  city Barcelona
         parts = [p for p in (p.strip() for p in tail.split(",")) if p]
-        if parts:
-            city = _resolve_city(_clean_place(parts[-1]))
-            district = _clean_place(parts[-2]) if len(parts) > 1 else None
-            # A house number is not a district
-            if district and district.isdigit():
-                district = _clean_place(parts[-3]) if len(parts) > 2 else None
-            return city, district
+        if not parts:
+            return None, None
+        city = _resolve_city(_clean_place(parts[-1]))
+        district = _clean_place(parts[-2]) if len(parts) > 1 else None
+        # A house number is not a district
+        if district and district.isdigit():
+            district = _clean_place(parts[-3]) if len(parts) > 2 else None
+        return city, district
+
+    has_dash, has_comma = " - " in tail, "," in tail
+
+    # Both separators: let the town decide. Idealista puts dashes *inside*
+    # barrio names — "Riera Alta - Llatí, Santa Coloma de Gramenet", "Nord -
+    # Sant Andreu, Ripollet" — and taking the dash reading made the street
+    # the city: 17% of Idealista listings landed in towns like "riera alta"
+    # or "calle de campr", which the investment search drops as unknown,
+    # silently. Worse, "Calle de Girona, ... Viladecans" was filed in Girona.
+    # Whichever reading names a real municipality wins; if neither does, the
+    # comma reading, since the town-last convention is the common one.
+    if has_dash and has_comma:
+        from analysis.municipalities import population_of
+
+        comma = by_comma()
+        if comma[0] and population_of(comma[0]):
+            return comma
+        dash = by_dash()
+        if dash[0] and population_of(dash[0]):
+            return dash
+        return comma
+    if has_dash:
+        return by_dash()
+    if has_comma:
+        return by_comma()
 
     return _resolve_city(_clean_place(tail)), None
 
