@@ -373,71 +373,8 @@ class PipelineOrchestrator:
                     raw_dict = raw.to_dict()
                     if stale_mail:
                         raw_dict["first_seen_at"] = received_at
-                    is_new = upsert_listing(raw_dict)
-                    stats["new" if is_new else "updated"] += 1
-
-                    listing_id = f"{raw.portal}_{raw.external_id}"
-                    metrics = self._compute_metrics(raw_dict)
-                    if metrics:
-                        upsert_metrics(listing_id, metrics)
-                    else:
-                        # No surface, so no yields — but a home search does
-                        # not need them, and dropping the listing here made
-                        # it invisible to every later pass as well.
-                        metrics = self._minimal_metrics(raw_dict)
-
-                    if not is_new or stale_mail:
-                        continue
-
-                    hits = self.profile_matcher.match(raw_dict, metrics)
-                    if not hits:
-                        stats["filtered_out"] += 1
-                        continue
-
-                    # Only now, for the handful that matched, is it worth
-                    # reading the listing's own page. The email left out the
-                    # condition for most of them, and "para reformar" changes
-                    # the numbers by tens of thousands — enough to disqualify
-                    # a match that looked fine a moment ago.
-                    # Read the advert before sending. Shared with the sweep
-                    # on purpose: this logic used to live only here, and the
-                    # sweep added later went straight past it, which is how a
-                    # flat whose advert shouts "NO SE PUEDE VISITAR NI
-                    # FINANCIAR" reached the user anyway.
-                    checked = self.verify(raw_dict, metrics)
-                    if checked is None:
-                        stats["rejected_after_enrich"] += 1
-                        continue
-                    if checked[0] is not raw_dict:
-                        stats["enriched"] += 1
-                    raw_dict, metrics = checked
-                    hits = self.profile_matcher.match(raw_dict, metrics) or hits
-
-                    # A listing can satisfy more than one search; name them all
-                    # so the alert says why it is being shown.
-                    labels = " + ".join(p.label for p, _ in hits)
-                    reason = hits[0][1]
-                    for profile, _ in hits:
-                        stats["by_profile"][profile.name] = (
-                            stats["by_profile"].get(profile.name, 0) + 1
-                        )
-
-                    # The alert is laid out by purpose, so carry it through
-                    metrics = {
-                        **metrics,
-                        "matched_profiles": labels,
-                        "matched_purpose": hits[0][0].purpose,
-                        "match_reason": reason,
-                    }
-
-                    score = metrics.get("investment_score", 0) or 0
-                    dedup_key = self.alerter.property_signature(raw_dict)
-                    if self.alerter.send_alert(
-                        listing_id, raw_dict, metrics, score, dedup_key=dedup_key
-                    ):
-                        stats["alerts_sent"] += 1
-                        portal_stats["alerts"] += 1
-                        logger.info(f"Alerta {listing_id} [{labels}]: {reason}")
+                    self._ingest_listing(raw_dict, stats, portal_stats,
+                                         alert=not stale_mail)
 
                 except Exception as e:
                     logger.error(f"Error processing {raw.url}: {e}")
@@ -448,6 +385,165 @@ class PipelineOrchestrator:
             logger.info(f"  📧 {portal}: {pstats['parsed']} anuncios, {pstats['alerts']} alertas")
 
         return stats
+
+    def run_browser_scrape(self, force: bool = False) -> dict:
+        """Read the configured portal searches with a headless browser.
+
+        Runs at most every `interval_minutes`; the loop ticks every three,
+        and a full pass over every search takes a few minutes and a real
+        browser. `force` skips that wait (for manual runs).
+
+        The first read of any search sees every flat on it as new — they
+        are new to this database, under ids the emails never used — and
+        would alert dozens at once. So that first pass is a seed: it stores
+        what is already there, dated outside the freshness window so the
+        sweep leaves it alone too, and alerts nothing. From the next pass
+        on, a flat that was not on the page before is news. A search added
+        to the config later is seeded the same way on its own first run.
+        """
+        import json
+        from datetime import datetime, timedelta, timezone
+        from models.db import get_telegram_state, set_telegram_state
+
+        cfg = (self.config.get("browser_scraping") or {}).get("habitaclia") or {}
+        stats = {"searches": 0, "seeded": 0, "parsed": 0, "new": 0, "updated": 0,
+                 "filtered_out": 0, "rejected_after_enrich": 0, "enriched": 0,
+                 "alerts_sent": 0, "errors": 0, "by_profile": {}, "by_portal": {}}
+        if not cfg.get("enabled") or not cfg.get("searches"):
+            return stats
+
+        now = datetime.now(timezone.utc)
+        interval = timedelta(minutes=cfg.get("interval_minutes", 30))
+        last = get_telegram_state("browser_last_run_at", "")
+        if not force and last:
+            try:
+                if now - datetime.fromisoformat(last) < interval:
+                    return stats
+            except ValueError:
+                pass
+
+        try:
+            from scraper.habitaclia_browser import scrape
+        except ImportError as e:
+            logger.warning(f"Navegador no disponible: {e}")
+            return stats
+
+        try:
+            seeded = set(json.loads(get_telegram_state("browser_seeded", "[]") or "[]"))
+        except ValueError:
+            seeded = set()
+
+        fresh_hours = (self.config.get("alerts") or {}).get("fresh_hours", 24)
+        seed_date = now - timedelta(hours=fresh_hours + 1)
+        portal_stats = stats["by_portal"].setdefault("habitaclia", {"parsed": 0, "alerts": 0})
+
+        for search in cfg["searches"]:
+            url = search["url"]
+            label = search.get("district") or search.get("city") or url[-40:]
+            try:
+                found = scrape(url, max_pages=cfg.get("max_pages", 3),
+                               city=search.get("city"), district=search.get("district"))
+            except Exception as e:
+                logger.error(f"Navegador: {label} falló: {type(e).__name__}: {e}")
+                stats["errors"] += 1
+                continue
+            stats["searches"] += 1
+
+            first_time = url not in seeded
+            for raw_dict in found:
+                stats["parsed"] += 1
+                portal_stats["parsed"] += 1
+                if first_time:
+                    raw_dict["first_seen_at"] = seed_date
+                try:
+                    self._ingest_listing(raw_dict, stats, portal_stats, alert=not first_time)
+                except Exception as e:
+                    logger.error(f"Navegador: error con {raw_dict.get('url', '?')[:80]}: {e}")
+                    stats["errors"] += 1
+
+            # Only a pass that actually saw flats counts as the seed. An
+            # empty page — blocked, or the markup changed — seeding nothing
+            # would let the first real read afterwards alert everything.
+            if first_time and found:
+                seeded.add(url)
+                stats["seeded"] += 1
+                logger.info(f"Navegador: {label} sembrada con {len(found)} pisos (sin avisar)")
+
+        set_telegram_state("browser_seeded", json.dumps(sorted(seeded)))
+        set_telegram_state("browser_last_run_at", now.isoformat())
+        logger.info(f"Navegador: {stats['searches']} búsquedas, {stats['parsed']} pisos, "
+                    f"{stats['new']} nuevos, {stats['alerts_sent']} avisos, "
+                    f"{stats['seeded']} sembradas, {stats['errors']} errores")
+        return stats
+
+    def _ingest_listing(self, raw_dict: dict, stats: dict, portal_stats: dict,
+                        alert: bool = True) -> None:
+        """Store one listing and, if it is new and may be alerted, send it.
+
+        Shared by every source on purpose. Twice in this codebase a second
+        path grew its own copy of these steps and skipped one — the sweep
+        once sent flats whose advert said "NO SE PUEDE VISITAR NI FINANCIAR"
+        because it never read the page. Email and browser listings go
+        through the same matching, the same page check and the same
+        duplicate guards, or they do not go out.
+
+        `alert=False` stores the listing (prices, zones, duplicates all
+        learn from it) without treating it as news.
+        """
+        from models.db import upsert_listing, upsert_metrics
+
+        listing_id = f"{raw_dict['portal']}_{raw_dict['external_id']}"
+        is_new = upsert_listing(raw_dict)
+        stats["new" if is_new else "updated"] += 1
+
+        metrics = self._compute_metrics(raw_dict)
+        if metrics:
+            upsert_metrics(listing_id, metrics)
+        else:
+            # No surface, so no yields — but a home search does not need
+            # them, and dropping the listing here made it invisible to every
+            # later pass as well.
+            metrics = self._minimal_metrics(raw_dict)
+
+        if not is_new or not alert:
+            return
+
+        hits = self.profile_matcher.match(raw_dict, metrics)
+        if not hits:
+            stats["filtered_out"] += 1
+            return
+
+        # Read the advert before sending. Most sources leave out the
+        # condition, and "para reformar" — or "ocupado" — changes everything.
+        checked = self.verify(raw_dict, metrics)
+        if checked is None:
+            stats["rejected_after_enrich"] += 1
+            return
+        if checked[0] is not raw_dict:
+            stats["enriched"] += 1
+        raw_dict, metrics = checked
+        hits = self.profile_matcher.match(raw_dict, metrics) or hits
+
+        # A listing can satisfy more than one search; name them all so the
+        # alert says why it is being shown.
+        labels = " + ".join(p.label for p, _ in hits)
+        reason = hits[0][1]
+        for profile, _ in hits:
+            stats["by_profile"][profile.name] = stats["by_profile"].get(profile.name, 0) + 1
+
+        metrics = {
+            **metrics,
+            "matched_profiles": labels,
+            "matched_purpose": hits[0][0].purpose,
+            "match_reason": reason,
+        }
+
+        score = metrics.get("investment_score", 0) or 0
+        dedup_key = self.alerter.property_signature(raw_dict)
+        if self.alerter.send_alert(listing_id, raw_dict, metrics, score, dedup_key=dedup_key):
+            stats["alerts_sent"] += 1
+            portal_stats["alerts"] += 1
+            logger.info(f"Alerta {listing_id} [{labels}]: {reason}")
 
     def _enrich(self, listing: dict) -> dict | None:
         """Recover the description from the listing's own page.

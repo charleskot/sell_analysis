@@ -349,6 +349,22 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     except Exception as e:
         console.print(f"[yellow]Feedback poll falló:[/yellow] {e}")
 
+    # Before the mailbox, on purpose: reading the portal directly does not
+    # depend on Gmail, and the mailbox has died twice for weeks at a time.
+    # A dead token must not also take the portal down with it. Runs every
+    # half hour; on the other ticks it returns at once.
+    try:
+        browser = orchestrator.run_browser_scrape()
+        if browser.get("searches"):
+            console.print(
+                f"[green]Navegador:[/green] {browser['searches']} búsquedas · "
+                f"{browser['parsed']} pisos · {browser['new']} nuevos · "
+                f"{browser['alerts_sent']} alertas"
+                + (f" · {browser['seeded']} sembradas" if browser["seeded"] else "")
+            )
+    except Exception as e:
+        console.print(f"[yellow]Navegador falló:[/yellow] {e}")
+
     tg_cfg = config.get("alerts", {}).get("telegram", {})
     pulse_minutes = tg_cfg.get("pulse_minutes", 0)
     failure_minutes = tg_cfg.get("failure_notice_minutes", 60)
@@ -384,8 +400,15 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     # The portal truncating its own alert reads, from the chat, exactly like
     # the bot missing listings. The fix is on the portal, so it has to reach
     # the person who can make it.
-    if stats.get("truncated"):
-        orchestrator.alerter.send_truncation_warning(stats["truncated"])
+    # Except where the portal is already read directly: Habitaclia's search
+    # pages carry every flat its summary emails leave out, so telling the
+    # user to split those alerts — which its app will not even let him
+    # save — asks him to fix something that no longer needs fixing.
+    truncated = stats.get("truncated") or []
+    if ((config.get("browser_scraping") or {}).get("habitaclia") or {}).get("enabled"):
+        truncated = [t for t in truncated if t[0] != "habitaclia"]
+    if truncated:
+        orchestrator.alerter.send_truncation_warning(truncated)
 
     # Anything suppressed overnight, or lost to an outage, goes out here.
     # The alert path only fires on freshly parsed email and that email is

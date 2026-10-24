@@ -618,6 +618,10 @@ browser_scraping:
   habitaclia:
     enabled: true
     max_pages: 3
+    # A full pass over every search takes a few minutes in a real browser,
+    # and the loop ticks every three. Half an hour is fresh enough for
+    # flats and gentle enough on the portal.
+    interval_minutes: 30
     searches:
       # ── To live in (vivienda, up to 330.000 €) ──────────────────────────
       - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/navas/s?maxPrice=330000"
