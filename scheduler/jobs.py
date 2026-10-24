@@ -489,6 +489,28 @@ class PipelineOrchestrator:
 
         set_telegram_state("browser_seeded", json.dumps(sorted(seeded)))
         set_telegram_state("browser_last_run_at", now.isoformat())
+
+        # A pass that found nothing anywhere is a page that changed or a door
+        # that closed, not a market with nothing for sale: twenty-one searches
+        # across six zones do not all go empty at once. Silence here would
+        # look exactly like a quiet week — the way a dead mailbox once went
+        # unnoticed for three — so it is said out loud, once a day at most.
+        if cfg["searches"] and stats["parsed"] == 0:
+            last = get_telegram_state("browser_broken_notice_at", "")
+            due = True
+            if last:
+                try:
+                    due = now - datetime.fromisoformat(last) > timedelta(hours=24)
+                except ValueError:
+                    pass
+            if due:
+                reason = (f"{stats['errors']} búsquedas fallaron" if stats["errors"]
+                          else "todas las páginas vinieron vacías")
+                if self.alerter.send_pulse(
+                        error=f"Habitaclia: el navegador no encuentra ningún piso en "
+                              f"{len(cfg['searches'])} búsquedas ({reason}). Puede que "
+                              f"hayan cambiado la web o bloqueado el acceso."):
+                    set_telegram_state("browser_broken_notice_at", now.isoformat())
         logger.info(f"Navegador: {stats['searches']} búsquedas, {stats['parsed']} pisos, "
                     f"{stats['new']} nuevos, {stats['alerts_sent']} avisos, "
                     f"{stats['seeded']} sembradas, {stats['errors']} errores")
