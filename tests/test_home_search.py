@@ -137,6 +137,8 @@ def test_a_courtyard_is_not_an_interior_flat(home):
     ("barcelona", "el congrés i els indians"),
     ("barcelona", "baix guinardó (ho"),
     ("barcelona", "la marina del port"),
+    ("barcelona", "sant andreu de palomar"),
+    ("barcelona", "sant andreu de pa"),       # Habitaclia truncates it
     ("badalona", "centre"),
     ("badalona", "bufalà (bonavista"),
     ("badalona", "sant crist (montig"),
@@ -151,7 +153,6 @@ def test_wanted_zones_pass(home, city, district):
 
 @pytest.mark.parametrize("city,district", [
     ("barcelona", "la sagrada familia"),    # dropped from the new search
-    ("barcelona", "sant andreu de palomar"),
     ("badalona", "llefià (artigues"),
     ("badalona", "congrés (gorg"),           # Barcelona's Congrés, not this one
     ("santa coloma de gramenet", "fondo"),
