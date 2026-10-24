@@ -24,7 +24,8 @@ def alerter(**telegram):
 
 def test_the_notification_says_what_decides_a_flat():
     title, body = TelegramAlerter._push_text(FLAT, {})
-    assert "289.000 €" in title and "Navas" in title
+    assert "289.000 €" in title and "Navas, Barcelona" in title
+    assert "🏠" not in title        # the "house" tag already adds one
     assert "75 m²" in body and "3 hab" in body and "3ª planta" in body
     assert "ascensor" in body
 
@@ -204,3 +205,14 @@ def test_the_card_shows_the_lift_next_to_the_floor():
                                      {"matched_purpose": "home"}, 0)
     line = next(l for l in card.splitlines() if l.startswith("🏗"))
     assert "2ª planta" in line and "sin ascensor" in line
+
+
+def test_a_generic_barrio_names_its_town():
+    """"269.660 € · Centre" reached the phone: Centre of where?"""
+    title, _ = TelegramAlerter._push_text({**FLAT, "district": "centre", "city": "badalona"}, {})
+    assert "Centre, Badalona" in title
+
+
+def test_a_town_without_barrio_is_just_the_town():
+    title, _ = TelegramAlerter._push_text({**FLAT, "district": None, "city": "molins de rei"}, {})
+    assert title.endswith("Molins De Rei")

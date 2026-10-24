@@ -174,8 +174,17 @@ class TelegramAlerter:
         """Title and body for the phone notification: what decides a flat
         at a glance, nothing the card itself will not say in full."""
         price = listing.get("price") or 0
-        place = (listing.get("district") or listing.get("city") or "").title()
-        title = f"🏠 {price:,.0f} € · {place}".replace(",", ".")
+        # The town always, the barrio when there is one. "Centre" alone was
+        # useless: Badalona, Santa Coloma and L'Hospitalet all have one.
+        city = (listing.get("city") or "").strip()
+        district = (listing.get("district") or "").strip()
+        if district and city and city.lower() not in district.lower():
+            place = f"{district.title()}, {city.title()}"
+        else:
+            place = (district or city).title()
+        # No emoji here: the "house" tag already puts one on the notification.
+        money = f"{price:,.0f}".replace(",", ".")
+        title = f"{money} € · {place}"
 
         facts = []
         if listing.get("area_m2"):
