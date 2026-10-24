@@ -203,6 +203,10 @@ class TelegramAlerter:
         reason = metrics.get("match_reason") or ""
         if "por encima" in reason:
             body += "\n" + reason.split(" · ")[0]
+        if metrics.get("unverified"):
+            # Idealista's pages cannot be read from here; occupation is only
+            # ever stated there, so the user is told this one was not checked.
+            body += "\n⚠️ Ficha sin verificar: mírala antes por si está ocupado"
         return title, body
 
     def _can_notify(self) -> bool:

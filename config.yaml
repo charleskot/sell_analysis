@@ -369,6 +369,12 @@ alerts:
   # hours. A flat advertised weeks ago is most likely gone, and a burst of
   # them after an outage is noise, not information.
   fresh_hours: 24
+  verification:
+    # Portals whose adverts are read in full before any alert. A flat whose
+    # page cannot be read here is held and retried, never sent unchecked.
+    # Idealista and the bank sites refuse every read from the runner, so
+    # their flats go out on their email's own words, marked "sin verificar".
+    must_read_portals: [habitaclia, fotocasa]
   telegram:
     # Off since 24-oct-2026: the user follows the phone notifications only
     # ("no quiero telegram, no le veré más"). Every flat and every failure

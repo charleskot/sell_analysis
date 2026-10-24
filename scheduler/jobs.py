@@ -708,7 +708,7 @@ class PipelineOrchestrator:
         Returns the listing and metrics to send with, or None to drop.
         """
         from ingest.email_parsers import _REJECT_RE
-        from ingest.enrich import fetch_page_text_fallback
+        from ingest.enrich import fetch_page_text_fallback, final_url
         from models.db import bump_daily, get_verify_verdict, set_verify_verdict
 
         lid = listing.get("id") or ""
@@ -731,42 +731,62 @@ class PipelineOrchestrator:
             added = (enriched.get("description") or "")[len(listing.get("description") or ""):]
         full_text = None
         if not page_unreadable_known and len(added.strip()) < 600:
-            full_text = fetch_page_text_fallback(listing.get("url"))
+            # Email links are redirects; the reader needs the page they land on.
+            url = listing.get("url") or ""
+            if "/alertas/" in url or "/r/?" in url or "utm_" in url:
+                url = final_url(url) or url
+            full_text = fetch_page_text_fallback(url)
 
-        if enriched or full_text:
-            scan = " ".join(filter(None, [
-                str(listing.get("title") or ""),
-                str((enriched or listing).get("description") or ""),
-                full_text,
-            ]))
-            blocker = _REJECT_RE.search(scan)
-            if blocker:
-                logger.info(f"{lid} descartado al leer la ficha: {blocker.group(0)!r}")
-                bump_daily("ocupado_ficha")
-                set_verify_verdict(lid, "rechazada")
-                return None
-        else:
-            # Nothing could read the page — not the runner, not the reader.
-            # An investment is dropped: "send it flagged" was tried, and the
-            # reader's silent refusals turned it into a stream of occupied
-            # flats. A home match still goes out, marked as unverified.
+        # Whatever was read is screened, thin or not — a summary can still
+        # say "ocupado".
+        scan = " ".join(filter(None, [
+            str(listing.get("title") or ""),
+            str((enriched or listing).get("description") or ""),
+            full_text,
+        ]))
+        blocker = _REJECT_RE.search(scan)
+        if blocker:
+            logger.info(f"{lid} descartado al leer la ficha: {blocker.group(0)!r}")
+            bump_daily("ocupado_ficha")
+            set_verify_verdict(lid, "rechazada")
+            return None
+
+        # Only the whole advert counts as verified. A thin summary is not a
+        # page read: the Esplugues flat that went out "verified" had only
+        # "Venta de piso en … Consulta los detalles en habitaclia" behind it,
+        # and its page said "inmueble alquilado. No es posible coordinar
+        # visitas al interior". An unverified flat is held, not sent — the
+        # user's rule is to avoid occupied flats for every source — and
+        # retried in six hours, inside the 24-hour freshness window, so a
+        # reader having a bad afternoon delays a good flat rather than
+        # losing it.
+        if len(added.strip()) < 600 and not full_text:
+            portal = (listing.get("portal") or lid.split("_")[0]).lower()
+            must_read = portal in (((self.config.get("alerts") or {}).get("verification") or {})
+                                   .get("must_read_portals", ["habitaclia", "fotocasa"]))
             if not page_unreadable_known:
                 set_verify_verdict(lid, "ilegible")
+            if must_read:
+                # A portal whose pages are normally read: failing to read one
+                # is a hold, not a pass.
+                if not page_unreadable_known:
+                    logger.info(f"{lid} sin verificar: no pude leer la ficha entera")
+                    bump_daily("no_verificable")
+                    self._warn_if_reader_failing()
+                return None
+            # Idealista and the bank sites refuse both the runner and the
+            # reader, every time. Holding their unread flats would hold all
+            # of them, and Idealista is the user's main portal — so they go
+            # out on what their email said, which was already screened, and
+            # the notification says plainly that the page was not read.
             hits = self.profile_matcher.match(listing, metrics)
             if hits and all(p.purpose == "investment" for p, _ in hits):
-                if not page_unreadable_known:
-                    logger.info(f"{lid} no verificable por ninguna vía — inversión no se envía")
-                    bump_daily("no_verificable")
                 return None
-            # Unreadable plus a price no honest flat asks is a distressed-sale
-            # tell: the NPL in Gavà sat 61% under its zone.
             for reason in metrics.get("suspicion") or []:
                 pct = _re_mod.match(r"(\d+)% por debajo", reason)
                 if pct and int(pct.group(1)) >= 55:
-                    logger.info(f"{lid} descartado: ficha ilegible y "
-                                f"{pct.group(1)}% por debajo de la zona")
                     return None
-            return listing, {**metrics, "condition_unknown": True}
+            return listing, {**metrics, "condition_unknown": True, "unverified": True}
 
         # Readable and clean. What the direct read added can change the
         # match — "para reformar" moves the numbers — so it is matched again.
@@ -786,6 +806,28 @@ class PipelineOrchestrator:
             }
         set_verify_verdict(lid, "limpia")
         return listing, metrics
+
+    def _warn_if_reader_failing(self, threshold: int = 5) -> None:
+        """Say so when adverts cannot be read, at most once a day.
+
+        Unverified flats are now held rather than sent, so a reader that
+        stops working would quietly hold every one of them. The mailbox once
+        died for three weeks unheard; this must not be its sequel.
+        """
+        from datetime import datetime, timezone
+        from models.db import daily_counters, get_telegram_state, set_telegram_state
+
+        try:
+            count = daily_counters().get("no_verificable", 0)
+            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            if count >= threshold and get_telegram_state("reader_failing_notice_day", "") != today:
+                if self.alerter.send_pulse(
+                        error=f"No he podido leer {count} fichas hoy: esos pisos quedan "
+                              f"retenidos sin avisarte. Puede que el lector de páginas esté "
+                              f"fallando y me esté perdiendo pisos."):
+                    set_telegram_state("reader_failing_notice_day", today)
+        except Exception as e:
+            logger.warning(f"No pude comprobar el lector: {e}")
 
     def send_pending(self) -> int:
         """Send every current match that has never gone out.

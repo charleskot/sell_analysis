@@ -172,3 +172,29 @@ def fetch_description(url: str) -> str | None:
 
     logger.info(f"enrich: no description found in {url[:60]}")
     return None
+
+
+def final_url(url: str | None) -> str | None:
+    """Where a link actually lands, without its tracking query.
+
+    Alert emails link through redirects: Habitaclia's
+    "/i37637000027523/…/alertas/email/….htm" answers with three 301s before
+    reaching "/comprar/…/<uuid>/d". The public reader, given the email link,
+    returns a 288-byte stub, so an Esplugues flat whose page says "inmueble
+    alquilado. No es posible coordinar visitas al interior" went out as
+    unread-and-clean. Given the landing page, the same reader returns the
+    whole advert.
+    """
+    if not url:
+        return None
+    try:
+        import requests
+
+        resp = requests.get(url, headers=_HEADERS, timeout=TIMEOUT_SECONDS,
+                            allow_redirects=True, proxies=_proxies(), stream=True)
+        landed = resp.url
+        resp.close()
+        return landed.split("?")[0] if landed else None
+    except Exception as e:
+        logger.info(f"enrich: no pude seguir la redirección de {url[:60]}: {e}")
+        return None

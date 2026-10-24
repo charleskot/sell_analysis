@@ -831,6 +831,10 @@ class _Orchestrator:
         from scheduler.jobs import PipelineOrchestrator
 
         self.verify = PipelineOrchestrator.verify.__get__(self)
+        self._warn_if_reader_failing = PipelineOrchestrator._warn_if_reader_failing.__get__(self)
+        self.config = {}       # defaults: must_read_portals = habitaclia, fotocasa
+        self.alerter = type("A", (), {"pulses": [], "send_pulse":
+                                      lambda me, stats=None, error=None: me.pulses.append(error) or True})()
         self._page = page
         self.profile_matcher = ProfileMatcher({"search_profiles": [INVERSION]})
         self._matches = matches
@@ -868,17 +872,18 @@ def test_an_advert_that_disqualifies_stops_the_send():
     assert orch.verify(LISTING, {"condition_unknown": True}) is None
 
 
-def test_a_page_that_cannot_be_read_is_sent_still_marked():
-    """Unreadable is not the same as disqualifying. The card says so and
-    names it as a reason to look closer."""
+def test_a_page_that_cannot_be_read_is_held_not_sent():
+    """It used to go out "marked". The user's rule — avoid occupied flats
+    for every source — and the record say otherwise: fourteen of sixteen
+    real matches in El Clot were occupied or let, all said so only on their
+    page. An unverified flat is held, and retried hours later."""
     orch = _Orchestrator(page=None)
-    result = orch.verify(LISTING, {"condition_unknown": True})
-    assert result is not None
-    assert result[1]["condition_unknown"] is True
+    assert orch.verify(LISTING, {"condition_unknown": True}) is None
 
 
 def test_a_clean_advert_carries_its_description_forward():
-    orch = _Orchestrator(page="Piso reformado, luminoso, con ascensor")
+    long_page = "Piso reformado, luminoso, con ascensor. " * 20
+    orch = _Orchestrator(page=long_page)
     listing, metrics = orch.verify(LISTING, {"condition_unknown": True})
     assert "reformado" in listing["description"]
     assert metrics["matched_profiles"]
@@ -922,17 +927,13 @@ def test_ordinary_investment_marketing_still_passes():
                              "en el centro, piso reformado y luminoso") is None
 
 
-def test_unreadable_plus_extreme_discount_is_dropped():
-    """Nothing legitimate sits 55% under its whole zone while hiding its
-    advert. Below the bar, unreadable listings still go out marked."""
+def test_unreadable_is_held_whatever_the_discount():
+    """The 55%-under-zone rule was a narrower version of this: an
+    unverifiable flat is held whether it looks cheap or not."""
     orch = _Orchestrator(page=None)
-    dropped = orch.verify(LISTING, {"condition_unknown": True,
-                                    "suspicion": ["61% por debajo de la zona (890 vs 2.256€/m²)"]})
-    assert dropped is None
-
-    kept = orch.verify(LISTING, {"condition_unknown": True,
-                                 "suspicion": ["40% por debajo de la zona (1.203 vs 2.003€/m²)"]})
-    assert kept is not None
+    for pct in (61, 40):
+        assert orch.verify(LISTING, {"condition_unknown": True,
+                                     "suspicion": [f"{pct}% por debajo de la zona"]}) is None
 
 
 # ── A shop dressed as a flat ───────────────────────────────────────────────
@@ -1000,12 +1001,12 @@ def test_clean_fallback_text_still_sends_marked(monkeypatch):
     assert result[1]["condition_unknown"] is True
 
 
-def test_reader_unavailable_keeps_the_old_behaviour(monkeypatch):
+def test_reader_unavailable_holds_the_flat(monkeypatch):
     import ingest.enrich as enrich_mod
 
     orch = _Orchestrator(page=None)
     monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback", lambda url: None)
-    assert orch.verify(LISTING, {"condition_unknown": True}) is not None
+    assert orch.verify(LISTING, {"condition_unknown": True}) is None
 
 
 # ── Fail closed: an unverifiable investment is not sent at all ─────────────
@@ -1025,17 +1026,45 @@ def test_unverifiable_investment_is_dropped(monkeypatch):
     assert orch.verify(listing, {**_inv_metrics(), "condition_unknown": True}) is None
 
 
-def test_unverifiable_home_still_goes_out_marked(monkeypatch):
+def test_unverifiable_home_is_held_too(monkeypatch):
+    """Homes were once exempt — "not the distressed stock where occupation
+    hides". In El Clot and Camp de l'Arpa under 285.000 € that turned out
+    to be most of the stock."""
     import ingest.enrich as enrich_mod
     from analysis.profiles import ProfileMatcher
 
     orch = _Orchestrator(page=None)
     orch.profile_matcher = ProfileMatcher({"search_profiles": [VIVIENDA]})
     monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback", lambda url: None)
-    home = _home()
-    result = orch.verify(home, {"condition_unknown": True})
-    assert result is not None
-    assert result[1]["condition_unknown"] is True
+    home = {**_home(), "id": "habitaclia_9", "portal": "habitaclia"}
+    assert orch.verify(home, {"condition_unknown": True}) is None
+
+
+def test_an_idealista_home_goes_out_marked_unverified(monkeypatch):
+    """Idealista refuses every read from the runner. Holding its unread
+    flats would hold all of them — and it is the user's main portal. They
+    go out on their email's own words, and say they were not checked."""
+    import ingest.enrich as enrich_mod
+    from analysis.profiles import ProfileMatcher
+
+    orch = _Orchestrator(page=None)
+    orch.profile_matcher = ProfileMatcher({"search_profiles": [VIVIENDA]})
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback", lambda url: None)
+    home = {**_home(), "id": "idealista_9", "portal": "idealista"}
+    listing, metrics = orch.verify(home, {})
+    assert metrics["unverified"] is True
+
+
+def test_idealista_being_unreadable_does_not_raise_the_reader_alarm(db, monkeypatch):
+    import ingest.enrich as enrich_mod
+    from analysis.profiles import ProfileMatcher
+
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback", lambda url: None)
+    orch = _Orchestrator(page=None)
+    orch.profile_matcher = ProfileMatcher({"search_profiles": [VIVIENDA]})
+    for i in range(7):
+        orch.verify({**_home(), "id": f"idealista_{i}", "portal": "idealista"}, {})
+    assert orch.alerter.pulses == []
 
 
 # ── The same flat measured three different ways ────────────────────────────
@@ -1429,3 +1458,32 @@ def test_a_servicers_footer_does_not_refuse_a_clean_flat():
     assert _REJECT_RE.search("Piso reformado. Hipoges vende viviendas tanto a nivel "
                              "particular como para inversores.") is None
     assert _REJECT_RE.search("Piso ideal para inversores, actualmente alquilado")
+
+
+
+def test_an_email_link_is_followed_to_its_page_before_reading(monkeypatch):
+    """The reader given Habitaclia's email redirect returns a 288-byte stub;
+    given the page the redirect lands on, the whole advert."""
+    import ingest.enrich as enrich_mod
+
+    asked = []
+    monkeypatch.setattr(enrich_mod, "final_url", lambda url: "https://www.habitaclia.com/comprar/x/d")
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback",
+                        lambda url: asked.append(url) or
+                        "Descripción Oportunidad de inversión: inmueble alquilado.")
+    email_link = "https://www.habitaclia.com/i37637000027523/28119238/live_m/alertas/email/lo-6/x.htm"
+    assert _Orchestrator(page=SUMMARY).verify({**LISTING, "url": email_link}, {}) is None
+    assert asked == ["https://www.habitaclia.com/comprar/x/d"]
+
+
+def test_a_failing_reader_is_said_out_loud_once_a_day(db, monkeypatch):
+    """Held flats are silent by design; a reader that stops working would
+    hold every one of them. Five unreadable adverts in a day raise it."""
+    import ingest.enrich as enrich_mod
+
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback", lambda url: None)
+    orch = _Orchestrator(page=None)
+    for i in range(7):
+        orch.verify({**LISTING, "id": f"habitaclia_{i}"}, {})
+    assert len(orch.alerter.pulses) == 1
+    assert "fichas" in orch.alerter.pulses[0]
