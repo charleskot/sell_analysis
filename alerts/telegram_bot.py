@@ -109,8 +109,69 @@ class TelegramAlerter:
                 # another agency is recognised as the same flat.
                 record_alert_sent(dedup_key, "telegram", "", chat_message_id=message_id)
             logger.info(f"Telegram alert sent for {listing_id} (score {score:.0f})")
+            # Mirrored here, after the card went out and was recorded, so the
+            # phone notification inherits every gate the card passed — the
+            # profile, the page check, the duplicate rule, quiet hours, the
+            # daily budget — and can never fire for a flat the chat did not get.
+            self._push(listing, metrics)
             return True
         return False
+
+    @staticmethod
+    def _push_text(listing: dict, metrics: dict) -> tuple[str, str]:
+        """Title and body for the phone notification: what decides a flat
+        at a glance, nothing the card itself will not say in full."""
+        price = listing.get("price") or 0
+        place = (listing.get("district") or listing.get("city") or "").title()
+        title = f"🏠 {price:,.0f} € · {place}".replace(",", ".")
+
+        facts = []
+        if listing.get("area_m2"):
+            facts.append(f"{listing['area_m2']:.0f} m²")
+        if listing.get("rooms") is not None:
+            facts.append(f"{listing['rooms']} hab")
+        if listing.get("floor"):
+            facts.append(str(listing["floor"]))
+        text = " ".join(str(listing.get(k) or "") for k in ("title", "description")).lower()
+        if "sin ascensor" in text:
+            facts.append("sin ascensor")
+        elif "ascensor" in text:
+            facts.append("ascensor")
+        body = " · ".join(facts) or "Nuevo piso que encaja"
+
+        reason = metrics.get("match_reason") or ""
+        if "por encima" in reason:
+            body += "\n" + reason.split(" · ")[0]
+        return title, body
+
+    def _push(self, listing: dict, metrics: dict) -> None:
+        """Send the same flat as a phone notification through ntfy.
+
+        The topic name is the only key — anyone who knows it can read and
+        post — so it lives in a secret (NTFY_TOPIC), never in this public
+        repository. Unset, nothing happens. Never raises: a notification
+        service being down must not cost the card that already went out.
+        """
+        topic = os.environ.get("NTFY_TOPIC", "").strip()
+        if not topic:
+            return
+        server = ((self._config.get("alerts") or {}).get("ntfy") or {}).get(
+            "server", "https://ntfy.sh").rstrip("/")
+        title, body = self._push_text(listing, metrics)
+        url = listing.get("url") or ""
+        payload = {"topic": topic, "title": title, "message": body,
+                   "priority": 4, "tags": ["house"]}
+        if url:
+            payload["click"] = url
+            payload["actions"] = [{"action": "view", "label": "Ver anuncio", "url": url}]
+        try:
+            import requests
+
+            resp = requests.post(server + "/", json=payload, timeout=10)
+            if resp.status_code >= 300:
+                logger.warning(f"ntfy rechazó el aviso: HTTP {resp.status_code}")
+        except Exception as e:
+            logger.warning(f"ntfy no disponible: {e}")
 
     @staticmethod
     def property_signature(listing: dict) -> str | None:
