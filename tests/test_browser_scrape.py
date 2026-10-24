@@ -34,6 +34,9 @@ class _Alerter:
         self.sent.append(listing_id)
         return True
 
+    def send_pulse(self, stats=None, error=None):
+        return True
+
 
 class _Profile:
     name, label, purpose = "vivienda", "🏠", "home"
@@ -204,3 +207,47 @@ def test_disabled_does_nothing(db, pages):
     o = _Orch([{"url": URL_A}], enabled=False)
     assert o.run_browser_scrape(force=True)["searches"] == 0
     assert calls == []
+
+
+# ── A pass that finds nothing anywhere is said out loud ────────────────────
+
+class _PulseAlerter(_Alerter):
+    def __init__(self):
+        super().__init__()
+        self.pulses = []
+
+    def send_pulse(self, stats=None, error=None):
+        self.pulses.append(error)
+        return True
+
+
+def test_an_empty_pass_raises_the_alarm_once_a_day(db, pages):
+    data, _ = pages
+    data[URL_A] = []
+    data[URL_B] = []
+    o = _Orch([{"url": URL_A}, {"url": URL_B}])
+    o.alerter = _PulseAlerter()
+
+    o.run_browser_scrape(force=True)
+    o.run_browser_scrape(force=True)          # same day: not again
+    assert len(o.alerter.pulses) == 1
+    assert "Habitaclia" in o.alerter.pulses[0]
+
+
+def test_failing_searches_raise_the_alarm(db, pages):
+    data, _ = pages
+    data[URL_A] = RuntimeError("bloqueado")
+    o = _Orch([{"url": URL_A}])
+    o.alerter = _PulseAlerter()
+    o.run_browser_scrape(force=True)
+    assert "fallaron" in o.alerter.pulses[0]
+
+
+def test_one_empty_search_beside_working_ones_is_no_alarm(db, pages):
+    data, _ = pages
+    data[URL_A] = [_flat("a1")]
+    data[URL_B] = []
+    o = _Orch([{"url": URL_A}, {"url": URL_B}])
+    o.alerter = _PulseAlerter()
+    o.run_browser_scrape(force=True)
+    assert o.alerter.pulses == []
