@@ -10,6 +10,16 @@ from analysis.profiles import Profile, ProfileMatcher, normalise
 
 
 @pytest.fixture(autouse=True)
+def _no_network_reader(monkeypatch):
+    """verify() now reads every match's full page through the public
+    reader. Unless a test says what the page contains, it is unreadable —
+    no test may reach the network."""
+    import ingest.enrich as enrich_mod
+
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback", lambda url: None)
+
+
+@pytest.fixture(autouse=True)
 def _fresh_engine():
     """Each test starts without a database engine.
 
@@ -840,13 +850,16 @@ LISTING = {"id": "habitaclia_1", "price": 99000, "area_m2": 76,
            "rooms": 3, "city": "rubi", "title": "Piso en Rubí"}
 
 
-def test_a_known_condition_is_not_re_read():
-    """Fetching a page costs a request the portal may refuse; only do it
-    when the answer is actually missing."""
-    orch = _Orchestrator()
-    listing, metrics = orch.verify(LISTING, {"condition_unknown": False})
-    assert orch.enriched_calls == 0
-    assert listing is LISTING
+def test_a_known_condition_is_still_read_for_occupation():
+    """It used to be skipped: "fetching a page costs a request; only do it
+    when the answer is missing". But the answer that matters most — whether
+    somebody lives there — is never on the card. Ten of the eighteen
+    cheapest flats the browser found were occupied, auctioned or let, and
+    not one card said so."""
+    orch = _Orchestrator(page="Piso reformado. El inmueble se encuentra "
+                              "actualmente ocupado, venta sin posesión.")
+    assert orch.verify(LISTING, {"condition_unknown": False}) is None
+    assert orch.enriched_calls == 1
 
 
 def test_an_advert_that_disqualifies_stops_the_send():
@@ -1334,3 +1347,85 @@ def test_the_parser_completes_the_town_idealista_cut_off():
         "Piso en Calle de la Marquesa de Caldes de Montbui, El Guinardó, Barcel...")
     assert city == "barcelona"
     assert district == "el guinardó"
+
+
+# ── Every match's whole advert is read ─────────────────────────────────────
+#
+# Habitaclia answers a plain request with a ~150-character summary — "Venta
+# de piso en … Consulta los detalles en habitaclia" — which used to count
+# as a page read and clean. The seller's description, where "ocupado"
+# lives, is only on the full page.
+
+SUMMARY = ("Venta de piso en Carrer de Biscaia, Navas, Barcelona Capital. "
+           "75 m², 3 habitaciones, 1 baño. Consulta los detalles en habitaclia.")
+
+
+def test_a_thin_summary_sends_for_the_whole_page(monkeypatch):
+    import ingest.enrich as enrich_mod
+
+    seen = []
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback",
+                        lambda url: seen.append(url) or
+                        "menú | Descripción: El inmueble se encuentra actualmente ocupado.")
+    orch = _Orchestrator(page=SUMMARY)
+    assert orch.verify({**LISTING, "url": "https://x/1"}, {"condition_unknown": False}) is None
+    assert seen == ["https://x/1"]
+
+
+def test_a_full_direct_read_needs_no_reader(monkeypatch):
+    import ingest.enrich as enrich_mod
+
+    seen = []
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback",
+                        lambda url: seen.append(url) or None)
+    long_page = "Piso luminoso y reformado, cocina nueva, " * 30
+    orch = _Orchestrator(page=long_page)
+    assert orch.verify(LISTING, {"condition_unknown": False}) is not None
+    assert seen == []
+
+
+@pytest.mark.parametrize("phrase", [
+    "no es posible realizar visitas al interior del inmueble",
+    "Inmueble sin acceso al interior",
+    "venta solo al contado",
+    "ACTIVO EN CESIÓN DE REMATE",
+    "La compra de inmuebles en subasta se realiza SIN VISITAS PREVIAS",
+])
+def test_bank_stock_phrasing_on_the_full_page_is_refused(monkeypatch, phrase):
+    import ingest.enrich as enrich_mod
+
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback",
+                        lambda url: f"Descripción {phrase}. Piso de 3 habitaciones.")
+    assert _Orchestrator(page=SUMMARY).verify(LISTING, {}) is None
+
+
+def test_energia_solar_does_not_refuse_a_good_flat(monkeypatch):
+    """The bare word "solar" used to mean a plot. On a whole page it is far
+    more often "energía solar" or "placa solar"."""
+    import ingest.enrich as enrich_mod
+
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback",
+                        lambda url: "Piso reformado con energía solar y placa solar.")
+    assert _Orchestrator(page=SUMMARY).verify(LISTING, {}) is not None
+
+
+def test_a_clean_page_is_not_read_again_the_same_day(db, monkeypatch):
+    import ingest.enrich as enrich_mod
+
+    reads = []
+    monkeypatch.setattr(enrich_mod, "fetch_page_text_fallback",
+                        lambda url: reads.append(url) or "Piso reformado, exterior.")
+    orch = _Orchestrator(page=SUMMARY)
+    assert orch.verify(LISTING, {}) is not None
+    assert orch.verify(LISTING, {}) is not None
+    assert len(reads) == 1 and orch.enriched_calls == 1
+
+
+def test_a_servicers_footer_does_not_refuse_a_clean_flat():
+    """Hipoges ends every advert with "…tanto a nivel particular como para
+    inversores". On a clean flat that sentence alone must not refuse it."""
+    from ingest.email_parsers import _REJECT_RE
+
+    assert _REJECT_RE.search("Piso reformado. Hipoges vende viviendas tanto a nivel "
+                             "particular como para inversores.") is None
+    assert _REJECT_RE.search("Piso ideal para inversores, actualmente alquilado")

@@ -134,7 +134,7 @@ _REJECT_RE = re.compile(
     r"\bocupaci[oó]n\s+ilegal\b|"
     # Not financeable / not viewable
     r"\bsolo\s+inversor\w*\b|\bs[oó]lo\s+inversor\w*\b|\bapt[oa]\s+inversor\w*\b|"
-    r"\bpara\s+inversor\w*\b|\bideal\s+inversor\w*\b|\bproducto\s+de\s+inversi[oó]n\b|"
+    r"(?<!particular\scomo\s)\bpara\s+inversor\w*\b|\bideal\s+inversor\w*\b|\bproducto\s+de\s+inversi[oó]n\b|"
     r"\bno\s+se\s+puede\s+visitar\b|\bsin\s+posibilidad\s+de\s+visita\b|"
     r"\bno\s+visitable\b|\bsin\s+visita\b|"
     r"\bposesi[oó]n\s+no\s+garantizada\b|\bsin\s+posesi[oó]n\b|"
@@ -170,7 +170,20 @@ _REJECT_RE = re.compile(
     r"\bde\s+uso\s+comercial\b|\bsin\s+c[eé]dula\b|"
     r"\bpendiente\s+de\s+c[eé]dula\b|\bsin\s+divisi[oó]n\s+horizontal\b|"
     # Not a home, or not mortgageable as one
-    r"\bsuelo\s+urbanizable\b|\bparcela\b|\bsolar\b",
+    r"\bsuelo\s+urbanizable\b|\bparcela\b|"
+    # A plot for sale, not the word itself: "energía solar" and "placa
+    # solar" are on perfectly good flats, and now that whole adverts are
+    # scanned a bare \bsolar\b would refuse them.
+    r"\bsolar\s+(?:urbano|edificable|urbanizable|en\s+venta)\b|"
+    r"\b(?:venta\s+de|vendo|se\s+vende)\s+(?:un\s+)?solar\b|"
+    # Bank stock phrasing for "you cannot see inside", seen on real adverts:
+    # "no es posible realizar visitas al interior del inmueble".
+    r"\bno\s+es\s+posible\s+(?:realizar\s+|hacer\s+)?visita\w*\b|"
+    r"\bno\s+es\s+posible\s+visitar\b|\bsin\s+acceso\s+al\s+interior\b|"
+    r"\bno\s+se\s+pueden?\s+(?:realizar|hacer)\s+visitas\b|"
+    r"\bsituaci[oó]n\s+posesoria\b|"
+    # Cash only means no mortgage.
+    r"\bpago\s+al\s+contado\b|\bs[oó]lo\s+(?:al\s+)?contado\b",
     re.I,
 )
 
