@@ -20482,7 +20482,8 @@ INSERT INTO "investment_metrics" VALUES('fotocasa_191024649',6.45,4.84,4.84,20.7
 INSERT INTO "investment_metrics" VALUES('fotocasa_191178793',10.92,8.19,8.19,12.2,2701.8,296800.0,84.2,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 91.9, "total": 84.2}','2026-10-26 11:32:30.235517');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191178826',5.93,4.45,4.45,22.5,1656.0,334880.0,64.4,'{"gross_yield_score": 63.9, "price_per_m2_score": 92.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.0, "total": 64.4}','2026-10-26 11:32:30.213345');
 INSERT INTO "investment_metrics" VALUES('habitaclia_b5f7621e-beea-4a77-b921-bc1123f2a876',8.94,6.71,6.71,14.9,1200.0,160994.4,82.3,'{"gross_yield_score": 99.4, "price_per_m2_score": 99.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 75.7, "total": 82.3}','2026-10-26 11:40:18.122478');
-INSERT INTO "investment_metrics" VALUES('fotocasa_191002865',5.09,3.82,3.82,26.2,1116.0,263200.0,48.1,'{"gross_yield_score": 51.3, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.4, "total": 48.1}','2026-10-26 11:44:35.586208');
+INSERT INTO "investment_metrics" VALUES('fotocasa_191002865',5.09,3.82,3.82,26.2,1116.0,263200.0,48.1,'{"gross_yield_score": 51.3, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.4, "total": 48.1}','2026-10-26 11:51:12.720352');
+INSERT INTO "investment_metrics" VALUES('fotocasa_191178850',3.64,2.73,2.73,36.7,594.0,196000.0,36.4,'{"gross_yield_score": 22.8, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.1, "total": 36.4}','2026-10-26 11:51:12.689870');
 CREATE TABLE listings (
 	id VARCHAR NOT NULL, 
 	portal VARCHAR NOT NULL, 
@@ -47037,7 +47038,8 @@ Sant Ildefons, Cornellà de Llobregat
 3 hab.
 1 baños
 2º','[]',NULL,'[]','2026-10-26 11:40:18.109279','2026-10-26 11:40:18.109279',1);
-INSERT INTO "listings" VALUES('fotocasa_191002865','fotocasa','191002865','https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/ascensor/191002865/d','piso · Carrer de Fontova, Barcelona',235000.0,62.0,3.79032258064516145e+03,3,1,NULL,NULL,NULL,NULL,'carrer de fontova','barcelona',NULL,'https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/ascensor/191002865/d?stc=em-cross_alert-24x7_realtime-20261026-cardFreshContent&utm_medium=email&utm_source=alert&utm_campaign=24x7_registered_realtime&utm_content=variant_a&utm_term=cardFreshContent" target="_blank" style="display:block;text-decoration:none;line-height:0"> | | | | | | | | | | | | | | | | 235.000 € | | piso · Carrer de Fontova, Barcelona | | 3 habs · 62 m² · 1 baño | | Ver anuncio | | | | | | | | | | | | | | | | Ver anuncios | | | | | | | | | | | | | | | | | | | | Resumen de tu búsqueda | | | | | | | | | varios barr','[]',NULL,'[]','2026-10-26 11:44:35.565435','2026-10-26 11:44:35.565435',1);
+INSERT INTO "listings" VALUES('fotocasa_191002865','fotocasa','191002865','https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/ascensor/191002865/d','piso · Carrer de Fontova, Barcelona',235000.0,62.0,3.79032258064516145e+03,3,1,NULL,NULL,NULL,NULL,'carrer de fontova','barcelona',NULL,'https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/ascensor/191002865/d?stc=em-cross_alert-24x7_realtime-20261026-cardFreshContent&utm_medium=email&utm_source=alert&utm_campaign=24x7_registered_realtime&utm_content=variant_a&utm_term=cardFreshContent" target="_blank" style="display:block;text-decoration:none;line-height:0"> | | | | | | | | | | | | | | | | 235.000 € | | piso · Carrer de Fontova, Barcelona | | 3 habs · 62 m² · 1 baño | | Ver anuncio | | | | | | | | | | | | | | | | Ver anuncios | | | | | | | | | | | | | | | | | | | | Resumen de tu búsqueda | | | | | | | | | varios barr','[]',NULL,'[]','2026-10-26 11:44:35.565435','2026-10-26 11:51:12.698790',1);
+INSERT INTO "listings" VALUES('fotocasa_191178850','fotocasa','191178850','https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/el-camp-de-l-arpa-del-clot/191178850/d','piso · Calle Nación, Barcelona',175000.0,33.0,5.303030303030303e+03,2,1,NULL,NULL,NULL,NULL,'calle nación','barcelona',NULL,'https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/el-camp-de-l-arpa-del-clot/191178850/d?stc=em-cross_alert-24x7_realtime-20261026-cardFreshContent&utm_medium=email&utm_source=alert&utm_campaign=24x7_registered_realtime&utm_content=variant_a&utm_term=cardFreshContent" target="_blank" style="display:block;text-decoration:none;line-height:0"> | | | | | | | | | | | | | | | | 175.000 € | | piso · Calle Nación, Barcelona | | 2 habs · 33 m² · 1 baño | | Ver anuncio | | | | | | | | | | | | | | | | Ver anuncios | | | | | | | | | | | | | | | | | | | | Resumen de tu búsqueda | | | | | | | | ','[]',NULL,'[]','2026-10-26 11:51:12.663222','2026-10-26 11:51:12.663222',1);
 CREATE TABLE rent_zone_averages (
 	id INTEGER NOT NULL, 
 	district VARCHAR, 
@@ -47053,7 +47055,7 @@ CREATE TABLE telegram_state (
 	updated_at DATETIME, 
 	PRIMARY KEY ("key")
 );
-INSERT INTO "telegram_state" VALUES('gmail_last_internal_date_ms','1793014667000','2026-10-26 11:44:35.557444');
+INSERT INTO "telegram_state" VALUES('gmail_last_internal_date_ms','1793015438000','2026-10-26 11:51:12.654869');
 INSERT INTO "telegram_state" VALUES('last_update_id','832113681','2026-08-19 10:43:00.824849');
 INSERT INTO "telegram_state" VALUES('last_pulse_at','2026-08-15T16:31:12.296296+00:00','2026-08-15 16:31:12.296310');
 INSERT INTO "telegram_state" VALUES('sent_today','{"day": "2026-10-26", "counts": {"piso": 2}}','2026-10-26 11:19:37.706583');
