@@ -57,7 +57,10 @@ def _place_matches(needle: str, haystack: str) -> bool:
     zone written as "la salut".
     """
     n, h = normalise(needle), normalise(haystack)
-    if not n or not h:
+    # A fragment this short is no place, and as a substring it is inside
+    # every name: Fotocasa's "N/A, Barcelona" left a district of "a", which
+    # matched every barri in the search.
+    if len(n) < 3 or len(h) < 3:
         return False
     if n in h or h in n:
         return True

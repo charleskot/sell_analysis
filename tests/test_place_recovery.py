@@ -142,3 +142,24 @@ def test_basement_found_on_the_page_is_refused(monkeypatch):
     flat = _fotocasa(floor=None)      # the email never says
     assert _Orch()._locate_from_page(flat, {}) == []
     assert flat["floor"] == "Sótano"
+
+
+def test_no_street_is_no_district():
+    assert extract_location("piso · N/A, Barcelona") == ("barcelona", None)
+
+
+def test_a_one_letter_district_matches_no_barri():
+    from analysis.profiles import _place_matches
+
+    assert not _place_matches("el guinardo", "a")
+    assert not _place_matches("a", "el guinardo")
+
+
+def test_fotocasa_without_street_is_located_from_its_page(monkeypatch):
+    _read_as(monkeypatch, "92 m²\n3ª Planta\nPiso en venta en N/a, Vilapicina i la Torre Llobeta\n\n"
+                          "Barcelona Capital\n")
+    flat = _fotocasa(district=None, title="piso · N/A, Barcelona")
+    m = _matcher()
+    assert not m.match(flat, {})
+    assert _Orch()._locate_from_page(flat, {})
+    assert flat["district"] == "Vilapicina i la Torre Llobeta"
