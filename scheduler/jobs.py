@@ -601,10 +601,10 @@ class PipelineOrchestrator:
             portal_stats["alerts"] += 1
             logger.info(f"Alerta {listing_id} [{labels}]: {reason}")
 
-    def _near_miss(self, listing: dict, metrics: dict) -> list:
+    def _near_miss(self, listing: dict, metrics: dict, confirm_ready: bool = False) -> list:
         """Profiles the listing misses by a little while cheap for its zone."""
         zone = zone_market_stats(listing.get("city"), listing.get("district"))
-        return self.profile_matcher.near_miss(listing, metrics, zone)
+        return self.profile_matcher.near_miss(listing, metrics, zone, confirm_ready)
 
     # Portals whose alert emails name the street but not the barri.
     _STREET_ONLY_PORTALS = ("fotocasa",)
@@ -831,7 +831,9 @@ class PipelineOrchestrator:
         # match — "para reformar" moves the numbers — so it is matched again.
         if enriched:
             fresh = self._compute_metrics(enriched) or metrics
-            hits = self.profile_matcher.match(enriched, fresh) or self._near_miss(enriched, fresh)
+            # Read in full, a near miss must say it is ready to live in
+            hits = (self.profile_matcher.match(enriched, fresh)
+                    or self._near_miss(enriched, fresh, confirm_ready=True))
             if not hits:
                 logger.info(f"{lid} ya no encaja al leer la ficha")
                 set_verify_verdict(lid, "rechazada")
