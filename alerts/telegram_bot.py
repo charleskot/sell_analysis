@@ -116,8 +116,10 @@ class TelegramAlerter:
             return False
 
         # One budget for the flat, whichever channels carry it: checked once
-        # here so a refusal silences both, and spent once below.
-        allowed, why = budget.check(self._config, "piso")
+        # here so a refusal silences both, and spent once below. Near misses
+        # have their own, smaller one so they can never crowd out a real match.
+        kind = "casi" if metrics.get("near_miss") else "piso"
+        allowed, why = budget.check(self._config, kind)
         if not allowed:
             logger.warning(f"Piso {listing_id} NO enviado: {why}")
             return False
@@ -127,7 +129,7 @@ class TelegramAlerter:
         if self._enabled:
             keyboard = self._feedback_keyboard(listing_id)
             # _send_sync spends the budget itself when the card goes out.
-            message_id = self._send_sync(message, reply_markup=keyboard, kind="piso")
+            message_id = self._send_sync(message, reply_markup=keyboard, kind=kind)
 
         # Every gate above — profile, page check, duplicate rule, quiet
         # hours, budget — has been passed by the time this runs, so the phone
@@ -137,7 +139,7 @@ class TelegramAlerter:
         if not message_id and not pushed:
             return False
         if not message_id:
-            budget.record("piso")     # the card did not go out to spend it
+            budget.record(kind)       # the card did not go out to spend it
 
         # Recorded the moment either channel delivered, so the same flat is
         # never sent again on either — "nunca nunca repetido".
@@ -185,6 +187,8 @@ class TelegramAlerter:
         # No emoji here: the "house" tag already puts one on the notification.
         money = f"{price:,.0f}".replace(",", ".")
         title = f"{money} € · {place}"
+        if metrics.get("near_miss"):
+            title = f"Casi · {title}"
 
         facts = []
         if listing.get("area_m2"):
@@ -201,7 +205,10 @@ class TelegramAlerter:
         body = " · ".join(facts) or "Nuevo piso que encaja"
 
         reason = metrics.get("match_reason") or ""
-        if "por encima" in reason:
+        if metrics.get("near_miss"):
+            # What it misses, and why it is worth a look all the same
+            body += "\n" + reason.split(" · ")[0]
+        elif "por encima" in reason:
             body += "\n" + reason.split(" · ")[0]
         if metrics.get("unverified"):
             # Idealista's pages cannot be read from here; occupation is only

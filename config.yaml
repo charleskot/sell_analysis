@@ -112,6 +112,21 @@ search_profiles:
     stretch_max_price: 320000
     stretch_min_area_m2: 85
 
+    # A bargain that misses by a little also goes out, marked "Casi" — "si
+    # ves una oportunidad interesante, aunque se pase un poco de los límites,
+    # me la puedes enviar". Exactly one of these may be missed, and only by
+    # this much: size, price, rooms, or a barri named under `nearby`. Floor,
+    # lift, light, reform and occupation are never eased. The flat must ask
+    # less per m² than three in four flats of its zone and at least
+    # min_discount_pct under its median, and not so much less
+    # (max_discount_pct under the median) that it is a warning, not a deal.
+    near_miss:
+      area_m2: 5          # down to 65 m²
+      price_pct: 15       # up to 327.750 €
+      rooms: 1            # one bedroom fewer
+      min_discount_pct: 10
+      max_discount_pct: 35
+
     min_area_m2: 70
     min_rooms: 2
 
@@ -144,6 +159,7 @@ search_profiles:
       # ── Zona 2 · Badalona ─────────────────────────────────────────────
       - city: badalona
         districts: [centre, bufala, bonavista, morera, montigala, sant crist]
+        nearby: [casagemes, canyado, dalt de la vila, manresa, gorg]
       # ── Zona 3 · Santa Coloma: the centre, its best-priced barrio, on L1
       - city: santa coloma de gramenet
         districts: [centre]
@@ -164,9 +180,19 @@ search_profiles:
           - el clot
           - camp de l arpa
           - marina del port
+        # Next to the wanted barris, for a near miss only
+        nearby:
+          - horta
+          - font d en fargues
+          - can baro
+          - porta
+          - sagrada familia
+          - sant marti de provencals
+          - provencals del poblenou
       # ── Zona 5 · L'Hospitalet: its highest-income barrios, on L1 ──────
       - city: hospitalet
         districts: [centre, sant josep, sanfeliu]
+        nearby: [santa eulalia]
 
   # ── 2. Investment ───────────────────────────────────────────────────────
   - name: inversion
@@ -424,6 +450,7 @@ alerts:
       total_per_day: 25
       per_kind:
         piso: 20          # a listing that matches and has never been sent
+        casi: 3           # a bargain that misses one limit by a little
         fallo: 2          # the mailbox will not open
         resumen: 1        # the manual daily summary
         respuesta: 25     # answers to messages he typed himself

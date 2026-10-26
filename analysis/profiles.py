@@ -15,6 +15,9 @@ import unicodedata
 
 logger = logging.getLogger(__name__)
 
+# Starts the reason of a flat sent although it misses one limit by a little.
+NEAR_MISS_PREFIX = "Casi:"
+
 
 def normalise(text: str | None) -> str:
     """Lowercase, strip accents and collapse punctuation.
@@ -476,6 +479,78 @@ class Profile:
 
         return True, " · ".join(criteria) or "cumple criterios de zona, precio y estado"
 
+    def near_miss(self, listing: dict, metrics: dict, zone: dict | None) -> str | None:
+        """Why a flat that misses one limit by a little is still worth a look.
+
+        "Si ves una oportunidad interesante, aunque se pase un poco de los
+        límites, para abajo, para arriba o como sea, me la puedes enviar."
+        A flat qualifies when it fails exactly one of size, price, rooms or
+        barri, by no more than the tolerance in `near_miss`, passes every
+        other condition untouched — floor, lift, light, reform, occupation
+        are never relaxed — and asks less per m² than three in four flats of
+        its own zone, and at least `min_discount_pct` under its median: where
+        every flat asks the same, the cheapest quarter can be only 1% cheaper,
+        which is no bargain. Far below the zone is not a bargain but a
+        warning, as the verification step already holds, so that is refused
+        too.
+        """
+        rules = self.spec.get("near_miss")
+        if not rules or not zone:
+            return None
+        price = listing.get("price") or 0
+        area = listing.get("area_m2")
+        if not price or not area:
+            return None
+        ppm2 = price / area
+        if ppm2 > zone["p25"] or ppm2 > zone["median"] * (1 - rules.get("min_discount_pct", 10) / 100):
+            return None
+        if ppm2 < zone["median"] * (1 - rules.get("max_discount_pct", 35) / 100):
+            return None
+
+        min_area = self.spec.get("min_area_m2")
+        max_price = self.spec.get("max_price")
+        min_rooms = self.spec.get("min_rooms")
+        city, district = listing.get("city") or "", listing.get("district")
+
+        misses = []
+        if self._check_size(area):
+            misses.append(f"{area:.0f} m² (pides {min_area})")
+        if self._check_price(price, listing):
+            misses.append(f"{price - max_price:,.0f} € por encima de tus {max_price:,.0f} €"
+                          .replace(",", "."))
+        if self._check_rooms(listing.get("rooms")):
+            misses.append(f"{listing.get('rooms')} hab (pides {min_rooms})")
+        nearby = {normalise(a.get("city", "")): a.get("nearby") or []
+                  for a in self.spec.get("areas") or []}
+        if self._check_location(city, district):
+            near = next((n for c, n in nearby.items() if _place_matches(c, city)), [])
+            if not (district and any(_place_matches(d, district) for d in near)):
+                return None
+            misses.append(f"{district.title()} es vecino de tus barrios, no está en la lista")
+        if len(misses) != 1:
+            return None
+
+        # Every limit eased by its tolerance, every other condition as set:
+        # the flat must pass this, or it missed by more than "un poco".
+        relaxed = dict(self.spec)
+        if min_area:
+            relaxed["min_area_m2"] = min_area - rules.get("area_m2", 5)
+        if max_price:
+            relaxed["max_price"] = max_price * (1 + rules.get("price_pct", 15) / 100)
+            relaxed["stretch_max_price"] = None
+        if min_rooms:
+            relaxed["min_rooms"] = min_rooms - rules.get("rooms", 1)
+        relaxed["areas"] = [{**a, "districts": (a.get("districts") or []) + (a.get("nearby") or [])}
+                            if a.get("districts") else a
+                            for a in self.spec.get("areas") or []]
+        ok, _ = Profile(relaxed).match(listing, metrics)
+        if not ok:
+            return None
+
+        cheaper = round(100 * (1 - ppm2 / zone["median"]))
+        return (f"{NEAR_MISS_PREFIX} {misses[0]} — pero {cheaper}% más barato por m² "
+                f"que lo normal en {str(zone['scope']).title()}")
+
     def _criteria_met(self, listing: dict) -> list[str]:
         """The requirements this listing clears, named against the bar set.
 
@@ -547,6 +622,15 @@ class ProfileMatcher:
                         return True
                     break
         return False
+
+    def near_miss(self, listing: dict, metrics: dict, zone: dict | None) -> list[tuple[Profile, str]]:
+        """Profiles this listing misses by a little while being a bargain."""
+        hits = []
+        for profile in self.profiles:
+            reason = profile.near_miss(listing, metrics, zone)
+            if reason:
+                hits.append((profile, reason))
+        return hits
 
     def match(self, listing: dict, metrics: dict) -> list[tuple[Profile, str]]:
         """All profiles this listing satisfies, with the reason for each."""
