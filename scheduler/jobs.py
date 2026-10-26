@@ -2,6 +2,8 @@
 import logging
 from datetime import datetime, timezone
 
+from analysis.profiles import NEAR_MISS_PREFIX
+
 logger = logging.getLogger(__name__)
 
 DIGEST_HOUR_UTC = 7  # 09:00 Madrid in summer, 08:00 in winter
@@ -559,7 +561,9 @@ class PipelineOrchestrator:
             logger.info(f"{listing_id} descartado por su propio texto: {blocker.group(0)!r}")
             return
 
-        hits = self.profile_matcher.match(raw_dict, metrics) or self._locate_from_page(raw_dict, metrics)
+        hits = (self.profile_matcher.match(raw_dict, metrics)
+                or self._locate_from_page(raw_dict, metrics)
+                or self._near_miss(raw_dict, metrics))
         if not hits:
             stats["filtered_out"] += 1
             return
@@ -573,7 +577,7 @@ class PipelineOrchestrator:
         if checked[0] is not raw_dict:
             stats["enriched"] += 1
         raw_dict, metrics = checked
-        hits = self.profile_matcher.match(raw_dict, metrics) or hits
+        hits = self.profile_matcher.match(raw_dict, metrics) or self._near_miss(raw_dict, metrics) or hits
 
         # A listing can satisfy more than one search; name them all so the
         # alert says why it is being shown.
@@ -587,6 +591,7 @@ class PipelineOrchestrator:
             "matched_profiles": labels,
             "matched_purpose": hits[0][0].purpose,
             "match_reason": reason,
+            "near_miss": reason.startswith(NEAR_MISS_PREFIX),
         }
 
         score = metrics.get("investment_score", 0) or 0
@@ -595,6 +600,11 @@ class PipelineOrchestrator:
             stats["alerts_sent"] += 1
             portal_stats["alerts"] += 1
             logger.info(f"Alerta {listing_id} [{labels}]: {reason}")
+
+    def _near_miss(self, listing: dict, metrics: dict) -> list:
+        """Profiles the listing misses by a little while cheap for its zone."""
+        zone = zone_market_stats(listing.get("city"), listing.get("district"))
+        return self.profile_matcher.near_miss(listing, metrics, zone)
 
     # Portals whose alert emails name the street but not the barri.
     _STREET_ONLY_PORTALS = ("fotocasa",)
@@ -808,7 +818,7 @@ class PipelineOrchestrator:
             # of them, and Idealista is the user's main portal — so they go
             # out on what their email said, which was already screened, and
             # the notification says plainly that the page was not read.
-            hits = self.profile_matcher.match(listing, metrics)
+            hits = self.profile_matcher.match(listing, metrics) or self._near_miss(listing, metrics)
             if hits and all(p.purpose == "investment" for p, _ in hits):
                 return None
             for reason in metrics.get("suspicion") or []:
@@ -821,7 +831,7 @@ class PipelineOrchestrator:
         # match — "para reformar" moves the numbers — so it is matched again.
         if enriched:
             fresh = self._compute_metrics(enriched) or metrics
-            hits = self.profile_matcher.match(enriched, fresh)
+            hits = self.profile_matcher.match(enriched, fresh) or self._near_miss(enriched, fresh)
             if not hits:
                 logger.info(f"{lid} ya no encaja al leer la ficha")
                 set_verify_verdict(lid, "rechazada")
