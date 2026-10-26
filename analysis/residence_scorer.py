@@ -102,6 +102,7 @@ def parse_floor(raw: str | None) -> int | None:
 
     # Words → floor number
     word_map = {
+        "sótano": -1, "sotano": -1,
         "bajo": 0, "planta baja": 0, "pb": 0,
         "entresuelo": 1, "entlo": 1,
         "principal": 2, "pral": 2,

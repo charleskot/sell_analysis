@@ -198,3 +198,47 @@ def final_url(url: str | None) -> str | None:
     except Exception as e:
         logger.info(f"enrich: no pude seguir la redirección de {url[:60]}: {e}")
         return None
+
+
+# Fotocasa's advert header, set apart by a blank line from the town under it:
+#   "Piso en venta en Carrer D'antonio Machado, 10, Canyelles\n\nBarcelona Capital"
+#   "Piso en venta en La Prosperitat\n\nBarcelona Capital"
+# The barri is the last comma part. The footer's "Pisos en venta en Madrid"
+# links run on without blank lines, so they never match.
+_HEADER_PLACE_RE = re.compile(r"(?m)^[^\n]{2,40}? en venta en ([^\n]+)\n\n[^\n]+\n")
+# The line above that header is the floor: "2ª Planta", "Bajo", "Sótano".
+_HEADER_FLOOR_RE = re.compile(r"(?m)^([^\n]{1,20})\n[^\n]{2,40}? en venta en [^\n]+\n\n[^\n]+\n")
+_FLOOR_WORD_RE = re.compile(r"planta|bajo|entresuelo|principal|[áa]tico|s[óo]tano", re.I)
+
+
+def district_from_page(text: str | None) -> str | None:
+    """The barri an advert page names in its header, or None.
+
+    Fotocasa's alert emails give only the street, "Carrer d'Antonio Machado
+    10, Barcelona", and a street is no barri: every Fotocasa flat in
+    Barcelona failed the zone check, wherever it was. The advert itself says
+    "…, Canyelles" right under the price.
+    """
+    if not text:
+        return None
+    m = _HEADER_PLACE_RE.search(text)
+    if not m:
+        return None
+    barri = m.group(1).rsplit(",", 1)[-1].strip(" .")
+    if not barri or barri.isdigit():
+        return None
+    return barri
+
+
+def floor_from_page(text: str | None) -> str | None:
+    """The floor an advert page states above its header, or None.
+
+    Fotocasa's emails leave the floor out, and without it a basement in
+    Vilapicina passed as a flat of unknown floor.
+    """
+    if not text:
+        return None
+    m = _HEADER_FLOOR_RE.search(text)
+    if not m or not _FLOOR_WORD_RE.search(m.group(1)):
+        return None
+    return m.group(1).strip()

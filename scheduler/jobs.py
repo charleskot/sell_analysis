@@ -559,7 +559,7 @@ class PipelineOrchestrator:
             logger.info(f"{listing_id} descartado por su propio texto: {blocker.group(0)!r}")
             return
 
-        hits = self.profile_matcher.match(raw_dict, metrics)
+        hits = self.profile_matcher.match(raw_dict, metrics) or self._locate_from_page(raw_dict, metrics)
         if not hits:
             stats["filtered_out"] += 1
             return
@@ -595,6 +595,35 @@ class PipelineOrchestrator:
             stats["alerts_sent"] += 1
             portal_stats["alerts"] += 1
             logger.info(f"Alerta {listing_id} [{labels}]: {reason}")
+
+    # Portals whose alert emails name the street but not the barri.
+    _STREET_ONLY_PORTALS = ("fotocasa",)
+
+    def _locate_from_page(self, listing: dict, metrics: dict) -> list:
+        """Find the barri on the advert when the email left it out, and re-match.
+
+        Fotocasa writes "Carrer d'Antonio Machado 10, Barcelona": no barri,
+        so every one of its Barcelona flats failed the zone check. Only read
+        when the barri is the one thing missing, and the listing is stored
+        with it so later passes and the duplicate check see the same place.
+        """
+        if listing.get("portal") not in self._STREET_ONLY_PORTALS:
+            return []
+        if not self.profile_matcher.needs_district(listing, metrics):
+            return []
+        from ingest.enrich import district_from_page, fetch_page_text_fallback, floor_from_page
+        from models.db import upsert_listing
+
+        page = fetch_page_text_fallback(listing.get("url"))
+        barri = district_from_page(page)
+        if not barri:
+            return []
+        listing["district"] = barri
+        # The same header states the floor, which the email also leaves out
+        listing["floor"] = listing.get("floor") or floor_from_page(page)
+        upsert_listing(listing)
+        logger.info(f"{listing['portal']}_{listing['external_id']}: barrio leído en la ficha: {barri}")
+        return self.profile_matcher.match(listing, metrics)
 
     def _enrich(self, listing: dict) -> dict | None:
         """Recover the description from the listing's own page.
