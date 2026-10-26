@@ -142,7 +142,7 @@ class Profile:
             # Fall back to the description: portals often name the floor there
             # even when the structured field is empty.
             text = " ".join(str(listing.get(k) or "") for k in ("title", "description"))
-            if re.search(r"\bbajos?\b|\bplanta\s+baja\b|\bentresuelo\b|\bsemis[oó]tano\b",
+            if re.search(r"\bbajos?\b|\bplanta\s+baja\b|\bentresuelo\b|\b(?:semi)?s[oó]tano\b",
                          text, re.I):
                 return "es un bajo o entresuelo"
             if self.spec.get("reject_unknown_floor", False):
@@ -529,6 +529,24 @@ class ProfileMatcher:
             logger.info(f"Perfiles activos: {names}")
         else:
             logger.warning("No hay perfiles de búsqueda activos — no se enviará ninguna alerta")
+
+    def needs_district(self, listing: dict, metrics: dict) -> bool:
+        """Whether knowing the barri is all that stands between a miss and a hit.
+
+        True when the town is one this search narrows by barri and the
+        listing passes every other condition once placed in a wanted one —
+        the only case worth reading the advert to find out where it is.
+        """
+        city = listing.get("city") or ""
+        for profile in self.profiles:
+            for area in profile.spec.get("areas") or []:
+                districts = area.get("districts") or []
+                if districts and _place_matches(area.get("city", ""), city):
+                    ok, _ = profile.match({**listing, "district": districts[0]}, metrics)
+                    if ok:
+                        return True
+                    break
+        return False
 
     def match(self, listing: dict, metrics: dict) -> list[tuple[Profile, str]]:
         """All profiles this listing satisfies, with the reason for each."""

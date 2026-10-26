@@ -446,6 +446,12 @@ def extract_location(title: str) -> tuple[str | None, str | None]:
         # A house number is not a district
         if district and district.isdigit():
             district = _clean_place(parts[-3]) if len(parts) > 2 else None
+        # "…, El Guinardó, Bar..." — too little of the town left to complete,
+        # but the barri says which city it is.
+        if city is None and district and parts[-1].endswith("..."):
+            from analysis.municipalities import city_from_barri
+
+            city = city_from_barri(parts[-1], district)
         return city, district
 
     has_dash, has_comma = " - " in tail, "," in tail

@@ -250,3 +250,65 @@ def resolve_truncated(fragment: str | None) -> str | None:
 
     hits = [name for name in POPULATION if name.startswith(key)]
     return hits[0] if len(hits) == 1 else None
+
+
+# Barcelona's 73 official barris, plus the district names portals use in
+# their place. Used to recognise the city when the portal cut it away:
+# Idealista writes the town last and truncates the line, so "…, El Guinardó,
+# Bar..." arrives with no town at all, and a 195.000 € flat in a wanted barrio
+# was filed under "desconocido" and never matched.
+BARCELONA_BARRIS = {
+    # Ciutat Vella
+    "raval", "barri gotic", "gotic", "barceloneta", "sant pere santa caterina i ribera",
+    # Eixample
+    "fort pienc", "sagrada familia", "dreta de eixample", "antiga esquerra de eixample",
+    "nova esquerra de eixample", "sant antoni",
+    # Sants-Montjuïc
+    "poble sec", "marina del prat vermell", "marina de port", "marina del port",
+    "font de guatlla", "hostafrancs", "bordeta", "sants badal", "sants",
+    # Les Corts
+    "corts", "maternitat i sant ramon", "pedralbes",
+    # Sarrià-Sant Gervasi
+    "vallvidrera tibidabo i planes", "sarria", "tres torres", "sant gervasi bonanova",
+    "sant gervasi galvany", "putxet i farro",
+    # Gràcia
+    "vallcarca i penitents", "coll", "salut", "vila de gracia", "camp d en grassot i gracia nova",
+    # Horta-Guinardó
+    "baix guinardo", "can baro", "guinardo", "font d en fargues", "carmel", "teixonera",
+    "sant genis dels agudells", "montbau", "vall d hebron", "clota", "horta", "horta guinardo",
+    # Nou Barris
+    "vilapicina i torre llobeta", "porta", "turo de peira", "can peguera", "guineueta",
+    "canyelles", "roquetes", "verdun", "prosperitat", "trinitat nova", "torre baro",
+    "ciutat meridiana", "vallbona", "nou barris",
+    # Sant Andreu
+    "trinitat vella", "baro de viver", "bon pastor", "sant andreu", "sant andreu de palomar",
+    "sagrera", "congres i indians", "navas",
+    # Sant Martí
+    "camp de arpa del clot", "clot", "parc i llacuna del poblenou", "vila olimpica del poblenou",
+    "poblenou", "diagonal mar i front maritim del poblenou", "besos i maresme",
+    "provencals del poblenou", "sant marti de provencals", "verneda i pau", "sant marti",
+}
+
+# Barri names that are also barris of a town whose name starts like
+# Barcelona's: Badalona has its own La Salut. With only "B..." or "Ba..." left
+# of the town these cannot tell the two apart.
+_SHARED_WITH_BADALONA = {"salut"}
+
+
+def city_from_barri(fragment: str | None, district: str | None) -> str | None:
+    """"barcelona" when a cut-off town plus its barri can only be Barcelona.
+
+    `fragment` is what is left of the town ("Bar...", "B..."); it must be the
+    start of "barcelona". `district` must be one of the city's barris.
+    """
+    from analysis.profiles import _strip_articles, normalise
+
+    key = normalise(fragment)
+    barri = _strip_articles(normalise(district))
+    if not key or not barri or not "barcelona".startswith(key):
+        return None
+    if barri not in BARCELONA_BARRIS:
+        return None
+    if barri in _SHARED_WITH_BADALONA and len(key) < 3:
+        return None
+    return "barcelona"
