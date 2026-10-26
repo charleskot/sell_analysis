@@ -368,7 +368,8 @@ def _clean_place(value: str | None) -> str | None:
 
     truncated = value.strip().endswith("...")
     place = value.strip(" .-–·").lower()
-    if not place:
+    # Fotocasa writes "N/A" where it has no street
+    if not place or place in ("n/a", "n/d", "s/n", "-"):
         return None
 
     # Bank listings name the street before the town — "C/ Calderón de la
