@@ -100,3 +100,31 @@ def test_near_misses_have_their_own_small_budget():
     cfg = yaml.safe_load(open("config.yaml"))
     per_kind = cfg["alerts"]["telegram"]["limits"]["per_kind"]
     assert 0 < per_kind["casi"] <= 5
+
+
+# ── "Buen piso a buen precio, cerca de precio objetivo, sin reforma" ───────
+
+def test_close_to_the_zone_price_is_enough_now(home):
+    # 319.000 € for 84 m² in a 4.000 €/m² zone: 5% under — not yet; 9% is
+    assert casi(home, price=319000, area_m2=84) is None
+    assert casi(home, price=319000, area_m2=88)
+
+
+def test_any_work_at_all_rules_a_near_miss_out(home):
+    for words in ("piso para reformar", "necesita actualización", "ideal para dar tu toque",
+                  "piso a actualizar, con posibilidades"):
+        assert casi(home, area_m2=67, price=220000, description=words) is None
+
+
+def test_once_read_the_advert_must_say_it_is_ready(home):
+    flat = _flat(area_m2=67, price=220000, description="piso exterior con balcón")
+    assert home.near_miss(flat, {}, NAVAS)
+    assert home.near_miss(flat, {}, NAVAS, confirm_ready=True) is None
+    ready = _flat(area_m2=67, price=220000, description="reformado, para entrar a vivir")
+    why = home.near_miss(ready, {}, NAVAS, confirm_ready=True)
+    assert why and why.endswith("para entrar a vivir")
+
+
+def test_a_barri_is_not_its_district(home):
+    assert casi(home, district="Carmel (Horta Gui", price=220000) is None
+    assert casi(home, district="Horta (Horta Guin", price=220000)

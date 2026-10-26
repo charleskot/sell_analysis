@@ -482,20 +482,37 @@ class Profile:
 
         return True, " · ".join(criteria) or "cumple criterios de zona, precio y estado"
 
-    def near_miss(self, listing: dict, metrics: dict, zone: dict | None) -> str | None:
+    # Any work at all, not only a gutting: a near miss has to be worth the
+    # stretch as it stands — "buen piso a buen precio, sin reforma".
+    _NEEDS_WORK_RE = re.compile(
+        r"\b(?:para|a)\s+(?:reformar|actualizar|rehabilitar)\b|"
+        r"\b(?:necesita|precisa|requiere)\s+(?:una\s+)?(?:reforma|actualizaci[oó]n|obras?)\b|"
+        r"\bdar\s+tu\s+toque\b|\bcon\s+posibilidades\b|\bconservaci[oó]n\s+(?:regular|mala)\b",
+        re.I,
+    )
+    _READY_RE = re.compile(
+        r"\breformad[oa]\b|\bseminuev[oa]\b|\ba\s+estrenar\b|\bobra\s+nueva\b|"
+        r"\b(?:muy\s+)?buen\s+estado\b|\bentrar\s+a\s+vivir\b|\blisto\s+para\s+vivir\b|"
+        r"\bimpecable\b|\bcomo\s+nuevo\b",
+        re.I,
+    )
+
+    def near_miss(self, listing: dict, metrics: dict, zone: dict | None,
+                  confirm_ready: bool = False) -> str | None:
         """Why a flat that misses one limit by a little is still worth a look.
 
         "Si ves una oportunidad interesante, aunque se pase un poco de los
-        límites, para abajo, para arriba o como sea, me la puedes enviar."
-        A flat qualifies when it fails exactly one of size, price, rooms or
-        barri, by no more than the tolerance in `near_miss`, passes every
-        other condition untouched — floor, lift, light, reform, occupation
-        are never relaxed — and asks less per m² than three in four flats of
-        its own zone, and at least `min_discount_pct` under its median: where
-        every flat asks the same, the cheapest quarter can be only 1% cheaper,
-        which is no bargain. Far below the zone is not a bargain but a
-        warning, as the verification step already holds, so that is refused
-        too.
+        límites, me la puedes enviar" — and then: "buen piso a buen precio,
+        cerca de precio objetivo, sin reforma". A flat qualifies when it
+        fails exactly one of size, price, rooms or barri, by no more than the
+        tolerance in `near_miss`; passes every other condition untouched —
+        floor, lift, light, occupation are never relaxed; needs no work at
+        all; and asks at least `min_discount_pct` less per m² than its zone's
+        median. Far below the zone is not a bargain but a warning, as the
+        verification step already holds, so that is refused too.
+
+        `confirm_ready` asks for the advert to say outright that the flat is
+        ready to live in. The email rarely says; the advert, once read, does.
         """
         rules = self.spec.get("near_miss")
         if not rules or not zone:
@@ -505,9 +522,16 @@ class Profile:
         if not price or not area:
             return None
         ppm2 = price / area
-        if ppm2 > zone["p25"] or ppm2 > zone["median"] * (1 - rules.get("min_discount_pct", 10) / 100):
+        if ppm2 > zone["median"] * (1 - rules.get("min_discount_pct", 8) / 100):
             return None
         if ppm2 < zone["median"] * (1 - rules.get("max_discount_pct", 35) / 100):
+            return None
+
+        text = " ".join(str(listing.get(k) or "") for k in ("title", "description"))
+        if self._NEEDS_WORK_RE.search(text):
+            return None
+        ready = bool(self._READY_RE.search(text))
+        if confirm_ready and not ready:
             return None
 
         min_area = self.spec.get("min_area_m2")
@@ -527,7 +551,10 @@ class Profile:
                   for a in self.spec.get("areas") or []}
         if self._check_location(city, district):
             near = next((n for c, n in nearby.items() if _place_matches(c, city)), [])
-            if not (district and any(_place_matches(d, district) for d in near)):
+            # The barri itself, not the district Habitaclia appends to it:
+            # "Carmel (Horta Gui..." is not Horta.
+            barri = (district or "").split("(")[0]
+            if not (barri and any(_place_matches(d, barri) for d in near)):
                 return None
             misses.append(f"{district.title()} es vecino de tus barrios, no está en la lista")
         if len(misses) != 1:
@@ -551,8 +578,9 @@ class Profile:
             return None
 
         cheaper = round(100 * (1 - ppm2 / zone["median"]))
-        return (f"{NEAR_MISS_PREFIX} {misses[0]} — pero {cheaper}% más barato por m² "
-                f"que lo normal en {str(zone['scope']).title()}")
+        why = (f"{NEAR_MISS_PREFIX} {misses[0]} — pero {cheaper}% más barato por m² "
+               f"que lo normal en {str(zone['scope']).title()}")
+        return why + (", para entrar a vivir" if ready else "")
 
     def _criteria_met(self, listing: dict) -> list[str]:
         """The requirements this listing clears, named against the bar set.
@@ -626,11 +654,12 @@ class ProfileMatcher:
                     break
         return False
 
-    def near_miss(self, listing: dict, metrics: dict, zone: dict | None) -> list[tuple[Profile, str]]:
+    def near_miss(self, listing: dict, metrics: dict, zone: dict | None,
+                  confirm_ready: bool = False) -> list[tuple[Profile, str]]:
         """Profiles this listing misses by a little while being a bargain."""
         hits = []
         for profile in self.profiles:
-            reason = profile.near_miss(listing, metrics, zone)
+            reason = profile.near_miss(listing, metrics, zone, confirm_ready)
             if reason:
                 hits.append((profile, reason))
         return hits
