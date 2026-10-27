@@ -518,6 +518,86 @@ class PipelineOrchestrator:
                     f"{stats['seeded']} sembradas, {stats['errors']} errores")
         return stats
 
+    def run_idealista_apify(self, force: bool = False) -> dict:
+        """Read Idealista's newest flats through Apify, every so often.
+
+        Its emails cannot be a feed — a morning burst and a daily summary
+        capped at twenty — so a flat published at 22:00 could wait a day or
+        never come. The actor's monitoring mode returns only the flats no
+        earlier run has seen, which keeps each pass to cents.
+
+        Runs every `interval_minutes`, not at night: a flat published then
+        is still new to the actor in the morning, and the phone is quiet
+        anyway. The first run of a set of locations is a seed, as with the
+        browser: the actor answers with everything published in the window,
+        and none of that is news.
+        """
+        import json
+        import os
+        from datetime import datetime, timedelta, timezone
+        from models.db import get_telegram_state, set_telegram_state
+        from scheduler.quiet_hours import is_quiet
+
+        cfg = (self.config.get("apify") or {}).get("idealista") or {}
+        stats = {"runs": 0, "seeded": 0, "parsed": 0, "new": 0, "updated": 0,
+                 "filtered_out": 0, "rejected_after_enrich": 0, "enriched": 0,
+                 "alerts_sent": 0, "errors": 0, "by_profile": {}, "by_portal": {}}
+        token = os.environ.get("APIFY_TOKEN", "").strip()
+        if not cfg.get("enabled") or not token:
+            return stats
+
+        now = datetime.now(timezone.utc)
+        if not force:
+            if is_quiet(self.config, now):
+                return stats
+            last = get_telegram_state("apify_idealista_last_run_at", "")
+            try:
+                if last and now - datetime.fromisoformat(last) < timedelta(
+                        minutes=cfg.get("interval_minutes", 90)):
+                    return stats
+            except ValueError:
+                pass
+        # Stamped before the run: a failing actor is retried at the next
+        # interval, not on every three-minute tick at a cent a start.
+        set_telegram_state("apify_idealista_last_run_at", now.isoformat())
+
+        from scraper.idealista_apify import run, to_raw
+
+        actor_input = {**(cfg.get("input") or {}), "monitoringMode": True,
+                       "maxItems": cfg.get("max_items", 60)}
+        signature = json.dumps(sorted(actor_input.get("locations") or []), ensure_ascii=False)
+        first_time = get_telegram_state("apify_idealista_seeded", "") != signature
+        try:
+            items = run(token, actor_input, timeout_s=cfg.get("timeout_seconds", 600))
+        except Exception as e:
+            logger.error(f"Apify Idealista falló: {type(e).__name__}: {e}")
+            stats["errors"] += 1
+            return stats
+        stats["runs"] += 1
+
+        fresh_hours = (self.config.get("alerts") or {}).get("fresh_hours", 24)
+        seed_date = now - timedelta(hours=fresh_hours + 1)
+        portal_stats = stats["by_portal"].setdefault("idealista", {"parsed": 0, "alerts": 0})
+        for item in items:
+            raw_dict = to_raw(item)
+            if not raw_dict:
+                continue
+            stats["parsed"] += 1
+            portal_stats["parsed"] += 1
+            if first_time:
+                raw_dict["first_seen_at"] = seed_date
+            try:
+                self._ingest_listing(raw_dict, stats, portal_stats, alert=not first_time)
+            except Exception as e:
+                logger.error(f"Apify Idealista: error con {raw_dict.get('url')}: {e}")
+                stats["errors"] += 1
+
+        if first_time:
+            set_telegram_state("apify_idealista_seeded", signature)
+            stats["seeded"] = len(items)
+            logger.info(f"Apify Idealista: sembrado con {len(items)} pisos (sin avisar)")
+        return stats
+
     def _ingest_listing(self, raw_dict: dict, stats: dict, portal_stats: dict,
                         alert: bool = True) -> None:
         """Store one listing and, if it is new and may be alerted, send it.
@@ -775,6 +855,23 @@ class PipelineOrchestrator:
             cached and cached[0] == "ilegible"
             and not _verdict_stale(cached[1], hours=6)
         )
+
+        # A source that delivers the seller's whole description — Idealista
+        # through Apify — has nothing left on the page to read: what it says
+        # is screened here, and a near miss must say it is ready to live in.
+        if listing.get("description_complete"):
+            blocker = _REJECT_RE.search(f"{listing.get('title') or ''} {listing.get('description') or ''}")
+            if blocker:
+                logger.info(f"{lid} descartado por su descripción: {blocker.group(0)!r}")
+                bump_daily("ocupado_ficha")
+                set_verify_verdict(lid, "rechazada")
+                return None
+            if not (self.profile_matcher.match(listing, metrics)
+                    or self._near_miss(listing, metrics, confirm_ready=True)):
+                set_verify_verdict(lid, "rechazada")
+                return None
+            set_verify_verdict(lid, "limpia")
+            return listing, metrics
 
         enriched = None if page_unreadable_known else self._enrich(listing)
         added = ""

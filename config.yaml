@@ -683,6 +683,53 @@ location_scores:
 # maxPrice is applied by Habitaclia itself; sorting by date is not
 # available, so new listings are found by comparing with what was already
 # seen, not by trusting the order of the page.
+# Idealista through an Apify actor (memo23/idealista-scraper). Its emails
+# cannot be a feed: a morning burst and a daily summary capped at twenty,
+# with no "immediate" option — on 27 October a Molins de Rei ático at
+# 255.000 € was on the app at 22:09 and in no email. Needs the APIFY_TOKEN
+# secret; without it this source is off.
+#
+# Cost, on Apify's free plan ($5 a month of credit): $0.007 a run plus
+# $0.001 per flat delivered, and monitoring mode delivers only the flats no
+# earlier run saw. Every 90 minutes by day, ~10 runs: about $3 a month.
+#
+# The filters are a first cut, wide enough for the near misses (65 m²,
+# 330.000 €); the profile decides. "free" excludes flats Idealista itself
+# lists as tenanted, bare ownership or occupied; no ground floors.
+apify:
+  idealista:
+    enabled: true
+    interval_minutes: 90
+    max_items: 60          # per run, a ceiling on cost should anything go wrong
+    timeout_seconds: 600
+    input:
+      country: es
+      operation: sale
+      propertyType: homes
+      language: es
+      locations:
+        - Molins de Rei
+        - Sant Feliu de Llobregat
+        - Esplugues de Llobregat
+        - Sant Just Desvern
+        - Cornellà de Llobregat
+        - Badalona
+        - Santa Coloma de Gramenet
+        - Horta-Guinardó, Barcelona
+        - Sant Andreu, Barcelona
+        - Nou Barris, Barcelona
+        - Sant Martí, Barcelona
+        - Sants-Montjuïc, Barcelona
+        - L'Hospitalet de Llobregat
+      minSize: 65
+      maxPrice: 330000
+      currentOccupationType: [free]
+      floorHeights: [topFloor, intermediateFloor]
+      publicationDate: "Y"   # the last 48 hours, the shortest Idealista offers for sale
+      fetchDetails: true     # the seller's whole description, to screen for occupation
+      compact: true
+      splitByPrice: false
+
 browser_scraping:
   habitaclia:
     enabled: true

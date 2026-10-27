@@ -365,6 +365,19 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     except Exception as e:
         console.print(f"[yellow]Navegador falló:[/yellow] {e}")
 
+    # Idealista through Apify: its emails cannot be a feed. Every hour and a
+    # half by day; on the other ticks it returns at once.
+    try:
+        ideal = orchestrator.run_idealista_apify()
+        if ideal.get("runs"):
+            console.print(
+                f"[green]Idealista (Apify):[/green] {ideal['parsed']} pisos · "
+                f"{ideal['new']} nuevos · {ideal['alerts_sent']} alertas"
+                + (f" · {ideal['seeded']} sembrados" if ideal["seeded"] else "")
+            )
+    except Exception as e:
+        console.print(f"[yellow]Idealista (Apify) falló:[/yellow] {e}")
+
     tg_cfg = config.get("alerts", {}).get("telegram", {})
     pulse_minutes = tg_cfg.get("pulse_minutes", 0)
     failure_minutes = tg_cfg.get("failure_notice_minutes", 60)
