@@ -550,6 +550,18 @@ class PipelineOrchestrator:
         if not is_new or not alert:
             return
 
+        # New to this portal is not new to the market: the same flat already
+        # seen before the freshness window, under another id or agency, is
+        # what the user would call repeated.
+        from datetime import timedelta
+        from models.db import was_flat_seen_before
+
+        fresh_hours = (self.config.get("alerts") or {}).get("fresh_hours", 24)
+        if was_flat_seen_before(raw_dict, datetime.now(timezone.utc) - timedelta(hours=fresh_hours)):
+            stats["filtered_out"] += 1
+            logger.info(f"{listing_id}: el mismo piso ya estaba a la venta antes, no es nuevo")
+            return
+
         # The listing's own words first, whatever the source. Emails were
         # always screened this way while being parsed; the browser's cards
         # were not, and a card can say "ocupado" as plainly as an email.

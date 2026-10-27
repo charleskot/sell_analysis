@@ -1,5 +1,6 @@
 """Database engine, session management, and upsert helpers."""
 import json
+import re
 import logging
 from contextlib import contextmanager
 from datetime import datetime, timezone
@@ -322,13 +323,33 @@ def _place_hint(listing: dict) -> str:
     """
     from analysis.profiles import normalise
 
-    district = normalise(listing.get("district"))
+    district = _own_district(listing)
     if district:
         return district
     title = listing.get("title") or ""
+    # The browser's cards name the barrio whole, dashes and all: "Casa con
+    # balcón en venta en Centre - Can Nadal" is in "Centre - Can Nadal",
+    # which the email truncates to "Sant Feliu de Llobregat - Cen...".
+    sale = re.search(r"\ben venta en (.+)$", title, re.I)
+    if sale and " - " in sale.group(1):
+        return normalise(sale.group(1))[:30]
     if " - " in title:
         return normalise(title.split(" - ", 1)[1].replace("...", " "))[:30]
     return ""
+
+
+def _own_district(listing: dict) -> str:
+    """The district, normalised, unless it only repeats the town.
+
+    The browser search for a whole town files every card under the town's
+    own name, which says nothing about where in it the flat is — and read
+    as a barrio it contradicted "Sant Feliu de Llobregat - Cen..." for the
+    same house.
+    """
+    from analysis.profiles import normalise
+
+    district = normalise(listing.get("district"))
+    return "" if district and district == normalise(listing.get("city")) else district
 
 
 def _compatible(a: str, b: str) -> bool:
@@ -395,8 +416,8 @@ def same_flat(a: dict, b: dict) -> bool:
     if sa and sb and not _compatible(sa, sb):
         return False
 
-    da, db_ = a.get("district"), b.get("district")
-    both_districts = bool(normalise(da)) and bool(normalise(db_))
+    da, db_ = _own_district(a), _own_district(b)
+    both_districts = bool(da) and bool(db_)
     same_place = both_districts and (_place_matches(da, db_) or _place_matches(db_, da))
     if both_districts and not same_place:
         return False
@@ -448,6 +469,37 @@ def was_similar_listing_sent(city: str | None, price: float | None,
     for c, d, p, a, r, t in rows:
         if same_flat(me, {"city": c, "district": d, "price": p, "area_m2": a,
                           "rooms": r, "title": t}):
+            return True
+    return False
+
+
+def was_flat_seen_before(listing: dict, before: datetime) -> bool:
+    """Whether this flat was already on the market before `before`.
+
+    An agency re-listing a flat, or a second agency taking it on, gives it a
+    new id, and to the id check it is news. It is not: the Sant Feliu house
+    and the Molins flat seen on 23 October came back on the 27th through a
+    Habitaclia email under new numbers and went out as new. Any listing of
+    the same flat first seen before the freshness window makes this one old.
+    """
+    city, price = listing.get("city"), listing.get("price")
+    if not city or city == "desconocido" or not price:
+        return False
+    own_id = f"{listing.get('portal')}_{listing.get('external_id')}"
+    if before.tzinfo is not None:
+        # Stored as naive UTC
+        before = before.astimezone(timezone.utc).replace(tzinfo=None)
+    with session_scope() as conn:
+        rows = conn.execute(
+            select(listings.c.city, listings.c.district, listings.c.price,
+                   listings.c.area_m2, listings.c.rooms, listings.c.title)
+            .where(listings.c.price.between(price * 0.98, price * 1.02),
+                   listings.c.first_seen_at < before,
+                   listings.c.id != own_id)
+        ).fetchall()
+    for c, d, p, a, r, t in rows:
+        if same_flat(listing, {"city": c, "district": d, "price": p, "area_m2": a,
+                               "rooms": r, "title": t}):
             return True
     return False
 
