@@ -15,6 +15,7 @@ URL_B = "https://www.habitaclia.com/comprar/viviendas/x/manresa/s?maxPrice=13000
 
 
 def _flat(uid, price=300000):
+    # Flats differ in price: same price, size and barrio is the same flat
     return {"portal": "habitaclia", "external_id": uid,
             "url": f"https://www.habitaclia.com/comprar/p/x/{uid}/d",
             "title": "Piso en venta en X", "price": float(price), "area_m2": 70.0,
@@ -128,7 +129,7 @@ def test_after_the_seed_only_a_new_flat_is_alerted(db, pages):
     o = _Orch([{"url": URL_A}])
     o.run_browser_scrape(force=True)
 
-    data[URL_A] = [_flat("a1"), _flat("a2"), _flat("nuevo")]
+    data[URL_A] = [_flat("a1"), _flat("a2"), _flat("nuevo", price=250000)]
     st = o.run_browser_scrape(force=True)
 
     assert o.alerter.sent == ["habitaclia_nuevo"]
@@ -185,7 +186,7 @@ def test_an_empty_search_beside_working_ones_is_genuinely_empty(db, pages):
     o = _Orch([{"url": URL_A}, {"url": URL_B}])
     assert o.run_browser_scrape(force=True)["seeded"] == 2
 
-    data[URL_B] = [_flat("primero_en_sant_just")]
+    data[URL_B] = [_flat("primero_en_sant_just", price=250000)]
     o.run_browser_scrape(force=True)
     assert o.alerter.sent == ["habitaclia_primero_en_sant_just"]
 
