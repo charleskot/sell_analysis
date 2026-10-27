@@ -109,6 +109,8 @@ jobs:
           # Optional. The private ntfy topic the user's phone subscribes to;
           # each card that goes out is mirrored there as a notification.
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          # Idealista through Apify. Unset, that source is simply off.
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
           # Optional. Unset, the bot behaves exactly as before; the portals
           # that refuse datacenter addresses simply stay unreadable.
           SCRAPER_PROXY: ${{ secrets.SCRAPER_PROXY }}
