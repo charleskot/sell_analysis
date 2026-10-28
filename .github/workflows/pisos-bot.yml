@@ -64,7 +64,14 @@ jobs:
     timeout-minutes: 350
 
     steps:
+      # The branch as it is now, not the commit this run was queued at. A
+      # run waits in the concurrency queue while the loop before it keeps
+      # saving state; checked out at its queued commit it restored a dump
+      # over an hour old on 28 October, forgot what it had sent, and sent
+      # one flat twice.
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-python@v5
         with:
@@ -130,7 +137,7 @@ jobs:
             BOT_CYCLE=$cycle python main.py tick \
               || echo "tick falló, se reintenta en el siguiente ciclo"
 
-            bash scripts/save-state.sh || true
+            STATE_BRANCH="${{ github.ref_name }}" bash scripts/save-state.sh || true
             echo "::endgroup::"
 
             [ "$(date +%s)" -ge "$deadline" ] && break
@@ -143,4 +150,4 @@ jobs:
       # must not be forgotten, or the next run repeats them.
       - name: Save state
         if: always()
-        run: bash scripts/save-state.sh || true
+        run: STATE_BRANCH="${{ github.ref_name }}" bash scripts/save-state.sh || true
