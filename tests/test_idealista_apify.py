@@ -206,3 +206,12 @@ def test_a_whole_description_that_says_tenanted_is_refused(db):
     raw = {**to_raw(ATICO), "id": "idealista_2",
            "description": "Oportunidad: piso alquilado, ideal inversores"}
     assert _Verifier().verify(raw, {}) is None
+
+
+def test_an_interior_flat_is_refused_by_the_home_search():
+    import yaml
+    from analysis.profiles import ProfileMatcher
+
+    matcher = ProfileMatcher(yaml.safe_load(open("config.yaml")))
+    inner = {**ATICO, "moreCharacteristics": {**ATICO["moreCharacteristics"], "exterior": False}}
+    assert not matcher.match(to_raw(inner), {})

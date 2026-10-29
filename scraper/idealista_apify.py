@@ -92,10 +92,12 @@ def to_raw(item: dict) -> dict | None:
         facts.append("con ascensor")
     elif more.get("lift") is False:
         facts.append("sin ascensor")
+    # In the words the profile's light check reads: "piso interior" is
+    # refused, a bare "interior" passed it (Esplugues, 207.000 €).
     if more.get("exterior") is True:
-        facts.append("exterior")
+        facts.append("piso exterior")
     elif more.get("exterior") is False:
-        facts.append("interior")
+        facts.append("piso interior")
     status = (more.get("status") or "").lower()
     if status == "renew":
         facts.append("para reformar")
