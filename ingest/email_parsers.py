@@ -134,7 +134,12 @@ _REJECT_RE = re.compile(
     r"\bocupaci[oó]n\s+ilegal\b|"
     # Not financeable / not viewable
     r"\bsolo\s+inversor\w*\b|\bs[oó]lo\s+inversor\w*\b|\bapt[oa]\s+inversor\w*\b|"
-    r"(?<!particular\scomo\s)\bpara\s+inversor\w*\b|\bideal\s+inversor\w*\b|\bproducto\s+de\s+inversi[oó]n\b|"
+    # …but an advert addressed to buyers *and* investors is not one: "ideal
+    # tanto para quienes buscan su primera vivienda como para inversores"
+    # (Esplugues, 207.000 €, 29 October) and Hipoges' "tanto a nivel
+    # particular como para inversores" both offer the flat to anyone.
+    r"(?<!como\s)(?<!\bo\s)(?<!\by\s)(?<!tambi[eé]n\s)\bpara\s+inversor\w*\b|"
+    r"\bideal\s+inversor\w*\b|\bproducto\s+de\s+inversi[oó]n\b|"
     r"\bno\s+se\s+puede\s+visitar\b|\bsin\s+posibilidad\s+de\s+visita\b|"
     r"\bno\s+visitable\b|\bsin\s+visita\b|"
     r"\bposesi[oó]n\s+no\s+garantizada\b|\bsin\s+posesi[oó]n\b|"
