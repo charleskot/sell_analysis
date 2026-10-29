@@ -741,68 +741,74 @@ browser_scraping:
     # Each search asks Habitaclia itself for ≤320.000 € (the stretch ceiling —
     # the 285.000 € budget and the exception are applied by the profile) and
     # ≥70 m², which cuts the pages to read by more than half.
+    #
+    # Newest first (sortBy=NEWEST). Habitaclia orders by "relevance" unless
+    # told otherwise, and three searches — Marina del Port, Hospitalet Centre,
+    # Badalona Montigalà — fill all three pages read, 87 flats: a flat
+    # published today could sit on page four and never be seen. Newest first,
+    # page one is always where the news is.
     searches:
       # ── Zona 1 · Baix Llobregat ──
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/molins-de-rei/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/molins-de-rei/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: molins de rei
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/sant-feliu-de-llobregat/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/sant-feliu-de-llobregat/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: sant feliu de llobregat
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/esplugues-de-llobregat/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/esplugues-de-llobregat/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: esplugues de llobregat
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/sant-just-desvern/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/sant-just-desvern/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: sant just desvern
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/cornella-de-llobregat/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/cornella-de-llobregat/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: cornellà de llobregat
       # ── Zona 2 · Badalona ──
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/centre/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/centre/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: badalona
         district: centre
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/bonavista-bufala-morera/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/bonavista-bufala-morera/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: badalona
         district: bufala
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/montigala-sant-crist/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/montigala-sant-crist/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: badalona
         district: montigala
       # ── Zona 3 · Santa Coloma ──
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/santa-coloma-de-gramenet/centre/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/santa-coloma-de-gramenet/centre/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: santa coloma de gramenet
         district: centre
       # ── Zona 4 · Barcelona ──
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-guinardo/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-guinardo/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: barcelona
         district: el guinardo
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-baix-guinardo/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-baix-guinardo/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: barcelona
         district: baix guinardo
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/navas/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/navas/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: barcelona
         district: navas
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/sant-andreu-de-palomar/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/sant-andreu-de-palomar/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: barcelona
         district: sant andreu
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/la-sagrera/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/la-sagrera/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: barcelona
         district: la sagrera
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/el-congres-i-els-indians/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/el-congres-i-els-indians/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: barcelona
         district: congres
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/nou-barris/el-turo-de-la-peira/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/nou-barris/el-turo-de-la-peira/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: barcelona
         district: turo de la peira
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/nou-barris/vilapicina-i-la-torre-llobeta/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/nou-barris/vilapicina-i-la-torre-llobeta/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: barcelona
         district: vilapicina
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-clot/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-clot/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: barcelona
         district: el clot
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-camp-de-l-arpa-del-clot/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-camp-de-l-arpa-del-clot/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: barcelona
         district: camp de l arpa
       # ── Zona 5 · L'Hospitalet ──
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/l-hospitalet-de-llobregat/centre-sant-josep-sanfeliu/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/l-hospitalet-de-llobregat/centre-sant-josep-sanfeliu/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: hospitalet de llobregat
         district: centre
       # ── Zona 6 · Montjuïc / Zona Franca ──
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sants-montjuic/la-marina-del-port/s?maxPrice=320000&minSurface=70"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sants-montjuic/la-marina-del-port/s?maxPrice=320000&minSurface=70&sortBy=NEWEST"
         city: barcelona
         district: marina del port
