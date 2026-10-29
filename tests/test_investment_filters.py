@@ -1487,3 +1487,16 @@ def test_a_failing_reader_is_said_out_loud_once_a_day(db, monkeypatch):
         orch.verify({**LISTING, "id": f"habitaclia_{i}"}, {})
     assert len(orch.alerter.pulses) == 1
     assert "fichas" in orch.alerter.pulses[0]
+
+
+def test_an_advert_for_buyers_and_investors_alike_is_not_refused():
+    """Esplugues, 207.000 €, 29 October 2026: refused for "para inversores"
+    in a sentence that offered the flat to first-time buyers first."""
+    from ingest.email_parsers import _REJECT_RE
+
+    assert _REJECT_RE.search(
+        "Ideal tanto para quienes buscan su primera vivienda como para inversores "
+        "que quieren rentabilidad en una zona con alta demanda.") is None
+    assert _REJECT_RE.search("Perfecto para vivir o para inversores.") is None
+    assert _REJECT_RE.search("Para familias y también para inversores.") is None
+    assert _REJECT_RE.search("Oportunidad para inversores, rentabilidad del 6%.")
