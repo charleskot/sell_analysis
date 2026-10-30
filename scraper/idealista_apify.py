@@ -23,7 +23,7 @@ ACTOR = "memo23~idealista-scraper"
 API = "https://api.apify.com/v2"
 
 
-def run(token: str, actor_input: dict, timeout_s: int = 600) -> list[dict]:
+def run(token: str, actor_input: dict, timeout_s: int = 600, actor: str = ACTOR) -> list[dict]:
     """Start a run, wait for it, return its rows.
 
     Started and polled rather than called synchronously: a request held
@@ -32,7 +32,7 @@ def run(token: str, actor_input: dict, timeout_s: int = 600) -> list[dict]:
     """
     import requests
 
-    started = requests.post(f"{API}/acts/{ACTOR}/runs",
+    started = requests.post(f"{API}/acts/{actor}/runs",
                             params={"token": token, "timeout": timeout_s},
                             json=actor_input, timeout=60)
     started.raise_for_status()
@@ -56,6 +56,51 @@ def run(token: str, actor_input: dict, timeout_s: int = 600) -> list[dict]:
                          params={"token": token, "clean": 1}, timeout=60)
     items.raise_for_status()
     return [i for i in items.json() if isinstance(i, dict)]
+
+
+def run_each(token: str, base_input: dict, urls: list[str], per_search: int,
+             timeout_s: int = 600, actor: str = ACTOR, parallel: int = 4) -> list[dict]:
+    """One run per search, a few at a time, each capped at `per_search` rows.
+
+    An actor's item cap is for the whole run, and it pages through the first
+    search before starting the next, so one run over thirteen searches could
+    spend its whole cap on the first and never reach the rest. Run apart,
+    every search gets its newest flats read. More than a handful at once
+    exceeds the free plan's memory, and the start is refused.
+    """
+    import requests
+
+    items: list[dict] = []
+    for i in range(0, len(urls), parallel):
+        started = []
+        for url in urls[i:i + parallel]:
+            try:
+                resp = requests.post(f"{API}/acts/{actor}/runs",
+                                     params={"token": token, "timeout": timeout_s},
+                                     json={**base_input, "startUrls": [url], "maxItems": per_search},
+                                     timeout=60)
+                resp.raise_for_status()
+                data = resp.json()["data"]
+                started.append((data["id"], data["defaultDatasetId"]))
+            except Exception as e:
+                logger.warning(f"Apify: no pude lanzar {url[-60:]}: {e}")
+        deadline = time.time() + timeout_s + 60
+        for run_id, dataset in started:
+            status = "RUNNING"
+            while status in ("READY", "RUNNING") and time.time() < deadline:
+                time.sleep(8)
+                try:
+                    status = requests.get(f"{API}/actor-runs/{run_id}", params={"token": token},
+                                          timeout=30).json()["data"]["status"]
+                except Exception:
+                    pass
+            try:
+                rows = requests.get(f"{API}/datasets/{dataset}/items",
+                                    params={"token": token, "clean": 1}, timeout=60).json()
+                items.extend(r for r in rows if isinstance(r, dict))
+            except Exception as e:
+                logger.warning(f"Apify: no pude leer la ejecución {run_id}: {e}")
+    return items
 
 
 def _place(ubication: dict) -> tuple[str | None, str | None]:

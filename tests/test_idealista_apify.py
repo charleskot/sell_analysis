@@ -95,6 +95,8 @@ class _Orch:
         from scheduler.jobs import PipelineOrchestrator
 
         self.run_idealista_apify = PipelineOrchestrator.run_idealista_apify.__get__(self)
+        self._run_apify = PipelineOrchestrator._run_apify.__get__(self)
+        self._APIFY_SOURCES = PipelineOrchestrator._APIFY_SOURCES
         self._ingest_listing = PipelineOrchestrator._ingest_listing.__get__(self)
         self.config = {"alerts": {"fresh_hours": 24},
                        "apify": {"idealista": {"enabled": True, "interval_minutes": 90,
@@ -127,7 +129,7 @@ def actor(monkeypatch):
     """What the next run returns, and the inputs it was given."""
     state = {"rows": [], "inputs": []}
 
-    def fake(token, actor_input, timeout_s=600):
+    def fake(token, actor_input, timeout_s=600, actor=None):
         state["inputs"].append(actor_input)
         return [dict(r) for r in state["rows"]]
 

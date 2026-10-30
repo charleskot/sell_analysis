@@ -378,6 +378,18 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     except Exception as e:
         console.print(f"[yellow]Idealista (Apify) falló:[/yellow] {e}")
 
+    # Fotocasa the same way: its emails are as thin as Idealista's.
+    try:
+        foto = orchestrator.run_fotocasa_apify()
+        if foto.get("runs"):
+            console.print(
+                f"[green]Fotocasa (Apify):[/green] {foto['parsed']} pisos · "
+                f"{foto['new']} nuevos · {foto['alerts_sent']} alertas"
+                + (f" · {foto['seeded']} sembrados" if foto["seeded"] else "")
+            )
+    except Exception as e:
+        console.print(f"[yellow]Fotocasa (Apify) falló:[/yellow] {e}")
+
     tg_cfg = config.get("alerts", {}).get("telegram", {})
     pulse_minutes = tg_cfg.get("pulse_minutes", 0)
     failure_minutes = tg_cfg.get("failure_notice_minutes", 60)
