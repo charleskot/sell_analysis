@@ -139,7 +139,8 @@ def _executable_path() -> str | None:
 
 
 def scrape(url: str, max_pages: int = 3, timeout_ms: int = 90_000,
-           city: str | None = None, district: str | None = None) -> list[dict]:
+           city: str | None = None, district: str | None = None,
+           known=None) -> list[dict]:
     """Every flat on the first `max_pages` pages of one search.
 
     `city` and `district` come from the search's own configuration and
@@ -153,6 +154,12 @@ def scrape(url: str, max_pages: int = 3, timeout_ms: int = 90_000,
     first page redirects there from the old ".htm" form, so the page's own
     final URL is used to build the rest. Stops early when a page adds
     nothing new — the last page is reached or the site repeated itself.
+
+    `known`, given a page's ids, says whether every one of them was seen
+    before. Read newest first, a page of nothing but known flats means the
+    news is above it, so the next page is not worth the wait: a pass that
+    reads one page per search instead of three comes round three times as
+    often.
     """
     from playwright.sync_api import sync_playwright
 
@@ -188,6 +195,7 @@ def scrape(url: str, max_pages: int = 3, timeout_ms: int = 90_000,
                     })""",
                 )
                 before = len(found)
+                page_ids = []
                 for c in cards:
                     listing = parse_card(c["text"], c["href"])
                     if not listing:
@@ -197,9 +205,12 @@ def scrape(url: str, max_pages: int = 3, timeout_ms: int = 90_000,
                     if district:
                         listing["district"] = district.lower()
                     found.setdefault(listing["external_id"], listing)
+                    page_ids.append(listing["external_id"])
                 logger.info(f"Habitaclia navegador: {url[-60:]} página {n} → "
                             f"{len(cards)} tarjetas, {len(found) - before} pisos nuevos")
                 if len(found) == before:
+                    break
+                if known is not None and page_ids and known(page_ids):
                     break
         finally:
             browser.close()

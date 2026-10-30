@@ -453,6 +453,7 @@ alerts:
       per_kind:
         piso: 20          # a listing that matches and has never been sent
         casi: 5           # a bargain that misses one limit by a little
+        control: 1        # the morning report on yesterday's flats
         fallo: 2          # the mailbox will not open
         resumen: 1        # the manual daily summary
         respuesta: 25     # answers to messages he typed himself
@@ -734,10 +735,11 @@ browser_scraping:
   habitaclia:
     enabled: true
     max_pages: 3
-    # A full pass over every search takes a few minutes in a real browser,
-    # and the loop ticks every three. Half an hour is fresh enough for
-    # flats and gentle enough on the portal.
-    interval_minutes: 30
+    # Read newest first, a search usually needs one page: once a page holds
+    # only flats already known the rest is skipped. That makes a pass two or
+    # three minutes, so it can come round every ten — "que todo entre
+    # rápido", and Habitaclia above all. The loop ticks every three.
+    interval_minutes: 10
     # Each search asks Habitaclia itself for ≤320.000 € (the stretch ceiling —
     # the 285.000 € budget and the exception are applied by the profile) and
     # ≥70 m², which cuts the pages to read by more than half.

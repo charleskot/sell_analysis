@@ -429,6 +429,13 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     # the morning would stay in the database unmentioned for ever.
     stats["alerts_sent"] += orchestrator.send_pending()
 
+    # Every morning, what became of yesterday's flats — so a miss is seen
+    # the next day, not discovered by the user a week later.
+    try:
+        orchestrator.send_daily_control()
+    except Exception as e:
+        console.print(f"[yellow]Control diario falló:[/yellow] {e}")
+
     # The mailbox can also fail without any call failing: the portals simply
     # stop arriving, or an alert gets deleted. Forty-four hours passed that
     # way, every request returning 200, the bot reporting itself healthy and

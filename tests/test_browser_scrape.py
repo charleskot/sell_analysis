@@ -252,3 +252,20 @@ def test_one_empty_search_beside_working_ones_is_no_alarm(db, pages):
     o.alerter = _PulseAlerter()
     o.run_browser_scrape(force=True)
     assert o.alerter.pulses == []
+
+
+def test_after_the_seed_a_page_of_known_flats_ends_the_search(db, monkeypatch):
+    """Newest first, the news is on page one; reading on costs a pass time."""
+    seen_known = []
+
+    def fake(url, max_pages=3, city=None, district=None, known=None, **_):
+        seen_known.append(known)
+        return [_flat("a1")]
+
+    monkeypatch.setattr(hb, "scrape", fake)
+    o = _Orch([{"url": URL_A}])
+    o.run_browser_scrape(force=True)          # the seed reads every page
+    o.run_browser_scrape(force=True)
+    assert seen_known[0] is None
+    assert seen_known[1](["a1"]) is True      # stored by the seed
+    assert seen_known[1](["a1", "brand_new"]) is False
