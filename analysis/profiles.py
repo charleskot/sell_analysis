@@ -321,8 +321,10 @@ class Profile:
                 return None       # whole town accepted
 
             # District names sometimes arrive inside the city field, and are
-            # often truncated by the portal, so match against both.
-            where = f"{district or ''} {city or ''}"
+            # often truncated by the portal, so match against both. Only the
+            # barri itself counts, not the district Habitaclia appends to it:
+            # "Carmel (Horta Gui..." is not Horta.
+            where = f"{(district or '').split('(')[0]} {city or ''}"
             if any(_place_matches(d, where) for d in districts):
                 return None
 
