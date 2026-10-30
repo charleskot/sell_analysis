@@ -41,16 +41,16 @@ def test_within_budget_passes(home):
 
 
 def test_over_budget_without_a_reason_is_refused(home):
-    good, why = ok(home, price=300000, area_m2=72,
+    good, why = ok(home, price=310000, area_m2=72,
                    description="piso para entrar a vivir")
     assert not good and "justifique" in why
 
 
 def test_over_budget_with_terrace_and_size_passes_and_says_so(home):
-    good, why = ok(home, price=300000, area_m2=92,
+    good, why = ok(home, price=310000, area_m2=92,
                    description="gran terraza, listo para entrar a vivir")
     assert good
-    assert "por encima" in why and "15.000" in why
+    assert "por encima" in why and "10.000" in why
 
 
 def test_over_budget_with_balcony_and_light_passes(home):
@@ -65,8 +65,8 @@ def test_above_the_stretch_ceiling_nothing_passes(home):
 
 # ── Size ──────────────────────────────────────────────────────────────────
 
-def test_under_70_square_metres_is_refused(home):
-    assert not ok(home, area_m2=65)[0]
+def test_under_65_square_metres_is_refused(home):
+    assert not ok(home, area_m2=63)[0]
 
 
 # ── Lift, or a low enough walk-up ─────────────────────────────────────────
@@ -152,7 +152,6 @@ def test_wanted_zones_pass(home, city, district):
 
 
 @pytest.mark.parametrize("city,district", [
-    ("barcelona", "la sagrada familia"),    # dropped from the new search
     ("badalona", "llefià (artigues"),
     ("badalona", "congrés (gorg"),           # Barcelona's Congrés, not this one
     ("santa coloma de gramenet", "fondo"),
@@ -161,3 +160,23 @@ def test_wanted_zones_pass(home, city, district):
 ])
 def test_other_zones_are_refused(home, city, district):
     assert not ok(home, city=city, district=district)[0], (city, district)
+
+
+# ── 30 October: 65 m², 300.000 € and the neighbouring barris ──────────────
+
+def test_the_neighbouring_barris_are_now_wanted(home):
+    for barri in ("horta", "porta", "sagrada familia", "sant marti de provencals"):
+        assert ok(home, district=barri)[0], barri
+    assert ok(home, city="badalona", district="casagemes")[0]
+    assert ok(home, city="hospitalet de llobregat", district="santa eulalia")[0]
+
+
+def test_a_barri_is_not_the_district_habitaclia_appends(home):
+    assert not ok(home, district="Carmel (Horta Gui")[0]
+    assert ok(home, district="Guinardó (Horta G")[0]
+
+
+def test_65_square_metres_and_300000_euros_pass(home):
+    assert ok(home, area_m2=66)[0]
+    assert ok(home, price=298000)[0]
+    assert not ok(home, area_m2=63)[0]

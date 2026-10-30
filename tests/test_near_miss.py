@@ -38,19 +38,15 @@ def test_a_full_match_is_not_a_near_miss(home):
 
 
 def test_slightly_small_and_cheap_goes_out_saying_why(home):
-    why = casi(home, area_m2=67, price=220000)          # 3.284 €/m², 18% under
+    why = casi(home, area_m2=62, price=220000)          # 3.548 €/m², 11% under
     assert why.startswith(NEAR_MISS_PREFIX)
-    assert "67 m²" in why and "18%" in why
+    assert "62 m²" in why and "11%" in why
 
 
 def test_slightly_over_budget_and_cheap_per_metre_goes_out(home):
-    why = casi(home, price=310000, area_m2=95,            # 3.263 €/m²
+    why = casi(home, price=325000, area_m2=100,           # 3.250 €/m²
                description="piso exterior para entrar a vivir")
     assert why and "25.000 €" in why
-
-
-def test_neighbouring_barri_goes_out_when_cheap(home):
-    assert casi(home, district="porta", price=220000)
 
 
 def test_a_barri_nowhere_near_does_not(home):
@@ -59,39 +55,39 @@ def test_a_barri_nowhere_near_does_not(home):
 
 
 def test_missing_by_more_than_a_little_is_still_refused(home):
-    assert casi(home, area_m2=60, price=190000) is None          # 10 m² short
+    assert casi(home, area_m2=58, price=190000) is None          # 7 m² short
     assert casi(home, price=340000, area_m2=110) is None         # 55.000 € over
 
 
 def test_two_misses_is_not_a_near_miss(home):
-    assert casi(home, area_m2=67, rooms=1, price=210000) is None
+    assert casi(home, area_m2=62, rooms=1, price=210000) is None
 
 
 def test_hard_limits_are_never_eased(home):
-    assert casi(home, area_m2=67, price=210000, floor="Bajo") is None
-    assert casi(home, area_m2=67, price=210000, floor="4ª planta",
+    assert casi(home, area_m2=62, price=210000, floor="Bajo") is None
+    assert casi(home, area_m2=62, price=210000, floor="4ª planta",
                 description="piso exterior sin ascensor") is None
-    assert casi(home, area_m2=67, price=210000,
+    assert casi(home, area_m2=62, price=210000,
                 description="piso interior para entrar a vivir") is None
 
 
 def test_not_cheap_for_its_zone_is_not_an_opportunity(home):
-    assert casi(home, area_m2=67, price=265000) is None          # 3.955 €/m²
+    assert casi(home, area_m2=62, price=265000) is None          # 3.955 €/m²
 
 
 def test_suspiciously_cheap_is_a_warning_not_a_deal(home):
-    assert casi(home, area_m2=67, price=150000) is None          # 44% under
+    assert casi(home, area_m2=62, price=150000) is None          # 44% under
 
 
 def test_no_zone_figures_no_judgement(home):
-    assert casi(home, zone=None, area_m2=67, price=220000) is None
+    assert casi(home, zone=None, area_m2=62, price=220000) is None
 
 
 def test_phone_says_casi_and_why():
     from alerts.telegram_bot import TelegramAlerter
 
     reason = f"{NEAR_MISS_PREFIX} 67 m² (pides 70) — pero 18% más barato por m² que lo normal en Navas"
-    title, body = TelegramAlerter._push_text(_flat(area_m2=67), {"near_miss": True, "match_reason": reason})
+    title, body = TelegramAlerter._push_text(_flat(area_m2=62), {"near_miss": True, "match_reason": reason})
     assert title.startswith("Casi · ")
     assert reason in body
 
@@ -106,25 +102,24 @@ def test_near_misses_have_their_own_small_budget():
 
 def test_close_to_the_zone_price_is_enough_now(home):
     # 319.000 € for 84 m² in a 4.000 €/m² zone: 5% under — not yet; 9% is
-    assert casi(home, price=319000, area_m2=84) is None
-    assert casi(home, price=319000, area_m2=88)
+    assert casi(home, price=325000, area_m2=84) is None          # 3% under
+    assert casi(home, price=325000, area_m2=90)                  # 10% under
 
 
 def test_any_work_at_all_rules_a_near_miss_out(home):
     for words in ("piso para reformar", "necesita actualización", "ideal para dar tu toque",
                   "piso a actualizar, con posibilidades"):
-        assert casi(home, area_m2=67, price=220000, description=words) is None
+        assert casi(home, area_m2=62, price=220000, description=words) is None
 
 
 def test_once_read_the_advert_must_say_it_is_ready(home):
-    flat = _flat(area_m2=67, price=220000, description="piso exterior con balcón")
+    flat = _flat(area_m2=62, price=220000, description="piso exterior con balcón")
     assert home.near_miss(flat, {}, NAVAS)
     assert home.near_miss(flat, {}, NAVAS, confirm_ready=True) is None
-    ready = _flat(area_m2=67, price=220000, description="reformado, para entrar a vivir")
+    ready = _flat(area_m2=62, price=220000, description="reformado, para entrar a vivir")
     why = home.near_miss(ready, {}, NAVAS, confirm_ready=True)
     assert why and why.endswith("para entrar a vivir")
 
 
 def test_a_barri_is_not_its_district(home):
     assert casi(home, district="Carmel (Horta Gui", price=220000) is None
-    assert casi(home, district="Horta (Horta Guin", price=220000)
