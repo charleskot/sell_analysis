@@ -439,20 +439,34 @@ class PipelineOrchestrator:
         seed_date = now - timedelta(hours=fresh_hours + 1)
         portal_stats = stats["by_portal"].setdefault("habitaclia", {"parsed": 0, "alerts": 0})
 
+        def _all_known(ids: list[str]) -> bool:
+            from sqlalchemy import func, select
+            from models.db import get_engine
+            from models.schema import listings
+
+            wanted = [f"habitaclia_{i}" for i in ids]
+            with get_engine().connect() as conn:
+                have = conn.execute(select(func.count()).select_from(listings)
+                                    .where(listings.c.id.in_(wanted))).scalar()
+            return have == len(set(wanted))
+
         empty_first_reads: list[str] = []
         for search in cfg["searches"]:
             url = search["url"]
             label = search.get("district") or search.get("city") or url[-40:]
+            first_time = url not in seeded
             try:
                 found = scrape(url, max_pages=cfg.get("max_pages", 3),
-                               city=search.get("city"), district=search.get("district"))
+                               city=search.get("city"), district=search.get("district"),
+                               # A seed reads every page; after it, a page of
+                               # flats already known ends the search.
+                               known=None if first_time else _all_known)
             except Exception as e:
                 logger.error(f"Navegador: {label} falló: {type(e).__name__}: {e}")
                 stats["errors"] += 1
                 continue
             stats["searches"] += 1
 
-            first_time = url not in seeded
             for raw_dict in found:
                 stats["parsed"] += 1
                 portal_stats["parsed"] += 1
@@ -978,6 +992,125 @@ class PipelineOrchestrator:
                     set_telegram_state("reader_failing_notice_day", today)
         except Exception as e:
             logger.warning(f"No pude comprobar el lector: {e}")
+
+    def daily_control(self, day=None) -> dict:
+        """What became of yesterday's flats, portal by portal.
+
+        The user's complaint, fairly made: "estoy seguro que esto no está
+        funcionando bien, aunque me digas a cada rato que sí". Every miss so
+        far was found by him or by an audit run on request. This one runs by
+        itself: each flat first seen that day in his zones that meets his
+        search either went out, or was the same flat as one already sent or
+        already on sale, or its advert disqualified it — anything else is
+        listed by name and link, so a miss is seen the next morning rather
+        than discovered a week later.
+        """
+        from datetime import datetime, time as dtime, timedelta, timezone
+        from zoneinfo import ZoneInfo
+        from sqlalchemy import select
+        from ingest.email_parsers import _REJECT_RE
+        from models.db import (get_engine, get_verify_verdict, same_flat,
+                               was_flat_seen_before, was_similar_listing_sent)
+        from models.schema import alerts_sent, listings
+
+        tz = ZoneInfo("Europe/Madrid")
+        if day is None:
+            day = (datetime.now(tz) - timedelta(days=1)).date()
+        start = datetime.combine(day, dtime.min, tz).astimezone(timezone.utc).replace(tzinfo=None)
+        end = start + timedelta(days=1)
+        fresh_hours = (self.config.get("alerts") or {}).get("fresh_hours", 24)
+
+        with get_engine().connect() as conn:
+            rows = [dict(r._mapping) for r in conn.execute(
+                select(listings).where(listings.c.first_seen_at >= start,
+                                       listings.c.first_seen_at < end))]
+            sent_ids = {r[0] for r in conn.execute(select(alerts_sent.c.listing_id))}
+
+        report: dict = {"day": day.isoformat(), "portals": {}, "escaped": []}
+        for listing in rows:
+            portal = listing.get("portal") or "?"
+            counts = report["portals"].setdefault(
+                portal, {"nuevos": 0, "cumplen": 0, "enviados": 0, "repetidos": 0,
+                         "descartados": 0, "escapados": 0})
+            counts["nuevos"] += 1
+            metrics = self._compute_metrics(listing) or self._minimal_metrics(listing)
+            hits = self.profile_matcher.match(listing, metrics)
+            if not hits:
+                continue
+            if _REJECT_RE.search(f"{listing.get('title') or ''} {listing.get('description') or ''}"):
+                counts["descartados"] += 1
+                continue
+            counts["cumplen"] += 1
+            verdict = get_verify_verdict(listing["id"])
+            first_seen = listing["first_seen_at"]
+            if listing["id"] in sent_ids:
+                counts["enviados"] += 1
+            elif self.alerter.already_sent(listing["id"], self.alerter.property_signature(listing)) \
+                    or was_similar_listing_sent(listing.get("city"), listing.get("price"),
+                                          listing.get("area_m2"), listing.get("district"),
+                                          listing.get("rooms"), listing.get("title")) \
+                    or was_flat_seen_before(listing, first_seen - timedelta(hours=fresh_hours)):
+                counts["repetidos"] += 1
+            elif verdict and verdict[0] == "rechazada":
+                counts["descartados"] += 1
+            elif self.verify(listing, metrics) is None and \
+                    (get_verify_verdict(listing["id"]) or ("",))[0] == "rechazada":
+                # Read now if never read: the browser's first look at a search
+                # stores a page of bank flats without reading one of them, and
+                # an occupied flat is not a miss. A page that could not be
+                # read proves nothing, so that flat is still listed.
+                counts["descartados"] += 1
+            elif any(same_flat(listing, other) for other in report["escaped"]):
+                counts["repetidos"] += 1          # the same miss, under another id
+            else:
+                counts["escapados"] += 1
+                report["escaped"].append(listing)
+        return report
+
+    @staticmethod
+    def daily_control_text(report: dict) -> str:
+        """The report as the phone shows it: title line, then the facts."""
+        names = {"habitaclia": "Habitaclia", "idealista": "Idealista", "fotocasa": "Fotocasa"}
+        lines = [f"Control del {report['day'][8:10]}/{report['day'][5:7]}: "
+                 + ("todo en orden" if not report["escaped"]
+                    else f"se escaparon {len(report['escaped'])}")]
+        for portal in ("habitaclia", "idealista", "fotocasa"):
+            c = report["portals"].get(portal)
+            if not c:
+                lines.append(f"{names[portal]}: no entró nada nuevo")
+                continue
+            parts = [f"{c['enviados']} enviados"]
+            if c["repetidos"]:
+                parts.append(f"{c['repetidos']} repetidos")
+            if c["descartados"]:
+                parts.append(f"{c['descartados']} ocupados o trampas")
+            if c["escapados"]:
+                parts.append(f"{c['escapados']} se escaparon")
+            lines.append(f"{names[portal]}: {c['nuevos']} nuevos · {c['cumplen']} cumplían → "
+                         + ", ".join(parts))
+        for listing in report["escaped"][:8]:
+            money = f"{listing.get('price') or 0:,.0f}".replace(",", ".")
+            place = (listing.get("district") or listing.get("city") or "").title()
+            lines.append(f"⚠️ {money} € · {place} · {listing.get('area_m2') or '?'} m² · {listing.get('url')}")
+        return "\n".join(lines)
+
+    def send_daily_control(self) -> bool:
+        """Send yesterday's control once a day, from nine in the morning."""
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        from models.db import get_telegram_state, set_telegram_state
+
+        now = datetime.now(ZoneInfo("Europe/Madrid"))
+        if now.hour < 9:
+            return False
+        today = now.date().isoformat()
+        if get_telegram_state("daily_control_day", "") == today:
+            return False
+        # Marked first: a report that fails to send is not retried every
+        # three minutes — the budget would stop it, but quietly.
+        set_telegram_state("daily_control_day", today)
+        report = self.daily_control()
+        return bool(self.alerter._send_sync(self.daily_control_text(report), kind="control"))
 
     def send_pending(self) -> int:
         """Send every current match that has never gone out.
