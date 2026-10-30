@@ -731,6 +731,36 @@ apify:
       compact: true
       splitByPrice: false
 
+  # Fotocasa the same way (memo23/fotocasa-scraper): its alert emails are a
+  # sample, like Idealista's, and its pages refuse the runner. Monitor mode
+  # delivers only flats no earlier run saw; Fotocasa's own flags for
+  # occupied, tenanted, bare ownership and auction come with each row. One
+  # search per town or district, newest first, 65 m² and 330.000 € (wide
+  # enough for near misses). About $0.001 a flat delivered.
+  fotocasa:
+    enabled: true
+    interval_minutes: 90
+    # One run per search, each reading its 10 newest flats: a single run's
+    # cap would be spent on the first search and never reach the rest.
+    per_search: 10
+    timeout_seconds: 600
+    input:
+      flatten: false
+      startUrls:
+        - "https://www.fotocasa.es/es/comprar/viviendas/molins-de-rei/todas-las-zonas/l?maxPrice=330000&minSurface=65&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/sant-feliu-de-llobregat/todas-las-zonas/l?maxPrice=330000&minSurface=65&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/esplugues-de-llobregat/todas-las-zonas/l?maxPrice=330000&minSurface=65&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/sant-just-desvern/todas-las-zonas/l?maxPrice=330000&minSurface=65&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/cornella-de-llobregat/todas-las-zonas/l?maxPrice=330000&minSurface=65&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/badalona/todas-las-zonas/l?maxPrice=330000&minSurface=65&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/santa-coloma-de-gramenet/todas-las-zonas/l?maxPrice=330000&minSurface=65&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/l-hospitalet-de-llobregat/todas-las-zonas/l?maxPrice=330000&minSurface=65&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/horta-guinardo/l?maxPrice=330000&minSurface=65&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sant-andreu/l?maxPrice=330000&minSurface=65&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/nou-barris/l?maxPrice=330000&minSurface=65&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sant-marti/l?maxPrice=330000&minSurface=65&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sants-montjuic/l?maxPrice=330000&minSurface=65&sortType=publicationDate"
+
 browser_scraping:
   habitaclia:
     enabled: true

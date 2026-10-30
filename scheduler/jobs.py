@@ -57,6 +57,23 @@ def _verdict_stale(iso_timestamp: str, hours: int) -> bool:
     return datetime.now(timezone.utc) - at > timedelta(hours=hours)
 
 
+def _published_before(stamp, cutoff: datetime) -> bool:
+    """Whether a portal's publication timestamp is older than `cutoff`.
+
+    Unknown or unreadable dates are not old: only a stated date can hold a
+    flat back.
+    """
+    if not stamp:
+        return False
+    try:
+        when = datetime.fromisoformat(str(stamp).replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    if when.tzinfo is None:
+        when = when.replace(tzinfo=timezone.utc)
+    return when < cutoff
+
+
 def zone_market_stats(city: str | None, district: str | None) -> dict | None:
     """The €/m² spread of the zone, from the listings already ingested.
 
@@ -537,34 +554,55 @@ class PipelineOrchestrator:
 
         Its emails cannot be a feed — a morning burst and a daily summary
         capped at twenty — so a flat published at 22:00 could wait a day or
-        never come. The actor's monitoring mode returns only the flats no
-        earlier run has seen, which keeps each pass to cents.
-
-        Runs every `interval_minutes`, not at night: a flat published then
-        is still new to the actor in the morning, and the phone is quiet
-        anyway. The first run of a set of locations is a seed, as with the
-        browser: the actor answers with everything published in the window,
-        and none of that is news.
+        never come.
         """
+        return self._run_apify("idealista", force)
+
+    def run_fotocasa_apify(self, force: bool = False) -> dict:
+        """Read Fotocasa's newest flats through Apify, every so often.
+
+        Its emails are as thin as Idealista's, and its pages refuse the
+        runner just the same.
+        """
+        return self._run_apify("fotocasa", force)
+
+    # Per source: the actor, how its rows become listings, and the input
+    # switch that makes it deliver only flats no earlier run has seen.
+    _APIFY_SOURCES = {
+        "idealista": ("scraper.idealista_apify", {"monitoringMode": True}),
+        "fotocasa": ("scraper.fotocasa_apify", {"monitorMode": True, "monitorKey": "pisos-bot"}),
+    }
+
+    def _run_apify(self, source: str, force: bool = False) -> dict:
+        """One Apify pass for one portal: only news, by day, every so often.
+
+        Monitor mode returns only the flats no earlier run has seen, which
+        keeps each pass to cents. Runs every `interval_minutes`, not at
+        night: a flat published then is still new to the actor in the
+        morning, and the phone is quiet anyway. The first run of a set of
+        searches is a seed, as with the browser: the actor answers with
+        everything published in the window, and none of that is news.
+        """
+        import importlib
         import json
         import os
         from datetime import datetime, timedelta, timezone
         from models.db import get_telegram_state, set_telegram_state
         from scheduler.quiet_hours import is_quiet
 
-        cfg = (self.config.get("apify") or {}).get("idealista") or {}
+        cfg = (self.config.get("apify") or {}).get(source) or {}
         stats = {"runs": 0, "seeded": 0, "parsed": 0, "new": 0, "updated": 0,
                  "filtered_out": 0, "rejected_after_enrich": 0, "enriched": 0,
                  "alerts_sent": 0, "errors": 0, "by_profile": {}, "by_portal": {}}
         token = os.environ.get("APIFY_TOKEN", "").strip()
-        if not cfg.get("enabled") or not token:
+        if not cfg.get("enabled") or not token or source not in self._APIFY_SOURCES:
             return stats
 
         now = datetime.now(timezone.utc)
         if not force:
             if is_quiet(self.config, now):
                 return stats
-            last = get_telegram_state("apify_idealista_last_run_at", "")
+            last = get_telegram_state(f"apify_{source}_last_run_at", "")
             try:
                 if last and now - datetime.fromisoformat(last) < timedelta(
                         minutes=cfg.get("interval_minutes", 90)):
@@ -573,43 +611,59 @@ class PipelineOrchestrator:
                 pass
         # Stamped before the run: a failing actor is retried at the next
         # interval, not on every three-minute tick at a cent a start.
-        set_telegram_state("apify_idealista_last_run_at", now.isoformat())
+        set_telegram_state(f"apify_{source}_last_run_at", now.isoformat())
 
-        from scraper.idealista_apify import run, to_raw
+        from scraper.idealista_apify import run, run_each
 
-        actor_input = {**(cfg.get("input") or {}), "monitoringMode": True,
+        module_name, monitor = self._APIFY_SOURCES[source]
+        module = importlib.import_module(module_name)
+        actor_input = {**(cfg.get("input") or {}), **monitor,
                        "maxItems": cfg.get("max_items", 60)}
-        signature = json.dumps(sorted(actor_input.get("locations") or []), ensure_ascii=False)
-        first_time = get_telegram_state("apify_idealista_seeded", "") != signature
+        searches = actor_input.get("locations") or actor_input.get("startUrls") or []
+        signature = json.dumps(sorted(searches), ensure_ascii=False)
+        first_time = get_telegram_state(f"apify_{source}_seeded", "") != signature
+        name = source.capitalize()
         try:
-            items = run(token, actor_input, timeout_s=cfg.get("timeout_seconds", 600))
+            if cfg.get("per_search"):
+                items = run_each(token, {k: v for k, v in actor_input.items()
+                                         if k not in ("startUrls", "maxItems")},
+                                 actor_input.get("startUrls") or [], cfg["per_search"],
+                                 timeout_s=cfg.get("timeout_seconds", 600), actor=module.ACTOR)
+            else:
+                items = run(token, actor_input, timeout_s=cfg.get("timeout_seconds", 600),
+                            actor=module.ACTOR)
         except Exception as e:
-            logger.error(f"Apify Idealista falló: {type(e).__name__}: {e}")
+            logger.error(f"Apify {name} falló: {type(e).__name__}: {e}")
             stats["errors"] += 1
             return stats
         stats["runs"] += 1
 
         fresh_hours = (self.config.get("alerts") or {}).get("fresh_hours", 24)
         seed_date = now - timedelta(hours=fresh_hours + 1)
-        portal_stats = stats["by_portal"].setdefault("idealista", {"parsed": 0, "alerts": 0})
+        portal_stats = stats["by_portal"].setdefault(source, {"parsed": 0, "alerts": 0})
         for item in items:
-            raw_dict = to_raw(item)
+            raw_dict = module.to_raw(item)
             if not raw_dict:
                 continue
             stats["parsed"] += 1
             portal_stats["parsed"] += 1
             if first_time:
                 raw_dict["first_seen_at"] = seed_date
+            # New to the actor is not new to the market: a flat the portal
+            # says went up days ago is stored, not announced.
+            stale = _published_before(raw_dict.pop("published_at", None),
+                                      now - timedelta(hours=fresh_hours))
             try:
-                self._ingest_listing(raw_dict, stats, portal_stats, alert=not first_time)
+                self._ingest_listing(raw_dict, stats, portal_stats,
+                                     alert=not first_time and not stale)
             except Exception as e:
-                logger.error(f"Apify Idealista: error con {raw_dict.get('url')}: {e}")
+                logger.error(f"Apify {name}: error con {raw_dict.get('url')}: {e}")
                 stats["errors"] += 1
 
         if first_time:
-            set_telegram_state("apify_idealista_seeded", signature)
+            set_telegram_state(f"apify_{source}_seeded", signature)
             stats["seeded"] = len(items)
-            logger.info(f"Apify Idealista: sembrado con {len(items)} pisos (sin avisar)")
+            logger.info(f"Apify {name}: sembrado con {len(items)} pisos (sin avisar)")
         return stats
 
     def _ingest_listing(self, raw_dict: dict, stats: dict, portal_stats: dict,
