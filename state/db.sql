@@ -4841,7 +4841,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_28976000003938',3.53,2.64,2.
 INSERT INTO "investment_metrics" VALUES('habitaclia_54772000000187',2.14,1.61,1.61,62.3,489.5,274400.0,19.2,'{"gross_yield_score": 7.1, "price_per_m2_score": 4.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 5.4, "total": 19.2}','2026-08-20 14:58:12.220535');
 INSERT INTO "investment_metrics" VALUES('habitaclia_37637000028017',7.32,5.49,5.49,18.2,1093.5,179200.0,66.3,'{"gross_yield_score": 83.2, "price_per_m2_score": 65.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.4, "total": 66.3}','2026-08-20 14:58:12.225274');
 INSERT INTO "investment_metrics" VALUES('habitaclia_56602000000482',2.94,2.2,2.2,45.4,544.5,222434.24,35.5,'{"gross_yield_score": 9.8, "price_per_m2_score": 65.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 7.3, "total": 35.5}','2026-08-20 14:58:12.230139');
-INSERT INTO "investment_metrics" VALUES('habitaclia_28976000013834',7.79,5.84,5.84,17.1,858.0,132160.0,77.0,'{"gross_yield_score": 87.9, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 62.6, "total": 77.0}','2026-10-30 16:33:03.592824');
+INSERT INTO "investment_metrics" VALUES('habitaclia_28976000013834',7.79,5.84,5.84,17.1,858.0,132160.0,77.0,'{"gross_yield_score": 87.9, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 62.6, "total": 77.0}','2026-10-30 16:42:51.314956');
 INSERT INTO "investment_metrics" VALUES('habitaclia_52793000016381',1.77,1.33,1.33,75.4,275.0,186620.0,22.3,'{"gross_yield_score": 5.9, "price_per_m2_score": 19.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 4.4, "total": 22.3}','2026-08-20 14:58:12.071133');
 INSERT INTO "investment_metrics" VALUES('habitaclia_14842000000534',10.81,8.1,8.1,12.3,1714.5,190400.0,71.6,'{"gross_yield_score": 100.0, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 91.0, "total": 71.6}','2026-08-20 14:58:12.075794');
 INSERT INTO "investment_metrics" VALUES('habitaclia_27782000001039',4.82,3.62,3.62,27.7,1080.0,268800.0,38.7,'{"gross_yield_score": 46.4, "price_per_m2_score": 20.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.4, "total": 38.7}','2026-08-20 14:58:12.080621');
@@ -5084,7 +5084,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_5337001527787',4.98,3.74,3.7
 INSERT INTO "investment_metrics" VALUES('habitaclia_42520000000571',5.97,4.48,4.48,22.3,864.0,173600.0,61.1,'{"gross_yield_score": 64.5, "price_per_m2_score": 78.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.6, "total": 61.1}','2026-09-19 19:37:00.984464');
 INSERT INTO "investment_metrics" VALUES('habitaclia_52793000013605',10.53,7.89,7.89,12.7,946.0,107856.0,83.9,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 88.9, "total": 83.9}','2026-10-29 18:50:25.624074');
 INSERT INTO "investment_metrics" VALUES('idealista_112337086',1.98,1.49,1.49,67.3,462.0,280000.0,35.9,'{"gross_yield_score": 6.6, "price_per_m2_score": 72.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 5.0, "total": 35.9}','2026-08-21 06:04:02.684818');
-INSERT INTO "investment_metrics" VALUES('habitaclia_765004409539',3.66,2.74,2.74,36.5,747.5,245280.0,32.7,'{"gross_yield_score": 23.2, "price_per_m2_score": 34.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.1, "total": 32.7}','2026-10-30 16:33:03.349150');
+INSERT INTO "investment_metrics" VALUES('habitaclia_765004409539',3.66,2.74,2.74,36.5,747.5,245280.0,32.7,'{"gross_yield_score": 23.2, "price_per_m2_score": 34.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.1, "total": 32.7}','2026-10-30 16:42:51.080020');
 INSERT INTO "investment_metrics" VALUES('habitaclia_12520000000645',2.91,2.18,2.18,45.9,814.0,336000.0,44.1,'{"gross_yield_score": 9.7, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 7.3, "total": 44.1}','2026-08-21 07:03:47.038371');
 INSERT INTO "investment_metrics" VALUES('habitaclia_59894000000006',2.4,1.8,1.8,55.5,561.0,280000.0,33.1,'{"gross_yield_score": 8.0, "price_per_m2_score": 58.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 6.0, "total": 33.1}','2026-09-11 07:23:38.659377');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3226003818470',2.3,1.72,1.72,58.1,621.5,324800.0,33.3,'{"gross_yield_score": 7.7, "price_per_m2_score": 60.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 5.7, "total": 33.3}','2026-08-21 07:03:47.046801');
@@ -11992,7 +11992,7 @@ INSERT INTO "investment_metrics" VALUES('idealista_112508563',1.47,1.1,1.1,90.5,
 INSERT INTO "investment_metrics" VALUES('habitaclia_8141004268707',2.2,1.65,1.65,60.5,522.5,284480.0,28.9,'{"gross_yield_score": 7.3, "price_per_m2_score": 43.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 5.5, "total": 28.9}','2026-09-10 09:20:10.864299');
 INSERT INTO "investment_metrics" VALUES('habitaclia_46948000000771',3.94,2.96,2.96,33.8,810.0,246400.0,27.5,'{"gross_yield_score": 28.8, "price_per_m2_score": 5.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.9, "total": 27.5}','2026-09-10 09:20:10.875422');
 INSERT INTO "investment_metrics" VALUES('habitaclia_28640000001360',7.19,5.39,5.39,18.5,1120.5,187040.0,62.4,'{"gross_yield_score": 81.9, "price_per_m2_score": 52.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 55.8, "total": 62.4}','2026-09-10 09:20:10.886946');
-INSERT INTO "investment_metrics" VALUES('habitaclia_19272000029946',4.89,3.67,3.67,27.3,1045.0,256480.0,45.0,'{"gross_yield_score": 47.8, "price_per_m2_score": 43.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.4, "total": 45.0}','2026-10-30 16:33:03.627395');
+INSERT INTO "investment_metrics" VALUES('habitaclia_19272000029946',4.89,3.67,3.67,27.3,1045.0,256480.0,45.0,'{"gross_yield_score": 47.8, "price_per_m2_score": 43.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.4, "total": 45.0}','2026-10-30 16:42:51.351033');
 INSERT INTO "investment_metrics" VALUES('habitaclia_40351000000425',1.32,0.99,0.99,100.6,368.5,333760.0,16.9,'{"gross_yield_score": 4.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 3.3, "total": 16.9}','2026-09-10 09:20:10.910893');
 INSERT INTO "investment_metrics" VALUES('habitaclia_18943003952452',5.42,4.06,4.06,24.6,1188.0,263200.0,55.4,'{"gross_yield_score": 56.3, "price_per_m2_score": 70.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 55.4}','2026-09-13 16:20:06.657284');
 INSERT INTO "investment_metrics" VALUES('habitaclia_37298000000517',1.99,1.5,1.5,66.9,368.5,221760.0,26.1,'{"gross_yield_score": 6.6, "price_per_m2_score": 33.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 5.0, "total": 26.1}','2026-09-10 09:20:10.934146');
@@ -14099,7 +14099,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_14229003786925',3.96,2.97,2.
 INSERT INTO "investment_metrics" VALUES('habitaclia_40278000000500',5.14,3.86,3.86,25.9,724.5,169120.0,51.1,'{"gross_yield_score": 52.1, "price_per_m2_score": 60.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 51.1}','2026-10-29 16:30:45.248026');
 INSERT INTO "investment_metrics" VALUES('habitaclia_8174004328795',5.14,3.86,3.86,25.9,724.5,169120.0,50.8,'{"gross_yield_score": 52.1, "price_per_m2_score": 59.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 50.8}','2026-09-16 15:15:24.945512');
 INSERT INTO "investment_metrics" VALUES('habitaclia_41980000000306',5.62,4.22,4.22,23.7,472.5,100800.0,64.1,'{"gross_yield_score": 59.3, "price_per_m2_score": 99.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 64.1}','2026-10-27 09:42:16.367507');
-INSERT INTO "investment_metrics" VALUES('habitaclia_19510003942299',4.9,3.68,3.68,27.2,1509.9,369600.0,50.7,'{"gross_yield_score": 48.0, "price_per_m2_score": 66.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.6, "total": 50.7}','2026-10-30 16:33:03.557832');
+INSERT INTO "investment_metrics" VALUES('habitaclia_19510003942299',4.9,3.68,3.68,27.2,1509.9,369600.0,50.7,'{"gross_yield_score": 48.0, "price_per_m2_score": 66.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.6, "total": 50.7}','2026-10-30 16:42:51.280246');
 INSERT INTO "investment_metrics" VALUES('habitaclia_41980000000305',3.99,2.99,2.99,33.4,409.5,123200.0,39.9,'{"gross_yield_score": 29.8, "price_per_m2_score": 53.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.0, "total": 39.9}','2026-09-16 15:15:25.059180');
 INSERT INTO "investment_metrics" VALUES('habitaclia_49867000007086',7.63,5.72,5.72,17.5,836.0,131460.0,69.6,'{"gross_yield_score": 86.3, "price_per_m2_score": 73.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.8, "total": 69.6}','2026-09-16 15:15:25.066913');
 INSERT INTO "investment_metrics" VALUES('habitaclia_765004409514',4.87,3.66,3.66,27.4,737.0,181440.0,52.4,'{"gross_yield_score": 47.4, "price_per_m2_score": 74.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.2, "total": 52.4}','2026-09-16 15:15:25.074740');
@@ -17225,7 +17225,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_5708004429876',3.49,2.62,2.6
 INSERT INTO "investment_metrics" VALUES('habitaclia_23405004416166',5.78,4.33,4.33,23.1,700.0,145376.0,45.2,'{"gross_yield_score": 61.7, "price_per_m2_score": 19.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.6, "total": 45.2}','2026-09-25 15:14:37.962412');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3226003818481',3.95,2.96,2.96,33.8,847.0,257600.0,34.2,'{"gross_yield_score": 29.0, "price_per_m2_score": 32.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.9, "total": 34.2}','2026-09-25 15:14:37.977234');
 INSERT INTO "investment_metrics" VALUES('habitaclia_39269000000602',4.6,3.45,3.45,29.0,1375.0,358400.0,51.4,'{"gross_yield_score": 42.0, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.0, "total": 51.4}','2026-09-25 15:14:37.991974');
-INSERT INTO "investment_metrics" VALUES('habitaclia_2020001254818',4.69,3.52,3.52,28.4,861.0,220416.0,52.2,'{"gross_yield_score": 43.8, "price_per_m2_score": 79.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.4, "total": 52.2}','2026-10-30 16:33:03.487829');
+INSERT INTO "investment_metrics" VALUES('habitaclia_2020001254818',4.69,3.52,3.52,28.4,861.0,220416.0,52.2,'{"gross_yield_score": 43.8, "price_per_m2_score": 79.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.4, "total": 52.2}','2026-10-30 16:42:51.213099');
 INSERT INTO "investment_metrics" VALUES('habitaclia_8820004386865',4.79,3.6,3.6,27.8,787.5,197120.0,33.2,'{"gross_yield_score": 45.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.0, "total": 33.2}','2026-09-29 16:16:31.600267');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1189003998067',4.21,3.16,3.16,31.7,990.0,282240.0,39.7,'{"gross_yield_score": 34.2, "price_per_m2_score": 45.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 13.2, "total": 39.7}','2026-09-25 15:14:38.035762');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3226003818480',3.77,2.82,2.82,35.4,703.0,224000.0,24.8,'{"gross_yield_score": 25.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.4, "total": 24.8}','2026-09-25 15:14:38.049861');
@@ -18618,7 +18618,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_13230004338117',5.14,3.86,3.
 INSERT INTO "investment_metrics" VALUES('habitaclia_21410000000309',5.7,4.28,4.28,23.4,1320.0,277760.0,62.7,'{"gross_yield_score": 60.5, "price_per_m2_score": 91.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.6, "total": 62.7}','2026-09-30 07:09:37.086710');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4099003826901',5.3,3.98,3.98,25.1,940.5,212800.0,51.5,'{"gross_yield_score": 54.5, "price_per_m2_score": 57.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.6, "total": 51.5}','2026-09-30 07:09:37.102941');
 INSERT INTO "investment_metrics" VALUES('habitaclia_41980000000311',7.4,5.55,5.55,18.0,1312.5,212800.0,72.7,'{"gross_yield_score": 84.0, "price_per_m2_score": 89.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.2, "total": 72.7}','2026-09-30 07:09:37.120415');
-INSERT INTO "investment_metrics" VALUES('habitaclia_48048000000136',5.37,4.02,4.02,24.8,1197.0,267680.0,56.9,'{"gross_yield_score": 55.6, "price_per_m2_score": 77.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.4, "total": 56.9}','2026-10-30 16:33:03.470217');
+INSERT INTO "investment_metrics" VALUES('habitaclia_48048000000136',5.37,4.02,4.02,24.8,1197.0,267680.0,56.9,'{"gross_yield_score": 55.6, "price_per_m2_score": 77.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.4, "total": 56.9}','2026-10-30 16:42:51.196172');
 INSERT INTO "investment_metrics" VALUES('habitaclia_765004409471',5.63,4.22,4.22,23.7,1287.0,274400.0,61.8,'{"gross_yield_score": 59.5, "price_per_m2_score": 90.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 61.8}','2026-09-30 07:09:37.202882');
 INSERT INTO "investment_metrics" VALUES('habitaclia_48149000000195',5.6,4.2,4.2,23.8,731.5,156800.0,56.4,'{"gross_yield_score": 59.0, "price_per_m2_score": 69.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.0, "total": 56.4}','2026-09-30 07:09:37.219636');
 INSERT INTO "investment_metrics" VALUES('habitaclia_45396000006769',5.14,3.85,3.85,26.0,581.0,135766.4,48.8,'{"gross_yield_score": 52.1, "price_per_m2_score": 51.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.0, "total": 48.8}','2026-09-30 07:09:37.252621');
@@ -18815,14 +18815,14 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_23252000004517',5.63,4.22,4.
 INSERT INTO "investment_metrics" VALUES('habitaclia_52753000002373',5.85,4.39,4.39,22.8,1464.5,300160.0,55.9,'{"gross_yield_score": 62.7, "price_per_m2_score": 60.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.8, "total": 55.9}','2026-10-24 09:34:59.330331');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191102675',4.07,3.05,3.05,32.8,1044.0,308000.0,34.6,'{"gross_yield_score": 31.4, "price_per_m2_score": 29.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.0, "total": 34.6}','2026-10-28 14:22:40.730460');
 INSERT INTO "investment_metrics" VALUES('habitaclia_b19e28e5-8be7-4494-851b-164d4cc062bb',5.03,3.77,3.77,26.5,1548.0,369600.0,49.6,'{"gross_yield_score": 50.5, "price_per_m2_score": 57.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.4, "total": 49.6}','2026-10-24 10:19:12.550367');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b569d62d-42de-4720-a6cf-04aab1955d05',5.82,4.37,4.37,22.9,1494.0,308000.0,60.8,'{"gross_yield_score": 62.3, "price_per_m2_score": 80.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.4, "total": 60.8}','2026-10-30 16:31:12.917173');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b569d62d-42de-4720-a6cf-04aab1955d05',5.82,4.37,4.37,22.9,1494.0,308000.0,60.8,'{"gross_yield_score": 62.3, "price_per_m2_score": 80.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.4, "total": 60.8}','2026-10-30 16:42:06.846858');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3e6f2bb2-2287-4fa1-96c3-5c1f1cdb20df',5.55,4.16,4.16,24.0,1710.0,369600.0,57.3,'{"gross_yield_score": 58.2, "price_per_m2_score": 74.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.2, "total": 57.3}','2026-10-24 10:19:12.586127');
 INSERT INTO "investment_metrics" VALUES('habitaclia_cd80e564-5357-4d87-9ad3-72ad1929fab1',4.09,3.07,3.07,32.6,1134.0,332640.0,31.7,'{"gross_yield_score": 31.8, "price_per_m2_score": 17.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.4, "total": 31.7}','2026-10-24 10:19:12.599013');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3d6df787-b91e-4ac9-990b-be18b42af486',4.72,3.54,3.54,28.2,1098.0,278880.0,44.0,'{"gross_yield_score": 44.4, "price_per_m2_score": 45.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.8, "total": 44.0}','2026-10-24 10:19:12.611821');
-INSERT INTO "investment_metrics" VALUES('habitaclia_3e67a931-d95d-4e76-95fc-6e8fcb58c970',4.49,3.37,3.37,29.7,1332.0,356160.0,39.5,'{"gross_yield_score": 39.8, "price_per_m2_score": 35.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.4, "total": 39.5}','2026-10-30 16:31:12.847230');
+INSERT INTO "investment_metrics" VALUES('habitaclia_3e67a931-d95d-4e76-95fc-6e8fcb58c970',4.49,3.37,3.37,29.7,1332.0,356160.0,39.5,'{"gross_yield_score": 39.8, "price_per_m2_score": 35.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.4, "total": 39.5}','2026-10-30 16:42:06.774744');
 INSERT INTO "investment_metrics" VALUES('habitaclia_bc9d440e-3839-45ee-bbf8-1c9a319d4382',9.87,7.41,7.41,13.5,2764.8,336000.0,83.4,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 84.1, "total": 83.4}','2026-10-28 20:50:12.972108');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5dc048ec-ddf3-40a8-a30d-35a768337a23',6.84,5.13,5.13,19.5,1404.0,246400.0,72.2,'{"gross_yield_score": 77.6, "price_per_m2_score": 99.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 51.9, "total": 72.2}','2026-10-30 16:31:12.899822');
-INSERT INTO "investment_metrics" VALUES('habitaclia_38a8f17d-1f3d-4b6e-869c-867b6f6fac79',5.16,3.87,3.87,25.9,1458.0,339386.88,51.9,'{"gross_yield_score": 52.4, "price_per_m2_score": 63.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.4, "total": 51.9}','2026-10-30 16:31:12.829735');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5dc048ec-ddf3-40a8-a30d-35a768337a23',6.84,5.13,5.13,19.5,1404.0,246400.0,72.2,'{"gross_yield_score": 77.6, "price_per_m2_score": 99.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 51.9, "total": 72.2}','2026-10-30 16:42:06.828451');
+INSERT INTO "investment_metrics" VALUES('habitaclia_38a8f17d-1f3d-4b6e-869c-867b6f6fac79',5.16,3.87,3.87,25.9,1458.0,339386.88,51.9,'{"gross_yield_score": 52.4, "price_per_m2_score": 63.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.4, "total": 51.9}','2026-10-30 16:42:06.756837');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9b47d66e-052c-438e-8fb9-37cf12ed58f1',4.4,3.3,3.3,30.3,900.0,245280.0,37.5,'{"gross_yield_score": 38.0, "price_per_m2_score": 30.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.0, "total": 37.5}','2026-10-24 10:19:12.678396');
 INSERT INTO "investment_metrics" VALUES('habitaclia_76ca0492-3848-4434-817f-5e057640d914',6.24,4.68,4.68,21.4,810.0,155680.0,65.6,'{"gross_yield_score": 68.6, "price_per_m2_score": 88.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.6, "total": 65.6}','2026-10-24 10:19:12.691152');
 INSERT INTO "investment_metrics" VALUES('habitaclia_62750661-d984-411d-b9ea-6cfab549203c',5.03,3.77,3.77,26.5,1548.0,369600.0,49.6,'{"gross_yield_score": 50.5, "price_per_m2_score": 57.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.4, "total": 49.6}','2026-10-24 10:19:12.703671');
@@ -18854,19 +18854,19 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_dda6235e-4aa1-4922-a79f-c47b
 INSERT INTO "investment_metrics" VALUES('habitaclia_e64a59cf-e80c-4e21-b945-f346629d6f39',5.03,3.77,3.77,26.5,1548.0,369600.0,49.6,'{"gross_yield_score": 50.5, "price_per_m2_score": 57.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.4, "total": 49.6}','2026-10-24 10:19:13.046865');
 INSERT INTO "investment_metrics" VALUES('habitaclia_b4b62706-2d53-455f-8f3f-5edcbbdb39bd',5.03,3.77,3.77,26.5,1548.0,369600.0,49.6,'{"gross_yield_score": 50.5, "price_per_m2_score": 57.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.4, "total": 49.6}','2026-10-24 10:19:13.059548');
 INSERT INTO "investment_metrics" VALUES('habitaclia_489a5ab4-1bac-430e-88af-096b78dd15e7',5.64,4.23,4.23,23.6,1242.0,264259.52,58.4,'{"gross_yield_score": 59.6, "price_per_m2_score": 76.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.6, "total": 58.4}','2026-10-24 10:19:13.086379');
-INSERT INTO "investment_metrics" VALUES('habitaclia_20e9ef2e-f3d8-4b49-80fa-29f9391cfa23',6.29,4.72,4.72,21.2,1386.0,264259.52,66.2,'{"gross_yield_score": 69.3, "price_per_m2_score": 90.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.4, "total": 66.2}','2026-10-30 16:31:12.954160');
-INSERT INTO "investment_metrics" VALUES('habitaclia_3083e405-9e05-4889-a6cd-20f7346bbb17',5.29,3.97,3.97,25.2,1476.0,334880.0,54.0,'{"gross_yield_score": 54.4, "price_per_m2_score": 67.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.4, "total": 54.0}','2026-10-30 16:31:12.934976');
+INSERT INTO "investment_metrics" VALUES('habitaclia_20e9ef2e-f3d8-4b49-80fa-29f9391cfa23',6.29,4.72,4.72,21.2,1386.0,264259.52,66.2,'{"gross_yield_score": 69.3, "price_per_m2_score": 90.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.4, "total": 66.2}','2026-10-30 16:42:06.883712');
+INSERT INTO "investment_metrics" VALUES('habitaclia_3083e405-9e05-4889-a6cd-20f7346bbb17',5.29,3.97,3.97,25.2,1476.0,334880.0,54.0,'{"gross_yield_score": 54.4, "price_per_m2_score": 67.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.4, "total": 54.0}','2026-10-30 16:42:06.864740');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4fecc8dd-78a2-46f6-a50d-28dbd9cc371b',5.08,3.81,3.81,26.3,1242.0,293440.0,50.5,'{"gross_yield_score": 51.2, "price_per_m2_score": 59.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 50.5}','2026-10-24 10:19:13.128193');
 INSERT INTO "investment_metrics" VALUES('habitaclia_64ceb8a8-87eb-47f3-ac55-64aac6de32a2',4.35,3.26,3.26,30.7,1242.0,342720.0,36.5,'{"gross_yield_score": 37.0, "price_per_m2_score": 28.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.2, "total": 36.5}','2026-10-24 10:19:13.140909');
-INSERT INTO "investment_metrics" VALUES('habitaclia_792ee7d7-16f0-42ad-ba48-7775c862f49b',5.36,4.02,4.02,24.9,1386.0,310240.0,55.0,'{"gross_yield_score": 55.4, "price_per_m2_score": 70.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.4, "total": 55.0}','2026-10-30 16:31:12.882540');
-INSERT INTO "investment_metrics" VALUES('habitaclia_3d44101b-3144-4845-a455-95416b055dfc',6.21,4.66,4.66,21.5,1368.0,264259.52,65.4,'{"gross_yield_score": 68.2, "price_per_m2_score": 88.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.2, "total": 65.4}','2026-10-30 16:31:12.864749');
+INSERT INTO "investment_metrics" VALUES('habitaclia_792ee7d7-16f0-42ad-ba48-7775c862f49b',5.36,4.02,4.02,24.9,1386.0,310240.0,55.0,'{"gross_yield_score": 55.4, "price_per_m2_score": 70.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.4, "total": 55.0}','2026-10-30 16:42:06.811019');
+INSERT INTO "investment_metrics" VALUES('habitaclia_3d44101b-3144-4845-a455-95416b055dfc',6.21,4.66,4.66,21.5,1368.0,264259.52,65.4,'{"gross_yield_score": 68.2, "price_per_m2_score": 88.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.2, "total": 65.4}','2026-10-30 16:42:06.792584');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9b4d5405-9f90-4ee7-924c-bcbb2d148af2',5.15,3.86,3.86,25.9,1134.0,264259.52,51.6,'{"gross_yield_score": 52.3, "price_per_m2_score": 62.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 51.6}','2026-10-24 10:19:13.179938');
 INSERT INTO "investment_metrics" VALUES('habitaclia_eaa55615-2ad7-4996-9bac-54294207e790',5.22,3.91,3.91,25.6,1080.0,248505.6,52.6,'{"gross_yield_score": 53.3, "price_per_m2_score": 64.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.2, "total": 52.6}','2026-10-24 10:19:13.192718');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a54e19f6-12b5-4e40-a74a-1c25ea003ffd',3.71,2.78,2.78,36.0,900.0,291200.0,29.9,'{"gross_yield_score": 24.2, "price_per_m2_score": 21.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.3, "total": 29.9}','2026-10-24 10:19:29.016955');
 INSERT INTO "investment_metrics" VALUES('habitaclia_6fe44593-0b9e-479c-8803-a9b3557a5114',4.31,3.23,3.23,30.9,1008.0,280448.0,42.0,'{"gross_yield_score": 36.2, "price_per_m2_score": 51.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.6, "total": 42.0}','2026-10-24 10:19:29.030486');
 INSERT INTO "investment_metrics" VALUES('habitaclia_7542e48c-ce11-4134-bfba-749af9cd0396',4.27,3.2,3.2,31.2,900.0,253008.0,41.1,'{"gross_yield_score": 35.4, "price_per_m2_score": 49.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.0, "total": 41.1}','2026-10-24 10:19:29.043316');
-INSERT INTO "investment_metrics" VALUES('habitaclia_071a716a-4b92-40ca-a406-25011b773d4f',5.51,4.13,4.13,24.2,1386.0,302060.64,60.4,'{"gross_yield_score": 57.6, "price_per_m2_score": 87.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 32.6, "total": 60.4}','2026-10-30 16:31:42.594244');
-INSERT INTO "investment_metrics" VALUES('habitaclia_57d40d48-1a4d-4e8f-b17e-b6807d75b8be',5.28,3.96,3.96,25.3,1512.0,343896.0,57.6,'{"gross_yield_score": 54.2, "price_per_m2_score": 82.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.2, "total": 57.6}','2026-10-30 16:31:42.788932');
+INSERT INTO "investment_metrics" VALUES('habitaclia_071a716a-4b92-40ca-a406-25011b773d4f',5.51,4.13,4.13,24.2,1386.0,302060.64,60.4,'{"gross_yield_score": 57.6, "price_per_m2_score": 87.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 32.6, "total": 60.4}','2026-10-30 16:42:34.082192');
+INSERT INTO "investment_metrics" VALUES('habitaclia_57d40d48-1a4d-4e8f-b17e-b6807d75b8be',5.28,3.96,3.96,25.3,1512.0,343896.0,57.6,'{"gross_yield_score": 54.2, "price_per_m2_score": 82.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.2, "total": 57.6}','2026-10-30 16:42:34.287709');
 INSERT INTO "investment_metrics" VALUES('habitaclia_91b72353-eefa-41b7-be7f-fde4d294d19a',4.51,3.38,3.38,29.6,900.0,239680.0,45.8,'{"gross_yield_score": 40.2, "price_per_m2_score": 60.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.6, "total": 45.8}','2026-10-24 10:19:29.082249');
 INSERT INTO "investment_metrics" VALUES('habitaclia_47b7bfce-0244-4066-8550-d8873c7a39a1',4.31,3.23,3.23,30.9,1008.0,280448.0,42.0,'{"gross_yield_score": 36.2, "price_per_m2_score": 51.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.6, "total": 42.0}','2026-10-24 10:19:29.094773');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9527c045-1246-49b3-8cec-489b1e3a4517',4.42,3.31,3.31,30.2,990.0,268800.0,44.1,'{"gross_yield_score": 38.4, "price_per_m2_score": 56.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.2, "total": 44.1}','2026-10-24 10:19:29.107391');
@@ -18875,24 +18875,24 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_4ae7ff24-557f-49b5-824a-fb95
 INSERT INTO "investment_metrics" VALUES('habitaclia_a43f0f24-4aad-41ca-acf7-2230d95832ab',4.69,3.52,3.52,28.4,1134.0,290080.0,49.2,'{"gross_yield_score": 43.8, "price_per_m2_score": 67.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.4, "total": 49.2}','2026-10-24 10:19:29.162337');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e8ead1c1-b477-4478-844b-58df48983b3b',4.02,3.01,3.01,33.2,900.0,268800.0,35.9,'{"gross_yield_score": 30.4, "price_per_m2_score": 36.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.2, "total": 35.9}','2026-10-24 10:19:29.174762');
 INSERT INTO "investment_metrics" VALUES('habitaclia_d860ba23-a8d9-4732-b8c6-cd45a6e78c8f',3.78,2.84,2.84,35.3,900.0,285600.0,31.2,'{"gross_yield_score": 25.6, "price_per_m2_score": 25.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.5, "total": 31.2}','2026-10-24 10:19:29.187008');
-INSERT INTO "investment_metrics" VALUES('habitaclia_aa6b9e2c-7622-4587-9494-45dd6e7f1a27',5.53,4.15,4.15,24.1,1584.0,343896.0,60.6,'{"gross_yield_score": 58.0, "price_per_m2_score": 88.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.0, "total": 60.6}','2026-10-30 16:31:42.700308');
+INSERT INTO "investment_metrics" VALUES('habitaclia_aa6b9e2c-7622-4587-9494-45dd6e7f1a27',5.53,4.15,4.15,24.1,1584.0,343896.0,60.6,'{"gross_yield_score": 58.0, "price_per_m2_score": 88.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.0, "total": 60.6}','2026-10-30 16:42:34.193641');
 INSERT INTO "investment_metrics" VALUES('habitaclia_d20bb899-4f67-44d2-a461-28f32ed158c9',5.03,3.78,3.78,26.5,1170.0,278880.0,54.6,'{"gross_yield_score": 50.5, "price_per_m2_score": 77.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.6, "total": 54.6}','2026-10-24 10:19:29.211926');
-INSERT INTO "investment_metrics" VALUES('habitaclia_87f83767-9af7-42a1-9148-33e46f0d081f',6.08,4.56,4.56,21.9,1584.0,312496.8,67.0,'{"gross_yield_score": 66.2, "price_per_m2_score": 98.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 41.2, "total": 67.0}','2026-10-30 16:31:42.878889');
+INSERT INTO "investment_metrics" VALUES('habitaclia_87f83767-9af7-42a1-9148-33e46f0d081f',6.08,4.56,4.56,21.9,1584.0,312496.8,67.0,'{"gross_yield_score": 66.2, "price_per_m2_score": 98.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 41.2, "total": 67.0}','2026-10-30 16:42:34.377099');
 INSERT INTO "investment_metrics" VALUES('habitaclia_bafe4f73-929b-4517-a543-2a5f05d53619',1.93,1.45,1.45,69.1,594.0,369600.0,17.7,'{"gross_yield_score": 6.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 4.8, "total": 17.7}','2026-10-24 10:19:29.236321');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5f6c074f-7227-44ac-916b-e24ebe42cd1a',5.6,4.2,4.2,23.8,1350.0,289520.0,61.4,'{"gross_yield_score": 59.0, "price_per_m2_score": 89.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.0, "total": 61.4}','2026-10-30 16:31:42.806864');
-INSERT INTO "investment_metrics" VALUES('habitaclia_3c8ab231-65bb-463f-a0b3-66f377f70b78',5.28,3.96,3.96,25.3,1512.0,343896.0,57.6,'{"gross_yield_score": 54.2, "price_per_m2_score": 82.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.2, "total": 57.6}','2026-10-30 16:31:42.646529');
-INSERT INTO "investment_metrics" VALUES('habitaclia_9fc90d39-fc41-4612-b883-ec233a8de641',5.74,4.3,4.3,23.2,1494.0,312496.8,63.1,'{"gross_yield_score": 61.1, "price_per_m2_score": 92.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.0, "total": 63.1}','2026-10-30 16:31:42.717671');
-INSERT INTO "investment_metrics" VALUES('habitaclia_19c3a7e4-afab-42b9-b982-bf660d4da54b',5.6,4.2,4.2,23.8,1386.0,296800.0,61.5,'{"gross_yield_score": 59.0, "price_per_m2_score": 89.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.0, "total": 61.5}','2026-10-30 16:31:42.861631');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5f6c074f-7227-44ac-916b-e24ebe42cd1a',5.6,4.2,4.2,23.8,1350.0,289520.0,61.4,'{"gross_yield_score": 59.0, "price_per_m2_score": 89.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.0, "total": 61.4}','2026-10-30 16:42:34.305682');
+INSERT INTO "investment_metrics" VALUES('habitaclia_3c8ab231-65bb-463f-a0b3-66f377f70b78',5.28,3.96,3.96,25.3,1512.0,343896.0,57.6,'{"gross_yield_score": 54.2, "price_per_m2_score": 82.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.2, "total": 57.6}','2026-10-30 16:42:34.138210');
+INSERT INTO "investment_metrics" VALUES('habitaclia_9fc90d39-fc41-4612-b883-ec233a8de641',5.74,4.3,4.3,23.2,1494.0,312496.8,63.1,'{"gross_yield_score": 61.1, "price_per_m2_score": 92.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.0, "total": 63.1}','2026-10-30 16:42:34.211630');
+INSERT INTO "investment_metrics" VALUES('habitaclia_19c3a7e4-afab-42b9-b982-bf660d4da54b',5.6,4.2,4.2,23.8,1386.0,296800.0,61.5,'{"gross_yield_score": 59.0, "price_per_m2_score": 89.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.0, "total": 61.5}','2026-10-30 16:42:34.359560');
 INSERT INTO "investment_metrics" VALUES('habitaclia_62c9be64-4d10-4a4a-aa63-5959038aefbb',4.31,3.23,3.23,30.9,1008.0,280448.0,42.0,'{"gross_yield_score": 36.2, "price_per_m2_score": 51.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.6, "total": 42.0}','2026-10-24 10:19:29.299264');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4bc7811c-b47e-4b24-8f40-1caa89d0a390',5.81,4.35,4.35,23.0,1512.0,312496.8,63.9,'{"gross_yield_score": 62.1, "price_per_m2_score": 93.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.0, "total": 63.9}','2026-10-30 16:31:42.681309');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4bc7811c-b47e-4b24-8f40-1caa89d0a390',5.81,4.35,4.35,23.0,1512.0,312496.8,63.9,'{"gross_yield_score": 62.1, "price_per_m2_score": 93.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.0, "total": 63.9}','2026-10-30 16:42:34.175571');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a9094c4f-fa73-4877-8e37-ae4352a03e08',3.71,2.78,2.78,35.9,918.0,296800.0,29.9,'{"gross_yield_score": 24.2, "price_per_m2_score": 22.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.3, "total": 29.9}','2026-10-24 10:19:29.326227');
-INSERT INTO "investment_metrics" VALUES('habitaclia_42e2b4c7-7d3e-480b-a34b-07683235b1c8',4.35,3.26,3.26,30.7,1278.0,352800.0,42.5,'{"gross_yield_score": 37.0, "price_per_m2_score": 52.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.2, "total": 42.5}','2026-10-30 16:31:42.629644');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c228eb7b-8c63-4fd0-8e1a-629a4dab17b8',5.34,4.01,4.01,25.0,1386.0,311360.0,58.4,'{"gross_yield_score": 55.1, "price_per_m2_score": 84.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.2, "total": 58.4}','2026-10-30 16:31:42.771600');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a467707e-4661-4988-a849-de6ab2deb173',5.17,3.88,3.88,25.8,1278.0,296800.0,56.2,'{"gross_yield_score": 52.5, "price_per_m2_score": 80.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 56.2}','2026-10-30 16:31:42.843940');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c16a58be-ae98-4cd0-82cf-321e92776f04',5.05,3.78,3.78,26.4,1314.0,312496.8,54.6,'{"gross_yield_score": 50.8, "price_per_m2_score": 77.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.6, "total": 54.6}','2026-10-30 16:31:42.752834');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d62bc450-5eb5-4434-9fb3-31f08cc25fbc',5.71,4.28,4.28,23.4,1278.0,268800.0,62.7,'{"gross_yield_score": 60.6, "price_per_m2_score": 91.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.6, "total": 62.7}','2026-10-30 16:31:42.735341');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4c6a1f40-d14a-4215-80f4-4b9cae05b042',7.35,5.51,5.51,18.1,1386.0,226240.0,75.0,'{"gross_yield_score": 83.5, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.6, "total": 75.0}','2026-10-30 16:31:42.612183');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e5b432f7-cf70-40ec-bc5c-69b25e0451e5',6.33,4.75,4.75,21.1,1584.0,300372.8,69.0,'{"gross_yield_score": 70.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.0, "total": 69.0}','2026-10-30 16:31:42.663750');
+INSERT INTO "investment_metrics" VALUES('habitaclia_42e2b4c7-7d3e-480b-a34b-07683235b1c8',4.35,3.26,3.26,30.7,1278.0,352800.0,42.5,'{"gross_yield_score": 37.0, "price_per_m2_score": 52.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.2, "total": 42.5}','2026-10-30 16:42:34.119863');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c228eb7b-8c63-4fd0-8e1a-629a4dab17b8',5.34,4.01,4.01,25.0,1386.0,311360.0,58.4,'{"gross_yield_score": 55.1, "price_per_m2_score": 84.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.2, "total": 58.4}','2026-10-30 16:42:34.269848');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a467707e-4661-4988-a849-de6ab2deb173',5.17,3.88,3.88,25.8,1278.0,296800.0,56.2,'{"gross_yield_score": 52.5, "price_per_m2_score": 80.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 56.2}','2026-10-30 16:42:34.341584');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c16a58be-ae98-4cd0-82cf-321e92776f04',5.05,3.78,3.78,26.4,1314.0,312496.8,54.6,'{"gross_yield_score": 50.8, "price_per_m2_score": 77.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.6, "total": 54.6}','2026-10-30 16:42:34.250328');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d62bc450-5eb5-4434-9fb3-31f08cc25fbc',5.71,4.28,4.28,23.4,1278.0,268800.0,62.7,'{"gross_yield_score": 60.6, "price_per_m2_score": 91.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.6, "total": 62.7}','2026-10-30 16:42:34.229915');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4c6a1f40-d14a-4215-80f4-4b9cae05b042',7.35,5.51,5.51,18.1,1386.0,226240.0,75.0,'{"gross_yield_score": 83.5, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.6, "total": 75.0}','2026-10-30 16:42:34.101013');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e5b432f7-cf70-40ec-bc5c-69b25e0451e5',6.33,4.75,4.75,21.1,1584.0,300372.8,69.0,'{"gross_yield_score": 70.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.0, "total": 69.0}','2026-10-30 16:42:34.156891');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e925dab0-ef33-4184-9a71-e0a986b90d19',3.21,2.41,2.41,41.5,720.0,268800.0,20.8,'{"gross_yield_score": 14.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.0, "total": 20.8}','2026-10-24 10:19:49.318702');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4392ed82-27a5-4357-a512-29d2901da766',6.93,5.2,5.2,19.2,1080.0,187040.0,70.3,'{"gross_yield_score": 78.9, "price_per_m2_score": 89.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.0, "total": 70.3}','2026-10-24 10:19:49.350924');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c39b86a3-7ea1-4644-b39b-70ec6d3d2d12',6.93,5.2,5.2,19.2,1080.0,187040.0,70.3,'{"gross_yield_score": 78.9, "price_per_m2_score": 89.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.0, "total": 70.3}','2026-10-24 10:19:49.364137');
@@ -18905,15 +18905,15 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_0daf6033-183e-49f4-ac96-c2b3
 INSERT INTO "investment_metrics" VALUES('habitaclia_d3d0ce0a-40de-4dca-adbd-b04907eefabc',6.93,5.2,5.2,19.2,1080.0,187040.0,70.3,'{"gross_yield_score": 78.9, "price_per_m2_score": 89.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.0, "total": 70.3}','2026-10-24 10:19:49.457943');
 INSERT INTO "investment_metrics" VALUES('habitaclia_d641f1fd-c10f-4e27-9098-d82b7a48a976',6.93,5.2,5.2,19.2,1080.0,187040.0,70.3,'{"gross_yield_score": 78.9, "price_per_m2_score": 89.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.0, "total": 70.3}','2026-10-24 10:19:49.470611');
 INSERT INTO "investment_metrics" VALUES('habitaclia_bf505039-a386-4ee7-8ba1-58e43c282b0c',4.51,3.38,3.38,29.6,1242.0,330400.0,35.2,'{"gross_yield_score": 40.2, "price_per_m2_score": 17.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.6, "total": 35.2}','2026-10-24 10:19:49.483501');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4fc1a6e6-003b-47ba-876b-e5bbfdabc492',7.62,5.71,5.71,17.5,1386.0,218400.0,76.0,'{"gross_yield_score": 86.2, "price_per_m2_score": 99.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.6, "total": 76.0}','2026-10-30 16:31:47.248484');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4fc1a6e6-003b-47ba-876b-e5bbfdabc492',7.62,5.71,5.71,17.5,1386.0,218400.0,76.0,'{"gross_yield_score": 86.2, "price_per_m2_score": 99.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.6, "total": 76.0}','2026-10-30 16:42:38.712738');
 INSERT INTO "investment_metrics" VALUES('habitaclia_fb515d93-e5a1-4485-beb6-c6d463c0c31c',4.41,3.31,3.31,30.2,1350.0,367360.0,33.3,'{"gross_yield_score": 38.2, "price_per_m2_score": 13.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.2, "total": 33.3}','2026-10-24 10:19:49.508437');
-INSERT INTO "investment_metrics" VALUES('habitaclia_19d6f760-6192-4c50-88b4-bb50382ff0e2',7.01,5.26,5.26,19.0,1440.0,246400.0,71.0,'{"gross_yield_score": 80.1, "price_per_m2_score": 90.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.9, "total": 71.0}','2026-10-30 16:31:47.123294');
+INSERT INTO "investment_metrics" VALUES('habitaclia_19d6f760-6192-4c50-88b4-bb50382ff0e2',7.01,5.26,5.26,19.0,1440.0,246400.0,71.0,'{"gross_yield_score": 80.1, "price_per_m2_score": 90.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.9, "total": 71.0}','2026-10-30 16:42:38.587667');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c3634e82-6de1-4d77-8c1c-dfb407ae7e6b',4.5,3.38,3.38,29.6,756.0,201600.0,35.0,'{"gross_yield_score": 40.0, "price_per_m2_score": 17.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.6, "total": 35.0}','2026-10-24 10:19:49.533790');
-INSERT INTO "investment_metrics" VALUES('habitaclia_2b1c81d5-0a80-422c-a589-e2cccf9edc7e',7.03,5.27,5.27,19.0,1764.0,301280.0,71.1,'{"gross_yield_score": 80.3, "price_per_m2_score": 90.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 54.0, "total": 71.1}','2026-10-30 16:31:47.213163');
+INSERT INTO "investment_metrics" VALUES('habitaclia_2b1c81d5-0a80-422c-a589-e2cccf9edc7e',7.03,5.27,5.27,19.0,1764.0,301280.0,71.1,'{"gross_yield_score": 80.3, "price_per_m2_score": 90.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 54.0, "total": 71.1}','2026-10-30 16:42:38.677299');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3f72484d-1ecd-47e5-8fa8-b1033cf77d4e',4.22,3.16,3.16,31.6,756.0,215040.0,29.7,'{"gross_yield_score": 34.4, "price_per_m2_score": 5.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 13.2, "total": 29.7}','2026-10-24 10:19:49.558942');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1c12f3a8-3e3b-4865-bfa3-476d7c826e7f',4.52,3.39,3.39,29.5,1350.0,358288.0,35.1,'{"gross_yield_score": 40.4, "price_per_m2_score": 16.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.8, "total": 35.1}','2026-10-30 16:31:47.176875');
-INSERT INTO "investment_metrics" VALUES('habitaclia_bc66abde-d882-46ce-971b-c17def87518d',7.62,5.71,5.71,17.5,1386.0,218400.0,76.0,'{"gross_yield_score": 86.2, "price_per_m2_score": 99.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.6, "total": 76.0}','2026-10-30 16:31:47.338930');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6a131d8b-d9c4-46d6-b7b2-4e19f3e13ca3',4.29,3.22,3.22,31.1,1278.0,357280.0,30.8,'{"gross_yield_score": 35.8, "price_per_m2_score": 7.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 30.8}','2026-10-30 16:31:47.141388');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1c12f3a8-3e3b-4865-bfa3-476d7c826e7f',4.52,3.39,3.39,29.5,1350.0,358288.0,35.1,'{"gross_yield_score": 40.4, "price_per_m2_score": 16.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.8, "total": 35.1}','2026-10-30 16:42:38.641064');
+INSERT INTO "investment_metrics" VALUES('habitaclia_bc66abde-d882-46ce-971b-c17def87518d',7.62,5.71,5.71,17.5,1386.0,218400.0,76.0,'{"gross_yield_score": 86.2, "price_per_m2_score": 99.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.6, "total": 76.0}','2026-10-30 16:42:38.802745');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6a131d8b-d9c4-46d6-b7b2-4e19f3e13ca3',4.29,3.22,3.22,31.1,1278.0,357280.0,30.8,'{"gross_yield_score": 35.8, "price_per_m2_score": 7.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 30.8}','2026-10-30 16:42:38.605784');
 INSERT INTO "investment_metrics" VALUES('habitaclia_fc4ac16f-0b76-42a1-9d8a-6b35f52c945a',6.93,5.2,5.2,19.2,1080.0,187040.0,70.3,'{"gross_yield_score": 78.9, "price_per_m2_score": 89.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.0, "total": 70.3}','2026-10-24 10:19:49.611748');
 INSERT INTO "investment_metrics" VALUES('habitaclia_fbcb923b-1a9b-4888-b359-f7d446cc06e5',4.66,3.49,3.49,28.6,1152.0,296800.0,37.9,'{"gross_yield_score": 43.2, "price_per_m2_score": 23.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.8, "total": 37.9}','2026-10-24 10:19:49.624319');
 INSERT INTO "investment_metrics" VALUES('habitaclia_041fe4ab-8b79-4aba-b8f4-80264fe3e0e7',3.61,2.71,2.71,36.9,1008.0,334880.0,23.7,'{"gross_yield_score": 22.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.0, "total": 23.7}','2026-10-24 10:19:49.637032');
@@ -18923,7 +18923,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_e2cb21dc-8fbd-4b65-97d6-1699
 INSERT INTO "investment_metrics" VALUES('habitaclia_818be5f4-b470-4b0f-9dc4-02f68b4c158a',6.93,5.2,5.2,19.2,1080.0,187040.0,70.3,'{"gross_yield_score": 78.9, "price_per_m2_score": 89.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.0, "total": 70.3}','2026-10-24 10:19:49.707230');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a52b3166-9398-43de-afde-19f30ce80e8a',6.93,5.2,5.2,19.2,1080.0,187040.0,70.3,'{"gross_yield_score": 78.9, "price_per_m2_score": 89.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.0, "total": 70.3}','2026-10-24 10:19:49.719554');
 INSERT INTO "investment_metrics" VALUES('habitaclia_13717007-fbc3-4bab-af22-6c21741ab9b0',6.93,5.2,5.2,19.2,1080.0,187040.0,70.3,'{"gross_yield_score": 78.9, "price_per_m2_score": 89.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.0, "total": 70.3}','2026-10-24 10:19:49.731855');
-INSERT INTO "investment_metrics" VALUES('habitaclia_f50b0d35-cef0-43cb-bf33-c00e7965ebb9',4.84,3.63,3.63,27.6,1260.0,312480.0,40.8,'{"gross_yield_score": 46.8, "price_per_m2_score": 28.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.6, "total": 40.8}','2026-10-30 16:31:47.357899');
+INSERT INTO "investment_metrics" VALUES('habitaclia_f50b0d35-cef0-43cb-bf33-c00e7965ebb9',4.84,3.63,3.63,27.6,1260.0,312480.0,40.8,'{"gross_yield_score": 46.8, "price_per_m2_score": 28.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.6, "total": 40.8}','2026-10-30 16:42:38.820780');
 INSERT INTO "investment_metrics" VALUES('habitaclia_b8f2448f-20db-4742-b283-9646e5179591',4.04,3.03,3.03,33.0,1062.0,315728.0,26.8,'{"gross_yield_score": 30.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.6, "total": 26.8}','2026-10-24 10:19:49.757156');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1d6e1ead-e3d9-477d-aa65-c200b745c962',5.09,3.82,3.82,26.2,1116.0,263200.0,45.6,'{"gross_yield_score": 51.3, "price_per_m2_score": 40.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.4, "total": 45.6}','2026-10-24 10:19:49.769693');
 INSERT INTO "investment_metrics" VALUES('habitaclia_70ab94db-a1ef-4291-a1a8-6bff097faeb3',4.54,3.41,3.41,29.4,1098.0,290080.0,35.8,'{"gross_yield_score": 40.8, "price_per_m2_score": 18.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.2, "total": 35.8}','2026-10-24 10:19:49.782153');
@@ -18957,34 +18957,34 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_d302ffbd-56cb-4479-a78a-9ce1
 INSERT INTO "investment_metrics" VALUES('habitaclia_69654c94-9432-42a5-bf20-9f78169b35a3',6.93,5.2,5.2,19.2,1080.0,187040.0,70.3,'{"gross_yield_score": 78.9, "price_per_m2_score": 89.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.0, "total": 70.3}','2026-10-24 10:19:50.151945');
 INSERT INTO "investment_metrics" VALUES('habitaclia_df9badbc-e431-43ed-a858-6439a85c6955',6.93,5.2,5.2,19.2,1080.0,187040.0,70.3,'{"gross_yield_score": 78.9, "price_per_m2_score": 89.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.0, "total": 70.3}','2026-10-24 10:19:50.164472');
 INSERT INTO "investment_metrics" VALUES('habitaclia_361ccdb4-4ebf-4b61-93b2-c3783c73d3e7',5.09,3.82,3.82,26.2,1116.0,263200.0,45.6,'{"gross_yield_score": 51.3, "price_per_m2_score": 40.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.4, "total": 45.6}','2026-10-24 10:19:50.177145');
-INSERT INTO "investment_metrics" VALUES('habitaclia_41b0d55f-abc7-4ed0-a72b-3931301f9135',4.59,3.45,3.45,29.0,1278.0,333760.0,36.5,'{"gross_yield_score": 41.8, "price_per_m2_score": 19.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.0, "total": 36.5}','2026-10-30 16:31:47.320650');
+INSERT INTO "investment_metrics" VALUES('habitaclia_41b0d55f-abc7-4ed0-a72b-3931301f9135',4.59,3.45,3.45,29.0,1278.0,333760.0,36.5,'{"gross_yield_score": 41.8, "price_per_m2_score": 19.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.0, "total": 36.5}','2026-10-30 16:42:38.782604');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5fda910e-7052-43d4-8b2e-2801484c4e8e',6.93,5.2,5.2,19.2,1080.0,187040.0,70.3,'{"gross_yield_score": 78.9, "price_per_m2_score": 89.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.0, "total": 70.3}','2026-10-24 10:19:50.202490');
-INSERT INTO "investment_metrics" VALUES('habitaclia_72a3dbf6-ad84-4d8d-98ce-7a5bee93f30b',4.55,3.41,3.41,29.3,1260.0,332640.0,35.6,'{"gross_yield_score": 41.0, "price_per_m2_score": 17.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.2, "total": 35.6}','2026-10-30 16:31:47.285057');
+INSERT INTO "investment_metrics" VALUES('habitaclia_72a3dbf6-ad84-4d8d-98ce-7a5bee93f30b',4.55,3.41,3.41,29.3,1260.0,332640.0,35.6,'{"gross_yield_score": 41.0, "price_per_m2_score": 17.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.2, "total": 35.6}','2026-10-30 16:42:38.747664');
 INSERT INTO "investment_metrics" VALUES('habitaclia_0141fca9-9153-41e4-ba6e-dd9607e38d07',3.68,2.76,2.76,36.2,1134.0,369600.0,24.2,'{"gross_yield_score": 23.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.2, "total": 24.2}','2026-10-24 10:19:50.229789');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a68d306c-a74d-42bc-9d61-12472a339132',4.77,3.58,3.58,27.9,1314.0,330400.0,39.6,'{"gross_yield_score": 45.4, "price_per_m2_score": 26.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.6, "total": 39.6}','2026-10-30 16:31:47.105032');
-INSERT INTO "investment_metrics" VALUES('habitaclia_8946335c-c6ff-43e8-8dc6-9652e200042d',10.81,8.11,8.11,12.3,3016.8,334880.0,84.1,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 91.1, "total": 84.1}','2026-10-30 16:31:47.377038');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a68d306c-a74d-42bc-9d61-12472a339132',4.77,3.58,3.58,27.9,1314.0,330400.0,39.6,'{"gross_yield_score": 45.4, "price_per_m2_score": 26.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.6, "total": 39.6}','2026-10-30 16:42:38.569481');
+INSERT INTO "investment_metrics" VALUES('habitaclia_8946335c-c6ff-43e8-8dc6-9652e200042d',10.81,8.11,8.11,12.3,3016.8,334880.0,84.1,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 91.1, "total": 84.1}','2026-10-30 16:42:38.838212');
 INSERT INTO "investment_metrics" VALUES('habitaclia_031d2f06-b2cd-4d7e-a072-6d6ad1d53ae1',5.09,3.82,3.82,26.2,1116.0,263200.0,45.6,'{"gross_yield_score": 51.3, "price_per_m2_score": 40.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.4, "total": 45.6}','2026-10-24 10:19:50.267961');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7d3cfcf4-7d01-4357-a428-e7ac5f009859',4.96,3.72,3.72,26.9,1476.0,357280.0,43.0,'{"gross_yield_score": 49.2, "price_per_m2_score": 33.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.4, "total": 43.0}','2026-10-30 16:31:47.414140');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4af194cd-a2d8-4a1e-a79b-30a53c890604',6.56,4.92,4.92,20.3,1458.0,266560.0,66.1,'{"gross_yield_score": 73.4, "price_per_m2_score": 82.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 48.4, "total": 66.1}','2026-10-30 16:31:47.395876');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7d3cfcf4-7d01-4357-a428-e7ac5f009859',4.96,3.72,3.72,26.9,1476.0,357280.0,43.0,'{"gross_yield_score": 49.2, "price_per_m2_score": 33.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.4, "total": 43.0}','2026-10-30 16:42:38.873330');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4af194cd-a2d8-4a1e-a79b-30a53c890604',6.56,4.92,4.92,20.3,1458.0,266560.0,66.1,'{"gross_yield_score": 73.4, "price_per_m2_score": 82.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 48.4, "total": 66.1}','2026-10-30 16:42:38.855795');
 INSERT INTO "investment_metrics" VALUES('habitaclia_596dafc8-3361-4218-b698-76a1d238f3a5',4.91,3.69,3.69,27.1,1188.0,290080.0,42.5,'{"gross_yield_score": 48.2, "price_per_m2_score": 32.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.8, "total": 42.5}','2026-10-24 10:19:50.323822');
 INSERT INTO "investment_metrics" VALUES('habitaclia_69503284-45da-4dda-8234-d0675302aa75',5.17,3.88,3.88,25.8,1206.0,280000.0,47.0,'{"gross_yield_score": 52.5, "price_per_m2_score": 43.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 47.0}','2026-10-24 10:19:50.336682');
 INSERT INTO "investment_metrics" VALUES('habitaclia_6f1e1216-7c59-4b9a-82ad-f0d715f9cd1b',4.68,3.51,3.51,28.5,1440.0,369600.0,38.2,'{"gross_yield_score": 43.6, "price_per_m2_score": 23.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.2, "total": 38.2}','2026-10-24 10:19:50.349427');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5fe3f1a6-ab68-44d1-988b-bfde285e217e',4.26,3.2,3.2,31.3,756.0,212800.0,30.5,'{"gross_yield_score": 35.2, "price_per_m2_score": 7.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.0, "total": 30.5}','2026-10-24 10:19:50.361951');
 INSERT INTO "investment_metrics" VALUES('habitaclia_0fef931b-508b-42ca-a59e-7c3ed00b63f6',3.27,2.46,2.46,40.7,810.0,296800.0,21.2,'{"gross_yield_score": 15.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.2, "total": 21.2}','2026-10-24 10:19:50.374215');
 INSERT INTO "investment_metrics" VALUES('habitaclia_12869761-a9c6-4e0a-939d-a5b2be58c515',4.39,3.29,3.29,30.4,738.0,201600.0,33.0,'{"gross_yield_score": 37.8, "price_per_m2_score": 12.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.8, "total": 33.0}','2026-10-24 10:19:50.386881');
-INSERT INTO "investment_metrics" VALUES('habitaclia_38d626b1-a63d-4297-a39c-25d1d6053479',7.62,5.71,5.71,17.5,1386.0,218400.0,76.0,'{"gross_yield_score": 86.2, "price_per_m2_score": 99.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.6, "total": 76.0}','2026-10-30 16:31:47.266657');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4df0c9d4-5557-4345-91bf-3b29d45024ea',5.72,4.29,4.29,23.3,1548.0,324800.0,55.4,'{"gross_yield_score": 60.8, "price_per_m2_score": 62.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 55.4}','2026-10-30 16:31:47.230839');
-INSERT INTO "investment_metrics" VALUES('habitaclia_acb79bd1-67a9-469c-bf91-9cc9a4484666',4.96,3.72,3.72,26.9,1476.0,357280.0,43.0,'{"gross_yield_score": 49.2, "price_per_m2_score": 33.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.4, "total": 43.0}','2026-10-30 16:31:47.159069');
+INSERT INTO "investment_metrics" VALUES('habitaclia_38d626b1-a63d-4297-a39c-25d1d6053479',7.62,5.71,5.71,17.5,1386.0,218400.0,76.0,'{"gross_yield_score": 86.2, "price_per_m2_score": 99.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.6, "total": 76.0}','2026-10-30 16:42:38.730088');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4df0c9d4-5557-4345-91bf-3b29d45024ea',5.72,4.29,4.29,23.3,1548.0,324800.0,55.4,'{"gross_yield_score": 60.8, "price_per_m2_score": 62.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 55.4}','2026-10-30 16:42:38.695302');
+INSERT INTO "investment_metrics" VALUES('habitaclia_acb79bd1-67a9-469c-bf91-9cc9a4484666',4.96,3.72,3.72,26.9,1476.0,357280.0,43.0,'{"gross_yield_score": 49.2, "price_per_m2_score": 33.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.4, "total": 43.0}','2026-10-30 16:42:38.623673');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ec424722-5656-48bc-ad0f-7813dc81cf46',9.1,6.83,6.83,14.6,1350.0,177968.0,82.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 77.5, "total": 82.8}','2026-10-26 08:30:42.518150');
-INSERT INTO "investment_metrics" VALUES('habitaclia_079f0d57-cc46-4652-87a7-dc312b65ca39',7.58,5.68,5.68,17.6,1548.0,245095.2,75.7,'{"gross_yield_score": 85.8, "price_per_m2_score": 98.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.2, "total": 75.7}','2026-10-30 16:31:47.195014');
+INSERT INTO "investment_metrics" VALUES('habitaclia_079f0d57-cc46-4652-87a7-dc312b65ca39',7.58,5.68,5.68,17.6,1548.0,245095.2,75.7,'{"gross_yield_score": 85.8, "price_per_m2_score": 98.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.2, "total": 75.7}','2026-10-30 16:42:38.658664');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ed117af7-9d71-4bc6-a62e-884521988a16',3.32,2.49,2.49,40.2,882.0,319200.0,21.6,'{"gross_yield_score": 16.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.3, "total": 21.6}','2026-10-24 10:19:50.463373');
-INSERT INTO "investment_metrics" VALUES('habitaclia_ef1c9c23-d77f-45d0-85f3-fe25710b3a80',6.7,5.02,5.02,19.9,1368.0,245095.2,67.6,'{"gross_yield_score": 75.5, "price_per_m2_score": 84.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 50.3, "total": 67.6}','2026-10-30 16:31:47.302940');
+INSERT INTO "investment_metrics" VALUES('habitaclia_ef1c9c23-d77f-45d0-85f3-fe25710b3a80',6.7,5.02,5.02,19.9,1368.0,245095.2,67.6,'{"gross_yield_score": 75.5, "price_per_m2_score": 84.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 50.3, "total": 67.6}','2026-10-30 16:42:38.765181');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5dfa7ed6-3737-413d-82b0-76ab5e26b114',4.45,3.33,3.33,30.0,1116.0,301280.0,34.0,'{"gross_yield_score": 39.0, "price_per_m2_score": 14.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.6, "total": 34.0}','2026-10-24 10:19:50.488743');
 INSERT INTO "investment_metrics" VALUES('habitaclia_fcc8f0f9-a8ba-4a8d-b6d8-ba1de491c526',3.86,2.89,2.89,34.6,1080.0,336000.0,29.6,'{"gross_yield_score": 27.2, "price_per_m2_score": 16.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.6, "total": 29.6}','2026-10-24 10:20:09.870160');
 INSERT INTO "investment_metrics" VALUES('habitaclia_0458ae47-2fd5-407f-b1cf-6bc430bfb395',5.27,3.96,3.96,25.3,1206.0,274400.0,55.4,'{"gross_yield_score": 54.0, "price_per_m2_score": 74.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.2, "total": 55.4}','2026-10-24 10:20:09.884078');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f4f864cb-684a-4c70-a3ae-253613db25ad',4.07,3.05,3.05,32.8,1044.0,308000.0,33.5,'{"gross_yield_score": 31.4, "price_per_m2_score": 25.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.0, "total": 33.5}','2026-10-24 10:20:09.897452');
 INSERT INTO "investment_metrics" VALUES('habitaclia_391d4c40-a06e-4b24-bb43-790ce0a82851',4.76,3.57,3.57,28.0,1062.0,267680.0,47.2,'{"gross_yield_score": 45.2, "price_per_m2_score": 57.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 47.2}','2026-10-24 10:20:09.910914');
-INSERT INTO "investment_metrics" VALUES('habitaclia_8e9d55c0-4d86-404f-b72d-fc0f330faa56',5.75,4.31,4.31,23.2,1422.0,296800.0,61.3,'{"gross_yield_score": 61.2, "price_per_m2_score": 85.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.2, "total": 61.3}','2026-10-30 16:31:04.440832');
+INSERT INTO "investment_metrics" VALUES('habitaclia_8e9d55c0-4d86-404f-b72d-fc0f330faa56',5.75,4.31,4.31,23.2,1422.0,296800.0,61.3,'{"gross_yield_score": 61.2, "price_per_m2_score": 85.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.2, "total": 61.3}','2026-10-30 16:41:55.742148');
 INSERT INTO "investment_metrics" VALUES('habitaclia_735da95e-d21f-4fa5-8c64-89aa37886822',4.07,3.05,3.05,32.8,1044.0,308000.0,33.5,'{"gross_yield_score": 31.4, "price_per_m2_score": 25.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.0, "total": 33.5}','2026-10-24 10:20:09.937151');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e3ac0be8-ae19-48ba-858b-7c6c383314dc',4.07,3.05,3.05,32.8,1044.0,308000.0,33.5,'{"gross_yield_score": 31.4, "price_per_m2_score": 25.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.0, "total": 33.5}','2026-10-24 10:20:09.949850');
 INSERT INTO "investment_metrics" VALUES('habitaclia_7d4ee07e-ca5b-43ee-8092-6e5b124ffed0',5.25,3.94,3.94,25.4,1152.0,263200.0,55.2,'{"gross_yield_score": 53.8, "price_per_m2_score": 73.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.8, "total": 55.2}','2026-10-24 10:20:09.962726');
@@ -18994,7 +18994,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_221636fb-ee8a-432b-a970-6a33
 INSERT INTO "investment_metrics" VALUES('habitaclia_8a1d7a19-abdb-430f-8790-cf4725688de2',4.07,3.05,3.05,32.8,1044.0,308000.0,33.5,'{"gross_yield_score": 31.4, "price_per_m2_score": 25.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.0, "total": 33.5}','2026-10-24 10:20:10.014297');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f777b09f-9c1c-4f62-aaa2-2324aaa52b62',3.73,2.8,2.8,35.7,1044.0,335888.0,27.1,'{"gross_yield_score": 24.6, "price_per_m2_score": 10.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.3, "total": 27.1}','2026-10-24 10:20:10.027067');
 INSERT INTO "investment_metrics" VALUES('habitaclia_840f898c-2f25-4f12-9ddc-9bcd26c1a9da',6.67,5.0,5.0,20.0,990.0,178080.0,71.2,'{"gross_yield_score": 75.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 50.0, "total": 71.2}','2026-10-24 10:20:10.039946');
-INSERT INTO "investment_metrics" VALUES('habitaclia_93252dae-cc77-4e99-87a9-aa0c75a41bdf',5.56,4.17,4.17,24.0,1530.0,330400.0,59.0,'{"gross_yield_score": 58.4, "price_per_m2_score": 80.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.4, "total": 59.0}','2026-10-30 16:31:04.387989');
+INSERT INTO "investment_metrics" VALUES('habitaclia_93252dae-cc77-4e99-87a9-aa0c75a41bdf',5.56,4.17,4.17,24.0,1530.0,330400.0,59.0,'{"gross_yield_score": 58.4, "price_per_m2_score": 80.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.4, "total": 59.0}','2026-10-30 16:41:55.686989');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a9b74f55-5080-4537-985c-031456aa0f4f',4.61,3.46,3.46,28.9,684.0,178080.0,44.4,'{"gross_yield_score": 42.2, "price_per_m2_score": 50.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.2, "total": 44.4}','2026-10-24 10:20:10.065356');
 INSERT INTO "investment_metrics" VALUES('habitaclia_795f9375-81e8-4f16-bac5-f9952d0d7057',4.62,3.46,3.46,28.9,1422.0,369600.0,44.5,'{"gross_yield_score": 42.4, "price_per_m2_score": 51.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.2, "total": 44.5}','2026-10-24 10:20:10.078184');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ffbd1fea-425e-4cf6-a839-10d1b4b86ed5',4.49,3.37,3.37,29.7,792.0,211680.0,42.0,'{"gross_yield_score": 39.8, "price_per_m2_score": 45.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.4, "total": 42.0}','2026-10-24 10:20:10.093547');
@@ -19006,8 +19006,8 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_4ab12a6f-6683-4ad8-8b6b-2e70
 INSERT INTO "investment_metrics" VALUES('habitaclia_d682723a-e11b-4d94-b9ae-d0bf799b3494',14.11,10.58,10.58,9.4,1080.0,91840.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-24 10:20:10.187968');
 INSERT INTO "investment_metrics" VALUES('habitaclia_b3037f57-365a-4dfa-829d-cf62eabdf2de',4.13,3.1,3.1,32.3,1080.0,313600.0,34.7,'{"gross_yield_score": 32.6, "price_per_m2_score": 28.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 12.0, "total": 34.7}','2026-10-24 10:20:10.200907');
 INSERT INTO "investment_metrics" VALUES('habitaclia_af1aa4fe-b7f3-4eb3-aaa0-37dd66a416ca',4.07,3.05,3.05,32.8,1044.0,308000.0,33.5,'{"gross_yield_score": 31.4, "price_per_m2_score": 25.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.0, "total": 33.5}','2026-10-24 10:20:10.214031');
-INSERT INTO "investment_metrics" VALUES('habitaclia_19cfd6b1-e393-4680-8f72-e91c3d335b08',6.15,4.62,4.62,21.7,1476.0,287840.0,66.0,'{"gross_yield_score": 67.2, "price_per_m2_score": 92.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.4, "total": 66.0}','2026-10-30 16:31:04.422842');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1a1e454c-3199-4c09-8473-5789777a3133',6.55,4.91,4.91,20.4,1620.0,296800.0,70.4,'{"gross_yield_score": 73.2, "price_per_m2_score": 99.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 48.2, "total": 70.4}','2026-10-30 16:31:04.495855');
+INSERT INTO "investment_metrics" VALUES('habitaclia_19cfd6b1-e393-4680-8f72-e91c3d335b08',6.15,4.62,4.62,21.7,1476.0,287840.0,66.0,'{"gross_yield_score": 67.2, "price_per_m2_score": 92.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.4, "total": 66.0}','2026-10-30 16:41:55.723198');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1a1e454c-3199-4c09-8473-5789777a3133',6.55,4.91,4.91,20.4,1620.0,296800.0,70.4,'{"gross_yield_score": 73.2, "price_per_m2_score": 99.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 48.2, "total": 70.4}','2026-10-30 16:41:55.798282');
 INSERT INTO "investment_metrics" VALUES('habitaclia_910a32b8-1e89-44cc-80ff-4fc653670eb5',3.73,2.79,2.79,35.8,1026.0,330400.0,27.1,'{"gross_yield_score": 24.6, "price_per_m2_score": 10.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.3, "total": 27.1}','2026-10-24 10:20:10.251772');
 INSERT INTO "investment_metrics" VALUES('habitaclia_0db29be5-6701-4402-92e3-9fda158e9445',4.46,3.34,3.34,29.9,666.0,179200.0,41.4,'{"gross_yield_score": 39.2, "price_per_m2_score": 44.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.8, "total": 41.4}','2026-10-24 10:20:10.264662');
 INSERT INTO "investment_metrics" VALUES('habitaclia_fae13dd9-ee71-41e7-af53-9042d4338624',4.87,3.65,3.65,27.4,864.0,212800.0,49.2,'{"gross_yield_score": 47.4, "price_per_m2_score": 61.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.0, "total": 49.2}','2026-10-24 10:20:10.277348');
@@ -19042,7 +19042,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_33ac7780-a4b4-4361-8710-16a8
 INSERT INTO "investment_metrics" VALUES('habitaclia_bcde4aea-122a-4031-8735-e7aaafb7cb0a',4.07,3.05,3.05,32.8,1044.0,308000.0,33.5,'{"gross_yield_score": 31.4, "price_per_m2_score": 25.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.0, "total": 33.5}','2026-10-24 10:20:10.691664');
 INSERT INTO "investment_metrics" VALUES('habitaclia_cd0efb63-e34b-4e55-af12-1d668b30e160',4.41,3.31,3.31,30.2,720.0,196000.0,40.4,'{"gross_yield_score": 38.2, "price_per_m2_score": 41.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.2, "total": 40.4}','2026-10-24 10:20:10.704353');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5ff9df36-5e4b-44aa-ae03-ff555f9a3ab2',4.35,3.27,3.27,30.6,630.0,173600.0,39.2,'{"gross_yield_score": 37.0, "price_per_m2_score": 39.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.4, "total": 39.2}','2026-10-24 10:20:10.717434');
-INSERT INTO "investment_metrics" VALUES('habitaclia_68b72050-3893-4edb-8b1f-bdcae429ae2b',5.94,4.46,4.46,22.4,1386.0,280000.0,63.6,'{"gross_yield_score": 64.1, "price_per_m2_score": 88.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.2, "total": 63.6}','2026-10-30 16:31:04.405351');
+INSERT INTO "investment_metrics" VALUES('habitaclia_68b72050-3893-4edb-8b1f-bdcae429ae2b',5.94,4.46,4.46,22.4,1386.0,280000.0,63.6,'{"gross_yield_score": 64.1, "price_per_m2_score": 88.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.2, "total": 63.6}','2026-10-30 16:41:55.704921');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4c189bef-7bf2-478e-9704-6faecadf7493',3.77,2.83,2.83,35.4,630.0,200480.0,27.9,'{"gross_yield_score": 25.4, "price_per_m2_score": 12.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.4, "total": 27.9}','2026-10-24 10:20:10.744108');
 INSERT INTO "investment_metrics" VALUES('habitaclia_93acbb30-835b-4fa9-8f50-73452eb3899e',3.33,2.49,2.49,40.1,900.0,324800.0,21.6,'{"gross_yield_score": 16.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.3, "total": 21.6}','2026-10-24 10:20:10.756831');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1cc91064-d78d-4fb7-930f-722f8d0417d0',3.79,2.84,2.84,35.2,1008.0,319200.0,28.3,'{"gross_yield_score": 25.8, "price_per_m2_score": 13.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.5, "total": 28.3}','2026-10-24 10:20:10.793215');
@@ -19050,7 +19050,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_cf8ad5f9-27af-467c-8619-4d8f
 INSERT INTO "investment_metrics" VALUES('habitaclia_ddadd076-8a90-4722-b919-dda2d17413e5',4.4,3.3,3.3,30.3,1026.0,280000.0,40.2,'{"gross_yield_score": 38.0, "price_per_m2_score": 41.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.0, "total": 40.2}','2026-10-24 10:20:10.820532');
 INSERT INTO "investment_metrics" VALUES('habitaclia_615fd726-4451-4491-a071-743824947e2c',4.07,3.05,3.05,32.8,1044.0,308000.0,33.5,'{"gross_yield_score": 31.4, "price_per_m2_score": 25.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.0, "total": 33.5}','2026-10-24 10:20:10.833714');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f8019b2a-0c72-4ada-a128-cd500a8785d5',6.75,5.06,5.06,19.8,756.0,134400.0,71.8,'{"gross_yield_score": 76.2, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 50.9, "total": 71.8}','2026-10-24 10:20:10.846681');
-INSERT INTO "investment_metrics" VALUES('habitaclia_f47e50f1-c4c9-4579-bdfc-387cd6cbd5de',4.97,3.73,3.73,26.8,1404.0,338800.0,51.0,'{"gross_yield_score": 49.4, "price_per_m2_score": 65.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.6, "total": 51.0}','2026-10-30 16:31:04.458171');
+INSERT INTO "investment_metrics" VALUES('habitaclia_f47e50f1-c4c9-4579-bdfc-387cd6cbd5de',4.97,3.73,3.73,26.8,1404.0,338800.0,51.0,'{"gross_yield_score": 49.4, "price_per_m2_score": 65.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.6, "total": 51.0}','2026-10-30 16:41:55.760721');
 INSERT INTO "investment_metrics" VALUES('habitaclia_04956531-0585-4d02-9ac7-6b70f9e806e1',6.32,4.74,4.74,21.1,1062.0,201600.0,67.9,'{"gross_yield_score": 69.8, "price_per_m2_score": 96.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.8, "total": 67.9}','2026-10-24 10:20:10.871933');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c6563318-377c-4712-90a5-ba7a0e245c29',3.99,2.99,2.99,33.4,1080.0,324800.0,32.0,'{"gross_yield_score": 29.8, "price_per_m2_score": 22.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.0, "total": 32.0}','2026-10-24 10:20:10.884669');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4db2349c-e97b-4c71-8697-edb363bd0be8',4.07,3.05,3.05,32.8,1044.0,308000.0,33.5,'{"gross_yield_score": 31.4, "price_per_m2_score": 25.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.0, "total": 33.5}','2026-10-24 10:20:10.897361');
@@ -19058,7 +19058,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_8cdd6313-2ef8-490b-9c99-337f
 INSERT INTO "investment_metrics" VALUES('habitaclia_3f6a8e11-de47-4951-b343-f06963af26e9',4.66,3.5,3.5,28.6,1188.0,305760.0,45.3,'{"gross_yield_score": 43.2, "price_per_m2_score": 52.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.0, "total": 45.3}','2026-10-24 10:20:10.922906');
 INSERT INTO "investment_metrics" VALUES('habitaclia_98093d12-b389-4349-8dc0-fa6db2d6e5c9',6.6,4.95,4.95,20.2,1080.0,196487.2,70.8,'{"gross_yield_score": 74.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 49.0, "total": 70.8}','2026-10-24 10:20:10.937388');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5ed78393-67f1-4280-bbc8-0da0bd626561',7.53,5.64,5.64,17.7,1152.0,183680.0,75.8,'{"gross_yield_score": 85.3, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 59.6, "total": 75.8}','2026-10-24 10:20:10.950338');
-INSERT INTO "investment_metrics" VALUES('habitaclia_963e174c-d6ed-4add-a096-2165fdbb14e0',5.55,4.16,4.16,24.0,1332.0,287840.0,58.9,'{"gross_yield_score": 58.2, "price_per_m2_score": 80.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.2, "total": 58.9}','2026-10-30 16:31:04.475850');
+INSERT INTO "investment_metrics" VALUES('habitaclia_963e174c-d6ed-4add-a096-2165fdbb14e0',5.55,4.16,4.16,24.0,1332.0,287840.0,58.9,'{"gross_yield_score": 58.2, "price_per_m2_score": 80.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.2, "total": 58.9}','2026-10-30 16:41:55.779429');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e4b81d7c-304c-43ab-af43-2d432133046a',6.6,4.95,4.95,20.2,1080.0,196487.2,70.8,'{"gross_yield_score": 74.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 49.0, "total": 70.8}','2026-10-24 10:20:10.975722');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5a718fbe-4a47-4b90-aeba-6b7f4f3da275',6.33,4.75,4.75,21.1,1134.0,215040.0,68.0,'{"gross_yield_score": 70.0, "price_per_m2_score": 96.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.0, "total": 68.0}','2026-10-24 10:20:10.988355');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5b068a7f-0caa-4411-af59-8d7acbd45276',6.33,4.75,4.75,21.1,1134.0,215040.0,68.0,'{"gross_yield_score": 70.0, "price_per_m2_score": 96.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.0, "total": 68.0}','2026-10-24 10:20:11.001263');
@@ -19067,38 +19067,38 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_5da1c610-1f28-4154-857e-535c
 INSERT INTO "investment_metrics" VALUES('habitaclia_bbd23e26-270b-4d61-904b-eb144a36d662',3.33,2.5,2.5,40.0,1026.0,369600.0,21.6,'{"gross_yield_score": 16.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.3, "total": 21.6}','2026-10-24 10:20:29.812740');
 INSERT INTO "investment_metrics" VALUES('habitaclia_da33fd1d-11b0-4444-a484-8dc3ca719d93',4.56,3.42,3.42,29.2,1170.0,308000.0,33.4,'{"gross_yield_score": 41.2, "price_per_m2_score": 8.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.4, "total": 33.4}','2026-10-24 10:20:29.825873');
 INSERT INTO "investment_metrics" VALUES('habitaclia_bb4b2a8d-fdd9-4be8-95a8-850f17757185',3.86,2.89,2.89,34.6,990.0,308000.0,25.5,'{"gross_yield_score": 27.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.6, "total": 25.5}','2026-10-24 10:20:29.839183');
-INSERT INTO "investment_metrics" VALUES('habitaclia_ab8481d4-6619-4570-89d7-80b83d62594c',7.21,5.41,5.41,18.5,1620.0,269627.68,71.1,'{"gross_yield_score": 82.1, "price_per_m2_score": 87.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 56.2, "total": 71.1}','2026-10-30 16:31:21.767702');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0f386bbe-c389-4623-823c-32b2b5d5bfed',6.51,4.89,4.89,20.5,1890.0,348173.28,63.8,'{"gross_yield_score": 72.6, "price_per_m2_score": 74.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 47.8, "total": 63.8}','2026-10-30 16:31:21.749874');
+INSERT INTO "investment_metrics" VALUES('habitaclia_ab8481d4-6619-4570-89d7-80b83d62594c',7.21,5.41,5.41,18.5,1620.0,269627.68,71.1,'{"gross_yield_score": 82.1, "price_per_m2_score": 87.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 56.2, "total": 71.1}','2026-10-30 16:42:15.803953');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0f386bbe-c389-4623-823c-32b2b5d5bfed',6.51,4.89,4.89,20.5,1890.0,348173.28,63.8,'{"gross_yield_score": 72.6, "price_per_m2_score": 74.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 47.8, "total": 63.8}','2026-10-30 16:42:15.785916');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1b708ec0-e302-41fd-89f0-7ed49eb367c3',5.61,4.2,4.2,23.8,1206.0,258176.8,51.1,'{"gross_yield_score": 59.2, "price_per_m2_score": 47.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.0, "total": 51.1}','2026-10-24 10:20:29.877231');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9312f063-bd5e-42b2-a407-c8d0d26db4a4',5.25,3.94,3.94,25.4,1134.0,259012.32,45.3,'{"gross_yield_score": 53.8, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.8, "total": 45.3}','2026-10-24 10:20:29.889732');
 INSERT INTO "investment_metrics" VALUES('habitaclia_fc282a82-7c80-4575-90a3-f9bfb2588805',5.09,3.82,3.82,26.2,1134.0,267284.64,42.6,'{"gross_yield_score": 51.3, "price_per_m2_score": 28.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.4, "total": 42.6}','2026-10-24 10:20:29.902656');
-INSERT INTO "investment_metrics" VALUES('habitaclia_93c745fb-b9d0-413b-93e2-73a517fea2dd',6.48,4.86,4.86,20.6,1458.0,269819.2,63.5,'{"gross_yield_score": 72.2, "price_per_m2_score": 73.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 47.2, "total": 63.5}','2026-10-30 16:31:21.892185');
+INSERT INTO "investment_metrics" VALUES('habitaclia_93c745fb-b9d0-413b-93e2-73a517fea2dd',6.48,4.86,4.86,20.6,1458.0,269819.2,63.5,'{"gross_yield_score": 72.2, "price_per_m2_score": 73.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 47.2, "total": 63.5}','2026-10-30 16:42:15.930640');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a2e39adb-c8f3-42c1-9ef6-8e71a3945361',5.03,3.77,3.77,26.5,1548.0,369600.0,41.7,'{"gross_yield_score": 50.5, "price_per_m2_score": 25.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.4, "total": 41.7}','2026-10-24 10:20:29.939097');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f5d2491d-f3e3-4de1-84e2-45a8fa80bb83',3.79,2.84,2.84,35.2,990.0,313600.0,25.0,'{"gross_yield_score": 25.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.5, "total": 25.0}','2026-10-24 10:20:29.951736');
-INSERT INTO "investment_metrics" VALUES('habitaclia_f7cb133a-9d7e-4f53-aab3-dbb0bf11af09',7.37,5.53,5.53,18.1,1620.0,263704.0,72.5,'{"gross_yield_score": 83.7, "price_per_m2_score": 89.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.0, "total": 72.5}','2026-10-30 16:31:22.104545');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e59d2af4-b4b8-4ed6-b570-61f075931f3d',5.44,4.08,4.08,24.5,1512.0,333760.0,48.3,'{"gross_yield_score": 56.6, "price_per_m2_score": 41.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.6, "total": 48.3}','2026-10-30 16:31:21.785250');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6a386aa3-5c11-40b2-8fc8-d0a99b927ed2',5.41,4.06,4.06,24.6,1530.0,339360.0,47.9,'{"gross_yield_score": 56.2, "price_per_m2_score": 40.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 47.9}','2026-10-30 16:31:21.820291');
+INSERT INTO "investment_metrics" VALUES('habitaclia_f7cb133a-9d7e-4f53-aab3-dbb0bf11af09',7.37,5.53,5.53,18.1,1620.0,263704.0,72.5,'{"gross_yield_score": 83.7, "price_per_m2_score": 89.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.0, "total": 72.5}','2026-10-30 16:42:16.148389');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e59d2af4-b4b8-4ed6-b570-61f075931f3d',5.44,4.08,4.08,24.5,1512.0,333760.0,48.3,'{"gross_yield_score": 56.6, "price_per_m2_score": 41.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.6, "total": 48.3}','2026-10-30 16:42:15.821795');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6a386aa3-5c11-40b2-8fc8-d0a99b927ed2',5.41,4.06,4.06,24.6,1530.0,339360.0,47.9,'{"gross_yield_score": 56.2, "price_per_m2_score": 40.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 47.9}','2026-10-30 16:42:15.857522');
 INSERT INTO "investment_metrics" VALUES('habitaclia_51c9f7ff-3cb4-45bb-b660-a00139fe8815',6.24,4.68,4.68,21.4,810.0,155680.0,60.5,'{"gross_yield_score": 68.6, "price_per_m2_score": 68.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.6, "total": 60.5}','2026-10-24 10:20:30.004825');
 INSERT INTO "investment_metrics" VALUES('habitaclia_666c65b4-d600-4695-a143-8b6b75fde39c',3.69,2.77,2.77,36.1,1026.0,333760.0,24.2,'{"gross_yield_score": 23.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.2, "total": 24.2}','2026-10-24 10:20:30.038294');
-INSERT INTO "investment_metrics" VALUES('habitaclia_f6f5f42c-58e3-4565-a83e-071eea8000cb',7.37,5.53,5.53,18.1,1620.0,263704.0,72.5,'{"gross_yield_score": 83.7, "price_per_m2_score": 89.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.0, "total": 72.5}','2026-10-30 16:31:22.068850');
+INSERT INTO "investment_metrics" VALUES('habitaclia_f6f5f42c-58e3-4565-a83e-071eea8000cb',7.37,5.53,5.53,18.1,1620.0,263704.0,72.5,'{"gross_yield_score": 83.7, "price_per_m2_score": 89.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.0, "total": 72.5}','2026-10-30 16:42:16.112159');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f528f37b-1b0f-4558-a19d-4fec02df080c',5.93,4.45,4.45,22.5,720.0,145600.0,56.0,'{"gross_yield_score": 63.9, "price_per_m2_score": 58.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.0, "total": 56.0}','2026-10-24 10:20:30.063861');
-INSERT INTO "investment_metrics" VALUES('habitaclia_dc01b017-7c7b-4145-8788-1f0dc9c29d06',5.53,4.15,4.15,24.1,1548.0,335998.88,49.8,'{"gross_yield_score": 58.0, "price_per_m2_score": 44.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.0, "total": 49.8}','2026-10-30 16:31:21.802830');
+INSERT INTO "investment_metrics" VALUES('habitaclia_dc01b017-7c7b-4145-8788-1f0dc9c29d06',5.53,4.15,4.15,24.1,1548.0,335998.88,49.8,'{"gross_yield_score": 58.0, "price_per_m2_score": 44.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.0, "total": 49.8}','2026-10-30 16:42:15.839783');
 INSERT INTO "investment_metrics" VALUES('habitaclia_46c8520a-3ce8-40f0-852b-8962ca68c949',4.57,3.43,3.43,29.2,1386.0,364000.0,33.6,'{"gross_yield_score": 41.4, "price_per_m2_score": 8.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.6, "total": 33.6}','2026-10-24 10:20:30.089267');
 INSERT INTO "investment_metrics" VALUES('habitaclia_68bdd507-618e-440b-b18a-0ee67a264ab2',3.87,2.91,2.91,34.4,828.0,256480.0,25.6,'{"gross_yield_score": 27.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.7, "total": 25.6}','2026-10-24 10:20:30.102303');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7b976850-bec9-40a7-b973-05e3196e3395',6.21,4.66,4.66,21.5,1710.0,330400.0,60.1,'{"gross_yield_score": 68.2, "price_per_m2_score": 67.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.2, "total": 60.1}','2026-10-30 16:31:21.837818');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7b976850-bec9-40a7-b973-05e3196e3395',6.21,4.66,4.66,21.5,1710.0,330400.0,60.1,'{"gross_yield_score": 68.2, "price_per_m2_score": 67.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.2, "total": 60.1}','2026-10-30 16:42:15.875370');
 INSERT INTO "investment_metrics" VALUES('habitaclia_80ac9f3b-68bf-4512-9c62-90ea9940543a',10.15,7.61,7.61,13.1,720.0,85120.0,83.6,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 86.1, "total": 83.6}','2026-10-24 10:20:30.127342');
-INSERT INTO "investment_metrics" VALUES('habitaclia_83629c67-e23a-4d47-9581-2887af9cd8f3',10.35,7.76,7.76,12.9,1440.0,166980.8,83.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 87.6, "total": 83.8}','2026-10-30 16:31:22.086564');
-INSERT INTO "investment_metrics" VALUES('habitaclia_71094033-576f-4dec-967b-222edd517d10',6.43,4.82,4.82,20.7,1350.0,252000.0,62.8,'{"gross_yield_score": 71.4, "price_per_m2_score": 72.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 62.8}','2026-10-30 16:31:21.874193');
-INSERT INTO "investment_metrics" VALUES('habitaclia_f3cf92d8-99d5-465b-bbe6-568287fe7621',6.43,4.82,4.82,20.7,1350.0,252000.0,62.8,'{"gross_yield_score": 71.4, "price_per_m2_score": 72.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 62.8}','2026-10-30 16:31:21.855612');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7fb6f771-dc35-4190-aa6b-ebf34a7a54eb',7.37,5.53,5.53,18.1,1620.0,263704.0,72.5,'{"gross_yield_score": 83.7, "price_per_m2_score": 89.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.0, "total": 72.5}','2026-10-30 16:31:21.909828');
-INSERT INTO "investment_metrics" VALUES('habitaclia_320bae9d-64fc-4278-8a37-c97b04c6a673',7.86,5.89,5.89,17.0,1458.0,222656.0,76.5,'{"gross_yield_score": 88.6, "price_per_m2_score": 96.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.3, "total": 76.5}','2026-10-30 16:31:22.032843');
-INSERT INTO "investment_metrics" VALUES('habitaclia_41ca6637-e77c-4e1f-91e6-c44a37a8711d',7.86,5.89,5.89,17.0,1458.0,222656.0,76.5,'{"gross_yield_score": 88.6, "price_per_m2_score": 96.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.3, "total": 76.5}','2026-10-30 16:31:22.051005');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5f8dfac6-1faa-4191-85a5-8b8fc55bec69',7.37,5.53,5.53,18.1,1620.0,263704.0,72.5,'{"gross_yield_score": 83.7, "price_per_m2_score": 89.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.0, "total": 72.5}','2026-10-30 16:31:21.997130');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1bd6af49-3680-48af-841c-72724e5b8ea9',6.75,5.06,5.06,19.7,1386.0,246349.6,66.5,'{"gross_yield_score": 76.2, "price_per_m2_score": 79.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 50.9, "total": 66.5}','2026-10-30 16:31:21.944422');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5389408e-095f-4326-b6ec-04e943af93c2',4.64,3.48,3.48,28.7,1296.0,334880.0,34.9,'{"gross_yield_score": 42.8, "price_per_m2_score": 11.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.6, "total": 34.9}','2026-10-30 16:31:22.015021');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4f0a5dc4-27b5-4fca-a0f2-d3673603d3ea',6.33,4.74,4.74,21.1,1476.0,280000.0,61.6,'{"gross_yield_score": 70.0, "price_per_m2_score": 70.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.8, "total": 61.6}','2026-10-30 16:31:21.961769');
-INSERT INTO "investment_metrics" VALUES('habitaclia_12f007d8-db7f-4a2e-b8e8-4039dc801630',6.96,5.22,5.22,19.2,1530.0,263704.0,68.8,'{"gross_yield_score": 79.4, "price_per_m2_score": 82.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.3, "total": 68.8}','2026-10-30 16:31:21.979404');
-INSERT INTO "investment_metrics" VALUES('habitaclia_483cb5c1-e740-4260-9fce-eecf9e125fea',7.37,5.53,5.53,18.1,1620.0,263704.0,72.5,'{"gross_yield_score": 83.7, "price_per_m2_score": 89.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.0, "total": 72.5}','2026-10-30 16:31:21.927124');
+INSERT INTO "investment_metrics" VALUES('habitaclia_83629c67-e23a-4d47-9581-2887af9cd8f3',10.35,7.76,7.76,12.9,1440.0,166980.8,83.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 87.6, "total": 83.8}','2026-10-30 16:42:16.130265');
+INSERT INTO "investment_metrics" VALUES('habitaclia_71094033-576f-4dec-967b-222edd517d10',6.43,4.82,4.82,20.7,1350.0,252000.0,62.8,'{"gross_yield_score": 71.4, "price_per_m2_score": 72.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 62.8}','2026-10-30 16:42:15.912282');
+INSERT INTO "investment_metrics" VALUES('habitaclia_f3cf92d8-99d5-465b-bbe6-568287fe7621',6.43,4.82,4.82,20.7,1350.0,252000.0,62.8,'{"gross_yield_score": 71.4, "price_per_m2_score": 72.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 62.8}','2026-10-30 16:42:15.893646');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7fb6f771-dc35-4190-aa6b-ebf34a7a54eb',7.37,5.53,5.53,18.1,1620.0,263704.0,72.5,'{"gross_yield_score": 83.7, "price_per_m2_score": 89.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.0, "total": 72.5}','2026-10-30 16:42:15.948533');
+INSERT INTO "investment_metrics" VALUES('habitaclia_320bae9d-64fc-4278-8a37-c97b04c6a673',7.86,5.89,5.89,17.0,1458.0,222656.0,76.5,'{"gross_yield_score": 88.6, "price_per_m2_score": 96.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.3, "total": 76.5}','2026-10-30 16:42:16.075207');
+INSERT INTO "investment_metrics" VALUES('habitaclia_41ca6637-e77c-4e1f-91e6-c44a37a8711d',7.86,5.89,5.89,17.0,1458.0,222656.0,76.5,'{"gross_yield_score": 88.6, "price_per_m2_score": 96.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.3, "total": 76.5}','2026-10-30 16:42:16.093797');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5f8dfac6-1faa-4191-85a5-8b8fc55bec69',7.37,5.53,5.53,18.1,1620.0,263704.0,72.5,'{"gross_yield_score": 83.7, "price_per_m2_score": 89.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.0, "total": 72.5}','2026-10-30 16:42:16.038963');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1bd6af49-3680-48af-841c-72724e5b8ea9',6.75,5.06,5.06,19.7,1386.0,246349.6,66.5,'{"gross_yield_score": 76.2, "price_per_m2_score": 79.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 50.9, "total": 66.5}','2026-10-30 16:42:15.984512');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5389408e-095f-4326-b6ec-04e943af93c2',4.64,3.48,3.48,28.7,1296.0,334880.0,34.9,'{"gross_yield_score": 42.8, "price_per_m2_score": 11.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.6, "total": 34.9}','2026-10-30 16:42:16.056743');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4f0a5dc4-27b5-4fca-a0f2-d3673603d3ea',6.33,4.74,4.74,21.1,1476.0,280000.0,61.6,'{"gross_yield_score": 70.0, "price_per_m2_score": 70.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.8, "total": 61.6}','2026-10-30 16:42:16.002456');
+INSERT INTO "investment_metrics" VALUES('habitaclia_12f007d8-db7f-4a2e-b8e8-4039dc801630',6.96,5.22,5.22,19.2,1530.0,263704.0,68.8,'{"gross_yield_score": 79.4, "price_per_m2_score": 82.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.3, "total": 68.8}','2026-10-30 16:42:16.020762');
+INSERT INTO "investment_metrics" VALUES('habitaclia_483cb5c1-e740-4260-9fce-eecf9e125fea',7.37,5.53,5.53,18.1,1620.0,263704.0,72.5,'{"gross_yield_score": 83.7, "price_per_m2_score": 89.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.0, "total": 72.5}','2026-10-30 16:42:15.966646');
 INSERT INTO "investment_metrics" VALUES('habitaclia_7b6d957d-8ef7-40b9-a512-88830bfd79e3',3.72,2.79,2.79,35.9,864.0,278880.0,41.3,'{"gross_yield_score": 24.4, "price_per_m2_score": 67.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.3, "total": 41.3}','2026-10-24 10:20:49.638174');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1f5f2d95-72b8-486d-8ba6-06934faf4f34',3.11,2.33,2.33,42.9,900.0,347200.0,27.9,'{"gross_yield_score": 12.2, "price_per_m2_score": 31.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 7.8, "total": 27.9}','2026-10-24 10:20:49.651936');
 INSERT INTO "investment_metrics" VALUES('habitaclia_6add06e1-0e8a-4a9e-b40a-c570f7dbab76',3.27,2.45,2.45,40.7,1008.0,369600.0,31.8,'{"gross_yield_score": 15.4, "price_per_m2_score": 42.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.2, "total": 31.8}','2026-10-24 10:20:49.664736');
@@ -19340,63 +19340,63 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_3226003818466',2.93,2.2,2.2,
 INSERT INTO "investment_metrics" VALUES('habitaclia_38202000001121',4.51,3.38,3.38,29.6,1788.75,476000.0,50.0,'{"gross_yield_score": 40.2, "price_per_m2_score": 76.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.6, "total": 50.0}','2026-10-24 10:44:46.593753');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191199216',5.93,4.45,4.45,22.5,1656.0,334880.0,64.2,'{"gross_yield_score": 63.9, "price_per_m2_score": 91.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.0, "total": 64.2}','2026-10-28 20:52:06.596485');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191179232',4.54,3.4,3.4,29.4,1080.0,285600.0,44.1,'{"gross_yield_score": 40.8, "price_per_m2_score": 51.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.0, "total": 44.1}','2026-10-30 06:16:08.048118');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e6b9db2f-93d2-41bd-8e93-65825def74ef',6.43,4.82,4.82,20.7,1134.0,211680.0,58.5,'{"gross_yield_score": 71.4, "price_per_m2_score": 55.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 58.5}','2026-10-30 16:30:22.738647');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e34b5032-8bf3-4973-871c-900c66bf02b6',4.4,3.3,3.3,30.3,1190.0,324800.0,29.9,'{"gross_yield_score": 38.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.0, "total": 29.9}','2026-10-30 16:30:22.808312');
-INSERT INTO "investment_metrics" VALUES('habitaclia_2487cf9f-d193-4641-934a-9701248a5c5f',4.53,3.39,3.39,29.5,1246.0,330400.0,42.3,'{"gross_yield_score": 40.6, "price_per_m2_score": 45.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.8, "total": 42.3}','2026-10-30 16:30:22.666460');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c3f42160-a5f6-409d-b61a-19f3925672f5',11.67,8.75,8.75,11.4,980.0,100800.0,84.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 97.5, "total": 84.8}','2026-10-30 16:30:22.574952');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e1c79b3c-b60c-4034-add2-8e383c1ce103',5.21,3.91,3.91,25.6,1386.0,319200.0,40.2,'{"gross_yield_score": 53.1, "price_per_m2_score": 15.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.2, "total": 40.2}','2026-10-30 16:30:22.859735');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0e0bbf5c-b4b1-48f8-8d5b-5233ed39e5b5',4.37,3.28,3.28,30.5,1204.0,330400.0,39.2,'{"gross_yield_score": 37.4, "price_per_m2_score": 38.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.6, "total": 39.2}','2026-10-30 16:30:22.683887');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e6b9db2f-93d2-41bd-8e93-65825def74ef',6.43,4.82,4.82,20.7,1134.0,211680.0,58.5,'{"gross_yield_score": 71.4, "price_per_m2_score": 55.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 58.5}','2026-10-30 16:41:11.125538');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e34b5032-8bf3-4973-871c-900c66bf02b6',4.4,3.3,3.3,30.3,1190.0,324800.0,29.9,'{"gross_yield_score": 38.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.0, "total": 29.9}','2026-10-30 16:41:11.199213');
+INSERT INTO "investment_metrics" VALUES('habitaclia_2487cf9f-d193-4641-934a-9701248a5c5f',4.53,3.39,3.39,29.5,1246.0,330400.0,42.3,'{"gross_yield_score": 40.6, "price_per_m2_score": 45.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.8, "total": 42.3}','2026-10-30 16:41:11.050553');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c3f42160-a5f6-409d-b61a-19f3925672f5',11.67,8.75,8.75,11.4,980.0,100800.0,84.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 97.5, "total": 84.8}','2026-10-30 16:41:10.957276');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e1c79b3c-b60c-4034-add2-8e383c1ce103',5.21,3.91,3.91,25.6,1386.0,319200.0,40.2,'{"gross_yield_score": 53.1, "price_per_m2_score": 15.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.2, "total": 40.2}','2026-10-30 16:41:11.254467');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0e0bbf5c-b4b1-48f8-8d5b-5233ed39e5b5',4.37,3.28,3.28,30.5,1204.0,330400.0,39.2,'{"gross_yield_score": 37.4, "price_per_m2_score": 38.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.6, "total": 39.2}','2026-10-30 16:41:11.069207');
 INSERT INTO "investment_metrics" VALUES('habitaclia_17e363ea-49fe-4361-8eca-1e52db36b6d4',6.31,4.74,4.74,21.1,1827.0,347200.0,57.0,'{"gross_yield_score": 69.6, "price_per_m2_score": 52.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.8, "total": 57.0}','2026-10-28 20:48:15.684813');
-INSERT INTO "investment_metrics" VALUES('habitaclia_ca3b4119-05d1-400b-8c67-301ca8de55b3',4.26,3.2,3.2,31.3,1134.0,319200.0,36.9,'{"gross_yield_score": 35.2, "price_per_m2_score": 32.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.0, "total": 36.9}','2026-10-30 16:30:22.520629');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0c484089-3a9b-478b-8e88-07335e0107e9',5.28,3.96,3.96,25.2,1302.0,295680.0,41.3,'{"gross_yield_score": 54.2, "price_per_m2_score": 17.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.2, "total": 41.3}','2026-10-30 16:30:22.773447');
-INSERT INTO "investment_metrics" VALUES('habitaclia_de942595-8900-48b8-add6-cd25f7c30b94',4.53,3.39,3.39,29.5,1246.0,330400.0,42.3,'{"gross_yield_score": 40.6, "price_per_m2_score": 45.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.8, "total": 42.3}','2026-10-30 16:30:22.842467');
-INSERT INTO "investment_metrics" VALUES('habitaclia_735c039d-77d6-4899-8052-d35ce0acac29',4.47,3.35,3.35,29.8,1022.0,274400.0,30.5,'{"gross_yield_score": 39.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.0, "total": 30.5}','2026-10-30 16:30:22.538694');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d2bf2cb6-17d1-4758-bd92-79424a561464',6.36,4.77,4.77,21.0,980.0,184800.0,57.6,'{"gross_yield_score": 70.4, "price_per_m2_score": 53.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.4, "total": 57.6}','2026-10-30 16:30:22.702963');
-INSERT INTO "investment_metrics" VALUES('habitaclia_ffea0576-396e-4c9f-9568-5273530d4f1f',6.31,4.74,4.74,21.1,1827.0,347200.0,58.5,'{"gross_yield_score": 69.6, "price_per_m2_score": 58.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.8, "total": 58.5}','2026-10-30 16:30:22.501151');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d190946e-6cb2-43ab-9b68-c96c377eb49d',8.6,6.45,6.45,15.5,1316.0,183565.76,80.8,'{"gross_yield_score": 96.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 71.8, "total": 80.8}','2026-10-30 16:30:22.465407');
-INSERT INTO "investment_metrics" VALUES('habitaclia_094bf0ac-d939-439f-a223-b7d23eac40c3',5.19,3.89,3.89,25.7,994.0,229704.16,54.1,'{"gross_yield_score": 52.9, "price_per_m2_score": 71.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.8, "total": 54.1}','2026-10-30 16:30:22.483100');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6c9ec49e-39f4-4043-a305-9c57d881878e',5.62,4.21,4.21,23.7,1652.0,352800.0,59.5,'{"gross_yield_score": 59.3, "price_per_m2_score": 81.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.2, "total": 59.5}','2026-10-30 16:30:22.648277');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4ea05a78-d382-4541-b699-b8a47a12d947',6.31,4.74,4.74,21.1,1827.0,347200.0,68.5,'{"gross_yield_score": 69.6, "price_per_m2_score": 98.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.8, "total": 68.5}','2026-10-30 16:30:22.631419');
-INSERT INTO "investment_metrics" VALUES('habitaclia_677ddb68-5048-477b-8b08-d1dc865e4dfe',4.58,3.44,3.44,29.1,1134.0,296800.0,43.4,'{"gross_yield_score": 41.6, "price_per_m2_score": 48.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.8, "total": 43.4}','2026-10-30 16:30:22.447280');
+INSERT INTO "investment_metrics" VALUES('habitaclia_ca3b4119-05d1-400b-8c67-301ca8de55b3',4.26,3.2,3.2,31.3,1134.0,319200.0,36.9,'{"gross_yield_score": 35.2, "price_per_m2_score": 32.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.0, "total": 36.9}','2026-10-30 16:41:10.902980');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0c484089-3a9b-478b-8e88-07335e0107e9',5.28,3.96,3.96,25.2,1302.0,295680.0,41.3,'{"gross_yield_score": 54.2, "price_per_m2_score": 17.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.2, "total": 41.3}','2026-10-30 16:41:11.162069');
+INSERT INTO "investment_metrics" VALUES('habitaclia_de942595-8900-48b8-add6-cd25f7c30b94',4.53,3.39,3.39,29.5,1246.0,330400.0,42.3,'{"gross_yield_score": 40.6, "price_per_m2_score": 45.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.8, "total": 42.3}','2026-10-30 16:41:11.236009');
+INSERT INTO "investment_metrics" VALUES('habitaclia_735c039d-77d6-4899-8052-d35ce0acac29',4.47,3.35,3.35,29.8,1022.0,274400.0,30.5,'{"gross_yield_score": 39.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.0, "total": 30.5}','2026-10-30 16:41:10.920855');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d2bf2cb6-17d1-4758-bd92-79424a561464',6.36,4.77,4.77,21.0,980.0,184800.0,57.6,'{"gross_yield_score": 70.4, "price_per_m2_score": 53.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.4, "total": 57.6}','2026-10-30 16:41:11.089096');
+INSERT INTO "investment_metrics" VALUES('habitaclia_ffea0576-396e-4c9f-9568-5273530d4f1f',6.31,4.74,4.74,21.1,1827.0,347200.0,58.5,'{"gross_yield_score": 69.6, "price_per_m2_score": 58.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.8, "total": 58.5}','2026-10-30 16:41:10.885136');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d190946e-6cb2-43ab-9b68-c96c377eb49d',8.6,6.45,6.45,15.5,1316.0,183565.76,80.8,'{"gross_yield_score": 96.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 71.8, "total": 80.8}','2026-10-30 16:41:10.849075');
+INSERT INTO "investment_metrics" VALUES('habitaclia_094bf0ac-d939-439f-a223-b7d23eac40c3',5.19,3.89,3.89,25.7,994.0,229704.16,54.1,'{"gross_yield_score": 52.9, "price_per_m2_score": 71.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.8, "total": 54.1}','2026-10-30 16:41:10.867105');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6c9ec49e-39f4-4043-a305-9c57d881878e',5.62,4.21,4.21,23.7,1652.0,352800.0,59.5,'{"gross_yield_score": 59.3, "price_per_m2_score": 81.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.2, "total": 59.5}','2026-10-30 16:41:11.030210');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4ea05a78-d382-4541-b699-b8a47a12d947',6.31,4.74,4.74,21.1,1827.0,347200.0,68.5,'{"gross_yield_score": 69.6, "price_per_m2_score": 98.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.8, "total": 68.5}','2026-10-30 16:41:11.011985');
+INSERT INTO "investment_metrics" VALUES('habitaclia_677ddb68-5048-477b-8b08-d1dc865e4dfe',4.58,3.44,3.44,29.1,1134.0,296800.0,43.4,'{"gross_yield_score": 41.6, "price_per_m2_score": 48.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.8, "total": 43.4}','2026-10-30 16:41:10.830431');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2d33a92a-4c5d-492b-bb7a-671b5c42e267',6.59,4.94,4.94,20.2,1778.0,323680.0,61.9,'{"gross_yield_score": 73.8, "price_per_m2_score": 64.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 48.8, "total": 61.9}','2026-10-30 15:07:16.249286');
 INSERT INTO "investment_metrics" VALUES('habitaclia_792e76c9-4499-497c-958a-4b5362b8ae5b',8.94,6.71,6.71,14.9,1358.0,182257.6,82.4,'{"gross_yield_score": 99.4, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 75.7, "total": 82.4}','2026-10-30 15:22:39.773467');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d4229da4-445a-4365-b9eb-b52c10901893',8.25,6.19,6.19,16.2,1925.0,280000.0,78.5,'{"gross_yield_score": 92.5, "price_per_m2_score": 97.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 67.9, "total": 78.5}','2026-10-30 16:30:22.894745');
-INSERT INTO "investment_metrics" VALUES('habitaclia_44e98537-0ff5-4d6a-8e8d-701563a08fed',5.42,4.06,4.06,24.6,1330.0,294560.0,43.3,'{"gross_yield_score": 56.3, "price_per_m2_score": 22.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 43.3}','2026-10-30 16:30:22.790731');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5ef4d47b-904f-4103-b0ac-43b2766dade3',5.13,3.85,3.85,26.0,1260.0,294560.0,39.0,'{"gross_yield_score": 51.9, "price_per_m2_score": 12.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.0, "total": 39.0}','2026-10-30 16:30:22.609895');
-INSERT INTO "investment_metrics" VALUES('habitaclia_bca06f36-b630-4166-a008-2a423923d9e8',5.63,4.22,4.22,23.7,1414.0,301280.0,46.4,'{"gross_yield_score": 59.5, "price_per_m2_score": 28.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 46.4}','2026-10-30 16:30:22.825261');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1742aefd-27fe-458e-a0e2-c17fbba34b13',8.94,6.71,6.71,14.9,1358.0,182257.6,82.4,'{"gross_yield_score": 99.4, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 75.7, "total": 82.4}','2026-10-30 16:30:22.720113');
-INSERT INTO "investment_metrics" VALUES('habitaclia_02f91d15-14d7-480b-b6ca-0abdd7ef4a9c',5.13,3.85,3.85,26.0,1260.0,294560.0,39.0,'{"gross_yield_score": 51.9, "price_per_m2_score": 12.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.0, "total": 39.0}','2026-10-30 16:30:22.592763');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a2ca011c-e2ee-4d90-ba83-b8eb7fb21baf',6.36,4.77,4.77,21.0,1596.0,301280.0,57.5,'{"gross_yield_score": 70.4, "price_per_m2_score": 53.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.4, "total": 57.5}','2026-10-30 16:30:22.756069');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d4229da4-445a-4365-b9eb-b52c10901893',8.25,6.19,6.19,16.2,1925.0,280000.0,78.5,'{"gross_yield_score": 92.5, "price_per_m2_score": 97.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 67.9, "total": 78.5}','2026-10-30 16:41:11.291103');
+INSERT INTO "investment_metrics" VALUES('habitaclia_44e98537-0ff5-4d6a-8e8d-701563a08fed',5.42,4.06,4.06,24.6,1330.0,294560.0,43.3,'{"gross_yield_score": 56.3, "price_per_m2_score": 22.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 43.3}','2026-10-30 16:41:11.180764');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5ef4d47b-904f-4103-b0ac-43b2766dade3',5.13,3.85,3.85,26.0,1260.0,294560.0,39.0,'{"gross_yield_score": 51.9, "price_per_m2_score": 12.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.0, "total": 39.0}','2026-10-30 16:41:10.993936');
+INSERT INTO "investment_metrics" VALUES('habitaclia_bca06f36-b630-4166-a008-2a423923d9e8',5.63,4.22,4.22,23.7,1414.0,301280.0,46.4,'{"gross_yield_score": 59.5, "price_per_m2_score": 28.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 46.4}','2026-10-30 16:41:11.217222');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1742aefd-27fe-458e-a0e2-c17fbba34b13',8.94,6.71,6.71,14.9,1358.0,182257.6,82.4,'{"gross_yield_score": 99.4, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 75.7, "total": 82.4}','2026-10-30 16:41:11.106784');
+INSERT INTO "investment_metrics" VALUES('habitaclia_02f91d15-14d7-480b-b6ca-0abdd7ef4a9c',5.13,3.85,3.85,26.0,1260.0,294560.0,39.0,'{"gross_yield_score": 51.9, "price_per_m2_score": 12.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.0, "total": 39.0}','2026-10-30 16:41:10.975661');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a2ca011c-e2ee-4d90-ba83-b8eb7fb21baf',6.36,4.77,4.77,21.0,1596.0,301280.0,57.5,'{"gross_yield_score": 70.4, "price_per_m2_score": 53.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.4, "total": 57.5}','2026-10-30 16:41:11.143564');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5e6eb17c-a99a-41ed-af37-40387593791a',4.89,3.67,3.67,27.3,1050.0,257600.0,36.1,'{"gross_yield_score": 47.8, "price_per_m2_score": 8.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.4, "total": 36.1}','2026-10-27 15:03:38.345950');
-INSERT INTO "investment_metrics" VALUES('habitaclia_72fa6def-159f-4544-8344-f6554fa6ab72',5.11,3.84,3.84,26.1,1050.0,246400.0,44.3,'{"gross_yield_score": 51.7, "price_per_m2_score": 34.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.8, "total": 44.3}','2026-10-30 16:30:27.511103');
+INSERT INTO "investment_metrics" VALUES('habitaclia_72fa6def-159f-4544-8344-f6554fa6ab72',5.11,3.84,3.84,26.1,1050.0,246400.0,44.3,'{"gross_yield_score": 51.7, "price_per_m2_score": 34.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.8, "total": 44.3}','2026-10-30 16:41:15.834134');
 INSERT INTO "investment_metrics" VALUES('habitaclia_0cc6cfa9-217f-4995-b666-044fad307e34',13.71,10.28,10.28,9.7,3199.0,280000.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 15:07:30.562976');
-INSERT INTO "investment_metrics" VALUES('habitaclia_898858d5-8f07-43d1-a60e-05cc7ddee79b',4.65,3.49,3.49,28.7,1106.0,285600.0,39.1,'{"gross_yield_score": 43.0, "price_per_m2_score": 28.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.8, "total": 39.1}','2026-10-30 16:30:27.416845');
-INSERT INTO "investment_metrics" VALUES('habitaclia_22b85883-b5e0-48b6-9e8a-d556dbb91d20',4.36,3.27,3.27,30.5,1218.0,334880.0,33.0,'{"gross_yield_score": 37.2, "price_per_m2_score": 13.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.4, "total": 33.0}','2026-10-30 16:30:27.399841');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c64503fd-0dd6-42eb-83e9-3c017cb0baa3',4.98,3.73,3.73,26.8,1022.0,246400.0,39.6,'{"gross_yield_score": 49.6, "price_per_m2_score": 19.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.6, "total": 39.6}','2026-10-30 16:30:27.674066');
-INSERT INTO "investment_metrics" VALUES('habitaclia_cbc71f0b-d81d-4174-bb7e-a89ee46a6485',3.87,2.9,2.9,34.4,994.0,308000.0,31.5,'{"gross_yield_score": 27.4, "price_per_m2_score": 23.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.7, "total": 31.5}','2026-10-30 16:30:27.725294');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5d67f676-3537-4d32-9d7d-eeccd2f51d55',5.43,4.07,4.07,24.6,1190.0,263200.0,52.8,'{"gross_yield_score": 56.4, "price_per_m2_score": 59.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.4, "total": 52.8}','2026-10-30 16:30:27.382322');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a7a0c76b-af33-40a3-9d17-ca9c2a0f6189',4.92,3.69,3.69,27.1,1064.0,259252.0,43.2,'{"gross_yield_score": 48.4, "price_per_m2_score": 35.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.8, "total": 43.2}','2026-10-30 16:30:27.348576');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d85da9aa-8778-4a47-9056-9984c5036cf8',6.24,4.68,4.68,21.4,1274.0,244993.28,62.9,'{"gross_yield_score": 68.6, "price_per_m2_score": 78.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.6, "total": 62.9}','2026-10-30 16:30:27.331696');
-INSERT INTO "investment_metrics" VALUES('habitaclia_fceb8b16-347a-4452-af62-ebe570f60827',6.14,4.61,4.61,21.7,1106.0,216050.24,61.7,'{"gross_yield_score": 67.1, "price_per_m2_score": 76.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.2, "total": 61.7}','2026-10-30 16:30:27.365573');
+INSERT INTO "investment_metrics" VALUES('habitaclia_898858d5-8f07-43d1-a60e-05cc7ddee79b',4.65,3.49,3.49,28.7,1106.0,285600.0,39.1,'{"gross_yield_score": 43.0, "price_per_m2_score": 28.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.8, "total": 39.1}','2026-10-30 16:41:15.737830');
+INSERT INTO "investment_metrics" VALUES('habitaclia_22b85883-b5e0-48b6-9e8a-d556dbb91d20',4.36,3.27,3.27,30.5,1218.0,334880.0,33.0,'{"gross_yield_score": 37.2, "price_per_m2_score": 13.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.4, "total": 33.0}','2026-10-30 16:41:15.720108');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c64503fd-0dd6-42eb-83e9-3c017cb0baa3',4.98,3.73,3.73,26.8,1022.0,246400.0,39.6,'{"gross_yield_score": 49.6, "price_per_m2_score": 19.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.6, "total": 39.6}','2026-10-30 16:41:16.005979');
+INSERT INTO "investment_metrics" VALUES('habitaclia_cbc71f0b-d81d-4174-bb7e-a89ee46a6485',3.87,2.9,2.9,34.4,994.0,308000.0,31.5,'{"gross_yield_score": 27.4, "price_per_m2_score": 23.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.7, "total": 31.5}','2026-10-30 16:41:16.062101');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5d67f676-3537-4d32-9d7d-eeccd2f51d55',5.43,4.07,4.07,24.6,1190.0,263200.0,52.8,'{"gross_yield_score": 56.4, "price_per_m2_score": 59.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.4, "total": 52.8}','2026-10-30 16:41:15.702461');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a7a0c76b-af33-40a3-9d17-ca9c2a0f6189',4.92,3.69,3.69,27.1,1064.0,259252.0,43.2,'{"gross_yield_score": 48.4, "price_per_m2_score": 35.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.8, "total": 43.2}','2026-10-30 16:41:15.667302');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d85da9aa-8778-4a47-9056-9984c5036cf8',6.24,4.68,4.68,21.4,1274.0,244993.28,62.9,'{"gross_yield_score": 68.6, "price_per_m2_score": 78.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.6, "total": 62.9}','2026-10-30 16:41:15.649365');
+INSERT INTO "investment_metrics" VALUES('habitaclia_fceb8b16-347a-4452-af62-ebe570f60827',6.14,4.61,4.61,21.7,1106.0,216050.24,61.7,'{"gross_yield_score": 67.1, "price_per_m2_score": 76.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.2, "total": 61.7}','2026-10-30 16:41:15.685151');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e8889648-e332-4891-9821-dc152d619378',6.41,4.81,4.81,20.8,1274.0,238560.0,62.7,'{"gross_yield_score": 71.2, "price_per_m2_score": 72.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.2, "total": 62.7}','2026-10-30 15:07:30.579719');
-INSERT INTO "investment_metrics" VALUES('habitaclia_80ceea3d-3cc4-4621-9a7f-7a5bc810ad91',9.16,6.87,6.87,14.6,1624.0,212800.0,82.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 78.0, "total": 82.8}','2026-10-30 16:30:27.314733');
-INSERT INTO "investment_metrics" VALUES('habitaclia_bc1849e6-d533-4888-bf55-5b4795983748',6.41,4.81,4.81,20.8,1274.0,238560.0,63.5,'{"gross_yield_score": 71.2, "price_per_m2_score": 75.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.2, "total": 63.5}','2026-10-30 16:30:27.708257');
+INSERT INTO "investment_metrics" VALUES('habitaclia_80ceea3d-3cc4-4621-9a7f-7a5bc810ad91',9.16,6.87,6.87,14.6,1624.0,212800.0,82.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 78.0, "total": 82.8}','2026-10-30 16:41:15.631703');
+INSERT INTO "investment_metrics" VALUES('habitaclia_bc1849e6-d533-4888-bf55-5b4795983748',6.41,4.81,4.81,20.8,1274.0,238560.0,63.5,'{"gross_yield_score": 71.2, "price_per_m2_score": 75.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.2, "total": 63.5}','2026-10-30 16:41:16.044173');
 INSERT INTO "investment_metrics" VALUES('habitaclia_96c797d0-8097-40f7-8ca5-b0c190c1c53b',6.65,4.99,4.99,20.1,1092.0,197120.0,71.2,'{"gross_yield_score": 74.8, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 49.8, "total": 71.2}','2026-10-30 15:07:30.545733');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1fa21e24-2ccd-48af-aecc-7dba3f9bb1b7',4.38,3.29,3.29,30.4,1064.0,291200.0,34.3,'{"gross_yield_score": 37.6, "price_per_m2_score": 18.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.8, "total": 34.3}','2026-10-30 16:30:27.570065');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e6cbc073-0b56-4f13-98a3-691949258006',5.04,3.78,3.78,26.4,1064.0,253120.0,46.5,'{"gross_yield_score": 50.6, "price_per_m2_score": 45.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.6, "total": 46.5}','2026-10-30 16:30:27.742042');
-INSERT INTO "investment_metrics" VALUES('habitaclia_750015f0-fb6a-460a-b130-9fe090486d03',6.41,4.81,4.81,20.8,1274.0,238560.0,63.5,'{"gross_yield_score": 71.2, "price_per_m2_score": 75.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.2, "total": 63.5}','2026-10-30 16:30:27.552925');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6c3a46cc-160f-4bdc-90ec-900db719c910',7.9,5.93,5.93,16.9,1134.0,172177.6,77.5,'{"gross_yield_score": 89.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.9, "total": 77.5}','2026-10-30 16:30:27.621124');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1fa21e24-2ccd-48af-aecc-7dba3f9bb1b7',4.38,3.29,3.29,30.4,1064.0,291200.0,34.3,'{"gross_yield_score": 37.6, "price_per_m2_score": 18.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.8, "total": 34.3}','2026-10-30 16:41:15.894880');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e6cbc073-0b56-4f13-98a3-691949258006',5.04,3.78,3.78,26.4,1064.0,253120.0,46.5,'{"gross_yield_score": 50.6, "price_per_m2_score": 45.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.6, "total": 46.5}','2026-10-30 16:41:16.079850');
+INSERT INTO "investment_metrics" VALUES('habitaclia_750015f0-fb6a-460a-b130-9fe090486d03',6.41,4.81,4.81,20.8,1274.0,238560.0,63.5,'{"gross_yield_score": 71.2, "price_per_m2_score": 75.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.2, "total": 63.5}','2026-10-30 16:41:15.877018');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6c3a46cc-160f-4bdc-90ec-900db719c910',7.9,5.93,5.93,16.9,1134.0,172177.6,77.5,'{"gross_yield_score": 89.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.9, "total": 77.5}','2026-10-30 16:41:15.950282');
 INSERT INTO "investment_metrics" VALUES('habitaclia_fa1a87e8-f6de-401a-99b3-ec86c168fdcf',5.04,3.78,3.78,26.4,1064.0,253120.0,46.3,'{"gross_yield_score": 50.6, "price_per_m2_score": 44.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.6, "total": 46.3}','2026-10-30 15:07:30.528966');
-INSERT INTO "investment_metrics" VALUES('habitaclia_08fe0bbb-5bcf-45d7-9bc0-62caaf29eb05',6.41,4.81,4.81,20.8,1274.0,238560.0,63.5,'{"gross_yield_score": 71.2, "price_per_m2_score": 75.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.2, "total": 63.5}','2026-10-30 16:30:27.655514');
-INSERT INTO "investment_metrics" VALUES('habitaclia_388c0460-5677-4710-b8c4-98a7108691f9',7.07,5.3,5.3,18.9,1008.0,171046.4,69.0,'{"gross_yield_score": 80.7, "price_per_m2_score": 81.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 54.5, "total": 69.0}','2026-10-30 16:30:27.637993');
-INSERT INTO "investment_metrics" VALUES('habitaclia_19c2e765-27af-412c-a614-65fc3665d1a0',5.7,4.28,4.28,23.4,1022.0,215040.0,56.9,'{"gross_yield_score": 60.5, "price_per_m2_score": 68.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.6, "total": 56.9}','2026-10-30 16:30:27.604339');
-INSERT INTO "investment_metrics" VALUES('habitaclia_8a5c3d0e-66ce-404b-a382-d046908127dd',5.63,4.23,4.23,23.7,1120.0,238560.0,52.8,'{"gross_yield_score": 59.5, "price_per_m2_score": 54.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.6, "total": 52.8}','2026-10-30 16:30:27.691034');
-INSERT INTO "investment_metrics" VALUES('habitaclia_34e9bf50-b425-46a2-a0af-c37b706b3c19',8.02,6.01,6.01,16.6,1050.0,157175.2,78.1,'{"gross_yield_score": 90.2, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 65.1, "total": 78.1}','2026-10-30 16:30:27.434099');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1dd20a86-edb2-4171-9b6f-f8e37a044eb9',6.6,4.95,4.95,20.2,1106.0,201228.16,67.7,'{"gross_yield_score": 74.0, "price_per_m2_score": 87.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 49.0, "total": 67.7}','2026-10-30 16:30:27.469042');
-INSERT INTO "investment_metrics" VALUES('habitaclia_adf4408a-daaf-4107-9607-f25e681df622',8.66,6.49,6.49,15.4,1134.0,157197.6,81.0,'{"gross_yield_score": 96.6, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 72.4, "total": 81.0}','2026-10-30 16:30:27.451291');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c5afa836-e510-4af2-8551-86362e0c71d2',7.43,5.57,5.57,17.9,1064.0,171791.2,71.3,'{"gross_yield_score": 84.3, "price_per_m2_score": 83.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.6, "total": 71.3}','2026-10-30 16:30:27.493361');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4a265bf6-e293-4dc1-9a4b-1eae835d50cb',5.04,3.78,3.78,26.4,1064.0,253120.0,39.3,'{"gross_yield_score": 50.6, "price_per_m2_score": 16.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.6, "total": 39.3}','2026-10-30 16:30:27.535456');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0f196776-6f6e-4092-a8b7-9a2493327fd7',7.15,5.36,5.36,18.7,1134.0,190400.0,74.1,'{"gross_yield_score": 81.5, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 55.4, "total": 74.1}','2026-10-30 16:30:27.587278');
+INSERT INTO "investment_metrics" VALUES('habitaclia_08fe0bbb-5bcf-45d7-9bc0-62caaf29eb05',6.41,4.81,4.81,20.8,1274.0,238560.0,63.5,'{"gross_yield_score": 71.2, "price_per_m2_score": 75.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.2, "total": 63.5}','2026-10-30 16:41:15.986745');
+INSERT INTO "investment_metrics" VALUES('habitaclia_388c0460-5677-4710-b8c4-98a7108691f9',7.07,5.3,5.3,18.9,1008.0,171046.4,69.0,'{"gross_yield_score": 80.7, "price_per_m2_score": 81.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 54.5, "total": 69.0}','2026-10-30 16:41:15.968611');
+INSERT INTO "investment_metrics" VALUES('habitaclia_19c2e765-27af-412c-a614-65fc3665d1a0',5.7,4.28,4.28,23.4,1022.0,215040.0,56.9,'{"gross_yield_score": 60.5, "price_per_m2_score": 68.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.6, "total": 56.9}','2026-10-30 16:41:15.932553');
+INSERT INTO "investment_metrics" VALUES('habitaclia_8a5c3d0e-66ce-404b-a382-d046908127dd',5.63,4.23,4.23,23.7,1120.0,238560.0,52.8,'{"gross_yield_score": 59.5, "price_per_m2_score": 54.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.6, "total": 52.8}','2026-10-30 16:41:16.026350');
+INSERT INTO "investment_metrics" VALUES('habitaclia_34e9bf50-b425-46a2-a0af-c37b706b3c19',8.02,6.01,6.01,16.6,1050.0,157175.2,78.1,'{"gross_yield_score": 90.2, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 65.1, "total": 78.1}','2026-10-30 16:41:15.755968');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1dd20a86-edb2-4171-9b6f-f8e37a044eb9',6.6,4.95,4.95,20.2,1106.0,201228.16,67.7,'{"gross_yield_score": 74.0, "price_per_m2_score": 87.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 49.0, "total": 67.7}','2026-10-30 16:41:15.791354');
+INSERT INTO "investment_metrics" VALUES('habitaclia_adf4408a-daaf-4107-9607-f25e681df622',8.66,6.49,6.49,15.4,1134.0,157197.6,81.0,'{"gross_yield_score": 96.6, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 72.4, "total": 81.0}','2026-10-30 16:41:15.773713');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c5afa836-e510-4af2-8551-86362e0c71d2',7.43,5.57,5.57,17.9,1064.0,171791.2,71.3,'{"gross_yield_score": 84.3, "price_per_m2_score": 83.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.6, "total": 71.3}','2026-10-30 16:41:15.815992');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4a265bf6-e293-4dc1-9a4b-1eae835d50cb',5.04,3.78,3.78,26.4,1064.0,253120.0,39.3,'{"gross_yield_score": 50.6, "price_per_m2_score": 16.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.6, "total": 39.3}','2026-10-30 16:41:15.858699');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0f196776-6f6e-4092-a8b7-9a2493327fd7',7.15,5.36,5.36,18.7,1134.0,190400.0,74.1,'{"gross_yield_score": 81.5, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 55.4, "total": 74.1}','2026-10-30 16:41:15.914734');
 INSERT INTO "investment_metrics" VALUES('habitaclia_d9e7af44-f6c6-4edd-a7cb-47babbebb8c4',5.14,3.86,3.86,25.9,1440.0,336000.0,47.3,'{"gross_yield_score": 52.1, "price_per_m2_score": 45.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 47.3}','2026-10-30 15:24:57.822889');
 INSERT INTO "investment_metrics" VALUES('habitaclia_01d4593e-afbc-48d5-8c19-b2497144ce95',4.4,3.3,3.3,30.3,1184.0,322560.0,36.3,'{"gross_yield_score": 38.0, "price_per_m2_score": 25.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.0, "total": 36.3}','2026-10-29 21:46:15.720731');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2c5b0bca-c799-464e-91c6-44fcdf8d0ac9',5.24,3.93,3.93,25.4,1120.0,256480.0,48.6,'{"gross_yield_score": 53.6, "price_per_m2_score": 48.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.6, "total": 48.6}','2026-10-30 15:07:46.214576');
@@ -19408,29 +19408,29 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_146800a0-e51c-410c-b046-2bc1
 INSERT INTO "investment_metrics" VALUES('habitaclia_b22aaa78-b039-4533-89d3-dbd5f05c17bc',5.15,3.86,3.86,25.9,1200.0,279440.0,39.6,'{"gross_yield_score": 52.3, "price_per_m2_score": 14.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.6}','2026-10-29 08:13:24.292527');
 INSERT INTO "investment_metrics" VALUES('habitaclia_19b3717f-2e04-46b0-a570-1254111a75ed',4.82,3.61,3.61,27.7,1120.0,278880.0,34.1,'{"gross_yield_score": 46.4, "price_per_m2_score": 2.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.2, "total": 34.1}','2026-10-30 15:24:58.207011');
 INSERT INTO "investment_metrics" VALUES('habitaclia_57a69176-4d49-428b-9600-d0f2be929b01',4.85,3.64,3.64,27.5,1200.0,296800.0,41.7,'{"gross_yield_score": 47.0, "price_per_m2_score": 31.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.8, "total": 41.7}','2026-10-30 15:07:46.589069');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a2962ac4-c084-47db-bb87-4bd557ec1fb5',5.23,3.92,3.92,25.5,1440.0,330400.0,41.0,'{"gross_yield_score": 53.5, "price_per_m2_score": 17.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.4, "total": 41.0}','2026-10-30 16:30:32.249587');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a2962ac4-c084-47db-bb87-4bd557ec1fb5',5.23,3.92,3.92,25.5,1440.0,330400.0,41.0,'{"gross_yield_score": 53.5, "price_per_m2_score": 17.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.4, "total": 41.0}','2026-10-30 16:41:20.619485');
 INSERT INTO "investment_metrics" VALUES('habitaclia_06876834-7b4d-43df-8697-a767626ebcf5',4.76,3.57,3.57,28.0,1200.0,302400.0,40.4,'{"gross_yield_score": 45.2, "price_per_m2_score": 29.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 40.4}','2026-10-29 21:46:16.057615');
 INSERT INTO "investment_metrics" VALUES('habitaclia_aace445e-13a0-48da-881e-4e384d88c534',5.99,4.5,4.5,22.2,1200.0,240240.0,60.2,'{"gross_yield_score": 64.9, "price_per_m2_score": 73.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 40.0, "total": 60.2}','2026-10-29 21:46:15.938379');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4925d269-4c2f-4094-b9a0-44fa3deb833c',6.71,5.03,5.03,19.9,1472.0,263200.0,68.2,'{"gross_yield_score": 75.7, "price_per_m2_score": 86.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 50.5, "total": 68.2}','2026-10-30 15:07:46.374938');
 INSERT INTO "investment_metrics" VALUES('habitaclia_d3f84dfa-9526-4302-9ce2-4e51b18ac031',12.48,9.36,9.36,10.7,1840.0,176960.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-29 21:46:16.821896');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a69f6b87-ef2f-40d3-8a38-c87be9ab7333',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:30:32.448249');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a69f6b87-ef2f-40d3-8a38-c87be9ab7333',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:41:20.819822');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5616f3c4-aeee-443b-a971-15725aea877a',5.24,3.93,3.93,25.4,1120.0,256480.0,41.1,'{"gross_yield_score": 53.6, "price_per_m2_score": 18.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.6, "total": 41.1}','2026-10-30 15:24:58.101023');
 INSERT INTO "investment_metrics" VALUES('habitaclia_866c0b20-e718-4294-9e84-15c6235800b5',12.48,9.36,9.36,10.7,1840.0,176960.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 15:07:46.179491');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e4c7c4c5-df1b-4f88-873b-04c3fcec00b4',4.85,3.64,3.64,27.5,1200.0,296800.0,34.7,'{"gross_yield_score": 47.0, "price_per_m2_score": 3.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.8, "total": 34.7}','2026-10-30 15:24:57.893185');
 INSERT INTO "investment_metrics" VALUES('habitaclia_18d1b47f-f0b3-4f90-9f6a-6b4cffe01c9c',4.88,3.66,3.66,27.3,1312.0,322560.0,42.8,'{"gross_yield_score": 47.6, "price_per_m2_score": 35.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.2, "total": 42.8}','2026-10-29 21:46:16.040618');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b0b064b6-5fde-4245-bdef-11a805262ea6',6.32,4.74,4.74,21.1,1120.0,212685.76,57.5,'{"gross_yield_score": 69.8, "price_per_m2_score": 54.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.8, "total": 57.5}','2026-10-30 16:30:32.302288');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b0b064b6-5fde-4245-bdef-11a805262ea6',6.32,4.74,4.74,21.1,1120.0,212685.76,57.5,'{"gross_yield_score": 69.8, "price_per_m2_score": 54.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.8, "total": 57.5}','2026-10-30 16:41:20.675777');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a753b2ee-85dd-4d6b-9166-509666a51d79',8.75,6.56,6.56,15.2,1200.0,164532.48,81.2,'{"gross_yield_score": 97.5, "price_per_m2_score": 99.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 73.4, "total": 81.2}','2026-10-30 15:24:57.766599');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f35c8097-c343-4953-9a84-df0a3073b492',4.85,3.64,3.64,27.5,1200.0,296800.0,41.7,'{"gross_yield_score": 47.0, "price_per_m2_score": 31.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.8, "total": 41.7}','2026-10-30 15:07:46.320900');
-INSERT INTO "investment_metrics" VALUES('habitaclia_79648bda-80f3-4df1-8864-788f7a84522b',4.85,3.64,3.64,27.5,1200.0,296800.0,41.5,'{"gross_yield_score": 47.0, "price_per_m2_score": 31.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.8, "total": 41.5}','2026-10-30 16:30:32.430483');
+INSERT INTO "investment_metrics" VALUES('habitaclia_79648bda-80f3-4df1-8864-788f7a84522b',4.85,3.64,3.64,27.5,1200.0,296800.0,41.5,'{"gross_yield_score": 47.0, "price_per_m2_score": 31.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.8, "total": 41.5}','2026-10-30 16:41:20.802014');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2ca84fba-a58f-4eb2-8dfd-09208cea81c5',5.51,4.13,4.13,24.2,1456.0,316960.0,53.4,'{"gross_yield_score": 57.6, "price_per_m2_score": 59.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 32.6, "total": 53.4}','2026-10-29 21:46:16.127466');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e09284fc-31ad-4da1-8f5d-bec2bdf394ef',6.71,5.03,5.03,19.9,1472.0,263200.0,68.5,'{"gross_yield_score": 75.7, "price_per_m2_score": 87.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 50.5, "total": 68.5}','2026-10-29 21:46:16.144255');
 INSERT INTO "investment_metrics" VALUES('habitaclia_25f27b56-e8c5-4c63-ada5-2f7d68483b54',4.01,3.01,3.01,33.2,1120.0,334880.0,40.3,'{"gross_yield_score": 30.2, "price_per_m2_score": 55.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.2, "total": 40.3}','2026-10-30 15:24:57.909937');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a651dd19-1d2f-4543-aafc-2a8ac70840ed',5.4,4.05,4.05,24.7,1360.0,302400.0,43.3,'{"gross_yield_score": 56.0, "price_per_m2_score": 22.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.0, "total": 43.3}','2026-10-29 21:46:16.195815');
 INSERT INTO "investment_metrics" VALUES('habitaclia_caa98280-d58d-4ab0-aef6-77f1570d094a',4.63,3.48,3.48,28.8,1168.0,302400.0,31.9,'{"gross_yield_score": 42.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.6, "total": 31.9}','2026-10-30 15:07:46.303493');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0c5d6ccf-5cc3-43fb-b775-943f48cd4095',5.24,3.93,3.93,25.4,1120.0,256480.0,48.5,'{"gross_yield_score": 53.6, "price_per_m2_score": 47.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.6, "total": 48.5}','2026-10-30 16:30:32.535578');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0c5d6ccf-5cc3-43fb-b775-943f48cd4095',5.24,3.93,3.93,25.4,1120.0,256480.0,48.5,'{"gross_yield_score": 53.6, "price_per_m2_score": 47.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.6, "total": 48.5}','2026-10-30 16:41:20.916376');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f362207d-8338-4ed1-ac4a-e5e07b125d58',5.24,3.93,3.93,25.4,1120.0,256480.0,41.1,'{"gross_yield_score": 53.6, "price_per_m2_score": 18.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.6, "total": 41.1}','2026-10-30 15:24:57.840681');
-INSERT INTO "investment_metrics" VALUES('habitaclia_8ca9d51b-bcf6-47c8-b332-e907167176bf',5.24,3.93,3.93,25.4,1120.0,256480.0,48.5,'{"gross_yield_score": 53.6, "price_per_m2_score": 47.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.6, "total": 48.5}','2026-10-30 16:30:32.320724');
-INSERT INTO "investment_metrics" VALUES('habitaclia_8ebfcc09-a352-4555-bbcd-c5ff06bedd2e',5.24,3.93,3.93,25.4,1120.0,256480.0,41.1,'{"gross_yield_score": 53.6, "price_per_m2_score": 18.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.6, "total": 41.1}','2026-10-30 16:30:32.518081');
+INSERT INTO "investment_metrics" VALUES('habitaclia_8ca9d51b-bcf6-47c8-b332-e907167176bf',5.24,3.93,3.93,25.4,1120.0,256480.0,48.5,'{"gross_yield_score": 53.6, "price_per_m2_score": 47.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.6, "total": 48.5}','2026-10-30 16:41:20.693845');
+INSERT INTO "investment_metrics" VALUES('habitaclia_8ebfcc09-a352-4555-bbcd-c5ff06bedd2e',5.24,3.93,3.93,25.4,1120.0,256480.0,41.1,'{"gross_yield_score": 53.6, "price_per_m2_score": 18.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.6, "total": 41.1}','2026-10-30 16:41:20.898285');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ca5e256e-9fa0-474e-8a20-9c7ad1dc65a6',5.51,4.13,4.13,24.2,1456.0,316960.0,53.4,'{"gross_yield_score": 57.6, "price_per_m2_score": 59.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 32.6, "total": 53.4}','2026-10-29 21:46:16.545331');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4d58c840-ccc1-47da-aa62-7c7f144a39fc',5.97,4.48,4.48,22.3,1376.0,276438.4,61.6,'{"gross_yield_score": 64.5, "price_per_m2_score": 80.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.6, "total": 61.6}','2026-10-29 21:46:16.580030');
 INSERT INTO "investment_metrics" VALUES('habitaclia_03004490-a6cf-46a2-9d65-3ac8648b5d10',12.48,9.36,9.36,10.7,1840.0,176960.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-29 23:57:35.578691');
@@ -19449,15 +19449,15 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_c84b2129-a157-496b-a3d6-a840
 INSERT INTO "investment_metrics" VALUES('habitaclia_cdda2b8d-f805-4747-ba11-ef98e85f7860',12.48,9.36,9.36,10.7,1840.0,176960.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-29 21:46:16.804546');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e7bd9cd5-ab76-44c2-b28b-e4dcfe474578',4.96,3.72,3.72,26.9,1296.0,313600.0,43.8,'{"gross_yield_score": 49.2, "price_per_m2_score": 36.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.4, "total": 43.8}','2026-10-30 15:07:46.232358');
 INSERT INTO "investment_metrics" VALUES('habitaclia_b34230e7-258f-45c1-81ac-053641d35260',6.08,4.56,4.56,21.9,1248.0,246400.0,60.9,'{"gross_yield_score": 66.2, "price_per_m2_score": 74.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 41.2, "total": 60.9}','2026-10-30 15:07:46.409271');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0a9032f3-eae9-4b62-b676-88825bd1346b',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:30:32.266997');
-INSERT INTO "investment_metrics" VALUES('habitaclia_16ed2436-ddb2-4102-b69d-f8be55d87458',5.14,3.86,3.86,25.9,1440.0,336000.0,46.9,'{"gross_yield_score": 52.1, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 46.9}','2026-10-30 16:30:32.411782');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a07185f8-4429-47bd-9194-45a4373b8b0f',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:30:32.231790');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a2b48a51-d873-4526-a805-c4364d4f3998',5.14,3.86,3.86,25.9,1440.0,336000.0,46.9,'{"gross_yield_score": 52.1, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 46.9}','2026-10-30 16:30:32.357178');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b83853be-0ed2-4fe1-9d65-c6c3317f89e0',5.14,3.86,3.86,25.9,1440.0,336000.0,46.9,'{"gross_yield_score": 52.1, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 46.9}','2026-10-30 16:30:32.466134');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c1cd9d49-81b2-4292-94de-a62b3fdca4e8',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:30:32.338662');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0a9032f3-eae9-4b62-b676-88825bd1346b',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:41:20.638289');
+INSERT INTO "investment_metrics" VALUES('habitaclia_16ed2436-ddb2-4102-b69d-f8be55d87458',5.14,3.86,3.86,25.9,1440.0,336000.0,46.9,'{"gross_yield_score": 52.1, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 46.9}','2026-10-30 16:41:20.784152');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a07185f8-4429-47bd-9194-45a4373b8b0f',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:41:20.601137');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a2b48a51-d873-4526-a805-c4364d4f3998',5.14,3.86,3.86,25.9,1440.0,336000.0,46.9,'{"gross_yield_score": 52.1, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 46.9}','2026-10-30 16:41:20.729752');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b83853be-0ed2-4fe1-9d65-c6c3317f89e0',5.14,3.86,3.86,25.9,1440.0,336000.0,46.9,'{"gross_yield_score": 52.1, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 46.9}','2026-10-30 16:41:20.838052');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c1cd9d49-81b2-4292-94de-a62b3fdca4e8',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:41:20.711952');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5133ebcb-42e4-42a7-bd51-8b8681f6f64d',5.24,3.93,3.93,25.4,1120.0,256480.0,41.1,'{"gross_yield_score": 53.6, "price_per_m2_score": 18.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.6, "total": 41.1}','2026-10-30 15:24:57.858471');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1556786f-f230-4c0b-a73d-4b9f151a83bd',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:30:32.483639');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4d4e884b-4b7d-4464-9790-23e66995820d',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:30:32.500904');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1556786f-f230-4c0b-a73d-4b9f151a83bd',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:41:20.855861');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4d4e884b-4b7d-4464-9790-23e66995820d',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:41:20.873829');
 INSERT INTO "investment_metrics" VALUES('habitaclia_76df5fb5-0c24-47bf-9be7-32a8b9393a6f',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 15:24:57.715920');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9dab8316-adfa-44eb-b3fa-8a22bdc479cd',5.14,3.86,3.86,25.9,1440.0,336000.0,47.3,'{"gross_yield_score": 52.1, "price_per_m2_score": 45.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 47.3}','2026-10-30 15:24:57.802577');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e373d348-f06a-404c-81e3-31a77977d674',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 15:24:57.733410');
@@ -19484,52 +19484,52 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_968bfa4d-05bb-4212-a595-73ae
 INSERT INTO "investment_metrics" VALUES('habitaclia_b57dbe7f-116b-4869-ba45-a8d6fde93f52',12.48,9.36,9.36,10.7,1840.0,176960.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 15:07:46.268190');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ed6d8a2a-5f72-4691-98e8-7570f70ab313',12.48,9.36,9.36,10.7,1840.0,176960.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 15:07:46.536511');
 INSERT INTO "investment_metrics" VALUES('habitaclia_be72015d-6ed4-41a9-b5c5-f1d4db687f67',6.04,4.53,4.53,22.1,1392.0,276438.4,62.4,'{"gross_yield_score": 65.6, "price_per_m2_score": 81.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 40.6, "total": 62.4}','2026-10-26 14:18:59.325262');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c2e62c29-540f-442b-a41c-67d6710d1e24',4.49,3.37,3.37,29.7,1125.0,300720.0,32.2,'{"gross_yield_score": 39.8, "price_per_m2_score": 6.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.4, "total": 32.2}','2026-10-30 16:30:41.154927');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c2e62c29-540f-442b-a41c-67d6710d1e24',4.49,3.37,3.37,29.7,1125.0,300720.0,32.2,'{"gross_yield_score": 39.8, "price_per_m2_score": 6.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.4, "total": 32.2}','2026-10-30 16:41:29.567845');
 INSERT INTO "investment_metrics" VALUES('habitaclia_7599f5d6-6b22-4678-85ba-dc2349d23b82',5.27,3.96,3.96,25.3,1275.0,290080.0,49.1,'{"gross_yield_score": 54.0, "price_per_m2_score": 49.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.2, "total": 49.1}','2026-10-27 15:04:20.639726');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4263c7fa-1e91-4c60-90cc-33a4ca77fbb6',5.32,3.99,3.99,25.1,1335.0,301280.0,41.1,'{"gross_yield_score": 54.8, "price_per_m2_score": 15.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.8, "total": 41.1}','2026-10-27 15:04:20.655242');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7402ce0d-b00a-49ba-8b6c-69f3ac5fccaa',4.72,3.54,3.54,28.2,1185.0,301280.0,39.7,'{"gross_yield_score": 44.4, "price_per_m2_score": 28.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.8, "total": 39.7}','2026-10-30 16:30:41.172216');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7402ce0d-b00a-49ba-8b6c-69f3ac5fccaa',4.72,3.54,3.54,28.2,1185.0,301280.0,39.7,'{"gross_yield_score": 44.4, "price_per_m2_score": 28.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.8, "total": 39.7}','2026-10-30 16:41:29.586656');
 INSERT INTO "investment_metrics" VALUES('habitaclia_fad1e289-ef50-40b6-84fc-5cbdcdbb554e',5.62,4.21,4.21,23.7,1305.0,278880.0,51.3,'{"gross_yield_score": 59.3, "price_per_m2_score": 48.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.2, "total": 51.3}','2026-10-29 15:45:24.093046');
-INSERT INTO "investment_metrics" VALUES('habitaclia_3b56bb58-7601-4d24-ab71-c65e307d5a63',7.14,5.36,5.36,18.7,1926.0,323680.0,73.2,'{"gross_yield_score": 81.4, "price_per_m2_score": 96.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 55.4, "total": 73.2}','2026-10-30 16:30:40.954237');
-INSERT INTO "investment_metrics" VALUES('habitaclia_2c3509b1-796e-456a-8302-fe3f527b365d',4.58,3.44,3.44,29.1,1065.0,278880.0,33.9,'{"gross_yield_score": 41.6, "price_per_m2_score": 9.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.8, "total": 33.9}','2026-10-30 16:30:40.990285');
+INSERT INTO "investment_metrics" VALUES('habitaclia_3b56bb58-7601-4d24-ab71-c65e307d5a63',7.14,5.36,5.36,18.7,1926.0,323680.0,73.2,'{"gross_yield_score": 81.4, "price_per_m2_score": 96.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 55.4, "total": 73.2}','2026-10-30 16:41:29.350928');
+INSERT INTO "investment_metrics" VALUES('habitaclia_2c3509b1-796e-456a-8302-fe3f527b365d',4.58,3.44,3.44,29.1,1065.0,278880.0,33.9,'{"gross_yield_score": 41.6, "price_per_m2_score": 9.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.8, "total": 33.9}','2026-10-30 16:41:29.387132');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2dbad19b-3fb6-407e-82cd-4c277f03c9ed',8.6,6.45,6.45,15.5,2367.0,330400.0,80.8,'{"gross_yield_score": 96.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 71.8, "total": 80.8}','2026-10-30 15:08:05.724794');
 INSERT INTO "investment_metrics" VALUES('habitaclia_b15f8ff0-12c4-464e-8d0d-4e8427622591',4.49,3.37,3.37,29.7,1215.0,324800.0,32.2,'{"gross_yield_score": 39.8, "price_per_m2_score": 6.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.4, "total": 32.2}','2026-10-30 15:08:05.622453');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9f71f2ae-21b2-497e-a899-c9047622e15a',6.79,5.09,5.09,19.6,1530.0,270480.0,69.0,'{"gross_yield_score": 76.8, "price_per_m2_score": 88.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 51.3, "total": 69.0}','2026-10-28 20:49:01.973192');
 INSERT INTO "investment_metrics" VALUES('habitaclia_06e3eddc-5f9d-4d63-8284-1dea39ced952',4.55,3.41,3.41,29.3,1095.0,288960.0,36.3,'{"gross_yield_score": 41.0, "price_per_m2_score": 20.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.2, "total": 36.3}','2026-10-29 21:13:17.771919');
 INSERT INTO "investment_metrics" VALUES('habitaclia_803a0b2a-e089-4fc1-bd7f-587e6aa0b7f2',4.35,3.26,3.26,30.7,1095.0,302398.88,35.7,'{"gross_yield_score": 37.0, "price_per_m2_score": 24.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.2, "total": 35.7}','2026-10-30 15:08:05.689500');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ae342aab-7b13-4942-8ade-4df2ab620f24',5.38,4.04,4.04,24.8,1080.0,240800.0,50.5,'{"gross_yield_score": 55.7, "price_per_m2_score": 51.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.8, "total": 50.5}','2026-10-30 15:08:05.415106');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5cdc2327-e3e1-492c-82d5-b63460f31009',5.15,3.87,3.87,25.9,1275.0,296800.0,43.7,'{"gross_yield_score": 52.3, "price_per_m2_score": 30.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.4, "total": 43.7}','2026-10-30 16:30:40.831702');
-INSERT INTO "investment_metrics" VALUES('habitaclia_08a5212b-8c68-4acc-bb57-28a42b85c1bc',6.43,4.82,4.82,20.7,1650.0,308000.0,62.9,'{"gross_yield_score": 71.4, "price_per_m2_score": 73.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 62.9}','2026-10-30 16:30:41.102200');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5cdc2327-e3e1-492c-82d5-b63460f31009',5.15,3.87,3.87,25.9,1275.0,296800.0,43.7,'{"gross_yield_score": 52.3, "price_per_m2_score": 30.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.4, "total": 43.7}','2026-10-30 16:41:29.222513');
+INSERT INTO "investment_metrics" VALUES('habitaclia_08a5212b-8c68-4acc-bb57-28a42b85c1bc',6.43,4.82,4.82,20.7,1650.0,308000.0,62.9,'{"gross_yield_score": 71.4, "price_per_m2_score": 73.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 62.9}','2026-10-30 16:41:29.511075');
 INSERT INTO "investment_metrics" VALUES('habitaclia_10434bed-f672-42b4-b0f1-0ff6b3fc8700',5.18,3.88,3.88,25.8,1440.0,333760.0,39.6,'{"gross_yield_score": 52.7, "price_per_m2_score": 13.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 39.6}','2026-10-26 14:19:25.927483');
 INSERT INTO "investment_metrics" VALUES('habitaclia_7dcfb91a-fb82-447a-ba13-2f2fd731a2e7',4.55,3.41,3.41,29.3,1095.0,288960.0,36.4,'{"gross_yield_score": 41.0, "price_per_m2_score": 20.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.2, "total": 36.4}','2026-10-30 15:08:05.095666');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b641c69e-6bc7-440d-87e4-28cdc0fa47d9',4.59,3.44,3.44,29.0,1200.0,313600.0,36.9,'{"gross_yield_score": 41.8, "price_per_m2_score": 21.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.8, "total": 36.9}','2026-10-30 16:30:41.067142');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b641c69e-6bc7-440d-87e4-28cdc0fa47d9',4.59,3.44,3.44,29.0,1200.0,313600.0,36.9,'{"gross_yield_score": 41.8, "price_per_m2_score": 21.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.8, "total": 36.9}','2026-10-30 16:41:29.473863');
 INSERT INTO "investment_metrics" VALUES('habitaclia_d38745a3-6412-4492-bcf4-edc8799a95fa',5.26,3.94,3.94,25.4,1320.0,301280.0,45.5,'{"gross_yield_score": 53.9, "price_per_m2_score": 34.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.8, "total": 45.5}','2026-10-29 21:13:17.867353');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a4803e3c-dce3-4f69-b91a-d5bce8c4c214',4.8,3.6,3.6,27.8,1155.0,288960.0,40.6,'{"gross_yield_score": 46.0, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.0, "total": 40.6}','2026-10-29 09:21:15.291402');
-INSERT INTO "investment_metrics" VALUES('habitaclia_412f8313-aa21-495e-a127-93f44034abab',6.31,4.73,4.73,21.1,1530.0,291085.76,61.4,'{"gross_yield_score": 69.6, "price_per_m2_score": 70.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.6, "total": 61.4}','2026-10-30 16:30:40.866793');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4cb1be1c-5eff-4984-9f93-ec36e9304216',7.65,5.74,5.74,17.4,1170.0,183563.52,74.9,'{"gross_yield_score": 86.5, "price_per_m2_score": 94.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 61.1, "total": 74.9}','2026-10-30 16:30:40.902009');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5dc60ba4-3320-45f7-aa4a-2ddf66450926',8.14,6.1,6.1,16.4,1185.0,174736.8,78.6,'{"gross_yield_score": 91.4, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 66.5, "total": 78.6}','2026-10-30 16:30:40.849322');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b82ce4e0-e5c8-48dd-80db-1e4f9a11034b',5.38,4.03,4.03,24.8,1365.0,304526.88,47.5,'{"gross_yield_score": 55.7, "price_per_m2_score": 39.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.6, "total": 47.5}','2026-10-30 16:30:40.884378');
+INSERT INTO "investment_metrics" VALUES('habitaclia_412f8313-aa21-495e-a127-93f44034abab',6.31,4.73,4.73,21.1,1530.0,291085.76,61.4,'{"gross_yield_score": 69.6, "price_per_m2_score": 70.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.6, "total": 61.4}','2026-10-30 16:41:29.259546');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4cb1be1c-5eff-4984-9f93-ec36e9304216',7.65,5.74,5.74,17.4,1170.0,183563.52,74.9,'{"gross_yield_score": 86.5, "price_per_m2_score": 94.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 61.1, "total": 74.9}','2026-10-30 16:41:29.295996');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5dc60ba4-3320-45f7-aa4a-2ddf66450926',8.14,6.1,6.1,16.4,1185.0,174736.8,78.6,'{"gross_yield_score": 91.4, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 66.5, "total": 78.6}','2026-10-30 16:41:29.241162');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b82ce4e0-e5c8-48dd-80db-1e4f9a11034b',5.38,4.03,4.03,24.8,1365.0,304526.88,47.5,'{"gross_yield_score": 55.7, "price_per_m2_score": 39.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.6, "total": 47.5}','2026-10-30 16:41:29.277751');
 INSERT INTO "investment_metrics" VALUES('habitaclia_fae9f445-d7ac-49c5-a35b-12a0c8fd85a7',8.72,6.54,6.54,15.3,1140.0,156800.0,81.3,'{"gross_yield_score": 97.2, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 73.1, "total": 81.3}','2026-10-30 15:08:05.672490');
 INSERT INTO "investment_metrics" VALUES('habitaclia_299b91eb-1c1d-4bbd-926b-7528a8757d5b',8.94,6.71,6.71,14.9,1200.0,160994.4,82.4,'{"gross_yield_score": 99.4, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 75.7, "total": 82.4}','2026-10-30 15:08:05.571597');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b4f71638-8957-4182-a4a1-55f92b189fdf',6.49,4.87,4.87,20.5,1200.0,221760.0,65.5,'{"gross_yield_score": 72.4, "price_per_m2_score": 81.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 47.4, "total": 65.5}','2026-10-30 16:30:41.025075');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b4f71638-8957-4182-a4a1-55f92b189fdf',6.49,4.87,4.87,20.5,1200.0,221760.0,65.5,'{"gross_yield_score": 72.4, "price_per_m2_score": 81.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 47.4, "total": 65.5}','2026-10-30 16:41:29.428701');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4577ddfe-cccb-441e-b59c-b74ec5a00fb5',4.29,3.21,3.21,31.1,1140.0,319200.0,31.5,'{"gross_yield_score": 35.8, "price_per_m2_score": 10.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.2, "total": 31.5}','2026-10-30 15:08:05.466725');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d2caced9-a2c8-4afd-ab7b-0febd42178e1',5.63,4.22,4.22,23.7,1305.0,278320.0,54.6,'{"gross_yield_score": 59.5, "price_per_m2_score": 61.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 54.6}','2026-10-30 16:30:40.972547');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d2caced9-a2c8-4afd-ab7b-0febd42178e1',5.63,4.22,4.22,23.7,1305.0,278320.0,54.6,'{"gross_yield_score": 59.5, "price_per_m2_score": 61.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 54.6}','2026-10-30 16:41:29.369112');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2c342d41-08a4-470b-93ee-5e6f68f7138c',5.61,4.21,4.21,23.8,1560.0,333760.0,51.2,'{"gross_yield_score": 59.2, "price_per_m2_score": 48.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.2, "total": 51.2}','2026-10-29 15:45:24.468838');
-INSERT INTO "investment_metrics" VALUES('habitaclia_fff0a2ac-0307-4bc7-a5b1-cbb6a78cce38',5.07,3.8,3.8,26.3,1515.0,358400.0,42.4,'{"gross_yield_score": 51.1, "price_per_m2_score": 27.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.0, "total": 42.4}','2026-10-30 16:30:41.119483');
+INSERT INTO "investment_metrics" VALUES('habitaclia_fff0a2ac-0307-4bc7-a5b1-cbb6a78cce38',5.07,3.8,3.8,26.3,1515.0,358400.0,42.4,'{"gross_yield_score": 51.1, "price_per_m2_score": 27.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.0, "total": 42.4}','2026-10-30 16:41:29.529300');
 INSERT INTO "investment_metrics" VALUES('habitaclia_66e6001b-0bab-4381-81ed-ee75cbe09a97',5.64,4.23,4.23,23.6,1395.0,296800.0,51.7,'{"gross_yield_score": 59.6, "price_per_m2_score": 49.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.6, "total": 51.7}','2026-10-30 15:08:05.588298');
 INSERT INTO "investment_metrics" VALUES('habitaclia_d60dce0e-96db-4ecc-9864-3567ea71664b',4.45,3.33,3.33,30.0,1170.0,315840.0,31.4,'{"gross_yield_score": 39.0, "price_per_m2_score": 4.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.6, "total": 31.4}','2026-10-27 15:04:20.961200');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3325eb0a-225d-4027-b71f-a1a4af5328ec',9.18,6.89,6.89,14.5,1620.0,211680.0,82.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 78.3, "total": 82.8}','2026-10-30 15:08:05.655897');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7c44f337-d521-41a5-a78b-5cab7fceb85d',8.39,6.29,6.29,15.9,1125.0,160994.4,79.8,'{"gross_yield_score": 93.9, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 69.3, "total": 79.8}','2026-10-30 16:30:40.936751');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7c44f337-d521-41a5-a78b-5cab7fceb85d',8.39,6.29,6.29,15.9,1125.0,160994.4,79.8,'{"gross_yield_score": 93.9, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 69.3, "total": 79.8}','2026-10-30 16:41:29.332775');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a5b94dad-b764-4d68-ba8c-815afd8ff800',4.55,3.41,3.41,29.3,1095.0,288960.0,36.4,'{"gross_yield_score": 41.0, "price_per_m2_score": 20.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.2, "total": 36.4}','2026-10-30 15:08:05.078903');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a38d378c-c9cb-40d0-9fcb-97f895bf1274',4.45,3.33,3.33,30.0,1170.0,315840.0,35.0,'{"gross_yield_score": 39.0, "price_per_m2_score": 18.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.6, "total": 35.0}','2026-10-26 16:49:26.221345');
-INSERT INTO "investment_metrics" VALUES('habitaclia_fa0f040c-79db-40f8-a104-2f41481560a2',6.16,4.62,4.62,21.6,1185.0,230720.0,59.5,'{"gross_yield_score": 67.4, "price_per_m2_score": 66.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.4, "total": 59.5}','2026-10-30 16:30:41.007761');
-INSERT INTO "investment_metrics" VALUES('habitaclia_890803c7-0b49-470e-b4df-e4d23081adfd',6.06,4.54,4.54,22.0,1125.0,222880.0,52.2,'{"gross_yield_score": 65.9, "price_per_m2_score": 40.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 40.8, "total": 52.2}','2026-10-30 16:30:41.049642');
-INSERT INTO "investment_metrics" VALUES('habitaclia_32905ca6-2d66-451c-994b-77d7770af1af',5.26,3.94,3.94,25.4,1320.0,301280.0,45.5,'{"gross_yield_score": 53.9, "price_per_m2_score": 34.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.8, "total": 45.5}','2026-10-30 16:30:41.137454');
+INSERT INTO "investment_metrics" VALUES('habitaclia_fa0f040c-79db-40f8-a104-2f41481560a2',6.16,4.62,4.62,21.6,1185.0,230720.0,59.5,'{"gross_yield_score": 67.4, "price_per_m2_score": 66.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.4, "total": 59.5}','2026-10-30 16:41:29.410551');
+INSERT INTO "investment_metrics" VALUES('habitaclia_890803c7-0b49-470e-b4df-e4d23081adfd',6.06,4.54,4.54,22.0,1125.0,222880.0,52.2,'{"gross_yield_score": 65.9, "price_per_m2_score": 40.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 40.8, "total": 52.2}','2026-10-30 16:41:29.455267');
+INSERT INTO "investment_metrics" VALUES('habitaclia_32905ca6-2d66-451c-994b-77d7770af1af',5.26,3.94,3.94,25.4,1320.0,301280.0,45.5,'{"gross_yield_score": 53.9, "price_per_m2_score": 34.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.8, "total": 45.5}','2026-10-30 16:41:29.548379');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3afe1fb5-413e-4db5-8525-74d59b2128ad',5.07,3.8,3.8,26.3,1230.0,291200.0,45.9,'{"gross_yield_score": 51.1, "price_per_m2_score": 41.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.0, "total": 45.9}','2026-10-30 10:14:03.193695');
 INSERT INTO "investment_metrics" VALUES('habitaclia_dabc5fb0-c6d0-414a-b7ae-cc0170d6559a',3.64,2.73,2.73,36.6,1080.0,356160.0,23.9,'{"gross_yield_score": 22.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.1, "total": 23.9}','2026-10-30 15:08:05.398545');
 INSERT INTO "investment_metrics" VALUES('habitaclia_7cccf3d2-d4ed-406c-b460-80fd97d4b56e',7.67,5.75,5.75,17.4,1095.0,171360.0,75.1,'{"gross_yield_score": 86.7, "price_per_m2_score": 94.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 61.2, "total": 75.1}','2026-10-30 15:08:05.382026');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b1465094-9f80-430b-9c88-97512aa2aa57',4.56,3.42,3.42,29.2,1230.0,323680.0,36.3,'{"gross_yield_score": 41.2, "price_per_m2_score": 20.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.4, "total": 36.3}','2026-10-30 16:30:41.234430');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b1465094-9f80-430b-9c88-97512aa2aa57',4.56,3.42,3.42,29.2,1230.0,323680.0,36.3,'{"gross_yield_score": 41.2, "price_per_m2_score": 20.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.4, "total": 36.3}','2026-10-30 16:41:29.649100');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5d414142-5be7-464c-81c3-9b677081f81a',5.61,4.21,4.21,23.8,1560.0,333760.0,51.2,'{"gross_yield_score": 59.2, "price_per_m2_score": 48.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.2, "total": 51.2}','2026-10-29 15:10:03.072173');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b67a4df9-1447-4161-a3c5-959b6719c813',6.43,4.82,4.82,20.7,1530.0,285600.0,63.8,'{"gross_yield_score": 71.4, "price_per_m2_score": 76.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 63.8}','2026-10-30 16:30:41.084654');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b67a4df9-1447-4161-a3c5-959b6719c813',6.43,4.82,4.82,20.7,1530.0,285600.0,63.8,'{"gross_yield_score": 71.4, "price_per_m2_score": 76.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 63.8}','2026-10-30 16:41:29.492716');
 INSERT INTO "investment_metrics" VALUES('habitaclia_749d4c04-8c1d-4bf7-94a3-b17c485a645f',6.47,4.85,4.85,20.6,1050.0,194880.0,66.0,'{"gross_yield_score": 72.0, "price_per_m2_score": 84.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 47.0, "total": 66.0}','2026-10-29 08:48:21.870982');
 INSERT INTO "investment_metrics" VALUES('habitaclia_829524c4-2b99-4e26-aee3-016f940f22b8',6.21,4.66,4.66,21.5,1305.0,252000.0,62.6,'{"gross_yield_score": 68.2, "price_per_m2_score": 77.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.2, "total": 62.6}','2026-10-30 15:08:05.605267');
 INSERT INTO "investment_metrics" VALUES('habitaclia_346992bf-7142-4e50-bcb6-f4beed803dbf',5.04,3.78,3.78,26.4,1050.0,249883.2,45.8,'{"gross_yield_score": 50.6, "price_per_m2_score": 42.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.6, "total": 45.8}','2026-10-30 15:08:05.449864');
@@ -19543,112 +19543,112 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_7ddbbfcf-47ab-4fe4-9d2b-9165
 INSERT INTO "investment_metrics" VALUES('habitaclia_e04f3da4-07f5-4592-b28d-c46748ebf051',5.95,4.46,4.46,22.4,1050.0,211680.0,59.6,'{"gross_yield_score": 64.2, "price_per_m2_score": 72.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.2, "total": 59.6}','2026-10-30 15:08:05.639110');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e660f976-41c9-4d7c-bbbc-23bd50ed2ed3',6.47,4.85,4.85,20.6,1050.0,194880.0,65.8,'{"gross_yield_score": 72.0, "price_per_m2_score": 83.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 47.0, "total": 65.8}','2026-10-30 15:08:05.554658');
 INSERT INTO "investment_metrics" VALUES('habitaclia_8d26bd0a-bbf5-4ced-943e-3af27dc66a82',8.62,6.47,6.47,15.5,1470.0,204556.8,79.5,'{"gross_yield_score": 96.2, "price_per_m2_score": 94.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 72.0, "total": 79.5}','2026-10-30 15:08:05.348636');
-INSERT INTO "investment_metrics" VALUES('habitaclia_00625072-1956-46b5-9c18-d8a2a24ea846',6.43,4.82,4.82,20.7,1530.0,285600.0,63.8,'{"gross_yield_score": 71.4, "price_per_m2_score": 76.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 63.8}','2026-10-30 16:30:41.289354');
-INSERT INTO "investment_metrics" VALUES('habitaclia_77459d8d-26b0-4d24-88df-20b2c0f0fe7f',6.21,4.66,4.66,21.5,1305.0,252000.0,54.6,'{"gross_yield_score": 68.2, "price_per_m2_score": 45.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.2, "total": 54.6}','2026-10-30 16:30:41.313990');
+INSERT INTO "investment_metrics" VALUES('habitaclia_00625072-1956-46b5-9c18-d8a2a24ea846',6.43,4.82,4.82,20.7,1530.0,285600.0,63.8,'{"gross_yield_score": 71.4, "price_per_m2_score": 76.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 63.8}','2026-10-30 16:41:29.704387');
+INSERT INTO "investment_metrics" VALUES('habitaclia_77459d8d-26b0-4d24-88df-20b2c0f0fe7f',6.21,4.66,4.66,21.5,1305.0,252000.0,54.6,'{"gross_yield_score": 68.2, "price_per_m2_score": 45.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.2, "total": 54.6}','2026-10-30 16:41:29.729991');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c6ad3cbb-eef3-4b40-b5de-fb5600034d26',6.34,4.75,4.75,21.0,1110.0,210112.0,63.7,'{"gross_yield_score": 70.1, "price_per_m2_score": 78.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.0, "total": 63.7}','2026-10-30 15:08:05.799481');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4c49a954-f535-478d-bf10-9f232540e800',6.47,4.85,4.85,20.6,1050.0,194880.0,65.2,'{"gross_yield_score": 72.0, "price_per_m2_score": 81.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 47.0, "total": 65.2}','2026-10-30 16:30:41.271371');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e6ef6770-4fb1-4283-9352-a4745a2ff3fd',7.66,5.75,5.75,17.4,1170.0,183276.8,75.8,'{"gross_yield_score": 86.6, "price_per_m2_score": 97.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 61.2, "total": 75.8}','2026-10-30 16:30:41.251915');
-INSERT INTO "investment_metrics" VALUES('habitaclia_3532ee57-6ca1-4c25-a2e8-92d0204ff18f',5.37,4.02,4.02,24.8,1170.0,261637.6,46.3,'{"gross_yield_score": 55.6, "price_per_m2_score": 35.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.4, "total": 46.3}','2026-10-30 16:30:41.199764');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e601b060-30e9-4f21-9e6c-b68997ab4510',4.26,3.2,3.2,31.3,1110.0,312480.0,31.4,'{"gross_yield_score": 35.2, "price_per_m2_score": 10.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.0, "total": 31.4}','2026-10-30 16:30:41.217276');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4c49a954-f535-478d-bf10-9f232540e800',6.47,4.85,4.85,20.6,1050.0,194880.0,65.2,'{"gross_yield_score": 72.0, "price_per_m2_score": 81.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 47.0, "total": 65.2}','2026-10-30 16:41:29.686346');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e6ef6770-4fb1-4283-9352-a4745a2ff3fd',7.66,5.75,5.75,17.4,1170.0,183276.8,75.8,'{"gross_yield_score": 86.6, "price_per_m2_score": 97.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 61.2, "total": 75.8}','2026-10-30 16:41:29.667273');
+INSERT INTO "investment_metrics" VALUES('habitaclia_3532ee57-6ca1-4c25-a2e8-92d0204ff18f',5.37,4.02,4.02,24.8,1170.0,261637.6,46.3,'{"gross_yield_score": 55.6, "price_per_m2_score": 35.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.4, "total": 46.3}','2026-10-30 16:41:29.612476');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e601b060-30e9-4f21-9e6c-b68997ab4510',4.26,3.2,3.2,31.3,1110.0,312480.0,31.4,'{"gross_yield_score": 35.2, "price_per_m2_score": 10.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.0, "total": 31.4}','2026-10-30 16:41:29.630853');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9abceb81-0afe-4855-84cb-79425a6390a2',7.42,5.57,5.57,18.0,1455.0,235200.0,74.9,'{"gross_yield_score": 84.2, "price_per_m2_score": 98.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.6, "total": 74.9}','2026-10-30 15:08:05.365387');
 INSERT INTO "investment_metrics" VALUES('habitaclia_14a59f75-a81c-4e26-822f-a302eb0ba4a8',5.26,3.95,3.95,25.3,1095.0,249760.0,49.5,'{"gross_yield_score": 53.9, "price_per_m2_score": 50.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.0, "total": 49.5}','2026-10-30 15:08:05.857046');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2163954b-fec1-403a-a0b4-368ffd3219a7',6.99,5.24,5.24,19.1,1050.0,180320.0,71.5,'{"gross_yield_score": 79.9, "price_per_m2_score": 92.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.6, "total": 71.5}','2026-10-30 15:08:05.816000');
 INSERT INTO "investment_metrics" VALUES('habitaclia_de7dbb7a-9fd0-4ffa-8812-99bed6c3236e',7.35,5.51,5.51,18.1,1125.0,183680.0,71.8,'{"gross_yield_score": 83.5, "price_per_m2_score": 87.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.6, "total": 71.8}','2026-10-30 15:08:05.782879');
 INSERT INTO "investment_metrics" VALUES('habitaclia_847b458b-f8dc-4323-87b4-6fe14acc33a6',5.05,3.79,3.79,26.4,1230.0,292320.0,41.3,'{"gross_yield_score": 50.8, "price_per_m2_score": 23.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.8, "total": 41.3}','2026-10-30 15:08:05.840021');
-INSERT INTO "investment_metrics" VALUES('habitaclia_afa7995c-293d-4ed5-b987-29833d49db43',4.76,3.57,3.57,28.0,1377.5,347200.0,33.6,'{"gross_yield_score": 45.2, "price_per_m2_score": 2.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 33.6}','2026-10-30 16:30:45.582781');
-INSERT INTO "investment_metrics" VALUES('habitaclia_f2ca5548-f215-4830-9e39-0caf7df004af',6.12,4.59,4.59,21.8,1638.5,321440.0,55.1,'{"gross_yield_score": 66.8, "price_per_m2_score": 50.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 41.8, "total": 55.1}','2026-10-30 16:30:45.617481');
-INSERT INTO "investment_metrics" VALUES('habitaclia_f8447e4b-e4d7-4123-8c61-2a081e6ca4b1',6.08,4.56,4.56,21.9,1566.0,309120.0,54.5,'{"gross_yield_score": 66.2, "price_per_m2_score": 48.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 41.2, "total": 54.5}','2026-10-30 16:30:45.600031');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d1299b75-b92d-43f1-8cc9-afee01bd359d',5.76,4.32,4.32,23.1,1667.5,347200.0,49.6,'{"gross_yield_score": 61.4, "price_per_m2_score": 37.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.4, "total": 49.6}','2026-10-30 16:30:45.685518');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e734835c-8961-4f0d-af8b-25d608ecba97',4.61,3.46,3.46,28.9,1334.0,347200.0,31.7,'{"gross_yield_score": 42.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.2, "total": 31.7}','2026-10-30 16:30:45.548528');
-INSERT INTO "investment_metrics" VALUES('habitaclia_00e767c3-47b2-4cc7-b05d-554257d9ad4c',6.3,4.72,4.72,21.2,1116.5,212800.0,57.7,'{"gross_yield_score": 69.5, "price_per_m2_score": 55.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.4, "total": 57.7}','2026-10-30 16:30:45.719574');
-INSERT INTO "investment_metrics" VALUES('habitaclia_090edcac-1c8d-450e-abb8-5e35bb478c29',4.22,3.17,3.17,31.6,1261.5,358400.0,28.4,'{"gross_yield_score": 34.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 13.4, "total": 28.4}','2026-10-30 16:30:45.702684');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0de70ccd-cb6d-4454-a7d5-7ac74216a524',6.59,4.94,4.94,20.2,1015.0,184800.0,61.8,'{"gross_yield_score": 73.8, "price_per_m2_score": 64.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 48.8, "total": 61.8}','2026-10-30 16:30:45.651562');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e4bc42c1-6720-4638-ade4-1e9cab8deea7',8.29,6.22,6.22,16.1,1963.3,284203.36,79.2,'{"gross_yield_score": 92.9, "price_per_m2_score": 99.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 68.3, "total": 79.2}','2026-10-30 16:30:45.528992');
-INSERT INTO "investment_metrics" VALUES('habitaclia_161a0d04-0f82-45ef-af47-571040f2e96b',4.74,3.55,3.55,28.1,1305.0,330400.0,33.2,'{"gross_yield_score": 44.8, "price_per_m2_score": 1.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.0, "total": 33.2}','2026-10-30 16:30:45.565897');
-INSERT INTO "investment_metrics" VALUES('habitaclia_002a7821-dcbd-471e-93cc-cc32d3ade4c7',6.07,4.56,4.56,21.9,1638.5,323680.0,54.5,'{"gross_yield_score": 66.1, "price_per_m2_score": 48.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 41.2, "total": 54.5}','2026-10-30 16:30:45.634704');
-INSERT INTO "investment_metrics" VALUES('habitaclia_73115df7-2856-4c54-9bdc-9ef2756e2ad5',9.68,7.26,7.26,13.8,1392.0,172480.0,83.3,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 82.6, "total": 83.3}','2026-10-30 16:30:45.511358');
-INSERT INTO "investment_metrics" VALUES('habitaclia_00f5c647-26ba-4a8d-836a-238499bb45d0',5.85,4.39,4.39,22.8,1464.5,300160.0,51.0,'{"gross_yield_score": 62.7, "price_per_m2_score": 41.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.8, "total": 51.0}','2026-10-30 16:30:45.736508');
-INSERT INTO "investment_metrics" VALUES('habitaclia_ec357b5b-0176-4670-8b40-7ab72043c705',5.85,4.39,4.39,22.8,1464.5,300160.0,51.0,'{"gross_yield_score": 62.7, "price_per_m2_score": 41.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.8, "total": 51.0}','2026-10-30 16:30:45.668594');
+INSERT INTO "investment_metrics" VALUES('habitaclia_afa7995c-293d-4ed5-b987-29833d49db43',4.76,3.57,3.57,28.0,1377.5,347200.0,33.6,'{"gross_yield_score": 45.2, "price_per_m2_score": 2.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 33.6}','2026-10-30 16:41:34.092959');
+INSERT INTO "investment_metrics" VALUES('habitaclia_f2ca5548-f215-4830-9e39-0caf7df004af',6.12,4.59,4.59,21.8,1638.5,321440.0,55.1,'{"gross_yield_score": 66.8, "price_per_m2_score": 50.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 41.8, "total": 55.1}','2026-10-30 16:41:34.128418');
+INSERT INTO "investment_metrics" VALUES('habitaclia_f8447e4b-e4d7-4123-8c61-2a081e6ca4b1',6.08,4.56,4.56,21.9,1566.0,309120.0,54.5,'{"gross_yield_score": 66.2, "price_per_m2_score": 48.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 41.2, "total": 54.5}','2026-10-30 16:41:34.110490');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d1299b75-b92d-43f1-8cc9-afee01bd359d',5.76,4.32,4.32,23.1,1667.5,347200.0,49.6,'{"gross_yield_score": 61.4, "price_per_m2_score": 37.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.4, "total": 49.6}','2026-10-30 16:41:34.200839');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e734835c-8961-4f0d-af8b-25d608ecba97',4.61,3.46,3.46,28.9,1334.0,347200.0,31.7,'{"gross_yield_score": 42.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.2, "total": 31.7}','2026-10-30 16:41:34.055659');
+INSERT INTO "investment_metrics" VALUES('habitaclia_00e767c3-47b2-4cc7-b05d-554257d9ad4c',6.3,4.72,4.72,21.2,1116.5,212800.0,57.7,'{"gross_yield_score": 69.5, "price_per_m2_score": 55.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.4, "total": 57.7}','2026-10-30 16:41:34.236563');
+INSERT INTO "investment_metrics" VALUES('habitaclia_090edcac-1c8d-450e-abb8-5e35bb478c29',4.22,3.17,3.17,31.6,1261.5,358400.0,28.4,'{"gross_yield_score": 34.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 13.4, "total": 28.4}','2026-10-30 16:41:34.218848');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0de70ccd-cb6d-4454-a7d5-7ac74216a524',6.59,4.94,4.94,20.2,1015.0,184800.0,61.8,'{"gross_yield_score": 73.8, "price_per_m2_score": 64.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 48.8, "total": 61.8}','2026-10-30 16:41:34.164878');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e4bc42c1-6720-4638-ade4-1e9cab8deea7',8.29,6.22,6.22,16.1,1963.3,284203.36,79.2,'{"gross_yield_score": 92.9, "price_per_m2_score": 99.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 68.3, "total": 79.2}','2026-10-30 16:41:34.035934');
+INSERT INTO "investment_metrics" VALUES('habitaclia_161a0d04-0f82-45ef-af47-571040f2e96b',4.74,3.55,3.55,28.1,1305.0,330400.0,33.2,'{"gross_yield_score": 44.8, "price_per_m2_score": 1.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.0, "total": 33.2}','2026-10-30 16:41:34.074950');
+INSERT INTO "investment_metrics" VALUES('habitaclia_002a7821-dcbd-471e-93cc-cc32d3ade4c7',6.07,4.56,4.56,21.9,1638.5,323680.0,54.5,'{"gross_yield_score": 66.1, "price_per_m2_score": 48.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 41.2, "total": 54.5}','2026-10-30 16:41:34.146454');
+INSERT INTO "investment_metrics" VALUES('habitaclia_73115df7-2856-4c54-9bdc-9ef2756e2ad5',9.68,7.26,7.26,13.8,1392.0,172480.0,83.3,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 82.6, "total": 83.3}','2026-10-30 16:41:34.016896');
+INSERT INTO "investment_metrics" VALUES('habitaclia_00f5c647-26ba-4a8d-836a-238499bb45d0',5.85,4.39,4.39,22.8,1464.5,300160.0,51.0,'{"gross_yield_score": 62.7, "price_per_m2_score": 41.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.8, "total": 51.0}','2026-10-30 16:41:34.254366');
+INSERT INTO "investment_metrics" VALUES('habitaclia_ec357b5b-0176-4670-8b40-7ab72043c705',5.85,4.39,4.39,22.8,1464.5,300160.0,51.0,'{"gross_yield_score": 62.7, "price_per_m2_score": 41.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.8, "total": 51.0}','2026-10-30 16:41:34.183114');
 INSERT INTO "investment_metrics" VALUES('habitaclia_53cab5c2-5322-420b-864d-5ab6627cd3a4',4.51,3.38,3.38,29.6,1305.0,347200.0,30.8,'{"gross_yield_score": 40.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.6, "total": 30.8}','2026-10-30 11:27:18.594331');
-INSERT INTO "investment_metrics" VALUES('habitaclia_daf87f47-75fe-4ec3-97db-3e10f3e1b843',5.96,4.47,4.47,22.4,1363.0,274288.0,54.1,'{"gross_yield_score": 64.4, "price_per_m2_score": 50.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 54.1}','2026-10-30 16:30:50.320491');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7deec59e-a02c-4268-813e-c84260132041',3.92,2.94,2.94,34.0,1044.0,319200.0,25.9,'{"gross_yield_score": 28.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.8, "total": 25.9}','2026-10-30 16:30:50.303089');
+INSERT INTO "investment_metrics" VALUES('habitaclia_daf87f47-75fe-4ec3-97db-3e10f3e1b843',5.96,4.47,4.47,22.4,1363.0,274288.0,54.1,'{"gross_yield_score": 64.4, "price_per_m2_score": 50.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 54.1}','2026-10-30 16:41:38.837952');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7deec59e-a02c-4268-813e-c84260132041',3.92,2.94,2.94,34.0,1044.0,319200.0,25.9,'{"gross_yield_score": 28.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.8, "total": 25.9}','2026-10-30 16:41:38.819872');
 INSERT INTO "investment_metrics" VALUES('habitaclia_65f38a02-421e-4155-b87c-c76a4a985d45',3.99,3.0,3.0,33.4,1189.0,357280.0,26.4,'{"gross_yield_score": 29.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.0, "total": 26.4}','2026-10-30 15:08:31.743066');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e90bd3d5-e5e3-462b-a4f9-f9bbc98416a0',4.52,3.39,3.39,29.5,1203.5,319200.0,30.9,'{"gross_yield_score": 40.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.8, "total": 30.9}','2026-10-30 16:30:50.426430');
-INSERT INTO "investment_metrics" VALUES('habitaclia_dd62362f-3a6c-408d-b381-e66b010ebf80',5.12,3.84,3.84,26.1,1145.5,268688.0,40.9,'{"gross_yield_score": 51.8, "price_per_m2_score": 20.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.8, "total": 40.9}','2026-10-30 16:30:50.443903');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c95b4774-7068-422e-b07b-a82cca0d16fe',5.89,4.42,4.42,22.6,1595.0,324800.0,53.0,'{"gross_yield_score": 63.3, "price_per_m2_score": 47.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 38.4, "total": 53.0}','2026-10-30 16:30:50.496036');
-INSERT INTO "investment_metrics" VALUES('habitaclia_da3efb29-b253-4285-9fb0-ee2389170588',4.86,3.65,3.65,27.4,1406.5,347200.0,36.6,'{"gross_yield_score": 47.2, "price_per_m2_score": 11.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.0, "total": 36.6}','2026-10-30 16:30:50.159601');
-INSERT INTO "investment_metrics" VALUES('habitaclia_874ff4d0-c994-4961-8e65-4dc420757fbd',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:30:50.373932');
-INSERT INTO "investment_metrics" VALUES('habitaclia_82d6bdf6-1d09-4def-be02-48ffd28fb11c',6.02,4.52,4.52,22.1,1102.0,219520.0,55.0,'{"gross_yield_score": 65.3, "price_per_m2_score": 52.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 40.4, "total": 55.0}','2026-10-30 16:30:50.565352');
-INSERT INTO "investment_metrics" VALUES('habitaclia_9e56106a-41d4-45c3-876c-44f7222443f6',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:30:50.268376');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5e34b67f-5f31-453c-9843-d74a355d2ff5',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:30:50.230708');
-INSERT INTO "investment_metrics" VALUES('habitaclia_889f8438-d53f-4cb3-8090-0efc86fa80c6',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:30:50.195101');
-INSERT INTO "investment_metrics" VALUES('habitaclia_11e844d0-1de1-43ef-bd37-725c6e4ba115',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:30:50.338490');
-INSERT INTO "investment_metrics" VALUES('habitaclia_9b4704f4-bc9b-477e-83ad-cb33297acc8c',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:30:50.356146');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d8afd25f-4d87-4ebb-94e4-afc49b773f6d',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:30:50.408824');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b145b649-dcbb-421c-a201-6c227416d5fc',5.38,4.03,4.03,24.8,1305.0,291200.0,44.8,'{"gross_yield_score": 55.7, "price_per_m2_score": 28.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.6, "total": 44.8}','2026-10-30 16:30:50.391569');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e90bd3d5-e5e3-462b-a4f9-f9bbc98416a0',4.52,3.39,3.39,29.5,1203.5,319200.0,30.9,'{"gross_yield_score": 40.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.8, "total": 30.9}','2026-10-30 16:41:38.946884');
+INSERT INTO "investment_metrics" VALUES('habitaclia_dd62362f-3a6c-408d-b381-e66b010ebf80',5.12,3.84,3.84,26.1,1145.5,268688.0,40.9,'{"gross_yield_score": 51.8, "price_per_m2_score": 20.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.8, "total": 40.9}','2026-10-30 16:41:38.964476');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c95b4774-7068-422e-b07b-a82cca0d16fe',5.89,4.42,4.42,22.6,1595.0,324800.0,53.0,'{"gross_yield_score": 63.3, "price_per_m2_score": 47.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 38.4, "total": 53.0}','2026-10-30 16:41:39.017520');
+INSERT INTO "investment_metrics" VALUES('habitaclia_da3efb29-b253-4285-9fb0-ee2389170588',4.86,3.65,3.65,27.4,1406.5,347200.0,36.6,'{"gross_yield_score": 47.2, "price_per_m2_score": 11.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.0, "total": 36.6}','2026-10-30 16:41:38.677892');
+INSERT INTO "investment_metrics" VALUES('habitaclia_874ff4d0-c994-4961-8e65-4dc420757fbd',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:41:38.892319');
+INSERT INTO "investment_metrics" VALUES('habitaclia_82d6bdf6-1d09-4def-be02-48ffd28fb11c',6.02,4.52,4.52,22.1,1102.0,219520.0,55.0,'{"gross_yield_score": 65.3, "price_per_m2_score": 52.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 40.4, "total": 55.0}','2026-10-30 16:41:39.093739');
+INSERT INTO "investment_metrics" VALUES('habitaclia_9e56106a-41d4-45c3-876c-44f7222443f6',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:41:38.783839');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5e34b67f-5f31-453c-9843-d74a355d2ff5',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:41:38.748393');
+INSERT INTO "investment_metrics" VALUES('habitaclia_889f8438-d53f-4cb3-8090-0efc86fa80c6',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:41:38.712920');
+INSERT INTO "investment_metrics" VALUES('habitaclia_11e844d0-1de1-43ef-bd37-725c6e4ba115',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:41:38.855841');
+INSERT INTO "investment_metrics" VALUES('habitaclia_9b4704f4-bc9b-477e-83ad-cb33297acc8c',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:41:38.873943');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d8afd25f-4d87-4ebb-94e4-afc49b773f6d',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:41:38.928554');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b145b649-dcbb-421c-a201-6c227416d5fc',5.38,4.03,4.03,24.8,1305.0,291200.0,44.8,'{"gross_yield_score": 55.7, "price_per_m2_score": 28.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.6, "total": 44.8}','2026-10-30 16:41:38.910170');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f2ae3288-4607-4dac-bd76-1c65a3a9ed7e',3.5,2.63,2.63,38.1,1029.5,352800.0,22.9,'{"gross_yield_score": 20.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.8, "total": 22.9}','2026-10-30 15:08:31.759991');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c83153c8-705e-4d82-8400-1e4f7a0be32e',6.82,5.11,5.11,19.6,1922.7,338329.6,67.0,'{"gross_yield_score": 77.3, "price_per_m2_score": 79.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 51.7, "total": 67.0}','2026-10-30 15:08:31.692601');
 INSERT INTO "investment_metrics" VALUES('habitaclia_fb3885e9-0c72-47a0-bdb7-897379d09571',5.38,4.03,4.03,24.8,1305.0,291200.0,44.8,'{"gross_yield_score": 55.7, "price_per_m2_score": 28.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.6, "total": 44.8}','2026-10-30 15:08:31.675396');
-INSERT INTO "investment_metrics" VALUES('habitaclia_3e4191f4-025a-4d1c-9b91-d7b97644ad68',4.74,3.55,3.55,28.2,1087.5,275520.0,34.4,'{"gross_yield_score": 44.8, "price_per_m2_score": 6.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.0, "total": 34.4}','2026-10-30 16:30:50.285754');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1eec4f69-4173-4f64-a29e-fd1a3180ed7e',7.9,5.92,5.92,16.9,2227.2,338329.6,77.5,'{"gross_yield_score": 89.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.8, "total": 77.5}','2026-10-30 16:30:50.478933');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e0825e85-21f0-4153-9a4a-3e01a0dcd82d',7.9,5.92,5.92,16.9,2227.2,338329.6,77.5,'{"gross_yield_score": 89.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.8, "total": 77.5}','2026-10-30 16:30:50.213156');
+INSERT INTO "investment_metrics" VALUES('habitaclia_3e4191f4-025a-4d1c-9b91-d7b97644ad68',4.74,3.55,3.55,28.2,1087.5,275520.0,34.4,'{"gross_yield_score": 44.8, "price_per_m2_score": 6.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.0, "total": 34.4}','2026-10-30 16:41:38.802013');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1eec4f69-4173-4f64-a29e-fd1a3180ed7e',7.9,5.92,5.92,16.9,2227.2,338329.6,77.5,'{"gross_yield_score": 89.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.8, "total": 77.5}','2026-10-30 16:41:38.999957');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e0825e85-21f0-4153-9a4a-3e01a0dcd82d',7.9,5.92,5.92,16.9,2227.2,338329.6,77.5,'{"gross_yield_score": 89.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.8, "total": 77.5}','2026-10-30 16:41:38.730775');
 INSERT INTO "investment_metrics" VALUES('habitaclia_310286cb-3429-4d92-a063-64cca542b675',5.28,3.96,3.96,25.3,1305.0,296800.0,43.3,'{"gross_yield_score": 54.2, "price_per_m2_score": 25.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.2, "total": 43.3}','2026-10-30 15:08:31.709370');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5292b218-c2d3-414e-b25c-c89e28d3cce5',7.47,5.6,5.6,17.9,1922.7,308901.6,73.1,'{"gross_yield_score": 84.7, "price_per_m2_score": 90.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 59.0, "total": 73.1}','2026-10-30 16:30:50.583474');
-INSERT INTO "investment_metrics" VALUES('habitaclia_654e97c9-d719-4da2-8b42-b158b07176d6',7.47,5.6,5.6,17.9,1922.7,308901.6,73.1,'{"gross_yield_score": 84.7, "price_per_m2_score": 90.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 59.0, "total": 73.1}','2026-10-30 16:30:50.547898');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5292b218-c2d3-414e-b25c-c89e28d3cce5',7.47,5.6,5.6,17.9,1922.7,308901.6,73.1,'{"gross_yield_score": 84.7, "price_per_m2_score": 90.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 59.0, "total": 73.1}','2026-10-30 16:41:39.112503');
+INSERT INTO "investment_metrics" VALUES('habitaclia_654e97c9-d719-4da2-8b42-b158b07176d6',7.47,5.6,5.6,17.9,1922.7,308901.6,73.1,'{"gross_yield_score": 84.7, "price_per_m2_score": 90.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 59.0, "total": 73.1}','2026-10-30 16:41:39.075565');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2dabe5be-3ec2-4401-baaf-328edafe863e',4.75,3.56,3.56,28.1,1015.0,256390.4,34.6,'{"gross_yield_score": 45.0, "price_per_m2_score": 7.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.2, "total": 34.6}','2026-10-30 15:08:31.601829');
 INSERT INTO "investment_metrics" VALUES('habitaclia_845e800a-5be5-46b7-8392-e9855cd78a86',8.95,6.71,6.71,14.9,1044.0,140000.0,82.4,'{"gross_yield_score": 99.5, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 75.7, "total": 82.4}','2026-10-30 15:08:31.585094');
 INSERT INTO "investment_metrics" VALUES('habitaclia_dea89c0f-bb24-41af-9cfa-e11ef1a3dd79',6.21,4.66,4.66,21.5,1305.0,252112.0,57.8,'{"gross_yield_score": 68.2, "price_per_m2_score": 58.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.2, "total": 57.8}','2026-10-30 15:08:31.622371');
 INSERT INTO "investment_metrics" VALUES('habitaclia_622ee41a-97a0-48d8-b947-c879e6240186',7.43,5.57,5.57,17.9,1912.55,308901.6,72.7,'{"gross_yield_score": 84.3, "price_per_m2_score": 89.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.6, "total": 72.7}','2026-10-30 15:08:31.726252');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a9be4f26-4bcd-4730-8095-353c6451fbbc',11.6,8.7,8.7,11.5,1963.3,203056.0,84.7,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 97.0, "total": 84.7}','2026-10-30 16:30:50.141480');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a9be4f26-4bcd-4730-8095-353c6451fbbc',11.6,8.7,8.7,11.5,1963.3,203056.0,84.7,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 97.0, "total": 84.7}','2026-10-30 16:41:38.660628');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2693cd0d-de7b-4283-968a-67d5d9702ae4',9.67,7.25,7.25,13.8,1029.5,127792.0,83.2,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 82.5, "total": 83.2}','2026-10-30 15:08:31.776910');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b72678da-a5e7-4d73-a7c5-97963ccb338d',9.33,7.0,7.0,14.3,1638.5,210672.0,83.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 80.0, "total": 83.0}','2026-10-30 16:30:50.250992');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b72678da-a5e7-4d73-a7c5-97963ccb338d',9.33,7.0,7.0,14.3,1638.5,210672.0,83.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 80.0, "total": 83.0}','2026-10-30 16:41:38.766122');
 INSERT INTO "investment_metrics" VALUES('habitaclia_d6c60292-b53c-43cc-9fa2-ed3c2f8317c2',7.03,5.27,5.27,19.0,1029.5,175840.0,68.0,'{"gross_yield_score": 80.3, "price_per_m2_score": 77.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 54.0, "total": 68.0}','2026-10-30 15:08:31.638969');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4bfc38fb-62f9-4979-9cc4-607fcf73d4c9',5.83,4.37,4.37,22.9,1261.5,259616.0,52.0,'{"gross_yield_score": 62.5, "price_per_m2_score": 45.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.4, "total": 52.0}','2026-10-30 16:30:50.530063');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4bfc38fb-62f9-4979-9cc4-607fcf73d4c9',5.83,4.37,4.37,22.9,1261.5,259616.0,52.0,'{"gross_yield_score": 62.5, "price_per_m2_score": 45.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.4, "total": 52.0}','2026-10-30 16:41:39.057035');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3d3e40b9-058b-4a1e-b8cd-af0988ac7715',4.46,3.34,3.34,29.9,1160.0,312144.0,30.4,'{"gross_yield_score": 39.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.8, "total": 30.4}','2026-10-30 15:08:31.567699');
 INSERT INTO "investment_metrics" VALUES('habitaclia_7618811e-82c4-4c97-b45e-b8c3d070b42a',5.43,4.07,4.07,24.6,1174.5,259616.0,45.5,'{"gross_yield_score": 56.4, "price_per_m2_score": 30.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.4, "total": 45.5}','2026-10-30 15:08:31.655869');
-INSERT INTO "investment_metrics" VALUES('habitaclia_745e528e-4490-44f6-a0fb-664cd4db37d8',7.03,5.27,5.27,19.0,1029.5,175840.0,68.0,'{"gross_yield_score": 80.3, "price_per_m2_score": 77.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 54.0, "total": 68.0}','2026-10-30 16:30:50.512950');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7a214a79-987e-4ede-888b-7a7baf94f445',8.29,6.22,6.22,16.1,1963.3,284204.48,79.3,'{"gross_yield_score": 92.9, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 68.3, "total": 79.3}','2026-10-30 16:30:50.177598');
-INSERT INTO "investment_metrics" VALUES('habitaclia_50b24fea-867a-4cea-b315-54f26819541d',11.63,8.72,8.72,11.5,1319.5,136198.72,84.7,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 97.2, "total": 84.7}','2026-10-30 16:30:50.461579');
+INSERT INTO "investment_metrics" VALUES('habitaclia_745e528e-4490-44f6-a0fb-664cd4db37d8',7.03,5.27,5.27,19.0,1029.5,175840.0,68.0,'{"gross_yield_score": 80.3, "price_per_m2_score": 77.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 54.0, "total": 68.0}','2026-10-30 16:41:39.039315');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7a214a79-987e-4ede-888b-7a7baf94f445',8.29,6.22,6.22,16.1,1963.3,284204.48,79.3,'{"gross_yield_score": 92.9, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 68.3, "total": 79.3}','2026-10-30 16:41:38.695334');
+INSERT INTO "investment_metrics" VALUES('habitaclia_50b24fea-867a-4cea-b315-54f26819541d',11.63,8.72,8.72,11.5,1319.5,136198.72,84.7,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 97.2, "total": 84.7}','2026-10-30 16:41:38.982413');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ab0859a6-e803-4318-8bde-a3d83ae5e396',3.82,2.86,2.86,34.9,1015.0,319200.0,25.2,'{"gross_yield_score": 26.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.5, "total": 25.2}','2026-10-30 15:08:49.738698');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e2376652-9b2f-40d0-acf5-b2ae190f6e13',5.01,3.76,3.76,26.6,1145.5,274400.0,36.7,'{"gross_yield_score": 50.1, "price_per_m2_score": 6.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.2, "total": 36.7}','2026-10-30 15:08:49.808011');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f64da4a6-9ef0-45c8-a30e-ccd18b8e10be',4.34,3.26,3.26,30.7,1131.0,312480.0,29.4,'{"gross_yield_score": 36.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.2, "total": 29.4}','2026-10-30 15:08:49.037745');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9e61d009-097d-4384-a24d-bc4f16828786',4.78,3.59,3.59,27.9,1116.5,280000.0,33.1,'{"gross_yield_score": 45.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.8, "total": 33.1}','2026-10-30 15:08:49.001709');
-INSERT INTO "investment_metrics" VALUES('habitaclia_dfbbdb86-d46f-495d-8554-d501764de856',6.01,4.51,4.51,22.2,1363.0,272160.0,52.0,'{"gross_yield_score": 65.1, "price_per_m2_score": 40.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 40.2, "total": 52.0}','2026-10-30 16:30:55.102067');
+INSERT INTO "investment_metrics" VALUES('habitaclia_dfbbdb86-d46f-495d-8554-d501764de856',6.01,4.51,4.51,22.2,1363.0,272160.0,52.0,'{"gross_yield_score": 65.1, "price_per_m2_score": 40.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 40.2, "total": 52.0}','2026-10-30 16:41:43.686371');
 INSERT INTO "investment_metrics" VALUES('habitaclia_27762050-cbed-4a9e-8b78-f8cbd090b35d',4.72,3.54,3.54,28.3,1232.5,313600.0,32.6,'{"gross_yield_score": 44.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.8, "total": 32.6}','2026-10-30 15:08:48.932479');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ae9ae837-8d3a-4438-8b43-d8fac5167166',5.83,4.37,4.37,22.9,1406.5,289520.0,49.2,'{"gross_yield_score": 62.5, "price_per_m2_score": 34.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.4, "total": 49.2}','2026-10-30 15:08:49.179102');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ed29a574-6313-4dd2-a37e-102ac6dc2336',9.55,7.16,7.16,14.0,1203.5,151200.0,83.2,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 81.6, "total": 83.2}','2026-10-30 15:08:49.337818');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a040c456-8e2f-4b35-a6ec-1162fc236ef6',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.082087');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a040c456-8e2f-4b35-a6ec-1162fc236ef6',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.668637');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c48b6c91-8366-4501-8b5b-048e2493eab8',5.35,4.01,4.01,24.9,1377.5,309120.0,42.0,'{"gross_yield_score": 55.2, "price_per_m2_score": 18.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.2, "total": 42.0}','2026-10-30 15:08:49.072334');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f8421839-148e-4314-99ac-381380bf79b2',4.35,3.26,3.26,30.6,1015.0,279888.0,29.5,'{"gross_yield_score": 37.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.2, "total": 29.5}','2026-10-30 15:08:49.320448');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e13799d5-1695-4175-8944-99bfc4baff62',4.63,3.48,3.48,28.8,1029.5,266560.0,31.9,'{"gross_yield_score": 42.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.6, "total": 31.9}','2026-10-30 15:08:49.055037');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c4bf1f54-e4a6-477e-9e7a-abd619538fb5',8.46,6.35,6.35,15.8,1015.0,143903.2,78.5,'{"gross_yield_score": 94.6, "price_per_m2_score": 93.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 70.2, "total": 78.5}','2026-10-30 16:30:55.192372');
-INSERT INTO "investment_metrics" VALUES('habitaclia_cb08e19b-01dd-49b2-8695-4ce4b22bb026',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.331510');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c4bf1f54-e4a6-477e-9e7a-abd619538fb5',8.46,6.35,6.35,15.8,1015.0,143903.2,78.5,'{"gross_yield_score": 94.6, "price_per_m2_score": 93.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 70.2, "total": 78.5}','2026-10-30 16:41:43.782516');
+INSERT INTO "investment_metrics" VALUES('habitaclia_cb08e19b-01dd-49b2-8695-4ce4b22bb026',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.928933');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c69a140a-654b-4d16-9025-e15cc7d14cc8',5.37,4.03,4.03,24.8,1131.0,252560.0,42.4,'{"gross_yield_score": 55.6, "price_per_m2_score": 19.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.6, "total": 42.4}','2026-10-30 15:08:49.423686');
 INSERT INTO "investment_metrics" VALUES('habitaclia_bbe5fb8a-cb81-4c19-9aff-842e1532bcf9',3.82,2.86,2.86,34.9,1015.0,319200.0,25.2,'{"gross_yield_score": 26.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.5, "total": 25.2}','2026-10-27 15:05:00.553746');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a249b9c5-e1c9-491e-83a1-f1bff0b66eb0',7.67,5.75,5.75,17.4,1145.5,179200.0,72.0,'{"gross_yield_score": 86.7, "price_per_m2_score": 82.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 61.2, "total": 72.0}','2026-10-30 15:08:49.389148');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e314041b-d8b3-4cc8-811d-84909c7e7b8b',6.6,4.95,4.95,20.2,1131.0,205520.0,60.7,'{"gross_yield_score": 74.0, "price_per_m2_score": 59.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 49.0, "total": 60.7}','2026-10-30 15:08:49.372113');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5cb515d1-3351-4d16-b127-4cbe70042647',4.55,3.42,3.42,29.3,1232.5,324800.0,31.2,'{"gross_yield_score": 41.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.4, "total": 31.2}','2026-10-30 15:08:48.949677');
 INSERT INTO "investment_metrics" VALUES('habitaclia_76f1d998-c49f-4988-86a3-cefca75d2712',5.68,4.26,4.26,23.5,1218.0,257488.0,46.8,'{"gross_yield_score": 60.2, "price_per_m2_score": 28.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.2, "total": 46.8}','2026-10-30 15:08:49.142623');
-INSERT INTO "investment_metrics" VALUES('habitaclia_23f8947a-b43d-4741-9110-0065e4e979a0',6.22,4.67,4.67,21.4,1800.9,347200.0,56.0,'{"gross_yield_score": 68.3, "price_per_m2_score": 50.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.4, "total": 56.0}','2026-10-30 16:30:55.045071');
-INSERT INTO "investment_metrics" VALUES('habitaclia_70816dee-5e90-460a-a6b1-4d12bc807802',6.22,4.67,4.67,21.4,1800.9,347200.0,56.0,'{"gross_yield_score": 68.3, "price_per_m2_score": 50.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.4, "total": 56.0}','2026-10-30 16:30:55.010237');
-INSERT INTO "investment_metrics" VALUES('habitaclia_36b08130-7e9c-4546-802e-0678a9ed4f03',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.400033');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4c54c6bd-b5f5-4898-8140-1ed72022d58e',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.314321');
-INSERT INTO "investment_metrics" VALUES('habitaclia_601201d6-337a-4008-b3d1-dc04cef23a96',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.297252');
+INSERT INTO "investment_metrics" VALUES('habitaclia_23f8947a-b43d-4741-9110-0065e4e979a0',6.22,4.67,4.67,21.4,1800.9,347200.0,56.0,'{"gross_yield_score": 68.3, "price_per_m2_score": 50.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.4, "total": 56.0}','2026-10-30 16:41:43.632396');
+INSERT INTO "investment_metrics" VALUES('habitaclia_70816dee-5e90-460a-a6b1-4d12bc807802',6.22,4.67,4.67,21.4,1800.9,347200.0,56.0,'{"gross_yield_score": 68.3, "price_per_m2_score": 50.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 43.4, "total": 56.0}','2026-10-30 16:41:43.597300');
+INSERT INTO "investment_metrics" VALUES('habitaclia_36b08130-7e9c-4546-802e-0678a9ed4f03',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:44.002042');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4c54c6bd-b5f5-4898-8140-1ed72022d58e',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.910363');
+INSERT INTO "investment_metrics" VALUES('habitaclia_601201d6-337a-4008-b3d1-dc04cef23a96',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.892019');
 INSERT INTO "investment_metrics" VALUES('habitaclia_72d99507-4f94-4141-8982-71a99dedeb0f',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 15:08:48.898319');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b8b72745-11d5-4073-96fa-29fa9225fe2b',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.245101');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b8b72745-11d5-4073-96fa-29fa9225fe2b',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.836995');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c94eef7a-9f7b-4b71-b865-3b8cae4a7eea',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 15:08:48.915675');
-INSERT INTO "investment_metrics" VALUES('habitaclia_03c01217-2905-40e4-9eec-aa18f94c2a85',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.120068');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0b247918-3f75-4dc0-87cd-2e412956b6f7',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.027856');
+INSERT INTO "investment_metrics" VALUES('habitaclia_03c01217-2905-40e4-9eec-aa18f94c2a85',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.704421');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0b247918-3f75-4dc0-87cd-2e412956b6f7',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.614726');
 INSERT INTO "investment_metrics" VALUES('habitaclia_312dd46b-f6a3-4dfe-aa7d-694b62ba98d3',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 15:08:48.880714');
-INSERT INTO "investment_metrics" VALUES('habitaclia_48e64b9b-a549-487c-93a2-d779dcbd8b95',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:54.992575');
-INSERT INTO "investment_metrics" VALUES('habitaclia_64c11944-7135-4cd6-8933-5ae057482556',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.155913');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6cfcf650-2fb5-40b9-b221-35ef98f6204f',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.262619');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7f5257ef-0e02-43fc-b177-788246a1acea',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.382773');
-INSERT INTO "investment_metrics" VALUES('habitaclia_900a297a-9de1-4ea1-ac03-bda695784ec5',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.138229');
-INSERT INTO "investment_metrics" VALUES('habitaclia_dbcca53e-11b6-442d-97dc-53f65fb62e51',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.365713');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e85257e9-6025-47e3-a13b-15a90513e658',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.280024');
-INSERT INTO "investment_metrics" VALUES('habitaclia_ea83b9c1-b005-4d62-8d09-dcf6c066b0a6',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.348423');
-INSERT INTO "investment_metrics" VALUES('habitaclia_fa58e938-7dc2-4267-ae06-5024ef3f685e',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:55.227430');
+INSERT INTO "investment_metrics" VALUES('habitaclia_48e64b9b-a549-487c-93a2-d779dcbd8b95',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.579467');
+INSERT INTO "investment_metrics" VALUES('habitaclia_64c11944-7135-4cd6-8933-5ae057482556',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.740633');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6cfcf650-2fb5-40b9-b221-35ef98f6204f',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.855489');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7f5257ef-0e02-43fc-b177-788246a1acea',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.983655');
+INSERT INTO "investment_metrics" VALUES('habitaclia_900a297a-9de1-4ea1-ac03-bda695784ec5',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.722508');
+INSERT INTO "investment_metrics" VALUES('habitaclia_dbcca53e-11b6-442d-97dc-53f65fb62e51',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.965254');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e85257e9-6025-47e3-a13b-15a90513e658',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.873741');
+INSERT INTO "investment_metrics" VALUES('habitaclia_ea83b9c1-b005-4d62-8d09-dcf6c066b0a6',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.947067');
+INSERT INTO "investment_metrics" VALUES('habitaclia_fa58e938-7dc2-4267-ae06-5024ef3f685e',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.818861');
 INSERT INTO "investment_metrics" VALUES('habitaclia_07a16852-d535-456e-b215-36fdc8aa8b19',4.81,3.61,3.61,27.7,1189.0,296800.0,33.4,'{"gross_yield_score": 46.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.2, "total": 33.4}','2026-10-30 15:08:49.161464');
 INSERT INTO "investment_metrics" VALUES('habitaclia_043a6cf8-e541-4f1b-9610-19e9de5b013f',5.67,4.25,4.25,23.5,1305.0,276416.0,46.6,'{"gross_yield_score": 60.0, "price_per_m2_score": 28.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.0, "total": 46.6}','2026-10-30 15:08:49.266056');
 INSERT INTO "investment_metrics" VALUES('habitaclia_18824f68-986d-45e8-9180-c2a9be83801a',7.56,5.67,5.67,17.6,1058.5,168000.0,71.0,'{"gross_yield_score": 85.6, "price_per_m2_score": 80.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.0, "total": 71.0}','2026-10-30 15:08:49.843279');
@@ -19680,7 +19680,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_ced31e08-81eb-445b-81bd-6a3e
 INSERT INTO "investment_metrics" VALUES('habitaclia_b8ee6e5e-d7c8-4a12-b0ce-b2e069003e84',9.0,6.75,6.75,14.8,1015.0,135408.0,82.6,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 76.2, "total": 82.6}','2026-10-30 15:08:49.790962');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f4ac56fe-a04f-4d1f-80ce-30aec9680ba1',11.11,8.33,8.33,12.0,1044.0,112784.0,84.3,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 93.3, "total": 84.3}','2026-10-30 15:08:49.492456');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1a92a064-f298-4ab9-a165-d85590323a01',8.48,6.36,6.36,15.7,1073.0,151760.0,78.7,'{"gross_yield_score": 94.8, "price_per_m2_score": 93.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 70.4, "total": 78.7}','2026-10-30 15:08:49.283689');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d1b0cb7c-c545-4b32-a468-ae6beb776adb',9.0,6.75,6.75,14.8,1015.0,135408.0,82.6,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 76.2, "total": 82.6}','2026-10-30 16:30:55.209896');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d1b0cb7c-c545-4b32-a468-ae6beb776adb',9.0,6.75,6.75,14.8,1015.0,135408.0,82.6,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 76.2, "total": 82.6}','2026-10-30 16:41:43.800781');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1ade38a4-b5ba-4308-b908-a8a793c449d5',6.45,4.84,4.84,20.7,1174.5,218400.0,58.5,'{"gross_yield_score": 71.8, "price_per_m2_score": 54.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.8, "total": 58.5}','2026-10-26 04:45:59.173857');
 INSERT INTO "investment_metrics" VALUES('habitaclia_77a39f1d-7386-4f6f-a27c-48136f84fc99',8.18,6.14,6.14,16.3,1058.5,155276.8,76.3,'{"gross_yield_score": 91.8, "price_per_m2_score": 89.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 67.1, "total": 76.3}','2026-10-30 15:08:49.721281');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c3f1b5c7-bb93-43f1-8369-cc9aad08fa19',11.11,8.33,8.33,12.0,1044.0,112784.0,84.3,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 93.3, "total": 84.3}','2026-10-30 15:08:49.825526');
@@ -19691,153 +19691,153 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_8a380442-64b4-42fa-a660-a566
 INSERT INTO "investment_metrics" VALUES('habitaclia_9dc8ffc3-ab66-4a1a-8d52-6661a91fb70a',6.15,4.61,4.61,21.7,1377.5,268800.0,54.1,'{"gross_yield_score": 67.2, "price_per_m2_score": 45.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.2, "total": 54.1}','2026-10-30 15:08:49.756307');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c434cf12-25b1-468f-941c-055fb730a075',10.67,8.0,8.0,12.5,1145.5,128800.0,84.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 90.0, "total": 84.0}','2026-10-30 15:08:48.984365');
 INSERT INTO "investment_metrics" VALUES('habitaclia_64148c1f-8526-47a8-b78f-b8bf26b52934',8.48,6.36,6.36,15.7,1073.0,151760.0,78.7,'{"gross_yield_score": 94.8, "price_per_m2_score": 93.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 70.4, "total": 78.7}','2026-10-30 15:08:49.475476');
-INSERT INTO "investment_metrics" VALUES('habitaclia_fec975d2-c837-4c1f-b44b-17dbb3a37b49',4.7,3.52,3.52,28.4,1058.5,270256.0,32.4,'{"gross_yield_score": 44.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.4, "total": 32.4}','2026-10-30 16:30:55.063686');
+INSERT INTO "investment_metrics" VALUES('habitaclia_fec975d2-c837-4c1f-b44b-17dbb3a37b49',4.7,3.52,3.52,28.4,1058.5,270256.0,32.4,'{"gross_yield_score": 44.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.4, "total": 32.4}','2026-10-30 16:41:43.651023');
 INSERT INTO "investment_metrics" VALUES('habitaclia_75aeefe4-a65b-4898-b89d-306a773fc655',4.29,3.22,3.22,31.1,1260.0,352240.0,36.4,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.4}','2026-10-30 15:09:01.431453');
-INSERT INTO "investment_metrics" VALUES('habitaclia_58004112-e7c8-4f87-92e3-7ef0f648806d',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:31:00.134923');
-INSERT INTO "investment_metrics" VALUES('habitaclia_cfaba2a8-4a13-4473-88ad-e89e2e15be7e',4.62,3.46,3.46,28.9,1078.0,280000.0,43.0,'{"gross_yield_score": 42.4, "price_per_m2_score": 44.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.2, "total": 43.0}','2026-10-30 16:30:59.780941');
+INSERT INTO "investment_metrics" VALUES('habitaclia_58004112-e7c8-4f87-92e3-7ef0f648806d',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.659884');
+INSERT INTO "investment_metrics" VALUES('habitaclia_cfaba2a8-4a13-4473-88ad-e89e2e15be7e',4.62,3.46,3.46,28.9,1078.0,280000.0,43.0,'{"gross_yield_score": 42.4, "price_per_m2_score": 44.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.2, "total": 43.0}','2026-10-30 16:41:48.298841');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1f36bbc4-ff1e-4ac4-b6ab-5df2d406e063',6.93,5.2,5.2,19.2,1456.0,252000.0,72.9,'{"gross_yield_score": 78.9, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.0, "total": 72.9}','2026-10-30 15:09:01.563628');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c78963ef-c566-4a68-b5fa-8f41c9e20b6a',4.82,3.61,3.61,27.7,1344.0,334880.0,46.9,'{"gross_yield_score": 46.4, "price_per_m2_score": 53.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.2, "total": 46.9}','2026-10-30 15:09:01.483039');
 INSERT INTO "investment_metrics" VALUES('habitaclia_51b2f42b-6482-4b00-8463-a91847ccf89d',4.85,3.64,3.64,27.5,1358.0,336000.0,47.5,'{"gross_yield_score": 47.0, "price_per_m2_score": 55.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.8, "total": 47.5}','2026-10-30 15:09:01.466199');
-INSERT INTO "investment_metrics" VALUES('habitaclia_f69791f3-5cf8-4b97-97ca-64768479114a',4.21,3.16,3.16,31.7,1092.0,311248.0,34.8,'{"gross_yield_score": 34.2, "price_per_m2_score": 26.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 13.2, "total": 34.8}','2026-10-30 16:31:00.116477');
+INSERT INTO "investment_metrics" VALUES('habitaclia_f69791f3-5cf8-4b97-97ca-64768479114a',4.21,3.16,3.16,31.7,1092.0,311248.0,34.8,'{"gross_yield_score": 34.2, "price_per_m2_score": 26.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 13.2, "total": 34.8}','2026-10-30 16:41:48.640442');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e9186163-573c-4638-bba9-ca743c4f6676',4.48,3.36,3.36,29.8,1078.0,288960.0,40.3,'{"gross_yield_score": 39.6, "price_per_m2_score": 38.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.2, "total": 40.3}','2026-10-30 15:09:01.448634');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2bd8ae50-2745-4492-8469-9a492b095e9e',3.56,2.67,2.67,37.5,980.0,330400.0,23.3,'{"gross_yield_score": 21.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.9, "total": 23.3}','2026-10-30 15:09:01.516977');
-INSERT INTO "investment_metrics" VALUES('habitaclia_91e21686-9b2c-4f4c-a488-7b2368400e93',10.03,7.53,7.53,13.3,1358.0,162396.64,83.5,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 85.3, "total": 83.5}','2026-10-30 16:31:00.153134');
-INSERT INTO "investment_metrics" VALUES('habitaclia_970ef414-3e39-4bf4-86d4-794a98cb91f6',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:30:59.798741');
-INSERT INTO "investment_metrics" VALUES('habitaclia_afa72daf-8f70-43ee-a479-a0e9008312d8',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:30:59.832928');
-INSERT INTO "investment_metrics" VALUES('habitaclia_142e466a-f730-4f9b-b460-74d134c10e52',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:30:59.935583');
-INSERT INTO "investment_metrics" VALUES('habitaclia_01b86a73-7cf0-44c1-9064-639f99731038',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:30:59.884685');
-INSERT INTO "investment_metrics" VALUES('habitaclia_57860b26-f390-4593-85cc-b0a310e86b4d',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:30:59.918728');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6c7a4e8f-1150-42cf-9077-d15d28e8d358',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:30:59.901771');
-INSERT INTO "investment_metrics" VALUES('habitaclia_80ff93e1-3133-40f2-b6d6-b527bb261a50',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:31:00.079617');
-INSERT INTO "investment_metrics" VALUES('habitaclia_8e063a11-f639-4ba3-83d1-d896c0a3ba41',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:31:00.024580');
-INSERT INTO "investment_metrics" VALUES('habitaclia_9b247579-9fa4-439e-b071-27e463a3d8d9',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:30:59.815993');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a4a4bf4c-1d70-4503-8919-7b63bdcc7493',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:31:00.042313');
-INSERT INTO "investment_metrics" VALUES('habitaclia_da46edad-18cf-4193-a909-08144bf9eba6',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:30:59.988948');
-INSERT INTO "investment_metrics" VALUES('habitaclia_dc88b3a1-1a7a-4ae4-8605-371134974ac8',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:30:59.867702');
-INSERT INTO "investment_metrics" VALUES('habitaclia_eb064431-3866-4ca8-84c3-ea289a1941d3',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:31:00.061238');
-INSERT INTO "investment_metrics" VALUES('habitaclia_ebcd8524-505d-43a3-82b6-02a961fdcc09',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:31:00.006633');
-INSERT INTO "investment_metrics" VALUES('habitaclia_fb562a04-fc66-4243-a1ed-809976dceed4',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:30:59.850696');
-INSERT INTO "investment_metrics" VALUES('habitaclia_03fbd675-4567-4376-a5d2-bb51ce61e825',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:31:00.259977');
+INSERT INTO "investment_metrics" VALUES('habitaclia_91e21686-9b2c-4f4c-a488-7b2368400e93',10.03,7.53,7.53,13.3,1358.0,162396.64,83.5,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 85.3, "total": 83.5}','2026-10-30 16:41:48.677636');
+INSERT INTO "investment_metrics" VALUES('habitaclia_970ef414-3e39-4bf4-86d4-794a98cb91f6',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:41:48.316493');
+INSERT INTO "investment_metrics" VALUES('habitaclia_afa72daf-8f70-43ee-a479-a0e9008312d8',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:41:48.352416');
+INSERT INTO "investment_metrics" VALUES('habitaclia_142e466a-f730-4f9b-b460-74d134c10e52',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:41:48.460248');
+INSERT INTO "investment_metrics" VALUES('habitaclia_01b86a73-7cf0-44c1-9064-639f99731038',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.406214');
+INSERT INTO "investment_metrics" VALUES('habitaclia_57860b26-f390-4593-85cc-b0a310e86b4d',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.442681');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6c7a4e8f-1150-42cf-9077-d15d28e8d358',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.424578');
+INSERT INTO "investment_metrics" VALUES('habitaclia_80ff93e1-3133-40f2-b6d6-b527bb261a50',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.604630');
+INSERT INTO "investment_metrics" VALUES('habitaclia_8e063a11-f639-4ba3-83d1-d896c0a3ba41',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.550838');
+INSERT INTO "investment_metrics" VALUES('habitaclia_9b247579-9fa4-439e-b071-27e463a3d8d9',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.334413');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a4a4bf4c-1d70-4503-8919-7b63bdcc7493',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.568983');
+INSERT INTO "investment_metrics" VALUES('habitaclia_da46edad-18cf-4193-a909-08144bf9eba6',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.512907');
+INSERT INTO "investment_metrics" VALUES('habitaclia_dc88b3a1-1a7a-4ae4-8605-371134974ac8',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.388394');
+INSERT INTO "investment_metrics" VALUES('habitaclia_eb064431-3866-4ca8-84c3-ea289a1941d3',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.586955');
+INSERT INTO "investment_metrics" VALUES('habitaclia_ebcd8524-505d-43a3-82b6-02a961fdcc09',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.530572');
+INSERT INTO "investment_metrics" VALUES('habitaclia_fb562a04-fc66-4243-a1ed-809976dceed4',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.370200');
+INSERT INTO "investment_metrics" VALUES('habitaclia_03fbd675-4567-4376-a5d2-bb51ce61e825',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:41:48.782625');
 INSERT INTO "investment_metrics" VALUES('habitaclia_34509440-9927-4c2f-bd24-83926cb1d9b2',4.29,3.22,3.22,31.1,1260.0,352240.0,36.4,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.4}','2026-10-30 15:09:01.412778');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5a53a376-c45d-4ebd-972e-e4359854c900',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:31:00.189338');
-INSERT INTO "investment_metrics" VALUES('habitaclia_95612661-a0bd-4646-af92-5c27a647ecba',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:31:00.241471');
-INSERT INTO "investment_metrics" VALUES('habitaclia_abfb8e8d-865f-471f-8ba1-2df74508b0a1',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:31:00.223939');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c02ff576-c0d0-4a87-8f4b-851a3a641dad',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:31:00.097527');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d691f0d4-8ef2-4a10-9d2b-48b75836390a',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:31:00.171309');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5a53a376-c45d-4ebd-972e-e4359854c900',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:41:48.712701');
+INSERT INTO "investment_metrics" VALUES('habitaclia_95612661-a0bd-4646-af92-5c27a647ecba',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:41:48.765286');
+INSERT INTO "investment_metrics" VALUES('habitaclia_abfb8e8d-865f-471f-8ba1-2df74508b0a1',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:41:48.748064');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c02ff576-c0d0-4a87-8f4b-851a3a641dad',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:41:48.622115');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d691f0d4-8ef2-4a10-9d2b-48b75836390a',4.29,3.22,3.22,31.1,1260.0,352240.0,36.3,'{"gross_yield_score": 35.8, "price_per_m2_score": 29.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.4, "total": 36.3}','2026-10-30 16:41:48.695102');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5a61a612-a98c-4c09-a278-c05b8d51dd30',4.77,3.57,3.57,28.0,1330.0,334880.0,46.0,'{"gross_yield_score": 45.4, "price_per_m2_score": 51.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 46.0}','2026-10-30 15:23:41.168916');
-INSERT INTO "investment_metrics" VALUES('habitaclia_410d819f-cde7-4e0d-bb6e-ba6193536822',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:30:59.953007');
-INSERT INTO "investment_metrics" VALUES('habitaclia_890974fc-13fe-4945-8b49-fea4cb75cc3f',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:30:59.970919');
+INSERT INTO "investment_metrics" VALUES('habitaclia_410d819f-cde7-4e0d-bb6e-ba6193536822',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.478204');
+INSERT INTO "investment_metrics" VALUES('habitaclia_890974fc-13fe-4945-8b49-fea4cb75cc3f',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.495456');
 INSERT INTO "investment_metrics" VALUES('habitaclia_224ada13-e75b-4648-801e-188beb9887a1',4.76,3.57,3.57,28.0,1288.0,324800.0,45.8,'{"gross_yield_score": 45.2, "price_per_m2_score": 51.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 45.8}','2026-10-30 15:09:01.499966');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7d7e71f6-3de8-4b45-ae2c-d906367bb7f8',4.82,3.61,3.61,27.7,1344.0,334880.0,46.8,'{"gross_yield_score": 46.4, "price_per_m2_score": 53.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.2, "total": 46.8}','2026-10-30 16:31:00.206663');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7d7e71f6-3de8-4b45-ae2c-d906367bb7f8',4.82,3.61,3.61,27.7,1344.0,334880.0,46.8,'{"gross_yield_score": 46.4, "price_per_m2_score": 53.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.2, "total": 46.8}','2026-10-30 16:41:48.730541');
 INSERT INTO "investment_metrics" VALUES('habitaclia_dd2b1c4c-4b03-4f20-8130-e91ebf27e0c3',7.64,5.73,5.73,17.5,980.0,154000.0,76.3,'{"gross_yield_score": 86.4, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 61.0, "total": 76.3}','2026-10-30 15:09:01.546558');
 INSERT INTO "investment_metrics" VALUES('habitaclia_d7da03a7-fc35-4f31-abc3-70c655f069b2',4.85,3.64,3.64,27.5,1358.0,336000.0,47.1,'{"gross_yield_score": 47.0, "price_per_m2_score": 53.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.8, "total": 47.1}','2026-10-24 13:21:09.210915');
-INSERT INTO "investment_metrics" VALUES('habitaclia_19d02b14-cd24-45fa-8a25-322257971883',12.82,9.62,9.62,10.4,2286.0,213920.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 16:31:08.700162');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4761d2b5-5d09-4cf8-a4bf-1dc9de6a6d1d',5.26,3.95,3.95,25.3,1548.0,352923.2,46.2,'{"gross_yield_score": 53.9, "price_per_m2_score": 37.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.0, "total": 46.2}','2026-10-30 16:31:08.665213');
-INSERT INTO "investment_metrics" VALUES('habitaclia_2c15fb37-f13d-4f0d-9639-8d9c64f7966d',4.76,3.57,3.57,28.0,1260.0,317968.0,37.6,'{"gross_yield_score": 45.2, "price_per_m2_score": 18.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.6}','2026-10-30 16:31:08.682415');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6f209a4d-bc24-44da-83f9-9889c002ea5f',5.08,3.81,3.81,26.2,1494.0,352800.0,43.0,'{"gross_yield_score": 51.2, "price_per_m2_score": 30.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 43.0}','2026-10-30 16:31:08.717283');
-INSERT INTO "investment_metrics" VALUES('habitaclia_da1ef7ab-d713-4e87-8948-f6c413a9878f',7.03,5.27,5.27,19.0,1836.0,313600.0,73.7,'{"gross_yield_score": 80.3, "price_per_m2_score": 92.6, "location_score": 60.0, "condition_score": 50.0, "roi_score": 54.0, "total": 73.7}','2026-10-30 16:31:17.454890');
-INSERT INTO "investment_metrics" VALUES('habitaclia_84b48cac-0481-4d15-ae1f-9b19951e4136',7.98,5.98,5.98,16.7,1854.0,278880.0,79.9,'{"gross_yield_score": 89.8, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 64.7, "total": 79.9}','2026-10-30 16:31:17.419215');
-INSERT INTO "investment_metrics" VALUES('habitaclia_78a57e12-9d06-4a3e-8ca0-02b56bfbac6b',4.46,3.34,3.34,29.9,1332.0,358400.0,36.9,'{"gross_yield_score": 39.2, "price_per_m2_score": 17.9, "location_score": 60.0, "condition_score": 50.0, "roi_score": 16.8, "total": 36.9}','2026-10-30 16:31:17.198847');
-INSERT INTO "investment_metrics" VALUES('habitaclia_160caee0-1298-467c-b816-79761e184a75',4.37,3.27,3.27,30.5,1296.0,356160.0,35.2,'{"gross_yield_score": 37.4, "price_per_m2_score": 14.1, "location_score": 60.0, "condition_score": 50.0, "roi_score": 15.4, "total": 35.2}','2026-10-30 16:31:17.236259');
-INSERT INTO "investment_metrics" VALUES('habitaclia_87027d40-23ea-450d-9020-3da6ca812eff',6.43,4.82,4.82,20.7,1260.0,235200.0,67.2,'{"gross_yield_score": 71.4, "price_per_m2_score": 82.1, "location_score": 60.0, "condition_score": 50.0, "roi_score": 46.4, "total": 67.2}','2026-10-30 16:31:17.436987');
+INSERT INTO "investment_metrics" VALUES('habitaclia_19d02b14-cd24-45fa-8a25-322257971883',12.82,9.62,9.62,10.4,2286.0,213920.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 16:42:02.652118');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4761d2b5-5d09-4cf8-a4bf-1dc9de6a6d1d',5.26,3.95,3.95,25.3,1548.0,352923.2,46.2,'{"gross_yield_score": 53.9, "price_per_m2_score": 37.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.0, "total": 46.2}','2026-10-30 16:42:02.615679');
+INSERT INTO "investment_metrics" VALUES('habitaclia_2c15fb37-f13d-4f0d-9639-8d9c64f7966d',4.76,3.57,3.57,28.0,1260.0,317968.0,37.6,'{"gross_yield_score": 45.2, "price_per_m2_score": 18.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.6}','2026-10-30 16:42:02.633864');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6f209a4d-bc24-44da-83f9-9889c002ea5f',5.08,3.81,3.81,26.2,1494.0,352800.0,43.0,'{"gross_yield_score": 51.2, "price_per_m2_score": 30.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 43.0}','2026-10-30 16:42:02.669384');
+INSERT INTO "investment_metrics" VALUES('habitaclia_da1ef7ab-d713-4e87-8948-f6c413a9878f',7.03,5.27,5.27,19.0,1836.0,313600.0,73.8,'{"gross_yield_score": 80.3, "price_per_m2_score": 93.3, "location_score": 60.0, "condition_score": 50.0, "roi_score": 54.0, "total": 73.8}','2026-10-30 16:42:11.510147');
+INSERT INTO "investment_metrics" VALUES('habitaclia_84b48cac-0481-4d15-ae1f-9b19951e4136',7.98,5.98,5.98,16.7,1854.0,278880.0,79.9,'{"gross_yield_score": 89.8, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 64.7, "total": 79.9}','2026-10-30 16:42:11.473393');
+INSERT INTO "investment_metrics" VALUES('habitaclia_78a57e12-9d06-4a3e-8ca0-02b56bfbac6b',4.46,3.34,3.34,29.9,1332.0,358400.0,37.1,'{"gross_yield_score": 39.2, "price_per_m2_score": 19.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 16.8, "total": 37.1}','2026-10-30 16:42:11.251400');
+INSERT INTO "investment_metrics" VALUES('habitaclia_160caee0-1298-467c-b816-79761e184a75',4.37,3.27,3.27,30.5,1296.0,356160.0,35.5,'{"gross_yield_score": 37.4, "price_per_m2_score": 15.3, "location_score": 60.0, "condition_score": 50.0, "roi_score": 15.4, "total": 35.5}','2026-10-30 16:42:11.288040');
+INSERT INTO "investment_metrics" VALUES('habitaclia_87027d40-23ea-450d-9020-3da6ca812eff',6.43,4.82,4.82,20.7,1260.0,235200.0,67.4,'{"gross_yield_score": 71.4, "price_per_m2_score": 82.9, "location_score": 60.0, "condition_score": 50.0, "roi_score": 46.4, "total": 67.4}','2026-10-30 16:42:11.491731');
 INSERT INTO "investment_metrics" VALUES('habitaclia_784bbd59-a2d6-466f-8836-79c3137c1d20',4.59,3.44,3.44,29.0,1350.0,352800.0,39.3,'{"gross_yield_score": 41.8, "price_per_m2_score": 23.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 18.8, "total": 39.3}','2026-10-30 15:09:38.582414');
-INSERT INTO "investment_metrics" VALUES('habitaclia_57b839fc-887c-41ad-ad44-78c60ed7f0b2',4.35,3.27,3.27,30.6,1260.0,347200.0,34.9,'{"gross_yield_score": 37.0, "price_per_m2_score": 13.6, "location_score": 60.0, "condition_score": 50.0, "roi_score": 15.4, "total": 34.9}','2026-10-30 16:31:17.180616');
-INSERT INTO "investment_metrics" VALUES('habitaclia_43c97dde-c38c-49a9-98b7-29226fd9800b',5.93,4.45,4.45,22.5,1710.0,346080.0,61.2,'{"gross_yield_score": 63.9, "price_per_m2_score": 71.8, "location_score": 60.0, "condition_score": 50.0, "roi_score": 39.0, "total": 61.2}','2026-10-30 16:31:17.254696');
-INSERT INTO "investment_metrics" VALUES('habitaclia_cdfa466a-9a61-4927-9b84-6703a356f0af',4.4,3.3,3.3,30.3,1314.0,358400.0,35.8,'{"gross_yield_score": 38.0, "price_per_m2_score": 15.5, "location_score": 60.0, "condition_score": 50.0, "roi_score": 16.0, "total": 35.8}','2026-10-30 16:31:17.401259');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1797ab93-8ed6-4ae3-85a4-63388391e2c9',6.84,5.13,5.13,19.5,1404.0,246400.0,71.7,'{"gross_yield_score": 77.6, "price_per_m2_score": 89.5, "location_score": 60.0, "condition_score": 50.0, "roi_score": 51.9, "total": 71.7}','2026-10-30 16:31:17.162865');
+INSERT INTO "investment_metrics" VALUES('habitaclia_57b839fc-887c-41ad-ad44-78c60ed7f0b2',4.35,3.27,3.27,30.6,1260.0,347200.0,35.2,'{"gross_yield_score": 37.0, "price_per_m2_score": 14.8, "location_score": 60.0, "condition_score": 50.0, "roi_score": 15.4, "total": 35.2}','2026-10-30 16:42:11.232754');
+INSERT INTO "investment_metrics" VALUES('habitaclia_43c97dde-c38c-49a9-98b7-29226fd9800b',5.93,4.45,4.45,22.5,1710.0,346080.0,61.4,'{"gross_yield_score": 63.9, "price_per_m2_score": 72.6, "location_score": 60.0, "condition_score": 50.0, "roi_score": 39.0, "total": 61.4}','2026-10-30 16:42:11.306165');
+INSERT INTO "investment_metrics" VALUES('habitaclia_cdfa466a-9a61-4927-9b84-6703a356f0af',4.4,3.3,3.3,30.3,1314.0,358400.0,36.1,'{"gross_yield_score": 38.0, "price_per_m2_score": 16.6, "location_score": 60.0, "condition_score": 50.0, "roi_score": 16.0, "total": 36.1}','2026-10-30 16:42:11.455178');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1797ab93-8ed6-4ae3-85a4-63388391e2c9',6.84,5.13,5.13,19.5,1404.0,246400.0,71.9,'{"gross_yield_score": 77.6, "price_per_m2_score": 90.2, "location_score": 60.0, "condition_score": 50.0, "roi_score": 51.9, "total": 71.9}','2026-10-30 16:42:11.214343');
 INSERT INTO "investment_metrics" VALUES('habitaclia_8e32196f-f910-44f1-bee4-c712ac2a1494',5.42,4.07,4.07,24.6,1620.0,358400.0,52.1,'{"gross_yield_score": 56.3, "price_per_m2_score": 49.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 31.4, "total": 52.1}','2026-10-26 14:21:22.685777');
-INSERT INTO "investment_metrics" VALUES('habitaclia_bf9bf0fe-1d82-4b18-b8ac-f2dd226cf4c7',5.11,3.83,3.83,26.1,1278.0,300160.0,48.7,'{"gross_yield_score": 51.7, "price_per_m2_score": 43.9, "location_score": 60.0, "condition_score": 50.0, "roi_score": 26.6, "total": 48.7}','2026-10-30 16:31:17.489554');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0412c301-5686-4d30-a450-ea74a3d193f0',4.41,3.31,3.31,30.2,1296.0,352800.0,35.9,'{"gross_yield_score": 38.2, "price_per_m2_score": 15.8, "location_score": 60.0, "condition_score": 50.0, "roi_score": 16.2, "total": 35.9}','2026-10-30 16:31:17.291227');
-INSERT INTO "investment_metrics" VALUES('habitaclia_47a0fbb8-a62d-4397-b093-d840c05d8187',10.57,7.93,7.93,12.6,1332.0,151200.0,85.9,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 89.3, "total": 85.9}','2026-10-30 16:31:17.472199');
-INSERT INTO "investment_metrics" VALUES('habitaclia_656d4a86-271a-423c-b0d2-59d40b944ccc',5.19,3.89,3.89,25.7,1386.0,320320.0,50.1,'{"gross_yield_score": 52.9, "price_per_m2_score": 47.2, "location_score": 60.0, "condition_score": 50.0, "roi_score": 27.8, "total": 50.1}','2026-10-30 16:31:17.217244');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6cf4af06-9ddf-40f2-92d7-f616de99d4f9',10.57,7.93,7.93,12.6,1332.0,151200.0,85.9,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 89.3, "total": 85.9}','2026-10-30 16:31:17.508587');
-INSERT INTO "investment_metrics" VALUES('habitaclia_01ab6b2c-85ab-4807-b58e-c3424a8619a5',7.85,5.89,5.89,17.0,1458.0,222880.0,79.3,'{"gross_yield_score": 88.5, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 63.3, "total": 79.3}','2026-10-30 16:31:17.344529');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5463dfaf-fbd3-4b8a-9202-19e7bc1f430f',9.19,6.89,6.89,14.5,1998.0,260960.0,84.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 78.3, "total": 84.8}','2026-10-30 16:31:17.326544');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c8c9db12-4c05-40a8-9de1-cc5d1560f901',7.42,5.56,5.56,18.0,1530.0,247520.0,76.9,'{"gross_yield_score": 84.2, "price_per_m2_score": 98.5, "location_score": 60.0, "condition_score": 50.0, "roi_score": 58.4, "total": 76.9}','2026-10-30 16:31:17.362497');
-INSERT INTO "investment_metrics" VALUES('habitaclia_db24603c-4202-4fca-9afc-f2ac0a0197a2',7.94,5.96,5.96,16.8,1260.0,190400.0,79.7,'{"gross_yield_score": 89.4, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 64.4, "total": 79.7}','2026-10-30 16:31:17.308853');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e6c9e27b-2908-4015-a831-68b16c9a4c2e',8.13,6.1,6.1,16.4,1260.0,185920.0,80.6,'{"gross_yield_score": 91.3, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 66.5, "total": 80.6}','2026-10-30 16:31:17.381681');
-INSERT INTO "investment_metrics" VALUES('habitaclia_de0083cf-0c1f-4769-b36b-ed4629cd1030',7.65,5.73,5.73,17.4,1620.0,254240.0,78.4,'{"gross_yield_score": 86.5, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 61.0, "total": 78.4}','2026-10-30 16:31:17.272905');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c459dbd4-fca5-4b69-a99e-42424a0321c6',4.35,3.27,3.27,30.6,1260.0,347200.0,29.5,'{"gross_yield_score": 37.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.4, "total": 29.5}','2026-10-30 16:31:26.619260');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0bd9d12c-0c06-44ac-ace6-edba61594012',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.869230');
-INSERT INTO "investment_metrics" VALUES('habitaclia_9f65d381-1a6d-49b7-824f-9f9e888730ec',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.816984');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e2a97089-0fd7-404b-bcc3-c4c1f913ea99',5.62,4.22,4.22,23.7,1260.0,268800.0,49.8,'{"gross_yield_score": 59.3, "price_per_m2_score": 42.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 49.8}','2026-10-30 16:31:26.921949');
+INSERT INTO "investment_metrics" VALUES('habitaclia_bf9bf0fe-1d82-4b18-b8ac-f2dd226cf4c7',5.11,3.83,3.83,26.1,1278.0,300160.0,49.1,'{"gross_yield_score": 51.7, "price_per_m2_score": 45.2, "location_score": 60.0, "condition_score": 50.0, "roi_score": 26.6, "total": 49.1}','2026-10-30 16:42:11.546688');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0412c301-5686-4d30-a450-ea74a3d193f0',4.41,3.31,3.31,30.2,1296.0,352800.0,36.2,'{"gross_yield_score": 38.2, "price_per_m2_score": 17.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 16.2, "total": 36.2}','2026-10-30 16:42:11.343074');
+INSERT INTO "investment_metrics" VALUES('habitaclia_47a0fbb8-a62d-4397-b093-d840c05d8187',10.57,7.93,7.93,12.6,1332.0,151200.0,85.9,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 89.3, "total": 85.9}','2026-10-30 16:42:11.528394');
+INSERT INTO "investment_metrics" VALUES('habitaclia_656d4a86-271a-423c-b0d2-59d40b944ccc',5.19,3.89,3.89,25.7,1386.0,320320.0,50.4,'{"gross_yield_score": 52.9, "price_per_m2_score": 48.5, "location_score": 60.0, "condition_score": 50.0, "roi_score": 27.8, "total": 50.4}','2026-10-30 16:42:11.269909');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6cf4af06-9ddf-40f2-92d7-f616de99d4f9',10.57,7.93,7.93,12.6,1332.0,151200.0,85.9,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 89.3, "total": 85.9}','2026-10-30 16:42:11.564712');
+INSERT INTO "investment_metrics" VALUES('habitaclia_01ab6b2c-85ab-4807-b58e-c3424a8619a5',7.85,5.89,5.89,17.0,1458.0,222880.0,79.3,'{"gross_yield_score": 88.5, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 63.3, "total": 79.3}','2026-10-30 16:42:11.399662');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5463dfaf-fbd3-4b8a-9202-19e7bc1f430f',9.19,6.89,6.89,14.5,1998.0,260960.0,84.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 78.3, "total": 84.8}','2026-10-30 16:42:11.380737');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c8c9db12-4c05-40a8-9de1-cc5d1560f901',7.42,5.56,5.56,18.0,1530.0,247520.0,77.1,'{"gross_yield_score": 84.2, "price_per_m2_score": 99.2, "location_score": 60.0, "condition_score": 50.0, "roi_score": 58.4, "total": 77.1}','2026-10-30 16:42:11.418259');
+INSERT INTO "investment_metrics" VALUES('habitaclia_db24603c-4202-4fca-9afc-f2ac0a0197a2',7.94,5.96,5.96,16.8,1260.0,190400.0,79.7,'{"gross_yield_score": 89.4, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 64.4, "total": 79.7}','2026-10-30 16:42:11.361755');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e6c9e27b-2908-4015-a831-68b16c9a4c2e',8.13,6.1,6.1,16.4,1260.0,185920.0,80.6,'{"gross_yield_score": 91.3, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 66.5, "total": 80.6}','2026-10-30 16:42:11.437092');
+INSERT INTO "investment_metrics" VALUES('habitaclia_de0083cf-0c1f-4769-b36b-ed4629cd1030',7.65,5.73,5.73,17.4,1620.0,254240.0,78.4,'{"gross_yield_score": 86.5, "price_per_m2_score": 100.0, "location_score": 60.0, "condition_score": 50.0, "roi_score": 61.0, "total": 78.4}','2026-10-30 16:42:11.324424');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c459dbd4-fca5-4b69-a99e-42424a0321c6',4.35,3.27,3.27,30.6,1260.0,347200.0,29.5,'{"gross_yield_score": 37.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.4, "total": 29.5}','2026-10-30 16:42:20.669926');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0bd9d12c-0c06-44ac-ace6-edba61594012',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.922403');
+INSERT INTO "investment_metrics" VALUES('habitaclia_9f65d381-1a6d-49b7-824f-9f9e888730ec',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.868296');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e2a97089-0fd7-404b-bcc3-c4c1f913ea99',5.62,4.22,4.22,23.7,1260.0,268800.0,49.8,'{"gross_yield_score": 59.3, "price_per_m2_score": 42.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 49.8}','2026-10-30 16:42:20.976891');
 INSERT INTO "investment_metrics" VALUES('habitaclia_70dfeeaa-1fec-49b4-b929-19ac77a3bab2',11.26,8.45,8.45,11.8,1314.0,140000.0,84.5,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 94.5, "total": 84.5}','2026-10-30 15:10:04.379370');
 INSERT INTO "investment_metrics" VALUES('habitaclia_7c6b9b8f-c3b0-49ad-8b38-8f7ccd93576c',10.0,7.5,7.5,13.3,1260.0,151200.0,83.5,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 85.0, "total": 83.5}','2026-10-30 15:10:04.361836');
-INSERT INTO "investment_metrics" VALUES('habitaclia_28cbb826-918c-4da9-bf28-fbbcf52b3918',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.413790');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0a7300d8-51e7-4f6e-bd33-f5946c12c308',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.524312');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0b81afd5-07a9-4d01-b2ea-6cfcfed671b9',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.763470');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0e027029-f51c-4d9d-b343-d193a46d61cb',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.780736');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0f4e87fe-2c1d-499a-b629-7af15ad27d5a',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.560884');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1007ae28-2bcc-45a6-8ce7-e222838bf2f4',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.470399');
-INSERT INTO "investment_metrics" VALUES('habitaclia_2370ecb7-e45f-42fa-a44e-9ba3600cc12f',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.692986');
-INSERT INTO "investment_metrics" VALUES('habitaclia_28f097d2-1e23-40ef-bda3-b6f2848e2a30',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.851565');
-INSERT INTO "investment_metrics" VALUES('habitaclia_38552bd9-6192-49f9-9465-3d0d5033cee9',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.745938');
-INSERT INTO "investment_metrics" VALUES('habitaclia_45e3e384-1e81-46e9-8c23-c076ca495e2e',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.506354');
-INSERT INTO "investment_metrics" VALUES('habitaclia_67fb05fd-189f-4363-8630-e55653eaa15c',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.488548');
-INSERT INTO "investment_metrics" VALUES('habitaclia_82814bd4-8698-4f02-93e2-fea156a234d8',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.581484');
-INSERT INTO "investment_metrics" VALUES('habitaclia_9f665ec9-423f-4825-8357-31d1049a2aa3',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.451368');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a0f3547b-25a6-42be-9e33-522f6b891116',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.432159');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b1bc96c1-7702-49c5-9fc2-95997e15bad4',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.672175');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b64d5ee5-493d-4cdf-bfc9-b9e955f00db4',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.654445');
-INSERT INTO "investment_metrics" VALUES('habitaclia_bf697ebd-4bf9-4d57-b6ab-4e0bc3610777',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.710581');
-INSERT INTO "investment_metrics" VALUES('habitaclia_cf5fa98d-6ba6-4f09-86b1-e7d3669d84ba',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.799949');
-INSERT INTO "investment_metrics" VALUES('habitaclia_dc833598-5786-4011-b958-2e869796dee9',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.728450');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0444620f-d4a0-4815-86c9-18ad59663ebc',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.833925');
-INSERT INTO "investment_metrics" VALUES('habitaclia_8f76fb6c-6f47-46cc-9969-d94035737c5f',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.542430');
-INSERT INTO "investment_metrics" VALUES('habitaclia_034ee227-e059-42e0-a5a7-b5e8c930d24d',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:31:26.637085');
-INSERT INTO "investment_metrics" VALUES('habitaclia_82161bef-f2ab-4a1e-a49d-7051bf1980fe',7.1,5.33,5.33,18.8,1458.0,246349.6,69.3,'{"gross_yield_score": 81.0, "price_per_m2_score": 81.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 55.0, "total": 69.3}','2026-10-30 16:31:26.886572');
+INSERT INTO "investment_metrics" VALUES('habitaclia_28cbb826-918c-4da9-bf28-fbbcf52b3918',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.466934');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0a7300d8-51e7-4f6e-bd33-f5946c12c308',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.577823');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0b81afd5-07a9-4d01-b2ea-6cfcfed671b9',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.812601');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0e027029-f51c-4d9d-b343-d193a46d61cb',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.831525');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0f4e87fe-2c1d-499a-b629-7af15ad27d5a',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.614500');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1007ae28-2bcc-45a6-8ce7-e222838bf2f4',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.523359');
+INSERT INTO "investment_metrics" VALUES('habitaclia_2370ecb7-e45f-42fa-a44e-9ba3600cc12f',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.740586');
+INSERT INTO "investment_metrics" VALUES('habitaclia_28f097d2-1e23-40ef-bda3-b6f2848e2a30',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.904062');
+INSERT INTO "investment_metrics" VALUES('habitaclia_38552bd9-6192-49f9-9465-3d0d5033cee9',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.794723');
+INSERT INTO "investment_metrics" VALUES('habitaclia_45e3e384-1e81-46e9-8c23-c076ca495e2e',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.559462');
+INSERT INTO "investment_metrics" VALUES('habitaclia_67fb05fd-189f-4363-8630-e55653eaa15c',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.541348');
+INSERT INTO "investment_metrics" VALUES('habitaclia_82814bd4-8698-4f02-93e2-fea156a234d8',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.632621');
+INSERT INTO "investment_metrics" VALUES('habitaclia_9f665ec9-423f-4825-8357-31d1049a2aa3',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.505125');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a0f3547b-25a6-42be-9e33-522f6b891116',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.485465');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b1bc96c1-7702-49c5-9fc2-95997e15bad4',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.722937');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b64d5ee5-493d-4cdf-bfc9-b9e955f00db4',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.705245');
+INSERT INTO "investment_metrics" VALUES('habitaclia_bf697ebd-4bf9-4d57-b6ab-4e0bc3610777',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.758074');
+INSERT INTO "investment_metrics" VALUES('habitaclia_cf5fa98d-6ba6-4f09-86b1-e7d3669d84ba',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.850378');
+INSERT INTO "investment_metrics" VALUES('habitaclia_dc833598-5786-4011-b958-2e869796dee9',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.776340');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0444620f-d4a0-4815-86c9-18ad59663ebc',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.886065');
+INSERT INTO "investment_metrics" VALUES('habitaclia_8f76fb6c-6f47-46cc-9969-d94035737c5f',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.596236');
+INSERT INTO "investment_metrics" VALUES('habitaclia_034ee227-e059-42e0-a5a7-b5e8c930d24d',5.41,4.06,4.06,24.6,1530.0,339360.0,46.3,'{"gross_yield_score": 56.2, "price_per_m2_score": 34.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 46.3}','2026-10-30 16:42:20.687665');
+INSERT INTO "investment_metrics" VALUES('habitaclia_82161bef-f2ab-4a1e-a49d-7051bf1980fe',7.1,5.33,5.33,18.8,1458.0,246349.6,69.3,'{"gross_yield_score": 81.0, "price_per_m2_score": 81.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 55.0, "total": 69.3}','2026-10-30 16:42:20.941260');
 INSERT INTO "investment_metrics" VALUES('habitaclia_092ce355-7ea4-4777-91f4-cf7e77a52a89',7.95,5.97,5.97,16.8,1314.0,198240.0,76.5,'{"gross_yield_score": 89.5, "price_per_m2_score": 94.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 64.5, "total": 76.5}','2026-10-30 15:10:04.344348');
 INSERT INTO "investment_metrics" VALUES('habitaclia_980d5788-ccf8-40d1-8f5e-8e2125178cd6',7.95,5.97,5.97,16.8,1314.0,198240.0,76.5,'{"gross_yield_score": 89.5, "price_per_m2_score": 94.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 64.5, "total": 76.5}','2026-10-30 15:10:04.396680');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c6e44647-651d-4baa-9993-8758a2edce41',7.84,5.88,5.88,17.0,1602.0,245280.0,75.6,'{"gross_yield_score": 88.4, "price_per_m2_score": 93.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.2, "total": 75.6}','2026-10-30 15:10:04.413925');
-INSERT INTO "investment_metrics" VALUES('habitaclia_bb51d10c-b1fb-4e2f-94a7-9f3813acfdc3',7.84,5.88,5.88,17.0,1602.0,245280.0,75.6,'{"gross_yield_score": 88.4, "price_per_m2_score": 93.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.2, "total": 75.6}','2026-10-30 16:31:26.903910');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d2ad72ab-d00b-4a95-af95-e095de119c57',6.35,4.76,4.76,21.0,1440.0,272160.0,60.6,'{"gross_yield_score": 70.2, "price_per_m2_score": 66.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.2, "total": 60.6}','2026-10-30 16:31:26.600393');
+INSERT INTO "investment_metrics" VALUES('habitaclia_bb51d10c-b1fb-4e2f-94a7-9f3813acfdc3',7.84,5.88,5.88,17.0,1602.0,245280.0,75.6,'{"gross_yield_score": 88.4, "price_per_m2_score": 93.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.2, "total": 75.6}','2026-10-30 16:42:20.959142');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d2ad72ab-d00b-4a95-af95-e095de119c57',6.35,4.76,4.76,21.0,1440.0,272160.0,60.6,'{"gross_yield_score": 70.2, "price_per_m2_score": 66.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.2, "total": 60.6}','2026-10-30 16:42:20.651182');
 INSERT INTO "investment_metrics" VALUES('habitaclia_05d11700-b49c-4226-b907-bf88d0a110cc',6.35,4.76,4.76,21.0,1440.0,272160.0,60.6,'{"gross_yield_score": 70.2, "price_per_m2_score": 66.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.2, "total": 60.6}','2026-10-30 15:10:04.431702');
-INSERT INTO "investment_metrics" VALUES('habitaclia_62b7b57f-ab9d-42df-b589-fef229378b2c',5.08,3.81,3.81,26.3,1368.0,323400.0,35.5,'{"gross_yield_score": 51.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 35.5}','2026-10-30 16:31:31.226217');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4a1b1fea-4ec0-493b-9932-13776283c287',5.44,4.08,4.08,24.5,1314.0,290080.0,38.0,'{"gross_yield_score": 56.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.6, "total": 38.0}','2026-10-30 16:31:31.334572');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d086bdf0-e4fb-47d4-a4af-c14ff4d18aa0',5.31,3.98,3.98,25.1,1314.0,296800.0,37.1,'{"gross_yield_score": 54.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.6, "total": 37.1}','2026-10-30 16:31:31.352027');
-INSERT INTO "investment_metrics" VALUES('habitaclia_813b547b-28b2-4d9a-9775-ede3851153bf',5.08,3.81,3.81,26.3,1368.0,323400.0,35.5,'{"gross_yield_score": 51.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 35.5}','2026-10-30 16:31:31.190168');
-INSERT INTO "investment_metrics" VALUES('habitaclia_92c2bb65-ce7c-4e89-875b-41113c5c3293',7.42,5.56,5.56,18.0,1422.0,229976.32,65.1,'{"gross_yield_score": 84.2, "price_per_m2_score": 59.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.4, "total": 65.1}','2026-10-30 16:31:31.207277');
-INSERT INTO "investment_metrics" VALUES('habitaclia_ce72605f-3d0a-46ac-953d-d7306be31735',4.99,3.74,3.74,26.7,1350.0,324800.0,34.9,'{"gross_yield_score": 49.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.8, "total": 34.9}','2026-10-30 16:31:31.137354');
-INSERT INTO "investment_metrics" VALUES('habitaclia_28a10575-ac19-45c9-969e-302ffa26e889',9.94,7.46,7.46,13.4,1350.0,162915.2,83.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 98.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 84.6, "total": 83.0}','2026-10-30 16:31:31.243923');
-INSERT INTO "investment_metrics" VALUES('habitaclia_9b0e943f-a44d-4772-b31f-5dbc347cb25b',5.16,3.87,3.87,25.8,1296.0,301280.0,36.1,'{"gross_yield_score": 52.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.4, "total": 36.1}','2026-10-30 16:31:31.386258');
-INSERT INTO "investment_metrics" VALUES('habitaclia_17752797-eded-4a54-88ad-5333f28a69a4',15.91,11.93,11.93,8.4,1440.0,108640.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 16:31:31.154902');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1850e397-5e1b-4f81-9a9c-a272ae50c4ec',7.51,5.63,5.63,17.8,1332.0,212912.0,66.0,'{"gross_yield_score": 85.1, "price_per_m2_score": 61.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 59.5, "total": 66.0}','2026-10-30 16:31:31.172969');
-INSERT INTO "investment_metrics" VALUES('habitaclia_9fcc3361-62ed-435f-a6be-cd76be29f65c',11.11,8.33,8.33,12.0,1296.0,140000.0,84.3,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 93.3, "total": 84.3}','2026-10-30 16:31:31.439248');
-INSERT INTO "investment_metrics" VALUES('habitaclia_ba2d2979-1092-4971-acfe-95daa08ff5a0',10.31,7.73,7.73,12.9,1278.0,148741.6,83.7,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 87.3, "total": 83.7}','2026-10-30 16:31:31.279439');
-INSERT INTO "investment_metrics" VALUES('habitaclia_22e5fc23-da80-4617-bd87-534d541a56b7',6.05,4.54,4.54,22.0,1332.0,264320.0,46.9,'{"gross_yield_score": 65.8, "price_per_m2_score": 19.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 40.8, "total": 46.9}','2026-10-30 16:31:31.421704');
-INSERT INTO "investment_metrics" VALUES('habitaclia_bbb00969-7414-477f-90ed-3105d30e2ecd',10.17,7.62,7.62,13.1,1260.0,148741.6,83.6,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 86.2, "total": 83.6}','2026-10-30 16:31:31.404003');
-INSERT INTO "investment_metrics" VALUES('habitaclia_be8cbd4c-209e-4225-9bda-7e9aebb075ef',7.63,5.72,5.72,17.5,1260.0,198240.0,67.3,'{"gross_yield_score": 86.3, "price_per_m2_score": 64.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.8, "total": 67.3}','2026-10-30 16:31:31.297296');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6bb861a9-d3b4-44ae-a47f-0aa09bf640d1',14.1,10.57,10.57,9.5,1278.0,108796.8,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 16:31:31.368959');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e38580d2-c446-4eee-9ec4-e538e73675f8',6.62,4.96,4.96,20.1,1458.0,264320.0,54.9,'{"gross_yield_score": 74.3, "price_per_m2_score": 35.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 49.2, "total": 54.9}','2026-10-30 16:31:31.315606');
-INSERT INTO "investment_metrics" VALUES('habitaclia_64de17fe-e2d0-410d-aaf5-fca129dacaa1',8.58,6.44,6.44,15.5,1458.0,203805.28,76.0,'{"gross_yield_score": 95.8, "price_per_m2_score": 81.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 71.6, "total": 76.0}','2026-10-30 16:31:31.261482');
+INSERT INTO "investment_metrics" VALUES('habitaclia_62b7b57f-ab9d-42df-b589-fef229378b2c',5.08,3.81,3.81,26.3,1368.0,323400.0,35.5,'{"gross_yield_score": 51.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 35.5}','2026-10-30 16:42:25.363783');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4a1b1fea-4ec0-493b-9932-13776283c287',5.44,4.08,4.08,24.5,1314.0,290080.0,38.0,'{"gross_yield_score": 56.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.6, "total": 38.0}','2026-10-30 16:42:25.471583');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d086bdf0-e4fb-47d4-a4af-c14ff4d18aa0',5.31,3.98,3.98,25.1,1314.0,296800.0,37.1,'{"gross_yield_score": 54.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.6, "total": 37.1}','2026-10-30 16:42:25.489631');
+INSERT INTO "investment_metrics" VALUES('habitaclia_813b547b-28b2-4d9a-9775-ede3851153bf',5.08,3.81,3.81,26.3,1368.0,323400.0,35.5,'{"gross_yield_score": 51.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 35.5}','2026-10-30 16:42:25.328030');
+INSERT INTO "investment_metrics" VALUES('habitaclia_92c2bb65-ce7c-4e89-875b-41113c5c3293',7.42,5.56,5.56,18.0,1422.0,229976.32,65.1,'{"gross_yield_score": 84.2, "price_per_m2_score": 59.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.4, "total": 65.1}','2026-10-30 16:42:25.345938');
+INSERT INTO "investment_metrics" VALUES('habitaclia_ce72605f-3d0a-46ac-953d-d7306be31735',4.99,3.74,3.74,26.7,1350.0,324800.0,34.9,'{"gross_yield_score": 49.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.8, "total": 34.9}','2026-10-30 16:42:25.273902');
+INSERT INTO "investment_metrics" VALUES('habitaclia_28a10575-ac19-45c9-969e-302ffa26e889',9.94,7.46,7.46,13.4,1350.0,162915.2,83.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 98.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 84.6, "total": 83.0}','2026-10-30 16:42:25.381690');
+INSERT INTO "investment_metrics" VALUES('habitaclia_9b0e943f-a44d-4772-b31f-5dbc347cb25b',5.16,3.87,3.87,25.8,1296.0,301280.0,36.1,'{"gross_yield_score": 52.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.4, "total": 36.1}','2026-10-30 16:42:25.525205');
+INSERT INTO "investment_metrics" VALUES('habitaclia_17752797-eded-4a54-88ad-5333f28a69a4',15.91,11.93,11.93,8.4,1440.0,108640.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 16:42:25.291874');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1850e397-5e1b-4f81-9a9c-a272ae50c4ec',7.51,5.63,5.63,17.8,1332.0,212912.0,66.0,'{"gross_yield_score": 85.1, "price_per_m2_score": 61.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 59.5, "total": 66.0}','2026-10-30 16:42:25.310049');
+INSERT INTO "investment_metrics" VALUES('habitaclia_9fcc3361-62ed-435f-a6be-cd76be29f65c',11.11,8.33,8.33,12.0,1296.0,140000.0,84.3,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 93.3, "total": 84.3}','2026-10-30 16:42:25.579693');
+INSERT INTO "investment_metrics" VALUES('habitaclia_ba2d2979-1092-4971-acfe-95daa08ff5a0',10.31,7.73,7.73,12.9,1278.0,148741.6,83.7,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 87.3, "total": 83.7}','2026-10-30 16:42:25.417148');
+INSERT INTO "investment_metrics" VALUES('habitaclia_22e5fc23-da80-4617-bd87-534d541a56b7',6.05,4.54,4.54,22.0,1332.0,264320.0,46.9,'{"gross_yield_score": 65.8, "price_per_m2_score": 19.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 40.8, "total": 46.9}','2026-10-30 16:42:25.560972');
+INSERT INTO "investment_metrics" VALUES('habitaclia_bbb00969-7414-477f-90ed-3105d30e2ecd',10.17,7.62,7.62,13.1,1260.0,148741.6,83.6,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 86.2, "total": 83.6}','2026-10-30 16:42:25.542514');
+INSERT INTO "investment_metrics" VALUES('habitaclia_be8cbd4c-209e-4225-9bda-7e9aebb075ef',7.63,5.72,5.72,17.5,1260.0,198240.0,67.3,'{"gross_yield_score": 86.3, "price_per_m2_score": 64.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.8, "total": 67.3}','2026-10-30 16:42:25.434906');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6bb861a9-d3b4-44ae-a47f-0aa09bf640d1',14.1,10.57,10.57,9.5,1278.0,108796.8,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 16:42:25.507631');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e38580d2-c446-4eee-9ec4-e538e73675f8',6.62,4.96,4.96,20.1,1458.0,264320.0,54.9,'{"gross_yield_score": 74.3, "price_per_m2_score": 35.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 49.2, "total": 54.9}','2026-10-30 16:42:25.452310');
+INSERT INTO "investment_metrics" VALUES('habitaclia_64de17fe-e2d0-410d-aaf5-fca129dacaa1',8.58,6.44,6.44,15.5,1458.0,203805.28,76.0,'{"gross_yield_score": 95.8, "price_per_m2_score": 81.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 71.6, "total": 76.0}','2026-10-30 16:42:25.399446');
 INSERT INTO "investment_metrics" VALUES('habitaclia_b00593fa-a2c0-4100-b460-0d0321cb3626',5.79,4.34,4.34,23.0,1350.0,280000.0,63.7,'{"gross_yield_score": 61.9, "price_per_m2_score": 93.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.8, "total": 63.7}','2026-10-27 03:00:33.301800');
-INSERT INTO "investment_metrics" VALUES('habitaclia_95279fe4-62a2-4416-85ab-763b18be4be2',6.45,4.84,4.84,20.7,1656.0,308000.0,69.8,'{"gross_yield_score": 71.8, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.8, "total": 69.8}','2026-10-30 16:31:38.303416');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a45678ff-51e6-41bc-abe5-b6e5f19ccf72',5.55,4.17,4.17,24.0,1296.0,280000.0,60.7,'{"gross_yield_score": 58.2, "price_per_m2_score": 88.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.4, "total": 60.7}','2026-10-30 16:31:38.394535');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7a08ed01-e41d-4c79-a7b4-a8e80dc6318c',4.28,3.21,3.21,31.2,1278.0,358400.0,40.8,'{"gross_yield_score": 35.6, "price_per_m2_score": 47.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.2, "total": 40.8}','2026-10-30 16:31:38.357363');
-INSERT INTO "investment_metrics" VALUES('habitaclia_eebcf49d-dd76-4411-90fa-d6ad2f765854',7.61,5.71,5.71,17.5,1278.0,201600.0,76.2,'{"gross_yield_score": 86.1, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.6, "total": 76.2}','2026-10-30 16:31:38.374988');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7669a14b-405b-47e3-bf58-85546591a039',5.76,4.32,4.32,23.1,1296.0,269920.0,63.2,'{"gross_yield_score": 61.4, "price_per_m2_score": 92.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.4, "total": 63.2}','2026-10-30 16:31:38.339700');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1cdd4874-f120-4c3c-9ab7-8620d057aefc',4.42,3.32,3.32,30.2,1260.0,341999.84,43.6,'{"gross_yield_score": 38.4, "price_per_m2_score": 54.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.4, "total": 43.6}','2026-10-30 16:31:38.321726');
+INSERT INTO "investment_metrics" VALUES('habitaclia_95279fe4-62a2-4416-85ab-763b18be4be2',6.45,4.84,4.84,20.7,1656.0,308000.0,69.8,'{"gross_yield_score": 71.8, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.8, "total": 69.8}','2026-10-30 16:42:29.725850');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a45678ff-51e6-41bc-abe5-b6e5f19ccf72',5.55,4.17,4.17,24.0,1296.0,280000.0,60.7,'{"gross_yield_score": 58.2, "price_per_m2_score": 88.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.4, "total": 60.7}','2026-10-30 16:42:29.817205');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7a08ed01-e41d-4c79-a7b4-a8e80dc6318c',4.28,3.21,3.21,31.2,1278.0,358400.0,40.8,'{"gross_yield_score": 35.6, "price_per_m2_score": 47.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.2, "total": 40.8}','2026-10-30 16:42:29.781186');
+INSERT INTO "investment_metrics" VALUES('habitaclia_eebcf49d-dd76-4411-90fa-d6ad2f765854',7.61,5.71,5.71,17.5,1278.0,201600.0,76.2,'{"gross_yield_score": 86.1, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 60.6, "total": 76.2}','2026-10-30 16:42:29.798857');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7669a14b-405b-47e3-bf58-85546591a039',5.76,4.32,4.32,23.1,1296.0,269920.0,63.2,'{"gross_yield_score": 61.4, "price_per_m2_score": 92.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.4, "total": 63.2}','2026-10-30 16:42:29.763142');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1cdd4874-f120-4c3c-9ab7-8620d057aefc',4.42,3.32,3.32,30.2,1260.0,341999.84,43.6,'{"gross_yield_score": 38.4, "price_per_m2_score": 54.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.4, "total": 43.6}','2026-10-30 16:42:29.744753');
 INSERT INTO "investment_metrics" VALUES('habitaclia_70629905-010b-48dd-b46e-9a40e7655ec3',9.2,6.9,6.9,14.5,2449.8,319648.0,82.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 78.5, "total": 82.8}','2026-10-29 11:38:44.674463');
 INSERT INTO "investment_metrics" VALUES('habitaclia_b360c221-1705-4023-b905-d44a78abb0c6',5.65,4.23,4.23,23.6,1317.5,280000.0,52.1,'{"gross_yield_score": 59.8, "price_per_m2_score": 50.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.6, "total": 52.1}','2026-10-30 15:26:29.508659');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c39074a5-adbc-454a-a45b-e62ee2b221f1',5.65,4.24,4.24,23.6,1472.5,312480.0,53.6,'{"gross_yield_score": 59.8, "price_per_m2_score": 56.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.8, "total": 53.6}','2026-10-29 21:48:54.882099');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1ae5d46b-433e-4da1-ac8d-2b162d7b5980',3.87,2.9,2.9,34.5,1100.5,341600.0,25.6,'{"gross_yield_score": 27.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.7, "total": 25.6}','2026-10-30 16:31:56.719157');
-INSERT INTO "investment_metrics" VALUES('habitaclia_aa22fb7a-51ca-4ad0-8509-899a6ea87ff7',4.19,3.14,3.14,31.8,1209.0,346080.0,28.1,'{"gross_yield_score": 33.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 12.8, "total": 28.1}','2026-10-30 16:31:56.736333');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1ae5d46b-433e-4da1-ac8d-2b162d7b5980',3.87,2.9,2.9,34.5,1100.5,341600.0,25.6,'{"gross_yield_score": 27.4, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.7, "total": 25.6}','2026-10-30 16:42:43.656380');
+INSERT INTO "investment_metrics" VALUES('habitaclia_aa22fb7a-51ca-4ad0-8509-899a6ea87ff7',4.19,3.14,3.14,31.8,1209.0,346080.0,28.1,'{"gross_yield_score": 33.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 12.8, "total": 28.1}','2026-10-30 16:42:43.673115');
 INSERT INTO "investment_metrics" VALUES('habitaclia_01a78ded-dc39-4250-9b02-153f0f544357',6.18,4.63,4.63,21.6,1147.0,222880.0,60.0,'{"gross_yield_score": 67.7, "price_per_m2_score": 68.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 60.0}','2026-10-30 15:26:29.526523');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4c720ee7-dce1-41a2-baff-de6e45d35708',4.81,3.61,3.61,27.7,1100.5,274400.0,38.2,'{"gross_yield_score": 46.2, "price_per_m2_score": 19.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.2, "total": 38.2}','2026-10-30 15:11:03.006871');
 INSERT INTO "investment_metrics" VALUES('habitaclia_8e0a00e2-93a4-465d-932f-0c0937738012',4.55,3.41,3.41,29.3,1162.5,306880.0,33.5,'{"gross_yield_score": 41.0, "price_per_m2_score": 9.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.2, "total": 33.5}','2026-10-30 15:26:29.596919');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9942cce6-33fa-452c-b0a1-9ac87a7a65d4',5.91,4.43,4.43,22.6,1317.5,267680.0,55.9,'{"gross_yield_score": 63.7, "price_per_m2_score": 59.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 38.6, "total": 55.9}','2026-10-30 15:11:02.973125');
 INSERT INTO "investment_metrics" VALUES('habitaclia_75f27381-15f4-4bc8-a09f-311bedaf0a1d',5.15,3.86,3.86,25.9,1100.5,256480.0,43.8,'{"gross_yield_score": 52.3, "price_per_m2_score": 31.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 43.8}','2026-10-30 15:11:02.615704');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b46704d2-2fec-4bc4-bc99-83873f366771',4.78,3.59,3.59,27.9,1085.0,272160.0,37.8,'{"gross_yield_score": 45.6, "price_per_m2_score": 18.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.8, "total": 37.8}','2026-10-30 16:31:56.701614');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b46704d2-2fec-4bc4-bc99-83873f366771',4.78,3.59,3.59,27.9,1085.0,272160.0,37.8,'{"gross_yield_score": 45.6, "price_per_m2_score": 18.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.8, "total": 37.8}','2026-10-30 16:42:43.639129');
 INSERT INTO "investment_metrics" VALUES('habitaclia_cee15a24-ec15-422f-b098-7dc374f4db85',4.8,3.6,3.6,27.8,1116.0,278880.0,39.4,'{"gross_yield_score": 46.0, "price_per_m2_score": 24.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.0, "total": 39.4}','2026-10-29 21:48:55.059140');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4b142b5b-72b9-468c-9310-80b7c61486ad',4.94,3.7,3.7,27.0,1240.0,301280.0,40.4,'{"gross_yield_score": 48.8, "price_per_m2_score": 23.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.0, "total": 40.4}','2026-10-30 01:04:56.208876');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9ddf6529-ebe0-4bb9-b31a-86e5b1aa4a96',6.11,4.58,4.58,21.8,1534.5,301280.0,59.0,'{"gross_yield_score": 66.7, "price_per_m2_score": 66.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 41.6, "total": 59.0}','2026-10-30 15:26:29.544277');
 INSERT INTO "investment_metrics" VALUES('habitaclia_d86ac76f-f503-4bd7-be5f-661b3e5bdb0f',6.33,4.74,4.74,21.1,1240.0,235200.0,61.8,'{"gross_yield_score": 70.0, "price_per_m2_score": 71.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.8, "total": 61.8}','2026-10-30 12:06:17.327981');
 INSERT INTO "investment_metrics" VALUES('habitaclia_6d772f6c-3f9d-479b-af62-33ccb135bc5f',5.67,4.25,4.25,23.5,1085.0,229600.0,53.3,'{"gross_yield_score": 60.0, "price_per_m2_score": 55.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.0, "total": 53.3}','2026-10-28 20:51:26.718002');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ed2929eb-ba67-489b-9fcc-0c45c75af00a',4.86,3.64,3.64,27.5,1178.0,291088.0,39.1,'{"gross_yield_score": 47.2, "price_per_m2_score": 21.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.8, "total": 39.1}','2026-10-30 15:26:29.474188');
-INSERT INTO "investment_metrics" VALUES('habitaclia_0da0da09-930c-4006-aadf-ea760e4941dc',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.614405');
+INSERT INTO "investment_metrics" VALUES('habitaclia_0da0da09-930c-4006-aadf-ea760e4941dc',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.553672');
 INSERT INTO "investment_metrics" VALUES('habitaclia_65c5c987-fc06-449d-924b-cd283d1da987',6.42,4.81,4.81,20.8,1689.5,315988.96,63.0,'{"gross_yield_score": 71.3, "price_per_m2_score": 73.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.2, "total": 63.0}','2026-10-30 15:26:29.386116');
 INSERT INTO "investment_metrics" VALUES('habitaclia_bcd181ab-07ea-4320-8b6e-27b52131211f',5.97,4.48,4.48,22.3,1643.0,330400.0,56.9,'{"gross_yield_score": 64.5, "price_per_m2_score": 61.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.6, "total": 56.9}','2026-10-30 15:26:29.315855');
-INSERT INTO "investment_metrics" VALUES('habitaclia_946bf74f-4a0a-4558-9f84-621ca10cda5d',9.94,7.45,7.45,13.4,2011.9,242925.76,83.5,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 84.5, "total": 83.5}','2026-10-30 16:31:56.596695');
+INSERT INTO "investment_metrics" VALUES('habitaclia_946bf74f-4a0a-4558-9f84-621ca10cda5d',9.94,7.45,7.45,13.4,2011.9,242925.76,83.5,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 84.5, "total": 83.5}','2026-10-30 16:42:43.532276');
 INSERT INTO "investment_metrics" VALUES('habitaclia_d7eef817-d0fb-4e7f-8fc9-04f5edf0fe64',6.18,4.63,4.63,21.6,1147.0,222880.0,60.0,'{"gross_yield_score": 67.7, "price_per_m2_score": 68.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 60.0}','2026-10-30 15:26:29.649270');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3ddf6f0b-c53b-4e46-a747-fedeae4641f1',3.8,2.85,2.85,35.1,1100.5,347200.0,25.1,'{"gross_yield_score": 26.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.5, "total": 25.1}','2026-10-30 15:26:29.631750');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1efa69b0-ed87-4e34-9f48-d8e34e7a96f6',5.85,4.39,4.39,22.8,1147.0,235200.0,55.2,'{"gross_yield_score": 62.7, "price_per_m2_score": 57.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.8, "total": 55.2}','2026-10-30 15:26:29.761232');
@@ -19847,7 +19847,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_20827713-02ba-4bf0-9726-4eea
 INSERT INTO "investment_metrics" VALUES('habitaclia_06d1cb40-da35-47e3-9f81-6d6c0c006b8c',5.63,4.22,4.22,23.7,1519.0,323680.0,53.3,'{"gross_yield_score": 59.5, "price_per_m2_score": 56.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 53.3}','2026-10-29 21:48:55.595270');
 INSERT INTO "investment_metrics" VALUES('habitaclia_07c4882a-4c98-470c-8ef2-a981e513e19b',5.63,4.22,4.22,23.7,1519.0,323680.0,53.3,'{"gross_yield_score": 59.5, "price_per_m2_score": 56.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 53.3}','2026-10-29 21:48:55.612329');
 INSERT INTO "investment_metrics" VALUES('habitaclia_189d1f80-237a-41f3-8de1-e8f76e97d57a',5.63,4.22,4.22,23.7,1519.0,323680.0,53.3,'{"gross_yield_score": 59.5, "price_per_m2_score": 56.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 53.3}','2026-10-29 21:48:55.629467');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1a857520-b1f2-4309-9cc5-fe4d768a0bfc',5.63,4.22,4.22,23.7,1519.0,323680.0,51.9,'{"gross_yield_score": 59.5, "price_per_m2_score": 50.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 51.9}','2026-10-30 16:31:56.684208');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1a857520-b1f2-4309-9cc5-fe4d768a0bfc',5.63,4.22,4.22,23.7,1519.0,323680.0,51.9,'{"gross_yield_score": 59.5, "price_per_m2_score": 50.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 51.9}','2026-10-30 16:42:43.622256');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2e8c46f3-c8f8-4341-8cd7-28dcd0a29a85',5.63,4.22,4.22,23.7,1519.0,323680.0,53.3,'{"gross_yield_score": 59.5, "price_per_m2_score": 56.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 53.3}','2026-10-29 21:48:55.663656');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3672be6e-a7aa-48cd-92fc-35d2683241c4',5.63,4.22,4.22,23.7,1519.0,323680.0,53.3,'{"gross_yield_score": 59.5, "price_per_m2_score": 56.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 53.3}','2026-10-29 21:48:55.680772');
 INSERT INTO "investment_metrics" VALUES('habitaclia_51890743-10dc-4a55-94df-835ea9e043b7',5.63,4.22,4.22,23.7,1519.0,323680.0,53.3,'{"gross_yield_score": 59.5, "price_per_m2_score": 56.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 53.3}','2026-10-29 21:48:55.697631');
@@ -19873,16 +19873,16 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_7cf8c308-9f9c-4e4a-a63b-7c62
 INSERT INTO "investment_metrics" VALUES('habitaclia_a03293c6-03a0-4e55-867e-15a4a4b1430b',6.18,4.63,4.63,21.6,1147.0,222880.0,60.0,'{"gross_yield_score": 67.7, "price_per_m2_score": 68.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 60.0}','2026-10-30 15:26:29.421140');
 INSERT INTO "investment_metrics" VALUES('habitaclia_bede54e1-4ea9-4c7c-a36e-cd932a73098d',6.18,4.63,4.63,21.6,1147.0,222880.0,59.8,'{"gross_yield_score": 67.7, "price_per_m2_score": 67.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 59.8}','2026-10-30 15:11:02.786719');
 INSERT INTO "investment_metrics" VALUES('habitaclia_df502b56-87fe-42eb-b891-ae6a3920d5bd',6.18,4.63,4.63,21.6,1147.0,222880.0,60.0,'{"gross_yield_score": 67.7, "price_per_m2_score": 68.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 60.0}','2026-10-30 15:26:29.743725');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e181e948-2788-43e8-8d45-2d193ad72fbf',6.18,4.63,4.63,21.6,1147.0,222880.0,60.0,'{"gross_yield_score": 67.7, "price_per_m2_score": 68.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 60.0}','2026-10-30 16:31:56.667128');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e181e948-2788-43e8-8d45-2d193ad72fbf',6.18,4.63,4.63,21.6,1147.0,222880.0,60.0,'{"gross_yield_score": 67.7, "price_per_m2_score": 68.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 60.0}','2026-10-30 16:42:43.605396');
 INSERT INTO "investment_metrics" VALUES('habitaclia_eb0b3046-b1df-40ce-85be-999eb7d836e6',6.18,4.63,4.63,21.6,1147.0,222880.0,59.8,'{"gross_yield_score": 67.7, "price_per_m2_score": 67.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 59.8}','2026-10-30 15:11:02.751944');
-INSERT INTO "investment_metrics" VALUES('habitaclia_eb51d991-7cfd-4805-961e-ee16d5e7529a',6.18,4.63,4.63,21.6,1147.0,222880.0,60.0,'{"gross_yield_score": 67.7, "price_per_m2_score": 68.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 60.0}','2026-10-30 16:31:56.649924');
+INSERT INTO "investment_metrics" VALUES('habitaclia_eb51d991-7cfd-4805-961e-ee16d5e7529a',6.18,4.63,4.63,21.6,1147.0,222880.0,60.0,'{"gross_yield_score": 67.7, "price_per_m2_score": 68.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 60.0}','2026-10-30 16:42:43.588152');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f3f440b4-6b5b-4ca5-88db-0e64b3d3e46c',6.18,4.63,4.63,21.6,1147.0,222880.0,59.8,'{"gross_yield_score": 67.7, "price_per_m2_score": 67.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 59.8}','2026-10-30 15:11:02.768740');
 INSERT INTO "investment_metrics" VALUES('habitaclia_0dbd56a9-62a7-4bb4-8074-c7286ac23a1d',6.18,4.63,4.63,21.6,1147.0,222880.0,59.8,'{"gross_yield_score": 67.7, "price_per_m2_score": 67.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 59.8}','2026-10-30 15:11:02.684295');
 INSERT INTO "investment_metrics" VALUES('habitaclia_686aea1f-b40a-4e4e-b1b4-c2903dd3eb36',4.43,3.32,3.32,30.1,1240.0,336000.0,31.1,'{"gross_yield_score": 38.6, "price_per_m2_score": 4.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.4, "total": 31.1}','2026-10-30 15:11:02.819751');
 INSERT INTO "investment_metrics" VALUES('habitaclia_03de16e8-3a70-4150-8880-313bf7a34376',5.63,4.22,4.22,23.7,1519.0,323680.0,53.3,'{"gross_yield_score": 59.5, "price_per_m2_score": 56.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 53.3}','2026-10-29 21:48:56.217010');
 INSERT INTO "investment_metrics" VALUES('habitaclia_d5b9e683-dd75-434e-9af4-1030fc8043a2',6.18,4.63,4.63,21.6,1147.0,222880.0,59.8,'{"gross_yield_score": 67.7, "price_per_m2_score": 67.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 59.8}','2026-10-30 15:11:03.041998');
 INSERT INTO "investment_metrics" VALUES('habitaclia_75dd8aeb-1383-4282-a82d-961eeddb63b2',5.19,3.9,3.9,25.7,1255.5,290080.0,46.3,'{"gross_yield_score": 52.9, "price_per_m2_score": 39.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.0, "total": 46.3}','2026-10-29 21:48:56.251271');
-INSERT INTO "investment_metrics" VALUES('habitaclia_770a690e-d376-45a8-b993-93d3d26db764',4.78,3.58,3.58,27.9,1271.0,319200.0,37.7,'{"gross_yield_score": 45.6, "price_per_m2_score": 18.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.6, "total": 37.7}','2026-10-30 16:31:56.579392');
+INSERT INTO "investment_metrics" VALUES('habitaclia_770a690e-d376-45a8-b993-93d3d26db764',4.78,3.58,3.58,27.9,1271.0,319200.0,37.7,'{"gross_yield_score": 45.6, "price_per_m2_score": 18.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.6, "total": 37.7}','2026-10-30 16:42:43.515095');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ae96957e-a8d8-47e0-9fad-c9cb30212255',6.18,4.63,4.63,21.6,1147.0,222880.0,59.8,'{"gross_yield_score": 67.7, "price_per_m2_score": 67.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 59.8}','2026-10-30 15:11:02.633176');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ab58ad5e-0b59-4dd4-a716-3c5d3b7478f0',5.63,4.22,4.22,23.7,1519.0,323680.0,53.3,'{"gross_yield_score": 59.5, "price_per_m2_score": 56.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.4, "total": 53.3}','2026-10-29 21:48:56.285292');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f85da87c-3de0-4558-b634-780baf54ef21',6.18,4.63,4.63,21.6,1147.0,222880.0,60.0,'{"gross_yield_score": 67.7, "price_per_m2_score": 68.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.6, "total": 60.0}','2026-10-30 15:26:29.794819');
@@ -19907,9 +19907,9 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_15cba23d-ec8d-42cf-ba11-c455
 INSERT INTO "investment_metrics" VALUES('habitaclia_398cd36b-f406-4a22-9211-e84337cb8ea0',6.02,4.51,4.51,22.2,1224.5,244158.88,57.5,'{"gross_yield_score": 65.3, "price_per_m2_score": 62.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 40.2, "total": 57.5}','2026-10-30 15:11:02.888811');
 INSERT INTO "investment_metrics" VALUES('habitaclia_426beb3d-562c-42d6-8fa7-7440543a9112',5.49,4.12,4.12,24.3,1476.0,322560.0,50.6,'{"gross_yield_score": 57.4, "price_per_m2_score": 49.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 32.4, "total": 50.6}','2026-10-30 15:11:20.750151');
 INSERT INTO "investment_metrics" VALUES('habitaclia_39d2747a-e346-40a5-9700-8e50bedd16be',5.26,3.94,3.94,25.3,1350.0,308000.0,46.8,'{"gross_yield_score": 53.9, "price_per_m2_score": 40.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.8, "total": 46.8}','2026-10-30 15:11:20.321101');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5b923278-217d-4732-b960-1ffc9a3556fe',5.71,4.29,4.29,23.3,1440.0,302400.0,54.1,'{"gross_yield_score": 60.6, "price_per_m2_score": 57.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 54.1}','2026-10-30 16:32:01.395102');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5b923278-217d-4732-b960-1ffc9a3556fe',5.71,4.29,4.29,23.3,1440.0,302400.0,54.1,'{"gross_yield_score": 60.6, "price_per_m2_score": 57.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 54.1}','2026-10-30 16:42:48.295231');
 INSERT INTO "investment_metrics" VALUES('habitaclia_fe76f7ac-838e-41bb-93c2-547f7ffd54a6',5.72,4.29,4.29,23.3,1602.0,336000.0,55.8,'{"gross_yield_score": 60.8, "price_per_m2_score": 63.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 55.8}','2026-10-29 21:49:09.863347');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6a7192d9-1734-4433-b690-d02d05e897bb',5.97,4.48,4.48,22.3,1476.0,296800.0,57.8,'{"gross_yield_score": 64.5, "price_per_m2_score": 65.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.6, "total": 57.8}','2026-10-30 16:32:01.377681');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6a7192d9-1734-4433-b690-d02d05e897bb',5.97,4.48,4.48,22.3,1476.0,296800.0,57.8,'{"gross_yield_score": 64.5, "price_per_m2_score": 65.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.6, "total": 57.8}','2026-10-30 16:42:48.278106');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1ecee712-3b9c-4646-9bd6-bec05408797b',5.56,4.17,4.17,24.0,1584.0,341600.0,51.8,'{"gross_yield_score": 58.4, "price_per_m2_score": 51.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.4, "total": 51.8}','2026-10-30 15:11:20.251191');
 INSERT INTO "investment_metrics" VALUES('habitaclia_8c7c6fbd-3412-416f-b6bb-af1783192e3a',6.28,4.71,4.71,21.2,1818.0,347200.0,62.0,'{"gross_yield_score": 69.2, "price_per_m2_score": 73.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.2, "total": 62.0}','2026-10-30 15:11:20.302842');
 INSERT INTO "investment_metrics" VALUES('habitaclia_38398538-63ba-4017-8fe0-09d60fd25db2',5.33,3.99,3.99,25.0,1566.0,352800.0,49.7,'{"gross_yield_score": 55.0, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.8, "total": 49.7}','2026-10-29 21:49:09.952401');
@@ -19918,27 +19918,27 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_02da4913-11c2-4752-b557-90b1
 INSERT INTO "investment_metrics" VALUES('habitaclia_8d288abf-7870-452a-8473-bb8afaf663a9',4.8,3.6,3.6,27.8,1278.0,319200.0,40.5,'{"gross_yield_score": 46.0, "price_per_m2_score": 28.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.0, "total": 40.5}','2026-10-29 21:49:10.023146');
 INSERT INTO "investment_metrics" VALUES('habitaclia_35ed26f5-7ae0-4d26-bbde-ce5db995c86d',5.26,3.94,3.94,25.3,1350.0,308000.0,46.8,'{"gross_yield_score": 53.9, "price_per_m2_score": 40.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.8, "total": 46.8}','2026-10-30 15:11:20.285680');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3dea3267-e992-45b3-a6e6-5e958a53c95b',5.65,4.24,4.24,23.6,1476.0,313600.0,54.8,'{"gross_yield_score": 59.8, "price_per_m2_score": 61.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.8, "total": 54.8}','2026-10-29 21:49:10.040593');
-INSERT INTO "investment_metrics" VALUES('habitaclia_218752b8-517a-47cf-89ec-629ab2a8ab45',5.02,3.76,3.76,26.6,1494.0,357280.0,42.7,'{"gross_yield_score": 50.3, "price_per_m2_score": 30.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.2, "total": 42.7}','2026-10-30 16:32:01.254273');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4e0da465-f02e-4789-92e0-312daed34b7c',5.96,4.47,4.47,22.4,1386.0,278880.0,57.8,'{"gross_yield_score": 64.4, "price_per_m2_score": 65.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 57.8}','2026-10-30 16:32:01.184315');
+INSERT INTO "investment_metrics" VALUES('habitaclia_218752b8-517a-47cf-89ec-629ab2a8ab45',5.02,3.76,3.76,26.6,1494.0,357280.0,42.7,'{"gross_yield_score": 50.3, "price_per_m2_score": 30.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.2, "total": 42.7}','2026-10-30 16:42:48.155522');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4e0da465-f02e-4789-92e0-312daed34b7c',5.96,4.47,4.47,22.4,1386.0,278880.0,57.8,'{"gross_yield_score": 64.4, "price_per_m2_score": 65.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 57.8}','2026-10-30 16:42:48.082085');
 INSERT INTO "investment_metrics" VALUES('habitaclia_96fc5509-b7ff-4eb7-a584-af0d878b807f',5.1,3.83,3.83,26.1,1476.0,347200.0,46.0,'{"gross_yield_score": 51.5, "price_per_m2_score": 41.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 46.0}','2026-10-29 21:49:10.459478');
 INSERT INTO "investment_metrics" VALUES('habitaclia_7b0d7777-d25a-4e63-8b7a-8e3c5563bf00',5.72,4.29,4.29,23.3,1602.0,336000.0,54.2,'{"gross_yield_score": 60.8, "price_per_m2_score": 57.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 54.2}','2026-10-30 15:11:20.375056');
 INSERT INTO "investment_metrics" VALUES('habitaclia_0074a50e-98a4-478f-9eb1-a8ba6bb41b3e',5.64,4.23,4.23,23.6,1422.0,302400.0,54.6,'{"gross_yield_score": 59.6, "price_per_m2_score": 61.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.6, "total": 54.6}','2026-10-29 16:22:40.057700');
 INSERT INTO "investment_metrics" VALUES('habitaclia_33b5d180-b61d-4be9-b034-8642a47817ca',6.57,4.92,4.92,20.3,1440.0,263200.0,65.3,'{"gross_yield_score": 73.6, "price_per_m2_score": 79.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 48.4, "total": 65.3}','2026-10-30 15:11:20.234029');
 INSERT INTO "investment_metrics" VALUES('habitaclia_03f18c0b-ecf5-48de-a865-c145c0ddaa3c',5.1,3.83,3.83,26.1,1476.0,347200.0,46.0,'{"gross_yield_score": 51.5, "price_per_m2_score": 41.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 46.0}','2026-10-29 21:49:10.182728');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1513e750-fdc0-452f-b4af-7cc63eb191a5',5.72,4.29,4.29,23.3,1602.0,336000.0,54.2,'{"gross_yield_score": 60.8, "price_per_m2_score": 57.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 54.2}','2026-10-30 16:32:01.130531');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1513e750-fdc0-452f-b4af-7cc63eb191a5',5.72,4.29,4.29,23.3,1602.0,336000.0,54.2,'{"gross_yield_score": 60.8, "price_per_m2_score": 57.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 54.2}','2026-10-30 16:42:48.028120');
 INSERT INTO "investment_metrics" VALUES('habitaclia_200b9497-0fc4-422a-b5af-e06bfde17a33',5.72,4.29,4.29,23.3,1602.0,336000.0,55.8,'{"gross_yield_score": 60.8, "price_per_m2_score": 63.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 55.8}','2026-10-29 21:49:10.216771');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2d2d9ac2-8d49-4a47-8bd3-4060d5f7073a',5.1,3.83,3.83,26.1,1476.0,347200.0,46.0,'{"gross_yield_score": 51.5, "price_per_m2_score": 41.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 46.0}','2026-10-29 21:49:10.234322');
 INSERT INTO "investment_metrics" VALUES('habitaclia_359cafae-1a51-4ce6-89b9-cd4599143d33',5.1,3.83,3.83,26.1,1476.0,347200.0,46.0,'{"gross_yield_score": 51.5, "price_per_m2_score": 41.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 46.0}','2026-10-29 21:49:10.251335');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4337c8a3-a5ca-4eae-9fea-74b0c73733f6',5.72,4.29,4.29,23.3,1602.0,336000.0,55.8,'{"gross_yield_score": 60.8, "price_per_m2_score": 63.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 55.8}','2026-10-29 21:49:10.268614');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4646d48e-5f8f-401d-bcfe-8ce600982919',5.72,4.29,4.29,23.3,1602.0,336000.0,55.8,'{"gross_yield_score": 60.8, "price_per_m2_score": 63.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 55.8}','2026-10-29 21:49:10.285973');
 INSERT INTO "investment_metrics" VALUES('habitaclia_470bebe5-a887-482f-9250-9965f8b2d486',5.1,3.83,3.83,26.1,1476.0,347200.0,46.0,'{"gross_yield_score": 51.5, "price_per_m2_score": 41.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 46.0}','2026-10-29 21:49:10.303327');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4ffe2d6d-bfb2-4393-b5c3-f98a56d9082e',5.72,4.29,4.29,23.3,1602.0,336000.0,54.2,'{"gross_yield_score": 60.8, "price_per_m2_score": 57.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 54.2}','2026-10-30 16:32:01.237059');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4ffe2d6d-bfb2-4393-b5c3-f98a56d9082e',5.72,4.29,4.29,23.3,1602.0,336000.0,54.2,'{"gross_yield_score": 60.8, "price_per_m2_score": 57.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 54.2}','2026-10-30 16:42:48.136842');
 INSERT INTO "investment_metrics" VALUES('habitaclia_51e5aa20-b855-4de3-af42-9c54c7fd2f23',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 15:11:21.103125');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5d30c0a0-6f60-401f-ab84-89972ebdf841',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 15:11:21.139551');
 INSERT INTO "investment_metrics" VALUES('habitaclia_6cd9c211-a9fb-487a-b62c-453fc8ffdf23',5.72,4.29,4.29,23.3,1602.0,336000.0,54.2,'{"gross_yield_score": 60.8, "price_per_m2_score": 57.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 54.2}','2026-10-30 15:11:21.122155');
 INSERT INTO "investment_metrics" VALUES('habitaclia_77f06b9d-05d0-4ff3-8c98-67422f98e7c3',5.72,4.29,4.29,23.3,1602.0,336000.0,55.8,'{"gross_yield_score": 60.8, "price_per_m2_score": 63.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 55.8}','2026-10-29 21:49:10.389872');
 INSERT INTO "investment_metrics" VALUES('habitaclia_793d67ee-b5d1-4229-a678-ec5e6f5f1770',5.72,4.29,4.29,23.3,1602.0,336000.0,55.8,'{"gross_yield_score": 60.8, "price_per_m2_score": 63.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 55.8}','2026-10-29 21:49:10.407175');
-INSERT INTO "investment_metrics" VALUES('habitaclia_822dbcab-2d56-419e-9cb6-c7f980c22dda',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 16:32:01.148542');
+INSERT INTO "investment_metrics" VALUES('habitaclia_822dbcab-2d56-419e-9cb6-c7f980c22dda',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 16:42:48.045822');
 INSERT INTO "investment_metrics" VALUES('habitaclia_8ebef71b-9d36-4e66-a155-8766d38219ab',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 15:11:20.980550');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9137a2fa-b173-42bd-bd97-c0abd7be5651',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 15:11:21.174760');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a5e3d1b3-ffa1-476e-932d-fa0f4c8c087d',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 15:11:21.085703');
@@ -19949,16 +19949,16 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_f56a6ccb-20d9-4d59-a064-de92
 INSERT INTO "investment_metrics" VALUES('habitaclia_f5bb2565-02c3-482a-adc6-46ce1d5f61af',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 15:11:21.192324');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f6431e08-79da-4437-a9df-761402f16e0a',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 15:11:21.209489');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1408eca7-250f-4ed6-92d6-d06f3abd44fe',5.72,4.29,4.29,23.3,1602.0,336000.0,55.8,'{"gross_yield_score": 60.8, "price_per_m2_score": 63.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 55.8}','2026-10-29 21:49:10.600032');
-INSERT INTO "investment_metrics" VALUES('habitaclia_671398ad-ec9b-488d-8fd2-27d6dcbee02d',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 16:32:01.219532');
+INSERT INTO "investment_metrics" VALUES('habitaclia_671398ad-ec9b-488d-8fd2-27d6dcbee02d',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 16:42:48.118742');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9948612e-f19c-49cf-95a2-c170e6acf4be',5.72,4.29,4.29,23.3,1602.0,336000.0,55.8,'{"gross_yield_score": 60.8, "price_per_m2_score": 63.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.8, "total": 55.8}','2026-10-29 21:49:10.634791');
-INSERT INTO "investment_metrics" VALUES('habitaclia_75b30128-86f2-4024-881e-fe3c9e615d52',5.08,3.81,3.81,26.3,1512.0,357280.0,43.8,'{"gross_yield_score": 51.2, "price_per_m2_score": 32.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 43.8}','2026-10-30 16:32:01.201932');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a1b0ed57-d3cf-4028-bcb9-fa97685e2208',5.08,3.81,3.81,26.3,1512.0,357280.0,43.8,'{"gross_yield_score": 51.2, "price_per_m2_score": 32.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 43.8}','2026-10-30 16:32:01.074718');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e335b228-80b3-44e0-8404-62ad0ad57eb9',5.08,3.81,3.81,26.3,1512.0,357280.0,43.8,'{"gross_yield_score": 51.2, "price_per_m2_score": 32.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 43.8}','2026-10-30 16:32:01.166603');
-INSERT INTO "investment_metrics" VALUES('habitaclia_168b16c2-91f5-4834-8b7d-ddff4b525c47',4.64,3.48,3.48,28.7,1296.0,334880.0,36.2,'{"gross_yield_score": 42.8, "price_per_m2_score": 16.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.6, "total": 36.2}','2026-10-30 16:32:01.499679');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a66a80a8-1f0c-4064-9b6e-d8d826f686d1',5.6,4.2,4.2,23.8,1458.0,312480.0,52.3,'{"gross_yield_score": 59.0, "price_per_m2_score": 53.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.0, "total": 52.3}','2026-10-30 16:32:01.481589');
+INSERT INTO "investment_metrics" VALUES('habitaclia_75b30128-86f2-4024-881e-fe3c9e615d52',5.08,3.81,3.81,26.3,1512.0,357280.0,43.8,'{"gross_yield_score": 51.2, "price_per_m2_score": 32.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 43.8}','2026-10-30 16:42:48.100458');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a1b0ed57-d3cf-4028-bcb9-fa97685e2208',5.08,3.81,3.81,26.3,1512.0,357280.0,43.8,'{"gross_yield_score": 51.2, "price_per_m2_score": 32.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 43.8}','2026-10-30 16:42:47.974506');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e335b228-80b3-44e0-8404-62ad0ad57eb9',5.08,3.81,3.81,26.3,1512.0,357280.0,43.8,'{"gross_yield_score": 51.2, "price_per_m2_score": 32.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 43.8}','2026-10-30 16:42:48.063614');
+INSERT INTO "investment_metrics" VALUES('habitaclia_168b16c2-91f5-4834-8b7d-ddff4b525c47',4.64,3.48,3.48,28.7,1296.0,334880.0,36.2,'{"gross_yield_score": 42.8, "price_per_m2_score": 16.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.6, "total": 36.2}','2026-10-30 16:42:48.400557');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a66a80a8-1f0c-4064-9b6e-d8d826f686d1',5.6,4.2,4.2,23.8,1458.0,312480.0,52.3,'{"gross_yield_score": 59.0, "price_per_m2_score": 53.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.0, "total": 52.3}','2026-10-30 16:42:48.382574');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9b647656-7d18-4907-af62-dd714d2acdae',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 15:11:21.157001');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b7650299-61c7-4e1a-a51b-ec9ede0d614a',5.43,4.07,4.07,24.6,1566.0,346080.0,49.6,'{"gross_yield_score": 56.4, "price_per_m2_score": 46.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.4, "total": 49.6}','2026-10-30 16:32:01.289493');
-INSERT INTO "investment_metrics" VALUES('habitaclia_49235a0d-d2d6-48f0-8f18-f8eacfc3a38d',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 16:32:01.306991');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b7650299-61c7-4e1a-a51b-ec9ede0d614a',5.43,4.07,4.07,24.6,1566.0,346080.0,49.6,'{"gross_yield_score": 56.4, "price_per_m2_score": 46.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.4, "total": 49.6}','2026-10-30 16:42:48.191708');
+INSERT INTO "investment_metrics" VALUES('habitaclia_49235a0d-d2d6-48f0-8f18-f8eacfc3a38d',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 16:42:48.209281');
 INSERT INTO "investment_metrics" VALUES('habitaclia_abc0d117-6fcc-409a-a4ad-71e79a0f002b',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 15:11:20.892968');
 INSERT INTO "investment_metrics" VALUES('habitaclia_f7598f3e-c7c6-42a4-aab4-a78bbbd542d7',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 15:11:20.910297');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ff7a0db7-d139-4103-8835-306d00c80c83',5.1,3.83,3.83,26.1,1476.0,347200.0,46.0,'{"gross_yield_score": 51.5, "price_per_m2_score": 41.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 46.0}','2026-10-29 21:49:10.829174');
@@ -19985,13 +19985,13 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_a0d97e76-3faf-49bc-95a2-c198
 INSERT INTO "investment_metrics" VALUES('habitaclia_510c5ed5-e435-41f1-91a3-e07f47cb75e1',4.87,3.65,3.65,27.4,1314.0,323680.0,40.2,'{"gross_yield_score": 47.4, "price_per_m2_score": 25.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.0, "total": 40.2}','2026-10-30 15:11:20.945208');
 INSERT INTO "investment_metrics" VALUES('habitaclia_0d692ca1-68d1-4e7d-9b5b-7b398d49aedb',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 15:11:21.050641');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2ca7a7a6-36f9-46eb-9dfc-2b2f124db378',5.08,3.81,3.81,26.3,1512.0,357280.0,43.8,'{"gross_yield_score": 51.2, "price_per_m2_score": 32.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 43.8}','2026-10-30 15:11:20.568598');
-INSERT INTO "investment_metrics" VALUES('habitaclia_9309aacd-e5d0-4d0f-adb9-5c1f951a472d',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 16:32:01.271912');
+INSERT INTO "investment_metrics" VALUES('habitaclia_9309aacd-e5d0-4d0f-adb9-5c1f951a472d',5.1,3.83,3.83,26.1,1476.0,347200.0,44.2,'{"gross_yield_score": 51.5, "price_per_m2_score": 33.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.6, "total": 44.2}','2026-10-30 16:42:48.173919');
 INSERT INTO "investment_metrics" VALUES('habitaclia_7ce9c3ce-cea6-4ef4-8050-81680381c6d5',6.56,4.92,4.92,20.3,1530.0,280000.0,66.3,'{"gross_yield_score": 73.4, "price_per_m2_score": 83.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 48.4, "total": 66.3}','2026-10-29 21:49:11.255271');
 INSERT INTO "investment_metrics" VALUES('habitaclia_b067679a-c3c0-4824-bbba-43090934b2db',5.75,4.32,4.32,23.2,1332.0,277760.0,56.3,'{"gross_yield_score": 61.2, "price_per_m2_score": 64.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.4, "total": 56.3}','2026-10-29 21:49:11.272739');
 INSERT INTO "investment_metrics" VALUES('habitaclia_0b388cce-7a21-4382-93d0-aa3b9aca8e76',5.24,3.93,3.93,25.5,1332.0,305200.0,48.2,'{"gross_yield_score": 53.6, "price_per_m2_score": 46.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.6, "total": 48.2}','2026-10-29 21:49:11.290587');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a7c0515e-8054-45b4-bc43-eee2381aa00f',5.79,4.35,4.35,23.0,1368.0,283360.0,56.9,'{"gross_yield_score": 61.9, "price_per_m2_score": 66.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 37.0, "total": 56.9}','2026-10-29 05:26:37.390325');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ab04a6ea-7f0f-40a8-aff4-5c5b2d56f13f',5.98,4.48,4.48,22.3,1368.0,274680.0,59.4,'{"gross_yield_score": 64.7, "price_per_m2_score": 71.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.6, "total": 59.4}','2026-10-28 14:55:38.630252');
-INSERT INTO "investment_metrics" VALUES('habitaclia_cf1b2e6d-7baa-416b-890a-f322258d3dc6',7.74,5.81,5.81,17.2,2160.0,334880.0,76.3,'{"gross_yield_score": 87.4, "price_per_m2_score": 98.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 62.1, "total": 76.3}','2026-10-30 16:32:01.056394');
+INSERT INTO "investment_metrics" VALUES('habitaclia_cf1b2e6d-7baa-416b-890a-f322258d3dc6',7.74,5.81,5.81,17.2,2160.0,334880.0,76.3,'{"gross_yield_score": 87.4, "price_per_m2_score": 98.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 62.1, "total": 76.3}','2026-10-30 16:42:47.956731');
 INSERT INTO "investment_metrics" VALUES('habitaclia_12584000004402',8.44,6.33,6.33,15.8,1693.95,240800.0,72.3,'{"gross_yield_score": 94.4, "price_per_m2_score": 69.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 70.0, "total": 72.3}','2026-10-24 11:13:00.986268');
 INSERT INTO "investment_metrics" VALUES('habitaclia_8257004319139',5.99,4.49,4.49,22.3,1000.5,200480.0,51.6,'{"gross_yield_score": 64.9, "price_per_m2_score": 39.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.8, "total": 51.6}','2026-10-24 11:13:01.005703');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3492002813402',4.93,3.7,3.7,27.0,851.0,207088.0,43.3,'{"gross_yield_score": 48.6, "price_per_m2_score": 35.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.0, "total": 43.3}','2026-10-24 11:13:01.018224');
@@ -20026,7 +20026,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_37637000028388',5.65,4.24,4.
 INSERT INTO "investment_metrics" VALUES('habitaclia_2943004407360',1.76,1.32,1.32,75.9,336.0,229600.0,17.5,'{"gross_yield_score": 5.9, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 4.4, "total": 17.5}','2026-10-24 11:47:20.163379');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4868004429251',4.94,3.7,3.7,27.0,876.0,212800.0,48.3,'{"gross_yield_score": 48.8, "price_per_m2_score": 55.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.0, "total": 48.3}','2026-10-24 11:47:20.195413');
 INSERT INTO "investment_metrics" VALUES('habitaclia_49814000002787',3.28,2.46,2.46,40.7,1056.0,386400.0,27.6,'{"gross_yield_score": 15.6, "price_per_m2_score": 25.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.2, "total": 27.6}','2026-10-24 17:38:22.781452');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7e06892b-e2ae-4568-913c-16304616ed68',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:30:32.375345');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7e06892b-e2ae-4568-913c-16304616ed68',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:41:20.747633');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191157359',5.09,3.82,3.82,26.2,1116.0,263200.0,48.1,'{"gross_yield_score": 51.3, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.4, "total": 48.1}','2026-10-27 21:03:52.156885');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191105085',4.07,3.05,3.05,32.8,1044.0,308000.0,39.6,'{"gross_yield_score": 31.4, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.0, "total": 39.6}','2026-10-28 20:52:06.504167');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191180310',4.77,3.58,3.58,27.9,1314.0,330400.0,49.3,'{"gross_yield_score": 45.4, "price_per_m2_score": 65.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.6, "total": 49.3}','2026-10-24 12:19:18.897615');
@@ -20322,7 +20322,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_4329002426438',9.13,6.85,6.8
 INSERT INTO "investment_metrics" VALUES('habitaclia_56309000001677',4.35,3.26,3.26,30.7,913.5,252000.0,36.8,'{"gross_yield_score": 37.0, "price_per_m2_score": 29.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.2, "total": 36.8}','2026-10-25 16:50:51.279058');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191166496',5.12,3.84,3.84,26.1,1170.0,274400.0,48.3,'{"gross_yield_score": 51.8, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.8, "total": 48.3}','2026-10-28 14:22:40.675835');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191081597',5.79,4.34,4.34,23.0,1350.0,280000.0,62.8,'{"gross_yield_score": 61.9, "price_per_m2_score": 89.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.8, "total": 62.8}','2026-10-25 16:51:05.309296');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a8561e86-e63a-432d-b6ff-fb7a5c38650e',11.61,8.7,8.7,11.5,1963.3,203002.24,84.7,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 97.0, "total": 84.7}','2026-10-30 16:30:50.120979');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a8561e86-e63a-432d-b6ff-fb7a5c38650e',11.61,8.7,8.7,11.5,1963.3,203002.24,84.7,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 97.0, "total": 84.7}','2026-10-30 16:41:38.643347');
 INSERT INTO "investment_metrics" VALUES('habitaclia_41635000001274',5.4,4.05,4.05,24.7,1309.5,291200.0,58.5,'{"gross_yield_score": 56.0, "price_per_m2_score": 83.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.0, "total": 58.5}','2026-10-25 17:04:45.889559');
 INSERT INTO "investment_metrics" VALUES('habitaclia_29867000001071',4.75,3.56,3.56,28.1,1232.0,311360.0,48.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 61.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.2, "total": 48.3}','2026-10-25 17:04:45.904608');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3492002813363',5.76,4.32,4.32,23.2,1638.9,341600.0,59.8,'{"gross_yield_score": 61.4, "price_per_m2_score": 78.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.4, "total": 59.8}','2026-10-25 17:04:45.960444');
@@ -20677,12 +20677,12 @@ INSERT INTO "investment_metrics" VALUES('fotocasa_191210705',7.0,5.25,5.25,19.0,
 INSERT INTO "investment_metrics" VALUES('fotocasa_191024649',6.45,4.84,4.84,20.7,1656.0,308000.0,66.6,'{"gross_yield_score": 71.8, "price_per_m2_score": 87.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.8, "total": 66.6}','2026-10-26 11:26:07.988348');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191178793',10.92,8.19,8.19,12.2,2701.8,296800.0,84.2,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 91.9, "total": 84.2}','2026-10-26 11:32:30.235517');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191178826',5.93,4.45,4.45,22.5,1656.0,334880.0,64.4,'{"gross_yield_score": 63.9, "price_per_m2_score": 92.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.0, "total": 64.4}','2026-10-26 11:32:30.213345');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b5f7621e-beea-4a77-b921-bc1123f2a876',8.94,6.71,6.71,14.9,1200.0,160994.4,82.4,'{"gross_yield_score": 99.4, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 75.7, "total": 82.4}','2026-10-30 16:30:40.814221');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b5f7621e-beea-4a77-b921-bc1123f2a876',8.94,6.71,6.71,14.9,1200.0,160994.4,82.4,'{"gross_yield_score": 99.4, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 75.7, "total": 82.4}','2026-10-30 16:41:29.204202');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191002865',5.09,3.82,3.82,26.2,1116.0,263200.0,48.1,'{"gross_yield_score": 51.3, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.4, "total": 48.1}','2026-10-26 11:51:12.720352');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191178850',3.64,2.73,2.73,36.7,594.0,196000.0,36.4,'{"gross_yield_score": 22.8, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.1, "total": 36.4}','2026-10-26 11:57:41.704538');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191058704',6.63,4.97,4.97,20.1,1206.0,218400.0,71.0,'{"gross_yield_score": 74.5, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 49.4, "total": 71.0}','2026-10-26 12:04:14.917838');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191211018',7.38,5.53,5.53,18.1,1494.0,243040.0,62.6,'{"gross_yield_score": 83.8, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.0, "total": 62.6}','2026-10-26 12:16:36.326646');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4252440d-21fe-4f2f-8002-b13577d9ed12',8.05,6.03,6.03,16.6,1728.0,257723.2,78.2,'{"gross_yield_score": 90.5, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 65.5, "total": 78.2}','2026-10-30 16:32:01.037918');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4252440d-21fe-4f2f-8002-b13577d9ed12',8.05,6.03,6.03,16.6,1728.0,257723.2,78.2,'{"gross_yield_score": 90.5, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 65.5, "total": 78.2}','2026-10-30 16:42:47.938469');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191211229',4.4,3.3,3.3,30.3,1188.0,323680.0,41.6,'{"gross_yield_score": 38.0, "price_per_m2_score": 46.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.0, "total": 41.6}','2026-10-28 20:52:06.436477');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4190004382398',3.3,2.48,2.48,40.4,1215.0,441280.0,26.2,'{"gross_yield_score": 16.0, "price_per_m2_score": 19.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.3, "total": 26.2}','2026-10-26 12:16:20.988663');
 INSERT INTO "investment_metrics" VALUES('habitaclia_13478004406653',2.93,2.2,2.2,45.6,896.0,367360.0,19.2,'{"gross_yield_score": 9.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 7.3, "total": 19.2}','2026-10-26 12:16:21.003556');
@@ -20714,14 +20714,14 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_8116004183926',3.23,2.43,2.4
 INSERT INTO "investment_metrics" VALUES('habitaclia_41124000099047',6.43,4.82,4.82,20.7,918.4,171360.0,69.6,'{"gross_yield_score": 71.4, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 69.6}','2026-10-26 12:48:03.125354');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191145233',12.7,9.52,9.52,10.5,1008.0,95278.4,72.5,'{"gross_yield_score": 100.0, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 72.5}','2026-10-26 12:54:37.082514');
 INSERT INTO "investment_metrics" VALUES('fotocasa_190958305',5.33,4.0,4.0,25.0,1170.0,263200.0,49.8,'{"gross_yield_score": 55.0, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.0, "total": 49.8}','2026-10-26 15:19:19.093917');
-INSERT INTO "investment_metrics" VALUES('habitaclia_2604d88e-6ecd-4780-b9da-4f2e86e3a806',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:30:32.213302');
-INSERT INTO "investment_metrics" VALUES('habitaclia_59ec8d58-01f2-44be-ae13-c3edb09b0418',5.35,4.01,4.01,24.9,1414.0,317347.52,50.5,'{"gross_yield_score": 55.2, "price_per_m2_score": 52.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.2, "total": 50.5}','2026-10-30 16:30:27.297630');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c4a538c3-2fbb-450d-9161-fe34b1b3c51c',3.64,2.73,2.73,36.6,1050.0,346080.0,23.9,'{"gross_yield_score": 22.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.1, "total": 23.9}','2026-10-30 16:30:27.280156');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5603552e-2efd-455b-8abc-67c2ad0312f9',5.52,4.14,4.14,24.2,1488.0,323570.24,45.3,'{"gross_yield_score": 57.8, "price_per_m2_score": 27.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 32.8, "total": 45.3}','2026-10-30 16:30:32.284541');
-INSERT INTO "investment_metrics" VALUES('habitaclia_620e325c-05df-4d32-9a21-ff8cca5bc5c3',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:30:32.195208');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6ffbcb40-1b97-4211-9b7e-7207c11fb3f5',6.68,5.01,5.01,19.9,1450.0,260290.24,63.1,'{"gross_yield_score": 75.2, "price_per_m2_score": 67.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 50.1, "total": 63.1}','2026-10-30 16:30:45.493955');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4492e26f-6153-48ab-8f18-6bc85a8784ef',5.5,4.12,4.12,24.3,1512.0,330174.88,50.0,'{"gross_yield_score": 57.5, "price_per_m2_score": 46.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 32.4, "total": 50.0}','2026-10-30 16:31:08.630437');
-INSERT INTO "investment_metrics" VALUES('habitaclia_cdc1dfd8-4206-4c98-acce-65329fed1353',5.42,4.07,4.07,24.6,1620.0,358400.0,53.8,'{"gross_yield_score": 56.3, "price_per_m2_score": 55.9, "location_score": 60.0, "condition_score": 50.0, "roi_score": 31.4, "total": 53.8}','2026-10-30 16:31:17.144894');
+INSERT INTO "investment_metrics" VALUES('habitaclia_2604d88e-6ecd-4780-b9da-4f2e86e3a806',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:41:20.582226');
+INSERT INTO "investment_metrics" VALUES('habitaclia_59ec8d58-01f2-44be-ae13-c3edb09b0418',5.35,4.01,4.01,24.9,1414.0,317347.52,50.5,'{"gross_yield_score": 55.2, "price_per_m2_score": 52.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.2, "total": 50.5}','2026-10-30 16:41:15.613674');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c4a538c3-2fbb-450d-9161-fe34b1b3c51c',3.64,2.73,2.73,36.6,1050.0,346080.0,23.9,'{"gross_yield_score": 22.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.1, "total": 23.9}','2026-10-30 16:41:15.595496');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5603552e-2efd-455b-8abc-67c2ad0312f9',5.52,4.14,4.14,24.2,1488.0,323570.24,45.3,'{"gross_yield_score": 57.8, "price_per_m2_score": 27.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 32.8, "total": 45.3}','2026-10-30 16:41:20.657417');
+INSERT INTO "investment_metrics" VALUES('habitaclia_620e325c-05df-4d32-9a21-ff8cca5bc5c3',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:41:20.563271');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6ffbcb40-1b97-4211-9b7e-7207c11fb3f5',6.68,5.01,5.01,19.9,1450.0,260290.24,63.1,'{"gross_yield_score": 75.2, "price_per_m2_score": 67.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 50.1, "total": 63.1}','2026-10-30 16:41:33.999299');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4492e26f-6153-48ab-8f18-6bc85a8784ef',5.5,4.12,4.12,24.3,1512.0,330174.88,50.0,'{"gross_yield_score": 57.5, "price_per_m2_score": 46.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 32.4, "total": 50.0}','2026-10-30 16:42:02.579692');
+INSERT INTO "investment_metrics" VALUES('habitaclia_cdc1dfd8-4206-4c98-acce-65329fed1353',5.42,4.07,4.07,24.6,1620.0,358400.0,54.1,'{"gross_yield_score": 56.3, "price_per_m2_score": 57.1, "location_score": 60.0, "condition_score": 50.0, "roi_score": 31.4, "total": 54.1}','2026-10-30 16:42:11.195958');
 INSERT INTO "investment_metrics" VALUES('habitaclia_500006055179',3.03,2.27,2.27,44.1,720.0,285600.0,19.5,'{"gross_yield_score": 10.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 7.6, "total": 19.5}','2026-10-26 15:26:16.439885');
 INSERT INTO "investment_metrics" VALUES('habitaclia_885003225055',3.7,2.77,2.77,36.1,828.0,268800.0,24.3,'{"gross_yield_score": 24.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.2, "total": 24.3}','2026-10-26 15:26:16.469488');
 INSERT INTO "investment_metrics" VALUES('habitaclia_49867000007889',4.49,3.37,3.37,29.7,620.0,165606.56,33.1,'{"gross_yield_score": 39.8, "price_per_m2_score": 9.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.4, "total": 33.1}','2026-10-28 20:52:06.263701');
@@ -20756,7 +20756,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_4023004504405',3.13,2.35,2.3
 INSERT INTO "investment_metrics" VALUES('habitaclia_3492002813406',4.44,3.33,3.33,30.0,1362.5,368480.0,35.1,'{"gross_yield_score": 38.8, "price_per_m2_score": 19.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.6, "total": 35.1}','2026-10-26 17:12:36.473868');
 INSERT INTO "investment_metrics" VALUES('habitaclia_8820004386880',4.69,3.52,3.52,28.4,1200.0,306880.0,39.6,'{"gross_yield_score": 43.8, "price_per_m2_score": 28.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.4, "total": 39.6}','2026-10-26 17:12:36.488719');
 INSERT INTO "investment_metrics" VALUES('habitaclia_8820004386881',4.63,3.47,3.47,28.8,1543.75,399840.0,41.0,'{"gross_yield_score": 42.6, "price_per_m2_score": 36.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.4, "total": 41.0}','2026-10-26 17:12:36.503460');
-INSERT INTO "investment_metrics" VALUES('habitaclia_21410000000314',4.1,3.07,3.07,32.6,787.5,230720.0,34.4,'{"gross_yield_score": 32.0, "price_per_m2_score": 28.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.4, "total": 34.4}','2026-10-30 16:33:03.610094');
+INSERT INTO "investment_metrics" VALUES('habitaclia_21410000000314',4.1,3.07,3.07,32.6,787.5,230720.0,34.4,'{"gross_yield_score": 32.0, "price_per_m2_score": 28.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.4, "total": 34.4}','2026-10-30 16:42:51.333184');
 INSERT INTO "investment_metrics" VALUES('habitaclia_38548000000184',2.61,1.96,1.96,51.1,898.8,413200.0,34.3,'{"gross_yield_score": 8.7, "price_per_m2_score": 62.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 6.5, "total": 34.3}','2026-10-26 17:12:36.533107');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1735004434203',6.33,4.74,4.74,21.1,1239.75,235200.0,66.2,'{"gross_yield_score": 70.0, "price_per_m2_score": 88.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.8, "total": 66.2}','2026-10-26 17:12:36.547895');
 INSERT INTO "investment_metrics" VALUES('habitaclia_18312000001204',5.02,3.77,3.77,26.5,787.5,188160.0,56.8,'{"gross_yield_score": 50.3, "price_per_m2_score": 86.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.4, "total": 56.8}','2026-10-26 17:12:36.563184');
@@ -20812,7 +20812,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_19272000030272',5.87,4.4,4.4
 INSERT INTO "investment_metrics" VALUES('habitaclia_52592000005912',7.46,5.59,5.59,17.9,810.0,130305.28,75.5,'{"gross_yield_score": 84.6, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.8, "total": 75.5}','2026-10-26 20:29:39.272262');
 INSERT INTO "investment_metrics" VALUES('habitaclia_48057000000229',3.38,2.54,2.54,39.4,852.0,302400.0,22.0,'{"gross_yield_score": 17.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.5, "total": 22.0}','2026-10-26 20:29:39.406816');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5390004407427',3.88,2.91,2.91,34.3,1008.0,311360.0,33.1,'{"gross_yield_score": 27.6, "price_per_m2_score": 29.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.7, "total": 33.1}','2026-10-26 20:29:39.442086');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1092a050-c46e-4d09-a31f-8439532272ec',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:54.974410');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1092a050-c46e-4d09-a31f-8439532272ec',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.560960');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2579003792392',2.97,2.23,2.23,44.8,666.0,268800.0,19.2,'{"gross_yield_score": 9.9, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 7.4, "total": 19.2}','2026-10-27 09:43:47.104107');
 INSERT INTO "investment_metrics" VALUES('habitaclia_5891003250493',6.43,4.82,4.82,20.7,1350.0,252000.0,63.9,'{"gross_yield_score": 71.4, "price_per_m2_score": 76.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 63.9}','2026-10-27 09:43:47.117132');
 INSERT INTO "investment_metrics" VALUES('habitaclia_13478004406699',4.19,3.14,3.14,31.8,1170.0,334880.0,39.0,'{"gross_yield_score": 33.8, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 12.8, "total": 39.0}','2026-10-27 09:43:47.129702');
@@ -20836,12 +20836,12 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_52933000005216',6.63,4.97,4.
 INSERT INTO "investment_metrics" VALUES('habitaclia_47738000004381',3.44,2.58,2.58,38.8,1332.0,464800.0,24.6,'{"gross_yield_score": 18.8, "price_per_m2_score": 8.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.6, "total": 24.6}','2026-10-27 09:43:47.456637');
 INSERT INTO "investment_metrics" VALUES('habitaclia_37637000036841',10.18,7.64,7.64,13.1,1015.0,119638.4,83.6,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 86.4, "total": 83.6}','2026-10-27 09:43:47.469590');
 INSERT INTO "investment_metrics" VALUES('habitaclia_44386000000075',4.15,3.11,3.11,32.1,1080.0,312480.0,40.3,'{"gross_yield_score": 33.0, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 12.2, "total": 40.3}','2026-10-27 09:43:47.489725');
-INSERT INTO "investment_metrics" VALUES('habitaclia_04697b51-6f1a-4ca3-adb1-2d12220117b0',6.53,4.89,4.89,20.4,1200.0,220640.0,66.1,'{"gross_yield_score": 73.0, "price_per_m2_score": 83.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 47.8, "total": 66.1}','2026-10-30 16:30:40.796676');
-INSERT INTO "investment_metrics" VALUES('habitaclia_94654079-fd00-4000-9a90-b75faeac52bd',4.03,3.02,3.02,33.1,1015.0,302288.0,26.8,'{"gross_yield_score": 30.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.4, "total": 26.8}','2026-10-30 16:30:54.956213');
-INSERT INTO "investment_metrics" VALUES('habitaclia_ed629d30-1f74-486b-8907-73e005d6d343',5.03,3.78,3.78,26.5,1386.0,330400.0,54.2,'{"gross_yield_score": 50.5, "price_per_m2_score": 76.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.6, "total": 54.2}','2026-10-30 16:31:38.285529');
-INSERT INTO "investment_metrics" VALUES('habitaclia_97e80097-bdea-4748-b0b9-cc2defe5baf6',5.71,4.28,4.28,23.4,1332.0,280000.0,62.6,'{"gross_yield_score": 60.6, "price_per_m2_score": 91.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.6, "total": 62.6}','2026-10-30 16:31:38.267432');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a12bbc56-1d8d-4d4b-80eb-5a8cb923927f',4.43,3.32,3.32,30.1,1278.0,346080.0,44.1,'{"gross_yield_score": 38.6, "price_per_m2_score": 55.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.4, "total": 44.1}','2026-10-30 16:31:42.576903');
-INSERT INTO "investment_metrics" VALUES('habitaclia_08f1de6a-98df-472d-b4d2-7edf1adc7cd5',12.14,9.11,9.11,11.0,1348.5,133280.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 16:31:56.632350');
+INSERT INTO "investment_metrics" VALUES('habitaclia_04697b51-6f1a-4ca3-adb1-2d12220117b0',6.53,4.89,4.89,20.4,1200.0,220640.0,66.1,'{"gross_yield_score": 73.0, "price_per_m2_score": 83.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 47.8, "total": 66.1}','2026-10-30 16:41:29.185787');
+INSERT INTO "investment_metrics" VALUES('habitaclia_94654079-fd00-4000-9a90-b75faeac52bd',4.03,3.02,3.02,33.1,1015.0,302288.0,26.8,'{"gross_yield_score": 30.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.4, "total": 26.8}','2026-10-30 16:41:43.542978');
+INSERT INTO "investment_metrics" VALUES('habitaclia_ed629d30-1f74-486b-8907-73e005d6d343',5.03,3.78,3.78,26.5,1386.0,330400.0,54.2,'{"gross_yield_score": 50.5, "price_per_m2_score": 76.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.6, "total": 54.2}','2026-10-30 16:42:29.707780');
+INSERT INTO "investment_metrics" VALUES('habitaclia_97e80097-bdea-4748-b0b9-cc2defe5baf6',5.71,4.28,4.28,23.4,1332.0,280000.0,62.6,'{"gross_yield_score": 60.6, "price_per_m2_score": 91.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.6, "total": 62.6}','2026-10-30 16:42:29.689570');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a12bbc56-1d8d-4d4b-80eb-5a8cb923927f',4.43,3.32,3.32,30.1,1278.0,346080.0,44.1,'{"gross_yield_score": 38.6, "price_per_m2_score": 55.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.4, "total": 44.1}','2026-10-30 16:42:34.062640');
+INSERT INTO "investment_metrics" VALUES('habitaclia_08f1de6a-98df-472d-b4d2-7edf1adc7cd5',12.14,9.11,9.11,11.0,1348.5,133280.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 16:42:43.570714');
 INSERT INTO "investment_metrics" VALUES('idealista_112916592',3.96,2.97,2.97,33.7,1260.0,382200.0,39.1,'{"gross_yield_score": 29.2, "price_per_m2_score": 51.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.9, "total": 39.1}','2026-10-29 09:31:11.635624');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191220718',5.58,4.19,4.19,23.9,1188.0,255360.0,60.0,'{"gross_yield_score": 58.7, "price_per_m2_score": 84.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.8, "total": 60.0}','2026-10-30 06:16:08.086142');
 INSERT INTO "investment_metrics" VALUES('idealista_112916185',4.92,3.69,3.69,27.1,913.5,222880.0,37.7,'{"gross_yield_score": 48.4, "price_per_m2_score": 13.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.8, "total": 37.7}','2026-10-27 09:40:09.149512');
@@ -21019,7 +21019,7 @@ INSERT INTO "investment_metrics" VALUES('fotocasa_191222138',4.45,3.33,3.33,30.0
 INSERT INTO "investment_metrics" VALUES('fotocasa_191222146',5.9,4.42,4.42,22.6,936.0,190400.0,63.9,'{"gross_yield_score": 63.5, "price_per_m2_score": 91.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 38.4, "total": 63.9}','2026-10-27 11:17:04.922193');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191222369',5.33,4.0,4.0,25.0,1170.0,263200.0,57.1,'{"gross_yield_score": 55.0, "price_per_m2_score": 79.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.0, "total": 57.1}','2026-10-27 11:17:04.934095');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191222245',4.19,3.14,3.14,31.8,1170.0,334880.0,40.6,'{"gross_yield_score": 33.8, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 12.8, "total": 40.6}','2026-10-27 11:17:04.949754');
-INSERT INTO "investment_metrics" VALUES('habitaclia_645a4888-9b12-4172-925f-850efaebc8d7',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:30:32.177147');
+INSERT INTO "investment_metrics" VALUES('habitaclia_645a4888-9b12-4172-925f-850efaebc8d7',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 16:41:20.545072');
 INSERT INTO "investment_metrics" VALUES('habitaclia_15471000080113',2.44,1.83,1.83,54.7,637.0,313600.0,36.9,'{"gross_yield_score": 8.1, "price_per_m2_score": 73.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 6.1, "total": 36.9}','2026-10-27 11:33:46.440429');
 INSERT INTO "investment_metrics" VALUES('habitaclia_13920000017306',7.48,5.61,5.61,17.8,900.0,144480.0,68.5,'{"gross_yield_score": 84.8, "price_per_m2_score": 71.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 59.2, "total": 68.5}','2026-10-27 11:33:46.451043');
 INSERT INTO "investment_metrics" VALUES('habitaclia_31914000000550',4.98,3.74,3.74,26.8,1487.5,358400.0,48.8,'{"gross_yield_score": 49.6, "price_per_m2_score": 55.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.8, "total": 48.8}','2026-10-27 11:33:46.461701');
@@ -21093,19 +21093,19 @@ INSERT INTO "investment_metrics" VALUES('fotocasa_190968772',4.45,3.33,3.33,30.0
 INSERT INTO "investment_metrics" VALUES('fotocasa_190968951',5.9,4.42,4.42,22.6,936.0,190400.0,63.9,'{"gross_yield_score": 63.5, "price_per_m2_score": 91.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 38.4, "total": 63.9}','2026-10-27 21:03:52.265141');
 INSERT INTO "investment_metrics" VALUES('fotocasa_190968965',4.34,3.25,3.25,30.7,972.0,268800.0,41.9,'{"gross_yield_score": 36.8, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.0, "total": 41.9}','2026-10-27 21:03:52.281813');
 INSERT INTO "investment_metrics" VALUES('fotocasa_190969331',4.45,3.33,3.33,30.0,1116.0,301280.0,42.5,'{"gross_yield_score": 39.0, "price_per_m2_score": 48.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.6, "total": 42.5}','2026-10-27 21:03:52.301409');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e828653d-5340-4e15-9f27-a832c7d71caa',3.71,2.78,2.78,35.9,1022.0,330400.0,28.5,'{"gross_yield_score": 24.2, "price_per_m2_score": 16.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.3, "total": 28.5}','2026-10-30 16:30:27.262231');
-INSERT INTO "investment_metrics" VALUES('habitaclia_2401598f-d633-4d77-9196-6898f72f0a01',9.16,6.87,6.87,14.6,1624.0,212800.0,82.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 78.0, "total": 82.8}','2026-10-30 16:30:27.244384');
-INSERT INTO "investment_metrics" VALUES('habitaclia_ea24fdc4-b469-4c89-8cd9-1269d2e10e79',5.31,3.98,3.98,25.1,1065.0,240800.0,47.8,'{"gross_yield_score": 54.6, "price_per_m2_score": 42.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.6, "total": 47.8}','2026-10-30 16:30:40.919608');
-INSERT INTO "investment_metrics" VALUES('habitaclia_88974ee2-5716-4b2c-b8f5-5c544438f30c',4.85,3.64,3.64,27.5,1087.5,268800.0,36.5,'{"gross_yield_score": 47.0, "price_per_m2_score": 11.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.8, "total": 36.5}','2026-10-30 16:30:50.101709');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4faec54f-5795-4cb8-b67e-9e7e1f7822ce',4.3,3.23,3.23,31.0,1189.0,331520.0,29.1,'{"gross_yield_score": 36.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.6, "total": 29.1}','2026-10-30 16:30:54.937884');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6c5b93df-5ae5-4ffb-a303-1e881f6f308b',5.03,3.78,3.78,26.5,1386.0,330400.0,52.1,'{"gross_yield_score": 50.5, "price_per_m2_score": 67.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.6, "total": 52.1}','2026-10-30 16:31:04.370323');
-INSERT INTO "investment_metrics" VALUES('habitaclia_00150aba-bbe7-48a9-92bb-6355e1b3fa5a',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.489179');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a9dd3e0d-1cc2-446c-a735-2f6e42d83bb6',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.527654');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b141f662-17fd-4421-bbd9-8937015c1ca9',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.562245');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e05ac735-d0e4-48e2-8a82-0d3c92a9b0e1',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.453954');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e4cddd9c-73b5-4c90-bc13-8b9003c6d09c',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.510317');
-INSERT INTO "investment_metrics" VALUES('habitaclia_ef8c2e01-0ea7-4aff-ba66-d3ccd4c075d4',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.471315');
-INSERT INTO "investment_metrics" VALUES('habitaclia_36d77691-2dfa-4c03-826a-725e4b3a09a0',9.37,7.02,7.02,14.2,1162.5,148943.2,83.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 80.2, "total": 83.0}','2026-10-30 16:31:56.544902');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e828653d-5340-4e15-9f27-a832c7d71caa',3.71,2.78,2.78,35.9,1022.0,330400.0,28.5,'{"gross_yield_score": 24.2, "price_per_m2_score": 16.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.3, "total": 28.5}','2026-10-30 16:41:15.576973');
+INSERT INTO "investment_metrics" VALUES('habitaclia_2401598f-d633-4d77-9196-6898f72f0a01',9.16,6.87,6.87,14.6,1624.0,212800.0,82.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 78.0, "total": 82.8}','2026-10-30 16:41:15.558931');
+INSERT INTO "investment_metrics" VALUES('habitaclia_ea24fdc4-b469-4c89-8cd9-1269d2e10e79',5.31,3.98,3.98,25.1,1065.0,240800.0,47.8,'{"gross_yield_score": 54.6, "price_per_m2_score": 42.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.6, "total": 47.8}','2026-10-30 16:41:29.314534');
+INSERT INTO "investment_metrics" VALUES('habitaclia_88974ee2-5716-4b2c-b8f5-5c544438f30c',4.85,3.64,3.64,27.5,1087.5,268800.0,36.5,'{"gross_yield_score": 47.0, "price_per_m2_score": 11.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.8, "total": 36.5}','2026-10-30 16:41:38.624500');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4faec54f-5795-4cb8-b67e-9e7e1f7822ce',4.3,3.23,3.23,31.0,1189.0,331520.0,29.1,'{"gross_yield_score": 36.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.6, "total": 29.1}','2026-10-30 16:41:43.525210');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6c5b93df-5ae5-4ffb-a303-1e881f6f308b',5.03,3.78,3.78,26.5,1386.0,330400.0,52.1,'{"gross_yield_score": 50.5, "price_per_m2_score": 67.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.6, "total": 52.1}','2026-10-30 16:41:55.669174');
+INSERT INTO "investment_metrics" VALUES('habitaclia_00150aba-bbe7-48a9-92bb-6355e1b3fa5a',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.430561');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a9dd3e0d-1cc2-446c-a735-2f6e42d83bb6',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.464231');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b141f662-17fd-4421-bbd9-8937015c1ca9',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.498029');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e05ac735-d0e4-48e2-8a82-0d3c92a9b0e1',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.396183');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e4cddd9c-73b5-4c90-bc13-8b9003c6d09c',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.447525');
+INSERT INTO "investment_metrics" VALUES('habitaclia_ef8c2e01-0ea7-4aff-ba66-d3ccd4c075d4',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.413240');
+INSERT INTO "investment_metrics" VALUES('habitaclia_36d77691-2dfa-4c03-826a-725e4b3a09a0',9.37,7.02,7.02,14.2,1162.5,148943.2,83.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 80.2, "total": 83.0}','2026-10-30 16:42:43.480956');
 INSERT INTO "investment_metrics" VALUES('habitaclia_df80ec32-6873-485b-8836-245bcb980db0',4.53,3.4,3.4,29.4,1332.0,352800.0,35.7,'{"gross_yield_score": 40.6, "price_per_m2_score": 18.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.0, "total": 35.7}','2026-10-29 21:49:09.827915');
 INSERT INTO "investment_metrics" VALUES('habitaclia_21552004506798',5.08,3.81,3.81,26.3,1872.0,442400.0,51.5,'{"gross_yield_score": 51.2, "price_per_m2_score": 63.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.2, "total": 51.5}','2026-10-27 21:50:35.306705');
 INSERT INTO "investment_metrics" VALUES('habitaclia_45881000004404',4.46,3.34,3.34,29.9,928.0,249760.0,32.7,'{"gross_yield_score": 39.2, "price_per_m2_score": 9.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.8, "total": 32.7}','2026-10-27 21:50:35.321072');
@@ -21310,7 +21310,7 @@ INSERT INTO "investment_metrics" VALUES('fotocasa_190974481',5.7,4.27,4.27,23.4,
 INSERT INTO "investment_metrics" VALUES('fotocasa_190922149',5.7,4.27,4.27,23.4,1170.0,246400.0,61.5,'{"gross_yield_score": 60.5, "price_per_m2_score": 87.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 35.4, "total": 61.5}','2026-10-28 09:22:18.771025');
 INSERT INTO "investment_metrics" VALUES('fotocasa_190974998',4.45,3.33,3.33,30.0,1116.0,301280.0,42.5,'{"gross_yield_score": 39.0, "price_per_m2_score": 48.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.6, "total": 42.5}','2026-10-28 09:22:18.789001');
 INSERT INTO "investment_metrics" VALUES('habitaclia_6d51402e-26e8-4aa9-acb6-647eb78741fa',5.18,3.88,3.88,25.7,1160.0,268800.0,41.7,'{"gross_yield_score": 52.7, "price_per_m2_score": 21.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.7}','2026-10-29 15:45:52.012984');
-INSERT INTO "investment_metrics" VALUES('habitaclia_59cd9ba0-d197-45f9-b5d2-72cda90ebf46',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.436515');
+INSERT INTO "investment_metrics" VALUES('habitaclia_59cd9ba0-d197-45f9-b5d2-72cda90ebf46',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.378735');
 INSERT INTO "investment_metrics" VALUES('habitaclia_10266000005132',2.82,2.11,2.11,47.3,497.0,211680.0,30.6,'{"gross_yield_score": 9.4, "price_per_m2_score": 46.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 7.0, "total": 30.6}','2026-10-28 09:29:41.027089');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4087004281390',3.48,2.61,2.61,38.4,957.0,330400.0,22.8,'{"gross_yield_score": 19.6, "price_per_m2_score": 0.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.7, "total": 22.8}','2026-10-28 09:29:41.044112');
 INSERT INTO "investment_metrics" VALUES('habitaclia_21869004388764',5.88,4.41,4.41,22.7,1092.0,222880.0,44.5,'{"gross_yield_score": 63.2, "price_per_m2_score": 14.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 38.2, "total": 44.5}','2026-10-28 09:29:41.060434');
@@ -21535,8 +21535,8 @@ INSERT INTO "investment_metrics" VALUES('fotocasa_190980438',2.43,1.83,1.83,54.8
 INSERT INTO "investment_metrics" VALUES('fotocasa_191049407',5.09,3.82,3.82,26.2,1116.0,263200.0,48.1,'{"gross_yield_score": 51.3, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.4, "total": 48.1}','2026-10-28 20:52:06.516584');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191050817',5.9,4.42,4.42,22.6,936.0,190400.0,63.9,'{"gross_yield_score": 63.5, "price_per_m2_score": 91.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 38.4, "total": 63.9}','2026-10-28 20:52:06.566364');
 INSERT INTO "investment_metrics" VALUES('fotocasa_190979814',5.28,3.96,3.96,25.2,1080.0,245280.0,56.4,'{"gross_yield_score": 54.2, "price_per_m2_score": 77.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.2, "total": 56.4}','2026-10-28 20:52:06.646941');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5ec0f78e-4b55-4ec0-83e8-bf813ff88745',5.14,3.86,3.86,25.9,1440.0,336000.0,46.9,'{"gross_yield_score": 52.1, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 46.9}','2026-10-30 16:30:32.139974');
-INSERT INTO "investment_metrics" VALUES('habitaclia_db17bbf3-18be-4e68-8dea-c84880b515c6',10.39,7.79,7.79,12.8,1638.5,189280.0,83.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 87.9, "total": 83.8}','2026-10-30 16:30:54.920817');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5ec0f78e-4b55-4ec0-83e8-bf813ff88745',5.14,3.86,3.86,25.9,1440.0,336000.0,46.9,'{"gross_yield_score": 52.1, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 46.9}','2026-10-30 16:41:20.508447');
+INSERT INTO "investment_metrics" VALUES('habitaclia_db17bbf3-18be-4e68-8dea-c84880b515c6',10.39,7.79,7.79,12.8,1638.5,189280.0,83.8,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 87.9, "total": 83.8}','2026-10-30 16:41:43.507248');
 INSERT INTO "investment_metrics" VALUES('habitaclia_608d3886-a6f5-4348-84e8-db40df20ce36',4.81,3.61,3.61,27.7,1100.5,274400.0,38.3,'{"gross_yield_score": 46.2, "price_per_m2_score": 19.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.2, "total": 38.3}','2026-10-30 15:26:29.666411');
 INSERT INTO "investment_metrics" VALUES('habitaclia_44250000009456',6.39,4.8,4.8,20.9,1551.5,291200.0,57.7,'{"gross_yield_score": 70.8, "price_per_m2_score": 53.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.0, "total": 57.7}','2026-10-28 21:07:27.274940');
 INSERT INTO "investment_metrics" VALUES('habitaclia_35468004304537',4.92,3.69,3.69,27.1,913.5,222880.0,40.8,'{"gross_yield_score": 48.4, "price_per_m2_score": 25.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.8, "total": 40.8}','2026-10-28 21:07:27.292613');
@@ -21701,17 +21701,17 @@ INSERT INTO "investment_metrics" VALUES('fotocasa_191110798',4.4,3.3,3.3,30.3,11
 INSERT INTO "investment_metrics" VALUES('fotocasa_191055252',4.34,3.25,3.25,30.7,972.0,268800.0,41.9,'{"gross_yield_score": 36.8, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.0, "total": 41.9}','2026-10-28 23:25:01.192746');
 INSERT INTO "investment_metrics" VALUES('fotocasa_190931977',4.77,3.58,3.58,28.0,1188.0,299040.0,48.6,'{"gross_yield_score": 45.4, "price_per_m2_score": 62.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.6, "total": 48.6}','2026-10-28 23:25:01.210926');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191054568',4.34,3.25,3.25,30.7,972.0,268800.0,40.3,'{"gross_yield_score": 36.8, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.0, "total": 40.3}','2026-10-28 23:25:01.229385');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7685154a-8c4b-4983-9c89-58c2c9748232',4.39,3.3,3.3,30.3,1288.0,351680.0,29.8,'{"gross_yield_score": 37.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.0, "total": 29.8}','2026-10-30 16:30:22.556729');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6047e8f8-45ae-4181-b40f-f6c4de6d2e0f',5.96,4.47,4.47,22.4,1152.0,231840.0,59.4,'{"gross_yield_score": 64.4, "price_per_m2_score": 71.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 59.4}','2026-10-30 16:30:32.158953');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7685154a-8c4b-4983-9c89-58c2c9748232',4.39,3.3,3.3,30.3,1288.0,351680.0,29.8,'{"gross_yield_score": 37.8, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.0, "total": 29.8}','2026-10-30 16:41:10.939130');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6047e8f8-45ae-4181-b40f-f6c4de6d2e0f',5.96,4.47,4.47,22.4,1152.0,231840.0,59.4,'{"gross_yield_score": 64.4, "price_per_m2_score": 71.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 59.4}','2026-10-30 16:41:20.526959');
 INSERT INTO "investment_metrics" VALUES('habitaclia_9f1abfd7-9bd7-4a7a-a8b6-f8334085ed0a',6.38,4.79,4.79,20.9,1305.0,245280.0,57.6,'{"gross_yield_score": 70.7, "price_per_m2_score": 53.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.8, "total": 57.6}','2026-10-30 15:23:32.920887');
-INSERT INTO "investment_metrics" VALUES('habitaclia_6c899b24-67e0-4102-b019-c2e97669a900',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:30:59.763420');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a9045aae-a527-46e5-b195-bbef3a585e8b',4.58,3.44,3.44,29.1,1368.0,358400.0,34.4,'{"gross_yield_score": 41.6, "price_per_m2_score": 12.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.8, "total": 34.4}','2026-10-30 16:31:08.648007');
-INSERT INTO "investment_metrics" VALUES('habitaclia_443395a5-eaa2-492b-9554-174825e0eda1',4.35,3.26,3.26,30.7,1278.0,352800.0,42.5,'{"gross_yield_score": 37.0, "price_per_m2_score": 52.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.2, "total": 42.5}','2026-10-30 16:31:42.559159');
-INSERT INTO "investment_metrics" VALUES('habitaclia_82010cf3-099e-4669-9f68-da6760e161d1',5.24,3.93,3.93,25.4,1458.0,333760.0,57.1,'{"gross_yield_score": 53.6, "price_per_m2_score": 81.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.6, "total": 57.1}','2026-10-30 16:31:42.825908');
-INSERT INTO "investment_metrics" VALUES('habitaclia_423f4d38-8463-4bee-8b8b-d4208f49c75e',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.365402');
-INSERT INTO "investment_metrics" VALUES('habitaclia_83793469-be84-4adc-bf50-bdf4e65b7f56',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.401006');
-INSERT INTO "investment_metrics" VALUES('habitaclia_a740e997-9ac4-475b-81f2-70d4c2310839',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.418950');
-INSERT INTO "investment_metrics" VALUES('habitaclia_63ae36e0-caa5-46ca-9c8e-4caab550f424',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.383102');
+INSERT INTO "investment_metrics" VALUES('habitaclia_6c899b24-67e0-4102-b019-c2e97669a900',5.41,4.06,4.06,24.6,980.0,217280.0,56.2,'{"gross_yield_score": 56.2, "price_per_m2_score": 73.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 56.2}','2026-10-30 16:41:48.281281');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a9045aae-a527-46e5-b195-bbef3a585e8b',4.58,3.44,3.44,29.1,1368.0,358400.0,34.4,'{"gross_yield_score": 41.6, "price_per_m2_score": 12.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.8, "total": 34.4}','2026-10-30 16:42:02.597741');
+INSERT INTO "investment_metrics" VALUES('habitaclia_443395a5-eaa2-492b-9554-174825e0eda1',4.35,3.26,3.26,30.7,1278.0,352800.0,42.5,'{"gross_yield_score": 37.0, "price_per_m2_score": 52.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.2, "total": 42.5}','2026-10-30 16:42:34.044072');
+INSERT INTO "investment_metrics" VALUES('habitaclia_82010cf3-099e-4669-9f68-da6760e161d1',5.24,3.93,3.93,25.4,1458.0,333760.0,57.1,'{"gross_yield_score": 53.6, "price_per_m2_score": 81.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.6, "total": 57.1}','2026-10-30 16:42:34.323636');
+INSERT INTO "investment_metrics" VALUES('habitaclia_423f4d38-8463-4bee-8b8b-d4208f49c75e',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.304468');
+INSERT INTO "investment_metrics" VALUES('habitaclia_83793469-be84-4adc-bf50-bdf4e65b7f56',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.342400');
+INSERT INTO "investment_metrics" VALUES('habitaclia_a740e997-9ac4-475b-81f2-70d4c2310839',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.361170');
+INSERT INTO "investment_metrics" VALUES('habitaclia_63ae36e0-caa5-46ca-9c8e-4caab550f424',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.323589');
 INSERT INTO "investment_metrics" VALUES('idealista_112936788',4.05,3.04,3.04,32.9,900.0,266560.0,32.1,'{"gross_yield_score": 31.0, "price_per_m2_score": 20.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.8, "total": 32.1}','2026-10-29 04:52:39.440218');
 INSERT INTO "investment_metrics" VALUES('idealista_112936620',6.1,4.57,4.57,21.9,966.0,190180.0,63.7,'{"gross_yield_score": 66.5, "price_per_m2_score": 85.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 41.4, "total": 63.7}','2026-10-29 09:31:11.498116');
 INSERT INTO "investment_metrics" VALUES('idealista_112936069',6.3,4.72,4.72,21.2,1170.0,222880.0,55.0,'{"gross_yield_score": 69.5, "price_per_m2_score": 44.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.4, "total": 55.0}','2026-10-29 05:48:57.487648');
@@ -21907,7 +21907,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_13129000000067',1.41,1.06,1.
 INSERT INTO "investment_metrics" VALUES('habitaclia_19332003656743',1.82,1.36,1.36,73.4,588.0,388416.0,38.0,'{"gross_yield_score": 6.1, "price_per_m2_score": 81.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 4.5, "total": 38.0}','2026-10-29 16:30:45.139201');
 INSERT INTO "investment_metrics" VALUES('habitaclia_2074003645554',2.72,2.04,2.04,49.0,609.0,268800.0,19.8,'{"gross_yield_score": 9.1, "price_per_m2_score": 3.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 6.8, "total": 19.8}','2026-10-29 12:20:17.559071');
 INSERT INTO "investment_metrics" VALUES('habitaclia_50387000000108',8.85,6.64,6.64,15.1,825.0,111888.0,80.1,'{"gross_yield_score": 98.5, "price_per_m2_score": 92.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 74.6, "total": 80.1}','2026-10-29 12:20:17.575004');
-INSERT INTO "investment_metrics" VALUES('habitaclia_8d9b5b8b-68ed-4cc0-b243-b59204bb670c',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:54.903058');
+INSERT INTO "investment_metrics" VALUES('habitaclia_8d9b5b8b-68ed-4cc0-b243-b59204bb670c',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.489016');
 INSERT INTO "investment_metrics" VALUES('habitaclia_27573004380622',3.51,2.63,2.63,38.0,910.0,311380.0,25.1,'{"gross_yield_score": 20.2, "price_per_m2_score": 8.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.8, "total": 25.1}','2026-10-29 12:27:57.463040');
 INSERT INTO "investment_metrics" VALUES('habitaclia_8266000005543',3.01,2.26,2.26,44.3,840.0,334880.0,25.0,'{"gross_yield_score": 10.2, "price_per_m2_score": 22.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 7.5, "total": 25.0}','2026-10-29 12:27:57.480098');
 INSERT INTO "investment_metrics" VALUES('habitaclia_15471000080199',4.05,3.04,3.04,32.9,900.0,266560.0,32.3,'{"gross_yield_score": 31.0, "price_per_m2_score": 21.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.8, "total": 32.3}','2026-10-29 12:27:57.496908');
@@ -21997,13 +21997,13 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_5781004385201',3.23,2.43,2.4
 INSERT INTO "investment_metrics" VALUES('habitaclia_45773000009641',7.01,5.26,5.26,19.0,609.0,104283.2,73.4,'{"gross_yield_score": 80.1, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 53.9, "total": 73.4}','2026-10-30 08:18:03.182072');
 INSERT INTO "investment_metrics" VALUES('habitaclia_739004431823',5.73,4.3,4.3,23.3,962.5,201600.0,45.4,'{"gross_yield_score": 61.0, "price_per_m2_score": 21.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.0, "total": 45.4}','2026-10-29 16:30:45.174326');
 INSERT INTO "investment_metrics" VALUES('habitaclia_44429000000175',1.34,1.01,1.01,99.4,532.0,476000.0,16.9,'{"gross_yield_score": 4.5, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 3.4, "total": 16.9}','2026-10-29 16:30:45.214901');
-INSERT INTO "investment_metrics" VALUES('habitaclia_2250fe0f-40d4-4497-8e5d-9112d8396790',5.62,4.21,4.21,23.7,1652.0,352800.0,59.5,'{"gross_yield_score": 59.3, "price_per_m2_score": 81.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.2, "total": 59.5}','2026-10-30 16:30:22.429223');
-INSERT INTO "investment_metrics" VALUES('habitaclia_55812dca-7bb3-45d9-8ae0-d248693eb53a',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:30:50.084023');
+INSERT INTO "investment_metrics" VALUES('habitaclia_2250fe0f-40d4-4497-8e5d-9112d8396790',5.62,4.21,4.21,23.7,1652.0,352800.0,59.5,'{"gross_yield_score": 59.3, "price_per_m2_score": 81.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.2, "total": 59.5}','2026-10-30 16:41:10.812104');
+INSERT INTO "investment_metrics" VALUES('habitaclia_55812dca-7bb3-45d9-8ae0-d248693eb53a',5.18,3.88,3.88,25.7,1160.0,268800.0,41.8,'{"gross_yield_score": 52.7, "price_per_m2_score": 22.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.6, "total": 41.8}','2026-10-30 16:41:38.606212');
 INSERT INTO "investment_metrics" VALUES('habitaclia_af212f5d-c00d-4c0c-a9de-f3842df43336',4.59,3.45,3.45,29.0,1278.0,333760.0,44.0,'{"gross_yield_score": 41.8, "price_per_m2_score": 49.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.0, "total": 44.0}','2026-10-30 15:23:48.272390');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e7b36fcd-3d2e-4f9b-bcfc-d3bec7b72d19',5.93,4.45,4.45,22.5,1656.0,334880.0,45.2,'{"gross_yield_score": 63.9, "price_per_m2_score": 15.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.0, "total": 45.2}','2026-10-30 16:31:31.119502');
-INSERT INTO "investment_metrics" VALUES('habitaclia_8c106eac-464a-4318-ab91-9b2d490c7068',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.329459');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e4aaafc2-91b1-4275-8acc-5dabe2de7667',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.347600');
-INSERT INTO "investment_metrics" VALUES('habitaclia_40e009e6-7267-4bb8-8a0e-8c27bc6f15e0',5.19,3.89,3.89,25.7,1260.0,291200.0,45.7,'{"gross_yield_score": 52.9, "price_per_m2_score": 37.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.8, "total": 45.7}','2026-10-30 16:32:01.464012');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e7b36fcd-3d2e-4f9b-bcfc-d3bec7b72d19',5.93,4.45,4.45,22.5,1656.0,334880.0,45.2,'{"gross_yield_score": 63.9, "price_per_m2_score": 15.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.0, "total": 45.2}','2026-10-30 16:42:25.255660');
+INSERT INTO "investment_metrics" VALUES('habitaclia_8c106eac-464a-4318-ab91-9b2d490c7068',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.267788');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e4aaafc2-91b1-4275-8acc-5dabe2de7667',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.286323');
+INSERT INTO "investment_metrics" VALUES('habitaclia_40e009e6-7267-4bb8-8a0e-8c27bc6f15e0',5.19,3.89,3.89,25.7,1260.0,291200.0,45.7,'{"gross_yield_score": 52.9, "price_per_m2_score": 37.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.8, "total": 45.7}','2026-10-30 16:42:48.364688');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4101004349063',3.96,2.97,2.97,33.7,720.0,218400.0,45.0,'{"gross_yield_score": 29.2, "price_per_m2_score": 75.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.9, "total": 45.0}','2026-10-29 17:07:45.701730');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4497004379169',4.37,3.28,3.28,30.5,775.0,212800.0,34.7,'{"gross_yield_score": 37.4, "price_per_m2_score": 20.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.6, "total": 34.7}','2026-10-29 17:07:45.719789');
 INSERT INTO "investment_metrics" VALUES('habitaclia_23252000005293',4.94,3.71,3.71,27.0,1379.5,334880.0,45.5,'{"gross_yield_score": 48.8, "price_per_m2_score": 44.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.2, "total": 45.5}','2026-10-29 17:07:45.737345');
@@ -22015,7 +22015,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_49867000007943',21.86,16.39,
 INSERT INTO "investment_metrics" VALUES('habitaclia_45074000005663',4.78,3.59,3.59,27.9,1602.0,402080.0,45.8,'{"gross_yield_score": 45.6, "price_per_m2_score": 50.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.8, "total": 45.8}','2026-10-29 17:07:45.843330');
 INSERT INTO "investment_metrics" VALUES('habitaclia_41124000065197',11.45,8.59,8.59,11.6,4264.2,446880.0,72.1,'{"gross_yield_score": 100.0, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 95.9, "total": 72.1}','2026-10-29 17:07:45.870881');
 INSERT INTO "investment_metrics" VALUES('habitaclia_15237004314819',4.31,3.23,3.23,30.9,1162.5,323680.0,33.6,'{"gross_yield_score": 36.2, "price_per_m2_score": 17.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 14.6, "total": 33.6}','2026-10-29 17:07:45.888848');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5d10d806-ebec-455f-9de4-a721270963d0',5.14,3.86,3.86,25.9,1440.0,336000.0,46.9,'{"gross_yield_score": 52.1, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 46.9}','2026-10-30 16:30:32.069774');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5d10d806-ebec-455f-9de4-a721270963d0',5.14,3.86,3.86,25.9,1440.0,336000.0,46.9,'{"gross_yield_score": 52.1, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 46.9}','2026-10-30 16:41:20.432790');
 INSERT INTO "investment_metrics" VALUES('habitaclia_41124000072955',4.68,3.51,3.51,28.5,874.0,224000.0,39.2,'{"gross_yield_score": 43.6, "price_per_m2_score": 27.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.2, "total": 39.2}','2026-10-30 08:10:13.021973');
 INSERT INTO "investment_metrics" VALUES('habitaclia_45050000000355',3.24,2.43,2.43,41.1,805.0,297920.0,21.7,'{"gross_yield_score": 14.8, "price_per_m2_score": 2.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.1, "total": 21.7}','2026-10-29 17:15:30.277993');
 INSERT INTO "investment_metrics" VALUES('habitaclia_37637000039038',12.69,9.51,9.51,10.5,888.0,84000.0,82.9,'{"gross_yield_score": 100.0, "price_per_m2_score": 91.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 82.9}','2026-10-29 17:15:30.294753');
@@ -22046,8 +22046,8 @@ INSERT INTO "investment_metrics" VALUES('idealista_112943570',1.66,1.25,1.25,80.
 INSERT INTO "investment_metrics" VALUES('idealista_112944447',4.02,3.02,3.02,33.2,938.0,280000.0,31.3,'{"gross_yield_score": 30.4, "price_per_m2_score": 18.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.4, "total": 31.3}','2026-10-30 06:43:21.575213');
 INSERT INTO "investment_metrics" VALUES('idealista_112944234',4.9,3.67,3.67,27.2,1188.0,291200.0,42.2,'{"gross_yield_score": 48.0, "price_per_m2_score": 32.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.4, "total": 42.2}','2026-10-30 06:43:21.610051');
 INSERT INTO "investment_metrics" VALUES('idealista_112944276',4.78,3.58,3.58,27.9,1404.0,352800.0,42.7,'{"gross_yield_score": 45.6, "price_per_m2_score": 38.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.6, "total": 42.7}','2026-10-30 06:43:21.592530');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d2c416df-6466-443f-83fb-50567085d14d',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:30:54.885154');
-INSERT INTO "investment_metrics" VALUES('habitaclia_05af91ef-5757-4f4f-962d-6e17aed09a30',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.276416');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d2c416df-6466-443f-83fb-50567085d14d',7.36,5.52,5.52,18.1,1821.2,296800.0,69.9,'{"gross_yield_score": 83.6, "price_per_m2_score": 79.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.9}','2026-10-30 16:41:43.470943');
+INSERT INTO "investment_metrics" VALUES('habitaclia_05af91ef-5757-4f4f-962d-6e17aed09a30',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.212139');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4765002339553',4.43,3.32,3.32,30.1,1075.2,291200.0,33.6,'{"gross_yield_score": 38.6, "price_per_m2_score": 13.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.4, "total": 33.6}','2026-10-29 18:50:25.424301');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1464004018309',4.6,3.45,3.45,29.0,1224.0,319200.0,34.5,'{"gross_yield_score": 42.0, "price_per_m2_score": 11.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.0, "total": 34.5}','2026-10-29 18:50:25.526683');
 INSERT INTO "investment_metrics" VALUES('habitaclia_26096004037956',3.28,2.46,2.46,40.7,854.0,312480.0,21.3,'{"gross_yield_score": 15.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.2, "total": 21.3}','2026-10-29 18:14:04.694240');
@@ -22099,13 +22099,13 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_41958000010447',3.33,2.5,2.5
 INSERT INTO "investment_metrics" VALUES('habitaclia_13472000001366',3.38,2.54,2.54,39.4,837.0,296800.0,22.0,'{"gross_yield_score": 17.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.5, "total": 22.0}','2026-10-30 05:48:17.821233');
 INSERT INTO "investment_metrics" VALUES('habitaclia_43746000000051',3.82,2.86,2.86,34.9,1422.0,446880.0,43.7,'{"gross_yield_score": 26.4, "price_per_m2_score": 74.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.5, "total": 43.7}','2026-10-30 05:48:17.838487');
 INSERT INTO "investment_metrics" VALUES('idealista_112226669',4.48,3.36,3.36,29.8,1078.0,288960.0,40.3,'{"gross_yield_score": 39.6, "price_per_m2_score": 38.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.2, "total": 40.3}','2026-10-29 20:49:12.129599');
-INSERT INTO "investment_metrics" VALUES('habitaclia_f6ecce1d-cf35-4aa1-aa4b-a98c01e73a90',5.74,4.3,4.3,23.2,1596.0,333760.0,61.0,'{"gross_yield_score": 61.1, "price_per_m2_score": 84.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.0, "total": 61.0}','2026-10-30 16:30:22.876982');
-INSERT INTO "investment_metrics" VALUES('habitaclia_8304648a-c2e7-4eae-8274-e031bf468a42',4.41,3.31,3.31,30.2,1296.0,352800.0,40.3,'{"gross_yield_score": 38.2, "price_per_m2_score": 41.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.2, "total": 40.3}','2026-10-30 16:31:04.352563');
-INSERT INTO "investment_metrics" VALUES('habitaclia_d30f0171-a1f5-4586-907b-d3f2baa022d3',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.293954');
-INSERT INTO "investment_metrics" VALUES('habitaclia_65e9c603-0f0e-4912-9ef0-d92e23f067e5',5.96,4.47,4.47,22.4,1152.0,231840.0,59.4,'{"gross_yield_score": 64.4, "price_per_m2_score": 71.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 59.4}','2026-10-30 16:30:32.087083');
-INSERT INTO "investment_metrics" VALUES('habitaclia_fdd02aee-3dcb-4040-bf5e-891af7c4696d',5.96,4.47,4.47,22.4,1152.0,231840.0,52.2,'{"gross_yield_score": 64.4, "price_per_m2_score": 42.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 52.2}','2026-10-30 16:30:32.104314');
-INSERT INTO "investment_metrics" VALUES('habitaclia_95b2919a-9095-4f33-a183-0b473ad0fa74',5.96,4.47,4.47,22.4,1152.0,231840.0,52.2,'{"gross_yield_score": 64.4, "price_per_m2_score": 42.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 52.2}','2026-10-30 16:30:32.121768');
-INSERT INTO "investment_metrics" VALUES('habitaclia_316c5bf5-f0cc-4e40-9aeb-2367720f929a',5.14,3.86,3.86,25.9,1440.0,336000.0,46.9,'{"gross_yield_score": 52.1, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 46.9}','2026-10-30 16:30:32.394019');
+INSERT INTO "investment_metrics" VALUES('habitaclia_f6ecce1d-cf35-4aa1-aa4b-a98c01e73a90',5.74,4.3,4.3,23.2,1596.0,333760.0,61.0,'{"gross_yield_score": 61.1, "price_per_m2_score": 84.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 36.0, "total": 61.0}','2026-10-30 16:41:11.272541');
+INSERT INTO "investment_metrics" VALUES('habitaclia_8304648a-c2e7-4eae-8274-e031bf468a42',4.41,3.31,3.31,30.2,1296.0,352800.0,40.3,'{"gross_yield_score": 38.2, "price_per_m2_score": 41.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.2, "total": 40.3}','2026-10-30 16:41:55.650893');
+INSERT INTO "investment_metrics" VALUES('habitaclia_d30f0171-a1f5-4586-907b-d3f2baa022d3',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.230752');
+INSERT INTO "investment_metrics" VALUES('habitaclia_65e9c603-0f0e-4912-9ef0-d92e23f067e5',5.96,4.47,4.47,22.4,1152.0,231840.0,59.4,'{"gross_yield_score": 64.4, "price_per_m2_score": 71.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 59.4}','2026-10-30 16:41:20.452317');
+INSERT INTO "investment_metrics" VALUES('habitaclia_fdd02aee-3dcb-4040-bf5e-891af7c4696d',5.96,4.47,4.47,22.4,1152.0,231840.0,52.2,'{"gross_yield_score": 64.4, "price_per_m2_score": 42.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 52.2}','2026-10-30 16:41:20.471204');
+INSERT INTO "investment_metrics" VALUES('habitaclia_95b2919a-9095-4f33-a183-0b473ad0fa74',5.96,4.47,4.47,22.4,1152.0,231840.0,52.2,'{"gross_yield_score": 64.4, "price_per_m2_score": 42.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 52.2}','2026-10-30 16:41:20.489645');
+INSERT INTO "investment_metrics" VALUES('habitaclia_316c5bf5-f0cc-4e40-9aeb-2367720f929a',5.14,3.86,3.86,25.9,1440.0,336000.0,46.9,'{"gross_yield_score": 52.1, "price_per_m2_score": 43.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 46.9}','2026-10-30 16:41:20.766129');
 INSERT INTO "investment_metrics" VALUES('habitaclia_e18caf58-38ab-4dfd-8b6b-3c64ca4f42b6',5.14,3.86,3.86,25.9,1440.0,336000.0,39.7,'{"gross_yield_score": 52.1, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.2, "total": 39.7}','2026-10-30 15:24:57.750005');
 INSERT INTO "investment_metrics" VALUES('habitaclia_3fa4a5f7-22b0-4065-b3a2-305bec34c0dd',4.01,3.01,3.01,33.2,1120.0,334880.0,40.3,'{"gross_yield_score": 30.2, "price_per_m2_score": 55.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.2, "total": 40.3}','2026-10-30 15:07:46.250194');
 INSERT INTO "investment_metrics" VALUES('habitaclia_c4e78585-f9fa-4f79-8d4c-f3587c26d0ec',4.44,3.33,3.33,30.0,1120.0,302400.0,34.3,'{"gross_yield_score": 38.8, "price_per_m2_score": 16.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.6, "total": 34.3}','2026-10-30 15:07:46.285709');
@@ -22118,7 +22118,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_9bd6355d-977f-4ff0-9b10-98fc
 INSERT INTO "investment_metrics" VALUES('habitaclia_af3e7c04-707a-44e0-abaf-d5bb6ed04f74',5.53,4.15,4.15,24.1,1392.0,302019.2,47.0,'{"gross_yield_score": 58.0, "price_per_m2_score": 33.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.0, "total": 47.0}','2026-10-30 15:07:46.518779');
 INSERT INTO "investment_metrics" VALUES('habitaclia_b760dd7d-4efb-46fc-9f84-3624406e2b3c',12.48,9.36,9.36,10.7,1840.0,176960.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 15:07:46.554157');
 INSERT INTO "investment_metrics" VALUES('habitaclia_53dd2c9a-4f24-474f-88f9-941058cd46f5',5.95,4.46,4.46,22.4,1120.0,226038.4,60.4,'{"gross_yield_score": 64.2, "price_per_m2_score": 76.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.2, "total": 60.4}','2026-10-30 15:07:46.606531');
-INSERT INTO "investment_metrics" VALUES('habitaclia_8545c862-b17a-4174-84c5-fbc79c87a104',8.65,6.49,6.49,15.4,1364.0,189280.0,81.0,'{"gross_yield_score": 96.5, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 72.4, "total": 81.0}','2026-10-30 16:31:56.311764');
+INSERT INTO "investment_metrics" VALUES('habitaclia_8545c862-b17a-4174-84c5-fbc79c87a104',8.65,6.49,6.49,15.4,1364.0,189280.0,81.0,'{"gross_yield_score": 96.5, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 72.4, "total": 81.0}','2026-10-30 16:42:43.249819');
 INSERT INTO "investment_metrics" VALUES('habitaclia_319ab5f6-4cde-40e8-8946-25280f64e3ae',8.6,6.45,6.45,15.5,1596.5,222733.28,80.8,'{"gross_yield_score": 96.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 71.8, "total": 80.8}','2026-10-30 15:26:29.333289');
 INSERT INTO "investment_metrics" VALUES('habitaclia_b3477777-f111-4d19-91f5-7ce0819a408c',7.03,5.28,5.28,19.0,1116.0,190400.0,69.8,'{"gross_yield_score": 80.3, "price_per_m2_score": 85.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 54.2, "total": 69.8}','2026-10-30 15:26:29.491299');
 INSERT INTO "investment_metrics" VALUES('habitaclia_044cc4d4-63c6-4c7c-a42c-05322db0cdc6',8.12,6.09,6.09,16.4,1240.0,183265.6,78.5,'{"gross_yield_score": 91.2, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 66.3, "total": 78.5}','2026-10-30 15:26:29.683929');
@@ -22134,16 +22134,16 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_dd5ab1de-53d6-41d6-988b-29f6
 INSERT INTO "investment_metrics" VALUES('habitaclia_2bbe5774-f88e-431f-ae41-b8d0082c3419',12.05,9.04,9.04,11.1,1348.5,134288.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 15:11:02.990006');
 INSERT INTO "investment_metrics" VALUES('habitaclia_8545aa30-70ad-40fa-bff7-fcc6a1b84d13',7.37,5.53,5.53,18.1,1333.0,216988.8,72.7,'{"gross_yield_score": 83.7, "price_per_m2_score": 90.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.0, "total": 72.7}','2026-10-30 15:11:03.024927');
 INSERT INTO "investment_metrics" VALUES('habitaclia_d44d8865-fc42-4976-81e6-01e46f2c5c77',7.4,5.55,5.55,18.0,1147.0,186032.0,72.9,'{"gross_yield_score": 84.0, "price_per_m2_score": 90.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 58.2, "total": 72.9}','2026-10-30 15:11:03.076615');
-INSERT INTO "investment_metrics" VALUES('habitaclia_da665756-9539-4399-ae8a-2933da8fff12',7.03,5.27,5.27,19.0,1332.0,227360.0,70.4,'{"gross_yield_score": 80.3, "price_per_m2_score": 87.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 54.0, "total": 70.4}','2026-10-30 16:32:01.018620');
-INSERT INTO "investment_metrics" VALUES('habitaclia_08fef210-56cb-4e11-b4f1-7d9511de986c',5.59,4.19,4.19,23.8,1404.0,301280.0,52.2,'{"gross_yield_score": 58.8, "price_per_m2_score": 52.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.8, "total": 52.2}','2026-10-30 16:32:01.093058');
-INSERT INTO "investment_metrics" VALUES('habitaclia_883d86db-662e-4f6a-a5bd-1a5cf635f41c',9.74,7.31,7.31,13.7,1440.0,177408.0,83.3,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 83.1, "total": 83.3}','2026-10-30 16:32:01.111445');
-INSERT INTO "investment_metrics" VALUES('habitaclia_3b883f34-d0d0-4a1c-a14c-08df7184bcd5',5.09,3.82,3.82,26.2,1260.0,296800.0,44.0,'{"gross_yield_score": 51.3, "price_per_m2_score": 33.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.4, "total": 44.0}','2026-10-30 16:32:01.324240');
-INSERT INTO "investment_metrics" VALUES('habitaclia_e275a399-e3b4-4fe7-b9ba-fe3daeb8e6c4',6.16,4.62,4.62,21.7,1494.0,291200.0,60.5,'{"gross_yield_score": 67.4, "price_per_m2_score": 70.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.4, "total": 60.5}','2026-10-30 16:32:01.342140');
-INSERT INTO "investment_metrics" VALUES('habitaclia_899374e5-a80d-467d-b23b-f892c9e04efa',6.16,4.62,4.62,21.7,1494.0,291200.0,60.5,'{"gross_yield_score": 67.4, "price_per_m2_score": 70.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.4, "total": 60.5}','2026-10-30 16:32:01.360044');
-INSERT INTO "investment_metrics" VALUES('habitaclia_bf966e2b-c335-4de4-aa8f-9ba1b5257199',4.89,3.67,3.67,27.3,1260.0,309120.0,40.5,'{"gross_yield_score": 47.8, "price_per_m2_score": 25.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.4, "total": 40.5}','2026-10-30 16:32:01.412375');
-INSERT INTO "investment_metrics" VALUES('habitaclia_c50d7c08-bfa8-40c4-9a85-78af49727644',5.01,3.76,3.76,26.6,1332.0,319200.0,42.5,'{"gross_yield_score": 50.1, "price_per_m2_score": 29.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.2, "total": 42.5}','2026-10-30 16:32:01.429784');
-INSERT INTO "investment_metrics" VALUES('habitaclia_7919e7cd-33c9-4d4b-b81d-e5839f2c6f21',6.01,4.51,4.51,22.2,1386.0,276640.0,58.5,'{"gross_yield_score": 65.1, "price_per_m2_score": 66.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 40.2, "total": 58.5}','2026-10-30 16:32:01.446988');
-INSERT INTO "investment_metrics" VALUES('habitaclia_da8110e0-0692-4913-8854-e70672d703e5',12.04,9.03,9.03,11.1,2124.0,211680.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 16:32:01.518117');
+INSERT INTO "investment_metrics" VALUES('habitaclia_da665756-9539-4399-ae8a-2933da8fff12',7.03,5.27,5.27,19.0,1332.0,227360.0,70.4,'{"gross_yield_score": 80.3, "price_per_m2_score": 87.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 54.0, "total": 70.4}','2026-10-30 16:42:47.920257');
+INSERT INTO "investment_metrics" VALUES('habitaclia_08fef210-56cb-4e11-b4f1-7d9511de986c',5.59,4.19,4.19,23.8,1404.0,301280.0,52.2,'{"gross_yield_score": 58.8, "price_per_m2_score": 52.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 33.8, "total": 52.2}','2026-10-30 16:42:47.992287');
+INSERT INTO "investment_metrics" VALUES('habitaclia_883d86db-662e-4f6a-a5bd-1a5cf635f41c',9.74,7.31,7.31,13.7,1440.0,177408.0,83.3,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 83.1, "total": 83.3}','2026-10-30 16:42:48.009535');
+INSERT INTO "investment_metrics" VALUES('habitaclia_3b883f34-d0d0-4a1c-a14c-08df7184bcd5',5.09,3.82,3.82,26.2,1260.0,296800.0,44.0,'{"gross_yield_score": 51.3, "price_per_m2_score": 33.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 26.4, "total": 44.0}','2026-10-30 16:42:48.226562');
+INSERT INTO "investment_metrics" VALUES('habitaclia_e275a399-e3b4-4fe7-b9ba-fe3daeb8e6c4',6.16,4.62,4.62,21.7,1494.0,291200.0,60.5,'{"gross_yield_score": 67.4, "price_per_m2_score": 70.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.4, "total": 60.5}','2026-10-30 16:42:48.243780');
+INSERT INTO "investment_metrics" VALUES('habitaclia_899374e5-a80d-467d-b23b-f892c9e04efa',6.16,4.62,4.62,21.7,1494.0,291200.0,60.5,'{"gross_yield_score": 67.4, "price_per_m2_score": 70.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 42.4, "total": 60.5}','2026-10-30 16:42:48.261063');
+INSERT INTO "investment_metrics" VALUES('habitaclia_bf966e2b-c335-4de4-aa8f-9ba1b5257199',4.89,3.67,3.67,27.3,1260.0,309120.0,40.5,'{"gross_yield_score": 47.8, "price_per_m2_score": 25.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 23.4, "total": 40.5}','2026-10-30 16:42:48.312657');
+INSERT INTO "investment_metrics" VALUES('habitaclia_c50d7c08-bfa8-40c4-9a85-78af49727644',5.01,3.76,3.76,26.6,1332.0,319200.0,42.5,'{"gross_yield_score": 50.1, "price_per_m2_score": 29.9, "location_score": 50.0, "condition_score": 50.0, "roi_score": 25.2, "total": 42.5}','2026-10-30 16:42:48.330110');
+INSERT INTO "investment_metrics" VALUES('habitaclia_7919e7cd-33c9-4d4b-b81d-e5839f2c6f21',6.01,4.51,4.51,22.2,1386.0,276640.0,58.5,'{"gross_yield_score": 65.1, "price_per_m2_score": 66.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 40.2, "total": 58.5}','2026-10-30 16:42:48.347280');
+INSERT INTO "investment_metrics" VALUES('habitaclia_da8110e0-0692-4913-8854-e70672d703e5',12.04,9.03,9.03,11.1,2124.0,211680.0,85.0,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 100.0, "total": 85.0}','2026-10-30 16:42:48.420140');
 INSERT INTO "investment_metrics" VALUES('habitaclia_955a264c-83a6-4c49-9b73-3fdd6a0601af',7.14,5.36,5.36,18.7,1260.0,211680.0,71.3,'{"gross_yield_score": 81.4, "price_per_m2_score": 89.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 55.4, "total": 71.3}','2026-10-30 15:11:20.199847');
 INSERT INTO "investment_metrics" VALUES('habitaclia_ca87512a-6dde-4067-8958-badfd0741f44',5.25,3.94,3.94,25.4,1368.0,312480.0,46.7,'{"gross_yield_score": 53.8, "price_per_m2_score": 40.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 28.8, "total": 46.7}','2026-10-30 15:11:20.216987');
 INSERT INTO "investment_metrics" VALUES('habitaclia_1f1a4255-65eb-46d3-86f7-a7404cc379f3',4.71,3.54,3.54,28.3,1386.0,352800.0,37.5,'{"gross_yield_score": 44.2, "price_per_m2_score": 19.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 20.8, "total": 37.5}','2026-10-30 15:11:20.268374');
@@ -22157,8 +22157,8 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_6b759275-4ce4-4ffb-9627-4c66
 INSERT INTO "investment_metrics" VALUES('habitaclia_11bda8b4-7c5a-45b1-a23d-13095c8fce16',9.74,7.31,7.31,13.7,1440.0,177408.0,83.3,'{"gross_yield_score": 100.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 83.1, "total": 83.3}','2026-10-30 15:11:20.998006');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a8ea3778-3abe-477b-b47a-fd4fdbf7709d',7.03,5.27,5.27,19.0,1332.0,227360.0,70.4,'{"gross_yield_score": 80.3, "price_per_m2_score": 87.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 54.0, "total": 70.4}','2026-10-30 15:11:21.015680');
 INSERT INTO "investment_metrics" VALUES('habitaclia_626b5615-d3ce-4f5b-a47a-eabde6a3e04d',7.82,5.87,5.87,17.0,1602.0,245683.2,77.0,'{"gross_yield_score": 88.2, "price_per_m2_score": 99.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 63.0, "total": 77.0}','2026-10-30 15:11:21.033442');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1eb10620-f239-4f9b-a5bd-0497d7015c08',5.96,4.47,4.47,22.4,1152.0,231840.0,52.2,'{"gross_yield_score": 64.4, "price_per_m2_score": 42.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 52.2}','2026-10-30 16:30:32.051410');
-INSERT INTO "investment_metrics" VALUES('habitaclia_993e69e3-485d-4ca1-8c62-f2f8a9c4853d',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:31:56.258730');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1eb10620-f239-4f9b-a5bd-0497d7015c08',5.96,4.47,4.47,22.4,1152.0,231840.0,52.2,'{"gross_yield_score": 64.4, "price_per_m2_score": 42.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.4, "total": 52.2}','2026-10-30 16:41:20.413428');
+INSERT INTO "investment_metrics" VALUES('habitaclia_993e69e3-485d-4ca1-8c62-f2f8a9c4853d',4.75,3.57,3.57,28.0,1193.5,301280.0,37.3,'{"gross_yield_score": 45.0, "price_per_m2_score": 17.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.4, "total": 37.3}','2026-10-30 16:42:43.194197');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191250241',5.93,4.45,4.45,22.5,1656.0,334880.0,64.2,'{"gross_yield_score": 63.9, "price_per_m2_score": 91.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 39.0, "total": 64.2}','2026-10-30 15:28:51.197968');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191247044',4.59,3.45,3.45,29.0,1278.0,333760.0,44.0,'{"gross_yield_score": 41.8, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.0, "total": 44.0}','2026-10-30 06:16:08.112568');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191249770',4.19,3.14,3.14,31.8,1170.0,334880.0,40.6,'{"gross_yield_score": 33.8, "price_per_m2_score": 50.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 12.8, "total": 40.6}','2026-10-30 06:16:08.130119');
@@ -22352,7 +22352,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_53169000000212',4.41,3.31,3.
 INSERT INTO "investment_metrics" VALUES('habitaclia_3780004407846',4.12,3.09,3.09,32.4,1127.0,328160.0,42.2,'{"gross_yield_score": 32.4, "price_per_m2_score": 58.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 11.8, "total": 42.2}','2026-10-30 12:06:38.217063');
 INSERT INTO "investment_metrics" VALUES('habitaclia_49646000030993',4.84,3.63,3.63,27.5,525.0,130032.0,46.8,'{"gross_yield_score": 46.8, "price_per_m2_score": 52.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.6, "total": 46.8}','2026-10-30 12:06:38.304839');
 INSERT INTO "investment_metrics" VALUES('habitaclia_41116000007481',4.95,3.72,3.72,26.9,920.0,222880.0,56.0,'{"gross_yield_score": 49.0, "price_per_m2_score": 85.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.4, "total": 56.0}','2026-10-30 12:06:38.321644');
-INSERT INTO "investment_metrics" VALUES('habitaclia_60140000001241',5.34,4.01,4.01,25.0,812.5,182515.2,62.2,'{"gross_yield_score": 55.1, "price_per_m2_score": 99.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.2, "total": 62.2}','2026-10-30 16:33:03.539824');
+INSERT INTO "investment_metrics" VALUES('habitaclia_60140000001241',5.34,4.01,4.01,25.0,812.5,182515.2,62.2,'{"gross_yield_score": 55.1, "price_per_m2_score": 99.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 30.2, "total": 62.2}','2026-10-30 16:42:51.262993');
 INSERT INTO "investment_metrics" VALUES('habitaclia_56216000000061',8.07,6.05,6.05,16.5,2147.5,319200.0,78.3,'{"gross_yield_score": 90.7, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 65.8, "total": 78.3}','2026-10-30 12:06:38.357397');
 INSERT INTO "investment_metrics" VALUES('idealista_112910794',4.94,3.71,3.71,27.0,1314.0,319088.0,47.0,'{"gross_yield_score": 48.8, "price_per_m2_score": 50.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.2, "total": 47.0}','2026-10-30 11:54:28.560090');
 INSERT INTO "investment_metrics" VALUES('idealista_112948493',3.1,2.32,2.32,43.0,1000.5,387300.0,23.5,'{"gross_yield_score": 12.0, "price_per_m2_score": 14.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 7.7, "total": 23.5}','2026-10-30 11:54:28.625785');
@@ -22404,7 +22404,7 @@ INSERT INTO "investment_metrics" VALUES('idealista_112951575',6.51,4.88,4.88,20.
 INSERT INTO "investment_metrics" VALUES('idealista_112951407',6.39,4.79,4.79,20.9,1609.5,302400.0,62.4,'{"gross_yield_score": 70.8, "price_per_m2_score": 72.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 45.8, "total": 62.4}','2026-10-30 13:28:11.911395');
 INSERT INTO "investment_metrics" VALUES('idealista_112951846',4.85,3.64,3.64,27.5,1200.0,296800.0,41.7,'{"gross_yield_score": 47.0, "price_per_m2_score": 31.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.8, "total": 41.7}','2026-10-30 13:28:11.946071');
 INSERT INTO "investment_metrics" VALUES('idealista_112951254',4.82,3.61,3.61,27.7,1348.5,335888.0,38.3,'{"gross_yield_score": 46.4, "price_per_m2_score": 19.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.2, "total": 38.3}','2026-10-30 13:28:11.973246');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b6eaae7b-8913-460a-ac10-a07130c117c0',5.42,4.06,4.06,24.6,1330.0,294560.0,43.3,'{"gross_yield_score": 56.3, "price_per_m2_score": 22.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 43.3}','2026-10-30 16:30:22.408745');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b6eaae7b-8913-460a-ac10-a07130c117c0',5.42,4.06,4.06,24.6,1330.0,294560.0,43.3,'{"gross_yield_score": 56.3, "price_per_m2_score": 22.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 31.2, "total": 43.3}','2026-10-30 16:41:10.791742');
 INSERT INTO "investment_metrics" VALUES('idealista_112951931',4.56,3.42,3.42,29.2,1170.0,308000.0,36.5,'{"gross_yield_score": 41.2, "price_per_m2_score": 21.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.4, "total": 36.5}','2026-10-30 14:59:03.846019');
 INSERT INTO "investment_metrics" VALUES('idealista_112952930',4.53,3.4,3.4,29.4,1224.0,324080.0,49.5,'{"gross_yield_score": 40.6, "price_per_m2_score": 74.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.0, "total": 49.5}','2026-10-30 14:59:03.877616');
 INSERT INTO "investment_metrics" VALUES('idealista_112920177',7.07,5.3,5.3,18.9,1029.5,174720.0,66.5,'{"gross_yield_score": 80.7, "price_per_m2_score": 71.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 54.5, "total": 66.5}','2026-10-30 14:59:03.905853');
@@ -22413,8 +22413,8 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_49646000057108',5.69,4.27,4.
 INSERT INTO "investment_metrics" VALUES('habitaclia_1464004018307',4.96,3.72,3.72,26.9,732.0,176960.0,34.7,'{"gross_yield_score": 49.2, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.4, "total": 34.7}','2026-10-30 15:28:53.144945');
 INSERT INTO "investment_metrics" VALUES('habitaclia_37637000039277',4.63,3.47,3.47,28.8,627.0,162400.0,38.1,'{"gross_yield_score": 42.6, "price_per_m2_score": 25.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 19.4, "total": 38.1}','2026-10-30 15:28:53.181282');
 INSERT INTO "investment_metrics" VALUES('habitaclia_43171000000101',6.43,4.82,4.82,20.7,960.0,179200.0,49.7,'{"gross_yield_score": 71.4, "price_per_m2_score": 20.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 46.4, "total": 49.7}','2026-10-30 15:28:53.381456');
-INSERT INTO "investment_metrics" VALUES('habitaclia_859a9123-49da-480e-bb44-bcf12791c2bb',4.22,3.16,3.16,31.6,1216.0,346080.0,29.9,'{"gross_yield_score": 34.4, "price_per_m2_score": 6.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 13.2, "total": 29.9}','2026-10-30 16:30:32.033998');
-INSERT INTO "investment_metrics" VALUES('habitaclia_b0d29314-5992-4dd5-9112-f598a791a401',4.0,3.0,3.0,33.4,1193.5,358400.0,26.5,'{"gross_yield_score": 30.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.0, "total": 26.5}','2026-10-30 16:31:56.241129');
+INSERT INTO "investment_metrics" VALUES('habitaclia_859a9123-49da-480e-bb44-bcf12791c2bb',4.22,3.16,3.16,31.6,1216.0,346080.0,29.9,'{"gross_yield_score": 34.4, "price_per_m2_score": 6.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 13.2, "total": 29.9}','2026-10-30 16:41:20.394963');
+INSERT INTO "investment_metrics" VALUES('habitaclia_b0d29314-5992-4dd5-9112-f598a791a401',4.0,3.0,3.0,33.4,1193.5,358400.0,26.5,'{"gross_yield_score": 30.0, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 10.0, "total": 26.5}','2026-10-30 16:42:43.176603');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191188586',4.58,3.44,3.44,29.1,1134.0,296800.0,44.4,'{"gross_yield_score": 41.6, "price_per_m2_score": 52.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.8, "total": 44.4}','2026-10-30 15:28:49.215306');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191247878',5.62,4.21,4.21,23.7,1652.0,352800.0,60.1,'{"gross_yield_score": 59.3, "price_per_m2_score": 83.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 34.2, "total": 60.1}','2026-10-30 15:28:49.232712');
 INSERT INTO "investment_metrics" VALUES('fotocasa_191181930',8.6,6.45,6.45,15.5,1316.0,183565.76,80.8,'{"gross_yield_score": 96.0, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 71.8, "total": 80.8}','2026-10-30 15:28:49.250069');
@@ -22549,25 +22549,25 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_38668000000942',4.47,3.35,3.
 INSERT INTO "investment_metrics" VALUES('habitaclia_41811000000162',5.29,3.97,3.97,25.2,810.0,183680.0,55.6,'{"gross_yield_score": 54.4, "price_per_m2_score": 74.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 29.4, "total": 55.6}','2026-10-30 16:14:06.362625');
 INSERT INTO "investment_metrics" VALUES('habitaclia_4396004137406',2.21,1.66,1.66,60.3,720.0,390880.0,20.0,'{"gross_yield_score": 7.4, "price_per_m2_score": 7.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 5.5, "total": 20.0}','2026-10-30 16:14:06.379714');
 INSERT INTO "investment_metrics" VALUES('habitaclia_52793000011925',6.92,5.19,5.19,19.3,966.0,167440.0,70.8,'{"gross_yield_score": 78.8, "price_per_m2_score": 91.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 52.9, "total": 70.8}','2026-10-30 16:14:06.396569');
-INSERT INTO "investment_metrics" VALUES('habitaclia_12762000000657',4.98,3.73,3.73,26.8,1742.0,420000.0,56.2,'{"gross_yield_score": 49.6, "price_per_m2_score": 85.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.6, "total": 56.2}','2026-10-30 16:33:03.175964');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1453004492315',4.84,3.63,3.63,27.6,862.5,213920.0,46.7,'{"gross_yield_score": 46.8, "price_per_m2_score": 52.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.6, "total": 46.7}','2026-10-30 16:33:03.193511');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5032002519073',6.28,4.71,4.71,21.2,791.0,151200.0,68.6,'{"gross_yield_score": 69.2, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.2, "total": 68.6}','2026-10-30 16:33:03.210570');
-INSERT INTO "investment_metrics" VALUES('habitaclia_5032002519074',5.15,3.87,3.87,25.9,938.0,218400.0,61.0,'{"gross_yield_score": 52.3, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.4, "total": 61.0}','2026-10-30 16:33:03.227885');
-INSERT INTO "investment_metrics" VALUES('habitaclia_54159000000468',2.0,1.5,1.5,66.7,539.0,323680.0,17.8,'{"gross_yield_score": 6.7, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 5.0, "total": 17.8}','2026-10-30 16:33:03.245019');
-INSERT INTO "investment_metrics" VALUES('habitaclia_12520000000661',4.44,3.33,3.33,30.0,605.0,163520.0,44.9,'{"gross_yield_score": 38.8, "price_per_m2_score": 58.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.6, "total": 44.9}','2026-10-30 16:33:03.261953');
-INSERT INTO "investment_metrics" VALUES('habitaclia_46174000000428',2.87,2.15,2.15,46.4,962.5,402080.0,19.1,'{"gross_yield_score": 9.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 7.2, "total": 19.1}','2026-10-30 16:33:03.279385');
-INSERT INTO "investment_metrics" VALUES('habitaclia_55598000000083',4.98,3.73,3.73,26.8,1742.0,420000.0,56.2,'{"gross_yield_score": 49.6, "price_per_m2_score": 85.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.6, "total": 56.2}','2026-10-30 16:33:03.296776');
-INSERT INTO "investment_metrics" VALUES('habitaclia_12520000000660',3.47,2.6,2.6,38.4,473.0,163520.0,25.5,'{"gross_yield_score": 19.4, "price_per_m2_score": 11.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.7, "total": 25.5}','2026-10-30 16:33:03.314534');
-INSERT INTO "investment_metrics" VALUES('habitaclia_11223002256418',3.27,2.45,2.45,40.8,787.5,288960.0,24.9,'{"gross_yield_score": 15.4, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.2, "total": 24.9}','2026-10-30 16:33:03.331880');
-INSERT INTO "investment_metrics" VALUES('habitaclia_10108003351945',3.18,2.39,2.39,41.9,1173.2,442400.0,45.1,'{"gross_yield_score": 13.6, "price_per_m2_score": 98.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.0, "total": 45.1}','2026-10-30 16:33:03.360968');
-INSERT INTO "investment_metrics" VALUES('habitaclia_18943003952424',4.25,3.19,3.19,31.4,1500.0,423360.0,43.6,'{"gross_yield_score": 35.0, "price_per_m2_score": 60.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 13.8, "total": 43.6}','2026-10-30 16:33:03.379048');
-INSERT INTO "investment_metrics" VALUES('habitaclia_2030002747155',4.33,3.25,3.25,30.8,756.0,209664.0,39.2,'{"gross_yield_score": 36.6, "price_per_m2_score": 39.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.0, "total": 39.2}','2026-10-30 16:33:03.397620');
-INSERT INTO "investment_metrics" VALUES('habitaclia_2030002747157',3.09,2.32,2.32,43.1,504.0,195501.6,42.2,'{"gross_yield_score": 11.8, "price_per_m2_score": 89.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 7.7, "total": 42.2}','2026-10-30 16:33:03.416057');
-INSERT INTO "investment_metrics" VALUES('habitaclia_44390000000263',4.5,3.37,3.37,29.6,1587.5,423360.0,49.1,'{"gross_yield_score": 40.0, "price_per_m2_score": 73.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.4, "total": 49.1}','2026-10-30 16:33:03.434357');
-INSERT INTO "investment_metrics" VALUES('habitaclia_8116004183906',3.24,2.43,2.43,41.2,1081.0,400960.0,24.1,'{"gross_yield_score": 14.8, "price_per_m2_score": 12.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.1, "total": 24.1}','2026-10-30 16:33:03.452301');
-INSERT INTO "investment_metrics" VALUES('habitaclia_4452004397174',2.09,1.57,1.57,63.7,840.0,481600.0,35.9,'{"gross_yield_score": 7.0, "price_per_m2_score": 71.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 5.2, "total": 35.9}','2026-10-30 16:33:03.505004');
-INSERT INTO "investment_metrics" VALUES('habitaclia_1450003415859',3.64,2.73,2.73,36.7,1069.5,352800.0,32.3,'{"gross_yield_score": 22.8, "price_per_m2_score": 33.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.1, "total": 32.3}','2026-10-30 16:33:03.522289');
-INSERT INTO "investment_metrics" VALUES('habitaclia_41124000064390',7.37,5.52,5.52,18.1,687.5,112000.0,69.2,'{"gross_yield_score": 83.7, "price_per_m2_score": 76.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.2}','2026-10-30 16:33:03.575542');
+INSERT INTO "investment_metrics" VALUES('habitaclia_12762000000657',4.98,3.73,3.73,26.8,1742.0,420000.0,56.2,'{"gross_yield_score": 49.6, "price_per_m2_score": 85.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.6, "total": 56.2}','2026-10-30 16:42:50.906555');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1453004492315',4.84,3.63,3.63,27.6,862.5,213920.0,46.7,'{"gross_yield_score": 46.8, "price_per_m2_score": 52.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.6, "total": 46.7}','2026-10-30 16:42:50.923772');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5032002519073',6.28,4.71,4.71,21.2,791.0,151200.0,68.6,'{"gross_yield_score": 69.2, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 44.2, "total": 68.6}','2026-10-30 16:42:50.941451');
+INSERT INTO "investment_metrics" VALUES('habitaclia_5032002519074',5.15,3.87,3.87,25.9,938.0,218400.0,61.0,'{"gross_yield_score": 52.3, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 27.4, "total": 61.0}','2026-10-30 16:42:50.959951');
+INSERT INTO "investment_metrics" VALUES('habitaclia_54159000000468',2.0,1.5,1.5,66.7,539.0,323680.0,17.8,'{"gross_yield_score": 6.7, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 5.0, "total": 17.8}','2026-10-30 16:42:50.977490');
+INSERT INTO "investment_metrics" VALUES('habitaclia_12520000000661',4.44,3.33,3.33,30.0,605.0,163520.0,44.9,'{"gross_yield_score": 38.8, "price_per_m2_score": 58.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 16.6, "total": 44.9}','2026-10-30 16:42:50.994283');
+INSERT INTO "investment_metrics" VALUES('habitaclia_46174000000428',2.87,2.15,2.15,46.4,962.5,402080.0,19.1,'{"gross_yield_score": 9.6, "price_per_m2_score": 0.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 7.2, "total": 19.1}','2026-10-30 16:42:51.011086');
+INSERT INTO "investment_metrics" VALUES('habitaclia_55598000000083',4.98,3.73,3.73,26.8,1742.0,420000.0,56.2,'{"gross_yield_score": 49.6, "price_per_m2_score": 85.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 24.6, "total": 56.2}','2026-10-30 16:42:51.028035');
+INSERT INTO "investment_metrics" VALUES('habitaclia_12520000000660',3.47,2.6,2.6,38.4,473.0,163520.0,25.5,'{"gross_yield_score": 19.4, "price_per_m2_score": 11.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.7, "total": 25.5}','2026-10-30 16:42:51.045782');
+INSERT INTO "investment_metrics" VALUES('habitaclia_11223002256418',3.27,2.45,2.45,40.8,787.5,288960.0,24.9,'{"gross_yield_score": 15.4, "price_per_m2_score": 14.8, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.2, "total": 24.9}','2026-10-30 16:42:51.063008');
+INSERT INTO "investment_metrics" VALUES('habitaclia_10108003351945',3.18,2.39,2.39,41.9,1173.2,442400.0,45.1,'{"gross_yield_score": 13.6, "price_per_m2_score": 98.3, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.0, "total": 45.1}','2026-10-30 16:42:51.090960');
+INSERT INTO "investment_metrics" VALUES('habitaclia_18943003952424',4.25,3.19,3.19,31.4,1500.0,423360.0,43.6,'{"gross_yield_score": 35.0, "price_per_m2_score": 60.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 13.8, "total": 43.6}','2026-10-30 16:42:51.108918');
+INSERT INTO "investment_metrics" VALUES('habitaclia_2030002747155',4.33,3.25,3.25,30.8,756.0,209664.0,39.2,'{"gross_yield_score": 36.6, "price_per_m2_score": 39.7, "location_score": 50.0, "condition_score": 50.0, "roi_score": 15.0, "total": 39.2}','2026-10-30 16:42:51.126382');
+INSERT INTO "investment_metrics" VALUES('habitaclia_2030002747157',3.09,2.32,2.32,43.1,504.0,195501.6,42.2,'{"gross_yield_score": 11.8, "price_per_m2_score": 89.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 7.7, "total": 42.2}','2026-10-30 16:42:51.143302');
+INSERT INTO "investment_metrics" VALUES('habitaclia_44390000000263',4.5,3.37,3.37,29.6,1587.5,423360.0,49.1,'{"gross_yield_score": 40.0, "price_per_m2_score": 73.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.4, "total": 49.1}','2026-10-30 16:42:51.160573');
+INSERT INTO "investment_metrics" VALUES('habitaclia_8116004183906',3.24,2.43,2.43,41.2,1081.0,400960.0,24.1,'{"gross_yield_score": 14.8, "price_per_m2_score": 12.5, "location_score": 50.0, "condition_score": 50.0, "roi_score": 8.1, "total": 24.1}','2026-10-30 16:42:51.178740');
+INSERT INTO "investment_metrics" VALUES('habitaclia_4452004397174',2.09,1.57,1.57,63.7,840.0,481600.0,35.9,'{"gross_yield_score": 7.0, "price_per_m2_score": 71.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 5.2, "total": 35.9}','2026-10-30 16:42:51.229918');
+INSERT INTO "investment_metrics" VALUES('habitaclia_1450003415859',3.64,2.73,2.73,36.7,1069.5,352800.0,32.3,'{"gross_yield_score": 22.8, "price_per_m2_score": 33.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.1, "total": 32.3}','2026-10-30 16:42:51.246532');
+INSERT INTO "investment_metrics" VALUES('habitaclia_41124000064390',7.37,5.52,5.52,18.1,687.5,112000.0,69.2,'{"gross_yield_score": 83.7, "price_per_m2_score": 76.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 57.8, "total": 69.2}','2026-10-30 16:42:51.297461');
 INSERT INTO "investment_metrics" VALUES('habitaclia_26096004038019',4.78,3.58,3.58,27.9,1404.0,352800.0,41.4,'{"gross_yield_score": 45.6, "price_per_m2_score": 33.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.6, "total": 41.4}','2026-10-30 16:14:05.036743');
 INSERT INTO "investment_metrics" VALUES('habitaclia_52607000003296',7.19,5.39,5.39,18.5,738.0,123200.0,74.2,'{"gross_yield_score": 81.9, "price_per_m2_score": 100.0, "location_score": 50.0, "condition_score": 50.0, "roi_score": 55.8, "total": 74.2}','2026-10-30 16:14:05.072332');
 INSERT INTO "investment_metrics" VALUES('habitaclia_23591004311371',4.75,3.56,3.56,28.1,1551.5,392000.0,43.4,'{"gross_yield_score": 45.0, "price_per_m2_score": 42.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 21.2, "total": 43.4}','2026-10-30 16:14:05.109411');
@@ -24264,7 +24264,7 @@ INSERT INTO "listings" VALUES('habitaclia_28976000003938','habitaclia','28976000
 INSERT INTO "listings" VALUES('habitaclia_54772000000187','habitaclia','54772000000187','https://www.habitaclia.com/i54772000000187/28119232/live_m28119232202608200922472430/alertas/email/lo-6/20260820-m_adyacencia_werise-education_img.htm','Piso en Malgrat de Mar',245000.0,89.0,2.75280898876404489e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'malgrat de mar',NULL,'https://www.habitaclia.com/i54772000000187/28119232/live_m28119232202608200922472430/alertas/email/lo-6/20260820-m_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Malgrat de Mar | 245.000 € Piso en Malgrat de Mar | 89m 2 | 3 hab. | | | | <a href="','[]',NULL,'[]','2026-08-20 10:20:23.026074','2026-08-20 14:58:12.217450',1);
 INSERT INTO "listings" VALUES('habitaclia_37637000028017','habitaclia','37637000028017','https://www.habitaclia.com/i37637000028017/28119232/live_m28119232202608200922472430/alertas/email/lo-6/20260820-m_adyacencia_werise-education_img.htm','Piso en Mataró - Pla d''en Boet (Pla d...',160000.0,81.0,1.97530864197530854e+03,3,NULL,NULL,NULL,NULL,NULL,'pla d''en boet (pla d','mataró',NULL,'https://www.habitaclia.com/i37637000028017/28119232/live_m28119232202608200922472430/alertas/email/lo-6/20260820-m_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Mataró | 160.000 € Piso en Mataró - Pla d''en Boet (Pla d... | 81m 2 | 3 hab. | | | | <a href="','[]',NULL,'[]','2026-08-20 10:20:23.038018','2026-08-20 14:58:12.221792',1);
 INSERT INTO "listings" VALUES('habitaclia_56602000000482','habitaclia','56602000000482','https://www.habitaclia.com/i56602000000482/28119232/live_m28119232202608200922472430/alertas/email/lo-6/20260820-m_adyacencia_werise-education_img.htm','Piso en Arenys de Mar - Zona alta',198602.0,99.0,2.00608080808080808e+03,3,NULL,NULL,NULL,NULL,NULL,'zona alta','arenys de mar',NULL,'https://www.habitaclia.com/i56602000000482/28119232/live_m28119232202608200922472430/alertas/email/lo-6/20260820-m_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Arenys de Mar | 198.602 € Piso en Arenys de Mar - Zona alta | 99m 2 | 3 hab. | | | | <a href="','[]',NULL,'[]','2026-08-20 10:20:23.042719','2026-08-20 14:58:12.226611',1);
-INSERT INTO "listings" VALUES('habitaclia_28976000013834','habitaclia','28976000013834','https://www.habitaclia.com/i28976000013834/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Apartamento en Premià de Mar - Zona Alta',118000.0,66.0,1.78787878787878798e+03,2,NULL,NULL,NULL,NULL,NULL,'zona alta','premià de mar',NULL,'https://www.habitaclia.com/i28976000013834/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Premià de Mar | 118.000 € Apartamento en Premià de Mar - Zona Alta | 66m 2 | 2 hab. | | | | <a href="','[]',NULL,'[{"price": 95000.0, "date": "2026-08-20T16:11:25.692618"}]','2026-08-20 10:20:23.047780','2026-10-30 16:33:03.576996',1);
+INSERT INTO "listings" VALUES('habitaclia_28976000013834','habitaclia','28976000013834','https://www.habitaclia.com/i28976000013834/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Apartamento en Premià de Mar - Zona Alta',118000.0,66.0,1.78787878787878798e+03,2,NULL,NULL,NULL,NULL,NULL,'zona alta','premià de mar',NULL,'https://www.habitaclia.com/i28976000013834/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Premià de Mar | 118.000 € Apartamento en Premià de Mar - Zona Alta | 66m 2 | 2 hab. | | | | <a href="','[]',NULL,'[{"price": 95000.0, "date": "2026-08-20T16:11:25.692618"}]','2026-08-20 10:20:23.047780','2026-10-30 16:42:51.298775',1);
 INSERT INTO "listings" VALUES('habitaclia_52793000016381','habitaclia','52793000016381','https://www.habitaclia.com/i52793000016381/28119236/live_m28119236202608200922472430/alertas/email/lo-1/20260820-m_nuevo_werise-education_img.htm','Piso en Cerdanyola del Vallès - Catal...',166625.0,50.0,3332.5,1,NULL,NULL,NULL,NULL,NULL,'catal','cerdanyola del vallès',NULL,'https://www.habitaclia.com/i52793000016381/28119236/live_m28119236202608200922472430/alertas/email/lo-1/20260820-m_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 166.625 € | | Piso en Cerdanyola del Vallès - Catal... | Primavera | 50m 2 | 1 hab. NO COBRAMOS COMISIÓN DE INTERMEDIACIÓN AL COMPRADOR Excelente oportunidad de... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-08-20 11:17:37.589521','2026-08-20 14:58:12.066890',1);
 INSERT INTO "listings" VALUES('habitaclia_14842000000534','habitaclia','14842000000534','https://www.habitaclia.com/i14842000000534/28119236/live_m28119236202608200922472430/alertas/email/lo-3/20260820-m_oportunidad_werise-education_img.htm','Casa adosada en Terrassa - Sant Pere ...',170000.0,130.0,1.30769230769230762e+03,2,NULL,NULL,NULL,NULL,NULL,'sant pere','terrassa',NULL,'https://www.habitaclia.com/i14842000000534/28119236/live_m28119236202608200922472430/alertas/email/lo-3/20260820-m_oportunidad_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 170.000 € | | Casa adosada en Terrassa - Sant Pere ... | de Jaume I | 130m 2 | 2 hab. Casa a rehabilitar con gran potencial en Avenida Jaume I de Terrassa, ubicada... | | | | | | Oportunidad Quizás te lo perdiste | | | | | | | | | <a href="','[]',NULL,'[]','2026-08-20 11:17:37.601823','2026-08-20 14:58:12.072426',1);
 INSERT INTO "listings" VALUES('habitaclia_27782000001039','habitaclia','27782000001039','https://www.habitaclia.com/i27782000001039/28119236/live_m28119236202608200922472430/alertas/email/lo-3/20260820-m_oportunidad_werise-education_img.htm','Casa adosada en Sabadell - Ca n''Oriac...',240000.0,80.0,3000.0,3,NULL,NULL,NULL,NULL,NULL,'ca n''oriac','sabadell',NULL,'https://www.habitaclia.com/i27782000001039/28119236/live_m28119236202608200922472430/alertas/email/lo-3/20260820-m_oportunidad_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 240.000 € | | Casa adosada en Sabadell - Ca n''Oriac... | Casa Adosada en Planta con Terraza en... | 80m 2 | 3 hab. ESLALLAR IMMOBLES Presenta esta Acogedora Casa Adosada en Planta Baja con Ter... | | | | | | Oportunidad Quizás te lo perdiste | | | | | | | | | | | | Te recomendamos | Obra nueva | | | | | desde 603.000 € Sant Quirze del Vallès | Camí Antic de Rubí, 64 | Exclusivas viv','[]',NULL,'[]','2026-08-20 11:17:38.780735','2026-08-20 14:58:12.077031',1);
@@ -24536,7 +24536,7 @@ INSERT INTO "listings" VALUES('idealista_112334436','idealista','112334436','htt
 INSERT INTO "listings" VALUES('idealista_112334390','idealista','112334390','https://www.idealista.com/inmueble/112334390/','Piso en Om l'', Sant Ramón, Cerdanyola del Vallès',215000.0,NULL,NULL,3,NULL,'3',NULL,NULL,NULL,'sant ramón','cerdanyola del vallès',NULL,'https://www.idealista.com/inmueble/112334390/?utm_medium=email&utm_campaign=daily_oneSearch_full_sale&utm_campaigntype=retention&utm_project=adNotification&utm_source=alerts-id&utm_date_send=2026-08-21T042343&utm_link=propertyNewPhoto&utm_recipient_id=JGowRyE0F2b9Qxc/0kUcxFHh0TsyIioZ9ccuY0WP3NE=&origin=alertOneDailyFull&savedSearchAlertId=118438238&genericSearch=false&utm_notification_id=fdea0567-b571-465f-a521-e10af151f7cc" title="Piso en Om l'', Sant Ramón, Cerdanyola del Vallès"> | | Novedad | | | Piso en Om l'', Sant Ramón, Cerdanyola del Vallès | | | 215.000 € 2.945 €/m² | | | | 3 hab. 73,0','[]',NULL,'[]','2026-08-21 06:04:02.676293','2026-08-21 06:04:02.676293',1);
 INSERT INTO "listings" VALUES('idealista_112334370','idealista','112334370','https://www.idealista.com/inmueble/112334370/','Piso en Calle de Montflorit, Centre, Gavà',269000.0,NULL,NULL,2,NULL,'1',NULL,NULL,NULL,'centre','gavà',NULL,'https://www.idealista.com/inmueble/112334370/?utm_medium=email&utm_campaign=daily_oneSearch_full_sale&utm_campaigntype=retention&utm_project=adNotification&utm_source=alerts-id&utm_date_send=2026-08-21T042343&utm_link=propertyNewPhoto&utm_recipient_id=JGowRyE0F2b9Qxc/0kUcxFHh0TsyIioZ9ccuY0WP3NE=&origin=alertOneDailyFull&savedSearchAlertId=118438238&genericSearch=false&utm_notification_id=fdea0567-b571-465f-a521-e10af151f7cc" title="Piso en Calle de Montflorit, Centre, Gavà"> | | Novedad | | | Piso en Calle de Montflorit, Centre, Gavà | | | 269.000 € 3.405 €/m² | | | | 2 hab. 79,00 m² 1ª planta','[]',NULL,'[]','2026-08-21 06:04:02.678163','2026-08-21 06:04:02.678163',1);
 INSERT INTO "listings" VALUES('idealista_112337086','idealista','112337086','https://www.idealista.com/inmueble/112337086/','Ático en Centre Vila - La Geltrú, Vilanova i la Geltrú',250000.0,84.0,2.97619047619047614e+03,2,NULL,'Ático',NULL,NULL,NULL,'la geltrú, vilanova i la geltrú','centre vila',NULL,'https://www.idealista.com/inmueble/112337086/?utm_medium=email&utm_campaign=express_newAd_sale_professional&utm_campaigntype=retention&utm_project=adNotification&utm_source=alerts-id&utm_date_send=2026-08-21T030355&utm_link=propertyNewPhoto&utm_recipient_id=JGowRyE0F2b9Qxc/0kUcxFHh0TsyIioZ9ccuY0WP3NE=&utm_notification_id=49c05edb-7feb-4bcb-b502-5c8daf5104ef" target="_blank"> | | | | | | | | | | | | | | Ver 21 fotos | | | | | | | | | | | | | | Ático en Centre Vila - La Geltrú, Vilanova i la Geltrú | | | | | | | | | | | | | | | 250.000 € 2.976 €/m² | | 2 hab. 84 m² bajo | | | | | | | | | | | | |','[]',NULL,'[]','2026-08-21 06:04:02.681224','2026-08-21 06:04:02.681224',1);
-INSERT INTO "listings" VALUES('habitaclia_765004409539','habitaclia','765004409539','https://www.habitaclia.com/i765004409539/28119232/live_t28119232202610301423149600/alertas/email/lo-8/20261030-t_modprecio_werise-education_img.htm','Piso en Canet de Mar',219000.0,65.0,3.36923076923076905e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'canet de mar',NULL,'https://www.habitaclia.com/i765004409539/28119232/live_t28119232202610301423149600/alertas/email/lo-8/20261030-t_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 219.000 € | | Piso en Canet de Mar | Céntrico!!!! soleado listo para entra... | 65m 2 | 3 hab. Ocasión ¡¡¡¡ Céntrica y muy soleada, con vistas espectaculares !!!! Finca de ... | | | | | | Ha bajado 30.000 € | | | | | | | | | <a href="','[]',NULL,'[{"price": 249000.0, "date": "2026-08-21T07:03:47.028413"}]','2026-08-21 06:24:04.171063','2026-10-30 16:33:03.333329',1);
+INSERT INTO "listings" VALUES('habitaclia_765004409539','habitaclia','765004409539','https://www.habitaclia.com/i765004409539/28119232/live_t28119232202610301423149600/alertas/email/lo-8/20261030-t_modprecio_werise-education_img.htm','Piso en Canet de Mar',219000.0,65.0,3.36923076923076905e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'canet de mar',NULL,'https://www.habitaclia.com/i765004409539/28119232/live_t28119232202610301423149600/alertas/email/lo-8/20261030-t_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 219.000 € | | Piso en Canet de Mar | Céntrico!!!! soleado listo para entra... | 65m 2 | 3 hab. Ocasión ¡¡¡¡ Céntrica y muy soleada, con vistas espectaculares !!!! Finca de ... | | | | | | Ha bajado 30.000 € | | | | | | | | | <a href="','[]',NULL,'[{"price": 249000.0, "date": "2026-08-21T07:03:47.028413"}]','2026-08-21 06:24:04.171063','2026-10-30 16:42:51.064574',1);
 INSERT INTO "listings" VALUES('habitaclia_12520000000645','habitaclia','12520000000645','https://www.habitaclia.com/i12520000000645/28119232/live_n28119232202608201912452530/alertas/email/lo-13/20260820-n_nuevo_werise-education_img.htm','Casa en Pineda de Mar - Centre',300000.0,160.0,1875.0,4,NULL,NULL,NULL,NULL,NULL,'centre','pineda de mar',NULL,'https://www.habitaclia.com/i12520000000645/28119232/live_n28119232202608201912452530/alertas/email/lo-13/20260820-n_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 300.000 € | | Casa en Pineda de Mar - Centre | Calle Anselm Clave Casa de poble de 1... | 160m 2 | 4 hab. Casa de poble de 148 m², amb una distribució molt còmoda i amplis espais, ide... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-08-21 06:24:04.196552','2026-08-21 07:03:47.034267',1);
 INSERT INTO "listings" VALUES('habitaclia_59894000000006','habitaclia','59894000000006','https://www.habitaclia.com/i59894000000006/28119232/live_n28119232202609101919382670/alertas/email/lo-14/20260910-n_modprecio_werise-education_img.htm','Piso en Pineda de Mar - Poblenou',250000.0,102.0,2.45098039215686276e+03,3,NULL,'SOBREÁTICO',NULL,NULL,NULL,'poblenou','pineda de mar',NULL,'https://www.habitaclia.com/i59894000000006/28119232/live_n28119232202609101919382670/alertas/email/lo-14/20260910-n_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 250.000 € | | Piso en Pineda de Mar - Poblenou | Avinguda del Mediterrani SOBREÁTICO Ú... | 102m 2 | 3 hab. Hay viviendas que simplemente se visitan y hay otras que, desde el primer mom... | | | | | | Oportunidad Ha subido 5.000 € | | | | | | | | | <a href="','[]',NULL,'[{"price": 250000.0, "date": "2026-08-21T07:03:47.039738"}, {"price": 245000.0, "date": "2026-09-07T15:15:51.915087"}]','2026-08-21 06:24:04.202822','2026-09-11 07:23:38.648954',1);
 INSERT INTO "listings" VALUES('habitaclia_3226003818470','habitaclia','3226003818470','https://www.habitaclia.com/i3226003818470/28119232/live_n28119232202608201912452530/alertas/email/lo-13/20260820-n_nuevo_werise-education_img.htm','Ático en Calella',290000.0,113.0,2.56637168141592928e+03,4,NULL,'Ático',NULL,NULL,NULL,NULL,'calella',NULL,'https://www.habitaclia.com/i3226003818470/28119232/live_n28119232202608201912452530/alertas/email/lo-13/20260820-n_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 290.000 € | | Ático en Calella | Calle Industria Dúplex en 2ª línea de... | 113m 2 | 4 hab. Te ofrecemos este cómodo, amplio y bien distribuido dúplex en 2ª linea de mar... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-08-21 06:24:04.207570','2026-08-21 07:03:47.043949',1);
@@ -31876,7 +31876,7 @@ INSERT INTO "listings" VALUES('idealista_112508563','idealista','112508563','htt
 INSERT INTO "listings" VALUES('habitaclia_8141004268707','habitaclia','8141004268707','https://www.habitaclia.com/i8141004268707/28119232/live_n28119232202609091920302700/alertas/email/lo-13/20260909-n_nuevo_werise-education_img.htm','Piso en Pineda de Mar - Poblenou',254000.0,95.0,2.67368421052631583e+03,3,NULL,NULL,NULL,NULL,NULL,'poblenou','pineda de mar',NULL,'https://www.habitaclia.com/i8141004268707/28119232/live_n28119232202609091920302700/alertas/email/lo-13/20260909-n_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 254.000 € | | Piso en Pineda de Mar - Poblenou | GRAN PISO DE 95 M2 EN INMIEJORABLE ZO... | 103m 2 | 3 hab. Gran piso de 95 m2 en muy buena zona de Poblenou, junto al mercado. Muy bien ... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-10 09:20:10.854306','2026-09-10 09:20:10.854306',1);
 INSERT INTO "listings" VALUES('habitaclia_46948000000771','habitaclia','46948000000771','https://www.habitaclia.com/i46948000000771/28119232/live_n28119232202609091920302700/alertas/email/lo-13/20260909-n_nuevo_werise-education_img.htm','Ático en Mataró - Cirera (Cirera)',220000.0,60.0,3.66666666666666651e+03,2,NULL,'Ático',NULL,NULL,NULL,'cirera','mataró',NULL,'https://www.habitaclia.com/i46948000000771/28119232/live_n28119232202609091920302700/alertas/email/lo-13/20260909-n_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 220.000 € | | Ático en Mataró - Cirera (Cirera) | Atico duplex con terraza !!!! | 60m 2 | 2 hab. Ático dúplex en la zona de Cirera de unos 110 m2 (60 m2 de piso + 50 m2 de te... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-10 09:20:10.866382','2026-09-10 09:20:10.866382',1);
 INSERT INTO "listings" VALUES('habitaclia_28640000001360','habitaclia','28640000001360','https://www.habitaclia.com/i28640000001360/28119232/live_n28119232202609091920302700/alertas/email/lo-13/20260909-n_nuevo_werise-education_img.htm','Piso en Mataró - Cerdanyola Sud (Cerd...',167000.0,83.0,2.01204819277108435e+03,3,NULL,NULL,NULL,NULL,NULL,'cerdanyola sud (cerd','mataró',NULL,'https://www.habitaclia.com/i28640000001360/28119232/live_n28119232202609091920302700/alertas/email/lo-13/20260909-n_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 167.000 € | | Piso en Mataró - Cerdanyola Sud (Cerd... | Calle Marathon PISO EN MATAROCERDANYO... | 83m 2 | 3 hab. FINANCIACION BANCARIA HASTA EL 100% - SI TIENES AHORRADOS 17.000 EUROS ESTE P... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-10 09:20:10.877911','2026-09-10 09:20:10.877911',1);
-INSERT INTO "listings" VALUES('habitaclia_19272000029946','habitaclia','19272000029946','https://www.habitaclia.com/i19272000029946/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Dúplex en Tordera - Tordera',229000.0,110.0,2.08181818181818198e+03,3,NULL,NULL,NULL,NULL,NULL,'tordera','tordera',NULL,'https://www.habitaclia.com/i19272000029946/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Tordera | 229.000 € Dúplex en Tordera - Tordera | 110m 2 | 3 hab. | | | | | | | | | | | | | | | | | | | | | | Modificar | | | | | | | | | Dejar de recibir | | | | | | | | | Ver más anuncios | | | | | | | | | | | | | | | | | | | | | | | Queremos conocer lo que piensas | | Tu opinión nos ayuda a mejorar. | | | | Leeremos a conciencia tus respuestas ;) | | | | | | | | C','[]',NULL,'[{"price": 259000.0, "date": "2026-09-10T09:20:10.889125"}, {"price": 249000.0, "date": "2026-09-19T08:10:48.641700"}]','2026-09-10 09:20:10.889125','2026-10-30 16:33:03.611589',1);
+INSERT INTO "listings" VALUES('habitaclia_19272000029946','habitaclia','19272000029946','https://www.habitaclia.com/i19272000029946/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Dúplex en Tordera - Tordera',229000.0,110.0,2.08181818181818198e+03,3,NULL,NULL,NULL,NULL,NULL,'tordera','tordera',NULL,'https://www.habitaclia.com/i19272000029946/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Tordera | 229.000 € Dúplex en Tordera - Tordera | 110m 2 | 3 hab. | | | | | | | | | | | | | | | | | | | | | | Modificar | | | | | | | | | Dejar de recibir | | | | | | | | | Ver más anuncios | | | | | | | | | | | | | | | | | | | | | | | Queremos conocer lo que piensas | | Tu opinión nos ayuda a mejorar. | | | | Leeremos a conciencia tus respuestas ;) | | | | | | | | C','[]',NULL,'[{"price": 259000.0, "date": "2026-09-10T09:20:10.889125"}, {"price": 249000.0, "date": "2026-09-19T08:10:48.641700"}]','2026-09-10 09:20:10.889125','2026-10-30 16:42:51.334598',1);
 INSERT INTO "listings" VALUES('habitaclia_40351000000425','habitaclia','40351000000425','https://www.habitaclia.com/i40351000000425/28119232/live_n28119232202609091920302700/alertas/email/lo-13/20260909-n_nuevo_werise-education_img.htm','Piso en Premià de Mar - Centre-Nucli ...',298000.0,67.0,4.44776119402985114e+03,3,NULL,NULL,NULL,NULL,NULL,'centre-nucli','premià de mar',NULL,'https://www.habitaclia.com/i40351000000425/28119232/live_n28119232202609091920302700/alertas/email/lo-13/20260909-n_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 298.000 € | | Piso en Premià de Mar - Centre-Nucli ... | Piso en el centro de Premià de Mar | 67m 2 | 3 hab. SWEET HOME PROPIETATS: Presentamos esta auténtica bombonera en pleno corazón... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-10 09:20:10.901861','2026-09-10 09:20:10.901861',1);
 INSERT INTO "listings" VALUES('habitaclia_18943003952452','habitaclia','18943003952452','https://www.habitaclia.com/i18943003952452/28119232/interesantes28119232202609130131429330/alertas/email/lo-31/20260913-i_interesantesemana_werise-education_img.htm','Piso en Mataró - Eixample (Eixample)',235000.0,88.0,2.67045454545454549e+03,3,NULL,NULL,NULL,NULL,NULL,'eixample','mataró',NULL,'https://www.habitaclia.com/i18943003952452/28119232/interesantes28119232202609130131429330/alertas/email/lo-31/20260913-i_interesantesemana_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 235.000 € | | Piso en Mataró - Eixample (Eixample) | Centrico piso con ascensor | 88m 2 | 3 hab. ¿Buscas calidad de vida sin renunciar a la comodidad de tenerlo todo a un pas... | | | | | | | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-10 09:20:10.913497','2026-09-13 16:20:06.648411',1);
 INSERT INTO "listings" VALUES('habitaclia_37298000000517','habitaclia','37298000000517','https://www.habitaclia.com/i37298000000517/28119232/live_n28119232202609091920302700/alertas/email/lo-13/20260909-n_nuevo_werise-education_img.htm','Piso en Arenys de Mar - Zona alta',198000.0,67.0,2.95522388059701506e+03,3,NULL,NULL,NULL,NULL,NULL,'zona alta','arenys de mar',NULL,'https://www.habitaclia.com/i37298000000517/28119232/live_n28119232202609091920302700/alertas/email/lo-13/20260909-n_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 198.000 € | | Piso en Arenys de Mar - Zona alta | CERCA DE LA RIERA Y TODOS LOS SERVICIOS | 67m 2 | 3 hab. Vivienda de 67 m², bien distribuida, situada en una calle tranquila y a pocos... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-10 09:20:10.925414','2026-09-10 09:20:10.925414',1);
@@ -34021,7 +34021,7 @@ INSERT INTO "listings" VALUES('habitaclia_14229003786925','habitaclia','14229003
 INSERT INTO "listings" VALUES('habitaclia_40278000000500','habitaclia','40278000000500','https://www.habitaclia.com/i40278000000500/28119232/live_t28119232202610291422153400/alertas/email/lo-12/20261029-t_adyacencia_werise-education_img.htm','Piso en Malgrat de Mar',151000.0,69.0,2.18840579710144947e+03,2,NULL,NULL,NULL,NULL,NULL,NULL,'malgrat de mar',NULL,'https://www.habitaclia.com/i40278000000500/28119232/live_t28119232202610291422153400/alertas/email/lo-12/20261029-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Malgrat de Mar | 151.000 € Piso en Malgrat de Mar | 69m 2 | 2 hab. | | | | | | | | | | | | | | | | | | | | | | Modificar | | | | | | | | | Dejar de recibir | | | | | | | | | Ver más anuncios | | | | | | | | | | | | | | | | | | | | | | | Queremos conocer lo que piensas | | Tu opinión nos ayuda a mejorar. | | | | Leeremos a conciencia tus respuestas ;) | | | | | | | | ','[]',NULL,'[]','2026-09-16 15:02:52.032687','2026-10-29 16:30:45.232886',1);
 INSERT INTO "listings" VALUES('habitaclia_8174004328795','habitaclia','8174004328795','https://www.habitaclia.com/i8174004328795/28119232/live_t28119232202609161428034500/alertas/email/lo-7/20260916-t_nuevo_werise-education_img.htm','Piso en Malgrat de Mar',151000.0,69.0,2.18840579710144947e+03,3,NULL,'3',NULL,NULL,NULL,NULL,'malgrat de mar',NULL,'https://www.habitaclia.com/i8174004328795/28119232/live_t28119232202609161428034500/alertas/email/lo-7/20260916-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 151.000 € | | Piso en Malgrat de Mar | TERCERA SIN ASCENSOR | 69m 2 | 3 hab. 3ª PLANTA SIN ASCENSOR. Descubre este encantador piso en Malgrat de Mar, situ... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-16 15:02:52.054151','2026-09-16 15:15:24.937354',1);
 INSERT INTO "listings" VALUES('habitaclia_41980000000306','habitaclia','41980000000306','https://www.habitaclia.com/i41980000000306/28119232/live_n28119232202610261916491500/alertas/email/lo-18/20261026-n_adyacencia_werise-education_img.htm','Apartamento en Pineda de Mar - Centre',90000.0,45.0,2000.0,1,NULL,NULL,NULL,NULL,NULL,'centre','pineda de mar',NULL,'https://www.habitaclia.com/i41980000000306/28119232/live_n28119232202610261916491500/alertas/email/lo-18/20261026-n_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Pineda de Mar | 90.000 € Apartamento en Pineda de Mar - Centre | 45m 2 | 1 hab. | | | | <a href="','[]',NULL,'[]','2026-09-16 15:02:52.101708','2026-10-27 09:42:16.355878',1);
-INSERT INTO "listings" VALUES('habitaclia_19510003942299','habitaclia','19510003942299','https://www.habitaclia.com/i19510003942299/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Masía en Malgrat de Mar',330000.0,154.0,2.14285714285714266e+03,4,NULL,NULL,NULL,NULL,NULL,NULL,'malgrat de mar',NULL,'https://www.habitaclia.com/i19510003942299/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Malgrat de Mar | 330.000 € Masía en Malgrat de Mar | 154m 2 | 4 hab. | | | | <a href="','[]',NULL,'[]','2026-09-16 15:02:52.113410','2026-10-30 16:33:03.541508',1);
+INSERT INTO "listings" VALUES('habitaclia_19510003942299','habitaclia','19510003942299','https://www.habitaclia.com/i19510003942299/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Masía en Malgrat de Mar',330000.0,154.0,2.14285714285714266e+03,4,NULL,NULL,NULL,NULL,NULL,NULL,'malgrat de mar',NULL,'https://www.habitaclia.com/i19510003942299/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Malgrat de Mar | 330.000 € Masía en Malgrat de Mar | 154m 2 | 4 hab. | | | | <a href="','[]',NULL,'[]','2026-09-16 15:02:52.113410','2026-10-30 16:42:51.264315',1);
 INSERT INTO "listings" VALUES('habitaclia_41980000000305','habitaclia','41980000000305','https://www.habitaclia.com/i41980000000305/28119232/live_t28119232202609161428034500/alertas/email/lo-7/20260916-t_nuevo_werise-education_img.htm','Apartamento en Pineda de Mar - Centre',110000.0,39.0,2.82051282051282032e+03,1,NULL,NULL,NULL,NULL,NULL,'centre','pineda de mar',NULL,'https://www.habitaclia.com/i41980000000305/28119232/live_t28119232202609161428034500/alertas/email/lo-7/20260916-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 110.000 € | | Apartamento en Pineda de Mar - Centre | Bellasombra Inmuebles presenta esta i... | 39m 2 | 1 hab. **Bellasombra Inmuebles presenta esta interesante oportunidad en PINEDA DE MA... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-16 15:02:52.214501','2026-09-16 15:15:25.052400',1);
 INSERT INTO "listings" VALUES('habitaclia_49867000007086','habitaclia','49867000007086','https://www.habitaclia.com/i49867000007086/28119232/live_t28119232202609161428034500/alertas/email/lo-7/20260916-t_nuevo_werise-education_img.htm','Piso en Tordera - Niàgara Parc -Àgora...',117375.0,88.0,1.33380681818181824e+03,NULL,NULL,NULL,NULL,NULL,NULL,'niàgara parc -àgora','tordera',NULL,'https://www.habitaclia.com/i49867000007086/28119232/live_t28119232202609161428034500/alertas/email/lo-7/20260916-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 117.375 € | | Piso en Tordera - Niàgara Parc -Àgora... | Calle Manresa 31 Vivienda en Tordera ... | 88m 2 Somos OPORTUNALIA, entidad especializada en la realización de activos procede... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-16 15:02:52.242620','2026-09-16 15:15:25.060579',1);
 INSERT INTO "listings" VALUES('habitaclia_765004409514','habitaclia','765004409514','https://www.habitaclia.com/i765004409514/28119232/live_t28119232202609161428034500/alertas/email/lo-8/20260916-t_modprecio_werise-education_img.htm','Piso en Calella',162000.0,67.0,2.41791044776119406e+03,2,NULL,'Atico',NULL,NULL,NULL,NULL,'calella',NULL,'https://www.habitaclia.com/i765004409514/28119232/live_t28119232202609161428034500/alertas/email/lo-8/20260916-t_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 162.000 € | | Piso en Calella | Ideal como inversión!!! | 67m 2 | 2 hab. Atico situado en el centro del pueblo, al lado de la calle Iglesia y sólo a 2... | | | | | | Ha bajado 10.000 € | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-16 15:02:52.326083','2026-09-16 15:15:25.068462',1);
@@ -37226,7 +37226,7 @@ INSERT INTO "listings" VALUES('habitaclia_5708004429876','habitaclia','570800442
 INSERT INTO "listings" VALUES('habitaclia_23405004416166','habitaclia','23405004416166','https://www.habitaclia.com/i23405004416166/28119232/live_t28119232202609251424408600/alertas/email/lo-7/20260925-t_nuevo_werise-education_img.htm','Piso en Mataró - El Palau - Escorxado...',129800.0,56.0,2.31785714285714266e+03,3,NULL,NULL,NULL,NULL,NULL,'el palau','mataró',NULL,'https://www.habitaclia.com/i23405004416166/28119232/live_t28119232202609251424408600/alertas/email/lo-7/20260925-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 129.800 € | | Piso en Mataró - El Palau - Escorxado... | Oportunidad primera vivienda o inversión | 56m 2 | 3 hab. NOVA VITIA inmobiliaria LES OFRECE... ESTE ACOGEDOR SEGUNDO PISO DE ALTUR... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-25 15:02:29.942475','2026-09-25 15:14:37.948380',1);
 INSERT INTO "listings" VALUES('habitaclia_3226003818481','habitaclia','3226003818481','https://www.habitaclia.com/i3226003818481/28119232/live_t28119232202609251424408600/alertas/email/lo-7/20260925-t_nuevo_werise-education_img.htm','Piso en Calella',230000.0,77.0,2.98701298701298719e+03,2,NULL,NULL,NULL,NULL,NULL,NULL,'calella',NULL,'https://www.habitaclia.com/i3226003818481/28119232/live_t28119232202609251424408600/alertas/email/lo-7/20260925-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 230.000 € | | Piso en Calella | Piso frente playa y estación | 77m 2 | 2 hab. Piso en Calella, justo enfrente de la estación RENFE y de la playa. Con 77 m2... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-25 15:02:29.958592','2026-09-25 15:14:37.963986',1);
 INSERT INTO "listings" VALUES('habitaclia_39269000000602','habitaclia','39269000000602','https://www.habitaclia.com/i39269000000602/28119232/live_t28119232202609251424408600/alertas/email/lo-7/20260925-t_nuevo_werise-education_img.htm','Piso en Mataró - Centre (Centre)',320000.0,110.0,2.909090909090909e+03,3,NULL,NULL,NULL,NULL,NULL,'centre','mataró',NULL,'https://www.habitaclia.com/i39269000000602/28119232/live_t28119232202609251424408600/alertas/email/lo-7/20260925-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 320.000 € | | Piso en Mataró - Centre (Centre) | EN EXCLUSIVA!! Piso en venta en Camí ... | 110m 2 | 3 hab. Finques Andreu presenta en exclusiva esta fantástica vivienda situada junto a... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-25 15:02:29.974879','2026-09-25 15:14:37.978666',1);
-INSERT INTO "listings" VALUES('habitaclia_2020001254818','habitaclia','2020001254818','https://www.habitaclia.com/i2020001254818/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Piso en Pineda de Mar - Centre',196800.0,82.0,2400.0,2,NULL,NULL,NULL,NULL,NULL,'centre','pineda de mar',NULL,'https://www.habitaclia.com/i2020001254818/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Pineda de Mar | 196.800 € Piso en Pineda de Mar - Centre | 82m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-09-25 15:02:29.991318','2026-10-30 16:33:03.471762',1);
+INSERT INTO "listings" VALUES('habitaclia_2020001254818','habitaclia','2020001254818','https://www.habitaclia.com/i2020001254818/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Piso en Pineda de Mar - Centre',196800.0,82.0,2400.0,2,NULL,NULL,NULL,NULL,NULL,'centre','pineda de mar',NULL,'https://www.habitaclia.com/i2020001254818/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Pineda de Mar | 196.800 € Piso en Pineda de Mar - Centre | 82m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-09-25 15:02:29.991318','2026-10-30 16:42:51.197517',1);
 INSERT INTO "listings" VALUES('habitaclia_8820004386865','habitaclia','8820004386865','https://www.habitaclia.com/i8820004386865/28119232/live_t28119232202609291426239470/alertas/email/lo-9/20260929-t_oportunidad_werise-education_img.htm','Piso en Mataró - El Palau - Escorxado...',176000.0,63.0,2.79365079365079373e+03,3,NULL,NULL,NULL,NULL,NULL,'el palau','mataró',NULL,'https://www.habitaclia.com/i8820004386865/28119232/live_t28119232202609291426239470/alertas/email/lo-9/20260929-t_oportunidad_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 176.000 € | | Piso en Mataró - El Palau - Escorxado... | Avinguda d''Amèrica Piso luminoso de 3... | 63m 2 | 3 hab. Una vivienda práctica, bien distribuida y lista para disfrutar desde el prime... | | | | | | Oportunidad Quizás te lo perdiste | | | | | | | | | | | | Te recomendamos | Obra nueva | | | | | desde 431.000 € Tiana | | Viviendas de 2, 3 y 4 dormitorios. AMARES TIANA es una ','[]',NULL,'[]','2026-09-25 15:02:30.007804','2026-09-29 16:16:31.589185',1);
 INSERT INTO "listings" VALUES('habitaclia_1189003998067','habitaclia','1189003998067','https://www.habitaclia.com/i1189003998067/28119232/live_t28119232202609251424408600/alertas/email/lo-7/20260925-t_nuevo_werise-education_img.htm','Piso en Calella',252000.0,90.0,2800.0,3,NULL,NULL,NULL,NULL,NULL,NULL,'calella',NULL,'https://www.habitaclia.com/i1189003998067/28119232/live_t28119232202609251424408600/alertas/email/lo-7/20260925-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 252.000 € | | Piso en Calella | | 90m 2 | 3 hab. APIALIA MARESME - El piso está en segunda planta, es muy luminoso y se encuen... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-25 15:02:30.023823','2026-09-25 15:14:38.022803',1);
 INSERT INTO "listings" VALUES('habitaclia_3226003818480','habitaclia','3226003818480','https://www.habitaclia.com/i3226003818480/28119232/live_t28119232202609251424408600/alertas/email/lo-7/20260925-t_nuevo_werise-education_img.htm','Piso en Tordera - Tordera',200000.0,74.0,2.70270270270270248e+03,3,NULL,NULL,NULL,NULL,NULL,'tordera','tordera',NULL,'https://www.habitaclia.com/i3226003818480/28119232/live_t28119232202609251424408600/alertas/email/lo-7/20260925-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 200.000 € | | Piso en Tordera - Tordera | PISO EN PLANTA BAJA CON AMPLIA TERRAZ... | 74m 2 | 3 hab. Te presentamos este acogedor piso en planta baja, una vivienda práctica y cóm... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-25 15:02:30.040053','2026-09-25 15:14:38.037108',1);
@@ -38650,7 +38650,7 @@ INSERT INTO "listings" VALUES('habitaclia_13230004338117','habitaclia','13230004
 INSERT INTO "listings" VALUES('habitaclia_21410000000309','habitaclia','21410000000309','https://www.habitaclia.com/i21410000000309/28119232/live_af28119232202609300101394270/alertas/email/lo-19/20260930-r_nuevo_werise-education_img.htm','Piso en Calella',248000.0,120.0,2.06666666666666651e+03,4,NULL,NULL,NULL,NULL,NULL,NULL,'calella',NULL,'https://www.habitaclia.com/i21410000000309/28119232/live_af28119232202609300101394270/alertas/email/lo-19/20260930-r_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 248.000 € | | Piso en Calella | Carrer de Moragas PISO 4DORMITORIOS C... | 120m 2 | 4 hab. Piso de 120m2.4dormitorios. gran comedor.cocina con patio. Balcón exterior y ... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-30 07:09:37.071732','2026-09-30 07:09:37.071732',1);
 INSERT INTO "listings" VALUES('habitaclia_4099003826901','habitaclia','4099003826901','https://www.habitaclia.com/i4099003826901/28119232/live_af28119232202609300101394270/alertas/email/lo-19/20260930-r_nuevo_werise-education_img.htm','Piso en Tordera - Sant Pere',190000.0,99.0,1.91919191919191916e+03,3,NULL,NULL,NULL,NULL,NULL,'sant pere','tordera',NULL,'https://www.habitaclia.com/i4099003826901/28119232/live_af28119232202609300101394270/alertas/email/lo-19/20260930-r_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 190.000 € | | Piso en Tordera - Sant Pere | PISO DE 3 HABITACIONES CON TERRAZA EN... | 99m 2 | 3 hab. Te presentamos este acogedor piso de 3 habitaciones, situado en la zona de Sa... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-30 07:09:37.088754','2026-09-30 07:09:37.088754',1);
 INSERT INTO "listings" VALUES('habitaclia_41980000000311','habitaclia','41980000000311','https://www.habitaclia.com/i41980000000311/28119232/live_af28119232202609300101394270/alertas/email/lo-19/20260930-r_nuevo_werise-education_img.htm','Piso en Mataró - Pla d''en Boet (Pla d...',190000.0,105.0,1.80952380952380963e+03,3,NULL,NULL,NULL,NULL,NULL,'pla d''en boet (pla d','mataró',NULL,'https://www.habitaclia.com/i41980000000311/28119232/live_af28119232202609300101394270/alertas/email/lo-19/20260930-r_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 190.000 € | | Piso en Mataró - Pla d''en Boet (Pla d... | Piso de tres habitaciones con galería... | 105m 2 | 3 hab. Bellasombra Inmuebles presenta este piso de 105 m² totales y 98 m² cubiertos,... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-30 07:09:37.105032','2026-09-30 07:09:37.105032',1);
-INSERT INTO "listings" VALUES('habitaclia_48048000000136','habitaclia','48048000000136','https://www.habitaclia.com/i48048000000136/28119232/live_t28119232202610301423149600/alertas/email/lo-9/20261030-t_oportunidad_werise-education_img.htm','Piso en Pineda de Mar - Poblenou',239000.0,114.0,2.09649122807017556e+03,3,NULL,NULL,NULL,NULL,NULL,'poblenou','pineda de mar',NULL,'https://www.habitaclia.com/i48048000000136/28119232/live_t28119232202610301423149600/alertas/email/lo-9/20261030-t_oportunidad_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 239.000 € | | Piso en Pineda de Mar - Poblenou | Hispanitat PISO EN PINEDA DE MAR POBL... | 114m 2 | 3 hab. PISO EN PINEDA DE MAR (POBLENOU) DE 114 m², 2 BALCONES, MUY LUMINOSO, PARKING... | | | | | | Oportunidad Quizás te lo perdiste | | | | | | | | | | | | Te recomendamos | Obra nueva | | | | | desde 494.000 € Tiana | Carrer Neus Català, 11 | OBRA INICIADA Les Brises es una promoc','[]',NULL,'[]','2026-09-30 07:09:37.138044','2026-10-30 16:33:03.453796',1);
+INSERT INTO "listings" VALUES('habitaclia_48048000000136','habitaclia','48048000000136','https://www.habitaclia.com/i48048000000136/28119232/live_t28119232202610301423149600/alertas/email/lo-9/20261030-t_oportunidad_werise-education_img.htm','Piso en Pineda de Mar - Poblenou',239000.0,114.0,2.09649122807017556e+03,3,NULL,NULL,NULL,NULL,NULL,'poblenou','pineda de mar',NULL,'https://www.habitaclia.com/i48048000000136/28119232/live_t28119232202610301423149600/alertas/email/lo-9/20261030-t_oportunidad_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 239.000 € | | Piso en Pineda de Mar - Poblenou | Hispanitat PISO EN PINEDA DE MAR POBL... | 114m 2 | 3 hab. PISO EN PINEDA DE MAR (POBLENOU) DE 114 m², 2 BALCONES, MUY LUMINOSO, PARKING... | | | | | | Oportunidad Quizás te lo perdiste | | | | | | | | | | | | Te recomendamos | Obra nueva | | | | | desde 494.000 € Tiana | Carrer Neus Català, 11 | OBRA INICIADA Les Brises es una promoc','[]',NULL,'[]','2026-09-30 07:09:37.138044','2026-10-30 16:42:51.180194',1);
 INSERT INTO "listings" VALUES('habitaclia_765004409471','habitaclia','765004409471','https://www.habitaclia.com/i765004409471/28119232/live_af28119232202609300101394270/alertas/email/lo-20/20260930-r_modprecio_werise-education_img.htm','Piso en Calella',245000.0,117.0,2.09401709401709422e+03,4,2,NULL,NULL,NULL,NULL,NULL,'calella',NULL,'https://www.habitaclia.com/i765004409471/28119232/live_af28119232202609300101394270/alertas/email/lo-20/20260930-r_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 245.000 € | | Piso en Calella | 4 dormitorios 2 baños 2 balcones asce... | 117m 2 | 4 hab. Piso con gran superficie muy céntrico, a 1 m de la plaza del ayuntamiento, al... | | | | | | Ha bajado 15.000 € | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-30 07:09:37.188725','2026-09-30 07:09:37.188725',1);
 INSERT INTO "listings" VALUES('habitaclia_48149000000195','habitaclia','48149000000195','https://www.habitaclia.com/i48149000000195/28119232/live_af28119232202609300101394270/alertas/email/lo-20/20260930-r_modprecio_werise-education_img.htm','Piso en Tordera - Tordera',140000.0,77.0,1.81818181818181824e+03,1,NULL,NULL,NULL,NULL,NULL,'tordera','tordera',NULL,'https://www.habitaclia.com/i48149000000195/28119232/live_af28119232202609300101394270/alertas/email/lo-20/20260930-r_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 140.000 € | | Piso en Tordera - Tordera | SE VENDE PISO DE 1 HABITACIÓN CON BAL... | 77m 2 | 1 hab. ¿Buscas un hogar cómodo, moderno y bien equipado? ¡Este piso es para ti! ?... | | | | | | Ha subido 15.000 € | | | | | | | | | <a href="','[]',NULL,'[]','2026-09-30 07:09:37.204945','2026-09-30 07:09:37.204945',1);
 INSERT INTO "listings" VALUES('habitaclia_45396000006769','habitaclia','45396000006769','https://www.habitaclia.com/i45396000006769/28119232/live_af28119232202609300101394270/alertas/email/lo-20/20260930-r_modprecio_werise-education_img.htm','Piso en Argentona - Sud',121220.0,83.0,1.46048192771084336e+03,3,NULL,NULL,NULL,NULL,NULL,'sud','argentona',NULL,'https://www.habitaclia.com/i45396000006769/28119232/live_af28119232202609300101394270/alertas/email/lo-20/20260930-r_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 121.220 € | | Piso en Argentona - Sud | JOAN VILANOVA I ABRIL DE PISO EN ARGE... | 83m 2 | 3 hab. Vivienda situada en Calle JOAN VILANOVA I ABRIL, BARCELONA. VIVIENDA CON INCI... | | | | | | Ha bajado 6.380 € | | | | | | | | | Te recomendamos | | | | | Te recomendamos | Obra nueva | | | | | desde 494.000 € Tiana | Carrer Neus Català, 11 | OBRA INICIADA Les Brises es una promoción de','[]',NULL,'[]','2026-09-30 07:09:37.238035','2026-09-30 07:09:37.238035',1);
@@ -38868,7 +38868,7 @@ Sant Andreu, Barcelona Capital
 83 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:12.901189',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:06.829850',1);
 INSERT INTO "listings" VALUES('habitaclia_3e6f2bb2-2287-4fa1-96c3-5c1f1cdb20df','habitaclia','3e6f2bb2-2287-4fa1-96c3-5c1f1cdb20df','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/3e6f2bb2-2287-4fa1-96c3-5c1f1cdb20df/d','Piso con balcón en venta en Sant Andreu',330000.0,95.0,3.47368421052631583e+03,3,2,NULL,NULL,NULL,NULL,'navas','barcelona',NULL,'1/31
 330.000 €
 Piso con balcón en venta en Sant Andreu
@@ -38902,7 +38902,7 @@ Sant Andreu, Barcelona Capital
 74 m²
 4 hab.
 2 baños
-1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:12.831173',1);
+1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:06.758178',1);
 INSERT INTO "listings" VALUES('habitaclia_bc9d440e-3839-45ee-bbf8-1c9a319d4382','habitaclia','bc9d440e-3839-45ee-bbf8-1c9a319d4382','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/bc9d440e-3839-45ee-bbf8-1c9a319d4382/d','Piso con ascensor en venta en Sant Andreu',300000.0,168.0,1.78571428571428577e+03,3,3,NULL,NULL,NULL,NULL,'navas','barcelona',NULL,'Oportunidad
 1/16
 300.000 €
@@ -38919,14 +38919,14 @@ Sant Andreu, Barcelona Capital
 78 m²
 3 hab.
 2 baños
-Principal / Entresuelo','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:12.883995',1);
+Principal / Entresuelo','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:06.812296',1);
 INSERT INTO "listings" VALUES('habitaclia_38a8f17d-1f3d-4b6e-869c-867b6f6fac79','habitaclia','38a8f17d-1f3d-4b6e-869c-867b6f6fac79','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/38a8f17d-1f3d-4b6e-869c-867b6f6fac79/d','Piso en venta en Sant Andreu',303024.0,81.0,3.74103703703703695e+03,2,1,NULL,NULL,NULL,NULL,'navas','barcelona',NULL,'1/10
 303.024 €
 Piso en venta en Sant Andreu
 Barcelona Capital, Barcelona
 81 m²
 2 hab.
-1 baños','[]',NULL,'[{"price": 303022.0, "date": "2026-10-26T14:21:12.254891"}, {"price": 303019.0, "date": "2026-10-27T15:05:45.622599"}, {"price": 303022.0, "date": "2026-10-28T20:50:13.011817"}, {"price": 303017.0, "date": "2026-10-29T15:46:57.445318"}]','2026-10-23 08:44:09.123599','2026-10-30 16:31:12.811965',1);
+1 baños','[]',NULL,'[{"price": 303022.0, "date": "2026-10-26T14:21:12.254891"}, {"price": 303019.0, "date": "2026-10-27T15:05:45.622599"}, {"price": 303022.0, "date": "2026-10-28T20:50:13.011817"}, {"price": 303017.0, "date": "2026-10-29T15:46:57.445318"}]','2026-10-23 08:44:09.123599','2026-10-30 16:42:06.738885',1);
 INSERT INTO "listings" VALUES('habitaclia_9b47d66e-052c-438e-8fb9-37cf12ed58f1','habitaclia','9b47d66e-052c-438e-8fb9-37cf12ed58f1','https://www.habitaclia.com/comprar/planta-intermedia/avinguda-meridiana/sant-andreu/barcelona-capital/9b47d66e-052c-438e-8fb9-37cf12ed58f1/d','Piso con ascensor en venta en Avinguda Meridiana',219000.0,50.0,4380.0,2,1,'7ª planta',NULL,NULL,NULL,'navas','barcelona',NULL,'1/18
 219.000 €
 Ha bajado 5.000 €
@@ -39158,7 +39158,7 @@ Sant Andreu, Barcelona Capital
 77 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:12.936559',1);
+1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:06.866294',1);
 INSERT INTO "listings" VALUES('habitaclia_3083e405-9e05-4889-a6cd-20f7346bbb17','habitaclia','3083e405-9e05-4889-a6cd-20f7346bbb17','https://www.habitaclia.com/comprar/planta-intermedia/biscaia/sant-andreu/barcelona-capital/3083e405-9e05-4889-a6cd-20f7346bbb17/d','Piso con ascensor en venta en BISCAIA',299000.0,82.0,3.64634146341463429e+03,2,1,NULL,NULL,NULL,NULL,'navas','barcelona',NULL,'1
 299.000 €
 Piso con ascensor en venta en BISCAIA
@@ -39166,7 +39166,7 @@ Sant Andreu, Barcelona Capital
 82 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:12.918583',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:06.848391',1);
 INSERT INTO "listings" VALUES('habitaclia_4fecc8dd-78a2-46f6-a50d-28dbd9cc371b','habitaclia','4fecc8dd-78a2-46f6-a50d-28dbd9cc371b','https://www.habitaclia.com/comprar/planta-intermedia/calle-concepcion-arenal/sant-andreu/barcelona-capital/4fecc8dd-78a2-46f6-a50d-28dbd9cc371b/d','Piso con balcón en venta en Calle CONCEPCION ARENAL',262000.0,69.0,3.79710144927536248e+03,3,1,'1ª planta',NULL,NULL,NULL,'navas','barcelona',NULL,'1
 262.000 €
 Piso con balcón en venta en Calle CONCEPCION ARENAL
@@ -39190,7 +39190,7 @@ Sant Andreu, Barcelona Capital
 77 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:12.866274',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:06.794355',1);
 INSERT INTO "listings" VALUES('habitaclia_3d44101b-3144-4845-a455-95416b055dfc','habitaclia','3d44101b-3144-4845-a455-95416b055dfc','https://www.habitaclia.com/comprar/planta-intermedia/concepcion-arenal/sant-andreu/barcelona-capital/3d44101b-3144-4845-a455-95416b055dfc/d','Piso en venta en Concepcion Arenal',235946.0,76.0,3.10455263157894751e+03,3,1,NULL,NULL,NULL,NULL,'navas','barcelona',NULL,'1/4
 235.946 €
 Piso en venta en Concepcion Arenal
@@ -39198,7 +39198,7 @@ Sant Andreu, Barcelona Capital
 76 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:12.848671',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:06.776110',1);
 INSERT INTO "listings" VALUES('habitaclia_9b4d5405-9f90-4ee7-924c-bcbb2d148af2','habitaclia','9b4d5405-9f90-4ee7-924c-bcbb2d148af2','https://www.habitaclia.com/comprar/planta-intermedia/carrer-concepcion-arenal-17/sant-andreu/barcelona-capital/9b4d5405-9f90-4ee7-924c-bcbb2d148af2/d','Piso en venta en Carrer Concepcion Arenal 17',235946.0,63.0,3.74517460317460336e+03,2,1,'1ª planta',NULL,NULL,NULL,'navas','barcelona',NULL,'1/3
 235.946 €
 Piso en venta en Carrer Concepcion Arenal 17
@@ -39247,14 +39247,14 @@ Piso en venta en Sant Martí
 Barcelona Capital, Barcelona
 77 m²
 2 hab.
-1 baños','[]',NULL,'[{"price": 269699.0, "date": "2026-10-26T14:22:23.518944"}, {"price": 269705.0, "date": "2026-10-27T15:06:57.909864"}, {"price": 269699.0, "date": "2026-10-28T20:51:02.743556"}, {"price": 269702.0, "date": "2026-10-29T15:48:06.072798"}]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.578309',1);
+1 baños','[]',NULL,'[{"price": 269699.0, "date": "2026-10-26T14:22:23.518944"}, {"price": 269705.0, "date": "2026-10-27T15:06:57.909864"}, {"price": 269699.0, "date": "2026-10-28T20:51:02.743556"}, {"price": 269702.0, "date": "2026-10-29T15:48:06.072798"}]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.064536',1);
 INSERT INTO "listings" VALUES('habitaclia_57d40d48-1a4d-4e8f-b17e-b6807d75b8be','habitaclia','57d40d48-1a4d-4e8f-b17e-b6807d75b8be','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-rafael-capdevila/sant-marti/barcelona-capital/57d40d48-1a4d-4e8f-b17e-b6807d75b8be/d','Piso en venta en Carrer de Rafael Capdevila',307050.0,84.0,3.65535714285714266e+03,4,2,NULL,NULL,NULL,NULL,'el clot','barcelona',NULL,'1/27
 307.050 €
 Piso en venta en Carrer de Rafael Capdevila
 Sant Martí, Barcelona Capital
 84 m²
 4 hab.
-2 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.772992',1);
+2 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.271302',1);
 INSERT INTO "listings" VALUES('habitaclia_91b72353-eefa-41b7-be7f-fde4d294d19a','habitaclia','91b72353-eefa-41b7-be7f-fde4d294d19a','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-clot/sant-marti/barcelona-capital/91b72353-eefa-41b7-be7f-fde4d294d19a/d','Piso con ascensor en venta en Carrer del Clot',214000.0,50.0,4280.0,1,1,NULL,NULL,NULL,NULL,'el clot','barcelona',NULL,'1/20
 214.000 €
 Piso con ascensor en venta en Carrer del Clot
@@ -39326,7 +39326,7 @@ Sant Martí, Barcelona Capital
 88 m²
 4 hab.
 2 baños
-Principal / Entresuelo','[]',NULL,'[{"price": 279015.0, "date": "2026-10-26T14:22:23.958228"}]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.684402',1);
+Principal / Entresuelo','[]',NULL,'[{"price": 279015.0, "date": "2026-10-26T14:22:23.958228"}]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.177094',1);
 INSERT INTO "listings" VALUES('habitaclia_d20bb899-4f67-44d2-a461-28f32ed158c9','habitaclia','d20bb899-4f67-44d2-a461-28f32ed158c9','https://www.habitaclia.com/comprar/planta-intermedia/avenida-meridiana/sant-marti/barcelona-capital/d20bb899-4f67-44d2-a461-28f32ed158c9/d','Piso en venta en Avenida Meridiana',249000.0,65.0,3.83076923076923094e+03,1,1,NULL,NULL,NULL,NULL,'el clot','barcelona',NULL,'1/12
 249.000 €
 Piso en venta en Avenida Meridiana
@@ -39340,7 +39340,7 @@ INSERT INTO "listings" VALUES('habitaclia_87f83767-9af7-42a1-9148-33e46f0d081f',
 Piso en venta en de Rafael Capdevila 4
 Sant Martí, Barcelona Capital
 88 m²
-Principal / Entresuelo','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.862961',1);
+Principal / Entresuelo','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.360967',1);
 INSERT INTO "listings" VALUES('habitaclia_bafe4f73-929b-4517-a543-2a5f05d53619','habitaclia','bafe4f73-929b-4517-a543-2a5f05d53619','https://www.habitaclia.com/comprar/apartamento/sant-marti/barcelona-capital/bafe4f73-929b-4517-a543-2a5f05d53619/d','Apartamento con ascensor en venta en Sant Martí',330000.0,33.0,10000.0,1,1,'3ª planta',NULL,NULL,NULL,'el clot','barcelona',NULL,'1/5
 330.000 €
 Ha bajado 10.000 €
@@ -39357,7 +39357,7 @@ Sant Martí, Barcelona Capital
 75 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.790313',1);
+1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.289321',1);
 INSERT INTO "listings" VALUES('habitaclia_3c8ab231-65bb-463f-a0b3-66f377f70b78','habitaclia','3c8ab231-65bb-463f-a0b3-66f377f70b78','https://www.habitaclia.com/comprar/planta-intermedia/calle-rafael-capdevila/sant-marti/barcelona-capital/3c8ab231-65bb-463f-a0b3-66f377f70b78/d','Piso en venta en Calle Rafael Capdevila',307050.0,84.0,3.65535714285714266e+03,4,2,'4ª planta',NULL,NULL,NULL,'el clot','barcelona',NULL,'1/28
 307.050 €
 Piso en venta en Calle Rafael Capdevila
@@ -39365,7 +39365,7 @@ Sant Martí, Barcelona Capital
 84 m²
 4 hab.
 2 baños
-4º','[]',NULL,'[{"price": 279015.0, "date": "2026-10-29T21:16:01.296937"}]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.631000',1);
+4º','[]',NULL,'[{"price": 279015.0, "date": "2026-10-29T21:16:01.296937"}]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.121554',1);
 INSERT INTO "listings" VALUES('habitaclia_9fc90d39-fc41-4612-b883-ec233a8de641','habitaclia','9fc90d39-fc41-4612-b883-ec233a8de641','https://www.habitaclia.com/comprar/planta-intermedia/calle-rafael-capdevila/sant-marti/barcelona-capital/9fc90d39-fc41-4612-b883-ec233a8de641/d','Piso en venta en Calle Rafael Capdevila',279015.0,83.0,3.36162650602409621e+03,4,2,'2ª planta',NULL,NULL,NULL,'el clot','barcelona',NULL,'1/27
 279.015 €
 Piso en venta en Calle Rafael Capdevila
@@ -39373,7 +39373,7 @@ Sant Martí, Barcelona Capital
 83 m²
 4 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.701743',1);
+2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.195128',1);
 INSERT INTO "listings" VALUES('habitaclia_19c3a7e4-afab-42b9-b982-bf660d4da54b','habitaclia','19c3a7e4-afab-42b9-b982-bf660d4da54b','https://www.habitaclia.com/comprar/planta-intermedia/gran-via-corts-catalanes/sant-marti/barcelona-capital/19c3a7e4-afab-42b9-b982-bf660d4da54b/d','Piso con balcón en venta en Gran Vía CORTS CATALANES',265000.0,77.0,3.4415584415584417e+03,4,1,'2ª planta',NULL,NULL,NULL,'el clot','barcelona',NULL,'1/4
 265.000 €
 Piso con balcón en venta en Gran Vía CORTS CATALANES
@@ -39381,7 +39381,7 @@ Sant Martí, Barcelona Capital
 77 m²
 4 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.845240',1);
+2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.342976',1);
 INSERT INTO "listings" VALUES('habitaclia_62c9be64-4d10-4a4a-aa63-5959038aefbb','habitaclia','62c9be64-4d10-4a4a-aa63-5959038aefbb','https://www.habitaclia.com/comprar/planta-intermedia/c-independencia/sant-marti/barcelona-capital/62c9be64-4d10-4a4a-aa63-5959038aefbb/d','Piso en venta en C/ Independencia',250400.0,56.0,4.47142857142857155e+03,3,1,NULL,NULL,NULL,NULL,'el clot','barcelona',NULL,'1/21
 250.400 €
 Piso en venta en C/ Independencia
@@ -39396,7 +39396,7 @@ Sant Martí, Barcelona Capital
 84 m²
 4 hab.
 2 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.665130',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.158553',1);
 INSERT INTO "listings" VALUES('habitaclia_a47abdcc-d688-4dd2-9bef-71ee69b2a679','habitaclia','a47abdcc-d688-4dd2-9bef-71ee69b2a679','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-mallorca-640/sant-marti/barcelona-capital/a47abdcc-d688-4dd2-9bef-71ee69b2a679/d','Piso con ascensor en venta en Carrer de Mallorca 640',310000.0,NULL,NULL,2,1,NULL,NULL,NULL,NULL,'el clot','barcelona',NULL,'1/28
 310.000 €
 Piso con ascensor en venta en Carrer de Mallorca 640
@@ -39418,7 +39418,7 @@ Sant Martí, Barcelona Capital
 71 m²
 3 hab.
 3 baños
-2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.613630',1);
+2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.102637',1);
 INSERT INTO "listings" VALUES('habitaclia_c228eb7b-8c63-4fd0-8e1a-629a4dab17b8','habitaclia','c228eb7b-8c63-4fd0-8e1a-629a4dab17b8','https://www.habitaclia.com/comprar/planta-intermedia/sant-marti/barcelona-capital/c228eb7b-8c63-4fd0-8e1a-629a4dab17b8/d','Piso con ascensor en venta en Sant Martí',278000.0,77.0,3.61038961038961042e+03,2,1,'2ª planta',NULL,NULL,NULL,'el clot','barcelona',NULL,'1/2
 278.000 €
 Piso con ascensor en venta en Sant Martí
@@ -39426,7 +39426,7 @@ Barcelona Capital, Barcelona
 77 m²
 2 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.754241',1);
+2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.251841',1);
 INSERT INTO "listings" VALUES('habitaclia_a467707e-4661-4988-a849-de6ab2deb173','habitaclia','a467707e-4661-4988-a849-de6ab2deb173','https://www.habitaclia.com/comprar/planta-intermedia/sant-marti/barcelona-capital/a467707e-4661-4988-a849-de6ab2deb173/d','Piso con balcón en venta en Sant Martí',265000.0,71.0,3.73239436619718299e+03,4,1,'2ª planta',NULL,NULL,NULL,'el clot','barcelona',NULL,'1
 265.000 €
 Piso con balcón en venta en Sant Martí
@@ -39434,7 +39434,7 @@ Barcelona Capital, Barcelona
 71 m²
 4 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.827354',1);
+2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.325224',1);
 INSERT INTO "listings" VALUES('habitaclia_c16a58be-ae98-4cd0-82cf-321e92776f04','habitaclia','c16a58be-ae98-4cd0-82cf-321e92776f04','https://www.habitaclia.com/comprar/planta-intermedia/rafael-capdevila/sant-marti/barcelona-capital/c16a58be-ae98-4cd0-82cf-321e92776f04/d','Piso con ascensor en venta en RAFAEL CAPDEVILA',279015.0,73.0,3.8221232876712329e+03,2,1,NULL,NULL,NULL,NULL,'el clot','barcelona',NULL,'1
 279.015 €
 Piso con ascensor en venta en RAFAEL CAPDEVILA
@@ -39442,7 +39442,7 @@ Sant Martí, Barcelona Capital
 73 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.736763',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.233595',1);
 INSERT INTO "listings" VALUES('habitaclia_d62bc450-5eb5-4434-9fb3-31f08cc25fbc','habitaclia','d62bc450-5eb5-4434-9fb3-31f08cc25fbc','https://www.habitaclia.com/comprar/planta-intermedia/sant-marti/barcelona-capital/d62bc450-5eb5-4434-9fb3-31f08cc25fbc/d','Piso con ascensor en venta en Sant Martí',240000.0,71.0,3.38028169014084505e+03,2,1,'2ª planta',NULL,NULL,NULL,'el clot','barcelona',NULL,'1
 240.000 €
 Piso con ascensor en venta en Sant Martí
@@ -39450,12 +39450,12 @@ Barcelona Capital, Barcelona
 71 m²
 2 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.719148',1);
+2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.213206',1);
 INSERT INTO "listings" VALUES('habitaclia_4c6a1f40-d14a-4215-80f4-4b9cae05b042','habitaclia','4c6a1f40-d14a-4215-80f4-4b9cae05b042','https://www.habitaclia.com/comprar/planta-intermedia/calle-corts-catalanes-871/sant-marti/barcelona-capital/4c6a1f40-d14a-4215-80f4-4b9cae05b042/d','Piso en venta en Calle Corts Catalanes 871',202000.0,77.0,2.62337662337662322e+03,NULL,NULL,NULL,NULL,NULL,NULL,'el clot','barcelona',NULL,'1/4
 202.000 €
 Piso en venta en Calle Corts Catalanes 871
 Sant Martí, Barcelona Capital
-77 m²','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.595700',1);
+77 m²','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.083917',1);
 INSERT INTO "listings" VALUES('habitaclia_e5b432f7-cf70-40ec-bc5c-69b25e0451e5','habitaclia','e5b432f7-cf70-40ec-bc5c-69b25e0451e5','https://www.habitaclia.com/comprar/planta-intermedia/calle-edison/sant-marti/barcelona-capital/e5b432f7-cf70-40ec-bc5c-69b25e0451e5/d','Piso en venta en calle Edison',268190.0,88.0,3.04761363636363648e+03,4,1,NULL,NULL,NULL,NULL,'el clot','barcelona',NULL,'1/2
 268.190 €
 Piso en venta en calle Edison
@@ -39463,7 +39463,7 @@ Sant Martí, Barcelona Capital
 88 m²
 4 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:42.647864',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:34.139765',1);
 INSERT INTO "listings" VALUES('habitaclia_e925dab0-ef33-4184-9a71-e0a986b90d19','habitaclia','e925dab0-ef33-4184-9a71-e0a986b90d19','https://www.habitaclia.com/comprar/planta-intermedia/conca-5/sant-marti/barcelona-capital/e925dab0-ef33-4184-9a71-e0a986b90d19/d','Piso con ascensor en venta en CONCA 5',240000.0,40.0,6000.0,NULL,NULL,NULL,NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'Oportunidad
 1/17
 240.000 €
@@ -39569,7 +39569,7 @@ Sant Martí, Barcelona Capital
 77 m²
 3 hab.
 1 baños
-6º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.232218',1);
+6º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.696655',1);
 INSERT INTO "listings" VALUES('habitaclia_fb515d93-e5a1-4485-beb6-c6d463c0c31c','habitaclia','fb515d93-e5a1-4485-beb6-c6d463c0c31c','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-nacio/sant-marti/barcelona-capital/fb515d93-e5a1-4485-beb6-c6d463c0c31c/d','Piso con balcón en venta en Carrer de la Nació',328000.0,75.0,4.37333333333333303e+03,3,1,'5ª planta',NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'Oportunidad
 1/34
 328.000 €
@@ -39588,7 +39588,7 @@ Sant Martí, Barcelona Capital
 80 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[{"price": 240000.0, "date": "2026-10-30T15:10:44.624286"}]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.106382',1);
+Bajos / Planta baja','[]',NULL,'[{"price": 240000.0, "date": "2026-10-30T15:10:44.624286"}]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.570930',1);
 INSERT INTO "listings" VALUES('habitaclia_c3634e82-6de1-4d77-8c1c-dfb407ae7e6b','habitaclia','c3634e82-6de1-4d77-8c1c-dfb407ae7e6b','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-provenca/sant-marti/barcelona-capital/c3634e82-6de1-4d77-8c1c-dfb407ae7e6b/d','Piso en venta en Carrer de Provença',180000.0,42.0,4.28571428571428532e+03,1,1,'4ª planta',NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'Oportunidad
 1/31
 180.000 €
@@ -39606,7 +39606,7 @@ Sant Martí, Barcelona Capital
 98 m²
 3 hab.
 2 baños
-1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.196549',1);
+1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.660327',1);
 INSERT INTO "listings" VALUES('habitaclia_3f72484d-1ecd-47e5-8fa8-b1033cf77d4e','habitaclia','3f72484d-1ecd-47e5-8fa8-b1033cf77d4e','https://www.habitaclia.com/comprar/planta-intermedia/sant-marti/barcelona-capital/3f72484d-1ecd-47e5-8fa8-b1033cf77d4e/d','Piso en venta en Sant Martí',192000.0,42.0,4.57142857142857155e+03,1,1,'4ª planta',NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'Oportunidad
 1/16
 192.000 €
@@ -39623,7 +39623,7 @@ Sant Martí, Barcelona Capital
 75 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.160547',1);
+1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.625105',1);
 INSERT INTO "listings" VALUES('habitaclia_bc66abde-d882-46ce-971b-c17def87518d','habitaclia','bc66abde-d882-46ce-971b-c17def87518d','https://www.habitaclia.com/comprar/planta-intermedia/de-corsega/sant-marti/barcelona-capital/bc66abde-d882-46ce-971b-c17def87518d/d','Piso con balcón en venta en de Còrsega',195000.0,77.0,2.53246753246753269e+03,3,1,'6ª planta',NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'Oportunidad
 1/4
 195.000 €
@@ -39632,7 +39632,7 @@ Sant Martí, Barcelona Capital
 77 m²
 3 hab.
 1 baños
-6º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.322148',1);
+6º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.784117',1);
 INSERT INTO "listings" VALUES('habitaclia_6a131d8b-d9c4-46d6-b7b2-4e19f3e13ca3','habitaclia','6a131d8b-d9c4-46d6-b7b2-4e19f3e13ca3','https://www.habitaclia.com/comprar/planta-intermedia/calle-las-navas-de-tolosa/sant-marti/barcelona-capital/6a131d8b-d9c4-46d6-b7b2-4e19f3e13ca3/d','Piso en venta en Calle Las Navas De Tolosa',319000.0,71.0,4.49295774647887355e+03,3,1,'4ª planta',NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1/15
 319.000 €
 Ha bajado 6.000 €
@@ -39641,7 +39641,7 @@ Sant Martí, Barcelona Capital
 71 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.124919',1);
+4º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.589082',1);
 INSERT INTO "listings" VALUES('habitaclia_fc4ac16f-0b76-42a1-9d8a-6b35f52c945a','habitaclia','fc4ac16f-0b76-42a1-9d8a-6b35f52c945a','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-ruiz-de-padron/sant-marti/barcelona-capital/fc4ac16f-0b76-42a1-9d8a-6b35f52c945a/d','Piso en venta en Carrer de Ruiz de Padrón',167000.0,60.0,2.78333333333333348e+03,2,1,NULL,NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1/16
 167.000 €
 Ha bajado 8.000 €
@@ -39723,7 +39723,7 @@ Barcelona Capital, Barcelona
 70 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[{"price": 283000.0, "date": "2026-10-27T03:00:47.814027"}]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.340560',1);
+2º','[]',NULL,'[{"price": 283000.0, "date": "2026-10-27T03:00:47.814027"}]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.804363',1);
 INSERT INTO "listings" VALUES('habitaclia_b8f2448f-20db-4742-b283-9646e5179591','habitaclia','b8f2448f-20db-4742-b283-9646e5179591','https://www.habitaclia.com/comprar/planta-intermedia/sant-marti/barcelona-capital/b8f2448f-20db-4742-b283-9646e5179591/d','Piso con balcón en venta en Sant Martí',281900.0,59.0,4.77796610169491486e+03,3,1,'1ª planta',NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'Oportunidad
 1/24
 281.900 €
@@ -39997,7 +39997,7 @@ Barcelona Capital, Barcelona
 71 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.304260',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.766644',1);
 INSERT INTO "listings" VALUES('habitaclia_5fda910e-7052-43d4-8b2e-2801484c4e8e','habitaclia','5fda910e-7052-43d4-8b2e-2801484c4e8e','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-ruiz-de-padron/sant-marti/barcelona-capital/5fda910e-7052-43d4-8b2e-2801484c4e8e/d','Piso en venta en Carrer de Ruiz de Padrón',167000.0,60.0,2.78333333333333348e+03,2,1,NULL,NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1/19
 167.000 €
 Ha bajado 8.000 €
@@ -40014,7 +40014,7 @@ Barcelona Capital, Barcelona
 70 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.268229',1);
+1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.731501',1);
 INSERT INTO "listings" VALUES('habitaclia_0141fca9-9153-41e4-ba6e-dd9607e38d07','habitaclia','0141fca9-9153-41e4-ba6e-dd9607e38d07','https://www.habitaclia.com/comprar/atico/carrer-de-trinxant/sant-marti/barcelona-capital/0141fca9-9153-41e4-ba6e-dd9607e38d07/d','Ático en venta en Carrer de Trinxant',330000.0,63.0,5.23809523809523852e+03,3,1,NULL,NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1/18
 330.000 €
 Ático en venta en Carrer de Trinxant
@@ -40028,14 +40028,14 @@ Piso con ascensor en venta en Freser
 Sant Martí, Barcelona Capital
 73 m²
 3 hab.
-1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.087154',1);
+1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.551412',1);
 INSERT INTO "listings" VALUES('habitaclia_8946335c-c6ff-43e8-8dc6-9652e200042d','habitaclia','8946335c-c6ff-43e8-8dc6-9652e200042d','https://www.habitaclia.com/comprar/vivienda/freser-180/sant-marti/barcelona-capital/8946335c-c6ff-43e8-8dc6-9652e200042d/d','Casa en venta en FRESER 180',299000.0,188.0,1.59042553191489355e+03,4,2,NULL,NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1/78
 299.000 €
 Casa en venta en FRESER 180
 Sant Martí, Barcelona Capital
 188 m²
 4 hab.
-2 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.359577',1);
+2 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.822093',1);
 INSERT INTO "listings" VALUES('habitaclia_031d2f06-b2cd-4d7e-a072-6d6ad1d53ae1','habitaclia','031d2f06-b2cd-4d7e-a072-6d6ad1d53ae1','https://www.habitaclia.com/comprar/planta-intermedia/sant-marti/barcelona-capital/031d2f06-b2cd-4d7e-a072-6d6ad1d53ae1/d','Piso con balcón en venta en Sant Martí',235000.0,62.0,3.79032258064516145e+03,3,1,'2ª planta',NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1/21
 235.000 €
 Piso con balcón en venta en Sant Martí
@@ -40050,7 +40050,7 @@ Piso con ascensor en venta en Av Meridiana
 Sant Martí, Barcelona Capital
 82 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.397411',1);
+1 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.857227',1);
 INSERT INTO "listings" VALUES('habitaclia_4af194cd-a2d8-4a1e-a79b-30a53c890604','habitaclia','4af194cd-a2d8-4a1e-a79b-30a53c890604','https://www.habitaclia.com/comprar/planta-intermedia/sant-marti/barcelona-capital/4af194cd-a2d8-4a1e-a79b-30a53c890604/d','Piso con balcón en venta en Sant Martí',238000.0,81.0,2.93827160493827159e+03,3,1,'4ª planta',NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1/34
 238.000 €
 Piso con balcón en venta en Sant Martí
@@ -40058,7 +40058,7 @@ Barcelona Capital, Barcelona
 81 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.378615',1);
+4º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.839616',1);
 INSERT INTO "listings" VALUES('habitaclia_596dafc8-3361-4218-b698-76a1d238f3a5','habitaclia','596dafc8-3361-4218-b698-76a1d238f3a5','https://www.habitaclia.com/comprar/planta-intermedia/avenida-meridiana/sant-marti/barcelona-capital/596dafc8-3361-4218-b698-76a1d238f3a5/d','Piso con ascensor en venta en Avenida Meridiana',259000.0,66.0,3.92424242424242402e+03,1,1,NULL,NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1/10
 259.000 €
 Ha bajado 11.000 €
@@ -40114,14 +40114,14 @@ Sant Martí, Barcelona Capital
 77 m²
 3 hab.
 1 baños
-6º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.250185',1);
+6º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.714098',1);
 INSERT INTO "listings" VALUES('habitaclia_4df0c9d4-5557-4345-91bf-3b29d45024ea','habitaclia','4df0c9d4-5557-4345-91bf-3b29d45024ea','https://www.habitaclia.com/comprar/planta-intermedia/sant-marti/barcelona-capital/4df0c9d4-5557-4345-91bf-3b29d45024ea/d','Piso en venta en Sant Martí',290000.0,86.0,3.37209302325581393e+03,4,2,NULL,NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1/14
 290.000 €
 Piso en venta en Sant Martí
 Barcelona Capital, Barcelona
 86 m²
 4 hab.
-2 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.214687',1);
+2 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.678983',1);
 INSERT INTO "listings" VALUES('habitaclia_acb79bd1-67a9-469c-bf91-9cc9a4484666','habitaclia','acb79bd1-67a9-469c-bf91-9cc9a4484666','https://www.habitaclia.com/comprar/planta-intermedia/avenida-meridiana/sant-marti/barcelona-capital/acb79bd1-67a9-469c-bf91-9cc9a4484666/d','Piso en venta en Avenida Meridiana',319000.0,82.0,3.89024390243902416e+03,2,1,NULL,NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1/20
 319.000 €
 Piso en venta en Avenida Meridiana
@@ -40129,7 +40129,7 @@ Sant Martí, Barcelona Capital
 82 m²
 2 hab.
 1 baños
-Mayor que 10','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.142870',1);
+Mayor que 10','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.607282',1);
 INSERT INTO "listings" VALUES('habitaclia_ec424722-5656-48bc-ad0f-7813dc81cf46','habitaclia','ec424722-5656-48bc-ad0f-7813dc81cf46','https://www.habitaclia.com/comprar/planta-intermedia/rossello-565/sant-marti/barcelona-capital/ec424722-5656-48bc-ad0f-7813dc81cf46/d','Piso con ascensor en venta en ROSSELLO 565',158900.0,75.0,2.11866666666666651e+03,2,1,'5ª planta',NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1/3
 158.900 €
 Piso con ascensor en venta en ROSSELLO 565
@@ -40145,7 +40145,7 @@ Sant Martí, Barcelona Capital
 86 m²
 4 hab.
 2 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.178411',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.642402',1);
 INSERT INTO "listings" VALUES('habitaclia_ed117af7-9d71-4bc6-a62e-884521988a16','habitaclia','ed117af7-9d71-4bc6-a62e-884521988a16','https://www.habitaclia.com/comprar/planta-intermedia/independencia/sant-marti/barcelona-capital/ed117af7-9d71-4bc6-a62e-884521988a16/d','Piso con ascensor en venta en INDEPENDENCIA',285000.0,49.0,5.81632653061224482e+03,1,1,NULL,NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1
 285.000 €
 Piso con ascensor en venta en INDEPENDENCIA
@@ -40161,7 +40161,7 @@ Sant Martí, Barcelona Capital
 76 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:47.286540',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:38.749164',1);
 INSERT INTO "listings" VALUES('habitaclia_5dfa7ed6-3737-413d-82b0-76ab5e26b114','habitaclia','5dfa7ed6-3737-413d-82b0-76ab5e26b114','https://www.habitaclia.com/comprar/planta-intermedia/besalu/sant-marti/barcelona-capital/5dfa7ed6-3737-413d-82b0-76ab5e26b114/d','Piso en venta en BESALU',269000.0,62.0,4.3387096774193551e+03,2,1,NULL,NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1
 269.000 €
 Piso en venta en BESALU
@@ -40213,7 +40213,7 @@ Barcelona Capital, Barcelona
 79 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:04.424344',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:41:55.724839',1);
 INSERT INTO "listings" VALUES('habitaclia_735da95e-d21f-4fa5-8c64-89aa37886822','habitaclia','735da95e-d21f-4fa5-8c64-89aa37886822','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-segle-xx/horta-guinardo/barcelona-capital/735da95e-d21f-4fa5-8c64-89aa37886822/d','Piso con balcón en venta en Carrer del Segle XX',275000.0,58.0,4.7413793103448279e+03,3,1,'3ª planta',NULL,NULL,NULL,'el guinardo','barcelona',NULL,'1/19
 275.000 €
 Piso con balcón en venta en Carrer del Segle XX
@@ -40297,7 +40297,7 @@ Horta - Guinardó, Barcelona Capital
 85 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:04.371959',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:41:55.670539',1);
 INSERT INTO "listings" VALUES('habitaclia_a9b74f55-5080-4537-985c-031456aa0f4f','habitaclia','a9b74f55-5080-4537-985c-031456aa0f4f','https://www.habitaclia.com/comprar/estudio/carrer-de-teodor-llorente-19/horta-guinardo/barcelona-capital/a9b74f55-5080-4537-985c-031456aa0f4f/d','Estudio en venta en Carrer de Teodor Llorente 19',159000.0,38.0,4.18421052631578913e+03,1,1,NULL,NULL,NULL,NULL,'el guinardo','barcelona',NULL,'1/23
 159.000 €
 Estudio en venta en Carrer de Teodor Llorente 19
@@ -40403,7 +40403,7 @@ Horta - Guinardó, Barcelona Capital
 82 m²
 4 hab.
 1 baños
-Principal / Entresuelo','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:04.406675',1);
+Principal / Entresuelo','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:41:55.706342',1);
 INSERT INTO "listings" VALUES('habitaclia_1a1e454c-3199-4c09-8473-5789777a3133','habitaclia','1a1e454c-3199-4c09-8473-5789777a3133','https://www.habitaclia.com/comprar/planta-intermedia/maragall/horta-guinardo/barcelona-capital/1a1e454c-3199-4c09-8473-5789777a3133/d','Piso con ascensor en venta en Maragall',265000.0,90.0,2.94444444444444434e+03,3,2,NULL,NULL,NULL,NULL,'el guinardo','barcelona',NULL,'1/13
 265.000 €
 Piso con ascensor en venta en Maragall
@@ -40411,7 +40411,7 @@ Horta - Guinardó, Barcelona Capital
 90 m²
 3 hab.
 2 baños
-Principal / Entresuelo','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:04.478754',1);
+Principal / Entresuelo','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:41:55.780945',1);
 INSERT INTO "listings" VALUES('habitaclia_910a32b8-1e89-44cc-80ff-4fc653670eb5','habitaclia','910a32b8-1e89-44cc-80ff-4fc653670eb5','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/910a32b8-1e89-44cc-80ff-4fc653670eb5/d','Piso con ascensor en venta en Horta - Guinardó',295000.0,57.0,5.17543859649122805e+03,3,1,NULL,NULL,NULL,NULL,'el guinardo','barcelona',NULL,'1/24
 295.000 €
 Piso con ascensor en venta en Horta - Guinardó
@@ -40696,7 +40696,7 @@ Piso en venta en Horta - Guinardó
 Barcelona Capital, Barcelona
 77 m²
 3 hab.
-1 baños','[]',NULL,'[{"price": 260000.0, "date": "2026-10-26T20:58:55.513027"}, {"price": 250000.0, "date": "2026-10-26T21:40:08.491766"}, {"price": 260000.0, "date": "2026-10-27T02:59:31.955815"}]','2026-10-23 08:44:09.123599','2026-10-30 16:31:04.389295',1);
+1 baños','[]',NULL,'[{"price": 260000.0, "date": "2026-10-26T20:58:55.513027"}, {"price": 250000.0, "date": "2026-10-26T21:40:08.491766"}, {"price": 260000.0, "date": "2026-10-27T02:59:31.955815"}]','2026-10-23 08:44:09.123599','2026-10-30 16:41:55.688354',1);
 INSERT INTO "listings" VALUES('habitaclia_4c189bef-7bf2-478e-9704-6faecadf7493','habitaclia','4c189bef-7bf2-478e-9704-6faecadf7493','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/4c189bef-7bf2-478e-9704-6faecadf7493/d','Piso con ascensor en venta en Horta - Guinardó',179000.0,35.0,5.11428571428571467e+03,1,1,NULL,NULL,NULL,NULL,'el guinardo','barcelona',NULL,'1/26
 179.000 €
 Piso con ascensor en venta en Horta - Guinardó
@@ -40760,7 +40760,7 @@ Horta - Guinardó, Barcelona Capital
 78 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:04.442191',1);
+2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:41:55.743638',1);
 INSERT INTO "listings" VALUES('habitaclia_04956531-0585-4d02-9ac7-6b70f9e806e1','habitaclia','04956531-0585-4d02-9ac7-6b70f9e806e1','https://www.habitaclia.com/comprar/planta-intermedia/genova/horta-guinardo/barcelona-capital/04956531-0585-4d02-9ac7-6b70f9e806e1/d','Piso en venta en GENOVA',180000.0,59.0,3.05084745762711872e+03,2,1,'4ª planta',NULL,NULL,NULL,'el guinardo','barcelona',NULL,'1/4
 180.000 €
 Piso en venta en GENOVA
@@ -40824,7 +40824,7 @@ Horta - Guinardó, Barcelona Capital
 74 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:04.459453',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:41:55.762230',1);
 INSERT INTO "listings" VALUES('habitaclia_e4b81d7c-304c-43ab-af43-2d432133046a','habitaclia','e4b81d7c-304c-43ab-af43-2d432133046a','https://www.habitaclia.com/comprar/planta-intermedia/mare-de-deu-de-montserrat/horta-guinardo/barcelona-capital/e4b81d7c-304c-43ab-af43-2d432133046a/d','Piso con ascensor en venta en MARE DE DEU DE MONTSERRAT',175435.0,60.0,2.92391666666666651e+03,2,1,NULL,NULL,NULL,NULL,'el guinardo','barcelona',NULL,'1
 175.435 €
 Piso con ascensor en venta en MARE DE DEU DE MONTSERRAT
@@ -40900,7 +40900,7 @@ Piso con ascensor en venta en Sant Andreu
 Barcelona Capital, Barcelona
 90 m²
 4 hab.
-1 baños','[]',NULL,'[{"price": 240736.0, "date": "2026-10-26T14:21:32.770670"}, {"price": 240745.0, "date": "2026-10-27T15:06:04.878756"}, {"price": 240736.0, "date": "2026-10-28T20:50:27.658111"}, {"price": 240742.0, "date": "2026-10-29T15:47:18.457498"}]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.751264',1);
+1 baños','[]',NULL,'[{"price": 240736.0, "date": "2026-10-26T14:21:32.770670"}, {"price": 240745.0, "date": "2026-10-27T15:06:04.878756"}, {"price": 240736.0, "date": "2026-10-28T20:50:27.658111"}, {"price": 240742.0, "date": "2026-10-29T15:47:18.457498"}]','2026-10-23 08:44:09.123599','2026-10-30 16:42:15.787222',1);
 INSERT INTO "listings" VALUES('habitaclia_0f386bbe-c389-4623-823c-32b2b5d5bfed','habitaclia','0f386bbe-c389-4623-823c-32b2b5d5bfed','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/0f386bbe-c389-4623-823c-32b2b5d5bfed/d','Piso en venta en Sant Andreu',310869.0,105.0,2.96065714285714284e+03,2,2,NULL,NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/8
 310.869 €
 Ha bajado 7 €
@@ -40908,7 +40908,7 @@ Piso en venta en Sant Andreu
 Barcelona Capital, Barcelona
 105 m²
 2 hab.
-2 baños','[]',NULL,'[{"price": 310871.0, "date": "2026-10-26T14:21:32.887000"}, {"price": 310874.0, "date": "2026-10-27T15:06:04.892925"}, {"price": 310871.0, "date": "2026-10-28T20:50:27.674047"}, {"price": 310876.0, "date": "2026-10-29T15:47:18.475990"}]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.732014',1);
+2 baños','[]',NULL,'[{"price": 310871.0, "date": "2026-10-26T14:21:32.887000"}, {"price": 310874.0, "date": "2026-10-27T15:06:04.892925"}, {"price": 310871.0, "date": "2026-10-28T20:50:27.674047"}, {"price": 310876.0, "date": "2026-10-29T15:47:18.475990"}]','2026-10-23 08:44:09.123599','2026-10-30 16:42:15.767574',1);
 INSERT INTO "listings" VALUES('habitaclia_1b708ec0-e302-41fd-89f0-7ed49eb367c3','habitaclia','1b708ec0-e302-41fd-89f0-7ed49eb367c3','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/1b708ec0-e302-41fd-89f0-7ed49eb367c3/d','Piso en venta en Sant Andreu',230515.0,67.0,3.44052238805970137e+03,1,1,NULL,NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/8
 230.515 €
 Piso en venta en Sant Andreu
@@ -40938,7 +40938,7 @@ Sant Andreu, Barcelona Capital
 81 m²
 3 hab.
 1 baños
-Ático','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.875705',1);
+Ático','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:15.913923',1);
 INSERT INTO "listings" VALUES('habitaclia_a2e39adb-c8f3-42c1-9ef6-8e71a3945361','habitaclia','a2e39adb-c8f3-42c1-9ef6-8e71a3945361','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-felip-ii/sant-andreu/barcelona-capital/a2e39adb-c8f3-42c1-9ef6-8e71a3945361/d','Piso con balcón en venta en Carrer de Felip II',330000.0,86.0,3.83720930232558157e+03,3,1,'1ª planta',NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/24
 330.000 €
 Ha bajado 15.000 €
@@ -40963,7 +40963,7 @@ Piso con ascensor en venta en Portugal
 Sant Andreu, Barcelona Capital
 90 m²
 4 hab.
-1 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:22.088119',1);
+1 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:16.131724',1);
 INSERT INTO "listings" VALUES('habitaclia_e59d2af4-b4b8-4ed6-b570-61f075931f3d','habitaclia','e59d2af4-b4b8-4ed6-b570-61f075931f3d','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-felip-ii/sant-andreu/barcelona-capital/e59d2af4-b4b8-4ed6-b570-61f075931f3d/d','Piso con balcón en venta en Carrer de Felip II',298000.0,84.0,3.5476190476190477e+03,3,2,'4ª planta',NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/18
 298.000 €
 Piso con balcón en venta en Carrer de Felip II
@@ -40971,7 +40971,7 @@ Sant Andreu, Barcelona Capital
 84 m²
 3 hab.
 2 baños
-4º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.769119',1);
+4º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:15.805252',1);
 INSERT INTO "listings" VALUES('habitaclia_6a386aa3-5c11-40b2-8fc8-d0a99b927ed2','habitaclia','6a386aa3-5c11-40b2-8fc8-d0a99b927ed2','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-garcilaso/sant-andreu/barcelona-capital/6a386aa3-5c11-40b2-8fc8-d0a99b927ed2/d','Piso con balcón en venta en Carrer de Garcilaso',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Carrer de Garcilaso
@@ -40979,7 +40979,7 @@ Sant Andreu, Barcelona Capital
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.804095',1);
+2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:15.841334',1);
 INSERT INTO "listings" VALUES('habitaclia_51c9f7ff-3cb4-45bb-b660-a00139fe8815','habitaclia','51c9f7ff-3cb4-45bb-b660-a00139fe8815','https://www.habitaclia.com/comprar/estudio/sant-andreu/barcelona-capital/51c9f7ff-3cb4-45bb-b660-a00139fe8815/d','Estudio con ascensor en venta en Sant Andreu',139000.0,45.0,3.08888888888888868e+03,1,1,NULL,NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/26
 139.000 €
 Estudio con ascensor en venta en Sant Andreu
@@ -41003,7 +41003,7 @@ Sant Andreu, Barcelona Capital
 90 m²
 4 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:22.052527',1);
+2º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:16.095382',1);
 INSERT INTO "listings" VALUES('habitaclia_f528f37b-1b0f-4558-a19d-4fec02df080c','habitaclia','f528f37b-1b0f-4558-a19d-4fec02df080c','https://www.habitaclia.com/comprar/planta-intermedia/calle-gran-de-la-sagrera/sant-andreu/barcelona-capital/f528f37b-1b0f-4558-a19d-4fec02df080c/d','Piso con ascensor en venta en Calle Gran de la Sagrera',130000.0,40.0,3250.0,1,1,NULL,NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/19
 130.000 €
 Piso con ascensor en venta en Calle Gran de la Sagrera
@@ -41019,7 +41019,7 @@ Barcelona Capital, Barcelona
 86 m²
 2 hab.
 2 baños
-1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.786637',1);
+1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:15.823080',1);
 INSERT INTO "listings" VALUES('habitaclia_46c8520a-3ce8-40f0-852b-8962ca68c949','habitaclia','46c8520a-3ce8-40f0-852b-8962ca68c949','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-felip-ii/sant-andreu/barcelona-capital/46c8520a-3ce8-40f0-852b-8962ca68c949/d','Piso con balcón en venta en Carrer de Felip II',325000.0,77.0,4.22077922077922085e+03,3,1,'1ª planta',NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/13
 325.000 €
 Ha bajado 25.000 €
@@ -41045,7 +41045,7 @@ Sant Andreu, Barcelona Capital
 95 m²
 4 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.821744',1);
+3º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:15.858937',1);
 INSERT INTO "listings" VALUES('habitaclia_80ac9f3b-68bf-4512-9c62-90ea9940543a','habitaclia','80ac9f3b-68bf-4512-9c62-90ea9940543a','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-felip-ii/sant-andreu/barcelona-capital/80ac9f3b-68bf-4512-9c62-90ea9940543a/d','Piso en venta en Carrer de Felip II',76000.0,40.0,1900.0,NULL,1,NULL,NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/6
 76.000 €
 Piso en venta en Carrer de Felip II
@@ -41060,21 +41060,21 @@ Sant Andreu, Barcelona Capital
 80 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:22.070228',1);
+3º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:16.113678',1);
 INSERT INTO "listings" VALUES('habitaclia_71094033-576f-4dec-967b-222edd517d10','habitaclia','71094033-576f-4dec-967b-222edd517d10','https://www.habitaclia.com/comprar/planta-intermedia/c-cardenal-tedeschini/sant-andreu/barcelona-capital/71094033-576f-4dec-967b-222edd517d10/d','Piso en venta en C/ Cardenal Tedeschini',225000.0,75.0,3000.0,3,1,NULL,NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/20
 225.000 €
 Piso en venta en C/ Cardenal Tedeschini
 Sant Andreu, Barcelona Capital
 75 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.857092',1);
+1 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:15.895202',1);
 INSERT INTO "listings" VALUES('habitaclia_f3cf92d8-99d5-465b-bbe6-568287fe7621','habitaclia','f3cf92d8-99d5-465b-bbe6-568287fe7621','https://www.habitaclia.com/comprar/planta-intermedia/c-cardenal-tedeschini/sant-andreu/barcelona-capital/f3cf92d8-99d5-465b-bbe6-568287fe7621/d','Piso en venta en C/ Cardenal Tedeschini',225000.0,75.0,3000.0,3,1,NULL,NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/20
 225.000 €
 Piso en venta en C/ Cardenal Tedeschini
 Sant Andreu, Barcelona Capital
 75 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.839190',1);
+1 baños','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:15.876991',1);
 INSERT INTO "listings" VALUES('habitaclia_7fb6f771-dc35-4190-aa6b-ebf34a7a54eb','habitaclia','7fb6f771-dc35-4190-aa6b-ebf34a7a54eb','https://www.habitaclia.com/comprar/planta-intermedia/calle-portugal/sant-andreu/barcelona-capital/7fb6f771-dc35-4190-aa6b-ebf34a7a54eb/d','Piso en venta en calle Portugal',235450.0,90.0,2.61611111111111131e+03,4,1,NULL,NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/10
 235.450 €
 Piso en venta en calle Portugal
@@ -41082,17 +41082,17 @@ Sant Andreu, Barcelona Capital
 90 m²
 4 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.893611',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:15.932098',1);
 INSERT INTO "listings" VALUES('habitaclia_320bae9d-64fc-4278-8a37-c97b04c6a673','habitaclia','320bae9d-64fc-4278-8a37-c97b04c6a673','https://www.habitaclia.com/comprar/planta-intermedia/felip-ii/sant-andreu/barcelona-capital/320bae9d-64fc-4278-8a37-c97b04c6a673/d','Piso en venta en FELIP II',198800.0,81.0,2.45432098765432101e+03,NULL,NULL,NULL,NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/5
 198.800 €
 Piso en venta en FELIP II
 Sant Andreu, Barcelona Capital
-81 m²','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:22.016529',1);
+81 m²','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:16.058374',1);
 INSERT INTO "listings" VALUES('habitaclia_41ca6637-e77c-4e1f-91e6-c44a37a8711d','habitaclia','41ca6637-e77c-4e1f-91e6-c44a37a8711d','https://www.habitaclia.com/comprar/planta-intermedia/felip-ii/sant-andreu/barcelona-capital/41ca6637-e77c-4e1f-91e6-c44a37a8711d/d','Piso en venta en FELIP II',198800.0,81.0,2.45432098765432101e+03,NULL,NULL,NULL,NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/5
 198.800 €
 Piso en venta en FELIP II
 Sant Andreu, Barcelona Capital
-81 m²','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:22.034346',1);
+81 m²','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:16.076834',1);
 INSERT INTO "listings" VALUES('habitaclia_5f8dfac6-1faa-4191-85a5-8b8fc55bec69','habitaclia','5f8dfac6-1faa-4191-85a5-8b8fc55bec69','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-portugal-23/sant-andreu/barcelona-capital/5f8dfac6-1faa-4191-85a5-8b8fc55bec69/d','Piso en venta en Carrer de Portugal 23',235450.0,90.0,2.61611111111111131e+03,4,1,NULL,NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1
 235.450 €
 Piso en venta en Carrer de Portugal 23
@@ -41100,7 +41100,7 @@ Sant Andreu, Barcelona Capital
 90 m²
 4 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.980861',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:16.022257',1);
 INSERT INTO "listings" VALUES('habitaclia_1bd6af49-3680-48af-841c-72724e5b8ea9','habitaclia','1bd6af49-3680-48af-841c-72724e5b8ea9','https://www.habitaclia.com/comprar/planta-intermedia/cienfuegos/sant-andreu/barcelona-capital/1bd6af49-3680-48af-841c-72724e5b8ea9/d','Piso con ascensor en venta en CIENFUEGOS',219955.0,77.0,2.8565584415584417e+03,2,1,'1ª planta',NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1
 219.955 €
 Piso con ascensor en venta en CIENFUEGOS
@@ -41108,7 +41108,7 @@ Sant Andreu, Barcelona Capital
 77 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.928436',1);
+1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:15.968105',1);
 INSERT INTO "listings" VALUES('habitaclia_5389408e-095f-4326-b6ec-04e943af93c2','habitaclia','5389408e-095f-4326-b6ec-04e943af93c2','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/5389408e-095f-4326-b6ec-04e943af93c2/d','Piso en venta en Sant Andreu',299000.0,72.0,4.15277777777777737e+03,4,1,'1ª planta',NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1
 299.000 €
 Piso en venta en Sant Andreu
@@ -41116,7 +41116,7 @@ Barcelona Capital, Barcelona
 72 m²
 4 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.998696',1);
+1º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:16.040448',1);
 INSERT INTO "listings" VALUES('habitaclia_4f0a5dc4-27b5-4fca-a0f2-d3673603d3ea','habitaclia','4f0a5dc4-27b5-4fca-a0f2-d3673603d3ea','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/4f0a5dc4-27b5-4fca-a0f2-d3673603d3ea/d','Piso con balcón en venta en Sant Andreu',250000.0,82.0,3.04878048780487824e+03,4,1,'7ª planta',NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1
 250.000 €
 Piso con balcón en venta en Sant Andreu
@@ -41124,7 +41124,7 @@ Barcelona Capital, Barcelona
 82 m²
 4 hab.
 1 baños
-7º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.945729',1);
+7º','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:15.986003',1);
 INSERT INTO "listings" VALUES('habitaclia_12f007d8-db7f-4a2e-b8e8-4039dc801630','habitaclia','12f007d8-db7f-4a2e-b8e8-4039dc801630','https://www.habitaclia.com/comprar/planta-intermedia/portugal/sant-andreu/barcelona-capital/12f007d8-db7f-4a2e-b8e8-4039dc801630/d','Piso con balcón en venta en PORTUGAL',235450.0,85.0,2770.0,3,1,NULL,NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1
 235.450 €
 Piso con balcón en venta en PORTUGAL
@@ -41132,13 +41132,13 @@ Sant Andreu, Barcelona Capital
 85 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.963111',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:16.004040',1);
 INSERT INTO "listings" VALUES('habitaclia_483cb5c1-e740-4260-9fce-eecf9e125fea','habitaclia','483cb5c1-e740-4260-9fce-eecf9e125fea','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-portugal/sant-andreu/barcelona-capital/483cb5c1-e740-4260-9fce-eecf9e125fea/d','Piso en venta en Carrer de Portugal',235450.0,90.0,2.61611111111111131e+03,NULL,NULL,NULL,NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1
 235.450 €
 Piso en venta en Carrer de Portugal
 Sant Andreu, Barcelona Capital
 90 m²
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:31:21.911082',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 08:44:09.123599','2026-10-30 16:42:15.950158',1);
 INSERT INTO "listings" VALUES('habitaclia_7b6d957d-8ef7-40b9-a512-88830bfd79e3','habitaclia','7b6d957d-8ef7-40b9-a512-88830bfd79e3','https://www.habitaclia.com/comprar/planta-intermedia/eixample/barcelona-capital/7b6d957d-8ef7-40b9-a512-88830bfd79e3/d','Piso con balcón en venta en Eixample',249000.0,48.0,5187.5,3,1,NULL,NULL,NULL,NULL,'sagrada familia','barcelona',NULL,'Oportunidad
 1/22
 249.000 €
@@ -43115,14 +43115,14 @@ Molins de Rei, Barcelona
 81 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[{"price": 199000.0, "date": "2026-10-27T15:03:23.025775"}, {"price": 189000.0, "date": "2026-10-27T20:58:02.862684"}, {"price": 199000.0, "date": "2026-10-27T21:34:22.539966"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.721490',1);
+2º','[]',NULL,'[{"price": 199000.0, "date": "2026-10-27T15:03:23.025775"}, {"price": 189000.0, "date": "2026-10-27T20:58:02.862684"}, {"price": 199000.0, "date": "2026-10-27T21:34:22.539966"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.108389',1);
 INSERT INTO "listings" VALUES('habitaclia_e34b5032-8bf3-4973-871c-900c66bf02b6','habitaclia','e34b5032-8bf3-4973-871c-900c66bf02b6','https://www.habitaclia.com/comprar/bajo/molins-de-rei/e34b5032-8bf3-4973-871c-900c66bf02b6/d','Bajo con ascensor en venta en AV BARCELONA',290000.0,85.0,3.41176470588235315e+03,2,1,NULL,NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'1/22
 290.000 €
 Bajo con ascensor en venta en AV BARCELONA
 Molins de Rei, Barcelona
 85 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.792241',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.182531',1);
 INSERT INTO "listings" VALUES('habitaclia_2487cf9f-d193-4641-934a-9701248a5c5f','habitaclia','2487cf9f-d193-4641-934a-9701248a5c5f','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/2487cf9f-d193-4641-934a-9701248a5c5f/d','Piso con ascensor en venta en Barcelona',295000.0,89.0,3.31460674157303355e+03,4,1,NULL,NULL,NULL,NULL,NULL,'molins de rei',NULL,'Oportunidad
 1/40
 295.000 €
@@ -43130,7 +43130,7 @@ Piso con ascensor en venta en Barcelona
 Molins de Rei
 89 m²
 4 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.649643',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.031951',1);
 INSERT INTO "listings" VALUES('habitaclia_c3f42160-a5f6-409d-b61a-19f3925672f5','habitaclia','c3f42160-a5f6-409d-b61a-19f3925672f5','https://www.habitaclia.com/comprar/bajo/molins-de-rei/c3f42160-a5f6-409d-b61a-19f3925672f5/d','Bajo en venta en AV MANCOMUNITAT',90000.0,70.0,1.28571428571428577e+03,1,1,NULL,NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'1/12
 90.000 €
 Ha bajado 10.000 €
@@ -43138,7 +43138,7 @@ Bajo en venta en AV MANCOMUNITAT
 Molins de Rei, Barcelona
 70 m²
 1 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.558427',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:10.940895',1);
 INSERT INTO "listings" VALUES('habitaclia_e1c79b3c-b60c-4034-add2-8e383c1ce103','habitaclia','e1c79b3c-b60c-4034-add2-8e383c1ce103','https://www.habitaclia.com/comprar/duplex/molins-de-rei/e1c79b3c-b60c-4034-add2-8e383c1ce103/d','Dúplex con balcón en venta en Carrer d''Àngel Guimerà',285000.0,99.0,2.87878787878787898e+03,3,2,'1ª planta',NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'Oportunidad
 1/20
 285.000 €
@@ -43147,14 +43147,14 @@ Molins de Rei, Barcelona
 99 m²
 3 hab.
 2 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.843993',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.237757',1);
 INSERT INTO "listings" VALUES('habitaclia_0e0bbf5c-b4b1-48f8-8d5b-5233ed39e5b5','habitaclia','0e0bbf5c-b4b1-48f8-8d5b-5233ed39e5b5','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/0e0bbf5c-b4b1-48f8-8d5b-5233ed39e5b5/d','Piso con ascensor en venta en Barcelona',295000.0,86.0,3.43023255813953483e+03,4,1,NULL,NULL,NULL,NULL,NULL,'molins de rei',NULL,'1/31
 295.000 €
 Piso con ascensor en venta en Barcelona
 Molins de Rei
 86 m²
 4 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.667967',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.052184',1);
 INSERT INTO "listings" VALUES('habitaclia_17e363ea-49fe-4361-8eca-1e52db36b6d4','habitaclia','17e363ea-49fe-4361-8eca-1e52db36b6d4','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/17e363ea-49fe-4361-8eca-1e52db36b6d4/d','Piso en venta en Carrer de Joan Maragall 8',310000.0,135.0,2.29629629629629607e+03,4,2,'3ª planta',NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'Oportunidad
 1/35
 1
@@ -43172,7 +43172,7 @@ Piso con balcón en venta en Molins de Rei
 Barcelona
 81 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.503830',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:10.886606',1);
 INSERT INTO "listings" VALUES('habitaclia_0c484089-3a9b-478b-8e88-07335e0107e9','habitaclia','0c484089-3a9b-478b-8e88-07335e0107e9','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/0c484089-3a9b-478b-8e88-07335e0107e9/d','Piso en venta en Carrer Pep Ventura',264000.0,93.0,2.83870967741935464e+03,3,1,'2ª planta',NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'Oportunidad
 1/32
 1
@@ -43183,7 +43183,7 @@ Molins de Rei, Barcelona
 93 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[{"price": 268000.0, "date": "2026-10-27T15:03:23.144028"}, {"price": 265000.0, "date": "2026-10-27T20:58:03.022627"}, {"price": 268000.0, "date": "2026-10-27T21:34:22.752840"}, {"price": 265000.0, "date": "2026-10-28T20:48:15.698732"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.757497',1);
+2º','[]',NULL,'[{"price": 268000.0, "date": "2026-10-27T15:03:23.144028"}, {"price": 265000.0, "date": "2026-10-27T20:58:03.022627"}, {"price": 268000.0, "date": "2026-10-27T21:34:22.752840"}, {"price": 265000.0, "date": "2026-10-28T20:48:15.698732"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.145517',1);
 INSERT INTO "listings" VALUES('habitaclia_de942595-8900-48b8-add6-cd25f7c30b94','habitaclia','de942595-8900-48b8-add6-cd25f7c30b94','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/de942595-8900-48b8-add6-cd25f7c30b94/d','Piso con ascensor en venta en Molins de Rei',295000.0,89.0,3.31460674157303355e+03,4,1,'4ª planta',NULL,NULL,NULL,NULL,'molins de rei',NULL,'Oportunidad
 1/40
 295.000 €
@@ -43192,7 +43192,7 @@ Barcelona
 89 m²
 4 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.826709',1);
+4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.218902',1);
 INSERT INTO "listings" VALUES('habitaclia_735c039d-77d6-4899-8052-d35ce0acac29','habitaclia','735c039d-77d6-4899-8052-d35ce0acac29','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/735c039d-77d6-4899-8052-d35ce0acac29/d','Piso con balcón en venta en CL FERRAN AGULLO',245000.0,73.0,3.35616438356164371e+03,3,1,'3ª planta',NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'1/21
 245.000 €
 Ha bajado 15.000 €
@@ -43201,14 +43201,14 @@ Molins de Rei, Barcelona
 73 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[{"price": 260000.0, "date": "2026-10-26T20:57:20.109672"}, {"price": 245000.0, "date": "2026-10-26T21:38:21.143280"}, {"price": 260000.0, "date": "2026-10-27T02:57:58.913279"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.522218',1);
+3º','[]',NULL,'[{"price": 260000.0, "date": "2026-10-26T20:57:20.109672"}, {"price": 245000.0, "date": "2026-10-26T21:38:21.143280"}, {"price": 260000.0, "date": "2026-10-27T02:57:58.913279"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:10.904386',1);
 INSERT INTO "listings" VALUES('habitaclia_d2bf2cb6-17d1-4758-bd92-79424a561464','habitaclia','d2bf2cb6-17d1-4758-bd92-79424a561464','https://www.habitaclia.com/comprar/atico/molins-de-rei/d2bf2cb6-17d1-4758-bd92-79424a561464/d','Ático en venta en SANT PERE DE ROMANI',165000.0,70.0,2.35714285714285733e+03,2,1,NULL,NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'1/14
 165.000 €
 Ático en venta en SANT PERE DE ROMANI
 Molins de Rei, Barcelona
 70 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.687132',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.072593',1);
 INSERT INTO "listings" VALUES('habitaclia_ffea0576-396e-4c9f-9568-5273530d4f1f','habitaclia','ffea0576-396e-4c9f-9568-5273530d4f1f','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/ffea0576-396e-4c9f-9568-5273530d4f1f/d','Piso en venta en Carrer de Joan Maragall',310000.0,135.0,2.29629629629629607e+03,4,2,'3ª planta',NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'Oportunidad
 1/29
 1
@@ -43219,7 +43219,7 @@ Molins de Rei, Barcelona
 135 m²
 4 hab.
 2 baños
-3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.484579',1);
+3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:10.868576',1);
 INSERT INTO "listings" VALUES('habitaclia_d190946e-6cb2-43ab-9b68-c96c377eb49d','habitaclia','d190946e-6cb2-43ab-9b68-c96c377eb49d','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/d190946e-6cb2-43ab-9b68-c96c377eb49d/d','Piso con ascensor en venta en Molins de Rei',163898.0,94.0,1.74359574468085111e+03,2,2,NULL,NULL,NULL,NULL,NULL,'molins de rei',NULL,'1/8
 163.898 €
 Ha bajado 3 €
@@ -43227,7 +43227,7 @@ Piso con ascensor en venta en Molins de Rei
 Barcelona
 94 m²
 2 hab.
-2 baños','[]',NULL,'[{"price": 163895.0, "date": "2026-10-26T14:18:17.233066"}, {"price": 163904.0, "date": "2026-10-27T15:03:23.186219"}, {"price": 163895.0, "date": "2026-10-28T20:48:15.747631"}, {"price": 163901.0, "date": "2026-10-29T15:44:31.901422"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.448903',1);
+2 baños','[]',NULL,'[{"price": 163895.0, "date": "2026-10-26T14:18:17.233066"}, {"price": 163904.0, "date": "2026-10-27T15:03:23.186219"}, {"price": 163895.0, "date": "2026-10-28T20:48:15.747631"}, {"price": 163901.0, "date": "2026-10-29T15:44:31.901422"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:10.832112',1);
 INSERT INTO "listings" VALUES('habitaclia_094bf0ac-d939-439f-a223-b7d23eac40c3','habitaclia','094bf0ac-d939-439f-a223-b7d23eac40c3','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/094bf0ac-d939-439f-a223-b7d23eac40c3/d','Piso en venta en Molins de Rei',205093.0,71.0,2.8886338028169016e+03,2,1,NULL,NULL,NULL,NULL,NULL,'molins de rei',NULL,'1/8
 205.093 €
 Ha bajado 9 €
@@ -43235,7 +43235,7 @@ Piso en venta en Molins de Rei
 Barcelona
 71 m²
 2 hab.
-1 baños','[]',NULL,'[{"price": 205095.0, "date": "2026-10-26T14:18:17.247686"}, {"price": 205100.0, "date": "2026-10-27T15:03:23.198461"}, {"price": 205095.0, "date": "2026-10-28T20:48:15.760116"}, {"price": 205102.0, "date": "2026-10-29T15:44:31.917292"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.466947',1);
+1 baños','[]',NULL,'[{"price": 205095.0, "date": "2026-10-26T14:18:17.247686"}, {"price": 205100.0, "date": "2026-10-27T15:03:23.198461"}, {"price": 205095.0, "date": "2026-10-28T20:48:15.760116"}, {"price": 205102.0, "date": "2026-10-29T15:44:31.917292"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:10.850634',1);
 INSERT INTO "listings" VALUES('habitaclia_6c9ec49e-39f4-4043-a305-9c57d881878e','habitaclia','6c9ec49e-39f4-4043-a305-9c57d881878e','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/6c9ec49e-39f4-4043-a305-9c57d881878e/d','Piso con balcón en venta en Molins de Rei',315000.0,118.0,2.66949152542372894e+03,4,2,'5ª planta',NULL,NULL,NULL,NULL,'molins de rei',NULL,'1/30
 315.000 €
 Ha bajado 5.000 €
@@ -43244,7 +43244,7 @@ Barcelona
 118 m²
 4 hab.
 2 baños
-5º','[]',NULL,'[{"price": 320000.0, "date": "2026-10-29T15:44:31.935137"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.632976',1);
+5º','[]',NULL,'[{"price": 320000.0, "date": "2026-10-29T15:44:31.935137"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.013442',1);
 INSERT INTO "listings" VALUES('habitaclia_4ea05a78-d382-4541-b699-b8a47a12d947','habitaclia','4ea05a78-d382-4541-b699-b8a47a12d947','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/4ea05a78-d382-4541-b699-b8a47a12d947/d','Piso en venta en Molins de Rei',310000.0,135.0,2.29629629629629607e+03,4,2,'3ª planta',NULL,NULL,NULL,NULL,'molins de rei',NULL,'1/37
 1
 310.000 €
@@ -43254,7 +43254,7 @@ Barcelona
 135 m²
 4 hab.
 2 baños
-3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.611445',1);
+3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:10.995466',1);
 INSERT INTO "listings" VALUES('habitaclia_677ddb68-5048-477b-8b08-d1dc865e4dfe','habitaclia','677ddb68-5048-477b-8b08-d1dc865e4dfe','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/677ddb68-5048-477b-8b08-d1dc865e4dfe/d','Piso con balcón en venta en Molins de Rei',265000.0,81.0,3.27160493827160507e+03,3,1,'2ª planta',NULL,NULL,NULL,NULL,'molins de rei',NULL,'Oportunidad
 1/19
 265.000 €
@@ -43263,7 +43263,7 @@ Barcelona
 81 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.430827',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:10.813751',1);
 INSERT INTO "listings" VALUES('habitaclia_2d33a92a-4c5d-492b-bb7a-671b5c42e267','habitaclia','2d33a92a-4c5d-492b-bb7a-671b5c42e267','https://www.habitaclia.com/comprar/casa-pareada/molins-de-rei/2d33a92a-4c5d-492b-bb7a-671b5c42e267/d','Casa pareada en venta en JOSEP FOLQUE',289000.0,130.0,2.22307692307692286e+03,4,2,NULL,NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'1/11
 289.000 €
 Casa pareada en venta en JOSEP FOLQUE
@@ -43285,7 +43285,7 @@ Casa en venta en Calle SANT RAFAEL
 Molins de Rei, Barcelona
 145 m²
 4 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.878417',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.274160',1);
 INSERT INTO "listings" VALUES('habitaclia_44e98537-0ff5-4d6a-8e8d-701563a08fed','habitaclia','44e98537-0ff5-4d6a-8e8d-701563a08fed','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/44e98537-0ff5-4d6a-8e8d-701563a08fed/d','Piso en venta en Carrer PEP VENTURA 18',263000.0,95.0,2.76842105263157873e+03,2,1,NULL,NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'1/4
 263.000 €
 Piso en venta en Carrer PEP VENTURA 18
@@ -43293,7 +43293,7 @@ Molins de Rei, Barcelona
 95 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.774830',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.164066',1);
 INSERT INTO "listings" VALUES('habitaclia_5ef4d47b-904f-4103-b0ac-43b2766dade3','habitaclia','5ef4d47b-904f-4103-b0ac-43b2766dade3','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/5ef4d47b-904f-4103-b0ac-43b2766dade3/d','Piso con ascensor en venta en Carrer Pep Ventura, 18, Molins de Rei, Spain 18',263000.0,90.0,2.92222222222222217e+03,2,1,NULL,NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'1/3
 263.000 €
 Piso con ascensor en venta en Carrer Pep Ventura, 18, Molins de Rei, Spain 18
@@ -43301,7 +43301,7 @@ Molins de Rei, Barcelona
 90 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.594227',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:10.977253',1);
 INSERT INTO "listings" VALUES('habitaclia_bca06f36-b630-4166-a008-2a423923d9e8','habitaclia','bca06f36-b630-4166-a008-2a423923d9e8','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/bca06f36-b630-4166-a008-2a423923d9e8/d','Piso con ascensor en venta en MENENDEZ PELAYO',269000.0,101.0,2.66336633663366319e+03,3,2,'2ª planta',NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'1
 269.000 €
 Piso con ascensor en venta en MENENDEZ PELAYO
@@ -43309,7 +43309,7 @@ Molins de Rei, Barcelona
 101 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.809617',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.200778',1);
 INSERT INTO "listings" VALUES('habitaclia_1742aefd-27fe-458e-a0e2-c17fbba34b13','habitaclia','1742aefd-27fe-458e-a0e2-c17fbba34b13','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/1742aefd-27fe-458e-a0e2-c17fbba34b13/d','Piso en venta en calle Carrer Pep Ventura',162730.0,97.0,1.67762886597938154e+03,1,1,NULL,NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'1/4
 162.730 €
 Piso en venta en calle Carrer Pep Ventura
@@ -43317,7 +43317,7 @@ Molins de Rei, Barcelona
 97 m²
 1 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.704375',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.090490',1);
 INSERT INTO "listings" VALUES('habitaclia_02f91d15-14d7-480b-b6ca-0abdd7ef4a9c','habitaclia','02f91d15-14d7-480b-b6ca-0abdd7ef4a9c','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/02f91d15-14d7-480b-b6ca-0abdd7ef4a9c/d','Piso en venta en Pep Ventura',263000.0,90.0,2.92222222222222217e+03,2,1,NULL,NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'1/3
 263.000 €
 Piso en venta en Pep Ventura
@@ -43325,7 +43325,7 @@ Molins de Rei, Barcelona
 90 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.576383',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:10.958929',1);
 INSERT INTO "listings" VALUES('habitaclia_1ca175ac-065e-425f-af3f-541f94d3ac12','habitaclia','1ca175ac-065e-425f-af3f-541f94d3ac12','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/1ca175ac-065e-425f-af3f-541f94d3ac12/d','Piso en venta en PI I MARGALL 36',33500.0,136.0,2.46323529411764695e+02,3,1,NULL,NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'1
 33.500 €
 Piso en venta en PI I MARGALL 36
@@ -43333,7 +43333,7 @@ Molins de Rei, Barcelona
 136 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.685433',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.070858',1);
 INSERT INTO "listings" VALUES('habitaclia_a2ca011c-e2ee-4d90-ba83-b8eb7fb21baf','habitaclia','a2ca011c-e2ee-4d90-ba83-b8eb7fb21baf','https://www.habitaclia.com/comprar/planta-intermedia/molins-de-rei/a2ca011c-e2ee-4d90-ba83-b8eb7fb21baf/d','Piso en venta en calle Menendez y Pelayo',269000.0,114.0,2.35964912280701764e+03,4,2,NULL,NULL,NULL,NULL,'molins de rei','molins de rei',NULL,'1
 269.000 €
 Piso en venta en calle Menendez y Pelayo
@@ -43341,7 +43341,7 @@ Molins de Rei, Barcelona
 114 m²
 4 hab.
 2 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:22.740209',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:11.127039',1);
 INSERT INTO "listings" VALUES('habitaclia_5e6eb17c-a99a-41ed-af37-40387593791a','habitaclia','5e6eb17c-a99a-41ed-af37-40387593791a','https://www.habitaclia.com/comprar/planta-intermedia/cr-laurea-miro/centre-can-nadal/sant-feliu-de-llobregat/5e6eb17c-a99a-41ed-af37-40387593791a/d','Piso con balcón en venta en CR LAUREA MIRO',230000.0,75.0,3.06666666666666651e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre - can nadal','sant feliu de llobregat',NULL,'1/18
 230.000 €
 Ha bajado 9.000 €
@@ -43358,7 +43358,7 @@ Can Calders, Sant Feliu de Llobregat
 75 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.494883',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.817701',1);
 INSERT INTO "listings" VALUES('habitaclia_0cc6cfa9-217f-4995-b666-044fad307e34','habitaclia','0cc6cfa9-217f-4995-b666-044fad307e34','https://www.habitaclia.com/comprar/vivienda/cl-josep-m-de-molina/centre-can-nadal/sant-feliu-de-llobregat/0cc6cfa9-217f-4995-b666-044fad307e34/d','Casa con balcón en venta en CL JOSEP M DE MOLINA',250000.0,275.0,9.09090909090909121e+02,2,2,NULL,NULL,NULL,NULL,'centre - can nadal','sant feliu de llobregat',NULL,'1/19
 250.000 €
 Ha bajado 12.000 €
@@ -43375,7 +43375,7 @@ La Salut, Sant Feliu de Llobregat
 79 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.401365',1);
+4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.721602',1);
 INSERT INTO "listings" VALUES('habitaclia_22b85883-b5e0-48b6-9e8a-d556dbb91d20','habitaclia','22b85883-b5e0-48b6-9e8a-d556dbb91d20','https://www.habitaclia.com/comprar/planta-intermedia/centre-can-nadal/sant-feliu-de-llobregat/22b85883-b5e0-48b6-9e8a-d556dbb91d20/d','Piso con ascensor en venta en Centre - Can Nadal',299000.0,87.0,3.43678160919540232e+03,3,2,'1ª planta',NULL,NULL,NULL,'sant feliu de llobregat','sant feliu de llobregat',NULL,'Oportunidad
 1/26
 299.000 €
@@ -43385,7 +43385,7 @@ Sant Feliu de Llobregat, Barcelona
 87 m²
 3 hab.
 2 baños
-1º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-27T15:03:38.409278"}, {"price": 299000.0, "date": "2026-10-27T20:58:13.390773"}, {"price": 310000.0, "date": "2026-10-27T21:34:33.337425"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.383764',1);
+1º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-27T15:03:38.409278"}, {"price": 299000.0, "date": "2026-10-27T20:58:13.390773"}, {"price": 310000.0, "date": "2026-10-27T21:34:33.337425"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.703962',1);
 INSERT INTO "listings" VALUES('habitaclia_c64503fd-0dd6-42eb-83e9-3c017cb0baa3','habitaclia','c64503fd-0dd6-42eb-83e9-3c017cb0baa3','https://www.habitaclia.com/comprar/planta-intermedia/cl-joan-antoni-samaranch/centre-can-nadal/sant-feliu-de-llobregat/c64503fd-0dd6-42eb-83e9-3c017cb0baa3/d','Piso con balcón en venta en CL JOAN ANTONI SAMARANCH',220000.0,73.0,3.01369863013698613e+03,2,1,'1ª planta',NULL,NULL,NULL,'centre - can nadal','sant feliu de llobregat',NULL,'1/25
 220.000 €
 Piso con balcón en venta en CL JOAN ANTONI SAMARANCH
@@ -43393,7 +43393,7 @@ Centre - Can Nadal, Sant Feliu de Llobregat
 73 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.657191',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.988279',1);
 INSERT INTO "listings" VALUES('habitaclia_cbc71f0b-d81d-4174-bb7e-a89ee46a6485','habitaclia','cbc71f0b-d81d-4174-bb7e-a89ee46a6485','https://www.habitaclia.com/comprar/planta-intermedia/carrer-joan-xxiii/roses-castellbell/sant-feliu-de-llobregat/cbc71f0b-d81d-4174-bb7e-a89ee46a6485/d','Piso con balcón en venta en Carrer Joan XXIII',275000.0,71.0,3.87323943661971816e+03,3,1,'2ª planta',NULL,NULL,NULL,'roses - castellbell','sant feliu de llobregat',NULL,'1/19
 275.000 €
 Piso con balcón en venta en Carrer Joan XXIII
@@ -43401,7 +43401,7 @@ Roses - Castellbell, Sant Feliu de Llobregat
 71 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.709778',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:16.045716',1);
 INSERT INTO "listings" VALUES('habitaclia_5d67f676-3537-4d32-9d7d-eeccd2f51d55','habitaclia','5d67f676-3537-4d32-9d7d-eeccd2f51d55','https://www.habitaclia.com/comprar/bajo/calle-de-la-constitucio/la-salut/sant-feliu-de-llobregat/5d67f676-3537-4d32-9d7d-eeccd2f51d55/d','Bajo en venta en calle de la Constitució',235000.0,85.0,2.76470588235294098e+03,2,1,NULL,NULL,NULL,NULL,'la salut','sant feliu de llobregat',NULL,'1/20
 235.000 €
 Bajo en venta en calle de la Constitució
@@ -43409,7 +43409,7 @@ La Salut, Sant Feliu de Llobregat
 85 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.367081',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.686653',1);
 INSERT INTO "listings" VALUES('habitaclia_a7a0c76b-af33-40a3-9d17-ca9c2a0f6189','habitaclia','a7a0c76b-af33-40a3-9d17-ca9c2a0f6189','https://www.habitaclia.com/comprar/planta-intermedia/la-salut/sant-feliu-de-llobregat/a7a0c76b-af33-40a3-9d17-ca9c2a0f6189/d','Piso en venta en La Salut',231475.0,76.0,3.04572368421052624e+03,4,1,NULL,NULL,NULL,NULL,'sant feliu de llobregat','sant feliu de llobregat',NULL,'1/10
 231.475 €
 Ha bajado 9 €
@@ -43417,21 +43417,21 @@ Piso en venta en La Salut
 Sant Feliu de Llobregat, Barcelona
 76 m²
 4 hab.
-1 baños','[]',NULL,'[{"price": 231477.0, "date": "2026-10-26T14:18:36.206055"}, {"price": 231482.0, "date": "2026-10-27T15:03:38.486181"}, {"price": 231477.0, "date": "2026-10-28T20:48:26.061929"}, {"price": 231484.0, "date": "2026-10-29T15:44:45.370541"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.333091',1);
+1 baños','[]',NULL,'[{"price": 231477.0, "date": "2026-10-26T14:18:36.206055"}, {"price": 231482.0, "date": "2026-10-27T15:03:38.486181"}, {"price": 231477.0, "date": "2026-10-28T20:48:26.061929"}, {"price": 231484.0, "date": "2026-10-29T15:44:45.370541"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.650901',1);
 INSERT INTO "listings" VALUES('habitaclia_d85da9aa-8778-4a47-9056-9984c5036cf8','habitaclia','d85da9aa-8778-4a47-9056-9984c5036cf8','https://www.habitaclia.com/comprar/planta-intermedia/can-calders/sant-feliu-de-llobregat/d85da9aa-8778-4a47-9056-9984c5036cf8/d','Piso en venta en Can Calders',218744.0,91.0,2403.78021978022,3,1,NULL,NULL,NULL,NULL,'sant feliu de llobregat','sant feliu de llobregat',NULL,'1/9
 218.744 €
 Piso en venta en Can Calders
 Sant Feliu de Llobregat, Barcelona
 91 m²
 3 hab.
-1 baños','[]',NULL,'[{"price": 218742.0, "date": "2026-10-26T14:18:36.401378"}, {"price": 218739.0, "date": "2026-10-27T15:03:38.511691"}, {"price": 218742.0, "date": "2026-10-28T20:48:26.074042"}, {"price": 218737.0, "date": "2026-10-29T15:44:45.386595"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.316226',1);
+1 baños','[]',NULL,'[{"price": 218742.0, "date": "2026-10-26T14:18:36.401378"}, {"price": 218739.0, "date": "2026-10-27T15:03:38.511691"}, {"price": 218742.0, "date": "2026-10-28T20:48:26.074042"}, {"price": 218737.0, "date": "2026-10-29T15:44:45.386595"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.633221',1);
 INSERT INTO "listings" VALUES('habitaclia_fceb8b16-347a-4452-af62-ebe570f60827','habitaclia','fceb8b16-347a-4452-af62-ebe570f60827','https://www.habitaclia.com/comprar/planta-intermedia/la-salut/sant-feliu-de-llobregat/fceb8b16-347a-4452-af62-ebe570f60827/d','Piso en venta en La Salut',192902.0,79.0,2.44179746835443029e+03,2,1,NULL,NULL,NULL,NULL,'sant feliu de llobregat','sant feliu de llobregat',NULL,'1/8
 192.902 €
 Piso en venta en La Salut
 Sant Feliu de Llobregat, Barcelona
 79 m²
 2 hab.
-1 baños','[]',NULL,'[{"price": 192905.0, "date": "2026-10-26T14:18:36.415623"}, {"price": 192896.0, "date": "2026-10-27T15:03:38.537935"}, {"price": 192905.0, "date": "2026-10-28T20:48:26.098760"}, {"price": 192899.0, "date": "2026-10-29T15:44:45.418958"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.349978',1);
+1 baños','[]',NULL,'[{"price": 192905.0, "date": "2026-10-26T14:18:36.415623"}, {"price": 192896.0, "date": "2026-10-27T15:03:38.537935"}, {"price": 192905.0, "date": "2026-10-28T20:48:26.098760"}, {"price": 192899.0, "date": "2026-10-29T15:44:45.418958"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.668776',1);
 INSERT INTO "listings" VALUES('habitaclia_e8889648-e332-4891-9821-dc152d619378','habitaclia','e8889648-e332-4891-9821-dc152d619378','https://www.habitaclia.com/comprar/planta-intermedia/francesc-saez/can-calders/sant-feliu-de-llobregat/e8889648-e332-4891-9821-dc152d619378/d','Piso con ascensor en venta en Francesc Saez',213000.0,91.0,2.34065934065934061e+03,3,1,NULL,NULL,NULL,NULL,'can calders','sant feliu de llobregat',NULL,'1/29
 213.000 €
 Piso con ascensor en venta en Francesc Saez
@@ -43445,14 +43445,14 @@ Piso en venta en Carrer de les Creus .
 Centre - Can Nadal, Sant Feliu de Llobregat
 116 m²
 1 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.299110',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.615306',1);
 INSERT INTO "listings" VALUES('habitaclia_bc1849e6-d533-4888-bf55-5b4795983748','habitaclia','bc1849e6-d533-4888-bf55-5b4795983748','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-francesc-saez/can-calders/sant-feliu-de-llobregat/bc1849e6-d533-4888-bf55-5b4795983748/d','Piso con ascensor en venta en Carrer de Francesc Sáez',213000.0,91.0,2.34065934065934061e+03,3,1,NULL,NULL,NULL,NULL,'can calders','sant feliu de llobregat',NULL,'1/23
 213.000 €
 Piso con ascensor en venta en Carrer de Francesc Sáez
 Can Calders, Sant Feliu de Llobregat
 91 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.692484',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:16.027782',1);
 INSERT INTO "listings" VALUES('habitaclia_96c797d0-8097-40f7-8ca5-b0c190c1c53b','habitaclia','96c797d0-8097-40f7-8ca5-b0c190c1c53b','https://www.habitaclia.com/comprar/planta-intermedia/jaume-casas-pallarols/roses-castellbell/sant-feliu-de-llobregat/96c797d0-8097-40f7-8ca5-b0c190c1c53b/d','Piso en venta en JAUME CASAS PALLAROLS',176000.0,78.0,2.25641025641025635e+03,3,1,NULL,NULL,NULL,NULL,'roses - castellbell','sant feliu de llobregat',NULL,'1/22
 176.000 €
 Piso en venta en JAUME CASAS PALLAROLS
@@ -43466,14 +43466,14 @@ Piso en venta en Calle Picasso
 La Salut, Sant Feliu de Llobregat
 76 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.554397',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.878577',1);
 INSERT INTO "listings" VALUES('habitaclia_e6cbc073-0b56-4f13-98a3-691949258006','habitaclia','e6cbc073-0b56-4f13-98a3-691949258006','https://www.habitaclia.com/comprar/planta-intermedia/constitucio/la-salut/sant-feliu-de-llobregat/e6cbc073-0b56-4f13-98a3-691949258006/d','Piso con ascensor en venta en Constitució',226000.0,76.0,2.97368421052631583e+03,3,1,NULL,NULL,NULL,NULL,'la salut','sant feliu de llobregat',NULL,'1/2
 226.000 €
 Piso con ascensor en venta en Constitució
 La Salut, Sant Feliu de Llobregat
 76 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.726600',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:16.063540',1);
 INSERT INTO "listings" VALUES('habitaclia_750015f0-fb6a-460a-b130-9fe090486d03','habitaclia','750015f0-fb6a-460a-b130-9fe090486d03','https://www.habitaclia.com/comprar/planta-intermedia/calle-francesc-saez/can-calders/sant-feliu-de-llobregat/750015f0-fb6a-460a-b130-9fe090486d03/d','Piso en venta en calle Francesc Saez',213000.0,91.0,2.34065934065934061e+03,3,1,NULL,NULL,NULL,NULL,'can calders','sant feliu de llobregat',NULL,'1/9
 213.000 €
 Piso en venta en calle Francesc Saez
@@ -43481,7 +43481,7 @@ Can Calders, Sant Feliu de Llobregat
 91 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.537097',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.860353',1);
 INSERT INTO "listings" VALUES('habitaclia_6c3a46cc-160f-4bdc-90ec-900db719c910','habitaclia','6c3a46cc-160f-4bdc-90ec-900db719c910','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-agusti-domingo/can-calders/sant-feliu-de-llobregat/6c3a46cc-160f-4bdc-90ec-900db719c910/d','Piso en venta en Carrer d''Agustí Domingo',153730.0,81.0,1.89790123456790115e+03,3,1,'sótano',NULL,NULL,NULL,'can calders','sant feliu de llobregat',NULL,'1/2
 153.730 €
 Piso en venta en Carrer d''Agustí Domingo
@@ -43489,7 +43489,7 @@ Can Calders, Sant Feliu de Llobregat
 81 m²
 3 hab.
 1 baños
-Sótano','[]',NULL,'[{"price": 140355.0, "date": "2026-10-29T09:20:34.003852"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.605728',1);
+Sótano','[]',NULL,'[{"price": 140355.0, "date": "2026-10-29T09:20:34.003852"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.934100',1);
 INSERT INTO "listings" VALUES('habitaclia_fa1a87e8-f6de-401a-99b3-ec86c168fdcf','habitaclia','fa1a87e8-f6de-401a-99b3-ec86c168fdcf','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-constitucio/la-salut/sant-feliu-de-llobregat/fa1a87e8-f6de-401a-99b3-ec86c168fdcf/d','Piso en venta en Carrer de la Constitució',226000.0,76.0,2.97368421052631583e+03,4,1,NULL,NULL,NULL,NULL,'la salut','sant feliu de llobregat',NULL,'1/2
 226.000 €
 Piso en venta en Carrer de la Constitució
@@ -43504,7 +43504,7 @@ Can Calders, Sant Feliu de Llobregat
 91 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.639457',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.970279',1);
 INSERT INTO "listings" VALUES('habitaclia_388c0460-5677-4710-b8c4-98a7108691f9','habitaclia','388c0460-5677-4710-b8c4-98a7108691f9','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-constitucio-38/centre-can-nadal/sant-feliu-de-llobregat/388c0460-5677-4710-b8c4-98a7108691f9/d','Piso en venta en Carrer de la Constitució 38',152720.0,72.0,2.12111111111111131e+03,3,1,NULL,NULL,NULL,NULL,'centre - can nadal','sant feliu de llobregat',NULL,'1
 152.720 €
 Piso en venta en Carrer de la Constitució 38
@@ -43512,7 +43512,7 @@ Centre - Can Nadal, Sant Feliu de Llobregat
 72 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.622422',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.951893',1);
 INSERT INTO "listings" VALUES('habitaclia_19c2e765-27af-412c-a614-65fc3665d1a0','habitaclia','19c2e765-27af-412c-a614-65fc3665d1a0','https://www.habitaclia.com/comprar/planta-intermedia/constitucio/la-salut/sant-feliu-de-llobregat/19c2e765-27af-412c-a614-65fc3665d1a0/d','Piso con ascensor en venta en CONSTITUCIO',192000.0,73.0,2.63013698630136968e+03,2,1,NULL,NULL,NULL,NULL,'la salut','sant feliu de llobregat',NULL,'1
 192.000 €
 Piso con ascensor en venta en CONSTITUCIO
@@ -43520,7 +43520,7 @@ La Salut, Sant Feliu de Llobregat
 73 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.588695',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.916168',1);
 INSERT INTO "listings" VALUES('habitaclia_8a5c3d0e-66ce-404b-a382-d046908127dd','habitaclia','8a5c3d0e-66ce-404b-a382-d046908127dd','https://www.habitaclia.com/comprar/planta-intermedia/francesc-saez/can-calders/sant-feliu-de-llobregat/8a5c3d0e-66ce-404b-a382-d046908127dd/d','Piso con ascensor en venta en FRANCESC SAEZ',213000.0,80.0,2662.5,3,1,NULL,NULL,NULL,NULL,'can calders','sant feliu de llobregat',NULL,'1
 213.000 €
 Piso con ascensor en venta en FRANCESC SAEZ
@@ -43528,7 +43528,7 @@ Can Calders, Sant Feliu de Llobregat
 80 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.675371',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:16.009881',1);
 INSERT INTO "listings" VALUES('habitaclia_34e9bf50-b425-46a2-a0af-c37b706b3c19','habitaclia','34e9bf50-b425-46a2-a0af-c37b706b3c19','https://www.habitaclia.com/comprar/planta-intermedia/agusti-domingo/can-calders/sant-feliu-de-llobregat/34e9bf50-b425-46a2-a0af-c37b706b3c19/d','Piso con ascensor en venta en AGUSTI DOMINGO',140335.0,75.0,1.87113333333333343e+03,2,1,NULL,NULL,NULL,NULL,'can calders','sant feliu de llobregat',NULL,'1
 140.335 €
 Piso con ascensor en venta en AGUSTI DOMINGO
@@ -43536,7 +43536,7 @@ Can Calders, Sant Feliu de Llobregat
 75 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.418313',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.739379',1);
 INSERT INTO "listings" VALUES('habitaclia_1dd20a86-edb2-4171-9b6f-f8e37a044eb9','habitaclia','1dd20a86-edb2-4171-9b6f-f8e37a044eb9','https://www.habitaclia.com/comprar/planta-intermedia/carretera-sanson/la-salut/sant-feliu-de-llobregat/1dd20a86-edb2-4171-9b6f-f8e37a044eb9/d','Piso en venta en Carretera Sanson',179668.0,79.0,2.27427848101265817e+03,2,1,NULL,NULL,NULL,NULL,'la salut','sant feliu de llobregat',NULL,'1/3
 179.668 €
 Piso en venta en Carretera Sanson
@@ -43544,7 +43544,7 @@ La Salut, Sant Feliu de Llobregat
 79 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.453215',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.775188',1);
 INSERT INTO "listings" VALUES('habitaclia_adf4408a-daaf-4107-9607-f25e681df622','habitaclia','adf4408a-daaf-4107-9607-f25e681df622','https://www.habitaclia.com/comprar/planta-intermedia/calle-agustin-domingo/can-calders/sant-feliu-de-llobregat/adf4408a-daaf-4107-9607-f25e681df622/d','Piso en venta en calle Agustin Domingo',140355.0,81.0,1.73277777777777782e+03,3,1,NULL,NULL,NULL,NULL,'can calders','sant feliu de llobregat',NULL,'1/3
 140.355 €
 Piso en venta en calle Agustin Domingo
@@ -43552,7 +43552,7 @@ Can Calders, Sant Feliu de Llobregat
 81 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.435554',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.757497',1);
 INSERT INTO "listings" VALUES('habitaclia_c5afa836-e510-4af2-8551-86362e0c71d2','habitaclia','c5afa836-e510-4af2-8551-86362e0c71d2','https://www.habitaclia.com/comprar/planta-intermedia/calle-constitucio/les-grases/sant-feliu-de-llobregat/c5afa836-e510-4af2-8551-86362e0c71d2/d','Piso en venta en calle Constitucio',153385.0,76.0,2.01822368421052624e+03,4,1,NULL,NULL,NULL,NULL,'les grases','sant feliu de llobregat',NULL,'1/2
 153.385 €
 Piso en venta en calle Constitucio
@@ -43560,7 +43560,7 @@ Les Grases, Sant Feliu de Llobregat
 76 m²
 4 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.470783',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.792832',1);
 INSERT INTO "listings" VALUES('habitaclia_4a265bf6-e293-4dc1-9a4b-1eae835d50cb','habitaclia','4a265bf6-e293-4dc1-9a4b-1eae835d50cb','https://www.habitaclia.com/comprar/planta-intermedia/calle-constitucio/les-grases/sant-feliu-de-llobregat/4a265bf6-e293-4dc1-9a4b-1eae835d50cb/d','Piso en venta en calle Constitucio',226000.0,76.0,2.97368421052631583e+03,4,1,NULL,NULL,NULL,NULL,'les grases','sant feliu de llobregat',NULL,'1
 226.000 €
 Piso en venta en calle Constitucio
@@ -43568,14 +43568,14 @@ Les Grases, Sant Feliu de Llobregat
 76 m²
 4 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.512697',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.835584',1);
 INSERT INTO "listings" VALUES('habitaclia_0f196776-6f6e-4092-a8b7-9a2493327fd7','habitaclia','0f196776-6f6e-4092-a8b7-9a2493327fd7','https://www.habitaclia.com/comprar/planta-intermedia/calle-josep-ricart/roses-castellbell/sant-feliu-de-llobregat/0f196776-6f6e-4092-a8b7-9a2493327fd7/d','Piso en venta en Calle Josep Ricart',170000.0,81.0,2.09876543209876535e+03,3,1,'3ª planta',NULL,NULL,NULL,'roses - castellbell','sant feliu de llobregat',NULL,'170.000 €
 Piso en venta en Calle Josep Ricart
 Roses - Castellbell, Sant Feliu de Llobregat
 81 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:27.571527',1);
+3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:15.898349',1);
 INSERT INTO "listings" VALUES('habitaclia_d9e7af44-f6c6-4edd-a7cb-47babbebb8c4','habitaclia','d9e7af44-f6c6-4edd-a7cb-47babbebb8c4','https://www.habitaclia.com/comprar/planta-intermedia/carrer-verge-de-la-merce/can-vidalet/esplugues-de-llobregat/d9e7af44-f6c6-4edd-a7cb-47babbebb8c4/d','Piso con balcón en venta en Carrer Verge de la Mercè',300000.0,90.0,3.33333333333333348e+03,3,1,'4ª planta',NULL,NULL,NULL,'can vidalet','esplugues de llobregat',NULL,'1/14
 300.000 €
 Ha bajado 10.000 €
@@ -43681,7 +43681,7 @@ Esplugues de Llobregat, Barcelona
 90 m²
 4 hab.
 2 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.233431',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.602754',1);
 INSERT INTO "listings" VALUES('habitaclia_06876834-7b4d-43df-8697-a767626ebcf5','habitaclia','06876834-7b4d-43df-8697-a767626ebcf5','https://www.habitaclia.com/comprar/planta-intermedia/cl-ave-maria/can-vidalet/esplugues-de-llobregat/06876834-7b4d-43df-8697-a767626ebcf5/d','Piso con ascensor en venta en CL AVE MARIA',270000.0,75.0,3600.0,2,1,'1ª planta',NULL,NULL,NULL,'can vidalet','esplugues de llobregat',NULL,'1/30
 270.000 €
 Piso con ascensor en venta en CL AVE MARIA
@@ -43724,7 +43724,7 @@ Esplugues de Llobregat, Barcelona
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T14:18:56.528233"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.431963',1);
+4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T14:18:56.528233"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.803495',1);
 INSERT INTO "listings" VALUES('habitaclia_5616f3c4-aeee-443b-a971-15725aea877a','habitaclia','5616f3c4-aeee-443b-a971-15725aea877a','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/5616f3c4-aeee-443b-a971-15725aea877a/d','Piso con balcón en venta en Can Vidalet',229000.0,70.0,3.27142857142857155e+03,2,1,'2ª planta',NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/55
 229.000 €
 Ha bajado 21.000 €
@@ -43765,7 +43765,7 @@ Piso con ascensor en venta en Can Clota
 Esplugues de Llobregat, Barcelona
 70 m²
 2 hab.
-1 baños','[]',NULL,'[{"price": 189895.0, "date": "2026-10-26T14:18:56.842404"}, {"price": 189904.0, "date": "2026-10-27T15:03:55.088262"}, {"price": 189895.0, "date": "2026-10-28T20:48:43.432811"}, {"price": 189901.0, "date": "2026-10-29T15:44:59.824802"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.286152',1);
+1 baños','[]',NULL,'[{"price": 189895.0, "date": "2026-10-26T14:18:56.842404"}, {"price": 189904.0, "date": "2026-10-27T15:03:55.088262"}, {"price": 189895.0, "date": "2026-10-28T20:48:43.432811"}, {"price": 189901.0, "date": "2026-10-29T15:44:59.824802"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.659116',1);
 INSERT INTO "listings" VALUES('habitaclia_a753b2ee-85dd-4d6b-9166-509666a51d79','habitaclia','a753b2ee-85dd-4d6b-9166-509666a51d79','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/a753b2ee-85dd-4d6b-9166-509666a51d79/d','Piso en venta en Can Vidalet',146904.0,75.0,1958.72,2,1,NULL,NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/8
 146.904 €
 Piso en venta en Can Vidalet
@@ -43789,7 +43789,7 @@ Piso con ascensor en venta en Carrer del Molí
 Can Vidalet, Esplugues de Llobregat
 75 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.413252',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.785675',1);
 INSERT INTO "listings" VALUES('habitaclia_2ca84fba-a58f-4eb2-8dfd-09208cea81c5','habitaclia','2ca84fba-a58f-4eb2-8dfd-09208cea81c5','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-moli/can-vidalet/esplugues-de-llobregat/2ca84fba-a58f-4eb2-8dfd-09208cea81c5/d','Piso en venta en Carrer del Molí',283000.0,91.0,3.10989010989010967e+03,4,1,'ático',NULL,NULL,NULL,'can vidalet','esplugues de llobregat',NULL,'1/30
 283.000 €
 Piso en venta en Carrer del Molí
@@ -43838,7 +43838,7 @@ Can Vidalet, Esplugues de Llobregat
 70 m²
 2 hab.
 1 baños
-2º','[]',NULL,'[{"price": 250000.0, "date": "2026-10-28T12:06:53.691518"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.519449',1);
+2º','[]',NULL,'[{"price": 250000.0, "date": "2026-10-28T12:06:53.691518"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.899728',1);
 INSERT INTO "listings" VALUES('habitaclia_f362207d-8338-4ed1-ac4a-e5e07b125d58','habitaclia','f362207d-8338-4ed1-ac4a-e5e07b125d58','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/f362207d-8338-4ed1-ac4a-e5e07b125d58/d','Piso con balcón en venta en Can Vidalet',229000.0,70.0,3.27142857142857155e+03,2,1,'2ª planta',NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/34
 229.000 €
 Ha bajado 21.000 €
@@ -43856,7 +43856,7 @@ Can Vidalet, Esplugues de Llobregat
 70 m²
 2 hab.
 1 baños
-2º','[]',NULL,'[{"price": 250000.0, "date": "2026-10-28T12:06:53.723246"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.303770',1);
+2º','[]',NULL,'[{"price": 250000.0, "date": "2026-10-28T12:06:53.723246"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.677382',1);
 INSERT INTO "listings" VALUES('habitaclia_8ebfcc09-a352-4555-bbcd-c5ff06bedd2e','habitaclia','8ebfcc09-a352-4555-bbcd-c5ff06bedd2e','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/8ebfcc09-a352-4555-bbcd-c5ff06bedd2e/d','Piso con balcón en venta en Can Vidalet',229000.0,70.0,3.27142857142857155e+03,2,1,'2ª planta',NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/37
 229.000 €
 Ha bajado 21.000 €
@@ -43865,7 +43865,7 @@ Esplugues de Llobregat, Barcelona
 70 m²
 2 hab.
 1 baños
-2º','[]',NULL,'[{"price": 250000.0, "date": "2026-10-28T12:06:53.738869"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.502262',1);
+2º','[]',NULL,'[{"price": 250000.0, "date": "2026-10-28T12:06:53.738869"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.881725',1);
 INSERT INTO "listings" VALUES('habitaclia_ca5e256e-9fa0-474e-8a20-9c7ad1dc65a6','habitaclia','ca5e256e-9fa0-474e-8a20-9c7ad1dc65a6','https://www.habitaclia.com/comprar/planta-intermedia/calle-moli/can-vidalet/esplugues-de-llobregat/ca5e256e-9fa0-474e-8a20-9c7ad1dc65a6/d','Piso con ascensor en venta en Calle Molí',283000.0,91.0,3.10989010989010967e+03,4,1,'5ª planta',NULL,NULL,NULL,'can vidalet','esplugues de llobregat',NULL,'1/28
 283.000 €
 Piso con ascensor en venta en Calle Molí
@@ -44004,7 +44004,7 @@ Esplugues de Llobregat, Barcelona
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:14.223617"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.250966',1);
+4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:14.223617"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.621094',1);
 INSERT INTO "listings" VALUES('habitaclia_16ed2436-ddb2-4102-b69d-f8be55d87458','habitaclia','16ed2436-ddb2-4102-b69d-f8be55d87458','https://www.habitaclia.com/comprar/planta-intermedia/carrer-verge-de-la-merce/can-vidalet/esplugues-de-llobregat/16ed2436-ddb2-4102-b69d-f8be55d87458/d','Piso con balcón en venta en Carrer Verge de la Mercè',300000.0,90.0,3.33333333333333348e+03,3,1,'4ª planta',NULL,NULL,NULL,'can vidalet','esplugues de llobregat',NULL,'1/15
 300.000 €
 Ha bajado 10.000 €
@@ -44013,7 +44013,7 @@ Can Vidalet, Esplugues de Llobregat
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:14.237708"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.395540',1);
+4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:14.237708"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.767691',1);
 INSERT INTO "listings" VALUES('habitaclia_a07185f8-4429-47bd-9194-45a4373b8b0f','habitaclia','a07185f8-4429-47bd-9194-45a4373b8b0f','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/a07185f8-4429-47bd-9194-45a4373b8b0f/d','Piso con balcón en venta en Can Vidalet',300000.0,90.0,3.33333333333333348e+03,3,1,'4ª planta',NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/15
 300.000 €
 Ha bajado 10.000 €
@@ -44022,7 +44022,7 @@ Esplugues de Llobregat, Barcelona
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T09:02:13.090511"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.215043',1);
+4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T09:02:13.090511"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.584135',1);
 INSERT INTO "listings" VALUES('habitaclia_a2b48a51-d873-4526-a805-c4364d4f3998','habitaclia','a2b48a51-d873-4526-a805-c4364d4f3998','https://www.habitaclia.com/comprar/planta-intermedia/carrer-verge-de-la-merce/can-vidalet/esplugues-de-llobregat/a2b48a51-d873-4526-a805-c4364d4f3998/d','Piso con balcón en venta en Carrer Verge de la Mercè',300000.0,90.0,3.33333333333333348e+03,3,1,'4ª planta',NULL,NULL,NULL,'can vidalet','esplugues de llobregat',NULL,'1/15
 300.000 €
 Ha bajado 10.000 €
@@ -44031,7 +44031,7 @@ Can Vidalet, Esplugues de Llobregat
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:14.251666"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.340499',1);
+4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:14.251666"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.713441',1);
 INSERT INTO "listings" VALUES('habitaclia_b83853be-0ed2-4fe1-9d65-c6c3317f89e0','habitaclia','b83853be-0ed2-4fe1-9d65-c6c3317f89e0','https://www.habitaclia.com/comprar/planta-intermedia/carrer-verge-de-la-merce/can-vidalet/esplugues-de-llobregat/b83853be-0ed2-4fe1-9d65-c6c3317f89e0/d','Piso con balcón en venta en Carrer Verge de la Mercè',300000.0,90.0,3.33333333333333348e+03,3,1,'4ª planta',NULL,NULL,NULL,'can vidalet','esplugues de llobregat',NULL,'1/15
 300.000 €
 Ha bajado 10.000 €
@@ -44040,7 +44040,7 @@ Can Vidalet, Esplugues de Llobregat
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T14:18:56.168225"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.449869',1);
+4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T14:18:56.168225"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.821239',1);
 INSERT INTO "listings" VALUES('habitaclia_c1cd9d49-81b2-4292-94de-a62b3fdca4e8','habitaclia','c1cd9d49-81b2-4292-94de-a62b3fdca4e8','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/c1cd9d49-81b2-4292-94de-a62b3fdca4e8/d','Piso con balcón en venta en Can Vidalet',300000.0,90.0,3.33333333333333348e+03,3,1,'4ª planta',NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/15
 300.000 €
 Ha bajado 10.000 €
@@ -44049,7 +44049,7 @@ Esplugues de Llobregat, Barcelona
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:14.265559"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.322300',1);
+4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:14.265559"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.695459',1);
 INSERT INTO "listings" VALUES('habitaclia_5133ebcb-42e4-42a7-bd51-8b8681f6f64d','habitaclia','5133ebcb-42e4-42a7-bd51-8b8681f6f64d','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/5133ebcb-42e4-42a7-bd51-8b8681f6f64d/d','Piso con balcón en venta en Can Vidalet',229000.0,70.0,3.27142857142857155e+03,2,1,'2ª planta',NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/16
 229.000 €
 Ha bajado 21.000 €
@@ -44067,7 +44067,7 @@ Esplugues de Llobregat, Barcelona
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:14.304701"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.467512',1);
+4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:14.304701"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.839535',1);
 INSERT INTO "listings" VALUES('habitaclia_4d4e884b-4b7d-4464-9790-23e66995820d','habitaclia','4d4e884b-4b7d-4464-9790-23e66995820d','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/4d4e884b-4b7d-4464-9790-23e66995820d/d','Piso con balcón en venta en Can Vidalet',300000.0,90.0,3.33333333333333348e+03,3,1,'4ª planta',NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/15
 300.000 €
 Ha bajado 10.000 €
@@ -44076,7 +44076,7 @@ Esplugues de Llobregat, Barcelona
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:14.318928"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:32.485082',1);
+4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:14.318928"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:20.857392',1);
 INSERT INTO "listings" VALUES('habitaclia_76df5fb5-0c24-47bf-9be7-32a8b9393a6f','habitaclia','76df5fb5-0c24-47bf-9be7-32a8b9393a6f','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/76df5fb5-0c24-47bf-9be7-32a8b9393a6f/d','Piso con balcón en venta en Can Vidalet',300000.0,90.0,3.33333333333333348e+03,3,1,'4ª planta',NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/15
 300.000 €
 Ha bajado 10.000 €
@@ -44306,7 +44306,7 @@ Cornellà de Llobregat, Barcelona
 75 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.138956',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.550164',1);
 INSERT INTO "listings" VALUES('habitaclia_7599f5d6-6b22-4678-85ba-dc2349d23b82','habitaclia','7599f5d6-6b22-4678-85ba-dc2349d23b82','https://www.habitaclia.com/comprar/bajo/cl-ermengol-goula/la-gavarra/cornella-de-llobregat/7599f5d6-6b22-4678-85ba-dc2349d23b82/d','Bajo en venta en CL ERMENGOL GOULA',259000.0,85.0,3.04705882352941171e+03,2,1,NULL,NULL,NULL,NULL,'la gavarra','cornellà de llobregat',NULL,'1/32
 259.000 €
 Ha bajado 16.000 €
@@ -44332,7 +44332,7 @@ Riera, Cornellà de Llobregat
 79 m²
 3 hab.
 2 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.156301',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.569687',1);
 INSERT INTO "listings" VALUES('habitaclia_fad1e289-ef50-40b6-84fc-5cbdcdbb554e','habitaclia','fad1e289-ef50-40b6-84fc-5cbdcdbb554e','https://www.habitaclia.com/comprar/planta-intermedia/sant-ildefons/cornella-de-llobregat/fad1e289-ef50-40b6-84fc-5cbdcdbb554e/d','Piso con balcón en venta en Sant Ildefons',249000.0,87.0,2.86206896551724139e+03,3,1,'8ª planta',NULL,NULL,NULL,'cornellà de llobregat','cornellà de llobregat',NULL,'Oportunidad
 1/23
 249.000 €
@@ -44348,14 +44348,14 @@ Casa en venta en CL CAMPFASSO
 La Gavarra, Cornellà de Llobregat
 132 m²
 6 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:40.938535',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.334262',1);
 INSERT INTO "listings" VALUES('habitaclia_2c3509b1-796e-456a-8302-fe3f527b365d','habitaclia','2c3509b1-796e-456a-8302-fe3f527b365d','https://www.habitaclia.com/comprar/planta-intermedia/la-gavarra/cornella-de-llobregat/2c3509b1-796e-456a-8302-fe3f527b365d/d','Piso con balcón en venta en La Gavarra',249000.0,71.0,3.50704225352112689e+03,3,1,NULL,NULL,NULL,NULL,'cornellà de llobregat','cornellà de llobregat',NULL,'1/23
 249.000 €
 Piso con balcón en venta en La Gavarra
 Cornellà de Llobregat, Barcelona
 71 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:40.974034',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.370568',1);
 INSERT INTO "listings" VALUES('habitaclia_2dbad19b-3fb6-407e-82cd-4c277f03c9ed','habitaclia','2dbad19b-3fb6-407e-82cd-4c277f03c9ed','https://www.habitaclia.com/comprar/bajo/carrer-de-pius-xiie/centre/cornella-de-llobregat/2dbad19b-3fb6-407e-82cd-4c277f03c9ed/d','Bajo en venta en Carrer de Pius XIIè',295000.0,174.0,1.69540229885057465e+03,NULL,NULL,NULL,NULL,NULL,NULL,'centre','cornellà de llobregat',NULL,'Oportunidad
 1/25
 295.000 €
@@ -44412,13 +44412,13 @@ Cornellà de Llobregat, Barcelona
 85 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:40.815556',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.205908',1);
 INSERT INTO "listings" VALUES('habitaclia_08a5212b-8c68-4acc-bb57-28a42b85c1bc','habitaclia','08a5212b-8c68-4acc-bb57-28a42b85c1bc','https://www.habitaclia.com/comprar/planta-intermedia/la-gavarra/cornella-de-llobregat/08a5212b-8c68-4acc-bb57-28a42b85c1bc/d','Piso en venta en La Gavarra',275000.0,110.0,2500.0,4,NULL,NULL,NULL,NULL,NULL,'cornellà de llobregat','cornellà de llobregat',NULL,'1/20
 275.000 €
 Piso en venta en La Gavarra
 Cornellà de Llobregat, Barcelona
 110 m²
-4 hab.','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.086130',1);
+4 hab.','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.494378',1);
 INSERT INTO "listings" VALUES('habitaclia_10434bed-f672-42b4-b0f1-0ff6b3fc8700','habitaclia','10434bed-f672-42b4-b0f1-0ff6b3fc8700','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-gerdera/sant-ildefons/cornella-de-llobregat/10434bed-f672-42b4-b0f1-0ff6b3fc8700/d','Piso con balcón en venta en Carrer de la Gerdera',298000.0,96.0,3.10416666666666651e+03,3,1,'10ª planta',NULL,NULL,NULL,'sant ildefons','cornellà de llobregat',NULL,'Oportunidad
 1/31
 1
@@ -44445,7 +44445,7 @@ La Gavarra, Cornellà de Llobregat
 80 m²
 3 hab.
 2 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.051096',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.456965',1);
 INSERT INTO "listings" VALUES('habitaclia_d38745a3-6412-4492-bcf4-edc8799a95fa','habitaclia','d38745a3-6412-4492-bcf4-edc8799a95fa','https://www.habitaclia.com/comprar/planta-intermedia/almeda-el-corte-ingles/cornella-de-llobregat/d38745a3-6412-4492-bcf4-edc8799a95fa/d','Piso en venta en Almeda - El Corte Inglés',269000.0,88.0,3.05681818181818198e+03,3,1,'ático',NULL,NULL,NULL,'cornellà de llobregat','cornellà de llobregat',NULL,'1/27
 1
 269.000 €
@@ -44471,7 +44471,7 @@ Piso en venta en Sant Ildefons
 Cornellà de Llobregat, Barcelona
 102 m²
 3 hab.
-1 baños','[]',NULL,'[{"price": 259895.0, "date": "2026-10-26T14:19:26.330914"}, {"price": 259904.0, "date": "2026-10-27T15:04:20.835964"}, {"price": 259895.0, "date": "2026-10-28T20:49:01.840070"}, {"price": 259901.0, "date": "2026-10-29T15:45:24.307681"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:40.850764',1);
+1 baños','[]',NULL,'[{"price": 259895.0, "date": "2026-10-26T14:19:26.330914"}, {"price": 259904.0, "date": "2026-10-27T15:04:20.835964"}, {"price": 259895.0, "date": "2026-10-28T20:49:01.840070"}, {"price": 259901.0, "date": "2026-10-29T15:45:24.307681"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.242773',1);
 INSERT INTO "listings" VALUES('habitaclia_4cb1be1c-5eff-4984-9f93-ec36e9304216','habitaclia','4cb1be1c-5eff-4984-9f93-ec36e9304216','https://www.habitaclia.com/comprar/planta-intermedia/fontsanta-fatjo/cornella-de-llobregat/4cb1be1c-5eff-4984-9f93-ec36e9304216/d','Piso en venta en Fontsanta - Fatjó',163896.0,78.0,2.10123076923076905e+03,2,1,NULL,NULL,NULL,NULL,'cornellà de llobregat','cornellà de llobregat',NULL,'1/8
 163.896 €
 Ha bajado 7 €
@@ -44479,7 +44479,7 @@ Piso en venta en Fontsanta - Fatjó
 Cornellà de Llobregat, Barcelona
 78 m²
 2 hab.
-1 baños','[]',NULL,'[{"price": 163898.0, "date": "2026-10-26T14:19:26.358422"}, {"price": 163901.0, "date": "2026-10-27T15:04:20.859907"}, {"price": 163898.0, "date": "2026-10-28T20:49:01.866592"}, {"price": 163903.0, "date": "2026-10-29T15:45:24.340506"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:40.885964',1);
+1 baños','[]',NULL,'[{"price": 163898.0, "date": "2026-10-26T14:19:26.358422"}, {"price": 163901.0, "date": "2026-10-27T15:04:20.859907"}, {"price": 163898.0, "date": "2026-10-28T20:49:01.866592"}, {"price": 163903.0, "date": "2026-10-29T15:45:24.340506"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.279272',1);
 INSERT INTO "listings" VALUES('habitaclia_5dc60ba4-3320-45f7-aa4a-2ddf66450926','habitaclia','5dc60ba4-3320-45f7-aa4a-2ddf66450926','https://www.habitaclia.com/comprar/planta-intermedia/la-gavarra/cornella-de-llobregat/5dc60ba4-3320-45f7-aa4a-2ddf66450926/d','Piso en venta en La Gavarra',156015.0,79.0,1.97487341772151899e+03,2,1,NULL,NULL,NULL,NULL,'cornellà de llobregat','cornellà de llobregat',NULL,'1/8
 156.015 €
 Ha bajado 9 €
@@ -44487,7 +44487,7 @@ Piso en venta en La Gavarra
 Cornellà de Llobregat, Barcelona
 79 m²
 2 hab.
-1 baños','[]',NULL,'[{"price": 156017.0, "date": "2026-10-26T14:19:26.372244"}, {"price": 156022.0, "date": "2026-10-27T15:04:20.871190"}, {"price": 156017.0, "date": "2026-10-28T20:49:01.879738"}, {"price": 156024.0, "date": "2026-10-29T15:45:24.356742"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:40.833366',1);
+1 baños','[]',NULL,'[{"price": 156017.0, "date": "2026-10-26T14:19:26.372244"}, {"price": 156022.0, "date": "2026-10-27T15:04:20.871190"}, {"price": 156017.0, "date": "2026-10-28T20:49:01.879738"}, {"price": 156024.0, "date": "2026-10-29T15:45:24.356742"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.224456',1);
 INSERT INTO "listings" VALUES('habitaclia_b82ce4e0-e5c8-48dd-80db-1e4f9a11034b','habitaclia','b82ce4e0-e5c8-48dd-80db-1e4f9a11034b','https://www.habitaclia.com/comprar/planta-intermedia/la-gavarra/cornella-de-llobregat/b82ce4e0-e5c8-48dd-80db-1e4f9a11034b/d','Piso en venta en La Gavarra',271899.0,91.0,2.98790109890109897e+03,2,2,NULL,NULL,NULL,NULL,'cornellà de llobregat','cornellà de llobregat',NULL,'1/8
 271.899 €
 Ha bajado 6 €
@@ -44495,7 +44495,7 @@ Piso en venta en La Gavarra
 Cornellà de Llobregat, Barcelona
 91 m²
 2 hab.
-2 baños','[]',NULL,'[{"price": 271896.0, "date": "2026-10-26T14:19:26.385946"}, {"price": 271903.0, "date": "2026-10-27T15:04:20.882476"}, {"price": 271896.0, "date": "2026-10-28T20:49:01.892983"}, {"price": 271905.0, "date": "2026-10-29T15:45:24.373144"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:40.868246',1);
+2 baños','[]',NULL,'[{"price": 271896.0, "date": "2026-10-26T14:19:26.385946"}, {"price": 271903.0, "date": "2026-10-27T15:04:20.882476"}, {"price": 271896.0, "date": "2026-10-28T20:49:01.892983"}, {"price": 271905.0, "date": "2026-10-29T15:45:24.373144"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.261122',1);
 INSERT INTO "listings" VALUES('habitaclia_fae9f445-d7ac-49c5-a35b-12a0c8fd85a7','habitaclia','fae9f445-d7ac-49c5-a35b-12a0c8fd85a7','https://www.habitaclia.com/comprar/bajo/carrer-de-lluis-domenech-i-montaner/el-pedro/cornella-de-llobregat/fae9f445-d7ac-49c5-a35b-12a0c8fd85a7/d','Bajo en venta en Carrer de Lluís Domènech i Montaner',140000.0,76.0,1.84210526315789479e+03,2,1,NULL,NULL,NULL,NULL,'el pedró','cornellà de llobregat',NULL,'1/23
 140.000 €
 Bajo en venta en Carrer de Lluís Domènech i Montaner
@@ -44521,7 +44521,7 @@ Centre, Cornellà de Llobregat
 80 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[{"price": 220000.0, "date": "2026-10-26T08:28:31.252818"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.009171',1);
+Bajos / Planta baja','[]',NULL,'[{"price": 220000.0, "date": "2026-10-26T08:28:31.252818"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.412114',1);
 INSERT INTO "listings" VALUES('habitaclia_4577ddfe-cccb-441e-b59c-b74ec5a00fb5','habitaclia','4577ddfe-cccb-441e-b59c-b74ec5a00fb5','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-frederic-soler/la-gavarra/cornella-de-llobregat/4577ddfe-cccb-441e-b59c-b74ec5a00fb5/d','Piso en venta en Carrer de Frederic Soler .',285000.0,76.0,3750.0,3,1,'2ª planta',NULL,NULL,NULL,'la gavarra','cornellà de llobregat',NULL,'1/32
 285.000 €
 Piso en venta en Carrer de Frederic Soler .
@@ -44537,7 +44537,7 @@ La Gavarra, Cornellà de Llobregat
 87 m²
 2 hab.
 1 baños
-Principal / Entresuelo','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:40.956637',1);
+Principal / Entresuelo','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.352412',1);
 INSERT INTO "listings" VALUES('habitaclia_2c342d41-08a4-470b-93ee-5e6f68f7138c','habitaclia','2c342d41-08a4-470b-93ee-5e6f68f7138c','https://www.habitaclia.com/comprar/planta-intermedia/sant-ildefons/cornella-de-llobregat/2c342d41-08a4-470b-93ee-5e6f68f7138c/d','Piso con balcón en venta en Sant Ildefons',298000.0,104.0,2.86538461538461524e+03,3,1,'10ª planta',NULL,NULL,NULL,'cornellà de llobregat','cornellà de llobregat',NULL,'1/21
 298.000 €
 Piso con balcón en venta en Sant Ildefons
@@ -44552,7 +44552,7 @@ INSERT INTO "listings" VALUES('habitaclia_fff0a2ac-0307-4bc7-a5b1-cbb6a78cce38',
 Cornellà de Llobregat, Barcelona
 101 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.103561',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.512582',1);
 INSERT INTO "listings" VALUES('habitaclia_66e6001b-0bab-4381-81ed-ee75cbe09a97','habitaclia','66e6001b-0bab-4381-81ed-ee75cbe09a97','https://www.habitaclia.com/comprar/planta-intermedia/la-gavarra/cornella-de-llobregat/66e6001b-0bab-4381-81ed-ee75cbe09a97/d','Piso en venta en La Gavarra',265000.0,93.0,2.84946236559139788e+03,4,1,'1ª planta',NULL,NULL,NULL,'cornellà de llobregat','cornellà de llobregat',NULL,'Oportunidad
 1/23
 265.000 €
@@ -44583,7 +44583,7 @@ Cornellà de Llobregat, Barcelona
 75 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:40.920890',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.316086',1);
 INSERT INTO "listings" VALUES('habitaclia_a5b94dad-b764-4d68-ba8c-815afd8ff800','habitaclia','a5b94dad-b764-4d68-ba8c-815afd8ff800','https://www.habitaclia.com/comprar/planta-intermedia/avinguda-del-parc/la-gavarra/cornella-de-llobregat/a5b94dad-b764-4d68-ba8c-815afd8ff800/d','Piso con balcón en venta en Avinguda del Parc',258000.0,73.0,3.5342465753424658e+03,2,1,'2ª planta',NULL,NULL,NULL,'la gavarra','cornellà de llobregat',NULL,'1/16
 258.000 €
 Piso con balcón en venta en Avinguda del Parc
@@ -44608,14 +44608,14 @@ Cornellà de Llobregat, Barcelona
 79 m²
 2 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:40.991965',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.388986',1);
 INSERT INTO "listings" VALUES('habitaclia_890803c7-0b49-470e-b4df-e4d23081adfd','habitaclia','890803c7-0b49-470e-b4df-e4d23081adfd','https://www.habitaclia.com/comprar/planta-intermedia/cr-hospitalet/almeda-el-corte-ingles/cornella-de-llobregat/890803c7-0b49-470e-b4df-e4d23081adfd/d','Piso en venta en Cr Hospitalet',199000.0,75.0,2.65333333333333348e+03,3,2,NULL,NULL,NULL,NULL,'almeda - el corte inglés','cornellà de llobregat',NULL,'1/23
 199.000 €
 Piso en venta en Cr Hospitalet
 Almeda - El Corte Inglés, Cornellà de Llobregat
 75 m²
 3 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.026582',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.430295',1);
 INSERT INTO "listings" VALUES('habitaclia_32905ca6-2d66-451c-994b-77d7770af1af','habitaclia','32905ca6-2d66-451c-994b-77d7770af1af','https://www.habitaclia.com/comprar/atico/almeda-el-corte-ingles/cornella-de-llobregat/32905ca6-2d66-451c-994b-77d7770af1af/d','Ático en venta en Almeda - El Corte Inglés',269000.0,88.0,3.05681818181818198e+03,3,1,'ático',NULL,NULL,NULL,'cornellà de llobregat','cornellà de llobregat',NULL,'1/19
 269.000 €
 Ático en venta en Almeda - El Corte Inglés
@@ -44623,7 +44623,7 @@ Cornellà de Llobregat, Barcelona
 88 m²
 3 hab.
 1 baños
-Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.121011',1);
+Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.530983',1);
 INSERT INTO "listings" VALUES('habitaclia_3afe1fb5-413e-4db5-8525-74d59b2128ad','habitaclia','3afe1fb5-413e-4db5-8525-74d59b2128ad','https://www.habitaclia.com/comprar/planta-intermedia/calle-de-ramoneda/la-gavarra/cornella-de-llobregat/3afe1fb5-413e-4db5-8525-74d59b2128ad/d','Piso en venta en calle de Ramoneda',260000.0,82.0,3.17073170731707296e+03,2,1,NULL,NULL,NULL,NULL,'la gavarra','cornellà de llobregat',NULL,'1/8
 260.000 €
 Piso en venta en calle de Ramoneda
@@ -44654,7 +44654,7 @@ Piso con ascensor en venta en DISTRITO LA GAVARRA
 La Gavarra, Cornellà de Llobregat
 82 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.218744',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.632488',1);
 INSERT INTO "listings" VALUES('habitaclia_5d414142-5be7-464c-81c3-9b677081f81a','habitaclia','5d414142-5be7-464c-81c3-9b677081f81a','https://www.habitaclia.com/comprar/planta-intermedia/sant-ildefons/cornella-de-llobregat/5d414142-5be7-464c-81c3-9b677081f81a/d','Piso con balcón en venta en Sant Ildefons',298000.0,104.0,2.86538461538461524e+03,3,1,'10ª planta',NULL,NULL,NULL,'cornellà de llobregat','cornellà de llobregat',NULL,'1/7
 298.000 €
 Piso con balcón en venta en Sant Ildefons
@@ -44669,7 +44669,7 @@ Piso con ascensor en venta en La Gerdera
 Sant Ildefons, Cornellà de Llobregat
 102 m²
 4 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.068701',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.475746',1);
 INSERT INTO "listings" VALUES('habitaclia_749d4c04-8c1d-4bf7-94a3-b17c485a645f','habitaclia','749d4c04-8c1d-4bf7-94a3-b17c485a645f','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-barcelona/riera/cornella-de-llobregat/749d4c04-8c1d-4bf7-94a3-b17c485a645f/d','Piso en venta en Carrer de Barcelona',174000.0,70.0,2.48571428571428577e+03,3,1,NULL,NULL,NULL,NULL,'riera','cornellà de llobregat',NULL,'1/3
 174.000 €
 Piso en venta en Carrer de Barcelona
@@ -44779,7 +44779,7 @@ Sant Ildefons, Cornellà de Llobregat
 102 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.273109',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.687798',1);
 INSERT INTO "listings" VALUES('habitaclia_77459d8d-26b0-4d24-88df-20b2c0f0fe7f','habitaclia','77459d8d-26b0-4d24-88df-20b2c0f0fe7f','https://www.habitaclia.com/comprar/planta-intermedia/calle-bonavista/almeda-el-corte-ingles/cornella-de-llobregat/77459d8d-26b0-4d24-88df-20b2c0f0fe7f/d','Piso en venta en calle Bonavista',225000.0,87.0,2.58620689655172418e+03,3,1,NULL,NULL,NULL,NULL,'almeda - el corte inglés','cornellà de llobregat',NULL,'1/5
 225.000 €
 Piso en venta en calle Bonavista
@@ -44787,7 +44787,7 @@ Almeda - El Corte Inglés, Cornellà de Llobregat
 87 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.290890',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.705980',1);
 INSERT INTO "listings" VALUES('habitaclia_c6ad3cbb-eef3-4b40-b5de-fb5600034d26','habitaclia','c6ad3cbb-eef3-4b40-b5de-fb5600034d26','https://www.habitaclia.com/comprar/planta-intermedia/c-rubio-i-ors/centre/cornella-de-llobregat/c6ad3cbb-eef3-4b40-b5de-fb5600034d26/d','Piso con ascensor en venta en C/ Rubio I Ors',187600.0,74.0,2.53513513513513498e+03,1,1,NULL,NULL,NULL,NULL,'centre','cornellà de llobregat',NULL,'1
 187.600 €
 Piso con ascensor en venta en C/ Rubio I Ors
@@ -44802,7 +44802,7 @@ Centre, Cornellà de Llobregat
 70 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.253954',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.668709',1);
 INSERT INTO "listings" VALUES('habitaclia_e6ef6770-4fb1-4283-9352-a4745a2ff3fd','habitaclia','e6ef6770-4fb1-4283-9352-a4745a2ff3fd','https://www.habitaclia.com/comprar/planta-intermedia/avda-sant-idelfons/sant-ildefons/cornella-de-llobregat/e6ef6770-4fb1-4283-9352-a4745a2ff3fd/d','Piso en venta en avda Sant Idelfons',163640.0,78.0,2.09794871794871778e+03,3,1,NULL,NULL,NULL,NULL,'sant ildefons','cornellà de llobregat',NULL,'1/4
 163.640 €
 Piso en venta en avda Sant Idelfons
@@ -44810,7 +44810,7 @@ Sant Ildefons, Cornellà de Llobregat
 78 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.235867',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.650659',1);
 INSERT INTO "listings" VALUES('habitaclia_3532ee57-6ca1-4c25-a2e8-92d0204ff18f','habitaclia','3532ee57-6ca1-4c25-a2e8-92d0204ff18f','https://www.habitaclia.com/comprar/planta-intermedia/calle-teodor-llorente/fontsanta-fatjo/cornella-de-llobregat/3532ee57-6ca1-4c25-a2e8-92d0204ff18f/d','Piso en venta en Calle Teodor Llorente',233605.0,78.0,2.99493589743589745e+03,2,1,NULL,NULL,NULL,NULL,'fontsanta - fatjó','cornellà de llobregat',NULL,'1/3
 233.605 €
 Piso en venta en Calle Teodor Llorente
@@ -44818,7 +44818,7 @@ Fontsanta - Fatjó, Cornellà de Llobregat
 78 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.173795',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.588260',1);
 INSERT INTO "listings" VALUES('habitaclia_e601b060-30e9-4f21-9e6c-b68997ab4510','habitaclia','e601b060-30e9-4f21-9e6c-b68997ab4510','https://www.habitaclia.com/comprar/planta-intermedia/calle-fivaller/riera/cornella-de-llobregat/e601b060-30e9-4f21-9e6c-b68997ab4510/d','Piso en venta en Calle Fivaller',279000.0,74.0,3.77027027027027043e+03,2,1,NULL,NULL,NULL,NULL,'riera','cornellà de llobregat',NULL,'1/3
 279.000 €
 Piso en venta en Calle Fivaller
@@ -44826,7 +44826,7 @@ Riera, Cornellà de Llobregat
 74 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:41.201339',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:29.614190',1);
 INSERT INTO "listings" VALUES('habitaclia_9abceb81-0afe-4855-84cb-79425a6390a2','habitaclia','9abceb81-0afe-4855-84cb-79425a6390a2','https://www.habitaclia.com/comprar/planta-intermedia/psaje-delicies/la-gavarra/cornella-de-llobregat/9abceb81-0afe-4855-84cb-79425a6390a2/d','Piso en venta en psaje Delicies',210000.0,97.0,2.16494845360824729e+03,3,1,NULL,NULL,NULL,NULL,'la gavarra','cornellà de llobregat',NULL,'1/2
 210.000 €
 Piso en venta en psaje Delicies
@@ -44869,21 +44869,21 @@ Centre, Badalona
 95 m²
 4 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.567290',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.076612',1);
 INSERT INTO "listings" VALUES('habitaclia_f2ca5548-f215-4830-9e39-0caf7df004af','habitaclia','f2ca5548-f215-4830-9e39-0caf7df004af','https://www.habitaclia.com/comprar/planta-intermedia/camelias/centre/badalona/f2ca5548-f215-4830-9e39-0caf7df004af/d','Piso en venta en CAMELIAS',287000.0,113.0,2.53982300884955748e+03,4,2,NULL,NULL,NULL,NULL,'centre','badalona',NULL,'1/13
 287.000 €
 Piso en venta en CAMELIAS
 Centre, Badalona
 113 m²
 4 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.601568',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.111779',1);
 INSERT INTO "listings" VALUES('habitaclia_f8447e4b-e4d7-4123-8c61-2a081e6ca4b1','habitaclia','f8447e4b-e4d7-4123-8c61-2a081e6ca4b1','https://www.habitaclia.com/comprar/planta-intermedia/camelias/centre/badalona/f8447e4b-e4d7-4123-8c61-2a081e6ca4b1/d','Piso en venta en CAMELIAS',276000.0,108.0,2.55555555555555565e+03,3,2,NULL,NULL,NULL,NULL,'centre','badalona',NULL,'1/13
 276.000 €
 Piso en venta en CAMELIAS
 Centre, Badalona
 108 m²
 3 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.584469',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.094447',1);
 INSERT INTO "listings" VALUES('habitaclia_d1299b75-b92d-43f1-8cc9-afee01bd359d','habitaclia','d1299b75-b92d-43f1-8cc9-afee01bd359d','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-mestre-antoni-nicolau/centre/badalona/d1299b75-b92d-43f1-8cc9-afee01bd359d/d','Piso con balcón en venta en Carrer del Mestre Antoni Nicolau',310000.0,115.0,2.69565217391304349e+03,4,2,'2ª planta',NULL,NULL,NULL,'centre','badalona',NULL,'Oportunidad
 1/23
 310.000 €
@@ -44892,7 +44892,7 @@ Centre, Badalona
 115 m²
 4 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.670002',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.184539',1);
 INSERT INTO "listings" VALUES('habitaclia_e734835c-8961-4f0d-af8b-25d608ecba97','habitaclia','e734835c-8961-4f0d-af8b-25d608ecba97','https://www.habitaclia.com/comprar/planta-intermedia/carrer-porvenir/centre/badalona/e734835c-8961-4f0d-af8b-25d608ecba97/d','Piso con balcón en venta en Carrer Porvenir',310000.0,92.0,3.36956521739130448e+03,4,1,'3ª planta',NULL,NULL,NULL,'centre','badalona',NULL,'Oportunidad
 1/27
 310.000 €
@@ -44901,7 +44901,7 @@ Centre, Badalona
 92 m²
 4 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.532509',1);
+3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.039367',1);
 INSERT INTO "listings" VALUES('habitaclia_00e767c3-47b2-4cc7-b05d-554257d9ad4c','habitaclia','00e767c3-47b2-4cc7-b05d-554257d9ad4c','https://www.habitaclia.com/comprar/planta-intermedia/avinguda-del-president-companys/centre/badalona/00e767c3-47b2-4cc7-b05d-554257d9ad4c/d','Piso en venta en Avinguda del President Companys',190000.0,77.0,2.4675324675324673e+03,2,1,'1ª planta',NULL,NULL,NULL,'centre','badalona',NULL,'Oportunidad
 1/11
 190.000 €
@@ -44910,7 +44910,7 @@ Centre, Badalona
 77 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.704116',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.220256',1);
 INSERT INTO "listings" VALUES('habitaclia_090edcac-1c8d-450e-abb8-5e35bb478c29','habitaclia','090edcac-1c8d-450e-abb8-5e35bb478c29','https://www.habitaclia.com/comprar/estudio/centre/badalona/090edcac-1c8d-450e-abb8-5e35bb478c29/d','Estudio con ascensor en venta en Centre',320000.0,87.0,3.67816091954022977e+03,3,2,NULL,NULL,NULL,NULL,'centre','badalona',NULL,'1/48
 320.000 €
 Estudio con ascensor en venta en Centre
@@ -44918,7 +44918,7 @@ Badalona, Barcelona
 87 m²
 3 hab.
 2 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.686920',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.202309',1);
 INSERT INTO "listings" VALUES('habitaclia_0de70ccd-cb6d-4454-a7d5-7ac74216a524','habitaclia','0de70ccd-cb6d-4454-a7d5-7ac74216a524','https://www.habitaclia.com/comprar/apartamento/torrent-de-la-batlloria/centre/badalona/0de70ccd-cb6d-4454-a7d5-7ac74216a524/d','Apartamento en venta en TORRENT DE LA BATLLORIA',165000.0,70.0,2.35714285714285733e+03,3,2,NULL,NULL,NULL,NULL,'centre','badalona',NULL,'Oportunidad
 1/16
 165.000 €
@@ -44926,14 +44926,14 @@ Apartamento en venta en TORRENT DE LA BATLLORIA
 Centre, Badalona
 70 m²
 3 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.636112',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.147987',1);
 INSERT INTO "listings" VALUES('habitaclia_e4bc42c1-6720-4638-ade4-1e9cab8deea7','habitaclia','e4bc42c1-6720-4638-ade4-1e9cab8deea7','https://www.habitaclia.com/comprar/vivienda/centre/badalona/e4bc42c1-6720-4638-ade4-1e9cab8deea7/d','Casa en venta en Centre',253753.0,142.0,1.78699295774647885e+03,NULL,NULL,NULL,NULL,NULL,NULL,'centre','badalona',NULL,'Oportunidad
 1/6
 1
 253.753 €
 Casa en venta en Centre
 Badalona, Barcelona
-142 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.512770',1);
+142 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.018326',1);
 INSERT INTO "listings" VALUES('habitaclia_161a0d04-0f82-45ef-af47-571040f2e96b','habitaclia','161a0d04-0f82-45ef-af47-571040f2e96b','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-francesc-layret/centre/badalona/161a0d04-0f82-45ef-af47-571040f2e96b/d','Piso con balcón en venta en Carrer de Francesc Layret',295000.0,90.0,3.27777777777777782e+03,3,2,'1ª planta',NULL,NULL,NULL,'centre','badalona',NULL,'1/12
 295.000 €
 Piso con balcón en venta en Carrer de Francesc Layret
@@ -44941,33 +44941,33 @@ Centre, Badalona
 90 m²
 3 hab.
 2 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.550274',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.057222',1);
 INSERT INTO "listings" VALUES('habitaclia_002a7821-dcbd-471e-93cc-cc32d3ade4c7','habitaclia','002a7821-dcbd-471e-93cc-cc32d3ade4c7','https://www.habitaclia.com/comprar/planta-intermedia/camelias/centre/badalona/002a7821-dcbd-471e-93cc-cc32d3ade4c7/d','Piso con ascensor en venta en CAMELIAS',289000.0,113.0,2.5575221238938052e+03,4,2,NULL,NULL,NULL,NULL,'centre','badalona',NULL,'1/13
 289.000 €
 Piso con ascensor en venta en CAMELIAS
 Centre, Badalona
 113 m²
 4 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.619081',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.130013',1);
 INSERT INTO "listings" VALUES('habitaclia_73115df7-2856-4c54-9bdc-9ef2756e2ad5','habitaclia','73115df7-2856-4c54-9bdc-9ef2756e2ad5','https://www.habitaclia.com/comprar/planta-intermedia/centre/badalona/73115df7-2856-4c54-9bdc-9ef2756e2ad5/d','Piso en venta en Centre',154000.0,96.0,1.60416666666666674e+03,NULL,NULL,NULL,NULL,NULL,NULL,'centre','badalona',NULL,'1/6
 1
 154.000 €
 Piso en venta en Centre
 Badalona, Barcelona
-96 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.495501',1);
+96 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.000845',1);
 INSERT INTO "listings" VALUES('habitaclia_047880e0-d3a1-43ac-a83e-33308c136511','habitaclia','047880e0-d3a1-43ac-a83e-33308c136511','https://www.habitaclia.com/comprar/planta-intermedia/centre/badalona/047880e0-d3a1-43ac-a83e-33308c136511/d','Piso en venta en Centre',61313.0,81.0,7.56950617283950578e+02,NULL,NULL,NULL,NULL,NULL,NULL,'centre','badalona',NULL,'1/6
 1
 61.313 €
 Piso en venta en Centre
 Badalona, Barcelona
-81 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.530665',1);
+81 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.037483',1);
 INSERT INTO "listings" VALUES('habitaclia_00f5c647-26ba-4a8d-836a-238499bb45d0','habitaclia','00f5c647-26ba-4a8d-836a-238499bb45d0','https://www.habitaclia.com/comprar/planta-intermedia/c-vila/centre/badalona/00f5c647-26ba-4a8d-836a-238499bb45d0/d','Piso en venta en C/ Vila',268000.0,101.0,2.65346534653465369e+03,3,2,NULL,NULL,NULL,NULL,'centre','badalona',NULL,'1
 268.000 €
 Piso en venta en C/ Vila
 Centre, Badalona
 101 m²
 3 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.720983',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.238080',1);
 INSERT INTO "listings" VALUES('habitaclia_ec357b5b-0176-4670-8b40-7ab72043c705','habitaclia','ec357b5b-0176-4670-8b40-7ab72043c705','https://www.habitaclia.com/comprar/planta-intermedia/centre/badalona/ec357b5b-0176-4670-8b40-7ab72043c705/d','Piso en venta en Centre',268000.0,101.0,2.65346534653465369e+03,3,2,'3ª planta',NULL,NULL,NULL,'centre','badalona',NULL,'1
 268.000 €
 Piso en venta en Centre
@@ -44975,7 +44975,7 @@ Badalona, Barcelona
 101 m²
 3 hab.
 2 baños
-3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:45.652904',1);
+3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:34.166441',1);
 INSERT INTO "listings" VALUES('habitaclia_53cab5c2-5322-420b-864d-5ab6627cd3a4','habitaclia','53cab5c2-5322-420b-864d-5ab6627cd3a4','https://www.habitaclia.com/comprar/planta-intermedia/independencia/bonavista-bufala-morera/badalona/53cab5c2-5322-420b-864d-5ab6627cd3a4/d','Piso con balcón en venta en independencia',310000.0,90.0,3.44444444444444434e+03,3,1,NULL,NULL,NULL,NULL,'bufala','badalona',NULL,'Oportunidad
 1/27
 310.000 €
@@ -44991,7 +44991,7 @@ Casa en venta en Bonavista - Bufalà - Morera
 Badalona, Barcelona
 94 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.304616',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.821416',1);
 INSERT INTO "listings" VALUES('habitaclia_7deec59e-a02c-4268-813e-c84260132041','habitaclia','7deec59e-a02c-4268-813e-c84260132041','https://www.habitaclia.com/comprar/planta-intermedia/independencia/bonavista-bufala-morera/badalona/7deec59e-a02c-4268-813e-c84260132041/d','Piso con ascensor en venta en Independencia',285000.0,72.0,3.95833333333333348e+03,3,1,'4ª planta',NULL,NULL,NULL,'bufala','badalona',NULL,'1/31
 285.000 €
 Piso con ascensor en venta en Independencia
@@ -44999,7 +44999,7 @@ Bonavista - Bufalà - Morera, Badalona
 72 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.287287',1);
+4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.803513',1);
 INSERT INTO "listings" VALUES('habitaclia_65f38a02-421e-4155-b87c-c76a4a985d45','habitaclia','65f38a02-421e-4155-b87c-c76a4a985d45','https://www.habitaclia.com/comprar/bajo/bonavista-bufala-morera/badalona/65f38a02-421e-4155-b87c-c76a4a985d45/d','Bajo con ascensor en venta en Bonavista - Bufalà - Morera',319000.0,82.0,3.89024390243902416e+03,2,2,NULL,NULL,NULL,NULL,'bufala','badalona',NULL,'Oportunidad
 1/6
 319.000 €
@@ -45016,7 +45016,7 @@ Bonavista - Bufalà - Morera, Badalona
 83 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.410246',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.930320',1);
 INSERT INTO "listings" VALUES('habitaclia_dd62362f-3a6c-408d-b381-e66b010ebf80','habitaclia','dd62362f-3a6c-408d-b381-e66b010ebf80','https://www.habitaclia.com/comprar/planta-intermedia/bonavista-bufala-morera/badalona/dd62362f-3a6c-408d-b381-e66b010ebf80/d','Piso con ascensor en venta en Bonavista - Bufalà - Morera',239900.0,79.0,3.03670886075949374e+03,2,1,'1ª planta',NULL,NULL,NULL,'bufala','badalona',NULL,'1/23
 1
 239.900 €
@@ -45026,7 +45026,7 @@ Badalona, Barcelona
 79 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[{"price": 249900.0, "date": "2026-10-26T20:58:20.214013"}, {"price": 239900.0, "date": "2026-10-26T21:39:35.875380"}, {"price": 249900.0, "date": "2026-10-27T02:58:56.545140"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.427886',1);
+1º','[]',NULL,'[{"price": 249900.0, "date": "2026-10-26T20:58:20.214013"}, {"price": 239900.0, "date": "2026-10-26T21:39:35.875380"}, {"price": 249900.0, "date": "2026-10-27T02:58:56.545140"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.948238',1);
 INSERT INTO "listings" VALUES('habitaclia_c95b4774-7068-422e-b07b-a82cca0d16fe','habitaclia','c95b4774-7068-422e-b07b-a82cca0d16fe','https://www.habitaclia.com/comprar/planta-intermedia/bonavista-bufala-morera/badalona/c95b4774-7068-422e-b07b-a82cca0d16fe/d','Piso con ascensor en venta en Bonavista - Bufalà - Morera',290000.0,110.0,2.63636363636363648e+03,3,2,NULL,NULL,NULL,NULL,'bufala','badalona',NULL,'Oportunidad
 1/18
 290.000 €
@@ -45036,7 +45036,7 @@ Badalona, Barcelona
 110 m²
 3 hab.
 2 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.480293',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:39.001389',1);
 INSERT INTO "listings" VALUES('habitaclia_da3efb29-b253-4285-9fb0-ee2389170588','habitaclia','da3efb29-b253-4285-9fb0-ee2389170588','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-independencia/bonavista-bufala-morera/badalona/da3efb29-b253-4285-9fb0-ee2389170588/d','Piso con balcón en venta en Carrer de la Independència',310000.0,97.0,3.19587628865979377e+03,3,1,NULL,NULL,NULL,NULL,'bufala','badalona',NULL,'1/17
 310.000 €
 Piso con balcón en venta en Carrer de la Independència
@@ -45044,7 +45044,7 @@ Bonavista - Bufalà - Morera, Badalona
 97 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.143140',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.662001',1);
 INSERT INTO "listings" VALUES('habitaclia_874ff4d0-c994-4961-8e65-4dc420757fbd','habitaclia','874ff4d0-c994-4961-8e65-4dc420757fbd','https://www.habitaclia.com/comprar/atico/carrer-de-la-independencia/bonavista-bufala-morera/badalona/874ff4d0-c994-4961-8e65-4dc420757fbd/d','Ático en venta en Carrer de la Independència',240000.0,80.0,3000.0,2,1,'ático',NULL,NULL,NULL,'bufala','badalona',NULL,'1/37
 1
 240.000 €
@@ -45053,7 +45053,7 @@ Bonavista - Bufalà - Morera, Badalona
 80 m²
 2 hab.
 1 baños
-Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.357608',1);
+Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.875523',1);
 INSERT INTO "listings" VALUES('habitaclia_82d6bdf6-1d09-4def-be02-48ffd28fb11c','habitaclia','82d6bdf6-1d09-4def-be02-48ffd28fb11c','https://www.habitaclia.com/comprar/planta-intermedia/carrer-sant-agusti/bonavista-bufala-morera/badalona/82d6bdf6-1d09-4def-be02-48ffd28fb11c/d','Piso con ascensor en venta en Carrer Sant Agustí',196000.0,76.0,2.57894736842105248e+03,1,1,'1ª planta',NULL,NULL,NULL,'bufala','badalona',NULL,'1/27
 196.000 €
 Piso con ascensor en venta en Carrer Sant Agustí
@@ -45061,7 +45061,7 @@ Bonavista - Bufalà - Morera, Badalona
 76 m²
 1 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.549310',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:39.077102',1);
 INSERT INTO "listings" VALUES('habitaclia_9e56106a-41d4-45c3-876c-44f7222443f6','habitaclia','9e56106a-41d4-45c3-876c-44f7222443f6','https://www.habitaclia.com/comprar/atico/carrer-de-la-independencia/bonavista-bufala-morera/badalona/9e56106a-41d4-45c3-876c-44f7222443f6/d','Ático en venta en Carrer de la Independència',240000.0,80.0,3000.0,2,1,'4ª planta',NULL,NULL,NULL,'bufala','badalona',NULL,'1/36
 1
 240.000 €
@@ -45070,7 +45070,7 @@ Bonavista - Bufalà - Morera, Badalona
 80 m²
 2 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.252425',1);
+4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.767551',1);
 INSERT INTO "listings" VALUES('habitaclia_5e34b67f-5f31-453c-9843-d74a355d2ff5','habitaclia','5e34b67f-5f31-453c-9843-d74a355d2ff5','https://www.habitaclia.com/comprar/atico/carrer-de-la-independencia/bonavista-bufala-morera/badalona/5e34b67f-5f31-453c-9843-d74a355d2ff5/d','Ático en venta en Carrer de la Independència',240000.0,80.0,3000.0,2,1,'ático',NULL,NULL,NULL,'bufala','badalona',NULL,'1/36
 1
 240.000 €
@@ -45079,7 +45079,7 @@ Bonavista - Bufalà - Morera, Badalona
 80 m²
 2 hab.
 1 baños
-Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.214703',1);
+Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.732197',1);
 INSERT INTO "listings" VALUES('habitaclia_889f8438-d53f-4cb3-8090-0efc86fa80c6','habitaclia','889f8438-d53f-4cb3-8090-0efc86fa80c6','https://www.habitaclia.com/comprar/atico/carrer-de-la-independencia/bonavista-bufala-morera/badalona/889f8438-d53f-4cb3-8090-0efc86fa80c6/d','Ático en venta en Carrer de la Independència',240000.0,80.0,3000.0,2,1,'ático',NULL,NULL,NULL,'bufala','badalona',NULL,'1/36
 1
 240.000 €
@@ -45088,7 +45088,7 @@ Bonavista - Bufalà - Morera, Badalona
 80 m²
 2 hab.
 1 baños
-Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.179135',1);
+Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.696991',1);
 INSERT INTO "listings" VALUES('habitaclia_11e844d0-1de1-43ef-bd37-725c6e4ba115','habitaclia','11e844d0-1de1-43ef-bd37-725c6e4ba115','https://www.habitaclia.com/comprar/atico/carrer-de-la-independencia/bonavista-bufala-morera/badalona/11e844d0-1de1-43ef-bd37-725c6e4ba115/d','Ático en venta en Carrer de la Independència',240000.0,80.0,3000.0,2,1,'ático',NULL,NULL,NULL,'bufala','badalona',NULL,'1/36
 1
 240.000 €
@@ -45097,7 +45097,7 @@ Bonavista - Bufalà - Morera, Badalona
 80 m²
 2 hab.
 1 baños
-Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.322020',1);
+Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.839469',1);
 INSERT INTO "listings" VALUES('habitaclia_9b4704f4-bc9b-477e-83ad-cb33297acc8c','habitaclia','9b4704f4-bc9b-477e-83ad-cb33297acc8c','https://www.habitaclia.com/comprar/atico/carrer-de-la-independencia/bonavista-bufala-morera/badalona/9b4704f4-bc9b-477e-83ad-cb33297acc8c/d','Ático en venta en Carrer de la Independència',240000.0,80.0,3000.0,2,1,'ático',NULL,NULL,NULL,'bufala','badalona',NULL,'1/37
 1
 240.000 €
@@ -45106,7 +45106,7 @@ Bonavista - Bufalà - Morera, Badalona
 80 m²
 2 hab.
 1 baños
-Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.339987',1);
+Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.857269',1);
 INSERT INTO "listings" VALUES('habitaclia_d8afd25f-4d87-4ebb-94e4-afc49b773f6d','habitaclia','d8afd25f-4d87-4ebb-94e4-afc49b773f6d','https://www.habitaclia.com/comprar/atico/carrer-de-la-independencia/bonavista-bufala-morera/badalona/d8afd25f-4d87-4ebb-94e4-afc49b773f6d/d','Ático en venta en Carrer de la Independència',240000.0,80.0,3000.0,2,1,'ático',NULL,NULL,NULL,'bufala','badalona',NULL,'1/37
 1
 240.000 €
@@ -45115,14 +45115,14 @@ Bonavista - Bufalà - Morera, Badalona
 80 m²
 2 hab.
 1 baños
-Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.392978',1);
+Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.911650',1);
 INSERT INTO "listings" VALUES('habitaclia_b145b649-dcbb-421c-a201-6c227416d5fc','habitaclia','b145b649-dcbb-421c-a201-6c227416d5fc','https://www.habitaclia.com/comprar/atico/bonavista-bufala-morera/badalona/b145b649-dcbb-421c-a201-6c227416d5fc/d','Ático en venta en Bonavista - Bufalà - Morera',260000.0,90.0,2.88888888888888868e+03,3,1,NULL,NULL,NULL,NULL,'bufala','badalona',NULL,'1/22
 260.000 €
 Ático en venta en Bonavista - Bufalà - Morera
 Badalona, Barcelona
 90 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.375378',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.893745',1);
 INSERT INTO "listings" VALUES('habitaclia_f2ae3288-4607-4dac-bd76-1c65a3a9ed7e','habitaclia','f2ae3288-4607-4dac-bd76-1c65a3a9ed7e','https://www.habitaclia.com/comprar/planta-intermedia/obra-nueva/carrer-de-montalegre-40/bonavista-bufala-morera/badalona/f2ae3288-4607-4dac-bd76-1c65a3a9ed7e/d','Piso de obra nueva con piscina en venta en Carrer de Montalegre 40',315000.0,71.0,4.4366197183098593e+03,2,1,NULL,NULL,NULL,NULL,'bufala','badalona',NULL,'Obra nueva
 1/24
 1
@@ -45157,7 +45157,7 @@ Bonavista - Bufalà - Morera, Badalona
 75 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.269700',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.785389',1);
 INSERT INTO "listings" VALUES('habitaclia_1eec4f69-4173-4f64-a29e-fd1a3180ed7e','habitaclia','1eec4f69-4173-4f64-a29e-fd1a3180ed7e','https://www.habitaclia.com/comprar/planta-intermedia/calle-roger-de-lluria/bonavista-bufala-morera/badalona/1eec4f69-4173-4f64-a29e-fd1a3180ed7e/d','Piso con ascensor en venta en Calle Roger de Llúria',302080.0,168.0,1.79809523809523807e+03,3,2,'2ª planta',NULL,NULL,NULL,'bufala','badalona',NULL,'1/18
 302.080 €
 Piso con ascensor en venta en Calle Roger de Llúria
@@ -45165,12 +45165,12 @@ Bonavista - Bufalà - Morera, Badalona
 168 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[{"price": 275805.0, "date": "2026-10-26T14:19:57.809239"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.463168',1);
+2º','[]',NULL,'[{"price": 275805.0, "date": "2026-10-26T14:19:57.809239"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.983697',1);
 INSERT INTO "listings" VALUES('habitaclia_e0825e85-21f0-4153-9a4a-3e01a0dcd82d','habitaclia','e0825e85-21f0-4153-9a4a-3e01a0dcd82d','https://www.habitaclia.com/comprar/planta-intermedia/roger-de-lluria/bonavista-bufala-morera/badalona/e0825e85-21f0-4153-9a4a-3e01a0dcd82d/d','Piso en venta en ROGER DE LLURIA',302080.0,168.0,1.79809523809523807e+03,NULL,NULL,NULL,NULL,NULL,NULL,'bufala','badalona',NULL,'1/16
 302.080 €
 Piso en venta en ROGER DE LLURIA
 Bonavista - Bufalà - Morera, Badalona
-168 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.196630',1);
+168 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.714386',1);
 INSERT INTO "listings" VALUES('habitaclia_310286cb-3429-4d92-a063-64cca542b675','habitaclia','310286cb-3429-4d92-a063-64cca542b675','https://www.habitaclia.com/comprar/atico/marti-pujol-540/bonavista-bufala-morera/badalona/310286cb-3429-4d92-a063-64cca542b675/d','Ático en venta en marti pujol 540',265000.0,90.0,2.94444444444444434e+03,3,1,'4ª planta',NULL,NULL,NULL,'bufala','badalona',NULL,'1/35
 265.000 €
 Ático en venta en marti pujol 540
@@ -45186,7 +45186,7 @@ Bonavista - Bufalà - Morera, Badalona
 138 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.567189',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:39.095247',1);
 INSERT INTO "listings" VALUES('habitaclia_654e97c9-d719-4da2-8b42-b158b07176d6','habitaclia','654e97c9-d719-4da2-8b42-b158b07176d6','https://www.habitaclia.com/comprar/planta-intermedia/calle-roger-de-lluria/bonavista-bufala-morera/badalona/654e97c9-d719-4da2-8b42-b158b07176d6/d','Piso en venta en calle Roger de Lluria',275805.0,138.0,1.99858695652173923e+03,3,2,NULL,NULL,NULL,NULL,'bufala','badalona',NULL,'1/10
 275.805 €
 Piso en venta en calle Roger de Lluria
@@ -45194,7 +45194,7 @@ Bonavista - Bufalà - Morera, Badalona
 138 m²
 3 hab.
 2 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.531821',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:39.058635',1);
 INSERT INTO "listings" VALUES('habitaclia_2dabe5be-3ec2-4401-baaf-328edafe863e','habitaclia','2dabe5be-3ec2-4401-baaf-328edafe863e','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-eliseu-meifren/bonavista-bufala-morera/badalona/2dabe5be-3ec2-4401-baaf-328edafe863e/d','Piso en venta en Carrer d''Eliseu Meifren',228920.0,70.0,3.27028571428571422e+03,3,1,NULL,NULL,NULL,NULL,'bufala','badalona',NULL,'1/2
 228.920 €
 Piso en venta en Carrer d''Eliseu Meifren
@@ -45231,7 +45231,7 @@ Adosado con balcón en venta en Avinguda de Carlemany 2
 Bonavista - Bufalà - Morera, Badalona
 142 m²
 3 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.124796',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.644855',1);
 INSERT INTO "listings" VALUES('habitaclia_e56dddcb-cb45-4adc-a629-78e381a61df8','habitaclia','e56dddcb-cb45-4adc-a629-78e381a61df8','https://www.habitaclia.com/comprar/planta-intermedia/bonavista-bufala-morera/badalona/e56dddcb-cb45-4adc-a629-78e381a61df8/d','Piso en venta en Bonavista - Bufalà - Morera',61000.0,210.0,2.90476190476190481e+02,2,1,'2ª planta',NULL,NULL,NULL,'bufala','badalona',NULL,'1/2
 61.000 €
 Piso en venta en Bonavista - Bufalà - Morera
@@ -45253,7 +45253,7 @@ INSERT INTO "listings" VALUES('habitaclia_b72678da-a5e7-4d73-a7c5-97963ccb338d',
 Piso en venta en Carrer de Galícia
 Bonavista - Bufalà - Morera, Badalona
 113 m²
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.232242',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.750083',1);
 INSERT INTO "listings" VALUES('habitaclia_d6c60292-b53c-43cc-9fa2-ed3c2f8317c2','habitaclia','d6c60292-b53c-43cc-9fa2-ed3c2f8317c2','https://www.habitaclia.com/comprar/planta-intermedia/garcilaso/bonavista-bufala-morera/badalona/d6c60292-b53c-43cc-9fa2-ed3c2f8317c2/d','Piso en venta en GARCILASO',157000.0,71.0,2.21126760563380275e+03,2,1,'5ª planta',NULL,NULL,NULL,'bufala','badalona',NULL,'1
 157.000 €
 Piso en venta en GARCILASO
@@ -45269,7 +45269,7 @@ Bonavista - Bufalà - Morera, Badalona
 87 m²
 3 hab.
 2 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.514297',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:39.040692',1);
 INSERT INTO "listings" VALUES('habitaclia_3d3e40b9-058b-4a1e-b8cd-af0988ac7715','habitaclia','3d3e40b9-058b-4a1e-b8cd-af0988ac7715','https://www.habitaclia.com/comprar/planta-intermedia/galicia-51/bonavista-bufala-morera/badalona/3d3e40b9-058b-4a1e-b8cd-af0988ac7715/d','Piso con ascensor en venta en GALICIA 51',278700.0,80.0,3483.75,3,2,'2ª planta',NULL,NULL,NULL,'bufala','badalona',NULL,'1
 278.700 €
 Piso con ascensor en venta en GALICIA 51
@@ -45293,17 +45293,17 @@ Bonavista - Bufalà - Morera, Badalona
 71 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.497368',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:39.022899',1);
 INSERT INTO "listings" VALUES('habitaclia_7a214a79-987e-4ede-888b-7a7baf94f445','habitaclia','7a214a79-987e-4ede-888b-7a7baf94f445','https://www.habitaclia.com/comprar/planta-intermedia/pirineus-76-bajos/bonavista-bufala-morera/badalona/7a214a79-987e-4ede-888b-7a7baf94f445/d','Piso en venta en Pirineus 76, bajos',253754.0,142.0,1787.0,NULL,NULL,NULL,NULL,NULL,NULL,'bufala','badalona',NULL,'1/2
 253.754 €
 Piso en venta en Pirineus 76, bajos
 Bonavista - Bufalà - Morera, Badalona
-142 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.161290',1);
+142 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.679334',1);
 INSERT INTO "listings" VALUES('habitaclia_50b24fea-867a-4cea-b315-54f26819541d','habitaclia','50b24fea-867a-4cea-b315-54f26819541d','https://www.habitaclia.com/comprar/planta-intermedia/calle-calle-orion/bonavista-bufala-morera/badalona/50b24fea-867a-4cea-b315-54f26819541d/d','Piso en venta en Calle Calle Orion',121606.0,91.0,1.3363296703296703e+03,NULL,NULL,NULL,NULL,NULL,NULL,'bufala','badalona',NULL,'1
 121.606 €
 Piso en venta en Calle Calle Orion
 Bonavista - Bufalà - Morera, Badalona
-91 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:50.445369',1);
+91 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:38.965940',1);
 INSERT INTO "listings" VALUES('habitaclia_ab0859a6-e803-4318-8bde-a3d83ae5e396','habitaclia','ab0859a6-e803-4318-8bde-a3d83ae5e396','https://www.habitaclia.com/comprar/planta-intermedia/montigala-sant-crist/badalona/ab0859a6-e803-4318-8bde-a3d83ae5e396/d','Piso con balcón en venta en Montigalà - Sant Crist',285000.0,70.0,4.07142857142857155e+03,3,1,'1ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/38
 285.000 €
 Piso con balcón en venta en Montigalà - Sant Crist
@@ -45346,7 +45346,7 @@ Casa en venta en Passatge Bonavista
 Montigalà - Sant Crist, Badalona
 94 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.085208',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.670178',1);
 INSERT INTO "listings" VALUES('habitaclia_27762050-cbed-4a9e-8b78-f8cbd090b35d','habitaclia','27762050-cbed-4a9e-8b78-f8cbd090b35d','https://www.habitaclia.com/comprar/atico/montigala-sant-crist/badalona/27762050-cbed-4a9e-8b78-f8cbd090b35d/d','Ático con balcón en venta en Montigalà - Sant Crist',280000.0,85.0,3.29411764705882342e+03,4,1,'4ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/11
 280.000 €
 Ático con balcón en venta en Montigalà - Sant Crist
@@ -45378,7 +45378,7 @@ Badalona, Barcelona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.065470',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.652429',1);
 INSERT INTO "listings" VALUES('habitaclia_c48b6c91-8366-4501-8b5b-048e2493eab8','habitaclia','c48b6c91-8366-4501-8b5b-048e2493eab8','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-angel-guimera-1/montigala-sant-crist/badalona/c48b6c91-8366-4501-8b5b-048e2493eab8/d','Piso con balcón en venta en Carrer d''Àngel Guimerà 1',276000.0,95.0,2.90526315789473665e+03,4,2,NULL,NULL,NULL,NULL,'montigala','badalona',NULL,'Oportunidad
 1/20
 276.000 €
@@ -45409,7 +45409,7 @@ Piso en venta en Montigalà - Sant Crist
 Badalona, Barcelona
 70 m²
 3 hab.
-1 baños','[]',NULL,'[{"price": 128483.0, "date": "2026-10-26T14:20:17.610082"}, {"price": 128477.0, "date": "2026-10-27T15:05:00.506051"}, {"price": 128483.0, "date": "2026-10-28T20:49:40.101588"}, {"price": 128480.0, "date": "2026-10-29T15:46:11.847569"}]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.157344',1);
+1 baños','[]',NULL,'[{"price": 128483.0, "date": "2026-10-26T14:20:17.610082"}, {"price": 128477.0, "date": "2026-10-27T15:05:00.506051"}, {"price": 128483.0, "date": "2026-10-28T20:49:40.101588"}, {"price": 128480.0, "date": "2026-10-29T15:46:11.847569"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.742128',1);
 INSERT INTO "listings" VALUES('habitaclia_cb08e19b-01dd-49b2-8695-4ce4b22bb026','habitaclia','cb08e19b-01dd-49b2-8695-4ce4b22bb026','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-otger/montigala-sant-crist/badalona/cb08e19b-01dd-49b2-8695-4ce4b22bb026/d','Piso con balcón en venta en Carrer d''Otger',265000.0,128.0,2070.3125,3,2,'3ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Ha bajado 15.000 €
@@ -45418,7 +45418,7 @@ Montigalà - Sant Crist, Badalona
 128 m²
 3 hab.
 2 baños
-3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.315763',1);
+3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.911989',1);
 INSERT INTO "listings" VALUES('habitaclia_c69a140a-654b-4d16-9025-e15cc7d14cc8','habitaclia','c69a140a-654b-4d16-9025-e15cc7d14cc8','https://www.habitaclia.com/comprar/planta-intermedia/coll-i-pujol/montigala-sant-crist/badalona/c69a140a-654b-4d16-9025-e15cc7d14cc8/d','Piso con ascensor en venta en coll i pujol',225500.0,78.0,2.8910256410256411e+03,3,1,'3ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/48
 225.500 €
 Piso con ascensor en venta en coll i pujol
@@ -45474,7 +45474,7 @@ Montigalà - Sant Crist, Badalona
 126 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.029190',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.616204',1);
 INSERT INTO "listings" VALUES('habitaclia_70816dee-5e90-460a-a6b1-4d12bc807802','habitaclia','70816dee-5e90-460a-a6b1-4d12bc807802','https://www.habitaclia.com/comprar/planta-intermedia/cami-de-sant-jeroni-de-la-murtra/montigala-sant-crist/badalona/70816dee-5e90-460a-a6b1-4d12bc807802/d','Piso con ascensor en venta en Camí de Sant Jeroni de la Murtra',310000.0,126.0,2.46031746031746024e+03,3,1,'1ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/28
 310.000 €
 Piso con ascensor en venta en Camí de Sant Jeroni de la Murtra
@@ -45482,7 +45482,7 @@ Montigalà - Sant Crist, Badalona
 126 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:54.994029',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.581017',1);
 INSERT INTO "listings" VALUES('habitaclia_36b08130-7e9c-4546-802e-0678a9ed4f03','habitaclia','36b08130-7e9c-4546-802e-0678a9ed4f03','https://www.habitaclia.com/comprar/planta-intermedia/montigala-sant-crist/badalona/36b08130-7e9c-4546-802e-0678a9ed4f03/d','Piso con balcón en venta en Montigalà - Sant Crist',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Ha bajado 15.000 €
@@ -45491,7 +45491,7 @@ Badalona, Barcelona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.384211',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.985093',1);
 INSERT INTO "listings" VALUES('habitaclia_4c54c6bd-b5f5-4898-8140-1ed72022d58e','habitaclia','4c54c6bd-b5f5-4898-8140-1ed72022d58e','https://www.habitaclia.com/comprar/planta-intermedia/montigala-sant-crist/badalona/4c54c6bd-b5f5-4898-8140-1ed72022d58e/d','Piso con balcón en venta en Montigalà - Sant Crist',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Ha bajado 15.000 €
@@ -45500,7 +45500,7 @@ Badalona, Barcelona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.298625',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.893617',1);
 INSERT INTO "listings" VALUES('habitaclia_601201d6-337a-4008-b3d1-dc04cef23a96','habitaclia','601201d6-337a-4008-b3d1-dc04cef23a96','https://www.habitaclia.com/comprar/planta-intermedia/montigala-sant-crist/badalona/601201d6-337a-4008-b3d1-dc04cef23a96/d','Piso con balcón en venta en Montigalà - Sant Crist',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Ha bajado 15.000 €
@@ -45509,7 +45509,7 @@ Badalona, Barcelona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.281445',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.875349',1);
 INSERT INTO "listings" VALUES('habitaclia_72d99507-4f94-4141-8982-71a99dedeb0f','habitaclia','72d99507-4f94-4141-8982-71a99dedeb0f','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-otger/montigala-sant-crist/badalona/72d99507-4f94-4141-8982-71a99dedeb0f/d','Piso con balcón en venta en Carrer d''Otger',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Ha bajado 15.000 €
@@ -45526,7 +45526,7 @@ Montigalà - Sant Crist, Badalona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.229069',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.820397',1);
 INSERT INTO "listings" VALUES('habitaclia_c94eef7a-9f7b-4b71-b865-3b8cae4a7eea','habitaclia','c94eef7a-9f7b-4b71-b865-3b8cae4a7eea','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-otger/montigala-sant-crist/badalona/c94eef7a-9f7b-4b71-b865-3b8cae4a7eea/d','Piso con balcón en venta en Carrer d''Otger',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Ha bajado 15.000 €
@@ -45543,7 +45543,7 @@ Montigalà - Sant Crist, Badalona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.103704',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.688002',1);
 INSERT INTO "listings" VALUES('habitaclia_0b247918-3f75-4dc0-87cd-2e412956b6f7','habitaclia','0b247918-3f75-4dc0-87cd-2e412956b6f7','https://www.habitaclia.com/comprar/planta-intermedia/montigala-sant-crist/badalona/0b247918-3f75-4dc0-87cd-2e412956b6f7/d','Piso con balcón en venta en Montigalà - Sant Crist',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Piso con balcón en venta en Montigalà - Sant Crist
@@ -45551,7 +45551,7 @@ Badalona, Barcelona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.011862',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.598619',1);
 INSERT INTO "listings" VALUES('habitaclia_312dd46b-f6a3-4dfe-aa7d-694b62ba98d3','habitaclia','312dd46b-f6a3-4dfe-aa7d-694b62ba98d3','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-otger/montigala-sant-crist/badalona/312dd46b-f6a3-4dfe-aa7d-694b62ba98d3/d','Piso con balcón en venta en Carrer d''Otger',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Ha bajado 15.000 €
@@ -45568,7 +45568,7 @@ Montigalà - Sant Crist, Badalona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:54.975999',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.562775',1);
 INSERT INTO "listings" VALUES('habitaclia_64c11944-7135-4cd6-8933-5ae057482556','habitaclia','64c11944-7135-4cd6-8933-5ae057482556','https://www.habitaclia.com/comprar/planta-intermedia/montigala-sant-crist/badalona/64c11944-7135-4cd6-8933-5ae057482556/d','Piso con balcón en venta en Montigalà - Sant Crist',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Piso con balcón en venta en Montigalà - Sant Crist
@@ -45576,7 +45576,7 @@ Badalona, Barcelona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.139754',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.724125',1);
 INSERT INTO "listings" VALUES('habitaclia_6cfcf650-2fb5-40b9-b221-35ef98f6204f','habitaclia','6cfcf650-2fb5-40b9-b221-35ef98f6204f','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-otger/montigala-sant-crist/badalona/6cfcf650-2fb5-40b9-b221-35ef98f6204f/d','Piso con balcón en venta en Carrer d''Otger',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Piso con balcón en venta en Carrer d''Otger
@@ -45584,7 +45584,7 @@ Montigalà - Sant Crist, Badalona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.246583',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.838485',1);
 INSERT INTO "listings" VALUES('habitaclia_7f5257ef-0e02-43fc-b177-788246a1acea','habitaclia','7f5257ef-0e02-43fc-b177-788246a1acea','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-otger/montigala-sant-crist/badalona/7f5257ef-0e02-43fc-b177-788246a1acea/d','Piso con balcón en venta en Carrer d''Otger',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Ha bajado 15.000 €
@@ -45593,7 +45593,7 @@ Montigalà - Sant Crist, Badalona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.367250',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.967019',1);
 INSERT INTO "listings" VALUES('habitaclia_900a297a-9de1-4ea1-ac03-bda695784ec5','habitaclia','900a297a-9de1-4ea1-ac03-bda695784ec5','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-otger/montigala-sant-crist/badalona/900a297a-9de1-4ea1-ac03-bda695784ec5/d','Piso con balcón en venta en Carrer d''Otger',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Piso con balcón en venta en Carrer d''Otger
@@ -45601,7 +45601,7 @@ Montigalà - Sant Crist, Badalona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.121628',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.705984',1);
 INSERT INTO "listings" VALUES('habitaclia_dbcca53e-11b6-442d-97dc-53f65fb62e51','habitaclia','dbcca53e-11b6-442d-97dc-53f65fb62e51','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-otger/montigala-sant-crist/badalona/dbcca53e-11b6-442d-97dc-53f65fb62e51/d','Piso con balcón en venta en Carrer d''Otger',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Ha bajado 15.000 €
@@ -45610,7 +45610,7 @@ Montigalà - Sant Crist, Badalona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.350050',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.948626',1);
 INSERT INTO "listings" VALUES('habitaclia_e85257e9-6025-47e3-a13b-15a90513e658','habitaclia','e85257e9-6025-47e3-a13b-15a90513e658','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-otger/montigala-sant-crist/badalona/e85257e9-6025-47e3-a13b-15a90513e658/d','Piso con balcón en venta en Carrer d''Otger',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Ha bajado 15.000 €
@@ -45619,7 +45619,7 @@ Montigalà - Sant Crist, Badalona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.264000',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.857044',1);
 INSERT INTO "listings" VALUES('habitaclia_ea83b9c1-b005-4d62-8d09-dcf6c066b0a6','habitaclia','ea83b9c1-b005-4d62-8d09-dcf6c066b0a6','https://www.habitaclia.com/comprar/planta-intermedia/montigala-sant-crist/badalona/ea83b9c1-b005-4d62-8d09-dcf6c066b0a6/d','Piso con balcón en venta en Montigalà - Sant Crist',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Ha bajado 15.000 €
@@ -45628,7 +45628,7 @@ Badalona, Barcelona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.333011',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.930448',1);
 INSERT INTO "listings" VALUES('habitaclia_fa58e938-7dc2-4267-ae06-5024ef3f685e','habitaclia','fa58e938-7dc2-4267-ae06-5024ef3f685e','https://www.habitaclia.com/comprar/planta-intermedia/montigala-sant-crist/badalona/fa58e938-7dc2-4267-ae06-5024ef3f685e/d','Piso con balcón en venta en Montigalà - Sant Crist',265000.0,128.0,2070.3125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
 265.000 €
 Piso con balcón en venta en Montigalà - Sant Crist
@@ -45636,7 +45636,7 @@ Badalona, Barcelona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.211367',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.802309',1);
 INSERT INTO "listings" VALUES('habitaclia_07a16852-d535-456e-b215-36fdc8aa8b19','habitaclia','07a16852-d535-456e-b215-36fdc8aa8b19','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-coll-i-pujol/montigala-sant-crist/badalona/07a16852-d535-456e-b215-36fdc8aa8b19/d','Piso con balcón en venta en Carrer de Coll i Pujol',265000.0,82.0,3.23170731707317054e+03,4,1,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/28
 265.000 €
 Piso con balcón en venta en Carrer de Coll i Pujol
@@ -45897,7 +45897,7 @@ Montigalà - Sant Crist, Badalona
 70 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.194186',1);
+3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.784076',1);
 INSERT INTO "listings" VALUES('habitaclia_1ade38a4-b5ba-4308-b908-a8a793c449d5','habitaclia','1ade38a4-b5ba-4308-b908-a8a793c449d5','https://www.habitaclia.com/comprar/planta-intermedia/c-agueda-mompel/montigala-sant-crist/badalona/1ade38a4-b5ba-4308-b908-a8a793c449d5/d','Piso en venta en C/ Águeda Mompel',195000.0,81.0,2.40740740740740739e+03,3,1,NULL,NULL,NULL,NULL,'montigala','badalona',NULL,'1/5
 195.000 €
 Piso en venta en C/ Águeda Mompel
@@ -45979,7 +45979,7 @@ Piso en venta en C/ Sant Joan de la Creu
 Montigalà - Sant Crist, Badalona
 73 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:55.046500',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:43.633947',1);
 INSERT INTO "listings" VALUES('habitaclia_75aeefe4-a65b-4898-b89d-306a773fc655','habitaclia','75aeefe4-a65b-4898-b89d-306a773fc655','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/75aeefe4-a65b-4898-b89d-306a773fc655/d','Piso con ascensor en venta en Centre',314500.0,90.0,3.49444444444444434e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'Oportunidad
 1/26
 1
@@ -45996,7 +45996,7 @@ INSERT INTO "listings" VALUES('habitaclia_58004112-e7c8-4f87-92e3-7ef0f648806d',
 Santa Coloma de Gramenet, Barcelona
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.118657',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.641864',1);
 INSERT INTO "listings" VALUES('habitaclia_cfaba2a8-4a13-4473-88ad-e89e2e15be7e','habitaclia','cfaba2a8-4a13-4473-88ad-e89e2e15be7e','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/cfaba2a8-4a13-4473-88ad-e89e2e15be7e/d','Piso en venta en Centre',250000.0,77.0,3.24675324675324691e+03,3,1,'1ª planta',NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'Oportunidad
 1/11
 250.000 €
@@ -46005,7 +46005,7 @@ Santa Coloma de Gramenet, Barcelona
 77 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.764877',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.282647',1);
 INSERT INTO "listings" VALUES('habitaclia_1f36bbc4-ff1e-4ac4-b6ab-5df2d406e063','habitaclia','1f36bbc4-ff1e-4ac4-b6ab-5df2d406e063','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/1f36bbc4-ff1e-4ac4-b6ab-5df2d406e063/d','Piso con balcón en venta en Centre',225000.0,104.0,2.16346153846153856e+03,4,1,'4ª planta',NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/24
 225.000 €
 Piso con balcón en venta en Centre
@@ -46039,7 +46039,7 @@ Centre, Santa Coloma de Gramenet
 78 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.099091',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.623503',1);
 INSERT INTO "listings" VALUES('habitaclia_e9186163-573c-4638-bba9-ca743c4f6676','habitaclia','e9186163-573c-4638-bba9-ca743c4f6676','https://www.habitaclia.com/comprar/planta-intermedia/calle-de-la-ciutadella/centre/santa-coloma-de-gramenet/e9186163-573c-4638-bba9-ca743c4f6676/d','Piso con balcón en venta en Calle De La Ciutadella',258000.0,77.0,3.3506493506493507e+03,3,1,'1ª planta',NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'Oportunidad
 1/17
 1
@@ -46068,28 +46068,28 @@ Santa Coloma de Gramenet, Barcelona
 97 m²
 3 hab.
 2 baños
-3º','[]',NULL,'[{"price": 144999.0, "date": "2026-10-26T14:20:36.021266"}, {"price": 145005.0, "date": "2026-10-27T15:05:16.697163"}, {"price": 144999.0, "date": "2026-10-28T20:49:51.265071"}, {"price": 145002.0, "date": "2026-10-29T15:46:29.232425"}]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.136428',1);
+3º','[]',NULL,'[{"price": 144999.0, "date": "2026-10-26T14:20:36.021266"}, {"price": 145005.0, "date": "2026-10-27T15:05:16.697163"}, {"price": 144999.0, "date": "2026-10-28T20:49:51.265071"}, {"price": 145002.0, "date": "2026-10-29T15:46:29.232425"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.661312',1);
 INSERT INTO "listings" VALUES('habitaclia_970ef414-3e39-4bf4-86d4-794a98cb91f6','habitaclia','970ef414-3e39-4bf4-86d4-794a98cb91f6','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/970ef414-3e39-4bf4-86d4-794a98cb91f6/d','Piso con ascensor en venta en Centre',314500.0,90.0,3.49444444444444434e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/26
 314.500 €
 Piso con ascensor en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 90 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.782474',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.300136',1);
 INSERT INTO "listings" VALUES('habitaclia_afa72daf-8f70-43ee-a479-a0e9008312d8','habitaclia','afa72daf-8f70-43ee-a479-a0e9008312d8','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/afa72daf-8f70-43ee-a479-a0e9008312d8/d','Piso con ascensor en venta en Centre',314500.0,90.0,3.49444444444444434e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/26
 314.500 €
 Piso con ascensor en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 90 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.817407',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.336117',1);
 INSERT INTO "listings" VALUES('habitaclia_142e466a-f730-4f9b-b460-74d134c10e52','habitaclia','142e466a-f730-4f9b-b460-74d134c10e52','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-marina/centre/santa-coloma-de-gramenet/142e466a-f730-4f9b-b460-74d134c10e52/d','Piso con ascensor en venta en Carrer de Marina',314500.0,90.0,3.49444444444444434e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/21
 314.500 €
 Piso con ascensor en venta en Carrer de Marina
 Centre, Santa Coloma de Gramenet
 90 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.920122',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.444127',1);
 INSERT INTO "listings" VALUES('habitaclia_01b86a73-7cf0-44c1-9064-639f99731038','habitaclia','01b86a73-7cf0-44c1-9064-639f99731038','https://www.habitaclia.com/comprar/atico/centre/santa-coloma-de-gramenet/01b86a73-7cf0-44c1-9064-639f99731038/d','Ático en venta en Centre',194000.0,70.0,2.77142857142857155e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'Oportunidad
 1/18
 194.000 €
@@ -46097,21 +46097,21 @@ INSERT INTO "listings" VALUES('habitaclia_01b86a73-7cf0-44c1-9064-639f99731038',
 Santa Coloma de Gramenet, Barcelona
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.869090',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.389895',1);
 INSERT INTO "listings" VALUES('habitaclia_57860b26-f390-4593-85cc-b0a310e86b4d','habitaclia','57860b26-f390-4593-85cc-b0a310e86b4d','https://www.habitaclia.com/comprar/atico/carrer-del-doctor-pages/centre/santa-coloma-de-gramenet/57860b26-f390-4593-85cc-b0a310e86b4d/d','Ático en venta en Carrer del Doctor Pagès',194000.0,70.0,2.77142857142857155e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/18
 194.000 €
 Ático en venta en Carrer del Doctor Pagès
 Centre, Santa Coloma de Gramenet
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.903288',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.426263',1);
 INSERT INTO "listings" VALUES('habitaclia_6c7a4e8f-1150-42cf-9077-d15d28e8d358','habitaclia','6c7a4e8f-1150-42cf-9077-d15d28e8d358','https://www.habitaclia.com/comprar/atico/centre/santa-coloma-de-gramenet/6c7a4e8f-1150-42cf-9077-d15d28e8d358/d','Ático en venta en Centre',194000.0,70.0,2.77142857142857155e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/18
 194.000 €
 Ático en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.886039',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.407725',1);
 INSERT INTO "listings" VALUES('habitaclia_80ff93e1-3133-40f2-b6d6-b527bb261a50','habitaclia','80ff93e1-3133-40f2-b6d6-b527bb261a50','https://www.habitaclia.com/comprar/atico/carrer-del-doctor-pages/centre/santa-coloma-de-gramenet/80ff93e1-3133-40f2-b6d6-b527bb261a50/d','Ático en venta en Carrer del Doctor Pagès',194000.0,70.0,2.77142857142857155e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'Oportunidad
 1/18
 194.000 €
@@ -46119,42 +46119,42 @@ INSERT INTO "listings" VALUES('habitaclia_80ff93e1-3133-40f2-b6d6-b527bb261a50',
 Centre, Santa Coloma de Gramenet
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.062854',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.588360',1);
 INSERT INTO "listings" VALUES('habitaclia_8e063a11-f639-4ba3-83d1-d896c0a3ba41','habitaclia','8e063a11-f639-4ba3-83d1-d896c0a3ba41','https://www.habitaclia.com/comprar/atico/carrer-del-doctor-pages/centre/santa-coloma-de-gramenet/8e063a11-f639-4ba3-83d1-d896c0a3ba41/d','Ático en venta en Carrer del Doctor Pagès',194000.0,70.0,2.77142857142857155e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/18
 194.000 €
 Ático en venta en Carrer del Doctor Pagès
 Centre, Santa Coloma de Gramenet
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.008087',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.534118',1);
 INSERT INTO "listings" VALUES('habitaclia_9b247579-9fa4-439e-b071-27e463a3d8d9','habitaclia','9b247579-9fa4-439e-b071-27e463a3d8d9','https://www.habitaclia.com/comprar/atico/centre/santa-coloma-de-gramenet/9b247579-9fa4-439e-b071-27e463a3d8d9/d','Ático en venta en Centre',194000.0,70.0,2.77142857142857155e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/18
 194.000 €
 Ático en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.800204',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.318015',1);
 INSERT INTO "listings" VALUES('habitaclia_a4a4bf4c-1d70-4503-8919-7b63bdcc7493','habitaclia','a4a4bf4c-1d70-4503-8919-7b63bdcc7493','https://www.habitaclia.com/comprar/atico/carrer-del-doctor-pages/centre/santa-coloma-de-gramenet/a4a4bf4c-1d70-4503-8919-7b63bdcc7493/d','Ático en venta en Carrer del Doctor Pagès',194000.0,70.0,2.77142857142857155e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/18
 194.000 €
 Ático en venta en Carrer del Doctor Pagès
 Centre, Santa Coloma de Gramenet
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.026011',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.552370',1);
 INSERT INTO "listings" VALUES('habitaclia_da46edad-18cf-4193-a909-08144bf9eba6','habitaclia','da46edad-18cf-4193-a909-08144bf9eba6','https://www.habitaclia.com/comprar/atico/centre/santa-coloma-de-gramenet/da46edad-18cf-4193-a909-08144bf9eba6/d','Ático en venta en Centre',194000.0,70.0,2.77142857142857155e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/18
 194.000 €
 Ático en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.972615',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.496778',1);
 INSERT INTO "listings" VALUES('habitaclia_dc88b3a1-1a7a-4ae4-8605-371134974ac8','habitaclia','dc88b3a1-1a7a-4ae4-8605-371134974ac8','https://www.habitaclia.com/comprar/atico/centre/santa-coloma-de-gramenet/dc88b3a1-1a7a-4ae4-8605-371134974ac8/d','Ático en venta en Centre',194000.0,70.0,2.77142857142857155e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/18
 194.000 €
 Ático en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.852125',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.371788',1);
 INSERT INTO "listings" VALUES('habitaclia_eb064431-3866-4ca8-84c3-ea289a1941d3','habitaclia','eb064431-3866-4ca8-84c3-ea289a1941d3','https://www.habitaclia.com/comprar/atico/centre/santa-coloma-de-gramenet/eb064431-3866-4ca8-84c3-ea289a1941d3/d','Ático en venta en Centre',194000.0,70.0,2.77142857142857155e+03,3,1,'ático',NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/18
 194.000 €
 Ático en venta en Centre
@@ -46162,28 +46162,28 @@ Santa Coloma de Gramenet, Barcelona
 70 m²
 3 hab.
 1 baños
-Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.043851',1);
+Ático','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.570496',1);
 INSERT INTO "listings" VALUES('habitaclia_ebcd8524-505d-43a3-82b6-02a961fdcc09','habitaclia','ebcd8524-505d-43a3-82b6-02a961fdcc09','https://www.habitaclia.com/comprar/atico/centre/santa-coloma-de-gramenet/ebcd8524-505d-43a3-82b6-02a961fdcc09/d','Ático en venta en Centre',194000.0,70.0,2.77142857142857155e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/18
 194.000 €
 Ático en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.990444',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.514357',1);
 INSERT INTO "listings" VALUES('habitaclia_fb562a04-fc66-4243-a1ed-809976dceed4','habitaclia','fb562a04-fc66-4243-a1ed-809976dceed4','https://www.habitaclia.com/comprar/atico/centre/santa-coloma-de-gramenet/fb562a04-fc66-4243-a1ed-809976dceed4/d','Ático en venta en Centre',194000.0,70.0,2.77142857142857155e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/18
 194.000 €
 Ático en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.835156',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.353898',1);
 INSERT INTO "listings" VALUES('habitaclia_03fbd675-4567-4376-a5d2-bb51ce61e825','habitaclia','03fbd675-4567-4376-a5d2-bb51ce61e825','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/03fbd675-4567-4376-a5d2-bb51ce61e825/d','Piso con ascensor en venta en Centre',314500.0,90.0,3.49444444444444434e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/26
 314.500 €
 Piso con ascensor en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 90 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.243090',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.766680',1);
 INSERT INTO "listings" VALUES('habitaclia_34509440-9927-4c2f-bd24-83926cb1d9b2','habitaclia','34509440-9927-4c2f-bd24-83926cb1d9b2','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/34509440-9927-4c2f-bd24-83926cb1d9b2/d','Piso con ascensor en venta en Centre',314500.0,90.0,3.49444444444444434e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/26
 314.500 €
 Piso con ascensor en venta en Centre
@@ -46197,35 +46197,35 @@ Piso con ascensor en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 90 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.172967',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.696436',1);
 INSERT INTO "listings" VALUES('habitaclia_95612661-a0bd-4646-af92-5c27a647ecba','habitaclia','95612661-a0bd-4646-af92-5c27a647ecba','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/95612661-a0bd-4646-af92-5c27a647ecba/d','Piso con ascensor en venta en Centre',314500.0,90.0,3.49444444444444434e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/26
 314.500 €
 Piso con ascensor en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 90 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.225446',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.749329',1);
 INSERT INTO "listings" VALUES('habitaclia_abfb8e8d-865f-471f-8ba1-2df74508b0a1','habitaclia','abfb8e8d-865f-471f-8ba1-2df74508b0a1','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/abfb8e8d-865f-471f-8ba1-2df74508b0a1/d','Piso con ascensor en venta en Centre',314500.0,90.0,3.49444444444444434e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/26
 314.500 €
 Piso con ascensor en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 90 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.208129',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.732034',1);
 INSERT INTO "listings" VALUES('habitaclia_c02ff576-c0d0-4a87-8f4b-851a3a641dad','habitaclia','c02ff576-c0d0-4a87-8f4b-851a3a641dad','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/c02ff576-c0d0-4a87-8f4b-851a3a641dad/d','Piso con ascensor en venta en Centre',314500.0,90.0,3.49444444444444434e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/26
 314.500 €
 Piso con ascensor en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 90 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.081208',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.606111',1);
 INSERT INTO "listings" VALUES('habitaclia_d691f0d4-8ef2-4a10-9d2b-48b75836390a','habitaclia','d691f0d4-8ef2-4a10-9d2b-48b75836390a','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-marina/centre/santa-coloma-de-gramenet/d691f0d4-8ef2-4a10-9d2b-48b75836390a/d','Piso con ascensor en venta en Carrer de Marina',314500.0,90.0,3.49444444444444434e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/26
 314.500 €
 Piso con ascensor en venta en Carrer de Marina
 Centre, Santa Coloma de Gramenet
 90 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.154740',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.679095',1);
 INSERT INTO "listings" VALUES('habitaclia_5a61a612-a98c-4c09-a278-c05b8d51dd30','habitaclia','5a61a612-a98c-4c09-a278-c05b8d51dd30','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-mossen-camil-rosell/centre/santa-coloma-de-gramenet/5a61a612-a98c-4c09-a278-c05b8d51dd30/d','Piso con balcón en venta en Carrer de Mossèn Camil Rosell',299000.0,95.0,3.14736842105263167e+03,4,1,'3ª planta',NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/10
 299.000 €
 Piso con balcón en venta en Carrer de Mossèn Camil Rosell
@@ -46240,14 +46240,14 @@ INSERT INTO "listings" VALUES('habitaclia_410d819f-cde7-4e0d-bb6e-ba6193536822',
 Santa Coloma de Gramenet, Barcelona
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.937140',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.461650',1);
 INSERT INTO "listings" VALUES('habitaclia_890974fc-13fe-4945-8b49-fea4cb75cc3f','habitaclia','890974fc-13fe-4945-8b49-fea4cb75cc3f','https://www.habitaclia.com/comprar/atico/centre/santa-coloma-de-gramenet/890974fc-13fe-4945-8b49-fea4cb75cc3f/d','Ático en venta en Centre',194000.0,70.0,2.77142857142857155e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/18
 194.000 €
 Ático en venta en Centre
 Santa Coloma de Gramenet, Barcelona
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:30:59.954407',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.479599',1);
 INSERT INTO "listings" VALUES('habitaclia_224ada13-e75b-4648-801e-188beb9887a1','habitaclia','224ada13-e75b-4648-801e-188beb9887a1','https://www.habitaclia.com/comprar/apartamento/centre/santa-coloma-de-gramenet/224ada13-e75b-4648-801e-188beb9887a1/d','Apartamento en venta en Centre',290000.0,92.0,3.15217391304347847e+03,2,1,'1ª planta',NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/5
 290.000 €
 Apartamento en venta en Centre
@@ -46263,7 +46263,7 @@ Centre, Santa Coloma de Gramenet
 96 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[{"price": 299000.0, "date": "2026-10-26T15:17:26.204884"}, {"price": 290000.0, "date": "2026-10-26T15:48:24.370841"}]','2026-10-23 09:55:32.518939','2026-10-30 16:31:00.190846',1);
+2º','[]',NULL,'[{"price": 299000.0, "date": "2026-10-26T15:17:26.204884"}, {"price": 290000.0, "date": "2026-10-26T15:48:24.370841"}]','2026-10-23 09:55:32.518939','2026-10-30 16:41:48.714283',1);
 INSERT INTO "listings" VALUES('habitaclia_dd2b1c4c-4b03-4f20-8130-e91ebf27e0c3','habitaclia','dd2b1c4c-4b03-4f20-8130-e91ebf27e0c3','https://www.habitaclia.com/comprar/planta-intermedia/carrer-prat-de-la-riba-23/centre/santa-coloma-de-gramenet/dd2b1c4c-4b03-4f20-8130-e91ebf27e0c3/d','Piso en venta en Carrer Prat De La Riba 23',137500.0,70.0,1.96428571428571422e+03,2,1,'1ª planta',NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/4
 137.500 €
 Piso en venta en Carrer Prat De La Riba 23
@@ -46292,14 +46292,14 @@ Barcelona Capital, Barcelona
 130 m²
 5 hab.
 2 baños
-5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:08.684063',1);
+5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:02.635494',1);
 INSERT INTO "listings" VALUES('habitaclia_4761d2b5-5d09-4cf8-a4bf-1dc9de6a6d1d','habitaclia','4761d2b5-5d09-4cf8-a4bf-1dc9de6a6d1d','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-marina/horta-guinardo/barcelona-capital/4761d2b5-5d09-4cf8-a4bf-1dc9de6a6d1d/d','Piso en venta en Carrer de la Marina',315110.0,86.0,3.66406976744186067e+03,3,2,NULL,NULL,NULL,NULL,'baix guinardo','barcelona',NULL,'1/2
 315.110 €
 Piso en venta en Carrer de la Marina
 Horta - Guinardó, Barcelona Capital
 86 m²
 3 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:08.649414',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:02.599251',1);
 INSERT INTO "listings" VALUES('habitaclia_2c15fb37-f13d-4f0d-9639-8d9c64f7966d','habitaclia','2c15fb37-f13d-4f0d-9639-8d9c64f7966d','https://www.habitaclia.com/comprar/planta-intermedia/guinardo/horta-guinardo/barcelona-capital/2c15fb37-f13d-4f0d-9639-8d9c64f7966d/d','Piso con balcón en venta en GUINARDO',283900.0,70.0,4.05571428571428577e+03,2,1,'3ª planta',NULL,NULL,NULL,'baix guinardo','barcelona',NULL,'1
 283.900 €
 Piso con balcón en venta en GUINARDO
@@ -46307,14 +46307,14 @@ Horta - Guinardó, Barcelona Capital
 70 m²
 2 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:08.666645',1);
+3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:02.617259',1);
 INSERT INTO "listings" VALUES('habitaclia_6f209a4d-bc24-44da-83f9-9889c002ea5f','habitaclia','6f209a4d-bc24-44da-83f9-9889c002ea5f','https://www.habitaclia.com/comprar/planta-intermedia/tr-travessera-de-gracia/horta-guinardo/barcelona-capital/6f209a4d-bc24-44da-83f9-9889c002ea5f/d','Piso con ascensor en venta en Tr Travessera De Gracia',315000.0,83.0,3.79518072289156634e+03,3,2,NULL,NULL,NULL,NULL,'baix guinardo','barcelona',NULL,'1
 315.000 €
 Piso con ascensor en venta en Tr Travessera De Gracia
 Horta - Guinardó, Barcelona Capital
 83 m²
 3 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:08.701581',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:02.653368',1);
 INSERT INTO "listings" VALUES('habitaclia_da1ef7ab-d713-4e87-8948-f6c413a9878f','habitaclia','da1ef7ab-d713-4e87-8948-f6c413a9878f','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/da1ef7ab-d713-4e87-8948-f6c413a9878f/d','Piso con balcón en venta en Sant Andreu',280000.0,102.0,2.74509803921568618e+03,4,1,'1ª planta',NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1/36
 280.000 €
 Ha bajado 19.000 €
@@ -46323,7 +46323,7 @@ Barcelona Capital, Barcelona
 102 m²
 4 hab.
 1 baños
-1º','[]',NULL,'[{"price": 299000.0, "date": "2026-10-27T03:31:55.190259"}]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.438361',1);
+1º','[]',NULL,'[{"price": 299000.0, "date": "2026-10-27T03:31:55.190259"}]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.493235',1);
 INSERT INTO "listings" VALUES('habitaclia_84b48cac-0481-4d15-ae1f-9b19951e4136','habitaclia','84b48cac-0481-4d15-ae1f-9b19951e4136','https://www.habitaclia.com/comprar/estudio/carrer-del-segre/sant-andreu/barcelona-capital/84b48cac-0481-4d15-ae1f-9b19951e4136/d','Estudio en venta en Carrer del Segre',249000.0,103.0,2.41747572815533976e+03,1,1,NULL,NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1/28
 1
 249.000 €
@@ -46332,7 +46332,7 @@ Sant Andreu, Barcelona Capital
 103 m²
 1 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.402661',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.456690',1);
 INSERT INTO "listings" VALUES('habitaclia_78a57e12-9d06-4a3e-8ca0-02b56bfbac6b','habitaclia','78a57e12-9d06-4a3e-8ca0-02b56bfbac6b','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-mir/sant-andreu/barcelona-capital/78a57e12-9d06-4a3e-8ca0-02b56bfbac6b/d','Piso con balcón en venta en Carrer de Mir',320000.0,74.0,4.32432432432432415e+03,3,1,'1ª planta',NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1/19
 320.000 €
 Piso con balcón en venta en Carrer de Mir
@@ -46340,7 +46340,7 @@ Sant Andreu, Barcelona Capital
 74 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.182095',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.234352',1);
 INSERT INTO "listings" VALUES('habitaclia_160caee0-1298-467c-b816-79761e184a75','habitaclia','160caee0-1298-467c-b816-79761e184a75','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/160caee0-1298-467c-b816-79761e184a75/d','Piso con balcón en venta en Sant Andreu',318000.0,72.0,4.41666666666666696e+03,3,1,'2ª planta',NULL,NULL,NULL,'sant andreu','barcelona',NULL,'Oportunidad
 1/18
 318.000 €
@@ -46349,7 +46349,7 @@ Barcelona Capital, Barcelona
 72 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.218921',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.271431',1);
 INSERT INTO "listings" VALUES('habitaclia_87027d40-23ea-450d-9020-3da6ca812eff','habitaclia','87027d40-23ea-450d-9020-3da6ca812eff','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-valles/sant-andreu/barcelona-capital/87027d40-23ea-450d-9020-3da6ca812eff/d','Piso con ascensor en venta en Carrer del Vallès .',210000.0,70.0,3000.0,3,1,'1ª planta',NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1/26
 210.000 €
 Piso con ascensor en venta en Carrer del Vallès .
@@ -46357,7 +46357,7 @@ Sant Andreu, Barcelona Capital
 70 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.420638',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.474785',1);
 INSERT INTO "listings" VALUES('habitaclia_784bbd59-a2d6-466f-8836-79c3137c1d20','habitaclia','784bbd59-a2d6-466f-8836-79c3137c1d20','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/784bbd59-a2d6-466f-8836-79c3137c1d20/d','Piso en venta en Sant Andreu',315000.0,75.0,4200.0,3,1,NULL,NULL,NULL,NULL,'sant andreu','barcelona',NULL,'Oportunidad
 1/40
 315.000 €
@@ -46375,7 +46375,7 @@ Sant Andreu, Barcelona Capital
 70 m²
 3 hab.
 1 baños
-6º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.164293',1);
+6º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.215939',1);
 INSERT INTO "listings" VALUES('habitaclia_43c97dde-c38c-49a9-98b7-29226fd9800b','habitaclia','43c97dde-c38c-49a9-98b7-29226fd9800b','https://www.habitaclia.com/comprar/planta-intermedia/rambla-onze-de-setembre/sant-andreu/barcelona-capital/43c97dde-c38c-49a9-98b7-29226fd9800b/d','Piso en venta en Rambla ONZE DE SETEMBRE',309000.0,95.0,3.25263157894736832e+03,5,2,NULL,NULL,NULL,NULL,'sant andreu','barcelona',NULL,'Oportunidad
 1/19
 1
@@ -46386,7 +46386,7 @@ Sant Andreu, Barcelona Capital
 95 m²
 5 hab.
 2 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.237852',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.289518',1);
 INSERT INTO "listings" VALUES('habitaclia_cdfa466a-9a61-4927-9b84-6703a356f0af','habitaclia','cdfa466a-9a61-4927-9b84-6703a356f0af','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-sant-adria/sant-andreu/barcelona-capital/cdfa466a-9a61-4927-9b84-6703a356f0af/d','Piso con balcón en venta en Carrer de Sant Adrià',320000.0,73.0,4.38356164383561645e+03,3,1,'6ª planta',NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1/10
 320.000 €
 Piso con balcón en venta en Carrer de Sant Adrià
@@ -46394,14 +46394,14 @@ Sant Andreu, Barcelona Capital
 73 m²
 3 hab.
 1 baños
-6º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.384356',1);
+6º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.438470',1);
 INSERT INTO "listings" VALUES('habitaclia_1797ab93-8ed6-4ae3-85a4-63388391e2c9','habitaclia','1797ab93-8ed6-4ae3-85a4-63388391e2c9','https://www.habitaclia.com/comprar/planta-intermedia/passeig-de-torras-i-bages/sant-andreu/barcelona-capital/1797ab93-8ed6-4ae3-85a4-63388391e2c9/d','Piso con ascensor en venta en Passeig de Torras i Bages',220000.0,78.0,2.82051282051282032e+03,3,1,NULL,NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1/13
 220.000 €
 Piso con ascensor en venta en Passeig de Torras i Bages
 Sant Andreu, Barcelona Capital
 78 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.146319',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.197471',1);
 INSERT INTO "listings" VALUES('habitaclia_8e32196f-f910-44f1-bee4-c712ac2a1494','habitaclia','8e32196f-f910-44f1-bee4-c712ac2a1494','https://www.habitaclia.com/comprar/planta-intermedia/calle-llenguadoc/sant-andreu/barcelona-capital/8e32196f-f910-44f1-bee4-c712ac2a1494/d','Piso con ascensor en venta en Calle Llenguadoc',320000.0,90.0,3.55555555555555565e+03,3,1,NULL,NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1/17
 320.000 €
 Piso con ascensor en venta en Calle Llenguadoc
@@ -46416,7 +46416,7 @@ Piso con ascensor en venta en Av Meridiana 586
 Sant Andreu, Barcelona Capital
 71 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.473541',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.530122',1);
 INSERT INTO "listings" VALUES('habitaclia_0412c301-5686-4d30-a450-ea74a3d193f0','habitaclia','0412c301-5686-4d30-a450-ea74a3d193f0','https://www.habitaclia.com/comprar/planta-intermedia/avinguda-meridiana-574/sant-andreu/barcelona-capital/0412c301-5686-4d30-a450-ea74a3d193f0/d','Piso con piscina en venta en Avinguda Meridiana 574',315000.0,72.0,4375.0,2,1,'5ª planta',NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1/20
 315.000 €
 Piso con piscina en venta en Avinguda Meridiana 574
@@ -46424,7 +46424,7 @@ Sant Andreu, Barcelona Capital
 72 m²
 2 hab.
 1 baños
-5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.274476',1);
+5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.325976',1);
 INSERT INTO "listings" VALUES('habitaclia_47a0fbb8-a62d-4397-b093-d840c05d8187','habitaclia','47a0fbb8-a62d-4397-b093-d840c05d8187','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/47a0fbb8-a62d-4397-b093-d840c05d8187/d','Piso con ascensor en venta en Sant Andreu',135000.0,74.0,1.82432432432432437e+03,4,2,'8ª planta',NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1
 135.000 €
 Piso con ascensor en venta en Sant Andreu
@@ -46432,7 +46432,7 @@ Barcelona Capital, Barcelona
 74 m²
 4 hab.
 2 baños
-8º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.456250',1);
+8º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.511519',1);
 INSERT INTO "listings" VALUES('habitaclia_656d4a86-271a-423c-b0d2-59d40b944ccc','habitaclia','656d4a86-271a-423c-b0d2-59d40b944ccc','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/656d4a86-271a-423c-b0d2-59d40b944ccc/d','Piso con balcón en venta en Sant Andreu',286000.0,77.0,3.71428571428571422e+03,4,2,'1ª planta',NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1
 286.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46440,55 +46440,55 @@ Barcelona Capital, Barcelona
 77 m²
 4 hab.
 2 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.200459',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.252886',1);
 INSERT INTO "listings" VALUES('habitaclia_6cf4af06-9ddf-40f2-92d7-f616de99d4f9','habitaclia','6cf4af06-9ddf-40f2-92d7-f616de99d4f9','https://www.habitaclia.com/comprar/planta-intermedia/paseo-torras-i-bages/sant-andreu/barcelona-capital/6cf4af06-9ddf-40f2-92d7-f616de99d4f9/d','Piso en venta en Paseo Torras i Bages',135000.0,74.0,1.82432432432432437e+03,4,2,NULL,NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1
 135.000 €
 Piso en venta en Paseo Torras i Bages
 Sant Andreu, Barcelona Capital
 74 m²
 4 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.490967',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.548139',1);
 INSERT INTO "listings" VALUES('habitaclia_01ab6b2c-85ab-4807-b58e-c3424a8619a5','habitaclia','01ab6b2c-85ab-4807-b58e-c3424a8619a5','https://www.habitaclia.com/comprar/chalet/cl-gran-de-sant-andreu/sant-andreu/barcelona-capital/01ab6b2c-85ab-4807-b58e-c3424a8619a5/d','Chalet en venta en CL GRAN DE SANT ANDREU',199000.0,81.0,2.45679012345679029e+03,2,1,NULL,NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1
 199.000 €
 Chalet en venta en CL GRAN DE SANT ANDREU
 Sant Andreu, Barcelona Capital
 81 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.328028',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.382363',1);
 INSERT INTO "listings" VALUES('habitaclia_5463dfaf-fbd3-4b8a-9202-19e7bc1f430f','habitaclia','5463dfaf-fbd3-4b8a-9202-19e7bc1f430f','https://www.habitaclia.com/comprar/chalet/cl-gran-de-sant-andreu/sant-andreu/barcelona-capital/5463dfaf-fbd3-4b8a-9202-19e7bc1f430f/d','Chalet en venta en CL GRAN DE SANT ANDREU',233000.0,111.0,2.09909909909909902e+03,3,1,NULL,NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1
 233.000 €
 Chalet en venta en CL GRAN DE SANT ANDREU
 Sant Andreu, Barcelona Capital
 111 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.310247',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.363371',1);
 INSERT INTO "listings" VALUES('habitaclia_c8c9db12-4c05-40a8-9de1-cc5d1560f901','habitaclia','c8c9db12-4c05-40a8-9de1-cc5d1560f901','https://www.habitaclia.com/comprar/chalet/cl-gran-de-sant-andreu/sant-andreu/barcelona-capital/c8c9db12-4c05-40a8-9de1-cc5d1560f901/d','Chalet en venta en CL GRAN DE SANT ANDREU',221000.0,85.0,2600.0,2,1,NULL,NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1
 221.000 €
 Chalet en venta en CL GRAN DE SANT ANDREU
 Sant Andreu, Barcelona Capital
 85 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.346000',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.401220',1);
 INSERT INTO "listings" VALUES('habitaclia_db24603c-4202-4fca-9afc-f2ac0a0197a2','habitaclia','db24603c-4202-4fca-9afc-f2ac0a0197a2','https://www.habitaclia.com/comprar/chalet/cl-gran-de-sant-andreu/sant-andreu/barcelona-capital/db24603c-4202-4fca-9afc-f2ac0a0197a2/d','Chalet en venta en CL GRAN DE SANT ANDREU',170000.0,70.0,2.42857142857142844e+03,2,1,NULL,NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1
 170.000 €
 Chalet en venta en CL GRAN DE SANT ANDREU
 Sant Andreu, Barcelona Capital
 70 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.292644',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.344624',1);
 INSERT INTO "listings" VALUES('habitaclia_e6c9e27b-2908-4015-a831-68b16c9a4c2e','habitaclia','e6c9e27b-2908-4015-a831-68b16c9a4c2e','https://www.habitaclia.com/comprar/chalet/cl-gran-de-sant-andreu/sant-andreu/barcelona-capital/e6c9e27b-2908-4015-a831-68b16c9a4c2e/d','Chalet en venta en CL GRAN DE SANT ANDREU',166000.0,70.0,2.37142857142857155e+03,2,1,NULL,NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1
 166.000 €
 Chalet en venta en CL GRAN DE SANT ANDREU
 Sant Andreu, Barcelona Capital
 70 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.364108',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.419906',1);
 INSERT INTO "listings" VALUES('habitaclia_de0083cf-0c1f-4769-b36b-ed4629cd1030','habitaclia','de0083cf-0c1f-4769-b36b-ed4629cd1030','https://www.habitaclia.com/comprar/chalet/cl-gran-de-sant-andreu/sant-andreu/barcelona-capital/de0083cf-0c1f-4769-b36b-ed4629cd1030/d','Chalet en venta en CL GRAN DE SANT ANDREU',227000.0,90.0,2.52222222222222217e+03,2,1,NULL,NULL,NULL,NULL,'sant andreu','barcelona',NULL,'227.000 €
 Chalet en venta en CL GRAN DE SANT ANDREU
 Sant Andreu, Barcelona Capital
 90 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:17.256354',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:11.307842',1);
 INSERT INTO "listings" VALUES('habitaclia_c459dbd4-fca5-4b69-a99e-42424a0321c6','habitaclia','c459dbd4-fca5-4b69-a99e-42424a0321c6','https://www.habitaclia.com/comprar/planta-intermedia/calle-alexandre-gali/sant-andreu/barcelona-capital/c459dbd4-fca5-4b69-a99e-42424a0321c6/d','Piso con jardín en venta en Calle Alexandre Galí',310000.0,70.0,4.42857142857142844e+03,2,1,NULL,NULL,NULL,NULL,'congres','barcelona',NULL,'Oportunidad
 1/38
 1
@@ -46499,7 +46499,7 @@ Sant Andreu, Barcelona Capital
 70 m²
 2 hab.
 1 baños
-Principal / Entresuelo','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.602011',1);
+Principal / Entresuelo','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.653015',1);
 INSERT INTO "listings" VALUES('habitaclia_0bd9d12c-0c06-44ac-ace6-edba61594012','habitaclia','0bd9d12c-0c06-44ac-ace6-edba61594012','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/0bd9d12c-0c06-44ac-ace6-edba61594012/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 1
 303.000 €
@@ -46508,7 +46508,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.853105',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.905746',1);
 INSERT INTO "listings" VALUES('habitaclia_9f65d381-1a6d-49b7-824f-9f9e888730ec','habitaclia','9f65d381-1a6d-49b7-824f-9f9e888730ec','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-garcilaso/sant-andreu/barcelona-capital/9f65d381-1a6d-49b7-824f-9f9e888730ec/d','Piso con balcón en venta en Carrer de Garcilaso',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'Oportunidad
 1/36
 303.000 €
@@ -46517,7 +46517,7 @@ Sant Andreu, Barcelona Capital
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.801322',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.851892',1);
 INSERT INTO "listings" VALUES('habitaclia_e2a97089-0fd7-404b-bcc3-c4c1f913ea99','habitaclia','e2a97089-0fd7-404b-bcc3-c4c1f913ea99','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-cardenal-tedeschini-75/sant-andreu/barcelona-capital/e2a97089-0fd7-404b-bcc3-c4c1f913ea99/d','Piso con ascensor en venta en Carrer del Cardenal Tedeschini 75',240000.0,70.0,3.42857142857142844e+03,2,1,NULL,NULL,NULL,NULL,'congres','barcelona',NULL,'1/18
 240.000 €
 Piso con ascensor en venta en Carrer del Cardenal Tedeschini 75
@@ -46525,7 +46525,7 @@ Sant Andreu, Barcelona Capital
 70 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.905520',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.960588',1);
 INSERT INTO "listings" VALUES('habitaclia_70dfeeaa-1fec-49b4-b929-19ac77a3bab2','habitaclia','70dfeeaa-1fec-49b4-b929-19ac77a3bab2','https://www.habitaclia.com/comprar/estudio/sant-andreu/barcelona-capital/70dfeeaa-1fec-49b4-b929-19ac77a3bab2/d','Estudio en venta en Sant Andreu',125000.0,73.0,1.71232876712328766e+03,2,2,NULL,NULL,NULL,NULL,'congres','barcelona',NULL,'1/13
 125.000 €
 Ha bajado 5.000 €
@@ -46550,7 +46550,7 @@ Sant Andreu, Barcelona Capital
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.395709',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.448568',1);
 INSERT INTO "listings" VALUES('habitaclia_0a7300d8-51e7-4f6e-bd33-f5946c12c308','habitaclia','0a7300d8-51e7-4f6e-bd33-f5946c12c308','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-garcilaso/sant-andreu/barcelona-capital/0a7300d8-51e7-4f6e-bd33-f5946c12c308/d','Piso con balcón en venta en Carrer de Garcilaso',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Carrer de Garcilaso
@@ -46558,7 +46558,7 @@ Sant Andreu, Barcelona Capital
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.507874',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.560951',1);
 INSERT INTO "listings" VALUES('habitaclia_0b81afd5-07a9-4d01-b2ea-6cfcfed671b9','habitaclia','0b81afd5-07a9-4d01-b2ea-6cfcfed671b9','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/0b81afd5-07a9-4d01-b2ea-6cfcfed671b9/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46566,7 +46566,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.747484',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.796199',1);
 INSERT INTO "listings" VALUES('habitaclia_0e027029-f51c-4d9d-b343-d193a46d61cb','habitaclia','0e027029-f51c-4d9d-b343-d193a46d61cb','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/0e027029-f51c-4d9d-b343-d193a46d61cb/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46574,7 +46574,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.764864',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.814225',1);
 INSERT INTO "listings" VALUES('habitaclia_0f4e87fe-2c1d-499a-b629-7af15ad27d5a','habitaclia','0f4e87fe-2c1d-499a-b629-7af15ad27d5a','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-garcilaso/sant-andreu/barcelona-capital/0f4e87fe-2c1d-499a-b629-7af15ad27d5a/d','Piso con balcón en venta en Carrer de Garcilaso',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Carrer de Garcilaso
@@ -46582,7 +46582,7 @@ Sant Andreu, Barcelona Capital
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.544343',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.597853',1);
 INSERT INTO "listings" VALUES('habitaclia_1007ae28-2bcc-45a6-8ce7-e222838bf2f4','habitaclia','1007ae28-2bcc-45a6-8ce7-e222838bf2f4','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/1007ae28-2bcc-45a6-8ce7-e222838bf2f4/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46590,7 +46590,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.453087',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.506675',1);
 INSERT INTO "listings" VALUES('habitaclia_2370ecb7-e45f-42fa-a44e-9ba3600cc12f','habitaclia','2370ecb7-e45f-42fa-a44e-9ba3600cc12f','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/2370ecb7-e45f-42fa-a44e-9ba3600cc12f/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46598,7 +46598,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.676578',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.724352',1);
 INSERT INTO "listings" VALUES('habitaclia_28f097d2-1e23-40ef-bda3-b6f2848e2a30','habitaclia','28f097d2-1e23-40ef-bda3-b6f2848e2a30','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/28f097d2-1e23-40ef-bda3-b6f2848e2a30/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46606,7 +46606,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.835312',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.887501',1);
 INSERT INTO "listings" VALUES('habitaclia_38552bd9-6192-49f9-9465-3d0d5033cee9','habitaclia','38552bd9-6192-49f9-9465-3d0d5033cee9','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/38552bd9-6192-49f9-9465-3d0d5033cee9/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46614,7 +46614,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.729775',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.777780',1);
 INSERT INTO "listings" VALUES('habitaclia_45e3e384-1e81-46e9-8c23-c076ca495e2e','habitaclia','45e3e384-1e81-46e9-8c23-c076ca495e2e','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/45e3e384-1e81-46e9-8c23-c076ca495e2e/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46622,7 +46622,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.490034',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.542993',1);
 INSERT INTO "listings" VALUES('habitaclia_67fb05fd-189f-4363-8630-e55653eaa15c','habitaclia','67fb05fd-189f-4363-8630-e55653eaa15c','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/67fb05fd-189f-4363-8630-e55653eaa15c/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46630,7 +46630,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.471941',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.524893',1);
 INSERT INTO "listings" VALUES('habitaclia_82814bd4-8698-4f02-93e2-fea156a234d8','habitaclia','82814bd4-8698-4f02-93e2-fea156a234d8','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-garcilaso/sant-andreu/barcelona-capital/82814bd4-8698-4f02-93e2-fea156a234d8/d','Piso con balcón en venta en Carrer de Garcilaso',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Carrer de Garcilaso
@@ -46638,7 +46638,7 @@ Sant Andreu, Barcelona Capital
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.562300',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.615956',1);
 INSERT INTO "listings" VALUES('habitaclia_9f665ec9-423f-4825-8357-31d1049a2aa3','habitaclia','9f665ec9-423f-4825-8357-31d1049a2aa3','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-garcilaso/sant-andreu/barcelona-capital/9f665ec9-423f-4825-8357-31d1049a2aa3/d','Piso con balcón en venta en Carrer de Garcilaso',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Carrer de Garcilaso
@@ -46646,7 +46646,7 @@ Sant Andreu, Barcelona Capital
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.433728',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.487009',1);
 INSERT INTO "listings" VALUES('habitaclia_a0f3547b-25a6-42be-9e33-522f6b891116','habitaclia','a0f3547b-25a6-42be-9e33-522f6b891116','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/a0f3547b-25a6-42be-9e33-522f6b891116/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46654,7 +46654,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.415401',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.468481',1);
 INSERT INTO "listings" VALUES('habitaclia_b1bc96c1-7702-49c5-9fc2-95997e15bad4','habitaclia','b1bc96c1-7702-49c5-9fc2-95997e15bad4','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/b1bc96c1-7702-49c5-9fc2-95997e15bad4/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46662,7 +46662,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.655986',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.706733',1);
 INSERT INTO "listings" VALUES('habitaclia_b64d5ee5-493d-4cdf-bfc9-b9e955f00db4','habitaclia','b64d5ee5-493d-4cdf-bfc9-b9e955f00db4','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-garcilaso/sant-andreu/barcelona-capital/b64d5ee5-493d-4cdf-bfc9-b9e955f00db4/d','Piso con balcón en venta en Carrer de Garcilaso',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Carrer de Garcilaso
@@ -46670,7 +46670,7 @@ Sant Andreu, Barcelona Capital
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.638481',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.689026',1);
 INSERT INTO "listings" VALUES('habitaclia_bf697ebd-4bf9-4d57-b6ab-4e0bc3610777','habitaclia','bf697ebd-4bf9-4d57-b6ab-4e0bc3610777','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/bf697ebd-4bf9-4d57-b6ab-4e0bc3610777/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46678,7 +46678,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.694427',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.741964',1);
 INSERT INTO "listings" VALUES('habitaclia_cf5fa98d-6ba6-4f09-86b1-e7d3669d84ba','habitaclia','cf5fa98d-6ba6-4f09-86b1-e7d3669d84ba','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-garcilaso/sant-andreu/barcelona-capital/cf5fa98d-6ba6-4f09-86b1-e7d3669d84ba/d','Piso con balcón en venta en Carrer de Garcilaso',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Carrer de Garcilaso
@@ -46686,7 +46686,7 @@ Sant Andreu, Barcelona Capital
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.783777',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.833374',1);
 INSERT INTO "listings" VALUES('habitaclia_dc833598-5786-4011-b958-2e869796dee9','habitaclia','dc833598-5786-4011-b958-2e869796dee9','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-garcilaso/sant-andreu/barcelona-capital/dc833598-5786-4011-b958-2e869796dee9/d','Piso con balcón en venta en Carrer de Garcilaso',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Carrer de Garcilaso
@@ -46694,7 +46694,7 @@ Sant Andreu, Barcelona Capital
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.711989',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.759450',1);
 INSERT INTO "listings" VALUES('habitaclia_0444620f-d4a0-4815-86c9-18ad59663ebc','habitaclia','0444620f-d4a0-4815-86c9-18ad59663ebc','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/0444620f-d4a0-4815-86c9-18ad59663ebc/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46702,7 +46702,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.818340',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.869684',1);
 INSERT INTO "listings" VALUES('habitaclia_8f76fb6c-6f47-46cc-9969-d94035737c5f','habitaclia','8f76fb6c-6f47-46cc-9969-d94035737c5f','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/8f76fb6c-6f47-46cc-9969-d94035737c5f/d','Piso con balcón en venta en Sant Andreu',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/15
 303.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46710,7 +46710,7 @@ Barcelona Capital, Barcelona
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.525760',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.579298',1);
 INSERT INTO "listings" VALUES('habitaclia_034ee227-e059-42e0-a5a7-b5e8c930d24d','habitaclia','034ee227-e059-42e0-a5a7-b5e8c930d24d','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-garcilaso/sant-andreu/barcelona-capital/034ee227-e059-42e0-a5a7-b5e8c930d24d/d','Piso con balcón en venta en Carrer de Garcilaso',303000.0,85.0,3.56470588235294098e+03,3,1,'2ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1/14
 303.000 €
 Piso con balcón en venta en Carrer de Garcilaso
@@ -46718,7 +46718,7 @@ Sant Andreu, Barcelona Capital
 85 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.620682',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.671329',1);
 INSERT INTO "listings" VALUES('habitaclia_82161bef-f2ab-4a1e-a49d-7051bf1980fe','habitaclia','82161bef-f2ab-4a1e-a49d-7051bf1980fe','https://www.habitaclia.com/comprar/planta-intermedia/calle-cienfuegos/sant-andreu/barcelona-capital/82161bef-f2ab-4a1e-a49d-7051bf1980fe/d','Piso en venta en calle Cienfuegos',219955.0,81.0,2.71549382716049376e+03,3,1,NULL,NULL,NULL,NULL,'congres','barcelona',NULL,'1/12
 219.955 €
 Piso en venta en calle Cienfuegos
@@ -46726,7 +46726,7 @@ Sant Andreu, Barcelona Capital
 81 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.870634',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.924170',1);
 INSERT INTO "listings" VALUES('habitaclia_092ce355-7ea4-4777-91f4-cf7e77a52a89','habitaclia','092ce355-7ea4-4777-91f4-cf7e77a52a89','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/092ce355-7ea4-4777-91f4-cf7e77a52a89/d','Piso con balcón en venta en Sant Andreu',177000.0,73.0,2.42465753424657532e+03,3,1,'4ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1
 177.000 €
 Piso con balcón en venta en Sant Andreu
@@ -46756,7 +46756,7 @@ Sant Andreu, Barcelona Capital
 89 m²
 1 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.887937',1);
+4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.942727',1);
 INSERT INTO "listings" VALUES('habitaclia_d2ad72ab-d00b-4a95-af95-e095de119c57','habitaclia','d2ad72ab-d00b-4a95-af95-e095de119c57','https://www.habitaclia.com/comprar/planta-intermedia/calle-concepcion-arenal/sant-andreu/barcelona-capital/d2ad72ab-d00b-4a95-af95-e095de119c57/d','Piso en venta en Calle Concepción Arenal',243000.0,80.0,3037.5,2,1,'5ª planta',NULL,NULL,NULL,'congres','barcelona',NULL,'1
 243.000 €
 Piso en venta en Calle Concepción Arenal
@@ -46764,7 +46764,7 @@ Sant Andreu, Barcelona Capital
 80 m²
 2 hab.
 1 baños
-5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:26.583241',1);
+5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:20.634268',1);
 INSERT INTO "listings" VALUES('habitaclia_05d11700-b49c-4226-b907-bf88d0a110cc','habitaclia','05d11700-b49c-4226-b907-bf88d0a110cc','https://www.habitaclia.com/comprar/planta-intermedia/c-concepcion-arenal-esq-c-felip-beltran-i-guell/sant-andreu/barcelona-capital/05d11700-b49c-4226-b907-bf88d0a110cc/d','Piso en venta en C/ Concepción Arenal Esq. C/ Felip Beltran i Guell',243000.0,80.0,3037.5,NULL,NULL,NULL,NULL,NULL,NULL,'congres','barcelona',NULL,'1
 243.000 €
 Piso en venta en C/ Concepción Arenal Esq. C/ Felip Beltran i Guell
@@ -46778,7 +46778,7 @@ Nou Barris, Barcelona Capital
 76 m²
 2 hab.
 1 baños
-5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.210170',1);
+5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.347515',1);
 INSERT INTO "listings" VALUES('habitaclia_4a1b1fea-4ec0-493b-9932-13776283c287','habitaclia','4a1b1fea-4ec0-493b-9932-13776283c287','https://www.habitaclia.com/comprar/planta-intermedia/passeig-de-la-peira/nou-barris/barcelona-capital/4a1b1fea-4ec0-493b-9932-13776283c287/d','Piso con balcón en venta en Passeig de la Peira',259000.0,73.0,3.54794520547945194e+03,2,1,'2ª planta',NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/16
 259.000 €
 Piso con balcón en venta en Passeig de la Peira
@@ -46786,7 +46786,7 @@ Nou Barris, Barcelona Capital
 73 m²
 2 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.317137',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.453901',1);
 INSERT INTO "listings" VALUES('habitaclia_d086bdf0-e4fb-47d4-a4af-c14ff4d18aa0','habitaclia','d086bdf0-e4fb-47d4-a4af-c14ff4d18aa0','https://www.habitaclia.com/comprar/planta-intermedia/de-la-peira/nou-barris/barcelona-capital/d086bdf0-e4fb-47d4-a4af-c14ff4d18aa0/d','Piso con ascensor en venta en de la Peira',265000.0,73.0,3.63013698630136968e+03,2,1,'6ª planta',NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/10
 265.000 €
 Piso con ascensor en venta en de la Peira
@@ -46794,7 +46794,7 @@ Nou Barris, Barcelona Capital
 73 m²
 2 hab.
 1 baños
-6º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.336074',1);
+6º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.473122',1);
 INSERT INTO "listings" VALUES('habitaclia_813b547b-28b2-4d9a-9775-ede3851153bf','habitaclia','813b547b-28b2-4d9a-9775-ede3851153bf','https://www.habitaclia.com/comprar/atico/calle-de-travau/nou-barris/barcelona-capital/813b547b-28b2-4d9a-9775-ede3851153bf/d','Ático con ascensor en venta en calle de Travau',288750.0,76.0,3.79934210526315791e+03,2,1,'5ª planta',NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/29
 1
 288.750 €
@@ -46803,7 +46803,7 @@ Nou Barris, Barcelona Capital
 76 m²
 2 hab.
 1 baños
-5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.174379',1);
+5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.311531',1);
 INSERT INTO "listings" VALUES('habitaclia_92c2bb65-ce7c-4e89-875b-41113c5c3293','habitaclia','92c2bb65-ce7c-4e89-875b-41113c5c3293','https://www.habitaclia.com/comprar/planta-intermedia/nou-barris/barcelona-capital/92c2bb65-ce7c-4e89-875b-41113c5c3293/d','Piso en venta en Nou Barris',205336.0,79.0,2.59918987341772162e+03,2,1,NULL,NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/8
 205.336 €
 Ha bajado 9 €
@@ -46811,14 +46811,14 @@ Piso en venta en Nou Barris
 Barcelona Capital, Barcelona
 79 m²
 2 hab.
-1 baños','[]',NULL,'[{"price": 205338.0, "date": "2026-10-26T14:22:00.008928"}, {"price": 205343.0, "date": "2026-10-27T15:06:33.251015"}, {"price": 205338.0, "date": "2026-10-28T20:50:45.720021"}, {"price": 205345.0, "date": "2026-10-29T15:47:42.934379"}]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.191520',1);
+1 baños','[]',NULL,'[{"price": 205338.0, "date": "2026-10-26T14:22:00.008928"}, {"price": 205343.0, "date": "2026-10-27T15:06:33.251015"}, {"price": 205338.0, "date": "2026-10-28T20:50:45.720021"}, {"price": 205345.0, "date": "2026-10-29T15:47:42.934379"}]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.329540',1);
 INSERT INTO "listings" VALUES('habitaclia_ce72605f-3d0a-46ac-953d-d7306be31735','habitaclia','ce72605f-3d0a-46ac-953d-d7306be31735','https://www.habitaclia.com/comprar/atico/nou-barris/barcelona-capital/ce72605f-3d0a-46ac-953d-d7306be31735/d','Ático con ascensor en venta en Nou Barris',290000.0,75.0,3.86666666666666651e+03,2,1,NULL,NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/22
 290.000 €
 Ático con ascensor en venta en Nou Barris
 Barcelona Capital, Barcelona
 75 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.120897',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.257195',1);
 INSERT INTO "listings" VALUES('habitaclia_28a10575-ac19-45c9-969e-302ffa26e889','habitaclia','28a10575-ac19-45c9-969e-302ffa26e889','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-beret/nou-barris/barcelona-capital/28a10575-ac19-45c9-969e-302ffa26e889/d','Piso con ascensor en venta en Carrer de Beret',145460.0,75.0,1.93946666666666669e+03,4,1,'2ª planta',NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/20
 145.460 €
 Piso con ascensor en venta en Carrer de Beret
@@ -46826,7 +46826,7 @@ Nou Barris, Barcelona Capital
 75 m²
 4 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.227714',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.365246',1);
 INSERT INTO "listings" VALUES('habitaclia_9b0e943f-a44d-4772-b31f-5dbc347cb25b','habitaclia','9b0e943f-a44d-4772-b31f-5dbc347cb25b','https://www.habitaclia.com/comprar/planta-intermedia/nou-barris/barcelona-capital/9b0e943f-a44d-4772-b31f-5dbc347cb25b/d','Piso con ascensor en venta en Nou Barris',269000.0,72.0,3.73611111111111131e+03,3,1,'2ª planta',NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/32
 269.000 €
 Piso con ascensor en venta en Nou Barris
@@ -46834,21 +46834,21 @@ Barcelona Capital, Barcelona
 72 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.370438',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.509060',1);
 INSERT INTO "listings" VALUES('habitaclia_17752797-eded-4a54-88ad-5333f28a69a4','habitaclia','17752797-eded-4a54-88ad-5333f28a69a4','https://www.habitaclia.com/comprar/planta-intermedia/nou-barris/barcelona-capital/17752797-eded-4a54-88ad-5333f28a69a4/d','Piso en venta en Nou Barris',97000.0,80.0,1212.5,2,1,NULL,NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/25
 97.000 €
 Piso en venta en Nou Barris
 Barcelona Capital, Barcelona
 80 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.138955',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.275337',1);
 INSERT INTO "listings" VALUES('habitaclia_1850e397-5e1b-4f81-9a9c-a272ae50c4ec','habitaclia','1850e397-5e1b-4f81-9a9c-a272ae50c4ec','https://www.habitaclia.com/comprar/apartamento/calle-cadi/nou-barris/barcelona-capital/1850e397-5e1b-4f81-9a9c-a272ae50c4ec/d','Apartamento en venta en Calle Cadi',190100.0,74.0,2.56891891891891873e+03,2,1,NULL,NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/9
 190.100 €
 Apartamento en venta en Calle Cadi
 Nou Barris, Barcelona Capital
 74 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.156341',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.293305',1);
 INSERT INTO "listings" VALUES('habitaclia_9fcc3361-62ed-435f-a6be-cd76be29f65c','habitaclia','9fcc3361-62ed-435f-a6be-cd76be29f65c','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-cadi/nou-barris/barcelona-capital/9fcc3361-62ed-435f-a6be-cd76be29f65c/d','Piso en venta en Carrer del Cadí',125000.0,72.0,1.73611111111111108e+03,3,1,'1ª planta',NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/5
 125.000 €
 Piso en venta en Carrer del Cadí
@@ -46856,7 +46856,7 @@ Nou Barris, Barcelona Capital
 72 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.423100',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.563144',1);
 INSERT INTO "listings" VALUES('habitaclia_ba2d2979-1092-4971-acfe-95daa08ff5a0','habitaclia','ba2d2979-1092-4971-acfe-95daa08ff5a0','https://www.habitaclia.com/comprar/planta-intermedia/calle-beret/nou-barris/barcelona-capital/ba2d2979-1092-4971-acfe-95daa08ff5a0/d','Piso en venta en calle Beret',132805.0,71.0,1.87049295774647885e+03,4,1,NULL,NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/20
 132.805 €
 Piso en venta en calle Beret
@@ -46864,7 +46864,7 @@ Nou Barris, Barcelona Capital
 71 m²
 4 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.263153',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.400884',1);
 INSERT INTO "listings" VALUES('habitaclia_22e5fc23-da80-4617-bd87-534d541a56b7','habitaclia','22e5fc23-da80-4617-bd87-534d541a56b7','https://www.habitaclia.com/comprar/planta-intermedia/fabra-i-puig/nou-barris/barcelona-capital/22e5fc23-da80-4617-bd87-534d541a56b7/d','Piso con ascensor en venta en FABRA I PUIG',236000.0,74.0,3.18918918918918916e+03,2,1,'1ª planta',NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1
 236.000 €
 Piso con ascensor en venta en FABRA I PUIG
@@ -46872,7 +46872,7 @@ Nou Barris, Barcelona Capital
 74 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.405389',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.543858',1);
 INSERT INTO "listings" VALUES('habitaclia_bbb00969-7414-477f-90ed-3105d30e2ecd','habitaclia','bbb00969-7414-477f-90ed-3105d30e2ecd','https://www.habitaclia.com/comprar/planta-intermedia/beret/nou-barris/barcelona-capital/bbb00969-7414-477f-90ed-3105d30e2ecd/d','Piso con ascensor en venta en BERET',132805.0,70.0,1.89721428571428577e+03,2,1,'1ª planta',NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1
 132.805 €
 Piso con ascensor en venta en BERET
@@ -46880,7 +46880,7 @@ Nou Barris, Barcelona Capital
 70 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.387769',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.526496',1);
 INSERT INTO "listings" VALUES('habitaclia_be8cbd4c-209e-4225-9bda-7e9aebb075ef','habitaclia','be8cbd4c-209e-4225-9bda-7e9aebb075ef','https://www.habitaclia.com/comprar/planta-intermedia/calle-cadi/nou-barris/barcelona-capital/be8cbd4c-209e-4225-9bda-7e9aebb075ef/d','Piso en venta en calle Cadi',177000.0,70.0,2.52857142857142844e+03,2,1,NULL,NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/5
 177.000 €
 Piso en venta en calle Cadi
@@ -46888,12 +46888,12 @@ Nou Barris, Barcelona Capital
 70 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.281014',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.418686',1);
 INSERT INTO "listings" VALUES('habitaclia_6bb861a9-d3b4-44ae-a47f-0aa09bf640d1','habitaclia','6bb861a9-d3b4-44ae-a47f-0aa09bf640d1','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-montsant/nou-barris/barcelona-capital/6bb861a9-d3b4-44ae-a47f-0aa09bf640d1/d','Piso en venta en Carrer del Montsant',97140.0,71.0,1.36816901408450712e+03,NULL,NULL,NULL,NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/2
 97.140 €
 Piso en venta en Carrer del Montsant
 Nou Barris, Barcelona Capital
-71 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.353329',1);
+71 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.491113',1);
 INSERT INTO "listings" VALUES('habitaclia_e38580d2-c446-4eee-9ec4-e538e73675f8','habitaclia','e38580d2-c446-4eee-9ec4-e538e73675f8','https://www.habitaclia.com/comprar/planta-intermedia/paseo-fabra-i-puig/nou-barris/barcelona-capital/e38580d2-c446-4eee-9ec4-e538e73675f8/d','Piso en venta en paseo Fabra I Puig',236000.0,81.0,2913.58024691358,1,1,NULL,NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/2
 236.000 €
 Piso en venta en paseo Fabra I Puig
@@ -46901,12 +46901,12 @@ Nou Barris, Barcelona Capital
 81 m²
 1 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.298946',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.436194',1);
 INSERT INTO "listings" VALUES('habitaclia_64de17fe-e2d0-410d-aaf5-fca129dacaa1','habitaclia','64de17fe-e2d0-410d-aaf5-fca129dacaa1','https://www.habitaclia.com/comprar/planta-intermedia/calle-cadi/nou-barris/barcelona-capital/64de17fe-e2d0-410d-aaf5-fca129dacaa1/d','Piso en venta en Calle Cadi',181969.0,81.0,2.24653086419753071e+03,NULL,NULL,NULL,NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1
 181.969 €
 Piso en venta en Calle Cadi
 Nou Barris, Barcelona Capital
-81 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:31.245278',1);
+81 m²','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:25.383177',1);
 INSERT INTO "listings" VALUES('habitaclia_b00593fa-a2c0-4100-b460-0d0321cb3626','habitaclia','b00593fa-a2c0-4100-b460-0d0321cb3626','https://www.habitaclia.com/comprar/planta-intermedia/nou-barris/barcelona-capital/b00593fa-a2c0-4100-b460-0d0321cb3626/d','Piso con ascensor en venta en Nou Barris',250000.0,75.0,3.33333333333333348e+03,2,1,'sótano',NULL,NULL,NULL,'vilapicina','barcelona',NULL,'Oportunidad
 1/25
 250.000 €
@@ -46923,7 +46923,7 @@ Barcelona Capital, Barcelona
 92 m²
 4 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:38.287002',1);
+3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:29.709189',1);
 INSERT INTO "listings" VALUES('habitaclia_a45678ff-51e6-41bc-abe5-b6e5f19ccf72','habitaclia','a45678ff-51e6-41bc-abe5-b6e5f19ccf72','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-cardenal-tedeschini/nou-barris/barcelona-capital/a45678ff-51e6-41bc-abe5-b6e5f19ccf72/d','Piso con balcón en venta en Carrer del Cardenal Tedeschini .',250000.0,72.0,3.47222222222222217e+03,2,1,'4ª planta',NULL,NULL,NULL,'vilapicina','barcelona',NULL,'1/13
 250.000 €
 Piso con balcón en venta en Carrer del Cardenal Tedeschini .
@@ -46931,7 +46931,7 @@ Nou Barris, Barcelona Capital
 72 m²
 2 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:38.376560',1);
+4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:29.800388',1);
 INSERT INTO "listings" VALUES('habitaclia_7a08ed01-e41d-4c79-a7b4-a8e80dc6318c','habitaclia','7a08ed01-e41d-4c79-a7b4-a8e80dc6318c','https://www.habitaclia.com/comprar/bajo/escocia/nou-barris/barcelona-capital/7a08ed01-e41d-4c79-a7b4-a8e80dc6318c/d','Bajo con balcón en venta en ESCOCIA',320000.0,71.0,4.50704225352112644e+03,4,1,NULL,NULL,NULL,NULL,'vilapicina','barcelona',NULL,'1/8
 320.000 €
 Bajo con balcón en venta en ESCOCIA
@@ -46939,7 +46939,7 @@ Nou Barris, Barcelona Capital
 71 m²
 4 hab.
 1 baños
-Principal / Entresuelo','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:38.341247',1);
+Principal / Entresuelo','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:29.764659',1);
 INSERT INTO "listings" VALUES('habitaclia_eebcf49d-dd76-4411-90fa-d6ad2f765854','habitaclia','eebcf49d-dd76-4411-90fa-d6ad2f765854','https://www.habitaclia.com/comprar/planta-intermedia/sant-manuel/nou-barris/barcelona-capital/eebcf49d-dd76-4411-90fa-d6ad2f765854/d','Piso con ascensor en venta en SANT MANUEL',180000.0,71.0,2.53521126760563402e+03,2,1,'1ª planta',NULL,NULL,NULL,'vilapicina','barcelona',NULL,'1
 180.000 €
 Piso con ascensor en venta en SANT MANUEL
@@ -46947,7 +46947,7 @@ Nou Barris, Barcelona Capital
 71 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:38.358754',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:29.782517',1);
 INSERT INTO "listings" VALUES('habitaclia_7669a14b-405b-47e3-bf58-85546591a039','habitaclia','7669a14b-405b-47e3-bf58-85546591a039','https://www.habitaclia.com/comprar/planta-intermedia/calle-costa-i-cuixart/nou-barris/barcelona-capital/7669a14b-405b-47e3-bf58-85546591a039/d','Piso en venta en calle Costa I Cuixart',241000.0,72.0,3.34722222222222217e+03,3,1,NULL,NULL,NULL,NULL,'vilapicina','barcelona',NULL,'1/4
 241.000 €
 Piso en venta en calle Costa I Cuixart
@@ -46955,7 +46955,7 @@ Nou Barris, Barcelona Capital
 72 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:38.323375',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:29.746306',1);
 INSERT INTO "listings" VALUES('habitaclia_1cdd4874-f120-4c3c-9ab7-8620d057aefc','habitaclia','1cdd4874-f120-4c3c-9ab7-8620d057aefc','https://www.habitaclia.com/comprar/planta-intermedia/calle-arnau-doms/nou-barris/barcelona-capital/1cdd4874-f120-4c3c-9ab7-8620d057aefc/d','Piso en venta en Calle Arnau Doms',305357.0,70.0,4.36224285714285724e+03,2,1,NULL,NULL,NULL,NULL,'vilapicina','barcelona',NULL,'1/3
 305.357 €
 Piso en venta en Calle Arnau Doms
@@ -46963,7 +46963,7 @@ Nou Barris, Barcelona Capital
 70 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:38.304989',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:29.727373',1);
 INSERT INTO "listings" VALUES('habitaclia_70629905-010b-48dd-b46e-9a40e7655ec3','habitaclia','70629905-010b-48dd-b46e-9a40e7655ec3','https://www.habitaclia.com/comprar/planta-intermedia/c-navas-de-tolosa/sant-marti/barcelona-capital/70629905-010b-48dd-b46e-9a40e7655ec3/d','Piso con ascensor en venta en C/ Navas de Tolosa',285400.0,143.0,1.99580419580419584e+03,3,2,NULL,NULL,NULL,NULL,'camp de l arpa','barcelona',NULL,'1
 285.400 €
 Piso con ascensor en venta en C/ Navas de Tolosa
@@ -46997,7 +46997,7 @@ Piso con ascensor en venta en Riera de la Creu
 Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 71 m²
 2 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:56.703044',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:43.640583',1);
 INSERT INTO "listings" VALUES('habitaclia_aa22fb7a-51ca-4ad0-8509-899a6ea87ff7','habitaclia','aa22fb7a-51ca-4ad0-8509-899a6ea87ff7','https://www.habitaclia.com/comprar/planta-intermedia/riera-de-la-creu/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/aa22fb7a-51ca-4ad0-8509-899a6ea87ff7/d','Piso con ascensor en venta en Riera de la Creu',309000.0,78.0,3.96153846153846143e+03,2,2,NULL,NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/36
 1
 309.000 €
@@ -47005,7 +47005,7 @@ Piso con ascensor en venta en Riera de la Creu
 Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 78 m²
 2 hab.
-2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:56.720591',1);
+2 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:43.657719',1);
 INSERT INTO "listings" VALUES('habitaclia_01a78ded-dc39-4250-9b02-153f0f544357','habitaclia','01a78ded-dc39-4250-9b02-153f0f544357','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/01a78ded-dc39-4250-9b02-153f0f544357/d','Piso en venta en Centre - Sant Josep - Sanfeliu',199000.0,74.0,2.68918918918918916e+03,2,1,'2ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/31
 199.000 €
 Ha bajado 11.000 €
@@ -47056,7 +47056,7 @@ L''Hospitalet de Llobregat, Barcelona
 70 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:56.685731',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:43.623578',1);
 INSERT INTO "listings" VALUES('habitaclia_cee15a24-ec15-422f-b098-7dc374f4db85','habitaclia','cee15a24-ec15-422f-b098-7dc374f4db85','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-ciutat-comtal/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/cee15a24-ec15-422f-b098-7dc374f4db85/d','Piso con balcón en venta en Carrer de la Ciutat Comtal',249000.0,72.0,3.45833333333333348e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/22
 249.000 €
 Ha bajado 8.000 €
@@ -47119,7 +47119,7 @@ Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:56.598167',1);
+3º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:43.533656',1);
 INSERT INTO "listings" VALUES('habitaclia_65c5c987-fc06-449d-924b-cd283d1da987','habitaclia','65c5c987-fc06-449d-924b-cd283d1da987','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-enric-prat-de-la-riba/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/65c5c987-fc06-449d-924b-cd283d1da987/d','Piso con ascensor en venta en Carrer d''Enric Prat de la Riba',282133.0,109.0,2.5883761467889908e+03,4,2,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/24
 1
 282.133 €
@@ -47144,7 +47144,7 @@ Piso en venta en Centre - Sant Josep - Sanfeliu
 L''Hospitalet de Llobregat, Barcelona
 134 m²
 3 hab.
-1 baños','[]',NULL,'[{"price": 216895.0, "date": "2026-10-26T14:22:58.052183"}, {"price": 216904.0, "date": "2026-10-27T15:07:26.679923"}, {"price": 216895.0, "date": "2026-10-28T20:51:26.846734"}, {"price": 216901.0, "date": "2026-10-29T15:48:33.832847"}]','2026-10-23 09:55:32.518939','2026-10-30 16:31:56.580793',1);
+1 baños','[]',NULL,'[{"price": 216895.0, "date": "2026-10-26T14:22:58.052183"}, {"price": 216904.0, "date": "2026-10-27T15:07:26.679923"}, {"price": 216895.0, "date": "2026-10-28T20:51:26.846734"}, {"price": 216901.0, "date": "2026-10-29T15:48:33.832847"}]','2026-10-23 09:55:32.518939','2026-10-30 16:42:43.516380',1);
 INSERT INTO "listings" VALUES('habitaclia_d7eef817-d0fb-4e7f-8fc9-04f5edf0fe64','habitaclia','d7eef817-d0fb-4e7f-8fc9-04f5edf0fe64','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-leonardo-da-vinci/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/d7eef817-d0fb-4e7f-8fc9-04f5edf0fe64/d','Piso en venta en Carrer de Leonardo da Vinci',199000.0,74.0,2.68918918918918916e+03,2,1,'2ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/31
 199.000 €
 Ha bajado 11.000 €
@@ -47229,7 +47229,7 @@ L''Hospitalet de Llobregat, Barcelona
 98 m²
 3 hab.
 2 baños
-6º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:56.668559',1);
+6º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:43.606791',1);
 INSERT INTO "listings" VALUES('habitaclia_2e8c46f3-c8f8-4341-8cd7-28dcd0a29a85','habitaclia','2e8c46f3-c8f8-4341-8cd7-28dcd0a29a85','https://www.habitaclia.com/comprar/atico/carrer-de-terra-baixa/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/2e8c46f3-c8f8-4341-8cd7-28dcd0a29a85/d','Ático con ascensor en venta en Carrer de Terra Baixa',289000.0,98.0,2.94897959183673447e+03,3,2,'6ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/26
 289.000 €
 Ático con ascensor en venta en Carrer de Terra Baixa
@@ -47447,7 +47447,7 @@ L''Hospitalet de Llobregat, Barcelona
 74 m²
 2 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:56.651341',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:43.589795',1);
 INSERT INTO "listings" VALUES('habitaclia_eb0b3046-b1df-40ce-85be-999eb7d836e6','habitaclia','eb0b3046-b1df-40ce-85be-999eb7d836e6','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/eb0b3046-b1df-40ce-85be-999eb7d836e6/d','Piso en venta en Centre - Sant Josep - Sanfeliu',199000.0,74.0,2.68918918918918916e+03,2,1,'2ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/31
 199.000 €
 Ha bajado 11.000 €
@@ -47464,7 +47464,7 @@ L''Hospitalet de Llobregat, Barcelona
 74 m²
 2 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:56.633736',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:43.572092',1);
 INSERT INTO "listings" VALUES('habitaclia_f3f440b4-6b5b-4ca5-88db-0e64b3d3e46c','habitaclia','f3f440b4-6b5b-4ca5-88db-0e64b3d3e46c','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/f3f440b4-6b5b-4ca5-88db-0e64b3d3e46c/d','Piso en venta en Centre - Sant Josep - Sanfeliu',199000.0,74.0,2.68918918918918916e+03,2,1,'2ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/31
 199.000 €
 Ha bajado 11.000 €
@@ -47523,7 +47523,7 @@ L''Hospitalet de Llobregat, Barcelona
 82 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:31:56.563661',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:43.499377',1);
 INSERT INTO "listings" VALUES('habitaclia_ae96957e-a8d8-47e0-9fad-c9cb30212255','habitaclia','ae96957e-a8d8-47e0-9fad-c9cb30212255','https://www.habitaclia.com/comprar/planta-intermedia/calle-leonardo-da-vinci-de/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/ae96957e-a8d8-47e0-9fad-c9cb30212255/d','Piso en venta en Calle LEONARDO DA VINCI DE',199000.0,74.0,2.68918918918918916e+03,2,1,'2ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/21
 199.000 €
 Ha bajado 11.000 €
@@ -47730,7 +47730,7 @@ Sants - Montjuïc, Barcelona Capital
 80 m²
 3 hab.
 1 baños
-Principal / Entresuelo','[]',NULL,'[{"price": 280000.0, "date": "2026-10-26T14:23:19.629360"}]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.379097',1);
+Principal / Entresuelo','[]',NULL,'[{"price": 280000.0, "date": "2026-10-26T14:23:19.629360"}]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.279336',1);
 INSERT INTO "listings" VALUES('habitaclia_fe76f7ac-838e-41bb-93c2-547f7ffd54a6','habitaclia','fe76f7ac-838e-41bb-93c2-547f7ffd54a6','https://www.habitaclia.com/comprar/atico/sants-montjuic/barcelona-capital/fe76f7ac-838e-41bb-93c2-547f7ffd54a6/d','Ático con ascensor en venta en Sants - Montjuïc',300000.0,89.0,3.37078651685393242e+03,3,1,'1ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/26
 300.000 €
 Ático con ascensor en venta en Sants - Montjuïc
@@ -47747,7 +47747,7 @@ Sants - Montjuïc, Barcelona Capital
 82 m²
 3 hab.
 1 baños
-5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.361557',1);
+5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.262395',1);
 INSERT INTO "listings" VALUES('habitaclia_1ecee712-3b9c-4646-9bd6-bec05408797b','habitaclia','1ecee712-3b9c-4646-9bd6-bec05408797b','https://www.habitaclia.com/comprar/planta-intermedia/paseo-zona-franca-122/sants-montjuic/barcelona-capital/1ecee712-3b9c-4646-9bd6-bec05408797b/d','Piso con balcón en venta en Paseo Zona Franca 122',305000.0,88.0,3.46590909090909099e+03,3,1,'5ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'Oportunidad
 1/37
 1
@@ -47824,7 +47824,7 @@ Sants - Montjuïc, Barcelona Capital
 83 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.238374',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.138308',1);
 INSERT INTO "listings" VALUES('habitaclia_4e0da465-f02e-4789-92e0-312daed34b7c','habitaclia','4e0da465-f02e-4789-92e0-312daed34b7c','https://www.habitaclia.com/comprar/planta-intermedia/carrer-alts-forns/sants-montjuic/barcelona-capital/4e0da465-f02e-4789-92e0-312daed34b7c/d','Piso con ascensor en venta en Carrer ALTS FORNS',249000.0,77.0,3.23376623376623365e+03,3,1,'5ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/28
 1
 1
@@ -47834,7 +47834,7 @@ Sants - Montjuïc, Barcelona Capital
 77 m²
 3 hab.
 1 baños
-5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.168051',1);
+5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.065289',1);
 INSERT INTO "listings" VALUES('habitaclia_96fc5509-b7ff-4eb7-a584-af0d878b807f','habitaclia','96fc5509-b7ff-4eb7-a584-af0d878b807f','https://www.habitaclia.com/comprar/planta-intermedia/sants-montjuic/barcelona-capital/96fc5509-b7ff-4eb7-a584-af0d878b807f/d','Piso con balcón en venta en Sants - Montjuïc',310000.0,82.0,3.78048780487804879e+03,2,1,'2ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/26
 310.000 €
 Piso con balcón en venta en Sants - Montjuïc
@@ -47884,7 +47884,7 @@ Barcelona Capital, Barcelona
 89 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.112947',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.010920',1);
 INSERT INTO "listings" VALUES('habitaclia_200b9497-0fc4-422a-b5af-e06bfde17a33','habitaclia','200b9497-0fc4-422a-b5af-e06bfde17a33','https://www.habitaclia.com/comprar/atico/sants-montjuic/barcelona-capital/200b9497-0fc4-422a-b5af-e06bfde17a33/d','Ático con ascensor en venta en Sants - Montjuïc',300000.0,89.0,3.37078651685393242e+03,3,1,'1ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/26
 300.000 €
 Ático con ascensor en venta en Sants - Montjuïc
@@ -47940,7 +47940,7 @@ Sants - Montjuïc, Barcelona Capital
 89 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.221085',1);
+1º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.120261',1);
 INSERT INTO "listings" VALUES('habitaclia_51e5aa20-b855-4de3-af42-9c54c7fd2f23','habitaclia','51e5aa20-b855-4de3-af42-9c54c7fd2f23','https://www.habitaclia.com/comprar/planta-intermedia/sants-montjuic/barcelona-capital/51e5aa20-b855-4de3-af42-9c54c7fd2f23/d','Piso con balcón en venta en Sants - Montjuïc',310000.0,82.0,3.78048780487804879e+03,2,1,'2ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/26
 310.000 €
 Piso con balcón en venta en Sants - Montjuïc
@@ -47988,7 +47988,7 @@ Barcelona Capital, Barcelona
 82 m²
 2 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.132099',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.029636',1);
 INSERT INTO "listings" VALUES('habitaclia_8ebef71b-9d36-4e66-a155-8766d38219ab','habitaclia','8ebef71b-9d36-4e66-a155-8766d38219ab','https://www.habitaclia.com/comprar/planta-intermedia/sants-montjuic/barcelona-capital/8ebef71b-9d36-4e66-a155-8766d38219ab/d','Piso con balcón en venta en Sants - Montjuïc',310000.0,82.0,3.78048780487804879e+03,2,1,'2ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/26
 310.000 €
 Piso con balcón en venta en Sants - Montjuïc
@@ -48077,7 +48077,7 @@ Sants - Montjuïc, Barcelona Capital
 82 m²
 2 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.203258',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.101984',1);
 INSERT INTO "listings" VALUES('habitaclia_9948612e-f19c-49cf-95a2-c170e6acf4be','habitaclia','9948612e-f19c-49cf-95a2-c170e6acf4be','https://www.habitaclia.com/comprar/atico/carrer-de-la-mare-de-deu-de-port/sants-montjuic/barcelona-capital/9948612e-f19c-49cf-95a2-c170e6acf4be/d','Ático con ascensor en venta en Carrer de la Mare de Déu de Port',300000.0,89.0,3.37078651685393242e+03,3,1,'1ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/25
 300.000 €
 Ático con ascensor en venta en Carrer de la Mare de Déu de Port
@@ -48093,7 +48093,7 @@ Sants - Montjuïc, Barcelona Capital
 84 m²
 4 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.185597',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.083693',1);
 INSERT INTO "listings" VALUES('habitaclia_a1b0ed57-d3cf-4028-bcb9-fa97685e2208','habitaclia','a1b0ed57-d3cf-4028-bcb9-fa97685e2208','https://www.habitaclia.com/comprar/planta-intermedia/sants-montjuic/barcelona-capital/a1b0ed57-d3cf-4028-bcb9-fa97685e2208/d','Piso con ascensor en venta en Sants - Montjuïc',319000.0,84.0,3.7976190476190477e+03,4,1,'2ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/32
 319.000 €
 Piso con ascensor en venta en Sants - Montjuïc
@@ -48101,7 +48101,7 @@ Barcelona Capital, Barcelona
 84 m²
 4 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.057798',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:47.958089',1);
 INSERT INTO "listings" VALUES('habitaclia_e335b228-80b3-44e0-8404-62ad0ad57eb9','habitaclia','e335b228-80b3-44e0-8404-62ad0ad57eb9','https://www.habitaclia.com/comprar/planta-intermedia/sants-montjuic/barcelona-capital/e335b228-80b3-44e0-8404-62ad0ad57eb9/d','Piso con ascensor en venta en Sants - Montjuïc',319000.0,84.0,3.7976190476190477e+03,4,1,'2ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/32
 319.000 €
 Piso con ascensor en venta en Sants - Montjuïc
@@ -48109,7 +48109,7 @@ Barcelona Capital, Barcelona
 84 m²
 4 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.150088',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.047088',1);
 INSERT INTO "listings" VALUES('habitaclia_168b16c2-91f5-4834-8b7d-ddff4b525c47','habitaclia','168b16c2-91f5-4834-8b7d-ddff4b525c47','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-mare-de-deu-de-port/sants-montjuic/barcelona-capital/168b16c2-91f5-4834-8b7d-ddff4b525c47/d','Piso con balcón en venta en Carrer de la Mare de Déu de Port',299000.0,72.0,4.15277777777777737e+03,3,1,'5ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/31
 1
 1
@@ -48119,7 +48119,7 @@ Sants - Montjuïc, Barcelona Capital
 72 m²
 3 hab.
 1 baños
-5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.483008',1);
+5º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.383990',1);
 INSERT INTO "listings" VALUES('habitaclia_a66a80a8-1f0c-4064-9b6e-d8d826f686d1','habitaclia','a66a80a8-1f0c-4064-9b6e-d8d826f686d1','https://www.habitaclia.com/comprar/planta-intermedia/carrer-dels-ferrocarrils-catalans/sants-montjuic/barcelona-capital/a66a80a8-1f0c-4064-9b6e-d8d826f686d1/d','Piso con ascensor en venta en Carrer dels Ferrocarrils Catalans',279000.0,81.0,3.44444444444444434e+03,3,1,'4ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/25
 279.000 €
 Piso con ascensor en venta en Carrer dels Ferrocarrils Catalans
@@ -48127,7 +48127,7 @@ Sants - Montjuïc, Barcelona Capital
 81 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.465299',1);
+4º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.366207',1);
 INSERT INTO "listings" VALUES('habitaclia_9b647656-7d18-4907-af62-dd714d2acdae','habitaclia','9b647656-7d18-4907-af62-dd714d2acdae','https://www.habitaclia.com/comprar/planta-intermedia/sants-montjuic/barcelona-capital/9b647656-7d18-4907-af62-dd714d2acdae/d','Piso con balcón en venta en Sants - Montjuïc',310000.0,82.0,3.78048780487804879e+03,2,1,'2ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/20
 310.000 €
 Piso con balcón en venta en Sants - Montjuïc
@@ -48144,7 +48144,7 @@ Barcelona Capital, Barcelona
 87 m²
 3 hab.
 1 baños
-6º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.273267',1);
+6º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.175308',1);
 INSERT INTO "listings" VALUES('habitaclia_49235a0d-d2d6-48f0-8f18-f8eacfc3a38d','habitaclia','49235a0d-d2d6-48f0-8f18-f8eacfc3a38d','https://www.habitaclia.com/comprar/planta-intermedia/sants-montjuic/barcelona-capital/49235a0d-d2d6-48f0-8f18-f8eacfc3a38d/d','Piso con balcón en venta en Sants - Montjuïc',310000.0,82.0,3.78048780487804879e+03,2,1,'2ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/26
 310.000 €
 Piso con balcón en venta en Sants - Montjuïc
@@ -48152,7 +48152,7 @@ Barcelona Capital, Barcelona
 82 m²
 2 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.290904',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.193178',1);
 INSERT INTO "listings" VALUES('habitaclia_abc0d117-6fcc-409a-a4ad-71e79a0f002b','habitaclia','abc0d117-6fcc-409a-a4ad-71e79a0f002b','https://www.habitaclia.com/comprar/planta-intermedia/sants-montjuic/barcelona-capital/abc0d117-6fcc-409a-a4ad-71e79a0f002b/d','Piso con balcón en venta en Sants - Montjuïc',310000.0,82.0,3.78048780487804879e+03,2,1,'2ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/26
 310.000 €
 Piso con balcón en venta en Sants - Montjuïc
@@ -48368,7 +48368,7 @@ Sants - Montjuïc, Barcelona Capital
 82 m²
 2 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.255870',1);
+2º','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:48.157135',1);
 INSERT INTO "listings" VALUES('habitaclia_7ce9c3ce-cea6-4ef4-8050-81680381c6d5','habitaclia','7ce9c3ce-cea6-4ef4-8050-81680381c6d5','https://www.habitaclia.com/comprar/planta-intermedia/mare-de-deu-de-port/sants-montjuic/barcelona-capital/7ce9c3ce-cea6-4ef4-8050-81680381c6d5/d','Piso con ascensor en venta en MARE DE DEU DE PORT',250000.0,85.0,2.94117647058823513e+03,3,1,NULL,NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/45
 1
 250.000 €
@@ -48420,7 +48420,7 @@ Casa en venta en Sants - Montjuïc
 Barcelona Capital, Barcelona
 120 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:32:01.039622',1);
+1 baños','[]',NULL,'[]','2026-10-23 09:55:32.518939','2026-10-30 16:42:47.940000',1);
 INSERT INTO "listings" VALUES('habitaclia_12584000004402','habitaclia','12584000004402','https://www.habitaclia.com/i12584000004402/28119236/live_m28119236202610240920555400/alertas/email/lo-1/20261024-m_nuevo_werise-education_img.htm','Dúplex en Terrassa - Ca n''Anglada (Ll...',215000.0,159.0,1.35220125786163521e+03,3,NULL,NULL,NULL,NULL,NULL,'ca n''anglada (ll','terrassa',NULL,'https://www.habitaclia.com/i12584000004402/28119236/live_m28119236202610240920555400/alertas/email/lo-1/20261024-m_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 215.000 € | | Dúplex en Terrassa - Ca n''Anglada (Ll... | SE VENDE DÚPLEX EN TERRASSA, ZONA CAN... | 159m 2 | 3 hab. Amplio dúplex de 159m2 construidos, distribuido en: -Planta baja: comedor ... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-24 11:07:02.329637','2026-10-24 11:13:00.972265',1);
 INSERT INTO "listings" VALUES('habitaclia_8257004319139','habitaclia','8257004319139','https://www.habitaclia.com/i8257004319139/28119236/live_m28119236202610240920555400/alertas/email/lo-1/20261024-m_nuevo_werise-education_img.htm','Piso en Terrassa - Can Boada del Pi (...',179000.0,87.0,2.05747126436781627e+03,3,NULL,NULL,NULL,NULL,NULL,'can boada del pi (','terrassa',NULL,'https://www.habitaclia.com/i8257004319139/28119236/live_m28119236202610240920555400/alertas/email/lo-1/20261024-m_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 179.000 € | | Piso en Terrassa - Can Boada del Pi (... | Avinguda de Can Boada del Pi 1 PLANTA... | 87m 2 | 3 hab. ?? ¡Tu nuevo hogar en Can Boada te está esperando! Piso de 3 habitaciones co... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-24 11:07:02.353988','2026-10-24 11:13:00.988312',1);
 INSERT INTO "listings" VALUES('habitaclia_3492002813402','habitaclia','3492002813402','https://www.habitaclia.com/i3492002813402/28119236/live_m28119236202610240920555400/alertas/email/lo-1/20261024-m_nuevo_werise-education_img.htm','Planta baja en Terrassa - Les Arenes ...',184900.0,74.0,2.49864864864864875e+03,3,NULL,NULL,NULL,NULL,NULL,'les arenes','terrassa',NULL,'https://www.habitaclia.com/i3492002813402/28119236/live_m28119236202610240920555400/alertas/email/lo-1/20261024-m_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 184.900 € | | Planta baja en Terrassa - Les Arenes ... | CL VALIRA,DE LA Piso de 3 habitacione... | 74m 2 | 3 hab. Te presentamos esta acogedora vivienda en planta baja, ideal para quienes bus... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-24 11:07:02.373656','2026-10-24 11:13:01.007078',1);
@@ -48463,7 +48463,7 @@ Esplugues de Llobregat, Barcelona
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:15.249658"}]','2026-10-24 11:43:42.615657','2026-10-30 16:30:32.358883',1);
+4º','[]',NULL,'[{"price": 310000.0, "date": "2026-10-26T10:37:15.249658"}]','2026-10-24 11:43:42.615657','2026-10-30 16:41:20.731221',1);
 INSERT INTO "listings" VALUES('fotocasa_191157359','fotocasa','191157359','https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/ascensor/191157359/d','piso · Carrer de Fontova, Barcelona',235000.0,62.0,3.79032258064516145e+03,3,1,NULL,NULL,NULL,NULL,'carrer de fontova','barcelona',NULL,'https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/ascensor/191157359/d?stc=em-cross_alert-24x7_realtime-20261027-cardFreshContent&utm_medium=email&utm_source=alert&utm_campaign=24x7_registered_realtime&utm_content=variant_a&utm_term=cardFreshContent" target="_blank" style="display:block;text-decoration:none;line-height:0"> | | | | | | | | | | 235.000 € | | piso · Carrer de Fontova, Barcelona | | 3 habs · 62 m² · 1 baño | | Ver anuncio | | | | <a href="','[]',NULL,'[]','2026-10-24 11:47:19.857991','2026-10-27 21:03:52.141783',1);
 INSERT INTO "listings" VALUES('fotocasa_191105085','fotocasa','191105085','https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/ascensor/191105085/d','piso · Carrer del Segle XX, Barcelona',275000.0,58.0,4.7413793103448279e+03,3,1,NULL,NULL,NULL,NULL,'carrer del segle xx','barcelona',NULL,'https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/ascensor/191105085/d?stc=em-cross_alert-24x7_realtime-20261028-cardFreshContent&utm_medium=email&utm_source=alert&utm_campaign=24x7_registered_realtime&utm_content=variant_a&utm_term=cardFreshContent" target="_blank" style="display:block;text-decoration:none;line-height:0"> | | | | | | | | | | 275.000 € | | piso · Carrer del Segle XX, Barcelona | | 3 habs · 58 m² · 1 baño | | Ver anuncio | | | | <a href="','[]',NULL,'[]','2026-10-24 11:47:19.883599','2026-10-28 20:52:06.492633',1);
 INSERT INTO "listings" VALUES('fotocasa_191180310','fotocasa','191180310','https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/terraza-ascensor/191180310/d','piso , Barcelona',295000.0,73.0,4.04109589041095887e+03,3,1,NULL,NULL,NULL,NULL,NULL,'barcelona',NULL,'https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/terraza-ascensor/191180310/d?stc=em-cross_alert-24x7_realtime-20261024-cardFreshContent&utm_medium=email&utm_source=alert&utm_campaign=24x7_registered_realtime&utm_content=variant_a&utm_term=cardFreshContent" target="_blank" style="display:block;text-decoration:none;line-height:0"> | | | | | | | | | | 295.000 € | | piso , Barcelona | | 3 habs · 73 m² · 1 baño | | Ver anuncio | | | | <a href="','[]',NULL,'[]','2026-10-24 11:47:19.908889','2026-10-24 12:19:18.880451',1);
@@ -48789,7 +48789,7 @@ Bonavista - Bufalà - Morera, Badalona
 142 m²
 4 hab.
 2 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-25 16:47:51.922055','2026-10-30 16:30:50.103356',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-25 16:47:51.922055','2026-10-30 16:41:38.626126',1);
 INSERT INTO "listings" VALUES('habitaclia_41635000001274','habitaclia','41635000001274','https://www.habitaclia.com/i41635000001274/28119238/interesantes28119238202610250128324370/alertas/email/lo-31/20261025-i_interesantesemana_werise-education_img.htm','Piso en Sant Boi de Llobregat - Vinye...',260000.0,97.0,2.68041237113402075e+03,4,NULL,NULL,NULL,NULL,NULL,'vinye','sant boi de llobregat',NULL,'https://www.habitaclia.com/i41635000001274/28119238/interesantes28119238202610250128324370/alertas/email/lo-31/20261025-i_interesantesemana_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 260.000 € | | Piso en Sant Boi de Llobregat - Vinye... | Piso en venta en Vinyets Molí Vell, ... | 97m 2 | 4 hab. REF. 4461- EXCLUISIVA VIVIENDA EN VENTA ZONA MOLI VELL DE SUPERFICIE CONSTRUI... | | | | | | Oportunidad | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-25 16:50:46.084422','2026-10-25 17:04:45.876221',1);
 INSERT INTO "listings" VALUES('habitaclia_29867000001071','habitaclia','29867000001071','https://www.habitaclia.com/i29867000001071/28119238/interesantes28119238202610250128324370/alertas/email/lo-31/20261025-i_interesantesemana_werise-education_img.htm','Piso en Gavà - Centre-Estació',278000.0,88.0,3.159090909090909e+03,4,NULL,NULL,NULL,NULL,NULL,'centre-estació','gavà',NULL,'https://www.habitaclia.com/i29867000001071/28119238/interesantes28119238202610250128324370/alertas/email/lo-31/20261025-i_interesantesemana_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 278.000 € | | Piso en Gavà - Centre-Estació | Piso de 4 dormitorios y Balcón junto ... | 88m 2 | 4 hab. ¡Espacio, comodidad y una ubicación excelente! Se vende amplia vivienda de 4... | | | | | | Oportunidad | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-25 16:50:46.364956','2026-10-25 17:04:45.891012',1);
 INSERT INTO "listings" VALUES('habitaclia_3492002813363','habitaclia','3492002813363','https://www.habitaclia.com/i3492002813363/28119238/interesantes28119238202610250128324370/alertas/email/lo-31/20261025-i_interesantesemana_werise-education_img.htm','Dúplex en Sant Boi de Llobregat - Mar...',305000.0,122.0,2500.0,3,NULL,NULL,NULL,NULL,NULL,NULL,'sant boi de llobregat',NULL,'https://www.habitaclia.com/i3492002813363/28119238/interesantes28119238202610250128324370/alertas/email/lo-31/20261025-i_interesantesemana_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 305.000 € | | Dúplex en Sant Boi de Llobregat - Mar... | CL PROVIDENCIA DE LA AMPLIO DUPLEX CO... | 122m 2 | 3 hab. GROCASA presenta este espacioso dúplex con terraza, ubicado en una finca semi... | | | | | | | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-25 16:50:46.632754','2026-10-25 17:04:45.948207',1);
@@ -49179,7 +49179,7 @@ Sant Ildefons, Cornellà de Llobregat
 80 m²
 3 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-26 11:40:18.109279','2026-10-30 16:30:40.798235',1);
+2º','[]',NULL,'[]','2026-10-26 11:40:18.109279','2026-10-30 16:41:29.187361',1);
 INSERT INTO "listings" VALUES('fotocasa_191002865','fotocasa','191002865','https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/ascensor/191002865/d','piso · Carrer de Fontova, Barcelona',235000.0,62.0,3.79032258064516145e+03,3,1,NULL,NULL,NULL,NULL,'carrer de fontova','barcelona',NULL,'https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/ascensor/191002865/d?stc=em-cross_alert-24x7_realtime-20261026-cardFreshContent&utm_medium=email&utm_source=alert&utm_campaign=24x7_registered_realtime&utm_content=variant_a&utm_term=cardFreshContent" target="_blank" style="display:block;text-decoration:none;line-height:0"> | | | | | | | | | | | | | | | | 235.000 € | | piso · Carrer de Fontova, Barcelona | | 3 habs · 62 m² · 1 baño | | Ver anuncio | | | | | | | | | | | | | | | | Ver anuncios | | | | | | | | | | | | | | | | | | | | Resumen de tu búsqueda | | | | | | | | | varios barr','[]',NULL,'[]','2026-10-26 11:44:35.565435','2026-10-26 11:51:12.698790',1);
 INSERT INTO "listings" VALUES('fotocasa_191178850','fotocasa','191178850','https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/el-camp-de-l-arpa-del-clot/191178850/d','piso · Calle Nación, Barcelona',175000.0,33.0,5.303030303030303e+03,2,1,NULL,NULL,NULL,NULL,'calle nación','barcelona',NULL,'https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/el-camp-de-l-arpa-del-clot/191178850/d?stc=em-cross_alert-24x7_realtime-20261026-cardFreshContent&utm_medium=email&utm_source=alert&utm_campaign=24x7_registered_realtime&utm_content=variant_a&utm_term=cardFreshContent" target="_blank" style="display:block;text-decoration:none;line-height:0"> | | | | | | | | | | | | | | | | 175.000 € | | piso · Calle Nación, Barcelona | | 2 habs · 33 m² · 1 baño | | Ver anuncio | | | | | | | | | | | | | | | | Ver anuncios | | | | | | | | | | | | | | | | | | | | Resumen de tu búsqueda | | | | | | | | ','[]',NULL,'[]','2026-10-26 11:51:12.663222','2026-10-26 11:57:41.682264',1);
 INSERT INTO "listings" VALUES('fotocasa_191058704','fotocasa','191058704','https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/vilapicina-i-la-torre-llobeta/191058704/d','piso , Barcelona',195000.0,67.0,2.91044776119402968e+03,2,1,NULL,NULL,NULL,NULL,NULL,'barcelona',NULL,'https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/vilapicina-i-la-torre-llobeta/191058704/d?stc=em-cross_alert-24x7_realtime-20261026-cardFreshContent&utm_medium=email&utm_source=alert&utm_campaign=24x7_registered_realtime&utm_content=variant_a&utm_term=cardFreshContent" target="_blank" style="display:block;text-decoration:none;line-height:0"> | | | | | | | | | | | | | | | | 195.000 € | | piso , Barcelona | | 2 habs · 67 m² · 1 baño | | Ver anuncio | | | | | | | | | | | | | | | | Ver anuncios | | | | | | | | | | | | | | | | | | | | Resumen de tu búsqueda | | | | | | | | | varios ba','[]',NULL,'[]','2026-10-26 11:57:41.653962','2026-10-26 12:04:14.900872',1);
@@ -49190,7 +49190,7 @@ Piso en venta en Passeig de la Zona Franca 146
 Sants - Montjuïc, Barcelona Capital
 96 m²
 4 hab.
-2 baños','[]',NULL,'[]','2026-10-26 12:16:15.375135','2026-10-30 16:32:01.020301',1);
+2 baños','[]',NULL,'[]','2026-10-26 12:16:15.375135','2026-10-30 16:42:47.921726',1);
 INSERT INTO "listings" VALUES('fotocasa_191211229','fotocasa','191211229','https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/ascensor/191211229/d','piso , Barcelona',289000.0,66.0,4.37878787878787898e+03,2,1,NULL,NULL,NULL,NULL,NULL,'barcelona',NULL,'https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/ascensor/191211229/d?stc=em-cross_alert-24x7_realtime-20261028-cardFreshContent&utm_medium=email&utm_source=alert&utm_campaign=24x7_registered_realtime&utm_content=variant_a&utm_term=cardFreshContent" target="_blank" style="display:block;text-decoration:none;line-height:0"> | | | | | | | | | | 289.000 € | | piso , Barcelona | | 2 habs · 66 m² · 1 baño | | Ver anuncio | | | | <a href="','[]',NULL,'[{"price": 299000.0, "date": "2026-10-26T12:23:12.687118"}]','2026-10-26 12:16:20.686700','2026-10-28 20:52:06.422445',1);
 INSERT INTO "listings" VALUES('habitaclia_4190004382398','habitaclia','4190004382398','https://www.habitaclia.com/i4190004382398/28119238/live_m28119238202610260915416270/alertas/email/lo-4/20261026-m_precio_relajado_nuevo_werise-education_img.htm','Piso en Cornellà de Llobregat - Fonts...',394000.0,81.0,4.86419753086419768e+03,3,NULL,NULL,NULL,NULL,NULL,'fonts','cornellà de llobregat',NULL,'https://www.habitaclia.com/i4190004382398/28119238/live_m28119238202610260915416270/alertas/email/lo-4/20261026-m_precio_relajado_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | Un 9% más caro de lo que buscabas | | | Obra nueva | | | | | 394.000 € | | Piso en Cornellà de Llobregat - Fonts... | Carrer de Maria Rosa Gelabert i Cases 31 | 81m 2 | 3 hab. ¡Obra nueva finalizada! Visita nuestro piso muestra. Pisos de 3 dormitorio... | Pertenece a la promoción EDIFICI BON VIATGE | | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-26 12:16:20.932214','2026-10-26 12:16:20.932214',1);
 INSERT INTO "listings" VALUES('habitaclia_13478004406653','habitaclia','13478004406653','https://www.habitaclia.com/i13478004406653/28119238/live_m28119238202610260915416270/alertas/email/lo-1/20261026-m_nuevo_werise-education_img.htm','Planta baja en Prat de Llobregat (El)...',328000.0,64.0,5125.0,2,NULL,NULL,NULL,NULL,NULL,NULL,'prat de llobregat',NULL,'https://www.habitaclia.com/i13478004406653/28119238/live_m28119238202610260915416270/alertas/email/lo-1/20261026-m_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 328.000 € | | Planta baja en Prat de Llobregat (El)... | Carrer de Barcelona OPORTUNIDAD EN CA... | 64m 2 | 2 hab. PO-BNSRS LCB45130 PLANTA BAJA CON PISCINA Y ORIENTACIÓN SUR EN EL PRAT DE LLO... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-26 12:16:20.990883','2026-10-26 12:16:20.990883',1);
@@ -49229,14 +49229,14 @@ Esplugues de Llobregat, Barcelona
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-26 13:15:06.005640','2026-10-30 16:30:32.196655',1);
+4º','[]',NULL,'[]','2026-10-26 13:15:06.005640','2026-10-30 16:41:20.565008',1);
 INSERT INTO "listings" VALUES('habitaclia_59ec8d58-01f2-44be-ae13-c3edb09b0418','habitaclia','59ec8d58-01f2-44be-ae13-c3edb09b0418','https://www.habitaclia.com/comprar/planta-intermedia/centre-can-nadal/sant-feliu-de-llobregat/59ec8d58-01f2-44be-ae13-c3edb09b0418/d','Piso en venta en Centre - Can Nadal',283346.0,101.0,2.8054059405940593e+03,2,2,NULL,NULL,NULL,NULL,'sant feliu de llobregat','sant feliu de llobregat',NULL,'1/8
 283.346 €
 Piso en venta en Centre - Can Nadal
 Sant Feliu de Llobregat, Barcelona
 101 m²
 2 hab.
-2 baños','[]',NULL,'[{"price": 283342.0, "date": "2026-10-27T15:03:38.525322"}, {"price": 283349.0, "date": "2026-10-27T20:58:13.436867"}, {"price": 283342.0, "date": "2026-10-27T21:34:33.391899"}, {"price": 283349.0, "date": "2026-10-28T20:48:26.086608"}, {"price": 283340.0, "date": "2026-10-29T15:44:45.402913"}]','2026-10-26 15:16:07.234319','2026-10-30 16:30:27.281725',1);
+2 baños','[]',NULL,'[{"price": 283342.0, "date": "2026-10-27T15:03:38.525322"}, {"price": 283349.0, "date": "2026-10-27T20:58:13.436867"}, {"price": 283342.0, "date": "2026-10-27T21:34:33.391899"}, {"price": 283349.0, "date": "2026-10-28T20:48:26.086608"}, {"price": 283340.0, "date": "2026-10-29T15:44:45.402913"}]','2026-10-26 15:16:07.234319','2026-10-30 16:41:15.597244',1);
 INSERT INTO "listings" VALUES('habitaclia_c4a538c3-2fbb-450d-9161-fe34b1b3c51c','habitaclia','c4a538c3-2fbb-450d-9161-fe34b1b3c51c','https://www.habitaclia.com/comprar/planta-intermedia/centre-can-nadal/sant-feliu-de-llobregat/c4a538c3-2fbb-450d-9161-fe34b1b3c51c/d','Piso con ascensor en venta en Centre - Can Nadal',309000.0,75.0,4120.0,3,1,NULL,NULL,NULL,NULL,'sant feliu de llobregat','sant feliu de llobregat',NULL,'1/28
 1
 309.000 €
@@ -49245,14 +49245,14 @@ Sant Feliu de Llobregat, Barcelona
 75 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-26 15:16:08.253882','2026-10-30 16:30:27.263618',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-26 15:16:08.253882','2026-10-30 16:41:15.578500',1);
 INSERT INTO "listings" VALUES('habitaclia_5603552e-2efd-455b-8abc-67c2ad0312f9','habitaclia','5603552e-2efd-455b-8abc-67c2ad0312f9','https://www.habitaclia.com/comprar/planta-intermedia/el-gall/esplugues-de-llobregat/5603552e-2efd-455b-8abc-67c2ad0312f9/d','Piso en venta en El Gall',288902.0,93.0,3106.47311827957,3,1,NULL,NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/8
 288.902 €
 Piso en venta en El Gall
 Esplugues de Llobregat, Barcelona
 93 m²
 3 hab.
-1 baños','[]',NULL,'[{"price": 288896.0, "date": "2026-10-27T15:03:55.098844"}, {"price": 288905.0, "date": "2026-10-27T20:58:24.856871"}, {"price": 288896.0, "date": "2026-10-27T21:34:44.964691"}, {"price": 288905.0, "date": "2026-10-28T20:48:43.445357"}, {"price": 288899.0, "date": "2026-10-29T15:44:59.842147"}]','2026-10-26 15:16:22.275480','2026-10-30 16:30:32.268400',1);
+1 baños','[]',NULL,'[{"price": 288896.0, "date": "2026-10-27T15:03:55.098844"}, {"price": 288905.0, "date": "2026-10-27T20:58:24.856871"}, {"price": 288896.0, "date": "2026-10-27T21:34:44.964691"}, {"price": 288905.0, "date": "2026-10-28T20:48:43.445357"}, {"price": 288899.0, "date": "2026-10-29T15:44:59.842147"}]','2026-10-26 15:16:22.275480','2026-10-30 16:41:20.640154',1);
 INSERT INTO "listings" VALUES('habitaclia_620e325c-05df-4d32-9a21-ff8cca5bc5c3','habitaclia','620e325c-05df-4d32-9a21-ff8cca5bc5c3','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/620e325c-05df-4d32-9a21-ff8cca5bc5c3/d','Piso con balcón en venta en Can Vidalet',300000.0,90.0,3.33333333333333348e+03,3,1,'4ª planta',NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/15
 300.000 €
 Piso con balcón en venta en Can Vidalet
@@ -49260,14 +49260,14 @@ Esplugues de Llobregat, Barcelona
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-26 15:16:22.827830','2026-10-30 16:30:32.178523',1);
+4º','[]',NULL,'[]','2026-10-26 15:16:22.827830','2026-10-30 16:41:20.546599',1);
 INSERT INTO "listings" VALUES('habitaclia_6ffbcb40-1b97-4211-9b7e-7207c11fb3f5','habitaclia','6ffbcb40-1b97-4211-9b7e-7207c11fb3f5','https://www.habitaclia.com/comprar/planta-intermedia/centre/badalona/6ffbcb40-1b97-4211-9b7e-7207c11fb3f5/d','Piso en venta en Centre',232402.0,100.0,2324.02,3,1,NULL,NULL,NULL,NULL,'centre','badalona',NULL,'1/9
 232.402 €
 Piso en venta en Centre
 Badalona, Barcelona
 100 m²
 3 hab.
-1 baños','[]',NULL,'[{"price": 232396.0, "date": "2026-10-27T15:04:33.969166"}, {"price": 232405.0, "date": "2026-10-28T20:49:12.629082"}, {"price": 232399.0, "date": "2026-10-29T15:45:38.608274"}]','2026-10-26 15:16:46.836980','2026-10-30 16:30:45.476648',1);
+1 baños','[]',NULL,'[{"price": 232396.0, "date": "2026-10-27T15:04:33.969166"}, {"price": 232405.0, "date": "2026-10-28T20:49:12.629082"}, {"price": 232399.0, "date": "2026-10-29T15:45:38.608274"}]','2026-10-26 15:16:46.836980','2026-10-30 16:41:33.981727',1);
 INSERT INTO "listings" VALUES('habitaclia_4492e26f-6153-48ab-8f18-6bc85a8784ef','habitaclia','4492e26f-6153-48ab-8f18-6bc85a8784ef','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/4492e26f-6153-48ab-8f18-6bc85a8784ef/d','Piso en venta en Horta - Guinardó',294799.0,84.0,3.50951190476190458e+03,2,1,NULL,NULL,NULL,NULL,'baix guinardo','barcelona',NULL,'1/9
 294.799 €
 Ha bajado 6 €
@@ -49275,7 +49275,7 @@ Piso en venta en Horta - Guinardó
 Barcelona Capital, Barcelona
 84 m²
 2 hab.
-1 baños','[]',NULL,'[{"price": 294803.0, "date": "2026-10-27T15:05:35.999038"}, {"price": 294796.0, "date": "2026-10-28T20:50:05.939385"}, {"price": 294805.0, "date": "2026-10-29T15:46:47.200834"}]','2026-10-26 15:17:46.007387','2026-10-30 16:31:08.612727',1);
+1 baños','[]',NULL,'[{"price": 294803.0, "date": "2026-10-27T15:05:35.999038"}, {"price": 294796.0, "date": "2026-10-28T20:50:05.939385"}, {"price": 294805.0, "date": "2026-10-29T15:46:47.200834"}]','2026-10-26 15:17:46.007387','2026-10-30 16:42:02.562015',1);
 INSERT INTO "listings" VALUES('habitaclia_cdc1dfd8-4206-4c98-acce-65329fed1353','habitaclia','cdc1dfd8-4206-4c98-acce-65329fed1353','https://www.habitaclia.com/comprar/planta-intermedia/calle-llenguadoc/sant-andreu/barcelona-capital/cdc1dfd8-4206-4c98-acce-65329fed1353/d','Piso con ascensor en venta en Calle Llenguadoc',320000.0,90.0,3.55555555555555565e+03,3,1,NULL,NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1/17
 320.000 €
 Piso con ascensor en venta en Calle Llenguadoc
@@ -49283,7 +49283,7 @@ Sant Andreu, Barcelona Capital
 90 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-26 15:18:00.810530','2026-10-30 16:31:17.126490',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-26 15:18:00.810530','2026-10-30 16:42:11.178080',1);
 INSERT INTO "listings" VALUES('habitaclia_500006055179','habitaclia','500006055179','https://www.habitaclia.com/i500006055179/28119239/live_m28119239202610260915416270/alertas/email/lo-4/20261026-m_precio_relajado_nuevo_werise-education_img.htm','Planta baja en Vilanova i la Geltrú -...',255000.0,60.0,4250.0,2,NULL,'BAJO',NULL,NULL,NULL,NULL,'vilanova i la geltrú',NULL,'https://www.habitaclia.com/i500006055179/28119239/live_m28119239202610260915416270/alertas/email/lo-4/20261026-m_precio_relajado_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | Un 6% más caro de lo que buscabas | | | | | | | | 255.000 € | | Planta baja en Vilanova i la Geltrú -... | Carrer Aiguamolls 11 BAJO CON PLAZA D... | 60m 2 | 2 hab. ABSTENERSE AGENCIAS Luminoso bajo con jardín y varias terrazas a pocos metro... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-26 15:19:18.762889','2026-10-26 15:26:16.425788',1);
 INSERT INTO "listings" VALUES('habitaclia_885003225055','habitaclia','885003225055','https://www.habitaclia.com/i885003225055/28119239/live_m28119239202610260915416270/alertas/email/lo-89/20261026-m_nuevoreenviado_werise-education_img.htm','Piso en Vilanova i la Geltrú - Centre...',240000.0,69.0,3.47826086956521749e+03,2,NULL,NULL,NULL,NULL,NULL,'centre','vilanova i la geltrú',NULL,'https://www.habitaclia.com/i885003225055/28119239/live_m28119239202610260915416270/alertas/email/lo-89/20261026-m_nuevoreenviado_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 240.000 € | | Piso en Vilanova i la Geltrú - Centre... | Centro de la población a 2 minutos pl... | 69m 2 | 2 hab. VILANOVA I LA GELTRÚ - CENTRO Si buscas un hogar con encanto en una de las lo... | | | | | | Quizás te lo perdiste | | | | | | | | | Te recomendamos | | <a href="','[]',NULL,'[]','2026-10-26 15:19:18.801785','2026-10-26 15:26:16.456085',1);
 INSERT INTO "listings" VALUES('habitaclia_49867000007889','habitaclia','49867000007889','https://www.habitaclia.com/i49867000007889/28119239/live_m28119239202610280926341070/alertas/email/lo-6/20261028-m_adyacencia_werise-education_img.htm','Piso en Cubelles - El Castell de Cube...',147863.0,62.0,2.38488709677419365e+03,NULL,NULL,NULL,NULL,NULL,NULL,'el castell de cube','cubelles',NULL,'https://www.habitaclia.com/i49867000007889/28119239/live_m28119239202610280926341070/alertas/email/lo-6/20261028-m_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Cubelles | 147.863 € Piso en Cubelles - El Castell de Cube... | 62m 2 | | | | <a href="','[]',NULL,'[]','2026-10-26 15:19:18.963814','2026-10-28 20:52:06.252084',1);
@@ -49318,7 +49318,7 @@ INSERT INTO "listings" VALUES('habitaclia_4023004504405','habitaclia','402300450
 INSERT INTO "listings" VALUES('habitaclia_3492002813406','habitaclia','3492002813406','https://www.habitaclia.com/i3492002813406/28119232/live_t28119232202610261427223900/alertas/email/lo-7/20261026-t_nuevo_werise-education_img.htm','Piso en Mataró - Peramàs (Peramàs)',329000.0,109.0,3.01834862385321093e+03,4,NULL,NULL,NULL,NULL,NULL,'peramàs','mataró',NULL,'https://www.habitaclia.com/i3492002813406/28119232/live_t28119232202610261427223900/alertas/email/lo-7/20261026-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 329.000 € | | Piso en Mataró - Peramàs (Peramàs) | CL JOANOT MARTORELL AMPLITUD Y LUMINO... | 109m 2 | 4 hab. GROCASA Mataró-Centre presenta EN EXCLUSIVA este piso CON ASCENSOR, amplio, e... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-26 16:28:02.865408','2026-10-26 17:12:36.460200',1);
 INSERT INTO "listings" VALUES('habitaclia_8820004386880','habitaclia','8820004386880','https://www.habitaclia.com/i8820004386880/28119232/live_t28119232202610261427223900/alertas/email/lo-7/20261026-t_nuevo_werise-education_img.htm','Piso en Mataró - Peramàs (Peramàs)',274000.0,96.0,2.85416666666666651e+03,4,NULL,NULL,NULL,NULL,NULL,'peramàs','mataró',NULL,'https://www.habitaclia.com/i8820004386880/28119232/live_t28119232202610261427223900/alertas/email/lo-7/20261026-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 274.000 € | | Piso en Mataró - Peramàs (Peramàs) | Carrer Lucius Marcius Amplitud, luz n... | 96m 2 | 4 hab. Si buscas una vivienda espaciosa, bien cuidada y con una distribución pensada... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-26 16:28:02.887096','2026-10-26 17:12:36.475103',1);
 INSERT INTO "listings" VALUES('habitaclia_8820004386881','habitaclia','8820004386881','https://www.habitaclia.com/i8820004386881/28119232/live_t28119232202610261427223900/alertas/email/lo-7/20261026-t_nuevo_werise-education_img.htm','Casa adosada en Mataró - Els Molins (...',357000.0,125.0,2856.0,3,NULL,NULL,NULL,NULL,NULL,'els molins (','mataró',NULL,'https://www.habitaclia.com/i8820004386881/28119232/live_t28119232202610261427223900/alertas/email/lo-7/20261026-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 357.000 € | | Casa adosada en Mataró - Els Molins (... | Plaça Picó i Sinol Casa con patio-jar... | 125m 2 | 3 hab. ¿Te gustaría disfrutar de la independencia de una casa y disponer de varios e... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-26 16:28:02.908771','2026-10-26 17:12:36.489993',1);
-INSERT INTO "listings" VALUES('habitaclia_21410000000314','habitaclia','21410000000314','https://www.habitaclia.com/i21410000000314/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Piso en Pineda de Mar - Poblenou',206000.0,75.0,2.74666666666666651e+03,2,NULL,NULL,NULL,NULL,NULL,'poblenou','pineda de mar',NULL,'https://www.habitaclia.com/i21410000000314/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Pineda de Mar | 206.000 € Piso en Pineda de Mar - Poblenou | 75m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-10-26 16:28:02.930684','2026-10-30 16:33:03.594191',1);
+INSERT INTO "listings" VALUES('habitaclia_21410000000314','habitaclia','21410000000314','https://www.habitaclia.com/i21410000000314/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Piso en Pineda de Mar - Poblenou',206000.0,75.0,2.74666666666666651e+03,2,NULL,NULL,NULL,NULL,NULL,'poblenou','pineda de mar',NULL,'https://www.habitaclia.com/i21410000000314/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Pineda de Mar | 206.000 € Piso en Pineda de Mar - Poblenou | 75m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-10-26 16:28:02.930684','2026-10-30 16:42:51.316513',1);
 INSERT INTO "listings" VALUES('habitaclia_38548000000184','habitaclia','38548000000184','https://www.habitaclia.com/i38548000000184/28119232/live_t28119232202610261427223900/alertas/email/lo-7/20261026-t_nuevo_werise-education_img.htm','Casa en Arenys de Munt',310000.0,132.0,2.34848484848484849e+03,5,NULL,NULL,NULL,NULL,NULL,NULL,'arenys de munt',NULL,'https://www.habitaclia.com/i38548000000184/28119232/live_t28119232202610261427223900/alertas/email/lo-7/20261026-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 310.000 € | | Casa en Arenys de Munt | Casa con encanto y gran parquing | 132m 2 | 5 hab. OPORTUNIDAD DE COMPRA!! Estudi 23 presenta casa con encanto a reformar y o a... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-26 16:28:02.952908','2026-10-26 17:12:36.519781',1);
 INSERT INTO "listings" VALUES('habitaclia_1735004434203','habitaclia','1735004434203','https://www.habitaclia.com/i1735004434203/28119232/live_t28119232202610261427223900/alertas/email/lo-7/20261026-t_nuevo_werise-education_img.htm','Piso en Tordera - Tordera',210000.0,135.0,1.55555555555555565e+03,3,NULL,NULL,NULL,NULL,NULL,'tordera','tordera',NULL,'https://www.habitaclia.com/i1735004434203/28119232/live_t28119232202610261427223900/alertas/email/lo-7/20261026-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 210.000 € | | Piso en Tordera - Tordera | TERRAZA 35M, ASCENSOR, BUENA UBICACIÓN. | 135m 2 | 3 hab. Piso seminuevo 100 m2 con terraza de 35 m2. La vivienda esta distribuida en r... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-26 16:28:02.975103','2026-10-26 17:12:36.534478',1);
 INSERT INTO "listings" VALUES('habitaclia_18312000001204','habitaclia','18312000001204','https://www.habitaclia.com/i18312000001204/28119232/live_t28119232202610261427223900/alertas/email/lo-7/20261026-t_nuevo_werise-education_img.htm','Piso en Pineda de Mar - Centre',168000.0,75.0,2240.0,2,NULL,NULL,NULL,NULL,NULL,'centre','pineda de mar',NULL,'https://www.habitaclia.com/i18312000001204/28119232/live_t28119232202610261427223900/alertas/email/lo-7/20261026-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 168.000 € | | Piso en Pineda de Mar - Centre | en Pineda De Mar | 75m 2 | 2 hab. ¡OPORTUNIDAD EN PINEDA DE MAR! PISO LUMINOSO, TOTALMENTE AMUEBLADO Y DISPONIB... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-26 16:28:02.996783','2026-10-26 17:12:36.549134',1);
@@ -49385,7 +49385,7 @@ Badalona, Barcelona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-26 19:56:32.386245','2026-10-30 16:30:54.957963',1);
+2º','[]',NULL,'[]','2026-10-26 19:56:32.386245','2026-10-30 16:41:43.544483',1);
 INSERT INTO "listings" VALUES('habitaclia_2579003792392','habitaclia','2579003792392','https://www.habitaclia.com/i2579003792392/28119224/live_n28119224202610261916491500/alertas/email/lo-13/20261026-n_nuevo_werise-education_img.htm','Piso en Barcelona - Raval (Ciutat Vella)',240000.0,37.0,6.48648648648648668e+03,1,NULL,NULL,NULL,NULL,NULL,'raval','barcelona',NULL,'https://www.habitaclia.com/i2579003792392/28119224/live_n28119224202610261916491500/alertas/email/lo-13/20261026-n_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 240.000 € | | Piso en Barcelona - Raval (Ciutat Vella) | GRAVINA | 37m 2 | 1 hab. ¡Fantástica oportunidad en El Raval! Se vende acogedora vivienda de 37 m²... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-26 20:29:31.717392','2026-10-27 09:43:47.091337',1);
 INSERT INTO "listings" VALUES('habitaclia_5891003250493','habitaclia','5891003250493','https://www.habitaclia.com/i5891003250493/28119224/live_n28119224202610261916491500/alertas/email/lo-13/20261026-n_nuevo_werise-education_img.htm','Piso en Barcelona - Carmel (Horta Gui...',225000.0,75.0,3000.0,3,NULL,NULL,NULL,NULL,NULL,'carmel (horta gui','barcelona',NULL,'https://www.habitaclia.com/i5891003250493/28119224/live_n28119224202610261916491500/alertas/email/lo-13/20261026-n_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 225.000 € | | Piso en Barcelona - Carmel (Horta Gui... | CARMEL SACEDÓN DANTE ALIGHIERI Vivie... | 75m 2 | 3 hab. CARMEL -SACEDÓN - DANTE ALIGHIERI Vivienda de 75 m2 construidos compuesta s... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-26 20:29:31.743245','2026-10-27 09:43:47.105533',1);
 INSERT INTO "listings" VALUES('habitaclia_13478004406699','habitaclia','13478004406699','https://www.habitaclia.com/i13478004406699/28119224/live_n28119224202610261916491500/alertas/email/lo-13/20261026-n_nuevo_werise-education_img.htm','Piso en Barcelona - Vilapicina - Torr...',299000.0,65.0,4600.0,3,NULL,NULL,NULL,NULL,NULL,'vilapicina','barcelona',NULL,'https://www.habitaclia.com/i13478004406699/28119224/live_n28119224202610261916491500/alertas/email/lo-13/20261026-n_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 299.000 € | | Piso en Barcelona - Vilapicina - Torr... | Carrer de la Riera d''Horta | 65m 2 | 3 hab. Piso exterior de 3 habitaciones en séptima planta con ascensor Se vende lumi... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-26 20:29:38.574551','2026-10-27 09:43:47.118435',1);
@@ -49417,7 +49417,7 @@ La Gavarra, Cornellà de Llobregat
 80 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-26 21:39:09.311745','2026-10-30 16:30:40.778253',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-26 21:39:09.311745','2026-10-30 16:41:29.167227',1);
 INSERT INTO "listings" VALUES('habitaclia_94654079-fd00-4000-9a90-b75faeac52bd','habitaclia','94654079-fd00-4000-9a90-b75faeac52bd','https://www.habitaclia.com/comprar/planta-intermedia/calle-selva-18/montigala-sant-crist/badalona/94654079-fd00-4000-9a90-b75faeac52bd/d','Piso con ascensor en venta en Calle Selva 18',269900.0,70.0,3.85571428571428577e+03,3,1,NULL,NULL,NULL,NULL,'montigala','badalona',NULL,'1/33
 1
 269.900 €
@@ -49426,7 +49426,7 @@ Montigalà - Sant Crist, Badalona
 70 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-26 21:39:49.836245','2026-10-30 16:30:54.939245',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-26 21:39:49.836245','2026-10-30 16:41:43.526741',1);
 INSERT INTO "listings" VALUES('habitaclia_ed629d30-1f74-486b-8907-73e005d6d343','habitaclia','ed629d30-1f74-486b-8907-73e005d6d343','https://www.habitaclia.com/comprar/planta-intermedia/nou-barris/barcelona-capital/ed629d30-1f74-486b-8907-73e005d6d343/d','Piso con balcón en venta en Nou Barris',295000.0,77.0,3.83116883116883127e+03,3,1,NULL,NULL,NULL,NULL,'vilapicina','barcelona',NULL,'Oportunidad
 1/45
 1
@@ -49436,7 +49436,7 @@ Barcelona Capital, Barcelona
 77 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-27 03:32:34.195701','2026-10-30 16:31:38.269100',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-27 03:32:34.195701','2026-10-30 16:42:29.691082',1);
 INSERT INTO "listings" VALUES('habitaclia_97e80097-bdea-4748-b0b9-cc2defe5baf6','habitaclia','97e80097-bdea-4748-b0b9-cc2defe5baf6','https://www.habitaclia.com/comprar/planta-intermedia/nou-barris/barcelona-capital/97e80097-bdea-4748-b0b9-cc2defe5baf6/d','Piso con ascensor en venta en Nou Barris',250000.0,74.0,3.37837837837837832e+03,2,1,'sótano',NULL,NULL,NULL,'vilapicina','barcelona',NULL,'1/25
 250.000 €
 Piso con ascensor en venta en Nou Barris
@@ -49444,7 +49444,7 @@ Barcelona Capital, Barcelona
 74 m²
 2 hab.
 1 baños
-Sótano','[]',NULL,'[]','2026-10-27 03:32:34.229439','2026-10-30 16:31:38.249195',1);
+Sótano','[]',NULL,'[]','2026-10-27 03:32:34.229439','2026-10-30 16:42:29.671689',1);
 INSERT INTO "listings" VALUES('habitaclia_a12bbc56-1d8d-4d4b-80eb-5a8cb923927f','habitaclia','a12bbc56-1d8d-4d4b-80eb-5a8cb923927f','https://www.habitaclia.com/comprar/planta-intermedia/calle-edison/sant-marti/barcelona-capital/a12bbc56-1d8d-4d4b-80eb-5a8cb923927f/d','Piso con balcón en venta en Calle Edison',309000.0,71.0,4.35211267605633838e+03,3,3,'2ª planta',NULL,NULL,NULL,'el clot','barcelona',NULL,'Oportunidad
 1/18
 309.000 €
@@ -49453,7 +49453,7 @@ Sant Martí, Barcelona Capital
 71 m²
 3 hab.
 3 baños
-2º','[]',NULL,'[]','2026-10-27 09:39:14.351594','2026-10-30 16:31:42.560534',1);
+2º','[]',NULL,'[]','2026-10-27 09:39:14.351594','2026-10-30 16:42:34.045545',1);
 INSERT INTO "listings" VALUES('habitaclia_08f1de6a-98df-472d-b4d2-7edf1adc7cd5','habitaclia','08f1de6a-98df-472d-b4d2-7edf1adc7cd5','https://www.habitaclia.com/comprar/planta-intermedia/calle-josep-maria-de-sagarra-de/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/08f1de6a-98df-472d-b4d2-7edf1adc7cd5/d','Piso en venta en Calle JOSEP MARIA DE SAGARRA DE',119000.0,87.0,1.36781609195402302e+03,2,1,NULL,NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/4
 119.000 €
 Piso en venta en Calle JOSEP MARIA DE SAGARRA DE
@@ -49461,7 +49461,7 @@ Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 87 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-27 09:39:44.567645','2026-10-30 16:31:56.616243',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-27 09:39:44.567645','2026-10-30 16:42:43.555095',1);
 INSERT INTO "listings" VALUES('idealista_112916592','idealista','112916592','https://www.idealista.com/inmueble/112916592/','Piso en venta en Gran Via de les Corts Catalanes, 1144, Provençals Del Poblenou, Barcelona',310000.0,70.0,4.42857142857142844e+03,3,1,'7ª planta',NULL,41.4175417,2.2067978,'provençals del poblenou','barcelona',NULL,'con ascensor · exterior · buen estado
 Descubre esta magnífica vivienda situada en el consolidado y apreciado distrito de Sant Martí, en Barcelona, una ubicación que combina a la perfección la comodidad de vivir en una zona residencial con la proximidad a todos los servicios que ofrece la ciudad.
 
@@ -49675,7 +49675,7 @@ Esplugues de Llobregat, Barcelona
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-27 11:13:12.931849','2026-10-30 16:30:32.160561',1);
+4º','[]',NULL,'[]','2026-10-27 11:13:12.931849','2026-10-30 16:41:20.528448',1);
 INSERT INTO "listings" VALUES('habitaclia_15471000080113','habitaclia','15471000080113','https://www.habitaclia.com/i15471000080113/28119232/live_m28119232202610270928521900/alertas/email/lo-1/20261027-m_nuevo_werise-education_img.htm','Piso en Sant Andreu de Llavaneres - C...',280000.0,91.0,3.07692307692307713e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'sant andreu de llavaneres',NULL,'https://www.habitaclia.com/i15471000080113/28119232/live_m28119232202610270928521900/alertas/email/lo-1/20261027-m_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 280.000 € | | Piso en Sant Andreu de Llavaneres - C... | | 91m 2 | 3 hab. Referencia: 1060524 SANT ANDREU DE LLAVANERES - PISO REFORMADO DE 91 m² - 3 ... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-27 11:17:04.698598','2026-10-27 11:33:46.430355',1);
 INSERT INTO "listings" VALUES('habitaclia_13920000017306','habitaclia','13920000017306','https://www.habitaclia.com/i13920000017306/28119232/live_m28119232202610270928521900/alertas/email/lo-1/20261027-m_nuevo_werise-education_img.htm','Piso en Mataró - Rocafonda (Rocafonda)',129000.0,72.0,1.79166666666666674e+03,3,NULL,NULL,NULL,NULL,NULL,'rocafonda','mataró',NULL,'https://www.habitaclia.com/i13920000017306/28119232/live_m28119232202610270928521900/alertas/email/lo-1/20261027-m_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 129.000 € | | Piso en Mataró - Rocafonda (Rocafonda) | Josep Faneca Piso en Calle Josep Faneca | 72m 2 | 3 hab. ¡ Oportunidad ! Piso de 72 m² para actualizar a la venta en Mataró, Barcelon... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-27 11:17:04.715704','2026-10-27 11:33:46.441699',1);
 INSERT INTO "listings" VALUES('habitaclia_31914000000550','habitaclia','31914000000550','https://www.habitaclia.com/i31914000000550/28119232/live_m28119232202610270928521900/alertas/email/lo-1/20261027-m_nuevo_werise-education_img.htm','Piso en Mataró - La Llàntia (La Llàntia)',320000.0,119.0,2.68907563025210083e+03,4,NULL,NULL,NULL,NULL,NULL,'la llàntia','mataró',NULL,'https://www.habitaclia.com/i31914000000550/28119232/live_m28119232202610270928521900/alertas/email/lo-1/20261027-m_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 320.000 € | | Piso en Mataró - La Llàntia (La Llàntia) | AMPLIO PISO CON VISTAS AL MAR, 4 HABI... | 119m 2 | 4 hab. AMPLIO PISO CON VISTAS AL MAR, 4 HABITACIONES, ASCENSOR Y PARKING INCLUIDO EN... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-27 11:17:04.730384','2026-10-27 11:33:46.452088',1);
@@ -49756,14 +49756,14 @@ Roses - Castellbell, Sant Feliu de Llobregat
 73 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-27 20:58:13.483174','2026-10-30 16:30:27.245970',1);
+1º','[]',NULL,'[]','2026-10-27 20:58:13.483174','2026-10-30 16:41:15.560349',1);
 INSERT INTO "listings" VALUES('habitaclia_2401598f-d633-4d77-9196-6898f72f0a01','habitaclia','2401598f-d633-4d77-9196-6898f72f0a01','https://www.habitaclia.com/comprar/bajo/centre-can-nadal/sant-feliu-de-llobregat/2401598f-d633-4d77-9196-6898f72f0a01/d','Bajo en venta en Centre - Can Nadal',190000.0,116.0,1.6379310344827586e+03,1,1,NULL,NULL,NULL,NULL,'sant feliu de llobregat','sant feliu de llobregat',NULL,'1/21
 190.000 €
 Bajo en venta en Centre - Can Nadal
 Sant Feliu de Llobregat, Barcelona
 116 m²
 1 hab.
-1 baños','[]',NULL,'[]','2026-10-27 20:58:13.530716','2026-10-30 16:30:27.227112',1);
+1 baños','[]',NULL,'[]','2026-10-27 20:58:13.530716','2026-10-30 16:41:15.541604',1);
 INSERT INTO "listings" VALUES('habitaclia_ea24fdc4-b469-4c89-8cd9-1269d2e10e79','habitaclia','ea24fdc4-b469-4c89-8cd9-1269d2e10e79','https://www.habitaclia.com/comprar/planta-intermedia/boix/sant-ildefons/cornella-de-llobregat/ea24fdc4-b469-4c89-8cd9-1269d2e10e79/d','Piso con ascensor en venta en Boix',215000.0,71.0,3.02816901408450712e+03,3,1,NULL,NULL,NULL,NULL,'sant ildefons','cornellà de llobregat',NULL,'Oportunidad
 1/9
 215.000 €
@@ -49772,7 +49772,7 @@ Sant Ildefons, Cornellà de Llobregat
 71 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-27 20:58:40.767352','2026-10-30 16:30:40.903511',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-27 20:58:40.767352','2026-10-30 16:41:29.297570',1);
 INSERT INTO "listings" VALUES('habitaclia_88974ee2-5716-4b2c-b8f5-5c544438f30c','habitaclia','88974ee2-5716-4b2c-b8f5-5c544438f30c','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-independencia/bonavista-bufala-morera/badalona/88974ee2-5716-4b2c-b8f5-5c544438f30c/d','Piso en venta en Carrer de la Independència',240000.0,75.0,3200.0,2,1,'ático',NULL,NULL,NULL,'bufala','badalona',NULL,'1/37
 1
 240.000 €
@@ -49781,7 +49781,7 @@ Bonavista - Bufalà - Morera, Badalona
 75 m²
 2 hab.
 1 baños
-Ático','[]',NULL,'[]','2026-10-27 20:58:59.599238','2026-10-30 16:30:50.085386',1);
+Ático','[]',NULL,'[]','2026-10-27 20:58:59.599238','2026-10-30 16:41:38.608060',1);
 INSERT INTO "listings" VALUES('habitaclia_4faec54f-5795-4cb8-b67e-9e7e1f7822ce','habitaclia','4faec54f-5795-4cb8-b67e-9e7e1f7822ce','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-montserrat-1/montigala-sant-crist/badalona/4faec54f-5795-4cb8-b67e-9e7e1f7822ce/d','Piso con balcón en venta en Carrer de Montserrat 1',296000.0,82.0,3.60975609756097583e+03,4,1,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/7
 296.000 €
 Piso con balcón en venta en Carrer de Montserrat 1
@@ -49789,7 +49789,7 @@ Montigalà - Sant Crist, Badalona
 82 m²
 4 hab.
 1 baños
-2º','[]',NULL,'[]','2026-10-27 20:59:20.896404','2026-10-30 16:30:54.922145',1);
+2º','[]',NULL,'[]','2026-10-27 20:59:20.896404','2026-10-30 16:41:43.508873',1);
 INSERT INTO "listings" VALUES('habitaclia_6c5b93df-5ae5-4ffb-a303-1e881f6f308b','habitaclia','6c5b93df-5ae5-4ffb-a303-1e881f6f308b','https://www.habitaclia.com/comprar/planta-intermedia/segle-xx/horta-guinardo/barcelona-capital/6c5b93df-5ae5-4ffb-a303-1e881f6f308b/d','Piso con ascensor en venta en Segle Xx',295000.0,77.0,3.83116883116883127e+03,2,1,'1ª planta',NULL,NULL,NULL,'el guinardo','barcelona',NULL,'Oportunidad
 1/18
 1
@@ -49799,7 +49799,7 @@ Horta - Guinardó, Barcelona Capital
 77 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-27 20:59:39.362617','2026-10-30 16:31:04.353988',1);
+1º','[]',NULL,'[]','2026-10-27 20:59:39.362617','2026-10-30 16:41:55.652397',1);
 INSERT INTO "listings" VALUES('habitaclia_00150aba-bbe7-48a9-92bb-6355e1b3fa5a','habitaclia','00150aba-bbe7-48a9-92bb-6355e1b3fa5a','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/00150aba-bbe7-48a9-92bb-6355e1b3fa5a/d','Piso con balcón en venta en Centre - Sant Josep - Sanfeliu',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Centre - Sant Josep - Sanfeliu
@@ -49807,7 +49807,7 @@ L''Hospitalet de Llobregat, Barcelona
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-27 21:01:15.955211','2026-10-30 16:31:56.472769',1);
+3º','[]',NULL,'[]','2026-10-27 21:01:15.955211','2026-10-30 16:42:43.414586',1);
 INSERT INTO "listings" VALUES('habitaclia_a9dd3e0d-1cc2-446c-a735-2f6e42d83bb6','habitaclia','a9dd3e0d-1cc2-446c-a735-2f6e42d83bb6','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/a9dd3e0d-1cc2-446c-a735-2f6e42d83bb6/d','Piso con balcón en venta en Centre - Sant Josep - Sanfeliu',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Centre - Sant Josep - Sanfeliu
@@ -49815,7 +49815,7 @@ L''Hospitalet de Llobregat, Barcelona
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-27 21:01:22.372506','2026-10-30 16:31:56.511770',1);
+3º','[]',NULL,'[]','2026-10-27 21:01:22.372506','2026-10-30 16:42:43.448873',1);
 INSERT INTO "listings" VALUES('habitaclia_b141f662-17fd-4421-bbd9-8937015c1ca9','habitaclia','b141f662-17fd-4421-bbd9-8937015c1ca9','https://www.habitaclia.com/comprar/planta-intermedia/placa-mare-de-deu-de-montserrat/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/b141f662-17fd-4421-bbd9-8937015c1ca9/d','Piso con balcón en venta en Plaça Mare de Déu de Montserrat',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Plaça Mare de Déu de Montserrat
@@ -49823,7 +49823,7 @@ Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-27 21:01:30.312285','2026-10-30 16:31:56.546237',1);
+3º','[]',NULL,'[]','2026-10-27 21:01:30.312285','2026-10-30 16:42:43.482208',1);
 INSERT INTO "listings" VALUES('habitaclia_e05ac735-d0e4-48e2-8a82-0d3c92a9b0e1','habitaclia','e05ac735-d0e4-48e2-8a82-0d3c92a9b0e1','https://www.habitaclia.com/comprar/planta-intermedia/placa-mare-de-deu-de-montserrat/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/e05ac735-d0e4-48e2-8a82-0d3c92a9b0e1/d','Piso con balcón en venta en Plaça Mare de Déu de Montserrat',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Plaça Mare de Déu de Montserrat
@@ -49831,7 +49831,7 @@ Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-27 21:01:37.982258','2026-10-30 16:31:56.438038',1);
+3º','[]',NULL,'[]','2026-10-27 21:01:37.982258','2026-10-30 16:42:43.380401',1);
 INSERT INTO "listings" VALUES('habitaclia_e4cddd9c-73b5-4c90-bc13-8b9003c6d09c','habitaclia','e4cddd9c-73b5-4c90-bc13-8b9003c6d09c','https://www.habitaclia.com/comprar/planta-intermedia/placa-mare-de-deu-de-montserrat/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/e4cddd9c-73b5-4c90-bc13-8b9003c6d09c/d','Piso con balcón en venta en Plaça Mare de Déu de Montserrat',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Plaça Mare de Déu de Montserrat
@@ -49839,7 +49839,7 @@ Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-27 21:01:46.976991','2026-10-30 16:31:56.494327',1);
+3º','[]',NULL,'[]','2026-10-27 21:01:46.976991','2026-10-30 16:42:43.432002',1);
 INSERT INTO "listings" VALUES('habitaclia_ef8c2e01-0ea7-4aff-ba66-d3ccd4c075d4','habitaclia','ef8c2e01-0ea7-4aff-ba66-d3ccd4c075d4','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/ef8c2e01-0ea7-4aff-ba66-d3ccd4c075d4/d','Piso con balcón en venta en Centre - Sant Josep - Sanfeliu',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Centre - Sant Josep - Sanfeliu
@@ -49847,7 +49847,7 @@ L''Hospitalet de Llobregat, Barcelona
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-27 21:01:54.176760','2026-10-30 16:31:56.455345',1);
+3º','[]',NULL,'[]','2026-10-27 21:01:54.176760','2026-10-30 16:42:43.397623',1);
 INSERT INTO "listings" VALUES('habitaclia_36d77691-2dfa-4c03-826a-725e4b3a09a0','habitaclia','36d77691-2dfa-4c03-826a-725e4b3a09a0','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/36d77691-2dfa-4c03-826a-725e4b3a09a0/d','Piso en venta en Centre - Sant Josep - Sanfeliu',132985.0,75.0,1.77313333333333343e+03,3,1,NULL,NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/8
 132.985 €
 Ha bajado 3 €
@@ -49855,7 +49855,7 @@ Piso en venta en Centre - Sant Josep - Sanfeliu
 L''Hospitalet de Llobregat, Barcelona
 75 m²
 3 hab.
-1 baños','[]',NULL,'[{"price": 132988.0, "date": "2026-10-28T20:51:26.834107"}]','2026-10-27 21:01:59.217537','2026-10-30 16:31:56.529075',1);
+1 baños','[]',NULL,'[{"price": 132988.0, "date": "2026-10-28T20:51:26.834107"}]','2026-10-27 21:01:59.217537','2026-10-30 16:42:43.465629',1);
 INSERT INTO "listings" VALUES('habitaclia_df80ec32-6873-485b-8836-245bcb980db0','habitaclia','df80ec32-6873-485b-8836-245bcb980db0','https://www.habitaclia.com/comprar/planta-intermedia/passeig-de-la-zona-franca/sants-montjuic/barcelona-capital/df80ec32-6873-485b-8836-245bcb980db0/d','Piso con ascensor en venta en Passeig de la Zona Franca',315000.0,74.0,4.25675675675675665e+03,4,1,'3ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/37
 315.000 €
 Ha bajado 35.000 €
@@ -50085,7 +50085,7 @@ L''Hospitalet de Llobregat, Barcelona
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-28 09:21:18.377440','2026-10-30 16:31:56.420278',1);
+3º','[]',NULL,'[]','2026-10-28 09:21:18.377440','2026-10-30 16:42:43.362575',1);
 INSERT INTO "listings" VALUES('habitaclia_10266000005132','habitaclia','10266000005132','https://www.habitaclia.com/i10266000005132/28119235/live_n28119235202610271920060500/alertas/email/lo-13/20261027-n_nuevo_werise-education_img.htm','Piso en Montmeló',189000.0,71.0,2.6619718309859154e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'montmeló',NULL,'https://www.habitaclia.com/i10266000005132/28119235/live_n28119235202610271920060500/alertas/email/lo-13/20261027-n_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 189.000 € | | Piso en Montmeló | Nou (Calle) 3 Piso completamente exte... | 71m 2 | 3 hab. Presentamos este luminoso piso ubicado en Montmeló. Esta propiedad cuenta con... | | | | | | Oportunidad Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-28 09:21:36.027878','2026-10-28 09:29:41.009984',1);
 INSERT INTO "listings" VALUES('habitaclia_4087004281390','habitaclia','4087004281390','https://www.habitaclia.com/i4087004281390/28119235/live_n28119235202610271920060500/alertas/email/lo-13/20261027-n_nuevo_werise-education_img.htm','Piso en Franqueses del Vallès (Les)',295000.0,87.0,3.3908045977011493e+03,4,NULL,NULL,NULL,NULL,NULL,NULL,'franqueses del vallès',NULL,'https://www.habitaclia.com/i4087004281390/28119235/live_n28119235202610271920060500/alertas/email/lo-13/20261027-n_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 295.000 € | | Piso en Franqueses del Vallès (Les) | | 87m 2 | 4 hab. El piso cuenta con 87 m2 construidos, distribuidos en 4 habitaciones, de las ... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-28 09:21:36.056012','2026-10-28 09:29:41.029119',1);
 INSERT INTO "listings" VALUES('habitaclia_21869004388764','habitaclia','21869004388764','https://www.habitaclia.com/i21869004388764/28119235/live_n28119235202610271920060500/alertas/email/lo-13/20261027-n_nuevo_werise-education_img.htm','Piso en Granollers - Can monic',199000.0,91.0,2.1868131868131868e+03,3,NULL,NULL,NULL,NULL,NULL,'can monic','granollers',NULL,'https://www.habitaclia.com/i21869004388764/28119235/live_n28119235202610271920060500/alertas/email/lo-13/20261027-n_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 199.000 € | | Piso en Granollers - Can monic | Plaza Cal Monic PISO CON ASCDENSOR DE... | 91m 2 | 3 hab. INMOFINKAS VALLE Le abre las puertas de este piso con 2 ascensores, de 3 dor... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-28 09:21:36.081962','2026-10-28 09:29:41.045579',1);
@@ -50526,7 +50526,7 @@ Can Vidalet, Esplugues de Llobregat
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-28 20:48:44.211519','2026-10-30 16:30:32.123364',1);
+4º','[]',NULL,'[]','2026-10-28 20:48:44.211519','2026-10-30 16:41:20.491303',1);
 INSERT INTO "listings" VALUES('habitaclia_db17bbf3-18be-4e68-8dea-c84880b515c6','habitaclia','db17bbf3-18be-4e68-8dea-c84880b515c6','https://www.habitaclia.com/comprar/bajo/carrer-de-felip-ii/montigala-sant-crist/badalona/db17bbf3-18be-4e68-8dea-c84880b515c6/d','Bajo en venta en Carrer de Felip II',169000.0,113.0,1.49557522123893795e+03,1,1,NULL,NULL,NULL,NULL,'montigala','badalona',NULL,'1/7
 169.000 €
 Bajo en venta en Carrer de Felip II
@@ -50534,7 +50534,7 @@ Montigalà - Sant Crist, Badalona
 113 m²
 1 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-28 20:49:40.520056','2026-10-30 16:30:54.904418',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-28 20:49:40.520056','2026-10-30 16:41:43.490575',1);
 INSERT INTO "listings" VALUES('habitaclia_608d3886-a6f5-4348-84e8-db40df20ce36','habitaclia','608d3886-a6f5-4348-84e8-db40df20ce36','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/608d3886-a6f5-4348-84e8-db40df20ce36/d','Piso con balcón en venta en Centre - Sant Josep - Sanfeliu',245000.0,71.0,3.45070422535211264e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/26
 245.000 €
 Ha bajado 4.000 €
@@ -50734,7 +50734,7 @@ Molins de Rei, Barcelona
 92 m²
 2 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-28 21:23:28.106427','2026-10-30 16:30:22.540259',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-28 21:23:28.106427','2026-10-30 16:41:10.922439',1);
 INSERT INTO "listings" VALUES('habitaclia_6047e8f8-45ae-4181-b40f-f6c4de6d2e0f','habitaclia','6047e8f8-45ae-4181-b40f-f6c4de6d2e0f','https://www.habitaclia.com/comprar/planta-intermedia/calle-moli/can-vidalet/esplugues-de-llobregat/6047e8f8-45ae-4181-b40f-f6c4de6d2e0f/d','Piso en venta en Calle MOLI',207000.0,72.0,2875.0,2,1,'1ª planta',NULL,NULL,NULL,'can vidalet','esplugues de llobregat',NULL,'1/24
 207.000 €
 Piso en venta en Calle MOLI
@@ -50742,7 +50742,7 @@ Can Vidalet, Esplugues de Llobregat
 72 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-28 21:23:50.929174','2026-10-30 16:30:32.141644',1);
+1º','[]',NULL,'[]','2026-10-28 21:23:50.929174','2026-10-30 16:41:20.510055',1);
 INSERT INTO "listings" VALUES('habitaclia_9f1abfd7-9bd7-4a7a-a8b6-f8334085ed0a','habitaclia','9f1abfd7-9bd7-4a7a-a8b6-f8334085ed0a','https://www.habitaclia.com/comprar/vivienda/rambla-de-sant-joan/montigala-sant-crist/badalona/9f1abfd7-9bd7-4a7a-a8b6-f8334085ed0a/d','Casa en venta en Rambla de Sant Joan',219000.0,90.0,2.43333333333333348e+03,3,1,NULL,NULL,NULL,NULL,'montigala','badalona',NULL,'1/41
 219.000 €
 Casa en venta en Rambla de Sant Joan
@@ -50756,7 +50756,7 @@ INSERT INTO "listings" VALUES('habitaclia_6c899b24-67e0-4102-b019-c2e97669a900',
 Centre, Santa Coloma de Gramenet
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-28 21:25:10.953585','2026-10-30 16:30:59.745839',1);
+1 baños','[]',NULL,'[]','2026-10-28 21:25:10.953585','2026-10-30 16:41:48.263542',1);
 INSERT INTO "listings" VALUES('habitaclia_a9045aae-a527-46e5-b195-bbef3a585e8b','habitaclia','a9045aae-a527-46e5-b195-bbef3a585e8b','https://www.habitaclia.com/comprar/planta-intermedia/calle-padilla/horta-guinardo/barcelona-capital/a9045aae-a527-46e5-b195-bbef3a585e8b/d','Piso con ascensor en venta en Calle Padilla .',320000.0,76.0,4.2105263157894733e+03,3,1,'4ª planta',NULL,NULL,NULL,'baix guinardo','barcelona',NULL,'1/25
 320.000 €
 Ha bajado 20.000 €
@@ -50765,7 +50765,7 @@ Horta - Guinardó, Barcelona Capital
 76 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-28 21:25:28.798895','2026-10-30 16:31:08.631859',1);
+4º','[]',NULL,'[]','2026-10-28 21:25:28.798895','2026-10-30 16:42:02.581135',1);
 INSERT INTO "listings" VALUES('habitaclia_443395a5-eaa2-492b-9554-174825e0eda1','habitaclia','443395a5-eaa2-492b-9554-174825e0eda1','https://www.habitaclia.com/comprar/planta-intermedia/gran-via-de-les-corts-catalanes/sant-marti/barcelona-capital/443395a5-eaa2-492b-9554-174825e0eda1/d','Piso con ascensor en venta en Gran Via de les Corts Catalanes',315000.0,71.0,4.4366197183098593e+03,2,1,'1ª planta',NULL,NULL,NULL,'el clot','barcelona',NULL,'1/17
 315.000 €
 Piso con ascensor en venta en Gran Via de les Corts Catalanes
@@ -50773,7 +50773,7 @@ Sant Martí, Barcelona Capital
 71 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-28 21:26:37.341985','2026-10-30 16:31:42.541314',1);
+1º','[]',NULL,'[]','2026-10-28 21:26:37.341985','2026-10-30 16:42:34.026065',1);
 INSERT INTO "listings" VALUES('habitaclia_82010cf3-099e-4669-9f68-da6760e161d1','habitaclia','82010cf3-099e-4669-9f68-da6760e161d1','https://www.habitaclia.com/comprar/planta-intermedia/sant-marti/barcelona-capital/82010cf3-099e-4669-9f68-da6760e161d1/d','Piso en venta en Sant Martí',298000.0,81.0,3.67901234567901246e+03,2,1,NULL,NULL,NULL,NULL,'el clot','barcelona',NULL,'Oportunidad
 1/22
 1
@@ -50783,7 +50783,7 @@ Piso en venta en Sant Martí
 Barcelona Capital, Barcelona
 81 m²
 2 hab.
-1 baños','[]',NULL,'[]','2026-10-28 21:26:37.440335','2026-10-30 16:31:42.808756',1);
+1 baños','[]',NULL,'[]','2026-10-28 21:26:37.440335','2026-10-30 16:42:34.307015',1);
 INSERT INTO "listings" VALUES('habitaclia_423f4d38-8463-4bee-8b8b-d4208f49c75e','habitaclia','423f4d38-8463-4bee-8b8b-d4208f49c75e','https://www.habitaclia.com/comprar/planta-intermedia/placa-mare-de-deu-de-montserrat/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/423f4d38-8463-4bee-8b8b-d4208f49c75e/d','Piso con balcón en venta en Plaça Mare de Déu de Montserrat',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Plaça Mare de Déu de Montserrat
@@ -50791,7 +50791,7 @@ Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-28 21:27:01.212482','2026-10-30 16:31:56.349265',1);
+3º','[]',NULL,'[]','2026-10-28 21:27:01.212482','2026-10-30 16:42:43.287781',1);
 INSERT INTO "listings" VALUES('habitaclia_83793469-be84-4adc-bf50-bdf4e65b7f56','habitaclia','83793469-be84-4adc-bf50-bdf4e65b7f56','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/83793469-be84-4adc-bf50-bdf4e65b7f56/d','Piso con balcón en venta en Centre - Sant Josep - Sanfeliu',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Centre - Sant Josep - Sanfeliu
@@ -50799,7 +50799,7 @@ L''Hospitalet de Llobregat, Barcelona
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-28 21:27:01.246444','2026-10-30 16:31:56.384655',1);
+3º','[]',NULL,'[]','2026-10-28 21:27:01.246444','2026-10-30 16:42:43.325448',1);
 INSERT INTO "listings" VALUES('habitaclia_a740e997-9ac4-475b-81f2-70d4c2310839','habitaclia','a740e997-9ac4-475b-81f2-70d4c2310839','https://www.habitaclia.com/comprar/planta-intermedia/placa-mare-de-deu-de-montserrat/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/a740e997-9ac4-475b-81f2-70d4c2310839/d','Piso con balcón en venta en Plaça Mare de Déu de Montserrat',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Plaça Mare de Déu de Montserrat
@@ -50807,7 +50807,7 @@ Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-28 21:27:01.280472','2026-10-30 16:31:56.402335',1);
+3º','[]',NULL,'[]','2026-10-28 21:27:01.280472','2026-10-30 16:42:43.343944',1);
 INSERT INTO "listings" VALUES('habitaclia_63ae36e0-caa5-46ca-9c8e-4caab550f424','habitaclia','63ae36e0-caa5-46ca-9c8e-4caab550f424','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/63ae36e0-caa5-46ca-9c8e-4caab550f424/d','Piso con balcón en venta en Centre - Sant Josep - Sanfeliu',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/21
 269.000 €
 Piso con balcón en venta en Centre - Sant Josep - Sanfeliu
@@ -50815,7 +50815,7 @@ L''Hospitalet de Llobregat, Barcelona
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-28 21:27:01.411472','2026-10-30 16:31:56.366859',1);
+3º','[]',NULL,'[]','2026-10-28 21:27:01.411472','2026-10-30 16:42:43.306041',1);
 INSERT INTO "listings" VALUES('idealista_112936788','idealista','112936788','https://www.idealista.com/inmueble/112936788/','Piso en Les Planes, Sant Joan Despí',238000.0,60.0,3.96666666666666651e+03,2,NULL,'1',NULL,NULL,NULL,'les planes','sant joan despí',NULL,'https://www.idealista.com/inmueble/112936788/?utm_medium=email&utm_campaign=express_newAd_sale_professional&utm_campaigntype=retention&utm_project=adNotification&utm_source=alerts-id&utm_date_send=2026-10-29T002120&utm_link=propertyNewPhoto&utm_recipient_id=JGowRyE0F2b9Qxc/0kUcxFHh0TsyIioZ9ccuY0WP3NE=&utm_notification_id=9ff41e0b-86d9-42e5-8cc7-3877212e3801" target="_blank"> | | | | | | | | | | | | | | Ver 22 fotos | | | | | | | | | | | | | | Piso en Les Planes, Sant Joan Despí | | | | | | | | | | | | | | | 238.000 € 3.967 €/m² | | 2 hab. 60 m² 1ª planta | | | | | | | | | | | | | | | | Referen','[]',NULL,'[]','2026-10-28 23:25:00.800243','2026-10-29 04:52:39.423807',1);
 INSERT INTO "listings" VALUES('idealista_112936620','idealista','112936620','https://www.idealista.com/inmueble/112936620/','Piso en venta en Pirineus, Fondo, Santa Coloma De Gramenet',139000.0,69.0,2.01449275362318849e+03,3,1,'1ª planta',NULL,41.4456558,2.2203071,'fondo','santa coloma de gramenet',NULL,'sin ascensor · exterior · para reformar
 ******PISO MUY GRANDE A REFORMAR *******
@@ -52057,7 +52057,7 @@ Badalona, Barcelona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-29 12:09:46.995805','2026-10-30 16:30:54.886752',1);
+2º','[]',NULL,'[]','2026-10-29 12:09:46.995805','2026-10-30 16:41:43.472613',1);
 INSERT INTO "listings" VALUES('habitaclia_27573004380622','habitaclia','27573004380622','https://www.habitaclia.com/i27573004380622/28119238/live_m28119238202610290922060570/alertas/email/lo-1/20261029-m_nuevo_werise-education_img.htm','Piso en Sant Feliu de Llobregat - Can...',249000.0,65.0,3.83076923076923094e+03,2,NULL,NULL,NULL,NULL,NULL,NULL,'sant feliu de llobregat',NULL,'https://www.habitaclia.com/i27573004380622/28119238/live_m28119238202610290922060570/alertas/email/lo-1/20261029-m_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 249.000 € | | Piso en Sant Feliu de Llobregat - Can... | santa creu | 65m 2 | 2 hab. PISO CON REFORMA INTEGRAL EN SANT FELIU DE LLOBREGAT, CAN CALDERS Angela Cla... | | | | | | Oportunidad Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-29 12:20:16.207851','2026-10-29 12:27:57.446652',1);
 INSERT INTO "listings" VALUES('habitaclia_8266000005543','habitaclia','8266000005543','https://www.habitaclia.com/i8266000005543/28119238/live_m28119238202610290922060570/alertas/email/lo-1/20261029-m_nuevo_werise-education_img.htm','Dúplex en Vallirana',299000.0,120.0,2.49166666666666651e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'vallirana',NULL,'https://www.habitaclia.com/i8266000005543/28119238/live_m28119238202610290922060570/alertas/email/lo-1/20261029-m_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 299.000 € | | Dúplex en Vallirana | Exclusiu Dúplex al Centre de Valliran... | 120m 2 | 3 hab. Es ven espectacular pis dúplex completament independent i sense veïns a la fi... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-29 12:20:16.244810','2026-10-29 12:27:57.464457',1);
 INSERT INTO "listings" VALUES('habitaclia_15471000080199','habitaclia','15471000080199','https://www.habitaclia.com/i15471000080199/28119238/live_m28119238202610290922060570/alertas/email/lo-1/20261029-m_nuevo_werise-education_img.htm','Piso en Sant Joan Despí - Les Planes',238000.0,60.0,3.96666666666666651e+03,2,NULL,NULL,NULL,NULL,NULL,'les planes','sant joan despí',NULL,'https://www.habitaclia.com/i15471000080199/28119238/live_m28119238202610290922060570/alertas/email/lo-1/20261029-m_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 238.000 € | | Piso en Sant Joan Despí - Les Planes | | 60m 2 | 2 hab. Referencia: 1062367 Te presentamos esta acogedora vivienda de 56 m² y 2 habi... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-29 12:20:16.286431','2026-10-29 12:27:57.481557',1);
@@ -52294,7 +52294,7 @@ Barcelona
 118 m²
 4 hab.
 2 baños
-5º','[]',NULL,'[]','2026-10-29 16:17:35.802268','2026-10-30 16:30:22.411708',1);
+5º','[]',NULL,'[]','2026-10-29 16:17:35.802268','2026-10-30 16:41:10.794580',1);
 INSERT INTO "listings" VALUES('habitaclia_55812dca-7bb3-45d9-8ae0-d248693eb53a','habitaclia','55812dca-7bb3-45d9-8ae0-d248693eb53a','https://www.habitaclia.com/comprar/atico/carrer-de-la-independencia/bonavista-bufala-morera/badalona/55812dca-7bb3-45d9-8ae0-d248693eb53a/d','Ático en venta en Carrer de la Independència',240000.0,80.0,3000.0,2,1,'ático',NULL,NULL,NULL,'bufala','badalona',NULL,'1/36
 1
 240.000 €
@@ -52303,7 +52303,7 @@ Bonavista - Bufalà - Morera, Badalona
 80 m²
 2 hab.
 1 baños
-Ático','[]',NULL,'[]','2026-10-29 16:19:11.174833','2026-10-30 16:30:50.066824',1);
+Ático','[]',NULL,'[]','2026-10-29 16:19:11.174833','2026-10-30 16:41:38.588391',1);
 INSERT INTO "listings" VALUES('habitaclia_af212f5d-c00d-4c0c-a9de-f3842df43336','habitaclia','af212f5d-c00d-4c0c-a9de-f3842df43336','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-amilcar/horta-guinardo/barcelona-capital/af212f5d-c00d-4c0c-a9de-f3842df43336/d','Piso con balcón en venta en Carrer d''Amílcar',298000.0,71.0,4.19718309859154942e+03,3,1,'2ª planta',NULL,NULL,NULL,'el guinardo','barcelona',NULL,'Oportunidad
 1/53
 298.000 €
@@ -52320,7 +52320,7 @@ Nou Barris, Barcelona Capital
 92 m²
 4 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-29 16:21:21.066786','2026-10-30 16:31:31.101836',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-29 16:21:21.066786','2026-10-30 16:42:25.237619',1);
 INSERT INTO "listings" VALUES('habitaclia_8c106eac-464a-4318-ab91-9b2d490c7068','habitaclia','8c106eac-464a-4318-ab91-9b2d490c7068','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/8c106eac-464a-4318-ab91-9b2d490c7068/d','Piso con balcón en venta en Centre - Sant Josep - Sanfeliu',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Centre - Sant Josep - Sanfeliu
@@ -52328,7 +52328,7 @@ L''Hospitalet de Llobregat, Barcelona
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-29 16:22:16.956192','2026-10-30 16:31:56.313218',1);
+3º','[]',NULL,'[]','2026-10-29 16:22:16.956192','2026-10-30 16:42:43.251408',1);
 INSERT INTO "listings" VALUES('habitaclia_e4aaafc2-91b1-4275-8acc-5dabe2de7667','habitaclia','e4aaafc2-91b1-4275-8acc-5dabe2de7667','https://www.habitaclia.com/comprar/planta-intermedia/placa-mare-de-deu-de-montserrat/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/e4aaafc2-91b1-4275-8acc-5dabe2de7667/d','Piso con balcón en venta en Plaça Mare de Déu de Montserrat',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Plaça Mare de Déu de Montserrat
@@ -52336,7 +52336,7 @@ Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-29 16:22:17.060543','2026-10-30 16:31:56.330893',1);
+3º','[]',NULL,'[]','2026-10-29 16:22:17.060543','2026-10-30 16:42:43.269258',1);
 INSERT INTO "listings" VALUES('habitaclia_40e009e6-7267-4bb8-8a0e-8c27bc6f15e0','habitaclia','40e009e6-7267-4bb8-8a0e-8c27bc6f15e0','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-l-onyar/sants-montjuic/barcelona-capital/40e009e6-7267-4bb8-8a0e-8c27bc6f15e0/d','Piso con balcón en venta en Carrer de l''Onyar',260000.0,70.0,3.71428571428571422e+03,3,1,'1ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'Oportunidad
 1/31
 260.000 €
@@ -52345,7 +52345,7 @@ Sants - Montjuïc, Barcelona Capital
 70 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-29 16:22:38.827440','2026-10-30 16:32:01.448237',1);
+1º','[]',NULL,'[]','2026-10-29 16:22:38.827440','2026-10-30 16:42:48.348660',1);
 INSERT INTO "listings" VALUES('habitaclia_4101004349063','habitaclia','4101004349063','https://www.habitaclia.com/i4101004349063/28119224/live_t28119224202610291422153400/alertas/email/lo-9/20261029-t_oportunidad_werise-education_img.htm','Piso en Barcelona - Barceloneta (Ciut...',195000.0,40.0,4875.0,1,NULL,NULL,NULL,NULL,NULL,'barceloneta (ciut','barcelona',NULL,'https://www.habitaclia.com/i4101004349063/28119224/live_t28119224202610291422153400/alertas/email/lo-9/20261029-t_oportunidad_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 195.000 € | | Piso en Barcelona - Barceloneta (Ciut... | Carrer de Felícia Fuster I Viladecans... | 40m 2 | 1 hab. PRODUCTO APIALIA. En la Barceloneta, en la calle Felícia Fuster, encontramos... | | | | | | Oportunidad Quizás te lo perdiste | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-29 16:30:44.340093','2026-10-29 17:07:45.684843',1);
 INSERT INTO "listings" VALUES('habitaclia_4497004379169','habitaclia','4497004379169','https://www.habitaclia.com/i4497004379169/28119224/live_t28119224202610291422153400/alertas/email/lo-9/20261029-t_oportunidad_werise-education_img.htm','Apartamento en Hospitalet de Llobrega...',190000.0,50.0,3800.0,1,NULL,NULL,NULL,NULL,NULL,NULL,'hospitalet de llobregat',NULL,'https://www.habitaclia.com/i4497004379169/28119224/live_t28119224202610291422153400/alertas/email/lo-9/20261029-t_oportunidad_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 190.000 € | | Apartamento en Hospitalet de Llobrega... | OPORTUNIDAD INVERSOR | 50m 2 | 1 hab. OPORTUNIDAD INVERSOR. Piso en obra seminueva junto centro comercial La Farga.... | | | | | | Oportunidad Quizás te lo perdiste | | | | | | | | | | | | Te recomendamos | Obra nueva | | | | | desde 478.000 € Barcelona | Carrer del Foc, 49 | ÚLTIMA VIVIENDA DISPONIBLE. ENTREGA PRÓXIMAMENTE. ÚL','[]',NULL,'[]','2026-10-29 16:30:44.374849','2026-10-29 17:07:45.703078',1);
 INSERT INTO "listings" VALUES('habitaclia_23252000005293','habitaclia','23252000005293','https://www.habitaclia.com/i23252000005293/28119224/live_t28119224202610291422153400/alertas/email/lo-12/20261029-t_adyacencia_werise-education_img.htm','Piso en Hospitalet de Llobregat (L´) ...',299000.0,89.0,3.35955056179775283e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'hospitalet de llobregat',NULL,'https://www.habitaclia.com/i23252000005293/28119224/live_t28119224202610291422153400/alertas/email/lo-12/20261029-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Hospitalet de Llobregat (L´) | 299.000 € Piso en Hospitalet de Llobregat (L´) ... | 89m 2 | 3 hab. | | | | <a href="','[]',NULL,'[]','2026-10-29 16:30:44.414538','2026-10-29 17:07:45.721144',1);
@@ -52364,7 +52364,7 @@ Can Vidalet, Esplugues de Llobregat
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-29 16:55:25.757339','2026-10-30 16:30:32.052970',1);
+4º','[]',NULL,'[]','2026-10-29 16:55:25.757339','2026-10-30 16:41:20.415203',1);
 INSERT INTO "listings" VALUES('habitaclia_41124000072955','habitaclia','41124000072955','https://www.habitaclia.com/i41124000072955/28119236/live_n28119236202610291916438300/alertas/email/lo-18/20261029-n_adyacencia_werise-education_img.htm','Piso en Terrassa - Les Arenes - La Gr...',200000.0,76.0,2.63157894736842126e+03,NULL,NULL,NULL,NULL,NULL,NULL,'les arenes','terrassa',NULL,'https://www.habitaclia.com/i41124000072955/28119236/live_n28119236202610291916438300/alertas/email/lo-18/20261029-n_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Terrassa | 200.000 € Piso en Terrassa - Les Arenes - La Gr... | 76m 2 | | | | <a href="','[]',NULL,'[]','2026-10-29 17:07:45.414839','2026-10-30 08:10:13.006763',1);
 INSERT INTO "listings" VALUES('habitaclia_45050000000355','habitaclia','45050000000355','https://www.habitaclia.com/i45050000000355/28119236/live_t28119236202610291422153400/alertas/email/lo-12/20261029-t_adyacencia_werise-education_img.htm','Piso en Terrassa - Segle XX (Sud)',266000.0,70.0,3800.0,2,NULL,NULL,NULL,NULL,NULL,'segle xx','terrassa',NULL,'https://www.habitaclia.com/i45050000000355/28119236/live_t28119236202610291422153400/alertas/email/lo-12/20261029-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Terrassa | 266.000 € Piso en Terrassa - Segle XX (Sud) | 70m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-10-29 17:07:45.443277','2026-10-29 17:15:30.262462',1);
 INSERT INTO "listings" VALUES('habitaclia_37637000039038','habitaclia','37637000039038','https://www.habitaclia.com/i37637000039038/28119236/live_t28119236202610291422153400/alertas/email/lo-12/20261029-t_adyacencia_werise-education_img.htm','Piso en Sabadell - Can Puiggener (Cre...',75000.0,74.0,1.01351351351351354e+03,2,NULL,NULL,NULL,NULL,NULL,'can puiggener (cre','sabadell',NULL,'https://www.habitaclia.com/i37637000039038/28119236/live_t28119236202610291422153400/alertas/email/lo-12/20261029-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Sabadell | 75.000 € Piso en Sabadell - Can Puiggener (Cre... | 74m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-10-29 17:07:45.472922','2026-10-29 17:15:30.279337',1);
@@ -52427,7 +52427,7 @@ Montigalà - Sant Crist, Badalona
 128 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-29 18:11:09.495052','2026-10-30 16:30:54.867705',1);
+2º','[]',NULL,'[]','2026-10-29 18:11:09.495052','2026-10-30 16:41:43.453305',1);
 INSERT INTO "listings" VALUES('habitaclia_05af91ef-5757-4f4f-962d-6e17aed09a30','habitaclia','05af91ef-5757-4f4f-962d-6e17aed09a30','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/05af91ef-5757-4f4f-962d-6e17aed09a30/d','Piso con balcón en venta en Centre - Sant Josep - Sanfeliu',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Centre - Sant Josep - Sanfeliu
@@ -52435,7 +52435,7 @@ L''Hospitalet de Llobregat, Barcelona
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-29 18:13:41.681974','2026-10-30 16:31:56.260125',1);
+3º','[]',NULL,'[]','2026-10-29 18:13:41.681974','2026-10-30 16:42:43.195648',1);
 INSERT INTO "listings" VALUES('habitaclia_4765002339553','habitaclia','4765002339553','https://www.habitaclia.com/i4765002339553/28119239/live_t28119239202610291422153400/alertas/email/lo-10/20261029-t_precio_relajado_nuevo_werise-education_img.htm','Casa en Olivella',260000.0,168.0,1.5476190476190477e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'olivella',NULL,'https://www.habitaclia.com/i4765002339553/28119239/live_t28119239202610291422153400/alertas/email/lo-10/20261029-t_precio_relajado_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | Un 8% más caro de lo que buscabas | | | | | | | | 260.000 € | | Casa en Olivella | Vivienda con espectaculares vistas | 168m 2 | 3 hab. En venta preciosa vivienda situada en Mas Milà, Olivella, en una zona tranqui... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-29 18:14:04.306586','2026-10-29 18:50:25.408554',1);
 INSERT INTO "listings" VALUES('habitaclia_1464004018309','habitaclia','1464004018309','https://www.habitaclia.com/i1464004018309/28119239/live_t28119239202610291422153400/alertas/email/lo-10/20261029-t_precio_relajado_adyacencia_werise-education_img.htm','Planta baja en Vilanova i la Geltrú -...',285000.0,102.0,2.79411764705882342e+03,4,NULL,NULL,NULL,NULL,NULL,NULL,'vilanova i la geltrú',NULL,'https://www.habitaclia.com/i1464004018309/28119239/live_t28119239202610291422153400/alertas/email/lo-10/20261029-t_precio_relajado_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | Por solo 18% más | 285.000 € Planta baja en Vilanova i la Geltrú -... | 102m 2 | 4 hab. | | | | <a href="','[]',NULL,'[]','2026-10-29 18:14:04.452374','2026-10-29 18:50:25.512069',1);
 INSERT INTO "listings" VALUES('habitaclia_26096004037956','habitaclia','26096004037956','https://www.habitaclia.com/i26096004037956/28119238/live_t28119238202610291422153400/alertas/email/lo-7/20261029-t_nuevo_werise-education_img.htm','Piso en Gavà - Can Tintorer-Can Tries',279000.0,61.0,4.57377049180327867e+03,3,NULL,NULL,NULL,NULL,NULL,'can tintorer-can tries','gavà',NULL,'https://www.habitaclia.com/i26096004037956/28119238/live_t28119238202610291422153400/alertas/email/lo-7/20261029-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 279.000 € | | Piso en Gavà - Can Tintorer-Can Tries | Avenida ERAMPRUNYA L'' | 61m 2 | 3 hab. La Casa Agency presenta en exclusiva En avenida L''Eramprunyà, Gavà, presenta... | | | | | | Oportunidad Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-29 18:14:04.676928','2026-10-29 18:14:04.676928',1);
@@ -52518,7 +52518,7 @@ INSERT INTO "listings" VALUES('habitaclia_f6ecce1d-cf35-4aa1-aa4b-a98c01e73a90',
 298.000 €
 Casa en venta en Molins de Rei
 Barcelona
-114 m²','[]',NULL,'[]','2026-10-29 21:45:53.908979','2026-10-30 16:30:22.861259',1);
+114 m²','[]',NULL,'[]','2026-10-29 21:45:53.908979','2026-10-30 16:41:11.256124',1);
 INSERT INTO "listings" VALUES('habitaclia_8304648a-c2e7-4eae-8274-e031bf468a42','habitaclia','8304648a-c2e7-4eae-8274-e031bf468a42','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-telegraf/horta-guinardo/barcelona-capital/8304648a-c2e7-4eae-8274-e031bf468a42/d','Piso con balcón en venta en Carrer del Telègraf',315000.0,72.0,4375.0,4,1,'1ª planta',NULL,NULL,NULL,'el guinardo','barcelona',NULL,'1/27
 315.000 €
 Piso con balcón en venta en Carrer del Telègraf
@@ -52526,7 +52526,7 @@ Horta - Guinardó, Barcelona Capital
 72 m²
 4 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-29 21:47:24.825823','2026-10-30 16:31:04.334924',1);
+1º','[]',NULL,'[]','2026-10-29 21:47:24.825823','2026-10-30 16:41:55.632660',1);
 INSERT INTO "listings" VALUES('habitaclia_d30f0171-a1f5-4586-907b-d3f2baa022d3','habitaclia','d30f0171-a1f5-4586-907b-d3f2baa022d3','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/d30f0171-a1f5-4586-907b-d3f2baa022d3/d','Piso con balcón en venta en Centre - Sant Josep - Sanfeliu',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Centre - Sant Josep - Sanfeliu
@@ -52534,7 +52534,7 @@ L''Hospitalet de Llobregat, Barcelona
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-29 21:48:54.883805','2026-10-30 16:31:56.277959',1);
+3º','[]',NULL,'[]','2026-10-29 21:48:54.883805','2026-10-30 16:42:43.213870',1);
 INSERT INTO "listings" VALUES('habitaclia_65e9c603-0f0e-4912-9ef0-d92e23f067e5','habitaclia','65e9c603-0f0e-4912-9ef0-d92e23f067e5','https://www.habitaclia.com/comprar/planta-intermedia/calle-moli/can-vidalet/esplugues-de-llobregat/65e9c603-0f0e-4912-9ef0-d92e23f067e5/d','Piso en venta en Calle MOLI',207000.0,72.0,2875.0,2,1,'1ª planta',NULL,NULL,NULL,'can vidalet','esplugues de llobregat',NULL,'1/24
 207.000 €
 Piso en venta en Calle MOLI
@@ -52542,7 +52542,7 @@ Can Vidalet, Esplugues de Llobregat
 72 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:30:32.071308',1);
+1º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:41:20.434856',1);
 INSERT INTO "listings" VALUES('habitaclia_fdd02aee-3dcb-4040-bf5e-891af7c4696d','habitaclia','fdd02aee-3dcb-4040-bf5e-891af7c4696d','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/fdd02aee-3dcb-4040-bf5e-891af7c4696d/d','Piso en venta en Can Vidalet',207000.0,72.0,2875.0,2,1,'1ª planta',NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/24
 207.000 €
 Piso en venta en Can Vidalet
@@ -52550,7 +52550,7 @@ Esplugues de Llobregat, Barcelona
 72 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:30:32.088456',1);
+1º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:41:20.454120',1);
 INSERT INTO "listings" VALUES('habitaclia_95b2919a-9095-4f33-a183-0b473ad0fa74','habitaclia','95b2919a-9095-4f33-a183-0b473ad0fa74','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/95b2919a-9095-4f33-a183-0b473ad0fa74/d','Piso en venta en Can Vidalet',207000.0,72.0,2875.0,2,1,'1ª planta',NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/24
 207.000 €
 Piso en venta en Can Vidalet
@@ -52558,7 +52558,7 @@ Esplugues de Llobregat, Barcelona
 72 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:30:32.105797',1);
+1º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:41:20.472905',1);
 INSERT INTO "listings" VALUES('habitaclia_316c5bf5-f0cc-4e40-9aeb-2367720f929a','habitaclia','316c5bf5-f0cc-4e40-9aeb-2367720f929a','https://www.habitaclia.com/comprar/planta-intermedia/carrer-verge-de-la-merce/can-vidalet/esplugues-de-llobregat/316c5bf5-f0cc-4e40-9aeb-2367720f929a/d','Piso con balcón en venta en Carrer Verge de la Mercè',300000.0,90.0,3.33333333333333348e+03,3,1,'4ª planta',NULL,NULL,NULL,'can vidalet','esplugues de llobregat',NULL,'1/9
 300.000 €
 Ha bajado 10.000 €
@@ -52567,7 +52567,7 @@ Can Vidalet, Esplugues de Llobregat
 90 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:30:32.377001',1);
+4º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:41:20.749221',1);
 INSERT INTO "listings" VALUES('habitaclia_e18caf58-38ab-4dfd-8b6b-3c64ca4f42b6','habitaclia','e18caf58-38ab-4dfd-8b6b-3c64ca4f42b6','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/e18caf58-38ab-4dfd-8b6b-3c64ca4f42b6/d','Piso con balcón en venta en Can Vidalet',300000.0,90.0,3.33333333333333348e+03,3,1,'4ª planta',NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/10
 300.000 €
 Ha bajado 10.000 €
@@ -52668,7 +52668,7 @@ Bajo con balcón en venta en Carrer de Femades
 Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 88 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:31:56.295549',1);
+1 baños','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:42:43.232434',1);
 INSERT INTO "listings" VALUES('habitaclia_319ab5f6-4cde-40e8-8946-25280f64e3ae','habitaclia','319ab5f6-4cde-40e8-8946-25280f64e3ae','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/319ab5f6-4cde-40e8-8946-25280f64e3ae/d','Piso en venta en Centre - Sant Josep - Sanfeliu',198869.0,103.0,1.93076699029126211e+03,NULL,NULL,NULL,NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/6
 1
 198.869 €
@@ -52790,7 +52790,7 @@ Sants - Montjuïc, Barcelona Capital
 74 m²
 2 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:32:01.000186',1);
+4º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:42:47.902271',1);
 INSERT INTO "listings" VALUES('habitaclia_08fef210-56cb-4e11-b4f1-7d9511de986c','habitaclia','08fef210-56cb-4e11-b4f1-7d9511de986c','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-mare-de-deu-de-port/sants-montjuic/barcelona-capital/08fef210-56cb-4e11-b4f1-7d9511de986c/d','Piso con balcón en venta en Carrer de la Mare de Déu de Port',269000.0,78.0,3.44871794871794872e+03,3,1,'1ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/15
 269.000 €
 Piso con balcón en venta en Carrer de la Mare de Déu de Port
@@ -52798,7 +52798,7 @@ Sants - Montjuïc, Barcelona Capital
 78 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:32:01.076440',1);
+1º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:42:47.976078',1);
 INSERT INTO "listings" VALUES('habitaclia_883d86db-662e-4f6a-a5bd-1a5cf635f41c','habitaclia','883d86db-662e-4f6a-a5bd-1a5cf635f41c','https://www.habitaclia.com/comprar/planta-intermedia/calle-alts-forns/sants-montjuic/barcelona-capital/883d86db-662e-4f6a-a5bd-1a5cf635f41c/d','Piso en venta en Calle ALTS FORNS',158400.0,80.0,1980.0,2,1,'3ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/4
 158.400 €
 Piso en venta en Calle ALTS FORNS
@@ -52806,14 +52806,14 @@ Sants - Montjuïc, Barcelona Capital
 80 m²
 2 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:32:01.094661',1);
+3º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:42:47.993715',1);
 INSERT INTO "listings" VALUES('habitaclia_3b883f34-d0d0-4a1c-a14c-08df7184bcd5','habitaclia','3b883f34-d0d0-4a1c-a14c-08df7184bcd5','https://www.habitaclia.com/comprar/planta-intermedia/sants-montjuic/barcelona-capital/3b883f34-d0d0-4a1c-a14c-08df7184bcd5/d','Piso con ascensor en venta en Sants - Montjuïc',265000.0,70.0,3.78571428571428577e+03,3,1,NULL,NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/11
 265.000 €
 Piso con ascensor en venta en Sants - Montjuïc
 Barcelona Capital, Barcelona
 70 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:32:01.308261',1);
+1 baños','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:42:48.210531',1);
 INSERT INTO "listings" VALUES('habitaclia_e275a399-e3b4-4fe7-b9ba-fe3daeb8e6c4','habitaclia','e275a399-e3b4-4fe7-b9ba-fe3daeb8e6c4','https://www.habitaclia.com/comprar/apartamento/sants-montjuic/barcelona-capital/e275a399-e3b4-4fe7-b9ba-fe3daeb8e6c4/d','Apartamento en venta en Sants - Montjuïc',260000.0,83.0,3.13253012048192749e+03,4,6,NULL,NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/3
 260.000 €
 Apartamento en venta en Sants - Montjuïc
@@ -52821,14 +52821,14 @@ Barcelona Capital, Barcelona
 83 m²
 4 hab.
 6 baños
-Mayor que 10','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:32:01.325471',1);
+Mayor que 10','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:42:48.227878',1);
 INSERT INTO "listings" VALUES('habitaclia_899374e5-a80d-467d-b23b-f892c9e04efa','habitaclia','899374e5-a80d-467d-b23b-f892c9e04efa','https://www.habitaclia.com/comprar/planta-intermedia/mineria/sants-montjuic/barcelona-capital/899374e5-a80d-467d-b23b-f892c9e04efa/d','Piso en venta en Mineria',260000.0,83.0,3.13253012048192749e+03,4,3,NULL,NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/3
 260.000 €
 Piso en venta en Mineria
 Sants - Montjuïc, Barcelona Capital
 83 m²
 4 hab.
-3 baños','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:32:01.343637',1);
+3 baños','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:42:48.245114',1);
 INSERT INTO "listings" VALUES('habitaclia_bf966e2b-c335-4de4-aa8f-9ba1b5257199','habitaclia','bf966e2b-c335-4de4-aa8f-9ba1b5257199','https://www.habitaclia.com/comprar/planta-intermedia/sants-montjuic/barcelona-capital/bf966e2b-c335-4de4-aa8f-9ba1b5257199/d','Piso con ascensor en venta en Sants - Montjuïc',276000.0,70.0,3.94285714285714266e+03,3,1,'4ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/7
 276.000 €
 Piso con ascensor en venta en Sants - Montjuïc
@@ -52836,14 +52836,14 @@ Barcelona Capital, Barcelona
 70 m²
 3 hab.
 1 baños
-4º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:32:01.396409',1);
+4º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:42:48.296590',1);
 INSERT INTO "listings" VALUES('habitaclia_c50d7c08-bfa8-40c4-9a85-78af49727644','habitaclia','c50d7c08-bfa8-40c4-9a85-78af49727644','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-mineria/sants-montjuic/barcelona-capital/c50d7c08-bfa8-40c4-9a85-78af49727644/d','Piso en venta en Carrer de la Mineria',285000.0,74.0,3.85135135135135124e+03,3,1,NULL,NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/2
 285.000 €
 Piso en venta en Carrer de la Mineria
 Sants - Montjuïc, Barcelona Capital
 74 m²
 3 hab.
-1 baños','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:32:01.413656',1);
+1 baños','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:42:48.313962',1);
 INSERT INTO "listings" VALUES('habitaclia_7919e7cd-33c9-4d4b-b81d-e5839f2c6f21','habitaclia','7919e7cd-33c9-4d4b-b81d-e5839f2c6f21','https://www.habitaclia.com/comprar/planta-intermedia/sants-montjuic/barcelona-capital/7919e7cd-33c9-4d4b-b81d-e5839f2c6f21/d','Piso con ascensor en venta en Sants - Montjuïc',247000.0,77.0,3.20779220779220759e+03,3,1,'1ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/14
 1
 247.000 €
@@ -52852,7 +52852,7 @@ Barcelona Capital, Barcelona
 77 m²
 3 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:32:01.431090',1);
+1º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:42:48.331410',1);
 INSERT INTO "listings" VALUES('habitaclia_da8110e0-0692-4913-8854-e70672d703e5','habitaclia','da8110e0-0692-4913-8854-e70672d703e5','https://www.habitaclia.com/comprar/planta-intermedia/turia-3/sants-montjuic/barcelona-capital/da8110e0-0692-4913-8854-e70672d703e5/d','Piso con ascensor en venta en Turia 3',189000.0,118.0,1.60169491525423723e+03,2,1,'1ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/15
 189.000 €
 Piso con ascensor en venta en Turia 3
@@ -52860,7 +52860,7 @@ Sants - Montjuïc, Barcelona Capital
 118 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:32:01.501229',1);
+1º','[]',NULL,'[]','2026-10-28 21:17:27.630537','2026-10-30 16:42:48.403850',1);
 INSERT INTO "listings" VALUES('habitaclia_955a264c-83a6-4c49-9b73-3fdd6a0601af','habitaclia','955a264c-83a6-4c49-9b73-3fdd6a0601af','https://www.habitaclia.com/comprar/planta-intermedia/turia/sants-montjuic/barcelona-capital/955a264c-83a6-4c49-9b73-3fdd6a0601af/d','Piso con balcón en venta en TURIA',189000.0,70.0,2700.0,2,1,'1ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'Oportunidad
 1/5
 189.000 €
@@ -52974,7 +52974,7 @@ Esplugues de Llobregat, Barcelona
 72 m²
 2 hab.
 1 baños
-1º','[]',NULL,'[]','2026-10-30 03:43:11.235358','2026-10-30 16:30:32.035343',1);
+1º','[]',NULL,'[]','2026-10-30 03:43:11.235358','2026-10-30 16:41:20.396567',1);
 INSERT INTO "listings" VALUES('habitaclia_993e69e3-485d-4ca1-8c62-f2f8a9c4853d','habitaclia','993e69e3-485d-4ca1-8c62-f2f8a9c4853d','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/993e69e3-485d-4ca1-8c62-f2f8a9c4853d/d','Piso con balcón en venta en Centre - Sant Josep - Sanfeliu',269000.0,77.0,3.49350649350649337e+03,3,1,'3ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/25
 269.000 €
 Piso con balcón en venta en Centre - Sant Josep - Sanfeliu
@@ -52982,7 +52982,7 @@ L''Hospitalet de Llobregat, Barcelona
 77 m²
 3 hab.
 1 baños
-3º','[]',NULL,'[]','2026-10-30 03:46:36.106562','2026-10-30 16:31:56.242565',1);
+3º','[]',NULL,'[]','2026-10-30 03:46:36.106562','2026-10-30 16:42:43.178107',1);
 INSERT INTO "listings" VALUES('fotocasa_191250241','fotocasa','191250241','https://www.fotocasa.es/es/comprar/vivienda/barcelona-capital/porta/191250241/d','Piso en venta, Porta, Barcelona',299000.0,92.0,3250.0,4,1,NULL,NULL,4.14326585128915212e+01,2.17383761355951898e+00,'porta','barcelona',NULL,'? PISO DE 4 HABITACIONES CON SALÓN COMEDOR EXTERIOR
 
 ¡Descubre esta vivienda con una distribución funcional y múltiples posibilidades para adaptarla a tus necesidades!
@@ -53280,7 +53280,7 @@ INSERT INTO "listings" VALUES('habitaclia_3780004407846','habitaclia','378000440
 INSERT INTO "listings" VALUES('habitaclia_37637000038908','habitaclia','37637000038908','https://www.habitaclia.com/i37637000038908/28119232/live_m28119232202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm','Casa en Pineda de Mar - Can Carreras ...',76000.0,103.0,7.3786407766990294e+02,2,NULL,NULL,NULL,NULL,NULL,'can carreras','pineda de mar',NULL,'https://www.habitaclia.com/i37637000038908/28119232/live_m28119232202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Pineda de Mar | 76.000 € Casa en Pineda de Mar - Can Carreras ... | 103m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-10-30 11:10:02.568827','2026-10-30 12:06:38.287143',1);
 INSERT INTO "listings" VALUES('habitaclia_49646000030993','habitaclia','49646000030993','https://www.habitaclia.com/i49646000030993/28119232/live_m28119232202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm','Piso en Mataró - Els Molins (Els Molins)',116100.0,42.0,2.76428571428571422e+03,1,NULL,NULL,NULL,NULL,NULL,'els molins','mataró',NULL,'https://www.habitaclia.com/i49646000030993/28119232/live_m28119232202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Mataró | 116.100 € Piso en Mataró - Els Molins (Els Molins) | 42m 2 | 1 hab. | | | | <a href="','[]',NULL,'[]','2026-10-30 11:10:02.577189','2026-10-30 12:06:38.289203',1);
 INSERT INTO "listings" VALUES('habitaclia_41116000007481','habitaclia','41116000007481','https://www.habitaclia.com/i41116000007481/28119232/live_m28119232202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm','Planta baja en Canet de Mar',199000.0,80.0,2487.5,3,NULL,NULL,NULL,NULL,NULL,NULL,'canet de mar',NULL,'https://www.habitaclia.com/i41116000007481/28119232/live_m28119232202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Canet de Mar | 199.000 € Planta baja en Canet de Mar | 80m 2 | 3 hab. | | | | <a href="','[]',NULL,'[]','2026-10-30 11:10:02.608926','2026-10-30 12:06:38.306214',1);
-INSERT INTO "listings" VALUES('habitaclia_60140000001241','habitaclia','60140000001241','https://www.habitaclia.com/i60140000001241/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Piso en Arenys de Mar - Urbanitzacions',162960.0,65.0,2.50707692307692286e+03,NULL,NULL,NULL,NULL,NULL,NULL,'urbanitzacions','arenys de mar',NULL,'https://www.habitaclia.com/i60140000001241/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Arenys de Mar | 162.960 € Piso en Arenys de Mar - Urbanitzacions | 65m 2 | | | | <a href="','[]',NULL,'[]','2026-10-30 11:10:02.634374','2026-10-30 16:33:03.523795',1);
+INSERT INTO "listings" VALUES('habitaclia_60140000001241','habitaclia','60140000001241','https://www.habitaclia.com/i60140000001241/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Piso en Arenys de Mar - Urbanitzacions',162960.0,65.0,2.50707692307692286e+03,NULL,NULL,NULL,NULL,NULL,NULL,'urbanitzacions','arenys de mar',NULL,'https://www.habitaclia.com/i60140000001241/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Arenys de Mar | 162.960 € Piso en Arenys de Mar - Urbanitzacions | 65m 2 | | | | <a href="','[]',NULL,'[]','2026-10-30 11:10:02.634374','2026-10-30 16:42:51.247870',1);
 INSERT INTO "listings" VALUES('habitaclia_56216000000061','habitaclia','56216000000061','https://www.habitaclia.com/i56216000000061/28119232/live_m28119232202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm','Piso en Mataró - Havana (Havana)',285000.0,194.0,1.46907216494845351e+03,4,NULL,NULL,NULL,NULL,NULL,'havana','mataró',NULL,'https://www.habitaclia.com/i56216000000061/28119232/live_m28119232202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Mataró | 285.000 € Piso en Mataró - Havana (Havana) | 194m 2 | 4 hab. | | | | <a href="','[]',NULL,'[]','2026-10-30 11:10:02.670786','2026-10-30 12:06:38.341490',1);
 INSERT INTO "listings" VALUES('idealista_112910794','idealista','112910794','https://www.idealista.com/inmueble/112910794/','Piso en venta en Pablo Iglesias, La Prosperitat, Barcelona',284900.0,73.0,3.9027397260273974e+03,3,1,'4ª planta',NULL,41.4471188,2.1835866,'la prosperitat','barcelona',NULL,'con ascensor · piso exterior · buen estado
 Excelente piso en venta en Prosperitat para entrar a vivir
@@ -53478,7 +53478,7 @@ Molins de Rei, Barcelona
 95 m²
 3 hab.
 1 baños
-Bajos / Planta baja','[]',NULL,'[]','2026-10-30 14:29:56.499496','2026-10-30 16:30:22.382748',1);
+Bajos / Planta baja','[]',NULL,'[]','2026-10-30 14:29:56.499496','2026-10-30 16:41:10.766976',1);
 INSERT INTO "listings" VALUES('idealista_112951931','idealista','112951931','https://www.idealista.com/inmueble/112951931/','Piso en venta en Ferradura, La Verneda I La Pau, Barcelona',275000.0,65.0,4.23076923076923048e+03,3,1,'2ª planta',NULL,41.4220174,2.1971576,'la verneda i la pau','barcelona',NULL,'con ascensor · piso interior · buen estado
 Te presentamos esta vivienda situada en Carrer Santander, Barcelona, con una superficie de 65 m² construidos y 58 m² útiles, ubicada en una finca que dispone de ascensor.
 
@@ -53547,7 +53547,7 @@ Can Vidalet, Esplugues de Llobregat
 76 m²
 3 hab.
 2 baños
-2º','[]',NULL,'[]','2026-10-30 15:24:57.128713','2026-10-30 16:30:32.016672',1);
+2º','[]',NULL,'[]','2026-10-30 15:24:57.128713','2026-10-30 16:41:20.376469',1);
 INSERT INTO "listings" VALUES('habitaclia_b0d29314-5992-4dd5-9112-f598a791a401','habitaclia','b0d29314-5992-4dd5-9112-f598a791a401','https://www.habitaclia.com/comprar/planta-intermedia/calle-rodes-de/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/b0d29314-5992-4dd5-9112-f598a791a401/d','Piso con ascensor en venta en Calle RODES DE',320000.0,77.0,4.15584415584415546e+03,3,2,'7ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/29
 320.000 €
 Piso con ascensor en venta en Calle RODES DE
@@ -53555,7 +53555,7 @@ Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 77 m²
 3 hab.
 2 baños
-7º','[]',NULL,'[]','2026-10-30 15:26:28.753032','2026-10-30 16:31:56.223230',1);
+7º','[]',NULL,'[]','2026-10-30 15:26:28.753032','2026-10-30 16:42:43.159041',1);
 INSERT INTO "listings" VALUES('fotocasa_191188586','fotocasa','191188586','https://www.fotocasa.es/es/comprar/vivienda/molins-de-rei/aire-acondicionado-ascensor/191188586/d','Piso en venta, Molins de Rei',265000.0,81.0,3.27160493827160507e+03,3,1,NULL,NULL,4.14040578562690697e+01,2.02056890244996756e+00,NULL,'molins de rei',NULL,'con ascensor · balcón
 K&M IMMOBLES TE OFRECE EN EXCLUSIVA TU NUEVO HOGAR! Se vende precioso piso de 81 m² construidos, en excelente estado de conservación, ideal para quienes buscan una vivienda acogedora, funcional y lista para entrar a vivir desde el primer día. La vivienda destaca por su distribución práctica y sus espacios pensados para disfrutar de la comodidad del día a día. Dispone de un agradable salón-comedor con salida directa a balcón, el rincón perfecto para desconectar, disfrutar de un café al aire libre o crear tu pequeño espacio de relax. La cocina semiabierta, impecable y muy bien integrada, aporta un toque moderno y práctico, conectando los ambientes y creando una sensación de amplitud. La zona de descanso cuenta con tres dormitorios, dos de ellos dobles, ofreciendo múltiples posibilidades para adaptarlos a tus necesidades, ya sea para una familia, para disponer de una habitación de invitados o para crear tu propio despacho. Completa la vivienda un baño equipado con bañera. Además, cuenta con suelos de parquet, que aportan calidez y elegancia, ventanas de aluminio y aire acondicionado con bomba de calor para disfrutar de una temperatura agradable durante todo el año. Un piso cuidado al detalle, con una distribución cómoda y todo lo necesario para convertirlo en tu próximo hogar, sin preocuparte por reformas ni grandes inversiones. ¡Ven a visitarlo y descubre todo lo que puede ofrecerte!','["https://static.fotocasa.es/images/ads/3e58a595-f896-4830-b153-22290e131d35?rule=original", "https://static.fotocasa.es/images/ads/6bc0f617-ae6a-4844-9199-d6d3d7e6fa75?rule=original", "https://static.fotocasa.es/images/ads/63f6478d-2c6f-4fe5-8689-733bb29ebb2a?rule=original", "https://static.fotocasa.es/images/ads/3e3e2696-65d7-4a61-a4ce-8d36fd6b2028?rule=original", "https://static.fotocasa.es/images/ads/dbd8a8d7-ef1f-4625-af8d-bcfa357b7515?rule=original"]',NULL,'[]','2026-10-29 14:26:34.832235','2026-10-30 15:28:49.197684',1);
 INSERT INTO "listings" VALUES('fotocasa_191247878','fotocasa','191247878','https://www.fotocasa.es/es/comprar/vivienda/molins-de-rei/calefaccion-ascensor-no-amueblado/191247878/d','Piso en venta, Molins de Rei',315000.0,118.0,2.66949152542372894e+03,4,2,NULL,NULL,4.1408435840058587e+01,2.01899057686088889e+00,NULL,'molins de rei',NULL,'con ascensor · balcón
@@ -55754,25 +55754,25 @@ INSERT INTO "listings" VALUES('habitaclia_38668000000942','habitaclia','38668000
 INSERT INTO "listings" VALUES('habitaclia_41811000000162','habitaclia','41811000000162','https://www.habitaclia.com/i41811000000162/28119238/live_m28119238202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm','Piso en Esparreguera - Nucli Urbà',164000.0,81.0,2.02469135802469145e+03,3,NULL,NULL,NULL,NULL,NULL,'nucli urbà','esparreguera',NULL,'https://www.habitaclia.com/i41811000000162/28119238/live_m28119238202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Esparreguera | 164.000 € Piso en Esparreguera - Nucli Urbà | 81m 2 | 3 hab. | | | | <a href="','[]',NULL,'[]','2026-10-30 15:28:52.934192','2026-10-30 16:14:06.346456',1);
 INSERT INTO "listings" VALUES('habitaclia_4396004137406','habitaclia','4396004137406','https://www.habitaclia.com/i4396004137406/28119238/live_m28119238202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm','Piso en Castelldefels - Bellamar',349000.0,45.0,7.75555555555555565e+03,2,NULL,NULL,NULL,NULL,NULL,'bellamar','castelldefels',NULL,'https://www.habitaclia.com/i4396004137406/28119238/live_m28119238202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Castelldefels | 349.000 € Piso en Castelldefels - Bellamar | 45m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-10-30 15:28:52.963108','2026-10-30 16:14:06.364086',1);
 INSERT INTO "listings" VALUES('habitaclia_52793000011925','habitaclia','52793000011925','https://www.habitaclia.com/i52793000011925/28119238/live_m28119238202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm','Piso en Gavà - Diagonal-Colomeres',149500.0,69.0,2.16666666666666651e+03,2,NULL,NULL,NULL,NULL,NULL,'diagonal-colomeres','gavà',NULL,'https://www.habitaclia.com/i52793000011925/28119238/live_m28119238202610300926584930/alertas/email/lo-6/20261030-m_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Gavà | 149.500 € Piso en Gavà - Diagonal-Colomeres | 69m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-10-30 15:28:52.993259','2026-10-30 16:14:06.381066',1);
-INSERT INTO "listings" VALUES('habitaclia_12762000000657','habitaclia','12762000000657','https://www.habitaclia.com/i12762000000657/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_nuevo_werise-education_img.htm','Piso en Premià de Mar - Centre-Nucli ...',375000.0,140.0,2.67857142857142844e+03,3,NULL,NULL,NULL,NULL,NULL,'centre-nucli','premià de mar',NULL,'https://www.habitaclia.com/i12762000000657/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | Un 4% más caro de lo que buscabas | | | | | | | | 375.000 € | | Piso en Premià de Mar - Centre-Nucli ... | Piso de 140 m frente al mar en Premià... | 140m 2 | 3 hab. HOUSETIME presenta: Piso de 140 m² frente al mar en Premià de Mar - Centr... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.192355','2026-10-30 16:33:03.158855',1);
-INSERT INTO "listings" VALUES('habitaclia_1453004492315','habitaclia','1453004492315','https://www.habitaclia.com/i1453004492315/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Mataró - Els Molins (Els Molins)',191000.0,69.0,2.7681159420289855e+03,3,NULL,NULL,NULL,NULL,NULL,'els molins','mataró',NULL,'https://www.habitaclia.com/i1453004492315/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 191.000 € | | Piso en Mataró - Els Molins (Els Molins) | Primer piso Torner | 69m 2 | 3 hab. ¡Descubre tu nuevo hogar en Torner Molinos! Te presentamos este encantador p... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.234914','2026-10-30 16:33:03.177551',1);
-INSERT INTO "listings" VALUES('habitaclia_5032002519073','habitaclia','5032002519073','https://www.habitaclia.com/i5032002519073/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Loft en Vilassar de Dalt',135000.0,113.0,1.19469026548672559e+03,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'vilassar de dalt',NULL,'https://www.habitaclia.com/i5032002519073/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 135.000 € | | Loft en Vilassar de Dalt | Riera de Targa Loft diáfano de 113 m²... | 113m 2 Espacio tipo loft de 113 m² construidos, ubicado en Riera de Targa, 63, en Vi... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.277290','2026-10-30 16:33:03.194896',1);
-INSERT INTO "listings" VALUES('habitaclia_5032002519074','habitaclia','5032002519074','https://www.habitaclia.com/i5032002519074/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Loft en Vilassar de Dalt',195000.0,140.0,1.39285714285714288e+03,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'vilassar de dalt',NULL,'https://www.habitaclia.com/i5032002519074/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 195.000 € | | Loft en Vilassar de Dalt | Riera de Targa 63 Loft diáfano de 140... | 140m 2 Espacio tipo loft de 140 m² construidos, ubicado en Riera de Targa, 63, en Vi... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.313014','2026-10-30 16:33:03.212260',1);
-INSERT INTO "listings" VALUES('habitaclia_54159000000468','habitaclia','54159000000468','https://www.habitaclia.com/i54159000000468/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Palafolls',289000.0,77.0,3.75324675324675308e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'palafolls',NULL,'https://www.habitaclia.com/i54159000000468/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 289.000 € | | Piso en Palafolls | Carrer Passada Piso totalmente reform... | 77m 2 | 3 hab. GRUPO MARIN presenta EN EXCLUSIVA esta magnífica vivienda de 87 m² construido... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.342094','2026-10-30 16:33:03.229381',1);
-INSERT INTO "listings" VALUES('habitaclia_12520000000661','habitaclia','12520000000661','https://www.habitaclia.com/i12520000000661/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Calella',146000.0,55.0,2.6545454545454545e+03,1,NULL,NULL,NULL,NULL,NULL,NULL,'calella',NULL,'https://www.habitaclia.com/i12520000000661/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 146.000 € | | Piso en Calella | Calle Sant Josep Quarta planta amb as... | 55m 2 | 1 hab. Us presentem aquest pis d''un dormitori i un bany, amb xemeneia, cuina-menjado... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.384097','2026-10-30 16:33:03.246421',1);
-INSERT INTO "listings" VALUES('habitaclia_46174000000428','habitaclia','46174000000428','https://www.habitaclia.com/i46174000000428/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Mataró - Eixample (Eixample)',359000.0,77.0,4.66233766233766255e+03,2,NULL,NULL,NULL,NULL,NULL,'eixample','mataró',NULL,'https://www.habitaclia.com/i46174000000428/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 359.000 € | | Piso en Mataró - Eixample (Eixample) | PISO OBRA NUEVA EN MATARO | 77m 2 | 2 hab. fantástico piso en venta en Mataró, situado en el barrio de L''Aixample, obra ... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.418371','2026-10-30 16:33:03.263431',1);
-INSERT INTO "listings" VALUES('habitaclia_55598000000083','habitaclia','55598000000083','https://www.habitaclia.com/i55598000000083/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_nuevo_werise-education_img.htm','Piso en Premià de Mar - Centre-Nucli ...',375000.0,140.0,2.67857142857142844e+03,3,NULL,NULL,NULL,NULL,NULL,'centre-nucli','premià de mar',NULL,'https://www.habitaclia.com/i55598000000083/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | Un 4% más caro de lo que buscabas | | | | | | | | 375.000 € | | Piso en Premià de Mar - Centre-Nucli ... | Camí Ral VIVIR EN PRIMERA LÍNEA DE MA... | 140m 2 | 3 hab. FOTOS NO CONTRACTUALES / SEMANA PROXIMADA SUBIMOS LAS FOTOS ORIGINALES Hay v... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.447998','2026-10-30 16:33:03.280850',1);
-INSERT INTO "listings" VALUES('habitaclia_12520000000660','habitaclia','12520000000660','https://www.habitaclia.com/i12520000000660/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Calella',146000.0,43.0,3.39534883720930247e+03,1,NULL,NULL,NULL,NULL,NULL,NULL,'calella',NULL,'https://www.habitaclia.com/i12520000000660/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 146.000 € | | Piso en Calella | Calle Francesc Bartrina Apartament, v... | 43m 2 | 1 hab. Aquest pis semi reformat és, per la seva ubicació i distribució, un immoble i... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.486394','2026-10-30 16:33:03.298513',1);
-INSERT INTO "listings" VALUES('habitaclia_11223002256418','habitaclia','11223002256418','https://www.habitaclia.com/i11223002256418/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Pineda de Mar - Centre',258000.0,75.0,3440.0,3,NULL,NULL,NULL,NULL,NULL,'centre','pineda de mar',NULL,'https://www.habitaclia.com/i11223002256418/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 258.000 € | | Piso en Pineda de Mar - Centre | PISO CENTRICO EN PINEDA DE MAR, REFOR... | 75m 2 | 3 hab. HIPOTECA HASTA EL 100% – ESTUDIO GRATUITO DE FINANCIACIÓN Descubre este piso... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.519996','2026-10-30 16:33:03.315986',1);
-INSERT INTO "listings" VALUES('habitaclia_10108003351945','habitaclia','10108003351945','https://www.habitaclia.com/i10108003351945/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_modprecio_werise-education_img.htm','Un 9% más caro de lo que buscabas',395000.0,188.0,2.10106382978723422e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'desconocido',NULL,'https://www.habitaclia.com/i10108003351945/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | Un 9% más caro de lo que buscabas | | | | | | | | 395.000 € | | Tríplex en Pineda de Mar - Centre | TRIPLEX CON TERRAZA SOLÁRIUM EN EL CE... | 188m 2 | 3 hab. Ubicado en la céntrica calle Roig i Jalpí, este magnífico tríplex ofrece la c... | | | | | | Ha bajado 20.000 € | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.578419','2026-10-30 16:33:03.350718',1);
-INSERT INTO "listings" VALUES('habitaclia_18943003952424','habitaclia','18943003952424','https://www.habitaclia.com/i18943003952424/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_modprecio_werise-education_img.htm','Ático en Mataró - Eixample (Eixample)',378000.0,120.0,3150.0,3,NULL,'Ático',NULL,NULL,NULL,'eixample','mataró',NULL,'https://www.habitaclia.com/i18943003952424/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | Un 5% más caro de lo que buscabas | | | | | | | | 378.000 € | | Ático en Mataró - Eixample (Eixample) | Espectacular atico duplex muy solead... | 120m 2 | 3 hab. ¿Buscas un hogar donde la luz sea la protagonista? Deja de buscar. Desde Urb... | | | | | | Ha bajado 5.000 € | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.589965','2026-10-30 16:33:03.362493',1);
-INSERT INTO "listings" VALUES('habitaclia_2030002747155','habitaclia','2030002747155','https://www.habitaclia.com/i2030002747155/28119232/live_t28119232202610301423149600/alertas/email/lo-8/20261030-t_modprecio_werise-education_img.htm','Piso en Pineda de Mar - Poblenou',187200.0,72.0,2600.0,3,NULL,NULL,NULL,NULL,NULL,'poblenou','pineda de mar',NULL,'https://www.habitaclia.com/i2030002747155/28119232/live_t28119232202610301423149600/alertas/email/lo-8/20261030-t_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 187.200 € | | Piso en Pineda de Mar - Poblenou | Piso en venta Pineda de Mar Especial... | 72m 2 | 3 hab. ¡Aprovecha esta Oportunidad! Se el primero y no dejes escapar esta fantástica... | | | | | | Ha subido 31.200 € | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.625071','2026-10-30 16:33:03.380520',1);
-INSERT INTO "listings" VALUES('habitaclia_2030002747157','habitaclia','2030002747157','https://www.habitaclia.com/i2030002747157/28119232/live_t28119232202610301423149600/alertas/email/lo-8/20261030-t_modprecio_werise-education_img.htm','Piso en Alella',174555.0,72.0,2424.375,3,NULL,NULL,NULL,NULL,NULL,NULL,'alella',NULL,'https://www.habitaclia.com/i2030002747157/28119232/live_t28119232202610301423149600/alertas/email/lo-8/20261030-t_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 174.555 € | | Piso en Alella | Piso en venta en Alella Especial inv... | 72m 2 | 3 hab. Este atractivo piso ubicado en el corazón de Alella, Barcelona, es una oportu... | | | | | | Ha subido 29.095 € | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.666433','2026-10-30 16:33:03.399337',1);
-INSERT INTO "listings" VALUES('habitaclia_44390000000263','habitaclia','44390000000263','https://www.habitaclia.com/i44390000000263/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_modprecio_werise-education_img.htm','Ático en Mataró - Eixample (Eixample)',378000.0,130.0,2.90769230769230762e+03,3,NULL,'Ático',NULL,NULL,NULL,'eixample','mataró',NULL,'https://www.habitaclia.com/i44390000000263/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | Un 5% más caro de lo que buscabas | | | | | | | | 378.000 € | | Ático en Mataró - Eixample (Eixample) | Ático Dúplex con Plaza de Parking! | 130m 2 | 3 hab. Llar de Luxe os presenta esta precioso Ático-Dúplex con plaza de parking incl... | | | | | | Ha bajado 5.000 € | | | | | | | | | Te recomendamos | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.703196','2026-10-30 16:33:03.417923',1);
-INSERT INTO "listings" VALUES('habitaclia_8116004183906','habitaclia','8116004183906','https://www.habitaclia.com/i8116004183906/28119232/live_t28119232202610301423149600/alertas/email/lo-9/20261030-t_oportunidad_werise-education_img.htm','Piso en Canet de Mar',358000.0,94.0,3.80851063829787244e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'canet de mar',NULL,'https://www.habitaclia.com/i8116004183906/28119232/live_t28119232202610301423149600/alertas/email/lo-9/20261030-t_oportunidad_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 358.000 € | | Piso en Canet de Mar | Promoción Voramar Viviendas de obra ... | 94m 2 | 3 hab. Descubre tu nuevo hogar en Voramar, una exclusiva promoción de viviendas de o... | | | | | | Oportunidad Quizás te lo perdiste | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.742161','2026-10-30 16:33:03.436006',1);
-INSERT INTO "listings" VALUES('habitaclia_4452004397174','habitaclia','4452004397174','https://www.habitaclia.com/i4452004397174/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_adyacencia_werise-education_img.htm','Piso en Montgat',430000.0,120.0,3.58333333333333348e+03,4,NULL,NULL,NULL,NULL,NULL,NULL,'montgat',NULL,'https://www.habitaclia.com/i4452004397174/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | Por solo 19% más | 430.000 € Piso en Montgat | 120m 2 | 4 hab. | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.809892','2026-10-30 16:33:03.489203',1);
-INSERT INTO "listings" VALUES('habitaclia_1450003415859','habitaclia','1450003415859','https://www.habitaclia.com/i1450003415859/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Planta baja en Canet de Mar',315000.0,93.0,3.38709677419354829e+03,2,NULL,NULL,NULL,NULL,NULL,NULL,'canet de mar',NULL,'https://www.habitaclia.com/i1450003415859/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Canet de Mar | 315.000 € Planta baja en Canet de Mar | 93m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.845087','2026-10-30 16:33:03.506520',1);
-INSERT INTO "listings" VALUES('habitaclia_41124000064390','habitaclia','41124000064390','https://www.habitaclia.com/i41124000064390/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Piso en Mataró - Cerdanyola Nord (Cer...',100000.0,55.0,1.81818181818181824e+03,2,NULL,NULL,NULL,NULL,NULL,'cerdanyola nord (cer','mataró',NULL,'https://www.habitaclia.com/i41124000064390/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Mataró | 100.000 € Piso en Mataró - Cerdanyola Nord (Cer... | 55m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.911324','2026-10-30 16:33:03.559280',1);
+INSERT INTO "listings" VALUES('habitaclia_12762000000657','habitaclia','12762000000657','https://www.habitaclia.com/i12762000000657/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_nuevo_werise-education_img.htm','Piso en Premià de Mar - Centre-Nucli ...',375000.0,140.0,2.67857142857142844e+03,3,NULL,NULL,NULL,NULL,NULL,'centre-nucli','premià de mar',NULL,'https://www.habitaclia.com/i12762000000657/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | Un 4% más caro de lo que buscabas | | | | | | | | 375.000 € | | Piso en Premià de Mar - Centre-Nucli ... | Piso de 140 m frente al mar en Premià... | 140m 2 | 3 hab. HOUSETIME presenta: Piso de 140 m² frente al mar en Premià de Mar - Centr... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.192355','2026-10-30 16:42:50.889319',1);
+INSERT INTO "listings" VALUES('habitaclia_1453004492315','habitaclia','1453004492315','https://www.habitaclia.com/i1453004492315/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Mataró - Els Molins (Els Molins)',191000.0,69.0,2.7681159420289855e+03,3,NULL,NULL,NULL,NULL,NULL,'els molins','mataró',NULL,'https://www.habitaclia.com/i1453004492315/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 191.000 € | | Piso en Mataró - Els Molins (Els Molins) | Primer piso Torner | 69m 2 | 3 hab. ¡Descubre tu nuevo hogar en Torner Molinos! Te presentamos este encantador p... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.234914','2026-10-30 16:42:50.907990',1);
+INSERT INTO "listings" VALUES('habitaclia_5032002519073','habitaclia','5032002519073','https://www.habitaclia.com/i5032002519073/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Loft en Vilassar de Dalt',135000.0,113.0,1.19469026548672559e+03,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'vilassar de dalt',NULL,'https://www.habitaclia.com/i5032002519073/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 135.000 € | | Loft en Vilassar de Dalt | Riera de Targa Loft diáfano de 113 m²... | 113m 2 Espacio tipo loft de 113 m² construidos, ubicado en Riera de Targa, 63, en Vi... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.277290','2026-10-30 16:42:50.925343',1);
+INSERT INTO "listings" VALUES('habitaclia_5032002519074','habitaclia','5032002519074','https://www.habitaclia.com/i5032002519074/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Loft en Vilassar de Dalt',195000.0,140.0,1.39285714285714288e+03,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'vilassar de dalt',NULL,'https://www.habitaclia.com/i5032002519074/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 195.000 € | | Loft en Vilassar de Dalt | Riera de Targa 63 Loft diáfano de 140... | 140m 2 Espacio tipo loft de 140 m² construidos, ubicado en Riera de Targa, 63, en Vi... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.313014','2026-10-30 16:42:50.944143',1);
+INSERT INTO "listings" VALUES('habitaclia_54159000000468','habitaclia','54159000000468','https://www.habitaclia.com/i54159000000468/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Palafolls',289000.0,77.0,3.75324675324675308e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'palafolls',NULL,'https://www.habitaclia.com/i54159000000468/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 289.000 € | | Piso en Palafolls | Carrer Passada Piso totalmente reform... | 77m 2 | 3 hab. GRUPO MARIN presenta EN EXCLUSIVA esta magnífica vivienda de 87 m² construido... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.342094','2026-10-30 16:42:50.961360',1);
+INSERT INTO "listings" VALUES('habitaclia_12520000000661','habitaclia','12520000000661','https://www.habitaclia.com/i12520000000661/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Calella',146000.0,55.0,2.6545454545454545e+03,1,NULL,NULL,NULL,NULL,NULL,NULL,'calella',NULL,'https://www.habitaclia.com/i12520000000661/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 146.000 € | | Piso en Calella | Calle Sant Josep Quarta planta amb as... | 55m 2 | 1 hab. Us presentem aquest pis d''un dormitori i un bany, amb xemeneia, cuina-menjado... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.384097','2026-10-30 16:42:50.978874',1);
+INSERT INTO "listings" VALUES('habitaclia_46174000000428','habitaclia','46174000000428','https://www.habitaclia.com/i46174000000428/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Mataró - Eixample (Eixample)',359000.0,77.0,4.66233766233766255e+03,2,NULL,NULL,NULL,NULL,NULL,'eixample','mataró',NULL,'https://www.habitaclia.com/i46174000000428/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 359.000 € | | Piso en Mataró - Eixample (Eixample) | PISO OBRA NUEVA EN MATARO | 77m 2 | 2 hab. fantástico piso en venta en Mataró, situado en el barrio de L''Aixample, obra ... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.418371','2026-10-30 16:42:50.995595',1);
+INSERT INTO "listings" VALUES('habitaclia_55598000000083','habitaclia','55598000000083','https://www.habitaclia.com/i55598000000083/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_nuevo_werise-education_img.htm','Piso en Premià de Mar - Centre-Nucli ...',375000.0,140.0,2.67857142857142844e+03,3,NULL,NULL,NULL,NULL,NULL,'centre-nucli','premià de mar',NULL,'https://www.habitaclia.com/i55598000000083/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | Un 4% más caro de lo que buscabas | | | | | | | | 375.000 € | | Piso en Premià de Mar - Centre-Nucli ... | Camí Ral VIVIR EN PRIMERA LÍNEA DE MA... | 140m 2 | 3 hab. FOTOS NO CONTRACTUALES / SEMANA PROXIMADA SUBIMOS LAS FOTOS ORIGINALES Hay v... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.447998','2026-10-30 16:42:51.012354',1);
+INSERT INTO "listings" VALUES('habitaclia_12520000000660','habitaclia','12520000000660','https://www.habitaclia.com/i12520000000660/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Calella',146000.0,43.0,3.39534883720930247e+03,1,NULL,NULL,NULL,NULL,NULL,NULL,'calella',NULL,'https://www.habitaclia.com/i12520000000660/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 146.000 € | | Piso en Calella | Calle Francesc Bartrina Apartament, v... | 43m 2 | 1 hab. Aquest pis semi reformat és, per la seva ubicació i distribució, un immoble i... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.486394','2026-10-30 16:42:51.029361',1);
+INSERT INTO "listings" VALUES('habitaclia_11223002256418','habitaclia','11223002256418','https://www.habitaclia.com/i11223002256418/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Pineda de Mar - Centre',258000.0,75.0,3440.0,3,NULL,NULL,NULL,NULL,NULL,'centre','pineda de mar',NULL,'https://www.habitaclia.com/i11223002256418/28119232/live_t28119232202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 258.000 € | | Piso en Pineda de Mar - Centre | PISO CENTRICO EN PINEDA DE MAR, REFOR... | 75m 2 | 3 hab. HIPOTECA HASTA EL 100% – ESTUDIO GRATUITO DE FINANCIACIÓN Descubre este piso... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.519996','2026-10-30 16:42:51.047139',1);
+INSERT INTO "listings" VALUES('habitaclia_10108003351945','habitaclia','10108003351945','https://www.habitaclia.com/i10108003351945/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_modprecio_werise-education_img.htm','Un 9% más caro de lo que buscabas',395000.0,188.0,2.10106382978723422e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'desconocido',NULL,'https://www.habitaclia.com/i10108003351945/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | Un 9% más caro de lo que buscabas | | | | | | | | 395.000 € | | Tríplex en Pineda de Mar - Centre | TRIPLEX CON TERRAZA SOLÁRIUM EN EL CE... | 188m 2 | 3 hab. Ubicado en la céntrica calle Roig i Jalpí, este magnífico tríplex ofrece la c... | | | | | | Ha bajado 20.000 € | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.578419','2026-10-30 16:42:51.081354',1);
+INSERT INTO "listings" VALUES('habitaclia_18943003952424','habitaclia','18943003952424','https://www.habitaclia.com/i18943003952424/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_modprecio_werise-education_img.htm','Ático en Mataró - Eixample (Eixample)',378000.0,120.0,3150.0,3,NULL,'Ático',NULL,NULL,NULL,'eixample','mataró',NULL,'https://www.habitaclia.com/i18943003952424/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | Un 5% más caro de lo que buscabas | | | | | | | | 378.000 € | | Ático en Mataró - Eixample (Eixample) | Espectacular atico duplex muy solead... | 120m 2 | 3 hab. ¿Buscas un hogar donde la luz sea la protagonista? Deja de buscar. Desde Urb... | | | | | | Ha bajado 5.000 € | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.589965','2026-10-30 16:42:51.092360',1);
+INSERT INTO "listings" VALUES('habitaclia_2030002747155','habitaclia','2030002747155','https://www.habitaclia.com/i2030002747155/28119232/live_t28119232202610301423149600/alertas/email/lo-8/20261030-t_modprecio_werise-education_img.htm','Piso en Pineda de Mar - Poblenou',187200.0,72.0,2600.0,3,NULL,NULL,NULL,NULL,NULL,'poblenou','pineda de mar',NULL,'https://www.habitaclia.com/i2030002747155/28119232/live_t28119232202610301423149600/alertas/email/lo-8/20261030-t_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 187.200 € | | Piso en Pineda de Mar - Poblenou | Piso en venta Pineda de Mar Especial... | 72m 2 | 3 hab. ¡Aprovecha esta Oportunidad! Se el primero y no dejes escapar esta fantástica... | | | | | | Ha subido 31.200 € | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.625071','2026-10-30 16:42:51.110330',1);
+INSERT INTO "listings" VALUES('habitaclia_2030002747157','habitaclia','2030002747157','https://www.habitaclia.com/i2030002747157/28119232/live_t28119232202610301423149600/alertas/email/lo-8/20261030-t_modprecio_werise-education_img.htm','Piso en Alella',174555.0,72.0,2424.375,3,NULL,NULL,NULL,NULL,NULL,NULL,'alella',NULL,'https://www.habitaclia.com/i2030002747157/28119232/live_t28119232202610301423149600/alertas/email/lo-8/20261030-t_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 174.555 € | | Piso en Alella | Piso en venta en Alella Especial inv... | 72m 2 | 3 hab. Este atractivo piso ubicado en el corazón de Alella, Barcelona, es una oportu... | | | | | | Ha subido 29.095 € | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.666433','2026-10-30 16:42:51.127630',1);
+INSERT INTO "listings" VALUES('habitaclia_44390000000263','habitaclia','44390000000263','https://www.habitaclia.com/i44390000000263/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_modprecio_werise-education_img.htm','Ático en Mataró - Eixample (Eixample)',378000.0,130.0,2.90769230769230762e+03,3,NULL,'Ático',NULL,NULL,NULL,'eixample','mataró',NULL,'https://www.habitaclia.com/i44390000000263/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_modprecio_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | Un 5% más caro de lo que buscabas | | | | | | | | 378.000 € | | Ático en Mataró - Eixample (Eixample) | Ático Dúplex con Plaza de Parking! | 130m 2 | 3 hab. Llar de Luxe os presenta esta precioso Ático-Dúplex con plaza de parking incl... | | | | | | Ha bajado 5.000 € | | | | | | | | | Te recomendamos | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.703196','2026-10-30 16:42:51.144642',1);
+INSERT INTO "listings" VALUES('habitaclia_8116004183906','habitaclia','8116004183906','https://www.habitaclia.com/i8116004183906/28119232/live_t28119232202610301423149600/alertas/email/lo-9/20261030-t_oportunidad_werise-education_img.htm','Piso en Canet de Mar',358000.0,94.0,3.80851063829787244e+03,3,NULL,NULL,NULL,NULL,NULL,NULL,'canet de mar',NULL,'https://www.habitaclia.com/i8116004183906/28119232/live_t28119232202610301423149600/alertas/email/lo-9/20261030-t_oportunidad_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 358.000 € | | Piso en Canet de Mar | Promoción Voramar Viviendas de obra ... | 94m 2 | 3 hab. Descubre tu nuevo hogar en Voramar, una exclusiva promoción de viviendas de o... | | | | | | Oportunidad Quizás te lo perdiste | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.742161','2026-10-30 16:42:51.161916',1);
+INSERT INTO "listings" VALUES('habitaclia_4452004397174','habitaclia','4452004397174','https://www.habitaclia.com/i4452004397174/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_adyacencia_werise-education_img.htm','Piso en Montgat',430000.0,120.0,3.58333333333333348e+03,4,NULL,NULL,NULL,NULL,NULL,NULL,'montgat',NULL,'https://www.habitaclia.com/i4452004397174/28119232/live_t28119232202610301423149600/alertas/email/lo-10/20261030-t_precio_relajado_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | Por solo 19% más | 430.000 € Piso en Montgat | 120m 2 | 4 hab. | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.809892','2026-10-30 16:42:51.214341',1);
+INSERT INTO "listings" VALUES('habitaclia_1450003415859','habitaclia','1450003415859','https://www.habitaclia.com/i1450003415859/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Planta baja en Canet de Mar',315000.0,93.0,3.38709677419354829e+03,2,NULL,NULL,NULL,NULL,NULL,NULL,'canet de mar',NULL,'https://www.habitaclia.com/i1450003415859/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Canet de Mar | 315.000 € Planta baja en Canet de Mar | 93m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.845087','2026-10-30 16:42:51.231259',1);
+INSERT INTO "listings" VALUES('habitaclia_41124000064390','habitaclia','41124000064390','https://www.habitaclia.com/i41124000064390/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm','Piso en Mataró - Cerdanyola Nord (Cer...',100000.0,55.0,1.81818181818181824e+03,2,NULL,NULL,NULL,NULL,NULL,'cerdanyola nord (cer','mataró',NULL,'https://www.habitaclia.com/i41124000064390/28119232/live_t28119232202610301423149600/alertas/email/lo-12/20261030-t_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Mataró | 100.000 € Piso en Mataró - Cerdanyola Nord (Cer... | 55m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:04.911324','2026-10-30 16:42:51.281669',1);
 INSERT INTO "listings" VALUES('habitaclia_26096004038019','habitaclia','26096004038019','https://www.habitaclia.com/i26096004038019/28119224/live_t28119224202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Barcelona - Besòs - Maresme (...',315000.0,78.0,4.03846153846153856e+03,3,NULL,NULL,NULL,NULL,NULL,'besòs','barcelona',NULL,'https://www.habitaclia.com/i26096004038019/28119224/live_t28119224202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 315.000 € | | Piso en Barcelona - Besòs - Maresme (... | Carrer de Bernat Metge | 78m 2 | 3 hab. ¡Piso de 78 m2 totalmente exterior con amplio balcón en Sant Martí! ¿Imaginas... | | | | | | Oportunidad Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:05.019712','2026-10-30 16:14:05.019712',1);
 INSERT INTO "listings" VALUES('habitaclia_52607000003296','habitaclia','52607000003296','https://www.habitaclia.com/i52607000003296/28119224/live_t28119224202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Planta baja en Barcelona - Sants (San...',110000.0,41.0,2.68292682926829274e+03,1,NULL,NULL,NULL,NULL,NULL,'sants (san','barcelona',NULL,'https://www.habitaclia.com/i52607000003296/28119224/live_t28119224202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 110.000 € | | Planta baja en Barcelona - Sants (San... | Carrer de Sant Medir Planta baja Call... | 41m 2 | 1 hab. ¡INVERSIÓN EN SANTS! Estudio de 41 m2 junto al Metro Mercat Nou, con rentabil... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:05.055709','2026-10-30 16:14:05.055709',1);
 INSERT INTO "listings" VALUES('habitaclia_23591004311371','habitaclia','23591004311371','https://www.habitaclia.com/i23591004311371/28119224/live_t28119224202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm','Piso en Sant Adrià de Besòs - Sant Jo...',350000.0,107.0,3.27102803738317743e+03,3,NULL,NULL,NULL,NULL,NULL,'sant jo','sant adrià de besòs',NULL,'https://www.habitaclia.com/i23591004311371/28119224/live_t28119224202610301423149600/alertas/email/lo-7/20261030-t_nuevo_werise-education_img.htm" target="_blank" style="text-decoration:none"> | | | | | | | | 350.000 € | | Piso en Sant Adrià de Besòs - Sant Jo... | Carrer de les Valls d''Andorra AMPLITU... | 107m 2 | 3 hab. LA CASA AGENCY PRESENTA OPORTUNIDAD: AMPLIA VIVIENDA DE 107 M2 CON 3 HABITAC... | | | | | | Anuncio nuevo | | | | | | | | | <a href="','[]',NULL,'[]','2026-10-30 16:14:05.092824','2026-10-30 16:14:05.092824',1);
@@ -55839,7 +55839,7 @@ INSERT INTO "telegram_state" VALUES('funnel_today','{"day": "2026-10-30", "count
 INSERT INTO "telegram_state" VALUES('verify_verdicts','{"habitaclia_45773000009318": {"v": "rechazada", "at": "2026-08-24T17:44:15.517665+00:00"}, "habitaclia_28976000013912": {"v": "rechazada", "at": "2026-08-24T17:44:15.766374+00:00"}, "habitaclia_45773000009536": {"v": "rechazada", "at": "2026-08-24T17:44:16.042054+00:00"}, "habitaclia_3739002205112": {"v": "rechazada", "at": "2026-08-24T17:44:16.413467+00:00"}, "habitaclia_45773000004240": {"v": "rechazada", "at": "2026-08-24T17:44:16.612638+00:00"}, "habitaclia_19332003656915": {"v": "rechazada", "at": "2026-08-24T17:44:16.767741+00:00"}, "habitaclia_45773000009777": {"v": "rechazada", "at": "2026-08-24T17:44:16.978702+00:00"}, "habitaclia_35508000004156": {"v": "rechazada", "at": "2026-08-24T17:44:17.150241+00:00"}, "habitaclia_37692000000171": {"v": "rechazada", "at": "2026-08-24T17:44:18.030416+00:00"}, "habitaclia_41124000075657": {"v": "rechazada", "at": "2026-08-24T17:44:18.229384+00:00"}, "habitaclia_41124000083920": {"v": "rechazada", "at": "2026-08-24T17:44:18.372152+00:00"}, "habitaclia_35508000003975": {"v": "rechazada", "at": "2026-08-24T17:44:18.651786+00:00"}, "habitaclia_45773000008687": {"v": "rechazada", "at": "2026-08-24T17:44:18.776879+00:00"}, "habitaclia_45773000009402": {"v": "rechazada", "at": "2026-08-24T17:44:18.937412+00:00"}, "habitaclia_45773000009440": {"v": "rechazada", "at": "2026-08-24T17:44:19.166508+00:00"}, "habitaclia_45773000009448": {"v": "rechazada", "at": "2026-08-24T17:44:19.307047+00:00"}, "habitaclia_41124000061441": {"v": "rechazada", "at": "2026-08-24T17:44:19.426402+00:00"}, "habitaclia_15934004151447": {"v": "rechazada", "at": "2026-08-24T17:44:19.676212+00:00"}, "habitaclia_45773000010251": {"v": "rechazada", "at": "2026-08-24T17:44:19.944136+00:00"}, "habitaclia_45773000007413": {"v": "rechazada", "at": "2026-08-24T17:44:20.080378+00:00"}, "habitaclia_45773000003694": {"v": "rechazada", "at": "2026-08-24T17:44:20.209072+00:00"}, "habitaclia_19332003657165": {"v": "rechazada", "at": "2026-08-24T17:44:20.463398+00:00"}, "habitaclia_4329002425994": {"v": "rechazada", "at": "2026-08-24T17:44:20.646467+00:00"}, "habitaclia_19411000012510": {"v": "rechazada", "at": "2026-08-24T17:44:20.769472+00:00"}, "habitaclia_41124000074963": {"v": "rechazada", "at": "2026-08-24T17:44:20.888905+00:00"}, "habitaclia_4492004434871": {"v": "rechazada", "at": "2026-08-24T17:44:21.183494+00:00"}, "habitaclia_41124000079711": {"v": "rechazada", "at": "2026-08-24T17:44:21.304251+00:00"}, "habitaclia_28976000010245": {"v": "rechazada", "at": "2026-08-24T17:44:21.425435+00:00"}, "habitaclia_45773000010259": {"v": "rechazada", "at": "2026-08-24T17:44:21.973796+00:00"}, "habitaclia_22253000001659": {"v": "rechazada", "at": "2026-08-24T17:44:22.100639+00:00"}, "habitaclia_8116004183350": {"v": "rechazada", "at": "2026-08-24T17:44:22.219843+00:00"}, "habitaclia_4492004435009": {"v": "rechazada", "at": "2026-08-24T17:44:22.371603+00:00"}, "habitaclia_12584000003902": {"v": "rechazada", "at": "2026-08-24T17:44:22.561340+00:00"}, "habitaclia_45773000009611": {"v": "rechazada", "at": "2026-08-24T17:44:22.688403+00:00"}, "habitaclia_35508000004237": {"v": "rechazada", "at": "2026-08-24T17:44:22.885138+00:00"}, "habitaclia_45773000008652": {"v": "rechazada", "at": "2026-08-24T17:44:23.027245+00:00"}, "habitaclia_41124000070285": {"v": "rechazada", "at": "2026-08-24T17:44:23.237526+00:00"}, "habitaclia_44494000000662": {"v": "rechazada", "at": "2026-08-24T17:44:23.370065+00:00"}, "habitaclia_45773000009653": {"v": "rechazada", "at": "2026-08-24T17:44:23.496416+00:00"}, "habitaclia_28976000006615": {"v": "rechazada", "at": "2026-08-24T17:44:23.652002+00:00"}, "habitaclia_51013000001975": {"v": "rechazada", "at": "2026-08-24T17:44:23.773196+00:00"}, "habitaclia_29480000002836": {"v": "rechazada", "at": "2026-08-24T17:44:23.896877+00:00"}, "habitaclia_1935002468051": {"v": "rechazada", "at": "2026-08-24T17:44:24.018200+00:00"}, "habitaclia_41124000079970": {"v": "rechazada", "at": "2026-08-24T17:44:24.158627+00:00"}, "habitaclia_13920000015283": {"v": "rechazada", "at": "2026-08-24T17:44:24.283437+00:00"}, "habitaclia_52592000001870": {"v": "rechazada", "at": "2026-08-24T17:44:24.404364+00:00"}, "habitaclia_41124000095258": {"v": "rechazada", "at": "2026-08-24T17:44:24.596779+00:00"}, "habitaclia_28976000011770": {"v": "rechazada", "at": "2026-08-24T17:44:24.743825+00:00"}, "habitaclia_8116004183370": {"v": "rechazada", "at": "2026-08-24T17:44:24.878801+00:00"}, "habitaclia_45773000009758": {"v": "rechazada", "at": "2026-08-24T17:44:24.997842+00:00"}, "habitaclia_45773000007067": {"v": "rechazada", "at": "2026-08-24T17:44:25.122310+00:00"}, "habitaclia_45773000010274": {"v": "rechazada", "at": "2026-08-24T17:44:25.252281+00:00"}, "habitaclia_40327000000139": {"v": "rechazada", "at": "2026-08-24T17:44:25.381075+00:00"}, "habitaclia_19411000012249": {"v": "rechazada", "at": "2026-08-24T17:44:25.510566+00:00"}, "habitaclia_14767000003031": {"v": "rechazada", "at": "2026-08-24T17:44:25.642790+00:00"}, "habitaclia_28257000002383": {"v": "rechazada", "at": "2026-08-24T17:44:25.766082+00:00"}, "habitaclia_52592000001872": {"v": "rechazada", "at": "2026-08-24T17:44:25.917473+00:00"}, "habitaclia_45396000006281": {"v": "rechazada", "at": "2026-08-24T17:44:26.043170+00:00"}, "habitaclia_52793000013596": {"v": "rechazada", "at": "2026-08-24T17:44:26.167697+00:00"}, "habitaclia_45773000009862": {"v": "rechazada", "at": "2026-08-24T17:44:26.288646+00:00"}, "habitaclia_52592000005519": {"v": "rechazada", "at": "2026-08-24T17:44:26.410599+00:00"}, "habitaclia_45773000007591": {"v": "rechazada", "at": "2026-08-24T17:44:26.594716+00:00"}, "habitaclia_45773000009883": {"v": "rechazada", "at": "2026-08-24T17:44:26.717147+00:00"}, "habitaclia_37637000028861": {"v": "rechazada", "at": "2026-08-24T17:44:26.839434+00:00"}, "habitaclia_14842000000534": {"v": "rechazada", "at": "2026-08-24T17:44:26.966896+00:00"}, "habitaclia_54539000001643": {"v": "rechazada", "at": "2026-08-24T17:44:27.088641+00:00"}, "habitaclia_59713000000006": {"v": "rechazada", "at": "2026-08-24T17:44:27.210470+00:00"}, "habitaclia_13908004341907": {"v": "rechazada", "at": "2026-08-24T17:44:27.337555+00:00"}, "habitaclia_45773000009416": {"v": "rechazada", "at": "2026-08-25T06:19:40.255643+00:00"}, "habitaclia_52592000005469": {"v": "rechazada", "at": "2026-08-25T08:28:51.260311+00:00"}, "habitaclia_4027004300049": {"v": "rechazada", "at": "2026-08-25T09:18:31.569747+00:00"}, "habitaclia_52592000000371": {"v": "rechazada", "at": "2026-08-25T16:31:43.971906+00:00"}, "habitaclia_3343003877476": {"v": "rechazada", "at": "2026-08-25T16:31:44.160950+00:00"}, "habitaclia_45773000008539": {"v": "rechazada", "at": "2026-08-25T16:31:44.382113+00:00"}, "solvia_213895": {"v": "ilegible", "at": "2026-09-17T22:10:00.822391+00:00"}, "habitaclia_45396000005871": {"v": "rechazada", "at": "2026-08-25T17:28:29.255681+00:00"}, "habitaclia_3492002812639": {"v": "rechazada", "at": "2026-08-26T05:11:57.105864+00:00"}, "habitaclia_46948000000652": {"v": "rechazada", "at": "2026-08-26T05:11:57.297638+00:00"}, "habitaclia_45773000007059": {"v": "rechazada", "at": "2026-08-26T05:11:57.539475+00:00"}, "idealista_108839869": {"v": "ilegible", "at": "2026-09-14T10:49:01.129815+00:00"}, "habitaclia_12584000003318": {"v": "rechazada", "at": "2026-08-26T07:25:46.536481+00:00"}, "habitaclia_41124000079857": {"v": "rechazada", "at": "2026-08-26T07:25:46.771050+00:00"}, "habitaclia_41124000048750": {"v": "rechazada", "at": "2026-08-26T07:25:46.966432+00:00"}, "habitaclia_22582003571909": {"v": "rechazada", "at": "2026-08-26T08:32:42.877003+00:00"}, "habitaclia_46948000000754": {"v": "rechazada", "at": "2026-08-26T15:21:49.610527+00:00"}, "habitaclia_45773000009698": {"v": "rechazada", "at": "2026-08-26T15:21:49.831765+00:00"}, "habitaclia_44494000000670": {"v": "rechazada", "at": "2026-08-26T15:23:37.422786+00:00"}, "habitaclia_33393000000705": {"v": "rechazada", "at": "2026-08-26T15:23:37.734734+00:00"}, "habitaclia_45396000005811": {"v": "rechazada", "at": "2026-08-26T16:26:25.550617+00:00"}, "habitaclia_4751002487761": {"v": "rechazada", "at": "2026-08-26T16:26:25.959571+00:00"}, "habitaclia_45396000005874": {"v": "rechazada", "at": "2026-08-26T16:26:26.449333+00:00"}, "habitaclia_45396000005875": {"v": "rechazada", "at": "2026-08-26T16:26:26.846145+00:00"}, "habitaclia_45396000005821": {"v": "rechazada", "at": "2026-08-26T16:26:27.109983+00:00"}, "habitaclia_56343000000024": {"v": "rechazada", "at": "2026-08-26T17:26:20.329682+00:00"}, "habitaclia_45773000007696": {"v": "rechazada", "at": "2026-08-27T05:15:01.632234+00:00"}, "habitaclia_41124000097326": {"v": "rechazada", "at": "2026-08-27T05:15:01.817566+00:00"}, "habitaclia_4329002426350": {"v": "rechazada", "at": "2026-08-27T06:18:26.306154+00:00"}, "habitaclia_4492004435211": {"v": "rechazada", "at": "2026-08-27T06:18:26.538526+00:00"}, "habitaclia_45773000009731": {"v": "rechazada", "at": "2026-08-27T07:05:06.824855+00:00"}, "idealista_112378794": {"v": "ilegible", "at": "2026-09-19T08:25:19.232311+00:00"}, "habitaclia_41124000070119": {"v": "rechazada", "at": "2026-08-27T17:44:16.111289+00:00"}, "solvia_138785": {"v": "ilegible", "at": "2026-09-30T03:22:53.672720+00:00"}, "habitaclia_45773000010261": {"v": "rechazada", "at": "2026-08-27T17:45:42.251606+00:00"}, "habitaclia_19411000012335": {"v": "rechazada", "at": "2026-08-27T17:45:42.488984+00:00"}, "habitaclia_37637000028200": {"v": "rechazada", "at": "2026-08-27T17:45:42.859624+00:00"}, "habitaclia_52592000001706": {"v": "rechazada", "at": "2026-08-27T17:45:43.086787+00:00"}, "habitaclia_41124000077916": {"v": "rechazada", "at": "2026-08-27T19:32:28.448748+00:00"}, "habitaclia_45773000007433": {"v": "rechazada", "at": "2026-08-27T19:32:28.654966+00:00"}, "habitaclia_45773000008552": {"v": "rechazada", "at": "2026-08-28T06:03:23.049404+00:00"}, "habitaclia_45773000009275": {"v": "rechazada", "at": "2026-08-28T13:23:49.379152+00:00"}, "habitaclia_46948000000636": {"v": "rechazada", "at": "2026-08-28T13:23:49.499835+00:00"}, "habitaclia_3492002813129": {"v": "rechazada", "at": "2026-08-28T13:25:15.784189+00:00"}, "habitaclia_47953000000499": {"v": "rechazada", "at": "2026-08-28T13:25:16.649828+00:00"}, "habitaclia_45773000009835": {"v": "rechazada", "at": "2026-08-28T13:25:16.879582+00:00"}, "habitaclia_46050000000100": {"v": "rechazada", "at": "2026-08-28T13:25:17.181452+00:00"}, "habitaclia_14432000000066": {"v": "rechazada", "at": "2026-08-28T23:05:53.414356+00:00"}, "habitaclia_41124000085143": {"v": "rechazada", "at": "2026-08-29T11:00:48.979380+00:00"}, "habitaclia_18590000006381": {"v": "rechazada", "at": "2026-08-29T11:00:49.216487+00:00"}, "habitaclia_38561000000763": {"v": "rechazada", "at": "2026-08-29T11:00:49.365816+00:00"}, "habitaclia_14912004448146": {"v": "rechazada", "at": "2026-08-29T11:00:49.529603+00:00"}, "habitaclia_45773000003990": {"v": "rechazada", "at": "2026-08-29T11:00:49.690602+00:00"}, "habitaclia_45773000009540": {"v": "rechazada", "at": "2026-08-29T11:25:18.395077+00:00"}, "habitaclia_45773000009843": {"v": "rechazada", "at": "2026-08-29T11:25:18.553540+00:00"}, "habitaclia_28976000008914": {"v": "rechazada", "at": "2026-08-29T11:25:18.700941+00:00"}, "habitaclia_54281000000324": {"v": "rechazada", "at": "2026-08-29T11:25:18.858814+00:00"}, "habitaclia_51013000002046": {"v": "rechazada", "at": "2026-08-29T14:14:43.866928+00:00"}, "habitaclia_12584000003193": {"v": "rechazada", "at": "2026-08-29T15:25:34.836472+00:00"}, "habitaclia_8166003811541": {"v": "rechazada", "at": "2026-08-29T22:21:39.118072+00:00"}, "habitaclia_35858000001054": {"v": "rechazada", "at": "2026-08-30T09:48:58.616332+00:00"}, "habitaclia_54281000000303": {"v": "rechazada", "at": "2026-08-30T09:48:58.736998+00:00"}, "habitaclia_41124000072461": {"v": "rechazada", "at": "2026-08-30T10:12:57.234541+00:00"}, "habitaclia_45773000010380": {"v": "rechazada", "at": "2026-08-30T11:28:56.085791+00:00"}, "habitaclia_58175000000011": {"v": "rechazada", "at": "2026-08-30T21:12:31.399082+00:00"}, "habitaclia_35508000004428": {"v": "rechazada", "at": "2026-08-30T21:12:31.565209+00:00"}, "habitaclia_19332003655753": {"v": "rechazada", "at": "2026-08-30T21:12:31.760994+00:00"}, "habitaclia_4492004434533": {"v": "rechazada", "at": "2026-08-30T21:12:32.007118+00:00"}, "habitaclia_4492004434967": {"v": "rechazada", "at": "2026-08-30T21:12:33.421926+00:00"}, "idealista_112408567": {"v": "ilegible", "at": "2026-08-31T08:36:53.492068+00:00"}, "idealista_111604291": {"v": "ilegible", "at": "2026-09-30T03:30:13.999358+00:00"}, "habitaclia_45773000008460": {"v": "rechazada", "at": "2026-08-31T10:25:28.973010+00:00"}, "habitaclia_4492004435239": {"v": "rechazada", "at": "2026-08-31T10:25:29.219523+00:00"}, "habitaclia_4492004435080": {"v": "rechazada", "at": "2026-08-31T11:19:54.726701+00:00"}, "habitaclia_45773000009478": {"v": "rechazada", "at": "2026-08-31T20:02:48.010423+00:00"}, "habitaclia_8116004183781": {"v": "rechazada", "at": "2026-08-31T20:02:48.334618+00:00"}, "habitaclia_28976000011476": {"v": "rechazada", "at": "2026-08-31T20:02:48.590640+00:00"}, "habitaclia_35508000004262": {"v": "rechazada", "at": "2026-08-31T20:02:48.907992+00:00"}, "habitaclia_1606002343069": {"v": "rechazada", "at": "2026-09-01T07:28:14.212049+00:00"}, "habitaclia_2800004269461": {"v": "rechazada", "at": "2026-09-01T07:28:14.579670+00:00"}, "habitaclia_13306004060411": {"v": "rechazada", "at": "2026-09-01T11:28:29.429593+00:00"}, "habitaclia_1606002343084": {"v": "rechazada", "at": "2026-09-01T18:53:37.735270+00:00"}, "habitaclia_45773000009654": {"v": "rechazada", "at": "2026-09-01T18:53:38.070318+00:00"}, "habitaclia_45396000006442": {"v": "rechazada", "at": "2026-09-01T18:53:38.333096+00:00"}, "solvia_151466": {"v": "ilegible", "at": "2026-09-30T03:38:15.929438+00:00"}, "habitaclia_37637000028611": {"v": "rechazada", "at": "2026-09-02T06:15:39.113301+00:00"}, "habitaclia_4492004434875": {"v": "rechazada", "at": "2026-09-02T06:15:39.311901+00:00"}, "habitaclia_44590000013155": {"v": "rechazada", "at": "2026-09-02T07:04:54.139903+00:00"}, "idealista_112432584": {"v": "ilegible", "at": "2026-09-30T03:38:52.926665+00:00"}, "habitaclia_5115003755334": {"v": "rechazada", "at": "2026-09-02T08:04:41.491458+00:00"}, "idealista_112432469": {"v": "ilegible", "at": "2026-09-30T03:24:15.870256+00:00"}, "habitaclia_28976000012719": {"v": "rechazada", "at": "2026-09-02T10:30:00.086470+00:00"}, "habitaclia_37637000034594": {"v": "rechazada", "at": "2026-09-02T11:10:52.668812+00:00"}, "habitaclia_35508000004425": {"v": "rechazada", "at": "2026-09-02T17:39:49.247747+00:00"}, "habitaclia_45773000008153": {"v": "rechazada", "at": "2026-09-02T17:39:49.463906+00:00"}, "solvia_112618": {"v": "ilegible", "at": "2026-09-30T03:19:24.909063+00:00"}, "solvia_218800": {"v": "ilegible", "at": "2026-09-14T10:45:56.701535+00:00"}, "habitaclia_45773000009509": {"v": "rechazada", "at": "2026-09-02T19:18:35.786978+00:00"}, "habitaclia_41124000083914": {"v": "rechazada", "at": "2026-09-03T06:16:43.300456+00:00"}, "habitaclia_45773000009620": {"v": "rechazada", "at": "2026-09-03T06:16:43.827302+00:00"}, "habitaclia_41124000077950": {"v": "rechazada", "at": "2026-09-03T07:20:32.728416+00:00"}, "idealista_112444636": {"v": "ilegible", "at": "2026-09-30T03:35:34.444102+00:00"}, "habitaclia_35508000004153": {"v": "rechazada", "at": "2026-09-03T08:20:37.803752+00:00"}, "habitaclia_35508000004041": {"v": "rechazada", "at": "2026-09-03T16:32:35.258002+00:00"}, "habitaclia_41124000092585": {"v": "rechazada", "at": "2026-09-03T16:32:35.515232+00:00"}, "habitaclia_45773000009537": {"v": "rechazada", "at": "2026-09-03T16:32:35.714553+00:00"}, "habitaclia_58584000000412": {"v": "rechazada", "at": "2026-09-03T16:32:35.846862+00:00"}, "habitaclia_5115003755237": {"v": "rechazada", "at": "2026-09-03T16:34:02.705916+00:00"}, "habitaclia_41124000058140": {"v": "rechazada", "at": "2026-09-03T16:34:02.909047+00:00"}, "habitaclia_3739002205192": {"v": "rechazada", "at": "2026-09-03T16:34:03.154248+00:00"}, "habitaclia_45773000009811": {"v": "rechazada", "at": "2026-09-03T16:34:03.399878+00:00"}, "habitaclia_1935002468040": {"v": "rechazada", "at": "2026-09-03T16:34:03.574197+00:00"}, "habitaclia_19272000029081": {"v": "rechazada", "at": "2026-09-03T17:18:37.725874+00:00"}, "solvia_166831": {"v": "ilegible", "at": "2026-09-30T03:16:32.407976+00:00"}, "habitaclia_46948000000205": {"v": "rechazada", "at": "2026-09-04T07:25:10.606957+00:00"}, "habitaclia_12584000002239": {"v": "rechazada", "at": "2026-09-04T08:07:38.288889+00:00"}, "habitaclia_45773000008826": {"v": "rechazada", "at": "2026-09-04T08:07:38.592028+00:00"}, "habitaclia_28976000012687": {"v": "rechazada", "at": "2026-09-04T09:21:14.542584+00:00"}, "habitaclia_19332003656135": {"v": "rechazada", "at": "2026-09-04T15:18:20.419371+00:00"}, "habitaclia_13920000013444": {"v": "rechazada", "at": "2026-09-04T15:18:20.728217+00:00"}, "habitaclia_12748002690950": {"v": "rechazada", "at": "2026-09-04T15:18:21.044290+00:00"}, "habitaclia_35508000004423": {"v": "rechazada", "at": "2026-09-04T15:18:21.347317+00:00"}, "habitaclia_33393000000708": {"v": "rechazada", "at": "2026-09-04T16:32:45.568877+00:00"}, "habitaclia_45773000010237": {"v": "rechazada", "at": "2026-09-04T16:32:46.909738+00:00"}, "habitaclia_8116004183633": {"v": "rechazada", "at": "2026-09-04T16:32:47.749227+00:00"}, "solvia_152303": {"v": "ilegible", "at": "2026-09-30T03:15:06.345827+00:00"}, "habitaclia_49867000006852": {"v": "rechazada", "at": "2026-09-04T16:34:17.108939+00:00"}, "habitaclia_8116004183640": {"v": "rechazada", "at": "2026-09-04T16:34:18.183217+00:00"}, "habitaclia_45773000009521": {"v": "rechazada", "at": "2026-09-04T16:34:19.069157+00:00"}, "habitaclia_35508000004275": {"v": "rechazada", "at": "2026-09-04T16:34:19.924990+00:00"}, "habitaclia_49867000006863": {"v": "rechazada", "at": "2026-09-04T16:34:20.930923+00:00"}, "habitaclia_49867000006910": {"v": "rechazada", "at": "2026-09-04T16:34:21.830222+00:00"}, "habitaclia_37637000034410": {"v": "rechazada", "at": "2026-09-04T16:34:22.812341+00:00"}, "habitaclia_41124000072210": {"v": "rechazada", "at": "2026-09-04T16:34:23.643715+00:00"}, "habitaclia_49867000006749": {"v": "rechazada", "at": "2026-09-04T16:34:24.469486+00:00"}, "habitaclia_15172002946573": {"v": "rechazada", "at": "2026-09-04T16:34:25.431680+00:00"}, "habitaclia_8116004183852": {"v": "rechazada", "at": "2026-09-04T16:34:26.267400+00:00"}, "habitaclia_30303000041336": {"v": "rechazada", "at": "2026-09-04T16:34:27.146056+00:00"}, "habitaclia_8116004183857": {"v": "rechazada", "at": "2026-09-04T16:34:28.929592+00:00"}, "habitaclia_45773000009877": {"v": "rechazada", "at": "2026-09-04T16:34:29.806499+00:00"}, "habitaclia_13920000015896": {"v": "rechazada", "at": "2026-09-04T16:34:30.596777+00:00"}, "idealista_112403215": {"v": "ilegible", "at": "2026-09-04T16:34:41.957975+00:00"}, "idealista_112371671": {"v": "ilegible", "at": "2026-09-04T16:34:54.743982+00:00"}, "idealista_112343938": {"v": "ilegible", "at": "2026-09-04T16:35:08.867193+00:00"}, "idealista_112388378": {"v": "ilegible", "at": "2026-09-04T16:35:21.064963+00:00"}, "idealista_112291383": {"v": "ilegible", "at": "2026-09-04T16:35:34.408928+00:00"}, "idealista_112403872": {"v": "ilegible", "at": "2026-09-04T16:35:49.070287+00:00"}, "idealista_112418322": {"v": "ilegible", "at": "2026-09-04T16:36:02.203791+00:00"}, "idealista_112387809": {"v": "ilegible", "at": "2026-09-04T16:36:15.519587+00:00"}, "habitaclia_37637000035352": {"v": "rechazada", "at": "2026-09-04T17:10:00.904192+00:00"}, "habitaclia_45773000008708": {"v": "rechazada", "at": "2026-09-05T05:24:12.384719+00:00"}, "habitaclia_28976000011336": {"v": "rechazada", "at": "2026-09-05T06:27:05.324620+00:00"}, "habitaclia_37637000038563": {"v": "rechazada", "at": "2026-09-05T15:22:26.027151+00:00"}, "habitaclia_37637000038646": {"v": "rechazada", "at": "2026-09-05T15:22:26.209026+00:00"}, "habitaclia_45773000003686": {"v": "rechazada", "at": "2026-09-05T15:22:26.376300+00:00"}, "habitaclia_41124000045229": {"v": "rechazada", "at": "2026-09-05T15:22:26.557218+00:00"}, "habitaclia_2382004442487": {"v": "rechazada", "at": "2026-09-05T15:22:26.784198+00:00"}, "habitaclia_28976000016041": {"v": "rechazada", "at": "2026-09-05T15:37:53.927747+00:00"}, "habitaclia_55007000000249": {"v": "rechazada", "at": "2026-09-05T16:01:54.943897+00:00"}, "habitaclia_41124000065633": {"v": "rechazada", "at": "2026-09-05T16:01:55.119166+00:00"}, "habitaclia_13230004338469": {"v": "rechazada", "at": "2026-09-05T16:25:44.201447+00:00"}, "solvia_266834": {"v": "ilegible", "at": "2026-09-30T03:26:18.696136+00:00"}, "solvia_123720": {"v": "ilegible", "at": "2026-09-30T03:28:21.801183+00:00"}, "habitaclia_45773000001471": {"v": "rechazada", "at": "2026-09-05T19:10:34.333708+00:00"}, "habitaclia_15934004151459": {"v": "rechazada", "at": "2026-09-06T05:27:10.461707+00:00"}, "habitaclia_45773000003915": {"v": "rechazada", "at": "2026-09-06T06:17:03.581276+00:00"}, "habitaclia_52592000003728": {"v": "rechazada", "at": "2026-09-06T07:30:16.983979+00:00"}, "habitaclia_45773000007645": {"v": "rechazada", "at": "2026-09-06T07:30:17.207872+00:00"}, "habitaclia_41124000066827": {"v": "rechazada", "at": "2026-09-06T14:06:35.612486+00:00"}, "habitaclia_37637000038813": {"v": "rechazada", "at": "2026-09-06T14:06:35.837161+00:00"}, "habitaclia_45773000009604": {"v": "rechazada", "at": "2026-09-06T14:06:36.105946+00:00"}, "habitaclia_45773000010119": {"v": "rechazada", "at": "2026-09-06T14:08:02.642915+00:00"}, "habitaclia_12584000003939": {"v": "rechazada", "at": "2026-09-06T14:08:02.825075+00:00"}, "habitaclia_52793000010877": {"v": "rechazada", "at": "2026-09-06T14:09:29.098429+00:00"}, "habitaclia_49867000006711": {"v": "rechazada", "at": "2026-09-06T14:09:29.498046+00:00"}, "habitaclia_20565004370470": {"v": "rechazada", "at": "2026-09-06T14:09:29.728714+00:00"}, "habitaclia_37637000034878": {"v": "rechazada", "at": "2026-09-06T15:31:02.734215+00:00"}, "habitaclia_41124000040768": {"v": "rechazada", "at": "2026-09-06T16:12:32.757910+00:00"}, "habitaclia_45773000003829": {"v": "rechazada", "at": "2026-09-06T16:12:33.015323+00:00"}, "habitaclia_52793000013452": {"v": "rechazada", "at": "2026-09-06T16:12:33.168235+00:00"}, "habitaclia_41124000073538": {"v": "rechazada", "at": "2026-09-06T17:11:18.942154+00:00"}, "habitaclia_45161000000718": {"v": "rechazada", "at": "2026-09-06T17:11:19.208700+00:00"}, "habitaclia_41124000061972": {"v": "rechazada", "at": "2026-09-06T17:11:19.518433+00:00"}, "idealista_112471331": {"v": "ilegible", "at": "2026-09-07T01:28:21.101806+00:00"}, "idealista_112470661": {"v": "ilegible", "at": "2026-09-07T01:28:32.188552+00:00"}, "idealista_112473224": {"v": "ilegible", "at": "2026-09-07T01:28:44.005466+00:00"}, "idealista_112472172": {"v": "ilegible", "at": "2026-09-07T01:28:59.338695+00:00"}, "habitaclia_12584000003092": {"v": "rechazada", "at": "2026-09-07T12:53:15.145363+00:00"}, "habitaclia_8116004183070": {"v": "rechazada", "at": "2026-09-07T12:53:15.445525+00:00"}, "habitaclia_52592000003452": {"v": "rechazada", "at": "2026-09-07T12:53:15.765408+00:00"}, "habitaclia_8116004184222": {"v": "rechazada", "at": "2026-09-07T12:53:16.198324+00:00"}, "habitaclia_45773000008662": {"v": "rechazada", "at": "2026-09-07T12:53:16.488151+00:00"}, "habitaclia_45773000003416": {"v": "rechazada", "at": "2026-09-07T14:21:57.109505+00:00"}, "habitaclia_45773000007052": {"v": "rechazada", "at": "2026-09-07T14:21:57.455818+00:00"}, "habitaclia_8116004183690": {"v": "rechazada", "at": "2026-09-07T15:04:56.174474+00:00"}, "habitaclia_45773000009555": {"v": "rechazada", "at": "2026-09-07T15:04:56.522191+00:00"}, "idealista_112483341": {"v": "ilegible", "at": "2026-09-08T11:40:57.787903+00:00"}, "habitaclia_45773000009444": {"v": "rechazada", "at": "2026-09-08T11:40:32.911215+00:00"}, "habitaclia_4329002426353": {"v": "rechazada", "at": "2026-09-08T11:40:33.020371+00:00"}, "habitaclia_41124000094011": {"v": "rechazada", "at": "2026-09-08T11:40:33.205220+00:00"}, "habitaclia_41124000046402": {"v": "rechazada", "at": "2026-09-08T11:40:33.521140+00:00"}, "habitaclia_37637000028609": {"v": "rechazada", "at": "2026-09-08T11:40:33.796710+00:00"}, "idealista_112485870": {"v": "ilegible", "at": "2026-09-30T03:36:48.715141+00:00"}, "habitaclia_41635000001167": {"v": "rechazada", "at": "2026-09-08T14:16:11.403293+00:00"}, "habitaclia_51013000002059": {"v": "rechazada", "at": "2026-09-08T16:12:58.142175+00:00"}, "habitaclia_35508000003888": {"v": "rechazada", "at": "2026-09-08T16:21:25.610194+00:00"}, "habitaclia_28976000015714": {"v": "rechazada", "at": "2026-09-08T16:21:26.027904+00:00"}, "idealista_112495735": {"v": "ilegible", "at": "2026-09-30T03:28:59.392243+00:00"}, "habitaclia_41124000073014": {"v": "rechazada", "at": "2026-09-09T10:33:14.312142+00:00"}, "habitaclia_49867000006909": {"v": "rechazada", "at": "2026-09-09T10:33:14.464694+00:00"}, "habitaclia_46948000000740": {"v": "rechazada", "at": "2026-09-09T10:42:25.836733+00:00"}, "habitaclia_19411000012240": {"v": "rechazada", "at": "2026-09-09T15:12:47.006896+00:00"}, "habitaclia_45773000006016": {"v": "rechazada", "at": "2026-09-09T16:13:21.730142+00:00"}, "habitaclia_37637000036328": {"v": "rechazada", "at": "2026-09-09T16:13:21.919600+00:00"}, "habitaclia_37637000037942": {"v": "rechazada", "at": "2026-09-09T21:58:22.033320+00:00"}, "habitaclia_11565000002576": {"v": "rechazada", "at": "2026-09-09T21:58:22.399846+00:00"}, "solvia_221560": {"v": "ilegible", "at": "2026-09-11T02:48:55.848584+00:00"}, "habitaclia_29480000002655": {"v": "rechazada", "at": "2026-09-10T09:21:35.242971+00:00"}, "habitaclia_45598000000430": {"v": "rechazada", "at": "2026-09-10T09:21:35.405597+00:00"}, "habitaclia_44590000013240": {"v": "rechazada", "at": "2026-09-10T09:21:35.540211+00:00"}, "habitaclia_8116004182877": {"v": "rechazada", "at": "2026-09-10T10:16:16.908916+00:00"}, "habitaclia_45773000008859": {"v": "rechazada", "at": "2026-09-10T11:16:24.107755+00:00"}, "habitaclia_4492004434636": {"v": "rechazada", "at": "2026-09-10T20:45:39.016710+00:00"}, "habitaclia_45773000008606": {"v": "rechazada", "at": "2026-09-10T20:45:39.180093+00:00"}, "habitaclia_44590000013291": {"v": "rechazada", "at": "2026-09-11T06:06:26.889662+00:00"}, "habitaclia_49867000006818": {"v": "rechazada", "at": "2026-09-11T07:20:31.044247+00:00"}, "habitaclia_44590000013290": {"v": "rechazada", "at": "2026-09-11T07:25:05.843007+00:00"}, "habitaclia_41124000095681": {"v": "rechazada", "at": "2026-09-11T13:59:12.539716+00:00"}, "habitaclia_33393000000714": {"v": "rechazada", "at": "2026-09-11T13:59:12.659696+00:00"}, "habitaclia_8116004183981": {"v": "rechazada", "at": "2026-09-11T13:59:12.779706+00:00"}, "habitaclia_52592000002328": {"v": "rechazada", "at": "2026-09-11T13:59:13.163577+00:00"}, "habitaclia_37637000028514": {"v": "rechazada", "at": "2026-09-11T13:59:13.378502+00:00"}, "habitaclia_45773000010391": {"v": "rechazada", "at": "2026-09-11T14:18:23.756728+00:00"}, "habitaclia_45773000010390": {"v": "rechazada", "at": "2026-09-11T15:07:10.385235+00:00"}, "habitaclia_29480000002835": {"v": "rechazada", "at": "2026-09-11T15:07:10.546281+00:00"}, "habitaclia_12439000002046": {"v": "rechazada", "at": "2026-09-11T15:20:29.009931+00:00"}, "habitaclia_59266000000083": {"v": "rechazada", "at": "2026-09-11T16:31:35.479728+00:00"}, "habitaclia_41508000000779": {"v": "rechazada", "at": "2026-09-11T16:31:35.677795+00:00"}, "habitaclia_1606002342837": {"v": "rechazada", "at": "2026-09-11T16:31:36.012898+00:00"}, "habitaclia_37637000036472": {"v": "rechazada", "at": "2026-09-11T17:07:12.099953+00:00"}, "habitaclia_52592000000246": {"v": "rechazada", "at": "2026-09-11T19:26:05.136628+00:00"}, "habitaclia_4827004402649": {"v": "rechazada", "at": "2026-09-12T01:21:47.812069+00:00"}, "habitaclia_8116004184102": {"v": "rechazada", "at": "2026-09-12T06:26:30.011571+00:00"}, "habitaclia_45773000009651": {"v": "rechazada", "at": "2026-09-12T06:26:30.256588+00:00"}, "habitaclia_8116004183716": {"v": "rechazada", "at": "2026-09-12T12:47:40.694447+00:00"}, "habitaclia_12584000002367": {"v": "rechazada", "at": "2026-09-12T12:47:40.820718+00:00"}, "habitaclia_52592000001776": {"v": "rechazada", "at": "2026-09-12T12:47:41.273738+00:00"}, "habitaclia_52793000010281": {"v": "rechazada", "at": "2026-09-12T12:47:41.597596+00:00"}, "idealista_112530480": {"v": "ilegible", "at": "2026-09-30T03:36:11.686536+00:00"}, "habitaclia_35508000003974": {"v": "rechazada", "at": "2026-09-12T14:10:55.773846+00:00"}, "habitaclia_8116004183882": {"v": "rechazada", "at": "2026-09-12T16:15:41.034339+00:00"}, "habitaclia_41124000100609": {"v": "rechazada", "at": "2026-09-12T16:20:01.698215+00:00"}, "idealista_112369664": {"v": "ilegible", "at": "2026-09-12T17:29:07.220592+00:00"}, "habitaclia_50229000000020": {"v": "rechazada", "at": "2026-09-12T17:29:08.350979+00:00"}, "habitaclia_45773000007697": {"v": "rechazada", "at": "2026-09-13T11:46:22.198169+00:00"}, "habitaclia_52592000002767": {"v": "rechazada", "at": "2026-09-13T11:46:22.332924+00:00"}, "idealista_112535944": {"v": "ilegible", "at": "2026-09-30T03:21:27.858361+00:00"}, "habitaclia_50266000000620": {"v": "rechazada", "at": "2026-09-13T11:46:34.009709+00:00"}, "habitaclia_41124000060509": {"v": "rechazada", "at": "2026-09-13T11:46:34.149752+00:00"}, "habitaclia_37637000041277": {"v": "rechazada", "at": "2026-09-13T11:46:34.455891+00:00"}, "habitaclia_52592000005538": {"v": "rechazada", "at": "2026-09-13T11:46:34.566630+00:00"}, "habitaclia_37637000036334": {"v": "rechazada", "at": "2026-09-13T15:08:13.156531+00:00"}, "habitaclia_40614000003952": {"v": "rechazada", "at": "2026-09-13T16:07:46.302426+00:00"}, "habitaclia_4329002426031": {"v": "rechazada", "at": "2026-09-13T16:07:46.437115+00:00"}, "habitaclia_28976000015707": {"v": "rechazada", "at": "2026-09-13T17:16:48.830621+00:00"}, "habitaclia_37637000036650": {"v": "rechazada", "at": "2026-09-13T17:16:49.064378+00:00"}, "idealista_112535901": {"v": "ilegible", "at": "2026-09-14T10:37:08.839294+00:00"}, "habitaclia_41124000076120": {"v": "rechazada", "at": "2026-09-14T10:36:57.314112+00:00"}, "habitaclia_55156000000081": {"v": "rechazada", "at": "2026-09-14T10:37:09.154621+00:00"}, "habitaclia_41124000075094": {"v": "rechazada", "at": "2026-09-14T10:37:09.423777+00:00"}, "habitaclia_37637000038217": {"v": "rechazada", "at": "2026-09-14T14:08:25.215793+00:00"}, "habitaclia_37637000035685": {"v": "rechazada", "at": "2026-09-14T14:08:26.175121+00:00"}, "habitaclia_5702004427872": {"v": "rechazada", "at": "2026-09-14T14:08:27.176165+00:00"}, "habitaclia_41124000069024": {"v": "rechazada", "at": "2026-09-14T14:08:32.151861+00:00"}, "habitaclia_45773000009668": {"v": "rechazada", "at": "2026-09-14T14:08:34.836487+00:00"}, "habitaclia_39977000000243": {"v": "rechazada", "at": "2026-09-14T14:08:35.769688+00:00"}, "habitaclia_41124000076147": {"v": "rechazada", "at": "2026-09-14T14:08:42.752551+00:00"}, "habitaclia_45773000009435": {"v": "rechazada", "at": "2026-09-14T14:08:43.582494+00:00"}, "habitaclia_13920000016416": {"v": "rechazada", "at": "2026-09-14T14:08:44.388440+00:00"}, "habitaclia_45773000009460": {"v": "rechazada", "at": "2026-09-14T14:08:45.234617+00:00"}, "habitaclia_49646000017760": {"v": "rechazada", "at": "2026-09-14T14:08:46.187589+00:00"}, "habitaclia_41124000072898": {"v": "rechazada", "at": "2026-09-14T14:08:47.081164+00:00"}, "habitaclia_35508000003938": {"v": "rechazada", "at": "2026-09-14T14:08:50.580428+00:00"}, "habitaclia_41124000060134": {"v": "rechazada", "at": "2026-09-14T14:08:51.563503+00:00"}, "habitaclia_45773000009539": {"v": "rechazada", "at": "2026-09-14T14:08:53.822756+00:00"}, "habitaclia_54281000000318": {"v": "rechazada", "at": "2026-09-14T14:08:57.617655+00:00"}, "habitaclia_45773000009552": {"v": "rechazada", "at": "2026-09-14T14:08:58.507716+00:00"}, "habitaclia_45773000008462": {"v": "rechazada", "at": "2026-09-14T14:08:59.374919+00:00"}, "habitaclia_45396000006394": {"v": "rechazada", "at": "2026-09-14T14:09:00.227529+00:00"}, "habitaclia_14871000000996": {"v": "rechazada", "at": "2026-09-14T14:09:01.066952+00:00"}, "habitaclia_52793000013257": {"v": "rechazada", "at": "2026-09-14T14:09:01.927941+00:00"}, "habitaclia_45773000008745": {"v": "rechazada", "at": "2026-09-14T14:09:02.633643+00:00"}, "habitaclia_54281000000293": {"v": "rechazada", "at": "2026-09-14T14:09:03.474580+00:00"}, "habitaclia_19411000012727": {"v": "rechazada", "at": "2026-09-14T14:09:04.245315+00:00"}, "habitaclia_45773000009636": {"v": "rechazada", "at": "2026-09-14T14:09:05.154144+00:00"}, "habitaclia_35508000004387": {"v": "rechazada", "at": "2026-09-14T14:09:05.973455+00:00"}, "habitaclia_41124000049748": {"v": "rechazada", "at": "2026-09-14T14:09:06.784942+00:00"}, "habitaclia_28976000014655": {"v": "rechazada", "at": "2026-09-14T14:09:08.768445+00:00"}, "habitaclia_30276000002378": {"v": "rechazada", "at": "2026-09-14T14:09:09.656056+00:00"}, "habitaclia_30276000002342": {"v": "rechazada", "at": "2026-09-14T14:09:10.499048+00:00"}, "habitaclia_28976000013834": {"v": "rechazada", "at": "2026-09-14T14:09:11.294003+00:00"}, "habitaclia_52793000008080": {"v": "rechazada", "at": "2026-09-14T14:09:12.090900+00:00"}, "habitaclia_28976000013880": {"v": "rechazada", "at": "2026-09-14T14:09:12.871702+00:00"}, "habitaclia_52592000000542": {"v": "rechazada", "at": "2026-09-14T14:09:13.659599+00:00"}, "habitaclia_37637000038192": {"v": "rechazada", "at": "2026-09-14T14:09:14.469276+00:00"}, "habitaclia_4329002426429": {"v": "rechazada", "at": "2026-09-14T14:09:16.825217+00:00"}, "habitaclia_45161000000750": {"v": "rechazada", "at": "2026-09-14T14:09:21.850322+00:00"}, "habitaclia_37637000036708": {"v": "rechazada", "at": "2026-09-14T14:09:22.661146+00:00"}, "habitaclia_15934004151314": {"v": "rechazada", "at": "2026-09-14T14:09:23.510855+00:00"}, "habitaclia_41124000090270": {"v": "rechazada", "at": "2026-09-14T14:09:24.365287+00:00"}, "habitaclia_41124000058114": {"v": "rechazada", "at": "2026-09-14T14:09:25.367929+00:00"}, "habitaclia_45773000009680": {"v": "rechazada", "at": "2026-09-14T14:09:26.971817+00:00"}, "habitaclia_8116004183723": {"v": "rechazada", "at": "2026-09-14T14:09:27.748912+00:00"}, "habitaclia_41124000059644": {"v": "rechazada", "at": "2026-09-14T14:09:28.539930+00:00"}, "habitaclia_45773000010245": {"v": "rechazada", "at": "2026-09-14T14:09:29.307496+00:00"}, "habitaclia_37637000037108": {"v": "rechazada", "at": "2026-09-14T14:09:30.112106+00:00"}, "habitaclia_20565004370542": {"v": "rechazada", "at": "2026-09-14T14:09:30.941395+00:00"}, "habitaclia_52592000002126": {"v": "rechazada", "at": "2026-09-14T14:09:31.737728+00:00"}, "habitaclia_46948000000747": {"v": "rechazada", "at": "2026-09-14T14:09:32.621427+00:00"}, "habitaclia_37637000036588": {"v": "rechazada", "at": "2026-09-14T14:09:33.398846+00:00"}, "habitaclia_37637000034575": {"v": "rechazada", "at": "2026-09-14T14:09:34.177477+00:00"}, "habitaclia_51013000002119": {"v": "rechazada", "at": "2026-09-14T14:09:34.962014+00:00"}, "habitaclia_28976000015195": {"v": "rechazada", "at": "2026-09-14T14:09:35.870150+00:00"}, "habitaclia_12584000003518": {"v": "rechazada", "at": "2026-09-14T14:09:36.694690+00:00"}, "habitaclia_52592000003991": {"v": "rechazada", "at": "2026-09-14T14:09:37.578722+00:00"}, "habitaclia_28976000012101": {"v": "rechazada", "at": "2026-09-14T14:09:38.362795+00:00"}, "habitaclia_12584000004194": {"v": "rechazada", "at": "2026-09-14T14:09:39.146170+00:00"}, "habitaclia_3318004272996": {"v": "rechazada", "at": "2026-09-14T14:09:39.937795+00:00"}, "habitaclia_41124000092979": {"v": "rechazada", "at": "2026-09-14T14:09:40.742701+00:00"}, "habitaclia_28976000012662": {"v": "rechazada", "at": "2026-09-14T14:09:41.557145+00:00"}, "habitaclia_21170000000976": {"v": "rechazada", "at": "2026-09-14T14:09:42.791170+00:00"}, "habitaclia_45396000005995": {"v": "rechazada", "at": "2026-09-14T14:09:44.447622+00:00"}, "habitaclia_28976000011202": {"v": "rechazada", "at": "2026-09-14T14:09:45.190091+00:00"}, "habitaclia_41124000070286": {"v": "rechazada", "at": "2026-09-14T14:09:46.005010+00:00"}, "habitaclia_4329002426359": {"v": "rechazada", "at": "2026-09-14T14:09:46.772455+00:00"}, "habitaclia_4492004434745": {"v": "rechazada", "at": "2026-09-14T14:09:47.573057+00:00"}, "habitaclia_4492004434596": {"v": "rechazada", "at": "2026-09-14T14:09:48.363484+00:00"}, "habitaclia_4492004435199": {"v": "rechazada", "at": "2026-09-14T14:09:49.072081+00:00"}, "habitaclia_49646000014417": {"v": "rechazada", "at": "2026-09-14T14:09:49.845807+00:00"}, "habitaclia_28976000009095": {"v": "rechazada", "at": "2026-09-14T14:09:50.631915+00:00"}, "habitaclia_49646000015298": {"v": "rechazada", "at": "2026-09-14T14:09:51.472116+00:00"}, "habitaclia_45773000009775": {"v": "rechazada", "at": "2026-09-14T14:09:52.292449+00:00"}, "habitaclia_56602000000470": {"v": "rechazada", "at": "2026-09-14T14:09:53.156043+00:00"}, "habitaclia_52793000003308": {"v": "rechazada", "at": "2026-09-14T14:09:54.045373+00:00"}, "habitaclia_5115003754968": {"v": "rechazada", "at": "2026-09-14T14:09:54.807554+00:00"}, "habitaclia_37637000034371": {"v": "rechazada", "at": "2026-09-14T14:09:56.388656+00:00"}, "habitaclia_45773000009783": {"v": "rechazada", "at": "2026-09-14T14:09:57.182586+00:00"}, "habitaclia_52592000005400": {"v": "rechazada", "at": "2026-09-14T14:09:58.014351+00:00"}, "habitaclia_37637000034609": {"v": "rechazada", "at": "2026-09-14T14:09:58.803120+00:00"}, "habitaclia_15172002946604": {"v": "rechazada", "at": "2026-09-14T14:09:59.677439+00:00"}, "habitaclia_37637000034184": {"v": "rechazada", "at": "2026-09-14T14:10:01.387438+00:00"}, "habitaclia_11210000001577": {"v": "rechazada", "at": "2026-09-14T14:10:02.127506+00:00"}, "habitaclia_12584000004069": {"v": "rechazada", "at": "2026-09-14T14:10:02.926384+00:00"}, "habitaclia_37637000036765": {"v": "rechazada", "at": "2026-09-14T14:10:04.733021+00:00"}, "habitaclia_45773000008797": {"v": "rechazada", "at": "2026-09-14T14:10:05.521316+00:00"}, "habitaclia_28976000006276": {"v": "rechazada", "at": "2026-09-14T14:10:07.171008+00:00"}, "habitaclia_13019000000214": {"v": "rechazada", "at": "2026-09-14T14:10:07.944652+00:00"}, "habitaclia_4329002426119": {"v": "rechazada", "at": "2026-09-14T14:10:08.816542+00:00"}, "habitaclia_45773000009823": {"v": "rechazada", "at": "2026-09-14T14:10:10.512071+00:00"}, "habitaclia_52592000005245": {"v": "rechazada", "at": "2026-09-14T14:10:11.220316+00:00"}, "habitaclia_28643000001189": {"v": "rechazada", "at": "2026-09-14T14:10:12.043086+00:00"}, "habitaclia_5115003755110": {"v": "rechazada", "at": "2026-09-14T14:10:12.789521+00:00"}, "habitaclia_41124000040980": {"v": "rechazada", "at": "2026-09-14T14:10:14.501682+00:00"}, "idealista_112530473": {"v": "ilegible", "at": "2026-09-16T00:35:05.713842+00:00"}, "habitaclia_37637000034349": {"v": "rechazada", "at": "2026-09-14T14:10:30.642917+00:00"}, "idealista_109128237": {"v": "ilegible", "at": "2026-09-30T03:30:50.934491+00:00"}, "habitaclia_45773000009847": {"v": "rechazada", "at": "2026-09-14T14:10:44.191532+00:00"}, "habitaclia_28976000012654": {"v": "rechazada", "at": "2026-09-14T14:10:45.030930+00:00"}, "habitaclia_16190000003035": {"v": "rechazada", "at": "2026-09-14T14:10:46.559899+00:00"}, "habitaclia_52793000010720": {"v": "rechazada", "at": "2026-09-14T14:10:47.444350+00:00"}, "idealista_112291325": {"v": "ilegible", "at": "2026-09-30T03:31:27.977900+00:00"}, "habitaclia_37637000028396": {"v": "rechazada", "at": "2026-09-14T14:10:59.878875+00:00"}, "habitaclia_30276000002333": {"v": "rechazada", "at": "2026-09-14T14:11:00.696009+00:00"}, "habitaclia_45773000010351": {"v": "rechazada", "at": "2026-09-14T14:11:01.515413+00:00"}, "habitaclia_45396000005803": {"v": "rechazada", "at": "2026-09-14T14:11:02.356606+00:00"}, "habitaclia_56807000000464": {"v": "rechazada", "at": "2026-09-14T14:11:03.152490+00:00"}, "habitaclia_57143000001902": {"v": "rechazada", "at": "2026-09-14T14:11:03.944340+00:00"}, "solvia_120698": {"v": "ilegible", "at": "2026-09-30T03:32:53.957639+00:00"}, "habitaclia_15934004151137": {"v": "rechazada", "at": "2026-09-14T14:12:32.925878+00:00"}, "habitaclia_45773000003693": {"v": "rechazada", "at": "2026-09-14T14:12:33.788273+00:00"}, "habitaclia_33393000000533": {"v": "rechazada", "at": "2026-09-14T14:12:34.836130+00:00"}, "habitaclia_37637000029474": {"v": "rechazada", "at": "2026-09-14T14:12:36.850043+00:00"}, "habitaclia_37637000028605": {"v": "rechazada", "at": "2026-09-14T14:12:37.874879+00:00"}, "habitaclia_45773000009912": {"v": "rechazada", "at": "2026-09-14T14:12:38.855561+00:00"}, "habitaclia_49646000012856": {"v": "rechazada", "at": "2026-09-14T14:12:39.891582+00:00"}, "habitaclia_45396000006385": {"v": "rechazada", "at": "2026-09-14T14:12:41.502014+00:00"}, "habitaclia_8116004182957": {"v": "rechazada", "at": "2026-09-14T14:17:36.295906+00:00"}, "habitaclia_52592000000098": {"v": "rechazada", "at": "2026-09-14T15:16:10.495147+00:00"}, "habitaclia_45396000006698": {"v": "rechazada", "at": "2026-09-14T16:14:23.562980+00:00"}, "habitaclia_41124000080747": {"v": "rechazada", "at": "2026-09-14T16:28:53.820165+00:00"}, "habitaclia_30303000039477": {"v": "rechazada", "at": "2026-09-14T19:19:35.427190+00:00"}, "habitaclia_12584000003478": {"v": "rechazada", "at": "2026-09-14T19:19:35.756277+00:00"}, "idealista_112549798": {"v": "ilegible", "at": "2026-09-15T04:43:13.180675+00:00"}, "habitaclia_8116004183369": {"v": "rechazada", "at": "2026-09-15T13:01:14.844545+00:00"}, "habitaclia_44590000013347": {"v": "rechazada", "at": "2026-09-15T13:01:15.105744+00:00"}, "habitaclia_44590000013339": {"v": "rechazada", "at": "2026-09-15T13:01:15.290506+00:00"}, "habitaclia_45773000008591": {"v": "rechazada", "at": "2026-09-15T15:34:12.449181+00:00"}, "habitaclia_4492004434997": {"v": "rechazada", "at": "2026-09-15T16:13:06.570835+00:00"}, "habitaclia_45773000008709": {"v": "rechazada", "at": "2026-09-15T16:13:06.888765+00:00"}, "idealista_111847958": {"v": "ilegible", "at": "2026-09-30T03:34:57.449783+00:00"}, "habitaclia_45773000003877": {"v": "rechazada", "at": "2026-09-16T05:23:40.180635+00:00"}, "habitaclia_41124000091690": {"v": "rechazada", "at": "2026-09-16T05:23:40.388959+00:00"}, "habitaclia_37637000027877": {"v": "rechazada", "at": "2026-09-16T05:23:40.593442+00:00"}, "habitaclia_45773000009575": {"v": "rechazada", "at": "2026-09-16T11:46:23.914034+00:00"}, "habitaclia_37637000036525": {"v": "rechazada", "at": "2026-09-16T15:03:58.657010+00:00"}, "habitaclia_45773000009784": {"v": "rechazada", "at": "2026-09-16T16:10:40.912401+00:00"}, "habitaclia_4492004435167": {"v": "rechazada", "at": "2026-09-16T23:10:09.393665+00:00"}, "habitaclia_45773000003723": {"v": "rechazada", "at": "2026-09-16T23:10:09.516509+00:00"}, "habitaclia_45773000007428": {"v": "rechazada", "at": "2026-09-16T23:16:19.565512+00:00"}, "idealista_112571717": {"v": "ilegible", "at": "2026-09-17T10:33:51.168045+00:00"}, "idealista_112571399": {"v": "ilegible", "at": "2026-09-30T03:39:30.614061+00:00"}, "habitaclia_12584000003468": {"v": "rechazada", "at": "2026-09-17T10:33:38.214920+00:00"}, "habitaclia_8116004183731": {"v": "rechazada", "at": "2026-09-17T10:33:38.423036+00:00"}, "habitaclia_45773000009765": {"v": "rechazada", "at": "2026-09-17T10:33:38.851350+00:00"}, "habitaclia_54281000000270": {"v": "rechazada", "at": "2026-09-17T10:33:39.105349+00:00"}, "habitaclia_12584000003973": {"v": "rechazada", "at": "2026-09-17T14:28:25.839088+00:00"}, "habitaclia_45773000009561": {"v": "rechazada", "at": "2026-09-17T21:57:47.127630+00:00"}, "habitaclia_49867000007496": {"v": "rechazada", "at": "2026-09-17T21:57:47.271017+00:00"}, "habitaclia_49867000007490": {"v": "rechazada", "at": "2026-09-17T21:57:48.127775+00:00"}, "habitaclia_49867000007491": {"v": "rechazada", "at": "2026-09-17T21:57:48.383963+00:00"}, "habitaclia_35508000004261": {"v": "rechazada", "at": "2026-09-17T21:57:48.563638+00:00"}, "solvia_215185": {"v": "ilegible", "at": "2026-09-18T09:22:37.150556+00:00"}, "habitaclia_8116004181533": {"v": "rechazada", "at": "2026-09-18T09:21:08.729782+00:00"}, "habitaclia_41124000101730": {"v": "rechazada", "at": "2026-09-18T09:21:09.384781+00:00"}, "habitaclia_45773000004218": {"v": "rechazada", "at": "2026-09-18T09:21:09.669526+00:00"}, "habitaclia_37140000001101": {"v": "rechazada", "at": "2026-09-18T09:21:09.941613+00:00"}, "habitaclia_49867000007451": {"v": "rechazada", "at": "2026-09-18T09:21:10.224193+00:00"}, "habitaclia_2415004300935": {"v": "rechazada", "at": "2026-09-18T14:21:37.620113+00:00"}, "habitaclia_37637000037891": {"v": "rechazada", "at": "2026-09-18T20:47:22.221840+00:00"}, "habitaclia_37637000038931": {"v": "rechazada", "at": "2026-09-18T20:47:22.639518+00:00"}, "habitaclia_41124000054761": {"v": "rechazada", "at": "2026-09-18T20:47:23.357642+00:00"}, "habitaclia_57877000000084": {"v": "rechazada", "at": "2026-09-18T20:47:23.716022+00:00"}, "habitaclia_44590000013405": {"v": "rechazada", "at": "2026-09-18T20:47:24.051824+00:00"}, "habitaclia_60102000000401": {"v": "rechazada", "at": "2026-09-19T08:13:25.841006+00:00"}, "habitaclia_15934004151460": {"v": "rechazada", "at": "2026-09-19T08:32:40.445590+00:00"}, "habitaclia_19332003656963": {"v": "rechazada", "at": "2026-09-19T08:32:40.647051+00:00"}, "habitaclia_45773000009694": {"v": "rechazada", "at": "2026-09-19T08:32:40.836634+00:00"}, "habitaclia_15934004151446": {"v": "rechazada", "at": "2026-09-19T10:20:44.083092+00:00"}, "habitaclia_40614000001683": {"v": "rechazada", "at": "2026-09-19T11:17:05.594910+00:00"}, "habitaclia_37637000040844": {"v": "rechazada", "at": "2026-09-19T19:39:10.793422+00:00"}, "habitaclia_19332003657266": {"v": "rechazada", "at": "2026-09-19T19:39:11.007192+00:00"}, "habitaclia_45773000003712": {"v": "rechazada", "at": "2026-09-19T19:39:11.210891+00:00"}, "habitaclia_12237002638549": {"v": "rechazada", "at": "2026-09-19T19:39:11.368651+00:00"}, "habitaclia_4329002425976": {"v": "rechazada", "at": "2026-09-19T19:39:11.585546+00:00"}, "habitaclia_45773000009617": {"v": "rechazada", "at": "2026-09-19T19:39:11.839195+00:00"}, "habitaclia_45773000009724": {"v": "rechazada", "at": "2026-09-19T19:39:12.103815+00:00"}, "habitaclia_38657000000072": {"v": "rechazada", "at": "2026-09-19T19:39:12.200825+00:00"}, "habitaclia_15934004151405": {"v": "rechazada", "at": "2026-09-19T19:39:12.389345+00:00"}, "habitaclia_4492004435026": {"v": "rechazada", "at": "2026-09-19T19:39:12.492723+00:00"}, "habitaclia_28257000001115": {"v": "rechazada", "at": "2026-09-19T19:39:12.592224+00:00"}, "habitaclia_15934004151102": {"v": "rechazada", "at": "2026-09-20T07:08:47.110476+00:00"}, "habitaclia_52592000005410": {"v": "rechazada", "at": "2026-09-20T07:28:10.107262+00:00"}, "habitaclia_41124000077842": {"v": "rechazada", "at": "2026-09-20T07:28:10.300120+00:00"}, "habitaclia_60102000000237": {"v": "rechazada", "at": "2026-09-20T07:28:10.472460+00:00"}, "habitaclia_13920000016873": {"v": "rechazada", "at": "2026-09-20T08:27:29.475344+00:00"}, "habitaclia_4492004434814": {"v": "rechazada", "at": "2026-09-20T08:27:29.673120+00:00"}, "habitaclia_37637000036861": {"v": "rechazada", "at": "2026-09-20T09:32:15.220836+00:00"}, "habitaclia_8116004184318": {"v": "rechazada", "at": "2026-09-20T10:15:34.620959+00:00"}, "habitaclia_41124000048382": {"v": "rechazada", "at": "2026-09-20T10:15:34.784645+00:00"}, "habitaclia_41124000060400": {"v": "rechazada", "at": "2026-09-20T10:15:34.941210+00:00"}, "habitaclia_2959003969487": {"v": "rechazada", "at": "2026-09-20T10:15:35.069077+00:00"}, "habitaclia_8116004183163": {"v": "rechazada", "at": "2026-09-20T10:26:22.693311+00:00"}, "habitaclia_41124000073377": {"v": "rechazada", "at": "2026-09-20T18:33:11.607899+00:00"}, "habitaclia_37637000038142": {"v": "rechazada", "at": "2026-09-20T18:33:11.945319+00:00"}, "habitaclia_46948000000462": {"v": "rechazada", "at": "2026-09-20T18:33:12.248503+00:00"}, "habitaclia_45773000009632": {"v": "rechazada", "at": "2026-09-20T18:33:12.566872+00:00"}, "habitaclia_28976000016185": {"v": "rechazada", "at": "2026-09-20T18:33:12.956843+00:00"}, "habitaclia_37637000041771": {"v": "rechazada", "at": "2026-09-20T18:33:13.289311+00:00"}, "habitaclia_49646000011766": {"v": "rechazada", "at": "2026-09-21T07:31:05.056503+00:00"}, "habitaclia_35508000003935": {"v": "rechazada", "at": "2026-09-21T07:31:05.294791+00:00"}, "habitaclia_45773000010269": {"v": "rechazada", "at": "2026-09-21T07:31:05.426687+00:00"}, "habitaclia_46948000000675": {"v": "rechazada", "at": "2026-09-21T08:11:30.584965+00:00"}, "habitaclia_44590000013422": {"v": "rechazada", "at": "2026-09-21T09:27:09.383016+00:00"}, "habitaclia_54281000000315": {"v": "rechazada", "at": "2026-09-21T10:06:32.745449+00:00"}, "habitaclia_38561000000880": {"v": "rechazada", "at": "2026-09-21T11:14:34.677861+00:00"}, "habitaclia_20418004352253": {"v": "rechazada", "at": "2026-09-21T11:14:34.800703+00:00"}, "habitaclia_39977000000231": {"v": "rechazada", "at": "2026-09-21T17:24:10.023777+00:00"}, "habitaclia_37637000041751": {"v": "rechazada", "at": "2026-09-21T17:24:10.241711+00:00"}, "habitaclia_13920000016860": {"v": "rechazada", "at": "2026-09-21T19:15:52.393686+00:00"}, "idealista_112616974": {"v": "ilegible", "at": "2026-09-30T03:23:31.129615+00:00"}, "idealista_112616473": {"v": "ilegible", "at": "2026-09-30T03:26:55.676856+00:00"}, "habitaclia_28976000013183": {"v": "rechazada", "at": "2026-09-22T05:21:46.205593+00:00"}, "idealista_111688179": {"v": "ilegible", "at": "2026-09-30T03:24:52.805744+00:00"}, "habitaclia_8116004183351": {"v": "rechazada", "at": "2026-09-22T10:26:47.582010+00:00"}, "habitaclia_46948000000783": {"v": "rechazada", "at": "2026-09-22T10:26:48.208370+00:00"}, "habitaclia_8116004183692": {"v": "rechazada", "at": "2026-09-22T16:26:46.456522+00:00"}, "habitaclia_45773000009606": {"v": "rechazada", "at": "2026-09-22T16:26:46.878369+00:00"}, "habitaclia_52592000003320": {"v": "rechazada", "at": "2026-09-22T16:26:47.140423+00:00"}, "habitaclia_13920000013254": {"v": "rechazada", "at": "2026-09-22T16:27:24.125223+00:00"}, "habitaclia_44590000013477": {"v": "rechazada", "at": "2026-09-22T16:27:24.430758+00:00"}, "habitaclia_45773000003822": {"v": "rechazada", "at": "2026-09-22T16:27:24.629596+00:00"}, "habitaclia_53947000000091": {"v": "rechazada", "at": "2026-09-22T19:24:36.211994+00:00"}, "habitaclia_52793000004784": {"v": "rechazada", "at": "2026-09-22T19:24:37.078359+00:00"}, "habitaclia_19332003657058": {"v": "rechazada", "at": "2026-09-23T07:27:11.505306+00:00"}, "habitaclia_28976000007921": {"v": "rechazada", "at": "2026-09-23T08:25:21.989418+00:00"}, "habitaclia_52592000005472": {"v": "rechazada", "at": "2026-09-23T15:20:24.149761+00:00"}, "habitaclia_52793000017167": {"v": "rechazada", "at": "2026-09-23T15:20:24.440834+00:00"}, "habitaclia_8116004183228": {"v": "rechazada", "at": "2026-09-23T15:40:10.202084+00:00"}, "solvia_126621": {"v": "ilegible", "at": "2026-09-30T03:17:58.826924+00:00"}, "solvia_169039": {"v": "ilegible", "at": "2026-09-30T03:34:19.916388+00:00"}, "idealista_112639414": {"v": "ilegible", "at": "2026-09-24T03:54:52.478716+00:00"}, "habitaclia_49867000007832": {"v": "rechazada", "at": "2026-09-24T05:14:16.409444+00:00"}, "habitaclia_57258000000203": {"v": "rechazada", "at": "2026-09-24T05:14:19.170062+00:00"}, "habitaclia_45773000009354": {"v": "rechazada", "at": "2026-09-24T07:15:51.175519+00:00"}, "habitaclia_52592000000341": {"v": "rechazada", "at": "2026-09-24T07:15:51.876307+00:00"}, "habitaclia_40619000001161": {"v": "rechazada", "at": "2026-09-24T14:21:30.047143+00:00"}, "habitaclia_49646000057030": {"v": "rechazada", "at": "2026-09-24T14:42:22.690655+00:00"}, "habitaclia_41124000062689": {"v": "rechazada", "at": "2026-09-24T15:18:29.593507+00:00"}, "habitaclia_45396000005764": {"v": "rechazada", "at": "2026-09-24T16:12:49.118214+00:00"}, "habitaclia_41124000058141": {"v": "rechazada", "at": "2026-09-24T16:12:49.375318+00:00"}, "idealista_112649337": {"v": "ilegible", "at": "2026-09-30T03:29:37.072988+00:00"}, "habitaclia_35508000003946": {"v": "rechazada", "at": "2026-09-25T05:13:54.421777+00:00"}, "habitaclia_35508000004276": {"v": "rechazada", "at": "2026-09-25T05:13:54.610427+00:00"}, "habitaclia_52592000002810": {"v": "rechazada", "at": "2026-09-25T05:13:56.536408+00:00"}, "habitaclia_44590000013526": {"v": "rechazada", "at": "2026-09-25T06:23:47.576035+00:00"}, "habitaclia_44590000013530": {"v": "rechazada", "at": "2026-09-25T13:05:50.596576+00:00"}, "habitaclia_44590000013532": {"v": "rechazada", "at": "2026-09-25T13:05:50.771462+00:00"}, "habitaclia_52793000013568": {"v": "rechazada", "at": "2026-09-25T13:05:51.233001+00:00"}, "habitaclia_20418004352101": {"v": "rechazada", "at": "2026-09-25T13:05:51.521381+00:00"}, "habitaclia_46948000000788": {"v": "rechazada", "at": "2026-09-25T13:06:02.754176+00:00"}, "habitaclia_51013000002021": {"v": "rechazada", "at": "2026-09-25T15:05:31.017436+00:00"}, "habitaclia_52592000001810": {"v": "rechazada", "at": "2026-09-25T16:29:15.167273+00:00"}, "habitaclia_39423000000497": {"v": "rechazada", "at": "2026-09-25T17:11:19.967802+00:00"}, "habitaclia_37637000041778": {"v": "rechazada", "at": "2026-09-25T17:17:11.395011+00:00"}, "solvia_130201": {"v": "ilegible", "at": "2026-09-30T03:13:37.601104+00:00"}, "habitaclia_44590000013559": {"v": "rechazada", "at": "2026-09-26T05:15:29.143019+00:00"}, "habitaclia_8116004184515": {"v": "rechazada", "at": "2026-09-26T06:09:44.305070+00:00"}, "habitaclia_44590000013564": {"v": "rechazada", "at": "2026-09-26T11:57:42.081757+00:00"}, "habitaclia_15934004151097": {"v": "rechazada", "at": "2026-09-26T11:59:08.432220+00:00"}, "habitaclia_35508000004341": {"v": "rechazada", "at": "2026-09-26T11:59:08.795331+00:00"}, "habitaclia_41124000090542": {"v": "rechazada", "at": "2026-09-26T11:59:08.967475+00:00"}, "habitaclia_45773000006114": {"v": "rechazada", "at": "2026-09-26T15:12:49.452128+00:00"}, "habitaclia_41124000094008": {"v": "rechazada", "at": "2026-09-26T15:12:49.593707+00:00"}, "habitaclia_13920000017059": {"v": "rechazada", "at": "2026-09-26T16:13:34.483603+00:00"}, "habitaclia_37637000036223": {"v": "rechazada", "at": "2026-09-26T16:13:34.663637+00:00"}, "habitaclia_52592000000106": {"v": "rechazada", "at": "2026-09-26T17:27:00.089192+00:00"}, "habitaclia_15934004151263": {"v": "rechazada", "at": "2026-09-27T10:51:03.612873+00:00"}, "habitaclia_14760003330688": {"v": "rechazada", "at": "2026-09-27T10:51:03.734948+00:00"}, "habitaclia_45396000002717": {"v": "rechazada", "at": "2026-09-27T10:51:03.865936+00:00"}, "habitaclia_41124000044068": {"v": "rechazada", "at": "2026-09-27T10:51:04.081899+00:00"}, "habitaclia_29169000003303": {"v": "rechazada", "at": "2026-09-27T10:51:04.196801+00:00"}, "habitaclia_8116004183598": {"v": "rechazada", "at": "2026-09-27T10:51:04.390879+00:00"}, "habitaclia_2382004442491": {"v": "rechazada", "at": "2026-09-27T10:51:04.492858+00:00"}, "habitaclia_41124000040671": {"v": "rechazada", "at": "2026-09-27T10:51:04.584769+00:00"}, "habitaclia_35508000003947": {"v": "rechazada", "at": "2026-09-27T14:14:00.850723+00:00"}, "habitaclia_500006053542": {"v": "rechazada", "at": "2026-09-27T15:15:54.140071+00:00"}, "habitaclia_41124000060895": {"v": "rechazada", "at": "2026-09-27T16:12:07.431562+00:00"}, "habitaclia_8116004183842": {"v": "rechazada", "at": "2026-09-27T22:17:11.384011+00:00"}, "habitaclia_45773000009677": {"v": "rechazada", "at": "2026-09-28T09:40:55.184470+00:00"}, "habitaclia_15934004151434": {"v": "rechazada", "at": "2026-09-28T09:40:55.362956+00:00"}, "habitaclia_53768000000049": {"v": "rechazada", "at": "2026-09-28T09:40:56.122932+00:00"}, "habitaclia_41124000102559": {"v": "rechazada", "at": "2026-09-28T10:24:38.233838+00:00"}, "habitaclia_45396000004823": {"v": "rechazada", "at": "2026-09-28T10:24:38.410224+00:00"}, "habitaclia_45396000004825": {"v": "rechazada", "at": "2026-09-28T10:24:38.569080+00:00"}, "habitaclia_45773000009901": {"v": "rechazada", "at": "2026-09-28T10:24:38.700464+00:00"}, "habitaclia_28976000009900": {"v": "rechazada", "at": "2026-09-28T14:24:32.492141+00:00"}, "solvia_272766": {"v": "ilegible", "at": "2026-09-30T03:12:11.747538+00:00"}, "habitaclia_56697000002038": {"v": "rechazada", "at": "2026-09-28T21:13:36.870508+00:00"}, "solvia_168130": {"v": "ilegible", "at": "2026-09-30T03:20:50.785988+00:00"}, "habitaclia_45396000006679": {"v": "rechazada", "at": "2026-09-28T21:15:03.219209+00:00"}, "habitaclia_37637000035242": {"v": "rechazada", "at": "2026-09-28T21:15:03.409078+00:00"}, "habitaclia_37637000036271": {"v": "rechazada", "at": "2026-09-28T21:15:03.511084+00:00"}, "habitaclia_8116004184344": {"v": "rechazada", "at": "2026-09-28T21:15:03.768425+00:00"}, "habitaclia_1606002342838": {"v": "rechazada", "at": "2026-09-28T21:15:03.960550+00:00"}, "solvia_152235": {"v": "ilegible", "at": "2026-09-29T09:12:32.924329+00:00"}, "habitaclia_45396000006760": {"v": "rechazada", "at": "2026-09-29T09:11:05.958117+00:00"}, "habitaclia_45396000006441": {"v": "rechazada", "at": "2026-09-29T09:11:06.123585+00:00"}, "habitaclia_45396000006704": {"v": "rechazada", "at": "2026-09-29T09:11:06.847412+00:00"}, "habitaclia_45396000006571": {"v": "rechazada", "at": "2026-09-29T09:11:07.029459+00:00"}, "habitaclia_40619000001261": {"v": "rechazada", "at": "2026-09-29T09:38:22.013642+00:00"}, "habitaclia_45773000009507": {"v": "rechazada", "at": "2026-09-29T14:08:34.341660+00:00"}, "habitaclia_37637000041318": {"v": "rechazada", "at": "2026-09-29T14:08:34.584029+00:00"}, "habitaclia_44590000013600": {"v": "rechazada", "at": "2026-09-29T14:21:49.712936+00:00"}, "habitaclia_45773000003611": {"v": "rechazada", "at": "2026-09-29T15:47:06.021461+00:00"}, "habitaclia_45773000009236": {"v": "rechazada", "at": "2026-09-29T16:19:11.759348+00:00"}, "habitaclia_41124000076385": {"v": "rechazada", "at": "2026-09-29T16:19:11.899202+00:00"}, "habitaclia_45773000009533": {"v": "rechazada", "at": "2026-09-29T16:19:12.091775+00:00"}, "habitaclia_45396000007808": {"v": "rechazada", "at": "2026-09-29T16:19:12.235770+00:00"}, "habitaclia_45396000007813": {"v": "rechazada", "at": "2026-09-29T16:19:12.385474+00:00"}, "habitaclia_45396000006369": {"v": "rechazada", "at": "2026-09-29T17:30:32.573804+00:00"}, "habitaclia_45396000007811": {"v": "rechazada", "at": "2026-09-29T17:30:33.130117+00:00"}, "habitaclia_45773000009855": {"v": "rechazada", "at": "2026-09-29T17:30:33.348418+00:00"}, "habitaclia_40614000002025": {"v": "rechazada", "at": "2026-09-29T19:25:02.751609+00:00"}, "habitaclia_40614000002027": {"v": "rechazada", "at": "2026-09-29T19:25:03.055097+00:00"}, "habitaclia_37637000036358": {"v": "rechazada", "at": "2026-09-29T19:25:03.351771+00:00"}, "idealista_112689731": {"v": "ilegible", "at": "2026-09-30T03:10:45.900616+00:00"}, "idealista_112687845": {"v": "ilegible", "at": "2026-09-30T03:48:05.798948+00:00"}, "idealista_112687985": {"v": "ilegible", "at": "2026-09-30T03:48:42.794508+00:00"}, "habitaclia_35508000004155": {"v": "rechazada", "at": "2026-09-30T05:17:22.658156+00:00"}, "habitaclia_45396000007816": {"v": "rechazada", "at": "2026-09-30T07:13:18.956116+00:00"}, "habitaclia_4492004434528": {"v": "rechazada", "at": "2026-09-30T07:27:01.461976+00:00"}, "habitaclia_8116004183846": {"v": "rechazada", "at": "2026-09-30T07:27:01.653242+00:00"}, "habitaclia_29480000002744": {"v": "rechazada", "at": "2026-09-30T07:27:01.791892+00:00"}, "habitaclia_24308000048724": {"v": "rechazada", "at": "2026-09-30T08:14:58.703060+00:00"}, "idealista_112897970": {"v": "ilegible", "at": "2026-10-24T09:09:44.947142+00:00"}, "idealista_112897795": {"v": "ilegible", "at": "2026-10-24T09:10:22.134229+00:00"}, "habitaclia_4252440d-21fe-4f2f-8002-b13577d9ed12": {"v": "rechazada", "at": "2026-10-26T12:20:03.209254+00:00"}, "habitaclia_4423002823726": {"v": "rechazada", "at": "2026-10-26T12:20:06.555925+00:00"}, "habitaclia_6ffbcb40-1b97-4211-9b7e-7207c11fb3f5": {"v": "rechazada", "at": "2026-10-26T15:23:07.746727+00:00"}, "habitaclia_59ec8d58-01f2-44be-ae13-c3edb09b0418": {"v": "rechazada", "at": "2026-10-26T15:23:11.080707+00:00"}, "habitaclia_46984000000766": {"v": "limpia", "at": "2026-10-27T10:31:16.520090+00:00"}, "habitaclia_36d77691-2dfa-4c03-826a-725e4b3a09a0": {"v": "rechazada", "at": "2026-10-27T21:07:59.671909+00:00"}, "idealista_104388924": {"v": "ilegible", "at": "2026-10-28T10:48:47.441227+00:00"}, "habitaclia_608d3886-a6f5-4348-84e8-db40df20ce36": {"v": "limpia", "at": "2026-10-28T20:55:38.677601+00:00"}, "habitaclia_6047e8f8-45ae-4181-b40f-f6c4de6d2e0f": {"v": "rechazada", "at": "2026-10-28T21:31:58.272717+00:00"}, "idealista_112938287": {"v": "ilegible", "at": "2026-10-30T05:37:11.554326+00:00"}, "idealista_112107963": {"v": "ilegible", "at": "2026-10-29T14:30:15.394720+00:00"}, "habitaclia_40e009e6-7267-4bb8-8a0e-8c27bc6f15e0": {"v": "limpia", "at": "2026-10-29T16:27:38.094600+00:00"}, "idealista_109365092": {"v": "ilegible", "at": "2026-10-29T17:42:35.973834+00:00"}, "habitaclia_2726004422167": {"v": "limpia", "at": "2026-10-30T15:19:20.574467+00:00"}}','2026-10-30 15:19:20.574978');
 INSERT INTO "telegram_state" VALUES('last_failure_notice_at','2026-10-24T08:01:38.653075+00:00','2026-10-24 08:01:38.653080');
 INSERT INTO "telegram_state" VALUES('browser_seeded','["https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/bonavista-bufala-morera/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/bonavista-bufala-morera/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/centre/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/centre/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/montigala-sant-crist/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/badalona/montigala-sant-crist/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/eixample/la-sagrada-familia/s?maxPrice=330000", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-baix-guinardo/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-baix-guinardo/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-guinardo/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-guinardo/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-guinardo/s?maxPrice=330000", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/nou-barris/el-turo-de-la-peira/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/nou-barris/el-turo-de-la-peira/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/nou-barris/vilapicina-i-la-torre-llobeta/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/nou-barris/vilapicina-i-la-torre-llobeta/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/el-congres-i-els-indians/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/el-congres-i-els-indians/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/la-sagrera/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/la-sagrera/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/la-sagrera/s?maxPrice=330000", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/navas/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/navas/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/navas/s?maxPrice=330000", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/sant-andreu-de-palomar/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/sant-andreu-de-palomar/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-camp-de-l-arpa-del-clot/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-camp-de-l-arpa-del-clot/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-camp-de-l-arpa-del-clot/s?maxPrice=330000", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-clot/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-clot/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-clot/s?maxPrice=330000", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sants-montjuic/la-marina-del-port/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sants-montjuic/la-marina-del-port/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/cornella-de-llobregat/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/cornella-de-llobregat/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/esplugues-de-llobregat/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/esplugues-de-llobregat/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/igualada/s?maxPrice=130000", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/l-hospitalet-de-llobregat/centre-sant-josep-sanfeliu/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/l-hospitalet-de-llobregat/centre-sant-josep-sanfeliu/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/manresa/s?maxPrice=130000", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/molins-de-rei/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/molins-de-rei/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/sant-feliu-de-llobregat/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/sant-feliu-de-llobregat/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/sant-just-desvern/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/sant-just-desvern/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/santa-coloma-de-gramenet/centre/s?maxPrice=320000&minSurface=70", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/santa-coloma-de-gramenet/centre/s?maxPrice=320000&minSurface=70&sortBy=NEWEST", "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/vilafranca-del-penedes/s?maxPrice=130000"]','2026-10-29 22:21:23.736555');
-INSERT INTO "telegram_state" VALUES('browser_last_run_at','2026-10-30T16:30:17.941108+00:00','2026-10-30 16:32:01.519957');
+INSERT INTO "telegram_state" VALUES('browser_last_run_at','2026-10-30T16:41:06.339418+00:00','2026-10-30 16:42:48.421778');
 INSERT INTO "telegram_state" VALUES('apify_idealista_last_run_at','2026-10-30T16:32:01.526792+00:00','2026-10-30 16:32:01.527208');
 INSERT INTO "telegram_state" VALUES('apify_idealista_seeded','["Badalona", "Cornellà de Llobregat", "Esplugues de Llobregat", "Horta-Guinardó, Barcelona", "L''Hospitalet de Llobregat", "Molins de Rei", "Nou Barris, Barcelona", "Sant Andreu, Barcelona", "Sant Feliu de Llobregat", "Sant Just Desvern", "Sant Martí, Barcelona", "Santa Coloma de Gramenet", "Sants-Montjuïc, Barcelona"]','2026-10-29 09:31:12.066740');
 INSERT INTO "telegram_state" VALUES('daily_control_day','2026-10-30','2026-10-30 15:19:11.018688');
