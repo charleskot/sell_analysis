@@ -118,7 +118,8 @@ class TelegramAlerter:
         # One budget for the flat, whichever channels carry it: checked once
         # here so a refusal silences both, and spent once below. Near misses
         # have their own, smaller one so they can never crowd out a real match.
-        kind = "casi" if metrics.get("near_miss") else "piso"
+        kind = ("stock" if metrics.get("backlog")
+                else "casi" if metrics.get("near_miss") else "piso")
         allowed, why = budget.check(self._config, kind)
         if not allowed:
             logger.warning(f"Piso {listing_id} NO enviado: {why}")
@@ -189,6 +190,11 @@ class TelegramAlerter:
         title = f"{money} € · {place}"
         if metrics.get("near_miss"):
             title = f"Casi · {title}"
+        if metrics.get("price_drop_from"):
+            title = f"Bajada · {title}"
+        elif metrics.get("backlog"):
+            # Not news, but never sent: on sale since before the bot looked
+            title = f"Ya en venta · {title}"
 
         facts = []
         if listing.get("area_m2"):
@@ -205,6 +211,10 @@ class TelegramAlerter:
         body = " · ".join(facts) or "Nuevo piso que encaja"
 
         reason = metrics.get("match_reason") or ""
+        old = metrics.get("price_drop_from")
+        if old and price:
+            body += (f"\nAntes {old:,.0f} € → ahora {money} € "
+                     f"(−{(old - price) / old * 100:.0f}%)").replace(",", ".")
         if metrics.get("near_miss"):
             # What it misses, and why it is worth a look all the same
             body += "\n" + reason.split(" · ")[0]
@@ -215,6 +225,46 @@ class TelegramAlerter:
             # ever stated there, so the user is told this one was not checked.
             body += "\n⚠️ Ficha sin verificar: mírala antes por si está ocupado"
         return title, body
+
+    def send_price_drop(self, listing_id: str, listing: dict, metrics: dict,
+                        old_price: float) -> bool:
+        """A price drop on a flat that meets the search, sent at once.
+
+        "Si hay actualizaciones de pisos ya publicados, como bajadas de
+        precio, también se notifica inmediato. En cualquier plataforma."
+        Sent even when the flat itself went out before — the drop is the
+        news — but each drop once: keyed by the new price, on the advert and
+        on the flat's signature, so the same cut seen through two agencies
+        is one notification. At night it goes out silently rather than wait.
+        """
+        from models.db import record_alert_sent
+        from scheduler.quiet_hours import is_quiet
+
+        if not self._push_topic():
+            return False
+        price = listing.get("price") or 0
+        key = f"bajada:{listing_id}:{price:.0f}"
+        signature = self.property_signature(listing)
+        sig_key = f"bajada:{signature}" if signature else None
+        if self.already_sent(key, sig_key):
+            return False
+        allowed, why = budget.check(self._config, "bajada")
+        if not allowed:
+            logger.warning(f"Bajada de {listing_id} NO enviada: {why}")
+            return False
+        metrics = {**metrics, "price_drop_from": old_price, "quiet": is_quiet(self._config)}
+        if not self._push(listing, metrics):
+            return False
+        budget.record("bajada")
+        record_alert_sent(key, "push", f"{old_price:.0f}->{price:.0f}")
+        if sig_key:
+            record_alert_sent(sig_key, "push", "")
+        # The flat at this price counts as sent: its re-listing is not news
+        if not self.already_sent(listing_id, signature):
+            record_alert_sent(listing_id, "push", "bajada")
+            if signature:
+                record_alert_sent(signature, "push", "")
+        return True
 
     def _can_notify(self) -> bool:
         """Whether any channel can carry a message: the chat or the phone."""
@@ -273,7 +323,8 @@ class TelegramAlerter:
         title, body = self._push_text(listing, metrics)
         url = listing.get("url") or ""
         payload = {"topic": topic, "title": title, "message": body,
-                   "priority": 4, "tags": ["house"]}
+                   # At night a price drop still goes out at once, but quietly
+                   "priority": 2 if metrics.get("quiet") else 4, "tags": ["house"]}
         if url:
             payload["click"] = url
             payload["actions"] = [{"action": "view", "label": "Ver anuncio", "url": url}]

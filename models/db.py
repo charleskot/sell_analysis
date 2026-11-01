@@ -504,6 +504,13 @@ def was_flat_seen_before(listing: dict, before: datetime) -> bool:
     return False
 
 
+def get_listing_price(listing_id: str) -> float | None:
+    """The price a listing was last stored at, or None if it is unknown."""
+    with session_scope() as conn:
+        row = conn.execute(select(listings.c.price).where(listings.c.id == listing_id)).fetchone()
+    return row[0] if row else None
+
+
 def was_alert_sent_recently(listing_id: str, cooldown_hours: int = 168) -> bool:
     from datetime import timedelta
     cutoff = datetime.now(timezone.utc) - timedelta(hours=cooldown_hours)

@@ -396,6 +396,24 @@ alerts:
   # hours. A flat advertised weeks ago is most likely gone, and a burst of
   # them after an outage is noise, not information.
   fresh_hours: 24
+
+  # Flats still on sale that meet the search but were never sent — stored
+  # in silence when a search was first read, or before it was widened. "No
+  # envías nada y se me está escapando todo." A few an hour by day,
+  # cheapest first, each advert read first; budget `stock` caps the day.
+  backlog:
+    enabled: true
+    per_run: 5
+    interval_minutes: 60
+    listed_within_days: 3   # seen on the portal this recently: still for sale
+
+  # A price drop on a flat that meets the search (at its new price) is sent
+  # at once, on any portal, even when the flat went out before. Silent at
+  # night rather than held.
+  price_drops:
+    enabled: true
+    min_pct: 1
+
   verification:
     # Portals whose adverts are read in full before any alert. A flat whose
     # page cannot be read here is held and retried, never sent unchecked.
@@ -448,11 +466,13 @@ alerts:
     # An unlabelled message is refused outright. Any future code path that
     # sends without declaring what it is gets blocked rather than trusted.
     limits:
-      total_per_day: 25
+      total_per_day: 70
       per_kind:
         piso: 20          # a listing that matches and has never been sent
         casi: 5           # a bargain that misses one limit by a little
         control: 1        # the morning report on yesterday's flats
+        stock: 20         # flats on sale since before the bot looked, never sent
+        bajada: 15        # price drops on flats that meet the search
         fallo: 2          # the mailbox will not open
         resumen: 1        # the manual daily summary
         respuesta: 25     # answers to messages he typed himself
