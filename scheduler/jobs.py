@@ -1232,15 +1232,28 @@ class PipelineOrchestrator:
             # first vanished: five flats in the user's barrios, merged into
             # one unrelated advert and never seen again.
             key = self.alerter.property_signature(listing) or f"id:{listing['id']}"
-            if key in merged:
-                merged[key]["labels"].append(profile.label)
-                continue
 
             first_seen = listing.get("first_seen_at")
             if first_seen is not None and first_seen.tzinfo is None:
                 first_seen = first_seen.replace(tzinfo=timezone.utc)
 
+            if key in merged:
+                merged[key]["labels"].append(profile.label)
+                # The newest advert speaks for the flat. Keeping the first one
+                # met kept an advert weeks old, and the sweep, which sends only
+                # what is fresh, dropped the flat with it: a Horta flat
+                # re-listed on 31 October never went out because its listing
+                # of the 23rd stood in for it.
+                kept = merged[key]["first_seen"]
+                if first_seen is None or (kept is not None and first_seen <= kept):
+                    continue
+                merged[key].update(listing=listing, metrics=metrics, profile=profile,
+                                   reason=reason, first_seen=first_seen,
+                                   is_new=bool(first_seen >= since))
+                continue
+
             merged[key] = {
+                "first_seen": first_seen,
                 "listing": listing,
                 "metrics": metrics,
                 "profile": profile,
