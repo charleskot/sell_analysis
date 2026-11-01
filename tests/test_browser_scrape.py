@@ -269,3 +269,16 @@ def test_after_the_seed_a_page_of_known_flats_ends_the_search(db, monkeypatch):
     assert seen_known[0] is None
     assert seen_known[1](["a1"]) is True      # stored by the seed
     assert seen_known[1](["a1", "brand_new"]) is False
+
+
+def test_a_flat_only_ever_seen_in_silence_goes_out_when_it_comes_back(db, pages):
+    """31 October: seven Habitaclia flats met the search and none went out —
+    each had been seen before, by the seed, and so was "not new". Not new to
+    the bot, but never sent to the user."""
+    data, _ = pages
+    data[URL_A] = [_flat("a1", price=250000)]
+    o = _Orch([{"url": URL_A}])
+    o.run_browser_scrape(force=True)                       # seeded, silent
+    data[URL_A] = [_flat("a1", price=250000), _flat("relisted", price=250000)]
+    o.run_browser_scrape(force=True)
+    assert o.alerter.sent == ["habitaclia_relisted"]
