@@ -863,15 +863,31 @@ class PipelineOrchestrator:
             return 0
 
         still_listed = now - timedelta(days=cfg.get("listed_within_days", 3))
-        candidates = []
-        for entry in self.digest_entries():
-            listing = entry["listing"]
-            seen = listing.get("last_seen_at")
-            if seen is not None and seen.tzinfo is None:
-                seen = seen.replace(tzinfo=timezone.utc)
-            if seen is None or seen < still_listed:
+        max_discount = cfg.get("max_discount_pct", 35)
+        # Only what was on a portal in the last few days, not the whole
+        # history: the sweep over every listing ever stored takes minutes,
+        # and this runs inside the loop that reads Habitaclia every ten.
+        from sqlalchemy import select
+        from models.db import get_engine
+        from models.schema import listings as listings_tbl
+
+        with get_engine().connect() as conn:
+            rows = [dict(r._mapping) for r in conn.execute(
+                select(listings_tbl).where(listings_tbl.c.last_seen_at >= still_listed.replace(tzinfo=None)))]
+
+        newest: dict = {}
+        for listing in rows:
+            metrics = self._compute_metrics(listing) or self._minimal_metrics(listing)
+            if not self.profile_matcher.match(listing, metrics):
                 continue
             signature = self.alerter.property_signature(listing)
+            key = signature or f"id:{listing['id']}"
+            if key in newest and newest[key][0]["first_seen_at"] >= listing["first_seen_at"]:
+                continue
+            newest[key] = (listing, metrics, signature)
+
+        candidates = []
+        for listing, metrics, signature in newest.values():
             if self.alerter.already_sent(listing["id"], signature):
                 continue
             if was_similar_listing_sent(listing.get("city"), listing.get("price"),
@@ -881,7 +897,14 @@ class PipelineOrchestrator:
             verdict = get_verify_verdict(listing["id"])
             if verdict and verdict[0] == "rechazada":
                 continue
-            candidates.append((entry, signature))
+            # Far under its zone is a warning, not a bargain: 97.000 € for
+            # 68 m² in Turó de la Peira is an auction or a tenanted flat
+            # whatever its advert leaves unsaid.
+            zone = zone_market_stats(listing.get("city"), listing.get("district"))
+            if zone and listing.get("area_m2") and listing.get("price") and \
+                    listing["price"] / listing["area_m2"] < zone["median"] * (1 - max_discount / 100):
+                continue
+            candidates.append(({"listing": listing, "metrics": metrics}, signature))
         candidates.sort(key=lambda c: c[0]["listing"].get("price") or 0)
 
         sent = 0
