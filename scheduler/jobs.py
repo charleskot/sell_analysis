@@ -698,17 +698,15 @@ class PipelineOrchestrator:
         if not is_new or not alert:
             return
 
-        # New to this portal is not new to the market: the same flat already
-        # seen before the freshness window, under another id or agency, is
-        # what the user would call repeated.
-        from datetime import timedelta
-        from models.db import was_flat_seen_before
-
-        fresh_hours = (self.config.get("alerts") or {}).get("fresh_hours", 24)
-        if was_flat_seen_before(raw_dict, datetime.now(timezone.utc) - timedelta(hours=fresh_hours)):
-            stats["filtered_out"] += 1
-            logger.info(f"{listing_id}: el mismo piso ya estaba a la venta antes, no es nuevo")
-            return
+        # A flat already on the market is still news if the user never got
+        # it. Holding back every flat seen before — the rule of 27 October,
+        # against re-listings — also held back the ones only ever seen in
+        # silence: the browser's first look at a search, or a flat that met
+        # the search only once it was widened. On 31 October all seven
+        # Habitaclia flats that met the search were stopped that way and
+        # none reached him, Horta at 250.000 € for 74 m² among them. What
+        # must not go out twice is a flat he was sent, and send_alert's
+        # duplicate check stops exactly that, under any id or agency.
 
         # The listing's own words first, whatever the source. Emails were
         # always screened this way while being parsed; the browser's cards
@@ -1063,8 +1061,7 @@ class PipelineOrchestrator:
         from zoneinfo import ZoneInfo
         from sqlalchemy import select
         from ingest.email_parsers import _REJECT_RE
-        from models.db import (get_engine, get_verify_verdict, same_flat,
-                               was_flat_seen_before, was_similar_listing_sent)
+        from models.db import get_engine, get_verify_verdict, same_flat, was_similar_listing_sent
         from models.schema import alerts_sent, listings
 
         tz = ZoneInfo("Europe/Madrid")
@@ -1072,7 +1069,6 @@ class PipelineOrchestrator:
             day = (datetime.now(tz) - timedelta(days=1)).date()
         start = datetime.combine(day, dtime.min, tz).astimezone(timezone.utc).replace(tzinfo=None)
         end = start + timedelta(days=1)
-        fresh_hours = (self.config.get("alerts") or {}).get("fresh_hours", 24)
 
         with get_engine().connect() as conn:
             rows = [dict(r._mapping) for r in conn.execute(
@@ -1096,14 +1092,12 @@ class PipelineOrchestrator:
                 continue
             counts["cumplen"] += 1
             verdict = get_verify_verdict(listing["id"])
-            first_seen = listing["first_seen_at"]
             if listing["id"] in sent_ids:
                 counts["enviados"] += 1
             elif self.alerter.already_sent(listing["id"], self.alerter.property_signature(listing)) \
                     or was_similar_listing_sent(listing.get("city"), listing.get("price"),
                                           listing.get("area_m2"), listing.get("district"),
-                                          listing.get("rooms"), listing.get("title")) \
-                    or was_flat_seen_before(listing, first_seen - timedelta(hours=fresh_hours)):
+                                          listing.get("rooms"), listing.get("title")):
                 counts["repetidos"] += 1
             elif verdict and verdict[0] == "rechazada":
                 counts["descartados"] += 1
