@@ -139,37 +139,58 @@ def test_each_drop_goes_out_once(db, monkeypatch):
 # ── Flats on sale that never went out ─────────────────────────────────────
 
 class _Backlog:
-    def __init__(self, entries, trap=()):
+    def __init__(self, trap=()):
         from scheduler.jobs import PipelineOrchestrator
 
         self.send_backlog = PipelineOrchestrator.send_backlog.__get__(self)
         self.config = {"alerts": {"backlog": {"enabled": True, "per_run": 2},
                                   "telegram": {"limits": {"per_kind": {"stock": 20}}}}}
-        self._entries, self._trap = entries, set(trap)
+        self._trap = set(trap)
         self.alerter = _Alerter()
         self.alerter.already_sent = lambda lid, sig=None: lid in self.alerter.sent
 
-    def digest_entries(self):
-        return self._entries
+        class _P:
+            name, label, purpose = "vivienda", "🏠", "home"
+
+        class _M:
+            def match(self, listing, metrics):
+                return [(_P(), "encaja")]
+
+        self.profile_matcher = _M()
+
+    def _compute_metrics(self, listing):
+        return None
+
+    def _minimal_metrics(self, listing):
+        return {}
 
     def verify(self, listing, metrics):
         return None if listing["id"] in self._trap else (listing, metrics)
 
 
-def _entry(uid, price, days_since_seen=0):
-    seen = datetime.now(timezone.utc) - timedelta(days=days_since_seen)
-    return {"listing": {**_flat(uid, price), "id": f"habitaclia_{uid}", "last_seen_at": seen},
-            "metrics": {}}
+def _store(db, uid, price, days_since_seen=0):
+    from sqlalchemy import update
+    from models.schema import listings
+
+    db.upsert_listing({**_flat(uid, price), "first_seen_at": datetime.now(timezone.utc) - timedelta(days=20)})
+    if days_since_seen:
+        with db.session_scope() as conn:
+            conn.execute(update(listings).where(listings.c.id == f"habitaclia_{uid}").values(
+                last_seen_at=datetime.now(timezone.utc) - timedelta(days=days_since_seen)))
 
 
 def test_the_backlog_goes_out_cheapest_first_a_few_at_a_time(db):
-    o = _Backlog([_entry("c", 290000), _entry("a", 210000), _entry("b", 250000)])
+    for uid, price in (("c", 290000), ("a", 210000), ("b", 250000)):
+        _store(db, uid, price)
+    o = _Backlog()
     assert o.send_backlog() == 2
     assert o.alerter.sent == ["habitaclia_a", "habitaclia_b"]
 
 
 def test_traps_and_flats_no_longer_listed_are_skipped(db):
-    o = _Backlog([_entry("gone", 200000, days_since_seen=10), _entry("trap", 210000),
-                  _entry("ok", 260000)], trap={"habitaclia_trap"})
+    _store(db, "gone", 200000, days_since_seen=10)
+    _store(db, "trap", 210000)
+    _store(db, "ok", 260000)
+    o = _Backlog(trap={"habitaclia_trap"})
     o.send_backlog()
     assert o.alerter.sent == ["habitaclia_ok"]
