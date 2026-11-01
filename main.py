@@ -441,6 +441,12 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     # the morning would stay in the database unmentioned for ever.
     stats["alerts_sent"] += orchestrator.send_pending()
 
+    # Flats on sale since before the bot looked, never sent: a few an hour
+    try:
+        stats["alerts_sent"] += orchestrator.send_backlog()
+    except Exception as e:
+        console.print(f"[yellow]Pisos ya en venta falló:[/yellow] {e}")
+
     # Every morning, what became of yesterday's flats — so a miss is seen
     # the next day, not discovered by the user a week later.
     try:

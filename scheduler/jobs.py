@@ -680,9 +680,10 @@ class PipelineOrchestrator:
         `alert=False` stores the listing (prices, zones, duplicates all
         learn from it) without treating it as news.
         """
-        from models.db import upsert_listing, upsert_metrics
+        from models.db import get_listing_price, upsert_listing, upsert_metrics
 
         listing_id = f"{raw_dict['portal']}_{raw_dict['external_id']}"
+        old_price = get_listing_price(listing_id)
         is_new = upsert_listing(raw_dict)
         stats["new" if is_new else "updated"] += 1
 
@@ -694,6 +695,14 @@ class PipelineOrchestrator:
             # them, and dropping the listing here made it invisible to every
             # later pass as well.
             metrics = self._minimal_metrics(raw_dict)
+
+        # A known advert at a lower price: the drop is news, sent at once.
+        min_drop = ((self.config.get("alerts") or {}).get("price_drops") or {}).get("min_pct", 1)
+        price = raw_dict.get("price")
+        if (not is_new and alert and old_price and price
+                and price < old_price * (1 - min_drop / 100)):
+            self._price_drop(listing_id, raw_dict, metrics, old_price, stats)
+            return
 
         if not is_new or not alert:
             return
@@ -792,6 +801,103 @@ class PipelineOrchestrator:
         upsert_listing(listing)
         logger.info(f"{listing['portal']}_{listing['external_id']}: barrio leído en la ficha: {barri}")
         return self.profile_matcher.match(listing, metrics)
+
+    def _price_drop(self, listing_id: str, listing: dict, metrics: dict,
+                    old_price: float, stats: dict) -> None:
+        """Send a price drop if, at its new price, the flat meets the search.
+
+        The same checks as a new flat: the advert's own words, the search
+        (a flat at 310.000 € cut to 295.000 € now fits a 300.000 € budget),
+        and the whole advert read for occupation.
+        """
+        from ingest.email_parsers import _REJECT_RE
+
+        if not (self.config.get("alerts") or {}).get("price_drops", {}).get("enabled", True):
+            return
+        if _REJECT_RE.search(f"{listing.get('title') or ''} {listing.get('description') or ''}"):
+            return
+        hits = self.profile_matcher.match(listing, metrics) or self._near_miss(listing, metrics)
+        if not hits:
+            return
+        checked = self.verify({**listing, "id": listing_id}, metrics)
+        if checked is None:
+            return
+        listing, metrics = checked
+        metrics = {**metrics, "matched_profiles": " + ".join(p.label for p, _ in hits),
+                   "match_reason": hits[0][1],
+                   "near_miss": hits[0][1].startswith(NEAR_MISS_PREFIX)}
+        if self.alerter.send_price_drop(listing_id, listing, metrics, old_price):
+            stats["alerts_sent"] += 1
+            logger.info(f"Bajada {listing_id}: {old_price:.0f} → {listing.get('price'):.0f}")
+
+    def send_backlog(self) -> int:
+        """Flats still on sale that meet the search but never went out.
+
+        "No envías nada y se me está escapando todo": everything already on
+        sale when a search was first read — or before it was widened — was
+        stored in silence and, being old, never sent. These go out a few at
+        a time, cheapest first, each advert read first, within their own
+        daily budget, until the backlog is spent; after that only news.
+        """
+        from datetime import datetime, timedelta, timezone
+        from models.db import (get_telegram_state, get_verify_verdict,
+                               set_telegram_state, was_similar_listing_sent)
+        from scheduler.quiet_hours import is_quiet
+        from alerts import budget
+
+        cfg = (self.config.get("alerts") or {}).get("backlog") or {}
+        if not cfg.get("enabled"):
+            return 0
+        now = datetime.now(timezone.utc)
+        if is_quiet(self.config, now):
+            return 0
+        last = get_telegram_state("backlog_last_run_at", "")
+        try:
+            if last and now - datetime.fromisoformat(last) < timedelta(
+                    minutes=cfg.get("interval_minutes", 60)):
+                return 0
+        except ValueError:
+            pass
+        set_telegram_state("backlog_last_run_at", now.isoformat())
+        if not budget.check(self.config, "stock")[0]:
+            return 0
+
+        still_listed = now - timedelta(days=cfg.get("listed_within_days", 3))
+        candidates = []
+        for entry in self.digest_entries():
+            listing = entry["listing"]
+            seen = listing.get("last_seen_at")
+            if seen is not None and seen.tzinfo is None:
+                seen = seen.replace(tzinfo=timezone.utc)
+            if seen is None or seen < still_listed:
+                continue
+            signature = self.alerter.property_signature(listing)
+            if self.alerter.already_sent(listing["id"], signature):
+                continue
+            if was_similar_listing_sent(listing.get("city"), listing.get("price"),
+                                        listing.get("area_m2"), listing.get("district"),
+                                        listing.get("rooms"), listing.get("title")):
+                continue
+            verdict = get_verify_verdict(listing["id"])
+            if verdict and verdict[0] == "rechazada":
+                continue
+            candidates.append((entry, signature))
+        candidates.sort(key=lambda c: c[0]["listing"].get("price") or 0)
+
+        sent = 0
+        for entry, signature in candidates:
+            if sent >= cfg.get("per_run", 5) or not budget.check(self.config, "stock")[0]:
+                break
+            checked = self.verify(entry["listing"], entry["metrics"])
+            if checked is None:
+                continue
+            listing, metrics = checked
+            if self.alerter.send_alert(listing["id"], listing, {**metrics, "backlog": True},
+                                       0, dedup_key=signature):
+                sent += 1
+        if sent:
+            logger.info(f"Ya en venta, nunca enviados: {sent} enviados ({len(candidates)} pendientes)")
+        return sent
 
     def _enrich(self, listing: dict) -> dict | None:
         """Recover the description from the listing's own page.
