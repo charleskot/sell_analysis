@@ -91,14 +91,30 @@ class Profile:
 
     # ── Individual conditions ────────────────────────────────────────────
 
+    def _budget(self, listing: dict | None) -> tuple[float | None, float | None]:
+        """The budget and the stretch ceiling that apply where this flat is.
+
+        `zone_budgets` raise the budget for the barris wanted most — "subamos
+        a 350.000 pero solo para la zona que más quiero" — as a plain ceiling,
+        with no stretch above it. Everywhere else the profile's own budget,
+        with its stretch for an exceptional flat.
+        """
+        if listing is not None:
+            city = listing.get("city") or ""
+            barri = (listing.get("district") or "").split("(")[0]
+            for zone in self.spec.get("zone_budgets") or []:
+                if _place_matches(zone.get("city", ""), city) and barri and any(
+                        _place_matches(d, barri) for d in zone.get("districts") or []):
+                    return zone.get("max_price"), None
+        return self.spec.get("max_price"), self.spec.get("stretch_max_price")
+
     def _check_price(self, price: float, listing: dict | None = None) -> str | None:
-        max_price = self.spec.get("max_price")
+        max_price, stretch = self._budget(listing)
         if max_price and price > max_price:
             # A ceiling the buyer will break for the right flat. Between the
             # budget and `stretch_max_price` only an exceptional one passes —
             # "si fuera a más es porque estamos viendo un piso muy bueno que
             # amerita pagarlo" — and the card says why it was let through.
-            stretch = self.spec.get("stretch_max_price")
             if stretch and price <= stretch and listing is not None:
                 why = self._exceptional(listing)
                 if why:
@@ -465,7 +481,7 @@ class Profile:
         # unsaid.
         criteria = self._criteria_met(listing)
 
-        max_price = self.spec.get("max_price")
+        max_price = self._budget(listing)[0]
         if max_price and price > max_price:
             criteria.insert(0, f"⚠️ {price - max_price:,.0f}€ por encima de tus "
                                f"{max_price:,.0f}€ — te lo paso por: {self._exceptional(listing)}"
@@ -537,7 +553,7 @@ class Profile:
             return None
 
         min_area = self.spec.get("min_area_m2")
-        max_price = self.spec.get("max_price")
+        max_price = self._budget(listing)[0]
         min_rooms = self.spec.get("min_rooms")
         city, district = listing.get("city") or "", listing.get("district")
 
@@ -567,9 +583,12 @@ class Profile:
         relaxed = dict(self.spec)
         if min_area:
             relaxed["min_area_m2"] = min_area - rules.get("area_m2", 5)
-        if max_price:
-            relaxed["max_price"] = max_price * (1 + rules.get("price_pct", 15) / 100)
+        ease = 1 + rules.get("price_pct", 15) / 100
+        if self.spec.get("max_price"):
+            relaxed["max_price"] = self.spec["max_price"] * ease
             relaxed["stretch_max_price"] = None
+        relaxed["zone_budgets"] = [{**z, "max_price": z["max_price"] * ease}
+                                   for z in self.spec.get("zone_budgets") or [] if z.get("max_price")]
         if min_rooms:
             relaxed["min_rooms"] = min_rooms - rules.get("rooms", 1)
         relaxed["areas"] = [{**a, "districts": (a.get("districts") or []) + (a.get("nearby") or [])}

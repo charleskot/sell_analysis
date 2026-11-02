@@ -22,8 +22,8 @@ def home():
 
 def _flat(**kw):
     base = {"price": 240000, "area_m2": 75, "rooms": 3, "floor": "3ª planta",
-            "city": "barcelona", "district": "navas",
-            "title": "Piso con ascensor en venta en Navas",
+            "city": "barcelona", "district": "vilapicina",
+            "title": "Piso con ascensor en venta en Vilapicina",
             "description": "piso exterior reformado, listo para entrar a vivir"}
     base.update(kw)
     return base

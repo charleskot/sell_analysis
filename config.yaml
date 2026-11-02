@@ -114,6 +114,15 @@ search_profiles:
     stretch_max_price: 320000
     stretch_min_area_m2: 85
 
+    # The barris wanted most, round Maragall and the Sagrada Família: up to
+    # 350.000 € there, a plain ceiling with no stretch above it — "subamos a
+    # 350.000 pero solo para la zona que más quiero" (2 November).
+    zone_budgets:
+      - city: barcelona
+        districts: [camp de l arpa, el clot, sagrada familia, baix guinardo,
+                    maragall, el guinardo, navas, la sagrera, congres]
+        max_price: 350000
+
     # A good flat at a good price, close to the target, also goes out marked
     # "Casi" — "si ves una oportunidad interesante, aunque se pase un poco
     # de los límites, me la puedes enviar"; "buen piso a buen precio, cerca
@@ -740,9 +749,10 @@ apify:
         - Nou Barris, Barcelona
         - Sant Martí, Barcelona
         - Sants-Montjuïc, Barcelona
+        - Sagrada Família, Barcelona
         - L'Hospitalet de Llobregat
       minSize: 60
-      maxPrice: 330000
+      maxPrice: 385000       # 350.000 € in the barris wanted most, plus near misses
       currentOccupationType: [free]
       floorHeights: [topFloor, intermediateFloor]
       publicationDate: "Y"   # the last 48 hours, the shortest Idealista offers for sale
@@ -774,11 +784,12 @@ apify:
         - "https://www.fotocasa.es/es/comprar/viviendas/badalona/todas-las-zonas/l?maxPrice=330000&minSurface=60&sortType=publicationDate"
         - "https://www.fotocasa.es/es/comprar/viviendas/santa-coloma-de-gramenet/todas-las-zonas/l?maxPrice=330000&minSurface=60&sortType=publicationDate"
         - "https://www.fotocasa.es/es/comprar/viviendas/l-hospitalet-de-llobregat/todas-las-zonas/l?maxPrice=330000&minSurface=60&sortType=publicationDate"
-        - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/horta-guinardo/l?maxPrice=330000&minSurface=60&sortType=publicationDate"
-        - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sant-andreu/l?maxPrice=330000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/horta-guinardo/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sant-andreu/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
         - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/nou-barris/l?maxPrice=330000&minSurface=60&sortType=publicationDate"
-        - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sant-marti/l?maxPrice=330000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sant-marti/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
         - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sants-montjuic/l?maxPrice=330000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sagrada-familia/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
 
 browser_scraping:
   habitaclia:
@@ -825,22 +836,22 @@ browser_scraping:
         city: santa coloma de gramenet
         district: centre
       # ── Zona 4 · Barcelona ──
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-guinardo/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-guinardo/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
         city: barcelona
         district: el guinardo
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-baix-guinardo/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/el-baix-guinardo/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
         city: barcelona
         district: baix guinardo
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/navas/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/navas/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
         city: barcelona
         district: navas
       - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/sant-andreu-de-palomar/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
         city: barcelona
         district: sant andreu
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/la-sagrera/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/la-sagrera/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
         city: barcelona
         district: la sagrera
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/el-congres-i-els-indians/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-andreu/el-congres-i-els-indians/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
         city: barcelona
         district: congres
       - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/nou-barris/el-turo-de-la-peira/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
@@ -849,10 +860,10 @@ browser_scraping:
       - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/nou-barris/vilapicina-i-la-torre-llobeta/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
         city: barcelona
         district: vilapicina
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-clot/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-clot/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
         city: barcelona
         district: el clot
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-camp-de-l-arpa-del-clot/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/el-camp-de-l-arpa-del-clot/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
         city: barcelona
         district: camp de l arpa
       # ── Zona 5 · L'Hospitalet ──
@@ -876,7 +887,7 @@ browser_scraping:
       - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/nou-barris/porta/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
         city: barcelona
         district: porta
-      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/eixample/sagrada-familia/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/eixample/sagrada-familia/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
         city: barcelona
         district: sagrada familia
       - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sant-marti/sant-marti-de-provencals/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"

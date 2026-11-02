@@ -23,8 +23,8 @@ def home():
 
 def _flat(**kw):
     base = {"price": 270000, "area_m2": 75, "rooms": 3, "floor": "3ª planta",
-            "city": "barcelona", "district": "navas",
-            "title": "Piso con ascensor en venta en Navas",
+            "city": "barcelona", "district": "vilapicina",
+            "title": "Piso con ascensor en venta en Vilapicina",
             "description": "piso exterior reformado, listo para entrar a vivir"}
     base.update(kw)
     return base
@@ -180,3 +180,23 @@ def test_65_square_metres_and_300000_euros_pass(home):
     assert ok(home, area_m2=66)[0]
     assert ok(home, price=298000)[0]
     assert not ok(home, area_m2=63)[0]
+
+
+# ── 2 November: up to 350.000 € round Maragall and the Sagrada Família ────
+
+@pytest.mark.parametrize("barri", ["camp de l arpa", "El Camp de l'Arpa del Clot",
+                                   "sagrada familia", "Navas", "congres", "baix guinardo"])
+def test_the_favourite_barris_take_up_to_350000(home, barri):
+    assert ok(home, district=barri, price=345000, description="piso exterior")[0]
+
+
+def test_350000_is_a_ceiling_there_not_a_stretch(home):
+    assert not ok(home, district="sagrada familia", price=360000, area_m2=120,
+                  description="gran terraza, reformado, luminoso")[0]
+
+
+def test_elsewhere_the_budget_stays_at_300000(home):
+    good, why = ok(home, district="vilapicina", price=345000, area_m2=75,
+                   description="piso exterior")
+    assert not good
+    assert not ok(home, city="badalona", district="centre", price=330000)[0]
