@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Pisos">
+<meta name="theme-color" content="#0f6b58">
+<title>Mapa de pisos</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<!--
+  The map of every flat that meets the search, drawn from pisos.json, which
+  the bot rewrites every half hour (scheduler/map_export.py). Served by
+  GitHub Pages from this docs/ folder. Reloads its data every five minutes
+  while open.
+-->
+<style>
+:root{
+  --bg:#f4f6f5; --surface:#ffffff; --fg:#1b2321; --muted:#5d6a66; --line:#d9e0dd;
+  --accent:#0f6b58; --new:#d2451e; --sent:#7b8a86; --chip:#e6efec;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#111615; --surface:#1a201f; --fg:#e6ecea; --muted:#9aa8a4; --line:#2c3633;
+  --accent:#5fc7ad; --new:#ff8a5c; --sent:#7d8b88; --chip:#203330; color-scheme:dark}}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:14px}
+.app{display:grid;grid-template-rows:auto 1fr;height:100%;padding-top:env(safe-area-inset-top,0px);box-sizing:border-box}
+header{padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);background:var(--surface);display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+h1{font-size:17px;margin:0;font-weight:700}
+.meta{font-family:var(--mono);color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex:1 1 420px;justify-content:flex-end}
+select{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:5px 8px}
+input[type=range]{accent-color:var(--accent);width:120px}
+label{display:flex;gap:6px;align-items:center;color:var(--muted)}
+.pr{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+.main{display:grid;grid-template-columns:1fr 340px;min-height:0}
+#map{min-height:0}
+aside{border-left:1px solid var(--line);overflow:auto;background:var(--surface);min-width:0;padding-bottom:env(safe-area-inset-bottom,0px)}
+.legend{display:flex;gap:14px;padding:10px 14px;border-bottom:1px solid var(--line);color:var(--muted);font-size:13px;flex-wrap:wrap}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.dot.new{background:var(--new)}.dot.sent{border:2px solid var(--sent);width:8px;height:8px}
+ul{list-style:none;margin:0;padding:0}
+li button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:5.6rem 1fr;gap:2px 10px;width:100%;padding:10px 14px;border-bottom:1px solid var(--line);cursor:pointer}
+li button:hover,li button:focus-visible{background:var(--chip)}
+.p{font-family:var(--mono);font-weight:500;font-variant-numeric:tabular-nums}
+.w{min-width:0}.w b{font-weight:600}.w small{display:block;color:var(--muted)}
+.tag{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.leaflet-container{font:inherit}
+.pop{min-width:190px}.pop .p{font-size:16px}.pop a{color:var(--accent);font-weight:600}
+.pop small{color:var(--muted);display:block;margin:2px 0 6px}
+.err{padding:14px;color:var(--new)}
+@media (max-width:760px){.main{grid-template-columns:1fr;grid-template-rows:56vh auto}aside{border-left:0;border-top:1px solid var(--line)}.filters{justify-content:flex-start}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>Mapa de pisos</h1><span class="meta" id="meta">cargando…</span>
+    <div class="filters">
+      <select id="town" aria-label="Zona"></select>
+      <select id="src" aria-label="Portal"><option value="">Todos los portales</option><option value="habitaclia">Habitaclia</option><option value="idealista">Idealista</option><option value="fotocasa">Fotocasa</option></select>
+      <label class="pr" for="max">hasta <span id="maxv"></span></label>
+      <input id="max" type="range" min="150000" max="350000" step="5000" value="350000">
+      <label><input id="only" type="checkbox"> Solo los que no te llegaron</label>
+    </div>
+  </header>
+  <div class="main">
+    <div id="map" aria-label="Mapa"></div>
+    <aside>
+      <div class="legend"><span><i class="dot new"></i>No te llegó por notificación</span><span><i class="dot sent"></i>Ya te llegó</span></div>
+      <ul id="list"></ul>
+    </aside>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+let ITEMS=[];
+const fmt=n=>n.toLocaleString('es-ES');
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const map=L.map('map',{minZoom:11,maxZoom:18}).setView([41.405,2.14],12);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
+const layer=L.layerGroup().addTo(map);
+const els=['town','src','max','only'].map(id=>document.getElementById(id));
+els.forEach(e=>e.addEventListener('input',render));
+function popup(i){
+  const facts=[i.a+' m²',i.r?i.r+' hab':'',i.f,i.a?fmt(Math.round(i.p/i.a))+' €/m²':''].filter(Boolean).join(' · ');
+  return `<div class="pop"><div class="p">${fmt(i.p)} €</div><b>${esc(i.b||i.t)}</b>${i.b?', '+esc(i.t):''}<small>${esc(facts)}<br>${esc(i.src)} · ${i.s?'ya te llegó':'no te llegó'}${i.ap?' · ubicación aproximada':''}</small><a href="${esc(i.u)}" target="_blank" rel="noopener">Ver anuncio ↗</a></div>`;
+}
+function fillTowns(){
+  const cur=els[0].value;
+  const towns=[...new Set(ITEMS.map(i=>i.t))].sort((a,b)=>ITEMS.filter(i=>i.t===b).length-ITEMS.filter(i=>i.t===a).length);
+  els[0].innerHTML='<option value="">Todas las zonas</option>'+towns.map(t=>`<option>${esc(t)}</option>`).join('');
+  els[0].value=towns.includes(cur)?cur:'';
+}
+function render(){
+  const t=els[0].value,s=els[1].value,mx=+els[2].value,only=els[3].checked;
+  document.getElementById('maxv').textContent=fmt(mx)+' €';
+  const rows=ITEMS.filter(i=>(!t||i.t===t)&&(!s||i.src===s)&&i.p<=mx&&(!only||!i.s)).sort((a,b)=>a.p-b.p);
+  layer.clearLayers();
+  const list=document.getElementById('list');list.innerHTML='';
+  const nc=css('--new'),sc=css('--sent');
+  rows.forEach(i=>{
+    const mk=L.circleMarker([i.lat,i.lng],{radius:7,weight:2,color:i.s?sc:nc,fillColor:i.s?sc:nc,fillOpacity:i.s?0.15:0.85,dashArray:i.ap?'3 3':null}).bindPopup(popup(i));
+    mk.addTo(layer);
+    const li=document.createElement('li');const b=document.createElement('button');b.type='button';
+    b.innerHTML=`<span class="p">${fmt(i.p)} €</span><span class="w"><b>${esc(i.b||i.t)}</b>${i.b?' · '+esc(i.t):''}<small>${i.a} m²${i.r?' · '+i.r+' hab':''}${i.f?' · '+esc(i.f):''}</small></span><span></span><span class="tag">${esc(i.src)}${i.s?' · ya te llegó':''}</span>`;
+    b.onclick=()=>{map.setView([i.lat,i.lng],Math.max(map.getZoom(),15));mk.openPopup()};
+    li.appendChild(b);list.appendChild(li);
+  });
+  document.getElementById('meta').dataset.count=rows.length;
+}
+async function load(){
+  try{
+    const r=await fetch('pisos.json?t='+Date.now(),{cache:'no-store'});
+    const data=await r.json();
+    ITEMS=data.flats||[];
+    const when=new Date(data.updated);
+    document.getElementById('meta').textContent=ITEMS.length+' pisos · actualizado '+when.toLocaleString('es-ES',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+    fillTowns();render();
+  }catch(e){
+    document.getElementById('list').innerHTML='<li class="err">No se pudieron cargar los pisos. Vuelve a intentarlo en un momento.</li>';
+  }
+}
+load();setInterval(load,5*60*1000);
+</script>
+</body>
+</html>

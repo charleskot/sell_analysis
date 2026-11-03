@@ -830,6 +830,36 @@ class PipelineOrchestrator:
             stats["alerts_sent"] += 1
             logger.info(f"Bajada {listing_id}: {old_price:.0f} → {listing.get('price'):.0f}")
 
+    def export_map(self, force: bool = False) -> int:
+        """Write the map's data file, every `interval_minutes`.
+
+        The map page (docs/index.html, served by GitHub Pages) draws this
+        file; the state save commits it with the database, so the map is as
+        current as the bot. Returns the number of flats on it, or -1 when
+        it was not this pass's turn.
+        """
+        from datetime import datetime, timedelta, timezone
+        from models.db import get_telegram_state, set_telegram_state
+        from scheduler import map_export
+
+        cfg = self.config.get("map") or {}
+        if not cfg.get("enabled"):
+            return -1
+        now = datetime.now(timezone.utc)
+        last = get_telegram_state("map_last_export_at", "")
+        try:
+            if not force and last and now - datetime.fromisoformat(last) < timedelta(
+                    minutes=cfg.get("interval_minutes", 30)):
+                return -1
+        except ValueError:
+            pass
+        set_telegram_state("map_last_export_at", now.isoformat())
+        flats = map_export.collect(self, cfg.get("listed_within_days", 3), cfg.get("max_reads", 40))
+        points = map_export.to_points(flats)
+        map_export.write(points, cfg.get("path", "docs/pisos.json"))
+        logger.info(f"Mapa: {len(points)} pisos")
+        return len(points)
+
     def send_backlog(self) -> int:
         """Flats still on sale that meet the search but never went out.
 

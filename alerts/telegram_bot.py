@@ -328,6 +328,10 @@ class TelegramAlerter:
         if url:
             payload["click"] = url
             payload["actions"] = [{"action": "view", "label": "Ver anuncio", "url": url}]
+        map_url = (self._config.get("map") or {}).get("url")
+        if map_url and (self._config.get("map") or {}).get("enabled"):
+            payload.setdefault("actions", []).append(
+                {"action": "view", "label": "Ver mapa", "url": map_url})
         try:
             import requests
 

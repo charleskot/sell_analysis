@@ -28,16 +28,20 @@ branch="${STATE_BRANCH:-$(git rev-parse --abbrev-ref HEAD)}"
 git rebase --abort >/dev/null 2>&1 || true
 
 blob="$(git hash-object -w state/db.sql)" || exit 1
+# The map page's data rides along, when the bot has written it
+map_blob=""
+[ -f docs/pisos.json ] && map_blob="$(git hash-object -w docs/pisos.json)"
 index="$(git rev-parse --git-dir)/state-index"
 
 for attempt in 1 2 3 4; do
   git fetch -q origin "$branch" || { sleep $((attempt * attempt * 2)); continue; }
   base="$(git rev-parse FETCH_HEAD)"
 
-  # The remote's tree with state/db.sql swapped for this run's dump
+  # The remote's tree with this run's state/db.sql (and map data) swapped in
   rm -f "$index"
   GIT_INDEX_FILE="$index" git read-tree "$base"
   GIT_INDEX_FILE="$index" git update-index --add --cacheinfo "100644,$blob,state/db.sql"
+  [ -n "$map_blob" ] && GIT_INDEX_FILE="$index" git update-index --add --cacheinfo "100644,$map_blob,docs/pisos.json"
   tree="$(GIT_INDEX_FILE="$index" git write-tree)"
   rm -f "$index"
 
