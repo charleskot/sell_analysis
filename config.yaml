@@ -712,6 +712,18 @@ location_scores:
 # maxPrice is applied by Habitaclia itself; sorting by date is not
 # available, so new listings are found by comparing with what was already
 # seen, not by trusting the order of the page.
+# The map: every flat that meets the search, on a map page served by GitHub
+# Pages from docs/ (docs/index.html draws docs/pisos.json). The bot rewrites
+# the data every half hour and the state save commits it. Each notification
+# carries a "Ver mapa" button to `url`.
+map:
+  enabled: true
+  interval_minutes: 30
+  path: docs/pisos.json
+  listed_within_days: 3
+  max_reads: 60          # Habitaclia adverts read per pass to place flats
+  url: https://charleskot.github.io/sell_analysis/
+
 # Idealista through an Apify actor (memo23/idealista-scraper). Its emails
 # cannot be a feed: a morning burst and a daily summary capped at twenty,
 # with no "immediate" option — on 27 October a Molins de Rei ático at

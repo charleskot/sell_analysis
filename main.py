@@ -447,6 +447,14 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     except Exception as e:
         console.print(f"[yellow]Pisos ya en venta falló:[/yellow] {e}")
 
+    # The map page's data, every half hour
+    try:
+        n = orchestrator.export_map()
+        if n >= 0:
+            console.print(f"[green]Mapa:[/green] {n} pisos")
+    except Exception as e:
+        console.print(f"[yellow]Mapa falló:[/yellow] {e}")
+
     # Every morning, what became of yesterday's flats — so a miss is seen
     # the next day, not discovered by the user a week later.
     try:
