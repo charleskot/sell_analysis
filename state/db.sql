@@ -28870,7 +28870,7 @@ INSERT INTO "investment_metrics" VALUES('habitaclia_871456c6-e8da-422a-8b91-dfed
 INSERT INTO "investment_metrics" VALUES('habitaclia_432ba7ac-fbba-41f0-859a-768c9bc6caf3',4.59,3.44,3.44,29.0,1350.0,352800.0,36.8,'{"gross_yield_score": 41.8, "price_per_m2_score": 21.1, "location_score": 50.0, "condition_score": 50.0, "roi_score": 18.8, "total": 36.8}','2026-11-07 04:29:18.888557');
 INSERT INTO "investment_metrics" VALUES('habitaclia_66259c43-29a8-448d-9c45-729538bba8b5',4.82,3.62,3.62,27.7,1170.0,291200.0,35.5,'{"gross_yield_score": 46.4, "price_per_m2_score": 8.2, "location_score": 50.0, "condition_score": 50.0, "roi_score": 22.4, "total": 35.5}','2026-11-07 04:29:27.731652');
 INSERT INTO "investment_metrics" VALUES('habitaclia_a733b588-b869-4998-9a8c-4f0ce4155cf4',4.49,3.37,3.37,29.7,1458.0,389760.0,51.1,'{"gross_yield_score": 39.8, "price_per_m2_score": 81.6, "location_score": 50.0, "condition_score": 50.0, "roi_score": 17.4, "total": 51.1}','2026-11-07 04:29:37.186824');
-INSERT INTO "investment_metrics" VALUES('idealista_113015543',3.93,2.94,2.94,34.0,1007.5,308000.0,26.8,'{"gross_yield_score": 28.6, "price_per_m2_score": 3.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.8, "total": 26.8}','2026-11-07 04:29:56.749511');
+INSERT INTO "investment_metrics" VALUES('idealista_113015543',3.93,2.94,2.94,34.0,1007.5,308000.0,26.8,'{"gross_yield_score": 28.6, "price_per_m2_score": 3.4, "location_score": 50.0, "condition_score": 50.0, "roi_score": 9.8, "total": 26.8}','2026-11-07 04:37:22.467080');
 CREATE TABLE listings (
 	id VARCHAR NOT NULL, 
 	portal VARCHAR NOT NULL, 
@@ -59969,7 +59969,7 @@ Can Vidalet, Esplugues de Llobregat
 3 hab.
 2 baños
 2º','[]',NULL,'[]','2026-10-30 15:24:57.128713','2026-10-30 21:58:16.984357',1);
-INSERT INTO "listings" VALUES('habitaclia_b0d29314-5992-4dd5-9112-f598a791a401','habitaclia','b0d29314-5992-4dd5-9112-f598a791a401','https://www.habitaclia.com/comprar/planta-intermedia/calle-rodes-de/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/b0d29314-5992-4dd5-9112-f598a791a401/d','Piso con ascensor en venta en Calle Rodes de',299000.0,77.0,3.88311688311688294e+03,3,2,'7ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/29
+INSERT INTO "listings" VALUES('habitaclia_b0d29314-5992-4dd5-9112-f598a791a401','habitaclia','b0d29314-5992-4dd5-9112-f598a791a401','https://www.habitaclia.com/comprar/planta-intermedia/calle-rodes-de/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/b0d29314-5992-4dd5-9112-f598a791a401/d','Piso con ascensor en venta en Calle Rodes de',299000.0,77.0,3.88311688311688294e+03,3,2,'7ª planta',NULL,41.3638,2.10652,'centre','hospitalet de llobregat',NULL,'1/29
 299.000 €
 Ha bajado 21.000 €
 Piso con ascensor en venta en Calle Rodes de
@@ -62920,7 +62920,7 @@ Molins de Rei, Barcelona
 3 hab.
 1 baños
 4º','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-03 01:32:02.396990',1);
-INSERT INTO "listings" VALUES('habitaclia_49ee2d0d-0a1e-49bc-a1f1-c4ccc533d114','habitaclia','49ee2d0d-0a1e-49bc-a1f1-c4ccc533d114','https://www.habitaclia.com/comprar/planta-intermedia/santa-creu/can-calders/sant-feliu-de-llobregat/49ee2d0d-0a1e-49bc-a1f1-c4ccc533d114/d','Piso en venta en Santa Creu',249000.0,65.0,3.83076923076923094e+03,2,1,'1ª planta',NULL,NULL,NULL,'can calders','sant feliu de llobregat',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_49ee2d0d-0a1e-49bc-a1f1-c4ccc533d114','habitaclia','49ee2d0d-0a1e-49bc-a1f1-c4ccc533d114','https://www.habitaclia.com/comprar/planta-intermedia/santa-creu/can-calders/sant-feliu-de-llobregat/49ee2d0d-0a1e-49bc-a1f1-c4ccc533d114/d','Piso en venta en Santa Creu',249000.0,65.0,3.83076923076923094e+03,2,1,'1ª planta',NULL,41.3855609,2.046488,'can calders','sant feliu de llobregat',NULL,'Oportunidad
 1/33
 249.000 €
 Piso en venta en Santa Creu
@@ -62976,7 +62976,7 @@ Roses - Castellbell, Sant Feliu de Llobregat
 3 hab.
 1 baños
 1º','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:27:40.989012',1);
-INSERT INTO "listings" VALUES('habitaclia_02822e8c-0a51-42db-942f-a17dd3bae57c','habitaclia','02822e8c-0a51-42db-942f-a17dd3bae57c','https://www.habitaclia.com/comprar/planta-intermedia/rambla-marquesa-de-castellbell/can-calders/sant-feliu-de-llobregat/02822e8c-0a51-42db-942f-a17dd3bae57c/d','Piso con balcón en venta en Rambla Marquesa de Castellbell',298000.0,65.0,4.58461538461538475e+03,3,1,'4ª planta',NULL,NULL,NULL,'can calders','sant feliu de llobregat',NULL,'1/19
+INSERT INTO "listings" VALUES('habitaclia_02822e8c-0a51-42db-942f-a17dd3bae57c','habitaclia','02822e8c-0a51-42db-942f-a17dd3bae57c','https://www.habitaclia.com/comprar/planta-intermedia/rambla-marquesa-de-castellbell/can-calders/sant-feliu-de-llobregat/02822e8c-0a51-42db-942f-a17dd3bae57c/d','Piso con balcón en venta en Rambla Marquesa de Castellbell',298000.0,65.0,4.58461538461538475e+03,3,1,'4ª planta',NULL,41.3859131,2.0487151,'can calders','sant feliu de llobregat',NULL,'1/19
 298.000 €
 Piso con balcón en venta en Rambla Marquesa de Castellbell
 Can Calders, Sant Feliu de Llobregat
@@ -63333,7 +63333,7 @@ El Pedró, Cornellà de Llobregat
 60 m²
 3 hab.
 1 baños','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:27:54.476627',1);
-INSERT INTO "listings" VALUES('habitaclia_c9627a1c-815e-4ca2-b09f-af969c27e2bf','habitaclia','c9627a1c-815e-4ca2-b09f-af969c27e2bf','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-buri/sant-ildefons/cornella-de-llobregat/c9627a1c-815e-4ca2-b09f-af969c27e2bf/d','Piso con ascensor en venta en Carrer del Burí',219900.0,68.0,3.23382352941176486e+03,3,1,'7ª planta',NULL,NULL,NULL,'sant ildefons','cornellà de llobregat',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_c9627a1c-815e-4ca2-b09f-af969c27e2bf','habitaclia','c9627a1c-815e-4ca2-b09f-af969c27e2bf','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-buri/sant-ildefons/cornella-de-llobregat/c9627a1c-815e-4ca2-b09f-af969c27e2bf/d','Piso con ascensor en venta en Carrer del Burí',219900.0,68.0,3.23382352941176486e+03,3,1,'7ª planta',NULL,41.3620482,2.0804052,'sant ildefons','cornellà de llobregat',NULL,'Oportunidad
 1/28
 219.900 €
 Piso con ascensor en venta en Carrer del Burí
@@ -63802,7 +63802,7 @@ Bonavista - Bufalà - Morera, Badalona
 66 m²
 2 hab.
 1 baños','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:28:03.793538',1);
-INSERT INTO "listings" VALUES('habitaclia_7eba396d-aa3b-4953-bc31-82c253d4c459','habitaclia','7eba396d-aa3b-4953-bc31-82c253d4c459','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-doctor-robert-174/bonavista-bufala-morera/badalona/7eba396d-aa3b-4953-bc31-82c253d4c459/d','Piso en venta en Carrer del Doctor Robert 174',208500.0,65.0,3.20769230769230762e+03,3,1,'4ª planta',NULL,NULL,NULL,'bufala','badalona',NULL,'1/9
+INSERT INTO "listings" VALUES('habitaclia_7eba396d-aa3b-4953-bc31-82c253d4c459','habitaclia','7eba396d-aa3b-4953-bc31-82c253d4c459','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-doctor-robert-174/bonavista-bufala-morera/badalona/7eba396d-aa3b-4953-bc31-82c253d4c459/d','Piso en venta en Carrer del Doctor Robert 174',208500.0,65.0,3.20769230769230762e+03,3,1,'4ª planta',NULL,4.14612124999999878e+01,2.2422331,'bufala','badalona',NULL,'1/9
 208.500 €
 Piso en venta en Carrer del Doctor Robert 174
 Bonavista - Bufalà - Morera, Badalona
@@ -63878,7 +63878,7 @@ Bonavista - Bufalà - Morera, Badalona
 68 m²
 3 hab.
 1 baños','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-06 17:32:12.934546',1);
-INSERT INTO "listings" VALUES('habitaclia_314745b7-a0d5-4caa-aa8f-8e24684a0cc5','habitaclia','314745b7-a0d5-4caa-aa8f-8e24684a0cc5','https://www.habitaclia.com/comprar/planta-intermedia/montigala-sant-crist/badalona/314745b7-a0d5-4caa-aa8f-8e24684a0cc5/d','Piso en venta en Montigalà - Sant Crist',189000.0,65.0,2.90769230769230762e+03,2,1,'1ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_314745b7-a0d5-4caa-aa8f-8e24684a0cc5','habitaclia','314745b7-a0d5-4caa-aa8f-8e24684a0cc5','https://www.habitaclia.com/comprar/planta-intermedia/montigala-sant-crist/badalona/314745b7-a0d5-4caa-aa8f-8e24684a0cc5/d','Piso en venta en Montigalà - Sant Crist',189000.0,65.0,2.90769230769230762e+03,2,1,'1ª planta',NULL,4.14521814999999875e+01,2.2363848,'montigala','badalona',NULL,'Oportunidad
 1/15
 189.000 €
 Piso en venta en Montigalà - Sant Crist
@@ -64457,7 +64457,7 @@ Barcelona Capital, Barcelona
 2 hab.
 1 baños
 2º','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:28:32.717366',1);
-INSERT INTO "listings" VALUES('habitaclia_ad679131-3196-42c1-8bed-b31b81ec8c78','habitaclia','ad679131-3196-42c1-8bed-b31b81ec8c78','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-bartrina-29/sant-andreu/barcelona-capital/ad679131-3196-42c1-8bed-b31b81ec8c78/d','Piso con ascensor en venta en Carrer de Bartrina 29',259000.0,68.0,3.80882352941176486e+03,2,1,'3ª planta',NULL,NULL,NULL,'sant andreu','barcelona',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_ad679131-3196-42c1-8bed-b31b81ec8c78','habitaclia','ad679131-3196-42c1-8bed-b31b81ec8c78','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-bartrina-29/sant-andreu/barcelona-capital/ad679131-3196-42c1-8bed-b31b81ec8c78/d','Piso con ascensor en venta en Carrer de Bartrina 29',259000.0,68.0,3.80882352941176486e+03,2,1,'3ª planta',NULL,41.4413252,2.1871797,'sant andreu','barcelona',NULL,'Oportunidad
 1/14
 259.000 €
 Piso con ascensor en venta en Carrer de Bartrina 29
@@ -65038,7 +65038,7 @@ Nou Barris, Barcelona Capital
 2 hab.
 1 baños
 Bajos / Planta baja','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:28:47.245400',1);
-INSERT INTO "listings" VALUES('habitaclia_d30e2ea1-20e7-4cbc-8979-67886c64bab5','habitaclia','d30e2ea1-20e7-4cbc-8979-67886c64bab5','https://www.habitaclia.com/comprar/planta-intermedia/c-cadi/nou-barris/barcelona-capital/d30e2ea1-20e7-4cbc-8979-67886c64bab5/d','Piso en venta en C/ Cadi',190100.0,69.0,2.75507246376811599e+03,2,1,NULL,NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'1/9
+INSERT INTO "listings" VALUES('habitaclia_d30e2ea1-20e7-4cbc-8979-67886c64bab5','habitaclia','d30e2ea1-20e7-4cbc-8979-67886c64bab5','https://www.habitaclia.com/comprar/planta-intermedia/c-cadi/nou-barris/barcelona-capital/d30e2ea1-20e7-4cbc-8979-67886c64bab5/d','Piso en venta en C/ Cadi',190100.0,69.0,2.75507246376811599e+03,2,1,NULL,NULL,41.43156,2.168665,'turo de la peira','barcelona',NULL,'1/9
 190.100 €
 Piso en venta en C/ Cadi
 Nou Barris, Barcelona Capital
@@ -65516,7 +65516,7 @@ Barcelona Capital, Barcelona
 65 m²
 3 hab.
 1 baños','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:28:52.488511',1);
-INSERT INTO "listings" VALUES('habitaclia_495b026f-357e-4b09-b878-d3b833975ecd','habitaclia','495b026f-357e-4b09-b878-d3b833975ecd','https://www.habitaclia.com/comprar/planta-intermedia/nou-barris/barcelona-capital/495b026f-357e-4b09-b878-d3b833975ecd/d','Piso en venta en Nou Barris',195000.0,67.0,2.91044776119402968e+03,2,1,'3ª planta',NULL,NULL,NULL,'vilapicina','barcelona',NULL,'1/26
+INSERT INTO "listings" VALUES('habitaclia_495b026f-357e-4b09-b878-d3b833975ecd','habitaclia','495b026f-357e-4b09-b878-d3b833975ecd','https://www.habitaclia.com/comprar/planta-intermedia/nou-barris/barcelona-capital/495b026f-357e-4b09-b878-d3b833975ecd/d','Piso en venta en Nou Barris',195000.0,67.0,2.91044776119402968e+03,2,1,'3ª planta',NULL,41.427552,2.1698609,'vilapicina','barcelona',NULL,'1/26
 195.000 €
 Piso en venta en Nou Barris
 Barcelona Capital, Barcelona
@@ -66045,7 +66045,7 @@ L''Hospitalet de Llobregat, Barcelona
 3 hab.
 1 baños
 2º','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:09.723785',1);
-INSERT INTO "listings" VALUES('habitaclia_21eab05b-64bc-4ccc-8f9e-8666f1b6b066','habitaclia','21eab05b-64bc-4ccc-8f9e-8666f1b6b066','https://www.habitaclia.com/comprar/planta-intermedia/placa-mare-de-deu-de-montserrat/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/21eab05b-64bc-4ccc-8f9e-8666f1b6b066/d','Piso con balcón en venta en Plaça Mare de Déu de Montserrat',285000.0,66.0,4.31818181818181801e+03,3,1,'4ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_21eab05b-64bc-4ccc-8f9e-8666f1b6b066','habitaclia','21eab05b-64bc-4ccc-8f9e-8666f1b6b066','https://www.habitaclia.com/comprar/planta-intermedia/placa-mare-de-deu-de-montserrat/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/21eab05b-64bc-4ccc-8f9e-8666f1b6b066/d','Piso con balcón en venta en Plaça Mare de Déu de Montserrat',285000.0,66.0,4.31818181818181801e+03,3,1,'4ª planta',NULL,4.13576720999999878e+01,2.1009237,'centre','hospitalet de llobregat',NULL,'Oportunidad
 1/31
 285.000 €
 Piso con balcón en venta en Plaça Mare de Déu de Montserrat
@@ -66226,7 +66226,7 @@ Sants - Montjuïc, Barcelona Capital
 2 hab.
 1 baños
 2º','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:14.274183',1);
-INSERT INTO "listings" VALUES('habitaclia_e1160d9b-613f-4b3f-b928-ca8d85c29c33','habitaclia','e1160d9b-613f-4b3f-b928-ca8d85c29c33','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-l-onyar/sants-montjuic/barcelona-capital/e1160d9b-613f-4b3f-b928-ca8d85c29c33/d','Piso en venta en Carrer de l''Onyar',279000.0,66.0,4.22727272727272702e+03,3,1,'1ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'1/29
+INSERT INTO "listings" VALUES('habitaclia_e1160d9b-613f-4b3f-b928-ca8d85c29c33','habitaclia','e1160d9b-613f-4b3f-b928-ca8d85c29c33','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-l-onyar/sants-montjuic/barcelona-capital/e1160d9b-613f-4b3f-b928-ca8d85c29c33/d','Piso en venta en Carrer de l''Onyar',279000.0,66.0,4.22727272727272702e+03,3,1,'1ª planta',NULL,41.3620602,2.1417147,'marina del port','barcelona',NULL,'1/29
 1
 279.000 €
 Piso en venta en Carrer de l''Onyar
@@ -66335,7 +66335,7 @@ Barcelona Capital, Barcelona
 2 hab.
 1 baños
 Bajos / Planta baja','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-04 18:29:53.071367',1);
-INSERT INTO "listings" VALUES('habitaclia_5353a46e-b285-4512-b548-40a0ccab0f60','habitaclia','5353a46e-b285-4512-b548-40a0ccab0f60','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/5353a46e-b285-4512-b548-40a0ccab0f60/d','Piso con terraza en venta en Horta - Guinardó',239000.0,96.0,2.48958333333333348e+03,3,1,NULL,NULL,NULL,NULL,'horta','barcelona',NULL,'1/23
+INSERT INTO "listings" VALUES('habitaclia_5353a46e-b285-4512-b548-40a0ccab0f60','habitaclia','5353a46e-b285-4512-b548-40a0ccab0f60','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/5353a46e-b285-4512-b548-40a0ccab0f60/d','Piso con terraza en venta en Horta - Guinardó',239000.0,96.0,2.48958333333333348e+03,3,1,NULL,NULL,41.434545,2.1597382,'horta','barcelona',NULL,'1/23
 1
 239.000 €
 Piso con terraza en venta en Horta - Guinardó
@@ -66343,7 +66343,7 @@ Barcelona Capital, Barcelona
 96 m²
 3 hab.
 1 baños','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:18.911783',1);
-INSERT INTO "listings" VALUES('habitaclia_af2accf2-9455-4f5b-a657-9f7427d4bc2f','habitaclia','af2accf2-9455-4f5b-a657-9f7427d4bc2f','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/af2accf2-9455-4f5b-a657-9f7427d4bc2f/d','Piso en venta en Horta - Guinardó',249000.0,70.0,3.55714285714285733e+03,3,1,NULL,NULL,NULL,NULL,'horta','barcelona',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_af2accf2-9455-4f5b-a657-9f7427d4bc2f','habitaclia','af2accf2-9455-4f5b-a657-9f7427d4bc2f','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/af2accf2-9455-4f5b-a657-9f7427d4bc2f/d','Piso en venta en Horta - Guinardó',249000.0,70.0,3.55714285714285733e+03,3,1,NULL,NULL,41.434545,2.1597382,'horta','barcelona',NULL,'Oportunidad
 1/22
 1
 249.000 €
@@ -66439,7 +66439,7 @@ Horta - Guinardó, Barcelona Capital
 3 hab.
 1 baños
 Bajos / Planta baja','[]',NULL,'[{"price": 224675.0, "date": "2026-11-03T01:33:31.299517"}]','2026-10-29 21:16:44.448747','2026-11-07 04:29:19.184436',1);
-INSERT INTO "listings" VALUES('habitaclia_c680875e-5d57-4e51-9246-bb4025d58753','habitaclia','c680875e-5d57-4e51-9246-bb4025d58753','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/c680875e-5d57-4e51-9246-bb4025d58753/d','Piso con terraza en venta en Horta - Guinardó',265000.0,65.0,4.07692307692307713e+03,2,1,'1ª planta',NULL,NULL,NULL,'horta','barcelona',NULL,'1/19
+INSERT INTO "listings" VALUES('habitaclia_c680875e-5d57-4e51-9246-bb4025d58753','habitaclia','c680875e-5d57-4e51-9246-bb4025d58753','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/c680875e-5d57-4e51-9246-bb4025d58753/d','Piso con terraza en venta en Horta - Guinardó',265000.0,65.0,4.07692307692307713e+03,2,1,'1ª planta',NULL,41.430371417,2.160798601,'horta','barcelona',NULL,'1/19
 265.000 €
 Ha bajado 30.000 €
 Piso con terraza en venta en Horta - Guinardó
@@ -66465,7 +66465,7 @@ Horta - Guinardó, Barcelona Capital
 2 hab.
 1 baños
 1º','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:19.247297',1);
-INSERT INTO "listings" VALUES('habitaclia_0d201a8b-e267-4313-94b1-bce85ffdcccc','habitaclia','0d201a8b-e267-4313-94b1-bce85ffdcccc','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-eduard-toda/horta-guinardo/barcelona-capital/0d201a8b-e267-4313-94b1-bce85ffdcccc/d','Piso con terraza en venta en Carrer d''Eduard Toda',290000.0,71.0,4.08450704225352092e+03,3,1,'1ª planta',NULL,NULL,NULL,'horta','barcelona',NULL,'1/43
+INSERT INTO "listings" VALUES('habitaclia_0d201a8b-e267-4313-94b1-bce85ffdcccc','habitaclia','0d201a8b-e267-4313-94b1-bce85ffdcccc','https://www.habitaclia.com/comprar/planta-intermedia/carrer-d-eduard-toda/horta-guinardo/barcelona-capital/0d201a8b-e267-4313-94b1-bce85ffdcccc/d','Piso con terraza en venta en Carrer d''Eduard Toda',290000.0,71.0,4.08450704225352092e+03,3,1,'1ª planta',NULL,41.4362022,2.1561881,'horta','barcelona',NULL,'1/43
 290.000 €
 Ha bajado 20.000 €
 Piso con terraza en venta en Carrer d''Eduard Toda
@@ -66579,7 +66579,7 @@ Horta - Guinardó, Barcelona Capital
 2 hab.
 1 baños
 Bajos / Planta baja','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:23.479763',1);
-INSERT INTO "listings" VALUES('habitaclia_cff1e3dd-3d38-4c52-a75f-4017c751417b','habitaclia','cff1e3dd-3d38-4c52-a75f-4017c751417b','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/cff1e3dd-3d38-4c52-a75f-4017c751417b/d','Piso en venta en Horta - Guinardó',199900.0,70.0,2.85571428571428577e+03,2,2,NULL,NULL,NULL,NULL,'font d en fargues','barcelona',NULL,'1/15
+INSERT INTO "listings" VALUES('habitaclia_cff1e3dd-3d38-4c52-a75f-4017c751417b','habitaclia','cff1e3dd-3d38-4c52-a75f-4017c751417b','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/cff1e3dd-3d38-4c52-a75f-4017c751417b/d','Piso en venta en Horta - Guinardó',199900.0,70.0,2.85571428571428577e+03,2,2,NULL,NULL,41.4273377,2.1636141,'font d en fargues','barcelona',NULL,'1/15
 199.900 €
 Ha bajado 100 €
 Piso en venta en Horta - Guinardó
@@ -66604,7 +66604,7 @@ Horta - Guinardó, Barcelona Capital
 2 hab.
 1 baños
 Bajos / Planta baja','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:27.754917',1);
-INSERT INTO "listings" VALUES('habitaclia_b6e98b64-9104-4156-9c87-fa1e977ed475','habitaclia','b6e98b64-9104-4156-9c87-fa1e977ed475','https://www.habitaclia.com/comprar/planta-intermedia/avenida-can-baro/horta-guinardo/barcelona-capital/b6e98b64-9104-4156-9c87-fa1e977ed475/d','Piso con balcón en venta en Avenida Can Baró',295000.0,71.0,4.15492957746478896e+03,3,1,'2ª planta',NULL,NULL,NULL,'can baro','barcelona',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_b6e98b64-9104-4156-9c87-fa1e977ed475','habitaclia','b6e98b64-9104-4156-9c87-fa1e977ed475','https://www.habitaclia.com/comprar/planta-intermedia/avenida-can-baro/horta-guinardo/barcelona-capital/b6e98b64-9104-4156-9c87-fa1e977ed475/d','Piso con balcón en venta en Avenida Can Baró',295000.0,71.0,4.15492957746478896e+03,3,1,'2ª planta',NULL,41.415268,2.1610413,'can baro','barcelona',NULL,'Oportunidad
 1/27
 1
 295.000 €
@@ -66645,7 +66645,7 @@ Barcelona Capital, Barcelona
 2 hab.
 1 baños
 Bajos / Planta baja','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:27.860548',1);
-INSERT INTO "listings" VALUES('habitaclia_724611ca-ba9e-43e2-b6b9-4b877be61586','habitaclia','724611ca-ba9e-43e2-b6b9-4b877be61586','https://www.habitaclia.com/comprar/planta-intermedia/calle-alexandre-de-torrelles/horta-guinardo/barcelona-capital/724611ca-ba9e-43e2-b6b9-4b877be61586/d','Piso con ascensor en venta en Calle Alexandre de Torrelles .',300000.0,90.0,3.33333333333333348e+03,3,1,'3ª planta',NULL,NULL,NULL,'can baro','barcelona',NULL,'1/24
+INSERT INTO "listings" VALUES('habitaclia_724611ca-ba9e-43e2-b6b9-4b877be61586','habitaclia','724611ca-ba9e-43e2-b6b9-4b877be61586','https://www.habitaclia.com/comprar/planta-intermedia/calle-alexandre-de-torrelles/horta-guinardo/barcelona-capital/724611ca-ba9e-43e2-b6b9-4b877be61586/d','Piso con ascensor en venta en Calle Alexandre de Torrelles .',300000.0,90.0,3.33333333333333348e+03,3,1,'3ª planta',NULL,41.41657966,2.16108816,'can baro','barcelona',NULL,'1/24
 300.000 €
 Ha bajado 19.000 €
 Piso con ascensor en venta en Calle Alexandre de Torrelles .
@@ -66718,7 +66718,7 @@ Horta - Guinardó, Barcelona Capital
 63 m²
 3 hab.
 1 baños','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:28.048613',1);
-INSERT INTO "listings" VALUES('habitaclia_c5f653ad-1b7e-44e0-896b-ede075a9c372','habitaclia','c5f653ad-1b7e-44e0-896b-ede075a9c372','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-josep-serrano-51/horta-guinardo/barcelona-capital/c5f653ad-1b7e-44e0-896b-ede075a9c372/d','Piso en venta en Carrer de Josep Serrano 51',230000.0,78.0,2.94871794871794872e+03,2,1,NULL,NULL,NULL,NULL,'can baro','barcelona',NULL,'1/24
+INSERT INTO "listings" VALUES('habitaclia_c5f653ad-1b7e-44e0-896b-ede075a9c372','habitaclia','c5f653ad-1b7e-44e0-896b-ede075a9c372','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-josep-serrano-51/horta-guinardo/barcelona-capital/c5f653ad-1b7e-44e0-896b-ede075a9c372/d','Piso en venta en Carrer de Josep Serrano 51',230000.0,78.0,2.94871794871794872e+03,2,1,NULL,NULL,41.416923,2.1616611,'can baro','barcelona',NULL,'1/24
 230.000 €
 Piso en venta en Carrer de Josep Serrano 51
 Horta - Guinardó, Barcelona Capital
@@ -67626,7 +67626,7 @@ Sant Martí, Barcelona Capital
 83 m²
 1 baños
 Principal / Entresuelo','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:42.187181',1);
-INSERT INTO "listings" VALUES('habitaclia_e718ffca-c76c-4fec-8a8d-05e3d8040bce','habitaclia','e718ffca-c76c-4fec-8a8d-05e3d8040bce','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-concili-de-trento/sant-marti/barcelona-capital/e718ffca-c76c-4fec-8a8d-05e3d8040bce/d','Piso con ascensor en venta en Carrer del Concili de Trento',250000.0,75.0,3.33333333333333348e+03,3,1,'1ª planta',NULL,NULL,NULL,'sant marti de provencals','barcelona',NULL,'1/22
+INSERT INTO "listings" VALUES('habitaclia_e718ffca-c76c-4fec-8a8d-05e3d8040bce','habitaclia','e718ffca-c76c-4fec-8a8d-05e3d8040bce','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-concili-de-trento/sant-marti/barcelona-capital/e718ffca-c76c-4fec-8a8d-05e3d8040bce/d','Piso con ascensor en venta en Carrer del Concili de Trento',250000.0,75.0,3.33333333333333348e+03,3,1,'1ª planta',NULL,41.4170007,2.200212,'sant marti de provencals','barcelona',NULL,'1/22
 250.000 €
 Piso con ascensor en venta en Carrer del Concili de Trento
 Sant Martí, Barcelona Capital
@@ -67652,7 +67652,7 @@ Barcelona Capital, Barcelona
 66 m²
 3 hab.
 1 baños','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:42.249965',1);
-INSERT INTO "listings" VALUES('habitaclia_ded59b76-c60b-4a29-b81c-0bc9dc835ad3','habitaclia','ded59b76-c60b-4a29-b81c-0bc9dc835ad3','https://www.habitaclia.com/comprar/apartamento/carrer-de-menorca-44-barcelona-spain/sant-marti/barcelona-capital/ded59b76-c60b-4a29-b81c-0bc9dc835ad3/d','Apartamento con ascensor en venta en Carrer de Menorca, 44, Barcelona, Spain',295000.0,65.0,4.53846153846153811e+03,3,1,'4ª planta',NULL,NULL,NULL,'sant marti de provencals','barcelona',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_ded59b76-c60b-4a29-b81c-0bc9dc835ad3','habitaclia','ded59b76-c60b-4a29-b81c-0bc9dc835ad3','https://www.habitaclia.com/comprar/apartamento/carrer-de-menorca-44-barcelona-spain/sant-marti/barcelona-capital/ded59b76-c60b-4a29-b81c-0bc9dc835ad3/d','Apartamento con ascensor en venta en Carrer de Menorca, 44, Barcelona, Spain',295000.0,65.0,4.53846153846153811e+03,3,1,'4ª planta',NULL,41.4186005,2.1957935,'sant marti de provencals','barcelona',NULL,'Oportunidad
 1/21
 1
 295.000 €
@@ -67670,7 +67670,7 @@ Sant Martí, Barcelona Capital
 4 hab.
 1 baños
 Bajos / Planta baja','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:42.291830',1);
-INSERT INTO "listings" VALUES('habitaclia_176839f7-f037-4cf9-a286-f5d386734b13','habitaclia','176839f7-f037-4cf9-a286-f5d386734b13','https://www.habitaclia.com/comprar/planta-intermedia/gran-via-de-les-corts-catalanes-1041/sant-marti/barcelona-capital/176839f7-f037-4cf9-a286-f5d386734b13/d','Piso con balcón en venta en Gran Via de les Corts Catalanes 1041',289000.0,71.0,4.07042253521126758e+03,3,1,'1ª planta',NULL,NULL,NULL,'sant marti de provencals','barcelona',NULL,'1/33
+INSERT INTO "listings" VALUES('habitaclia_176839f7-f037-4cf9-a286-f5d386734b13','habitaclia','176839f7-f037-4cf9-a286-f5d386734b13','https://www.habitaclia.com/comprar/planta-intermedia/gran-via-de-les-corts-catalanes-1041/sant-marti/barcelona-capital/176839f7-f037-4cf9-a286-f5d386734b13/d','Piso con balcón en venta en Gran Via de les Corts Catalanes 1041',289000.0,71.0,4.07042253521126758e+03,3,1,'1ª planta',NULL,41.4145724,2.2009238,'sant marti de provencals','barcelona',NULL,'1/33
 289.000 €
 Ha bajado 9.000 €
 Piso con balcón en venta en Gran Via de les Corts Catalanes 1041
@@ -67679,7 +67679,7 @@ Sant Martí, Barcelona Capital
 3 hab.
 1 baños
 1º','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:42.312510',1);
-INSERT INTO "listings" VALUES('habitaclia_4aa9169e-a6db-473b-a499-f790c8a6d3b0','habitaclia','4aa9169e-a6db-473b-a499-f790c8a6d3b0','https://www.habitaclia.com/comprar/planta-intermedia/pont-del-treball-digne/sant-marti/barcelona-capital/4aa9169e-a6db-473b-a499-f790c8a6d3b0/d','Piso con terraza en venta en Pont del Treball Digne',279000.0,81.0,3.44444444444444434e+03,3,1,'5ª planta',NULL,NULL,NULL,'sant marti de provencals','barcelona',NULL,'1/18
+INSERT INTO "listings" VALUES('habitaclia_4aa9169e-a6db-473b-a499-f790c8a6d3b0','habitaclia','4aa9169e-a6db-473b-a499-f790c8a6d3b0','https://www.habitaclia.com/comprar/planta-intermedia/pont-del-treball-digne/sant-marti/barcelona-capital/4aa9169e-a6db-473b-a499-f790c8a6d3b0/d','Piso con terraza en venta en Pont del Treball Digne',279000.0,81.0,3.44444444444444434e+03,3,1,'5ª planta',NULL,41.421744,2.197647,'sant marti de provencals','barcelona',NULL,'1/18
 279.000 €
 Piso con terraza en venta en Pont del Treball Digne
 Sant Martí, Barcelona Capital
@@ -67695,7 +67695,7 @@ Sant Martí, Barcelona Capital
 3 hab.
 1 baños
 5º','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:42.354609',1);
-INSERT INTO "listings" VALUES('habitaclia_1013276a-511a-461b-aeb4-3e55f275ac4c','habitaclia','1013276a-511a-461b-aeb4-3e55f275ac4c','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-huelva/sant-marti/barcelona-capital/1013276a-511a-461b-aeb4-3e55f275ac4c/d','Piso con ascensor en venta en Carrer de Huelva',270000.0,69.0,3.9130434782608695e+03,2,1,'2ª planta',NULL,NULL,NULL,'sant marti de provencals','barcelona',NULL,'1/15
+INSERT INTO "listings" VALUES('habitaclia_1013276a-511a-461b-aeb4-3e55f275ac4c','habitaclia','1013276a-511a-461b-aeb4-3e55f275ac4c','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-huelva/sant-marti/barcelona-capital/1013276a-511a-461b-aeb4-3e55f275ac4c/d','Piso con ascensor en venta en Carrer de Huelva',270000.0,69.0,3.9130434782608695e+03,2,1,'2ª planta',NULL,41.4181951,2.1974667,'sant marti de provencals','barcelona',NULL,'1/15
 270.000 €
 Piso con ascensor en venta en Carrer de Huelva
 Sant Martí, Barcelona Capital
@@ -67744,14 +67744,14 @@ Sant Martí, Barcelona Capital
 4 hab.
 1 baños
 Bajos / Planta baja','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:42.459506',1);
-INSERT INTO "listings" VALUES('habitaclia_d9eba3e1-d50a-430d-ace2-add6ce8e39e3','habitaclia','d9eba3e1-d50a-430d-ace2-add6ce8e39e3','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-huelva/sant-marti/barcelona-capital/d9eba3e1-d50a-430d-ace2-add6ce8e39e3/d','Piso con ascensor en venta en Carrer de Huelva',257000.0,72.0,3.56944444444444434e+03,3,2,NULL,NULL,NULL,NULL,'sant marti de provencals','barcelona',NULL,'1/24
+INSERT INTO "listings" VALUES('habitaclia_d9eba3e1-d50a-430d-ace2-add6ce8e39e3','habitaclia','d9eba3e1-d50a-430d-ace2-add6ce8e39e3','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-huelva/sant-marti/barcelona-capital/d9eba3e1-d50a-430d-ace2-add6ce8e39e3/d','Piso con ascensor en venta en Carrer de Huelva',257000.0,72.0,3.56944444444444434e+03,3,2,NULL,NULL,41.4174973,2.1961618,'sant marti de provencals','barcelona',NULL,'1/24
 257.000 €
 Piso con ascensor en venta en Carrer de Huelva
 Sant Martí, Barcelona Capital
 72 m²
 3 hab.
 2 baños','[]',NULL,'[]','2026-10-29 21:16:44.448747','2026-11-07 04:29:42.480145',1);
-INSERT INTO "listings" VALUES('habitaclia_9c8b66ce-01ae-4f57-bf80-061b6f1d24c7','habitaclia','9c8b66ce-01ae-4f57-bf80-061b6f1d24c7','https://www.habitaclia.com/comprar/planta-intermedia/gran-via-de-les-corts-catalanes/sant-marti/barcelona-capital/9c8b66ce-01ae-4f57-bf80-061b6f1d24c7/d','Piso con balcón en venta en Gran Via de les Corts Catalanes',298000.0,92.0,3.23913043478260851e+03,3,1,'2ª planta',NULL,NULL,NULL,'sant marti de provencals','barcelona',NULL,'1/33
+INSERT INTO "listings" VALUES('habitaclia_9c8b66ce-01ae-4f57-bf80-061b6f1d24c7','habitaclia','9c8b66ce-01ae-4f57-bf80-061b6f1d24c7','https://www.habitaclia.com/comprar/planta-intermedia/gran-via-de-les-corts-catalanes/sant-marti/barcelona-capital/9c8b66ce-01ae-4f57-bf80-061b6f1d24c7/d','Piso con balcón en venta en Gran Via de les Corts Catalanes',298000.0,92.0,3.23913043478260851e+03,3,1,'2ª planta',NULL,4.14139970586917414e+01,2.20072534334716962e+00,'sant marti de provencals','barcelona',NULL,'1/33
 298.000 €
 Piso con balcón en venta en Gran Via de les Corts Catalanes
 Sant Martí, Barcelona Capital
@@ -70875,7 +70875,7 @@ INSERT INTO "listings" VALUES('habitaclia_41124000100376','habitaclia','41124000
 INSERT INTO "listings" VALUES('habitaclia_37637000027475','habitaclia','37637000027475','https://www.habitaclia.com/i37637000027475/28119224/live_n28119224202610311909220800/alertas/email/lo-16/20261031-n_precio_relajado_adyacencia_werise-education_img.htm','Piso en Barcelona - L´Antiga Esquerra...',404000.0,82.0,4.92682926829268308e+03,2,NULL,NULL,NULL,NULL,NULL,'l´antiga esquerra','barcelona',NULL,'https://www.habitaclia.com/i37637000027475/28119224/live_n28119224202610311909220800/alertas/email/lo-16/20261031-n_precio_relajado_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | Por solo 12% más | 404.000 € Piso en Barcelona - L´Antiga Esquerra... | 82m 2 | 2 hab. | | | | <a href="','[]',NULL,'[]','2026-10-31 20:19:04.602295','2026-10-31 20:29:09.762769',1);
 INSERT INTO "listings" VALUES('habitaclia_15516004282283','habitaclia','15516004282283','https://www.habitaclia.com/i15516004282283/28119224/live_n28119224202610311909220800/alertas/email/lo-18/20261031-n_adyacencia_werise-education_img.htm','Piso en Barcelona - Vilapicina - Torr...',349000.0,77.0,4.53246753246753269e+03,3,NULL,NULL,NULL,NULL,NULL,'vilapicina','barcelona',NULL,'https://www.habitaclia.com/i15516004282283/28119224/live_n28119224202610311909220800/alertas/email/lo-18/20261031-n_adyacencia_werise-education_img.htm" target="_blank" style="color:#000000;text-decoration:none;border:0"> | | | En Barcelona | 349.000 € Piso en Barcelona - Vilapicina - Torr... | 77m 2 | 3 hab. | | | | | | | | | | | | | | | | | | | | | | Modificar | | | | | | | | | Dejar de recibir | | | | | | | | | Ver más anuncios | | | | | | | | | | | | | | | | | | | | | | | Queremos conocer lo que piensas | | Tu opinión nos ayuda a mejorar. | | | | Leeremos a conciencia tus respuestas ;) | |','[]',NULL,'[]','2026-10-31 20:19:04.641240','2026-10-31 20:29:09.780098',1);
 INSERT INTO "listings" VALUES('idealista_112960140','idealista','112960140','https://www.idealista.com/inmueble/112960140/','Ático en Les Planes, Hospitalet de Llobregat',205000.0,73.0,2.80821917808219177e+03,3,NULL,'Ático',NULL,NULL,NULL,'les planes','hospitalet de llobregat',NULL,'https://www.idealista.com/inmueble/112960140/?utm_medium=email&utm_campaign=daily_oneSearch_full_sale&utm_campaigntype=retention&utm_project=adNotification&utm_source=alerts-id&utm_date_send=2026-11-01T031552&utm_link=propertyNewPhoto&utm_recipient_id=JGowRyE0F2b9Qxc/0kUcxFHh0TsyIioZ9ccuY0WP3NE=&origin=alertOneDailyFull&savedSearchAlertId=118438238&genericSearch=false&utm_notification_id=b0a4ab5f-f14a-4583-89f9-3da140c8793e" title="Ático en Les Planes, Hospitalet de Llobregat"> | | Novedad | | | Ático en Les Planes, Hospitalet de Llobregat | | | 205.000 € 2.808 €/m² | | | | 3 hab. 73 m² 5ª pla','[]',NULL,'[]','2026-10-31 20:29:09.176723','2026-11-01 05:42:12.557418',1);
-INSERT INTO "listings" VALUES('habitaclia_b25442e3-d50a-4270-891f-c2e5e8e7108a','habitaclia','b25442e3-d50a-4270-891f-c2e5e8e7108a','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/b25442e3-d50a-4270-891f-c2e5e8e7108a/d','Piso con balcón en venta en Can Vidalet',300000.0,90.0,3.33333333333333348e+03,3,1,'4ª planta',NULL,NULL,NULL,'esplugues de llobregat','esplugues de llobregat',NULL,'1/15
+INSERT INTO "listings" VALUES('habitaclia_b25442e3-d50a-4270-891f-c2e5e8e7108a','habitaclia','b25442e3-d50a-4270-891f-c2e5e8e7108a','https://www.habitaclia.com/comprar/planta-intermedia/can-vidalet/esplugues-de-llobregat/b25442e3-d50a-4270-891f-c2e5e8e7108a/d','Piso con balcón en venta en Can Vidalet',300000.0,90.0,3.33333333333333348e+03,3,1,'4ª planta',NULL,41.3742726,2.1008041,'esplugues de llobregat','esplugues de llobregat',NULL,'1/15
 300.000 €
 Piso con balcón en venta en Can Vidalet
 Esplugues de Llobregat, Barcelona
@@ -72757,7 +72757,7 @@ Barcelona Capital, Barcelona
 3 hab.
 2 baños
 1º','[]',NULL,'[]','2026-11-01 12:52:33.704687','2026-11-07 04:28:18.397230',1);
-INSERT INTO "listings" VALUES('habitaclia_0802b287-af32-4edb-b5b7-8472d9a4c11b','habitaclia','0802b287-af32-4edb-b5b7-8472d9a4c11b','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/0802b287-af32-4edb-b5b7-8472d9a4c11b/d','Piso con ascensor en venta en Horta - Guinardó',349000.0,88.0,3.96590909090909099e+03,2,2,'1ª planta',NULL,NULL,NULL,'el guinardo','barcelona',NULL,'1/32
+INSERT INTO "listings" VALUES('habitaclia_0802b287-af32-4edb-b5b7-8472d9a4c11b','habitaclia','0802b287-af32-4edb-b5b7-8472d9a4c11b','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/0802b287-af32-4edb-b5b7-8472d9a4c11b/d','Piso con ascensor en venta en Horta - Guinardó',349000.0,88.0,3.96590909090909099e+03,2,2,'1ª planta',NULL,41.418424101,2.169440394,'el guinardo','barcelona',NULL,'1/32
 1
 349.000 €
 Piso con ascensor en venta en Horta - Guinardó
@@ -72800,7 +72800,7 @@ Barcelona Capital, Barcelona
 2 hab.
 2 baños
 Bajos / Planta baja','[]',NULL,'[]','2026-11-01 12:52:33.704687','2026-11-04 18:28:50.356127',1);
-INSERT INTO "listings" VALUES('habitaclia_0a1c3651-f727-4776-ba1d-ce1880176495','habitaclia','0a1c3651-f727-4776-ba1d-ce1880176495','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/0a1c3651-f727-4776-ba1d-ce1880176495/d','Piso en venta en Horta - Guinardó',350000.0,91.0,3.84615384615384618e+03,4,2,NULL,NULL,NULL,NULL,'el guinardo','barcelona',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_0a1c3651-f727-4776-ba1d-ce1880176495','habitaclia','0a1c3651-f727-4776-ba1d-ce1880176495','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/0a1c3651-f727-4776-ba1d-ce1880176495/d','Piso en venta en Horta - Guinardó',350000.0,91.0,3.84615384615384618e+03,4,2,NULL,NULL,41.416684923431,2.1703544282406,'el guinardo','barcelona',NULL,'Oportunidad
 1/27
 350.000 €
 Piso en venta en Horta - Guinardó
@@ -72808,7 +72808,7 @@ Barcelona Capital, Barcelona
 91 m²
 4 hab.
 2 baños','[]',NULL,'[]','2026-11-01 12:52:33.704687','2026-11-07 04:28:18.605873',1);
-INSERT INTO "listings" VALUES('habitaclia_6a3e3fbd-52f9-471d-9365-e570be0d19df','habitaclia','6a3e3fbd-52f9-471d-9365-e570be0d19df','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/6a3e3fbd-52f9-471d-9365-e570be0d19df/d','Piso con balcón en venta en Horta - Guinardó',350000.0,66.0,5.303030303030303e+03,3,1,'4ª planta',NULL,NULL,NULL,'el guinardo','barcelona',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_6a3e3fbd-52f9-471d-9365-e570be0d19df','habitaclia','6a3e3fbd-52f9-471d-9365-e570be0d19df','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/6a3e3fbd-52f9-471d-9365-e570be0d19df/d','Piso con balcón en venta en Horta - Guinardó',350000.0,66.0,5.303030303030303e+03,3,1,'4ª planta',NULL,41.4245466,2.1760261,'el guinardo','barcelona',NULL,'Oportunidad
 1/23
 350.000 €
 Ha bajado 10.000 €
@@ -73512,7 +73512,7 @@ Sant Andreu, Barcelona Capital
 3 hab.
 2 baños
 Bajos / Planta baja','[]',NULL,'[]','2026-11-01 12:52:33.704687','2026-11-07 04:28:27.860284',1);
-INSERT INTO "listings" VALUES('habitaclia_fb2fa748-5494-49e8-861c-d4644a9bd6d5','habitaclia','fb2fa748-5494-49e8-861c-d4644a9bd6d5','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-josep-estivill/sant-andreu/barcelona-capital/fb2fa748-5494-49e8-861c-d4644a9bd6d5/d','Piso con balcón en venta en Carrer de Josep Estivill',339900.0,77.0,4.41428571428571467e+03,4,1,'4ª planta',NULL,NULL,NULL,'navas','barcelona',NULL,'1/27
+INSERT INTO "listings" VALUES('habitaclia_fb2fa748-5494-49e8-861c-d4644a9bd6d5','habitaclia','fb2fa748-5494-49e8-861c-d4644a9bd6d5','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-josep-estivill/sant-andreu/barcelona-capital/fb2fa748-5494-49e8-861c-d4644a9bd6d5/d','Piso con balcón en venta en Carrer de Josep Estivill',339900.0,77.0,4.41428571428571467e+03,4,1,'4ª planta',NULL,41.4168718,2.1862632,'navas','barcelona',NULL,'1/27
 339.900 €
 Piso con balcón en venta en Carrer de Josep Estivill
 Sant Andreu, Barcelona Capital
@@ -73650,7 +73650,7 @@ Sant Andreu, Barcelona Capital
 3 hab.
 1 baños
 Bajos / Planta baja','[]',NULL,'[]','2026-11-01 12:52:33.704687','2026-11-07 04:28:37.999227',1);
-INSERT INTO "listings" VALUES('habitaclia_3105e0e6-dfb5-4877-85e9-79266b2a9a16','habitaclia','3105e0e6-dfb5-4877-85e9-79266b2a9a16','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/3105e0e6-dfb5-4877-85e9-79266b2a9a16/d','Piso con ascensor en venta en Sant Andreu',335000.0,75.0,4.46666666666666696e+03,3,1,'3ª planta',NULL,NULL,NULL,'la sagrera','barcelona',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_3105e0e6-dfb5-4877-85e9-79266b2a9a16','habitaclia','3105e0e6-dfb5-4877-85e9-79266b2a9a16','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/3105e0e6-dfb5-4877-85e9-79266b2a9a16/d','Piso con ascensor en venta en Sant Andreu',335000.0,75.0,4.46666666666666696e+03,3,1,'3ª planta',NULL,41.4245421893,2.184950678,'la sagrera','barcelona',NULL,'Oportunidad
 1/16
 335.000 €
 Piso con ascensor en venta en Sant Andreu
@@ -73659,7 +73659,7 @@ Barcelona Capital, Barcelona
 3 hab.
 1 baños
 3º','[]',NULL,'[]','2026-11-01 12:52:33.704687','2026-11-07 04:28:38.040942',1);
-INSERT INTO "listings" VALUES('habitaclia_5b02164d-54ca-4946-b85b-768307ceac34','habitaclia','5b02164d-54ca-4946-b85b-768307ceac34','https://www.habitaclia.com/comprar/planta-intermedia/carrer-carrer-concepcion-arenal/sant-andreu/barcelona-capital/5b02164d-54ca-4946-b85b-768307ceac34/d','Piso con ascensor en venta en Carrer Carrer Concepción Arenal',350000.0,93.0,3.76344086021505381e+03,2,2,'2ª planta',NULL,NULL,NULL,'la sagrera','barcelona',NULL,'1/32
+INSERT INTO "listings" VALUES('habitaclia_5b02164d-54ca-4946-b85b-768307ceac34','habitaclia','5b02164d-54ca-4946-b85b-768307ceac34','https://www.habitaclia.com/comprar/planta-intermedia/carrer-carrer-concepcion-arenal/sant-andreu/barcelona-capital/5b02164d-54ca-4946-b85b-768307ceac34/d','Piso con ascensor en venta en Carrer Carrer Concepción Arenal',350000.0,93.0,3.76344086021505381e+03,2,2,'2ª planta',NULL,41.427538609,2.184469209,'la sagrera','barcelona',NULL,'1/32
 1
 350.000 €
 Piso con ascensor en venta en Carrer Carrer Concepción Arenal
@@ -73736,7 +73736,7 @@ Sant Martí, Barcelona Capital
 3 hab.
 1 baños
 5º','[]',NULL,'[]','2026-11-01 12:52:33.704687','2026-11-07 04:28:56.783698',1);
-INSERT INTO "listings" VALUES('habitaclia_f56b79b0-5bff-499d-943d-26f1d7f1d854','habitaclia','f56b79b0-5bff-499d-943d-26f1d7f1d854','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-biscaia/sant-marti/barcelona-capital/f56b79b0-5bff-499d-943d-26f1d7f1d854/d','Piso con ascensor en venta en Carrer de Biscaia',335000.0,79.0,4.24050632911392403e+03,3,1,'6ª planta',NULL,NULL,NULL,'el clot','barcelona',NULL,'1/20
+INSERT INTO "listings" VALUES('habitaclia_f56b79b0-5bff-499d-943d-26f1d7f1d854','habitaclia','f56b79b0-5bff-499d-943d-26f1d7f1d854','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-biscaia/sant-marti/barcelona-capital/f56b79b0-5bff-499d-943d-26f1d7f1d854/d','Piso con ascensor en venta en Carrer de Biscaia',335000.0,79.0,4.24050632911392403e+03,3,1,'6ª planta',NULL,41.4140773,2.1901775,'el clot','barcelona',NULL,'1/20
 335.000 €
 Piso con ascensor en venta en Carrer de Biscaia
 Sant Martí, Barcelona Capital
@@ -73768,7 +73768,7 @@ Sant Martí, Barcelona Capital
 61 m²
 1 hab.
 1 baños','[]',NULL,'[]','2026-11-01 12:52:33.704687','2026-11-07 04:28:56.910568',1);
-INSERT INTO "listings" VALUES('habitaclia_ec96f728-0881-422c-a0c4-3c3148259092','habitaclia','ec96f728-0881-422c-a0c4-3c3148259092','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-democracia/sant-marti/barcelona-capital/ec96f728-0881-422c-a0c4-3c3148259092/d','Piso con balcón en venta en Carrer de la Democràcia',339000.0,65.0,5.21538461538461524e+03,2,1,'2ª planta',NULL,NULL,NULL,'el clot','barcelona',NULL,'1/35
+INSERT INTO "listings" VALUES('habitaclia_ec96f728-0881-422c-a0c4-3c3148259092','habitaclia','ec96f728-0881-422c-a0c4-3c3148259092','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-democracia/sant-marti/barcelona-capital/ec96f728-0881-422c-a0c4-3c3148259092/d','Piso con balcón en venta en Carrer de la Democràcia',339000.0,65.0,5.21538461538461524e+03,2,1,'2ª planta',NULL,41.4094836,2.1927679,'el clot','barcelona',NULL,'1/35
 1
 339.000 €
 Ha bajado 8.000 €
@@ -73796,7 +73796,7 @@ Sant Martí, Barcelona Capital
 2 hab.
 2 baños
 Bajos / Planta baja','[]',NULL,'[]','2026-11-01 12:52:33.704687','2026-11-03 14:50:38.327963',1);
-INSERT INTO "listings" VALUES('habitaclia_d8171a51-8367-4f57-8070-66a8e72cd789','habitaclia','d8171a51-8367-4f57-8070-66a8e72cd789','https://www.habitaclia.com/comprar/planta-intermedia/gran-via-de-les-corts-catalanes/sant-marti/barcelona-capital/d8171a51-8367-4f57-8070-66a8e72cd789/d','Piso con balcón en venta en Gran Via de les Corts Catalanes',350000.0,67.0,5.22388059701492511e+03,3,1,'7ª planta',NULL,NULL,NULL,'el clot','barcelona',NULL,'1/12
+INSERT INTO "listings" VALUES('habitaclia_d8171a51-8367-4f57-8070-66a8e72cd789','habitaclia','d8171a51-8367-4f57-8070-66a8e72cd789','https://www.habitaclia.com/comprar/planta-intermedia/gran-via-de-les-corts-catalanes/sant-marti/barcelona-capital/d8171a51-8367-4f57-8070-66a8e72cd789/d','Piso con balcón en venta en Gran Via de les Corts Catalanes',350000.0,67.0,5.22388059701492511e+03,3,1,'7ª planta',NULL,41.4074582,2.1914994,'el clot','barcelona',NULL,'1/12
 350.000 €
 Piso con balcón en venta en Gran Via de les Corts Catalanes
 Sant Martí, Barcelona Capital
@@ -77567,14 +77567,14 @@ Badalona, Barcelona
 3 hab.
 3 baños
 5º','[]',NULL,'[]','2026-11-03 02:04:26.090474','2026-11-06 17:32:27.373937',1);
-INSERT INTO "listings" VALUES('habitaclia_3e69547a-8108-466a-b4a4-2232f4dba904','habitaclia','3e69547a-8108-466a-b4a4-2232f4dba904','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/3e69547a-8108-466a-b4a4-2232f4dba904/d','Piso con ascensor en venta en Horta - Guinardó',290000.0,72.0,4.02777777777777782e+03,2,1,NULL,NULL,NULL,NULL,'el guinardo','barcelona',NULL,'1/12
+INSERT INTO "listings" VALUES('habitaclia_3e69547a-8108-466a-b4a4-2232f4dba904','habitaclia','3e69547a-8108-466a-b4a4-2232f4dba904','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/3e69547a-8108-466a-b4a4-2232f4dba904/d','Piso con ascensor en venta en Horta - Guinardó',290000.0,72.0,4.02777777777777782e+03,2,1,NULL,NULL,41.4224384,2.1748779,'el guinardo','barcelona',NULL,'1/12
 290.000 €
 Piso con ascensor en venta en Horta - Guinardó
 Barcelona Capital, Barcelona
 72 m²
 2 hab.
 1 baños','[]',NULL,'[]','2026-11-03 02:04:45.334370','2026-11-07 04:28:18.271984',1);
-INSERT INTO "listings" VALUES('habitaclia_7241c9e2-7041-4f1d-aef4-a573ec0202df','habitaclia','7241c9e2-7041-4f1d-aef4-a573ec0202df','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-valles/sant-andreu/barcelona-capital/7241c9e2-7041-4f1d-aef4-a573ec0202df/d','Piso con balcón en venta en Carrer del Vallès',289000.0,66.0,4.37878787878787898e+03,2,1,'2ª planta',NULL,NULL,NULL,'sant andreu','barcelona',NULL,'1/40
+INSERT INTO "listings" VALUES('habitaclia_7241c9e2-7041-4f1d-aef4-a573ec0202df','habitaclia','7241c9e2-7041-4f1d-aef4-a573ec0202df','https://www.habitaclia.com/comprar/planta-intermedia/carrer-del-valles/sant-andreu/barcelona-capital/7241c9e2-7041-4f1d-aef4-a573ec0202df/d','Piso con balcón en venta en Carrer del Vallès',289000.0,66.0,4.37878787878787898e+03,2,1,'2ª planta',NULL,41.4315081,2.1887924,'sant andreu','barcelona',NULL,'1/40
 289.000 €
 Piso con balcón en venta en Carrer del Vallès
 Sant Andreu, Barcelona Capital
@@ -77582,7 +77582,7 @@ Sant Andreu, Barcelona Capital
 2 hab.
 1 baños
 2º','[]',NULL,'[]','2026-11-03 02:05:13.525005','2026-11-07 04:28:32.675229',1);
-INSERT INTO "listings" VALUES('habitaclia_9bd079e5-045e-4dc8-b945-53c3266524db','habitaclia','9bd079e5-045e-4dc8-b945-53c3266524db','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/9bd079e5-045e-4dc8-b945-53c3266524db/d','Piso con balcón en venta en Sant Andreu',315000.0,69.0,4.56521739130434798e+03,2,1,'1ª planta',NULL,NULL,NULL,'la sagrera','barcelona',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_9bd079e5-045e-4dc8-b945-53c3266524db','habitaclia','9bd079e5-045e-4dc8-b945-53c3266524db','https://www.habitaclia.com/comprar/planta-intermedia/sant-andreu/barcelona-capital/9bd079e5-045e-4dc8-b945-53c3266524db/d','Piso con balcón en venta en Sant Andreu',315000.0,69.0,4.56521739130434798e+03,2,1,'1ª planta',NULL,41.423619,2.1909992,'la sagrera','barcelona',NULL,'Oportunidad
 1/36
 315.000 €
 Piso con balcón en venta en Sant Andreu
@@ -77663,7 +77663,7 @@ Nou Barris, Barcelona Capital
 60 m²
 3 hab.
 1 baños','[]',NULL,'[]','2026-11-03 02:07:36.218391','2026-11-07 04:29:32.511314',1);
-INSERT INTO "listings" VALUES('habitaclia_9ed778c8-8eb9-4a90-ab14-8a526664c4a7','habitaclia','9ed778c8-8eb9-4a90-ab14-8a526664c4a7','https://www.habitaclia.com/comprar/planta-intermedia/nou-barris/barcelona-capital/9ed778c8-8eb9-4a90-ab14-8a526664c4a7/d','Piso con balcón en venta en Nou Barris',259000.0,68.0,3.80882352941176486e+03,3,1,'5ª planta',NULL,NULL,NULL,'porta','barcelona',NULL,'1/43
+INSERT INTO "listings" VALUES('habitaclia_9ed778c8-8eb9-4a90-ab14-8a526664c4a7','habitaclia','9ed778c8-8eb9-4a90-ab14-8a526664c4a7','https://www.habitaclia.com/comprar/planta-intermedia/nou-barris/barcelona-capital/9ed778c8-8eb9-4a90-ab14-8a526664c4a7/d','Piso con balcón en venta en Nou Barris',259000.0,68.0,3.80882352941176486e+03,3,1,'5ª planta',NULL,41.4383687,2.1798181,'porta','barcelona',NULL,'1/43
 259.000 €
 Piso con balcón en venta en Nou Barris
 Barcelona Capital, Barcelona
@@ -77704,7 +77704,7 @@ Barcelona Capital, Barcelona
 3 hab.
 1 baños
 3º','[]',NULL,'[]','2026-11-03 02:08:07.767683','2026-11-07 04:29:42.080646',1);
-INSERT INTO "listings" VALUES('habitaclia_cac7283d-8001-4971-a7f0-0f7da99be1de','habitaclia','cac7283d-8001-4971-a7f0-0f7da99be1de','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-igualtat/santa-eulalia/l-hospitalet-de-llobregat/cac7283d-8001-4971-a7f0-0f7da99be1de/d','Piso con terraza en venta en Carrer de la Igualtat',290000.0,85.0,3.41176470588235315e+03,3,1,NULL,NULL,NULL,NULL,'santa eulalia','hospitalet de llobregat',NULL,'1/27
+INSERT INTO "listings" VALUES('habitaclia_cac7283d-8001-4971-a7f0-0f7da99be1de','habitaclia','cac7283d-8001-4971-a7f0-0f7da99be1de','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-igualtat/santa-eulalia/l-hospitalet-de-llobregat/cac7283d-8001-4971-a7f0-0f7da99be1de/d','Piso con terraza en venta en Carrer de la Igualtat',290000.0,85.0,3.41176470588235315e+03,3,1,NULL,NULL,41.3602,2.1256,'santa eulalia','hospitalet de llobregat',NULL,'1/27
 290.000 €
 Piso con terraza en venta en Carrer de la Igualtat
 Santa Eulàlia, L''Hospitalet de Llobregat
@@ -77719,7 +77719,7 @@ Santa Eulàlia, L''Hospitalet de Llobregat
 1 hab.
 1 baños
 1º','[]',NULL,'[]','2026-11-03 02:08:33.645754','2026-11-07 04:29:51.815879',1);
-INSERT INTO "listings" VALUES('habitaclia_e7073959-1c47-474d-8120-96511de8adf3','habitaclia','e7073959-1c47-474d-8120-96511de8adf3','https://www.habitaclia.com/comprar/planta-intermedia/calle-blas-fernandez-lirola-de/santa-eulalia/l-hospitalet-de-llobregat/e7073959-1c47-474d-8120-96511de8adf3/d','Piso con ascensor en venta en Calle Blas Fernandez Lirola de',298000.0,83.0,3.59036144578313269e+03,3,1,'2ª planta',NULL,NULL,NULL,'santa eulalia','hospitalet de llobregat',NULL,'1/26
+INSERT INTO "listings" VALUES('habitaclia_e7073959-1c47-474d-8120-96511de8adf3','habitaclia','e7073959-1c47-474d-8120-96511de8adf3','https://www.habitaclia.com/comprar/planta-intermedia/calle-blas-fernandez-lirola-de/santa-eulalia/l-hospitalet-de-llobregat/e7073959-1c47-474d-8120-96511de8adf3/d','Piso con ascensor en venta en Calle Blas Fernandez Lirola de',298000.0,83.0,3.59036144578313269e+03,3,1,'2ª planta',NULL,41.3613,2.12732,'santa eulalia','hospitalet de llobregat',NULL,'1/26
 298.000 €
 Piso con ascensor en venta en Calle Blas Fernandez Lirola de
 Santa Eulàlia, L''Hospitalet de Llobregat
@@ -77735,7 +77735,7 @@ Santa Eulàlia, L''Hospitalet de Llobregat
 3 hab.
 1 baños
 2º','[]',NULL,'[]','2026-11-03 02:08:40.575770','2026-11-07 04:29:51.856383',1);
-INSERT INTO "listings" VALUES('habitaclia_9a572ad6-deb9-4484-8cff-18380f53d3f3','habitaclia','9a572ad6-deb9-4484-8cff-18380f53d3f3','https://www.habitaclia.com/comprar/planta-intermedia/calle-jacint-verdaguer-de/santa-eulalia/l-hospitalet-de-llobregat/9a572ad6-deb9-4484-8cff-18380f53d3f3/d','Piso con ascensor en venta en Calle Jacint Verdaguer de',299000.0,103.0,2.90291262135922352e+03,3,1,'1ª planta',NULL,NULL,NULL,'santa eulalia','hospitalet de llobregat',NULL,'1/28
+INSERT INTO "listings" VALUES('habitaclia_9a572ad6-deb9-4484-8cff-18380f53d3f3','habitaclia','9a572ad6-deb9-4484-8cff-18380f53d3f3','https://www.habitaclia.com/comprar/planta-intermedia/calle-jacint-verdaguer-de/santa-eulalia/l-hospitalet-de-llobregat/9a572ad6-deb9-4484-8cff-18380f53d3f3/d','Piso con ascensor en venta en Calle Jacint Verdaguer de',299000.0,103.0,2.90291262135922352e+03,3,1,'1ª planta',NULL,41.3663,2.12792,'santa eulalia','hospitalet de llobregat',NULL,'1/28
 299.000 €
 Piso con ascensor en venta en Calle Jacint Verdaguer de
 Santa Eulàlia, L''Hospitalet de Llobregat
@@ -79541,7 +79541,7 @@ Somos una agencia inmobiliaria con presencia en todo el territorio nacional, con
 Además, ofrecemos servicios complementarios de alta calidad como: -Gestión vertical y/u horizontal de propiedades. -Soluciones de financiación para compra o alquiler. Tramitación de seguros y asesoramiento jurídico y fiscal. Reformas y diseño de interiores.
 
 **El precio del inmueble no incluye impuestos, gastos notariales y registrales, honorarios de agencia ni gestión hipotecaria (si procede).**','["https://static.fotocasa.es/images/ads/670a6984-5910-4214-9fc3-bc175540f69b?rule=original", "https://static.fotocasa.es/images/ads/31a07830-7184-4d22-802d-cfe708fa650c?rule=original", "https://static.fotocasa.es/images/ads/684d32a8-065a-4ec0-a84c-1ebe2035957b?rule=original", "https://static.fotocasa.es/images/ads/484e4b40-5e93-46de-adac-522b807916db?rule=original", "https://static.fotocasa.es/images/ads/271398c7-024a-4260-90e4-fa7c764b9900?rule=original"]',NULL,'[]','2026-11-03 14:23:14.074427','2026-11-03 14:23:14.074427',1);
-INSERT INTO "listings" VALUES('habitaclia_2f35c1bb-b3e7-4df2-84d3-fef457228f68','habitaclia','2f35c1bb-b3e7-4df2-84d3-fef457228f68','https://www.habitaclia.com/comprar/planta-intermedia/c-falguera/centre-can-nadal/sant-feliu-de-llobregat/2f35c1bb-b3e7-4df2-84d3-fef457228f68/d','Piso en venta en C/ Falguera',229000.0,75.0,3.05333333333333348e+03,3,1,NULL,NULL,NULL,NULL,'centre - can nadal','sant feliu de llobregat',NULL,'1/7
+INSERT INTO "listings" VALUES('habitaclia_2f35c1bb-b3e7-4df2-84d3-fef457228f68','habitaclia','2f35c1bb-b3e7-4df2-84d3-fef457228f68','https://www.habitaclia.com/comprar/planta-intermedia/c-falguera/centre-can-nadal/sant-feliu-de-llobregat/2f35c1bb-b3e7-4df2-84d3-fef457228f68/d','Piso en venta en C/ Falguera',229000.0,75.0,3.05333333333333348e+03,3,1,NULL,NULL,4.13834350934017933e+01,2.04094819663231286e+00,'centre - can nadal','sant feliu de llobregat',NULL,'1/7
 229.000 €
 Piso en venta en C/ Falguera
 Centre - Can Nadal, Sant Feliu de Llobregat
@@ -79586,7 +79586,7 @@ Cornellà de Llobregat, Barcelona
 3 hab.
 1 baños
 7º','[]',NULL,'[]','2026-11-03 14:48:54.207348','2026-11-07 04:27:54.415320',1);
-INSERT INTO "listings" VALUES('habitaclia_3e280afb-6ff4-4291-9871-df9e7377e970','habitaclia','3e280afb-6ff4-4291-9871-df9e7377e970','https://www.habitaclia.com/comprar/planta-intermedia/cl-gandesa/fontsanta-fatjo/cornella-de-llobregat/3e280afb-6ff4-4291-9871-df9e7377e970/d','Piso con balcón en venta en Cl Gandesa',310000.0,111.0,2.79279279279279262e+03,3,2,'1ª planta',NULL,NULL,NULL,'fontsanta - fatjó','cornellà de llobregat',NULL,'1/19
+INSERT INTO "listings" VALUES('habitaclia_3e280afb-6ff4-4291-9871-df9e7377e970','habitaclia','3e280afb-6ff4-4291-9871-df9e7377e970','https://www.habitaclia.com/comprar/planta-intermedia/cl-gandesa/fontsanta-fatjo/cornella-de-llobregat/3e280afb-6ff4-4291-9871-df9e7377e970/d','Piso con balcón en venta en Cl Gandesa',310000.0,111.0,2.79279279279279262e+03,3,2,'1ª planta',NULL,41.3604918,2.05977031,'fontsanta - fatjó','cornellà de llobregat',NULL,'1/19
 310.000 €
 Piso con balcón en venta en Cl Gandesa
 Fontsanta - Fatjó, Cornellà de Llobregat
@@ -79611,7 +79611,7 @@ Barcelona Capital, Barcelona
 3 hab.
 1 baños
 6º','[]',NULL,'[]','2026-11-03 15:03:44.962040','2026-11-06 22:39:46.364754',1);
-INSERT INTO "listings" VALUES('habitaclia_15f51b82-3de6-45ab-91ec-8e4ef5632b0c','habitaclia','15f51b82-3de6-45ab-91ec-8e4ef5632b0c','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-mare-de-deu-de-port/sants-montjuic/barcelona-capital/15f51b82-3de6-45ab-91ec-8e4ef5632b0c/d','Piso con balcón en venta en Carrer de la Mare de Déu de Port',260000.0,67.0,3.88059701492537305e+03,3,1,'7ª planta',NULL,NULL,NULL,'marina del port','barcelona',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_15f51b82-3de6-45ab-91ec-8e4ef5632b0c','habitaclia','15f51b82-3de6-45ab-91ec-8e4ef5632b0c','https://www.habitaclia.com/comprar/planta-intermedia/carrer-de-la-mare-de-deu-de-port/sants-montjuic/barcelona-capital/15f51b82-3de6-45ab-91ec-8e4ef5632b0c/d','Piso con balcón en venta en Carrer de la Mare de Déu de Port',260000.0,67.0,3.88059701492537305e+03,3,1,'7ª planta',NULL,41.3632114,2.139185,'marina del port','barcelona',NULL,'Oportunidad
 1/35
 260.000 €
 Piso con balcón en venta en Carrer de la Mare de Déu de Port
@@ -80303,7 +80303,7 @@ Eixample, Barcelona Capital
 3 hab.
 1 baños
 1º','[]',NULL,'[]','2026-11-03 16:44:01.308412','2026-11-03 16:44:01.308412',1);
-INSERT INTO "listings" VALUES('habitaclia_9a0b6198-6eb4-44ec-9f61-e884f75080c0','habitaclia','9a0b6198-6eb4-44ec-9f61-e884f75080c0','https://www.habitaclia.com/comprar/planta-intermedia/gran-via-de-les-corts-catalanes/sant-marti/barcelona-capital/9a0b6198-6eb4-44ec-9f61-e884f75080c0/d','Piso en venta en Gran Via de les Corts Catalanes',300000.0,85.0,3.52941176470588243e+03,3,1,NULL,NULL,NULL,NULL,'provencals del poblenou','barcelona',NULL,'1/7
+INSERT INTO "listings" VALUES('habitaclia_9a0b6198-6eb4-44ec-9f61-e884f75080c0','habitaclia','9a0b6198-6eb4-44ec-9f61-e884f75080c0','https://www.habitaclia.com/comprar/planta-intermedia/gran-via-de-les-corts-catalanes/sant-marti/barcelona-capital/9a0b6198-6eb4-44ec-9f61-e884f75080c0/d','Piso en venta en Gran Via de les Corts Catalanes',300000.0,85.0,3.52941176470588243e+03,3,1,NULL,NULL,41.416886,2.205939,'provencals del poblenou','barcelona',NULL,'1/7
 300.000 €
 Piso en venta en Gran Via de les Corts Catalanes
 Sant Martí, Barcelona Capital
@@ -81255,7 +81255,7 @@ Montigalà - Sant Crist, Badalona
 3 hab.
 1 baños
 4º','[]',NULL,'[{"price": 168000.0, "date": "2026-11-05T11:35:39.501778"}]','2026-11-03 19:04:56.735309','2026-11-07 04:28:08.579981',1);
-INSERT INTO "listings" VALUES('habitaclia_146d3a26-7ce5-4430-a41e-d039eebc160a','habitaclia','146d3a26-7ce5-4430-a41e-d039eebc160a','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/146d3a26-7ce5-4430-a41e-d039eebc160a/d','Piso con terraza en venta en Centre',275000.0,86.0,3.19767441860465123e+03,3,1,'2ª planta',NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/10
+INSERT INTO "listings" VALUES('habitaclia_146d3a26-7ce5-4430-a41e-d039eebc160a','habitaclia','146d3a26-7ce5-4430-a41e-d039eebc160a','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/146d3a26-7ce5-4430-a41e-d039eebc160a/d','Piso con terraza en venta en Centre',275000.0,86.0,3.19767441860465123e+03,3,1,'2ª planta',NULL,41.45532,2.208544,'centre','santa coloma de gramenet',NULL,'1/10
 275.000 €
 Piso con terraza en venta en Centre
 Santa Coloma de Gramenet, Barcelona
@@ -83344,7 +83344,7 @@ Barcelona Capital, Barcelona
 3 hab.
 2 baños
 2º','[]',NULL,'[]','2026-11-04 12:42:06.060659','2026-11-07 04:29:37.252883',1);
-INSERT INTO "listings" VALUES('habitaclia_4200c7b3-148e-4f7a-8eae-f5690edb6d65','habitaclia','4200c7b3-148e-4f7a-8eae-f5690edb6d65','https://www.habitaclia.com/comprar/planta-intermedia/santa-eulalia/l-hospitalet-de-llobregat/4200c7b3-148e-4f7a-8eae-f5690edb6d65/d','Piso con terraza en venta en Santa Eulàlia',239000.0,73.0,3.27397260273972597e+03,3,1,NULL,NULL,NULL,NULL,'santa eulalia','hospitalet de llobregat',NULL,'1/23
+INSERT INTO "listings" VALUES('habitaclia_4200c7b3-148e-4f7a-8eae-f5690edb6d65','habitaclia','4200c7b3-148e-4f7a-8eae-f5690edb6d65','https://www.habitaclia.com/comprar/planta-intermedia/santa-eulalia/l-hospitalet-de-llobregat/4200c7b3-148e-4f7a-8eae-f5690edb6d65/d','Piso con terraza en venta en Santa Eulàlia',239000.0,73.0,3.27397260273972597e+03,3,1,NULL,NULL,41.3643,2.12156,'santa eulalia','hospitalet de llobregat',NULL,'1/23
 239.000 €
 Piso con terraza en venta en Santa Eulàlia
 L''Hospitalet de Llobregat, Barcelona
@@ -85861,7 +85861,7 @@ Bonavista - Bufalà - Morera, Badalona
 208 m²
 3 hab.
 2 baños','[]',NULL,'[]','2026-11-04 18:48:54.692073','2026-11-07 04:28:03.771528',1);
-INSERT INTO "listings" VALUES('habitaclia_75aaa111-67cd-4b11-ae4a-26cd2b06c66e','habitaclia','75aaa111-67cd-4b11-ae4a-26cd2b06c66e','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/75aaa111-67cd-4b11-ae4a-26cd2b06c66e/d','Piso con terraza en venta en Centre',314500.0,90.0,3.49444444444444434e+03,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/26
+INSERT INTO "listings" VALUES('habitaclia_75aaa111-67cd-4b11-ae4a-26cd2b06c66e','habitaclia','75aaa111-67cd-4b11-ae4a-26cd2b06c66e','https://www.habitaclia.com/comprar/planta-intermedia/centre/santa-coloma-de-gramenet/75aaa111-67cd-4b11-ae4a-26cd2b06c66e/d','Piso con terraza en venta en Centre',314500.0,90.0,3.49444444444444434e+03,3,1,NULL,NULL,41.4515,2.21033,'centre','santa coloma de gramenet',NULL,'1/26
 314.500 €
 Piso con terraza en venta en Centre
 Santa Coloma de Gramenet, Barcelona
@@ -87499,7 +87499,7 @@ Sant Andreu, Barcelona Capital
 3 hab.
 1 baños
 6º','[]',NULL,'[]','2026-11-05 11:49:44.766159','2026-11-07 04:28:32.609357',1);
-INSERT INTO "listings" VALUES('habitaclia_83afd63b-67cf-4d31-a025-995408dbe611','habitaclia','83afd63b-67cf-4d31-a025-995408dbe611','https://www.habitaclia.com/comprar/planta-intermedia/calle-doctor-pi-i-molist/nou-barris/barcelona-capital/83afd63b-67cf-4d31-a025-995408dbe611/d','Piso con ascensor en venta en Calle Doctor Pi i Molist',245000.0,67.0,3.65671641791044794e+03,2,1,'4ª planta',NULL,NULL,NULL,'turo de la peira','barcelona',NULL,'Oportunidad
+INSERT INTO "listings" VALUES('habitaclia_83afd63b-67cf-4d31-a025-995408dbe611','habitaclia','83afd63b-67cf-4d31-a025-995408dbe611','https://www.habitaclia.com/comprar/planta-intermedia/calle-doctor-pi-i-molist/nou-barris/barcelona-capital/83afd63b-67cf-4d31-a025-995408dbe611/d','Piso con ascensor en venta en Calle Doctor Pi i Molist',245000.0,67.0,3.65671641791044794e+03,2,1,'4ª planta',NULL,41.434321037,2.17235556,'turo de la peira','barcelona',NULL,'Oportunidad
 1/12
 245.000 €
 Piso con ascensor en venta en Calle Doctor Pi i Molist
@@ -87508,7 +87508,7 @@ Nou Barris, Barcelona Capital
 2 hab.
 1 baños
 4º','[]',NULL,'[]','2026-11-05 11:50:04.796566','2026-11-07 04:28:47.181848',1);
-INSERT INTO "listings" VALUES('habitaclia_2aa99f80-7b9a-4f11-b337-0c4d924eae6f','habitaclia','2aa99f80-7b9a-4f11-b337-0c4d924eae6f','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/2aa99f80-7b9a-4f11-b337-0c4d924eae6f/d','Piso con jardín en venta en Horta - Guinardó',297800.0,65.0,4.58153846153846188e+03,2,1,'1ª planta',NULL,NULL,NULL,'can baro','barcelona',NULL,'1/15
+INSERT INTO "listings" VALUES('habitaclia_2aa99f80-7b9a-4f11-b337-0c4d924eae6f','habitaclia','2aa99f80-7b9a-4f11-b337-0c4d924eae6f','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/2aa99f80-7b9a-4f11-b337-0c4d924eae6f/d','Piso con jardín en venta en Horta - Guinardó',297800.0,65.0,4.58153846153846188e+03,2,1,'1ª planta',NULL,41.41632049,2.15699103,'can baro','barcelona',NULL,'1/15
 297.800 €
 Ha bajado 32.200 €
 Piso con jardín en venta en Horta - Guinardó
@@ -90452,7 +90452,7 @@ Santa Coloma de Gramenet, Barcelona
 3 hab.
 1 baños
 1º','[]',NULL,'[]','2026-11-05 23:59:58.530966','2026-11-06 17:21:43.875732',1);
-INSERT INTO "listings" VALUES('habitaclia_1af8dcd7-30ed-4d09-8b37-891e5e54a870','habitaclia','1af8dcd7-30ed-4d09-8b37-891e5e54a870','https://www.habitaclia.com/comprar/atico/centre/santa-coloma-de-gramenet/1af8dcd7-30ed-4d09-8b37-891e5e54a870/d','Ático en venta en Centre',189000.0,70.0,2700.0,3,1,NULL,NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/18
+INSERT INTO "listings" VALUES('habitaclia_1af8dcd7-30ed-4d09-8b37-891e5e54a870','habitaclia','1af8dcd7-30ed-4d09-8b37-891e5e54a870','https://www.habitaclia.com/comprar/atico/centre/santa-coloma-de-gramenet/1af8dcd7-30ed-4d09-8b37-891e5e54a870/d','Ático en venta en Centre',189000.0,70.0,2700.0,3,1,NULL,NULL,41.451127,2.2149122,'centre','santa coloma de gramenet',NULL,'1/18
 189.000 €
 Ha bajado 5.000 €
 Ático en venta en Centre
@@ -90467,7 +90467,7 @@ Santa Coloma de Gramenet, Barcelona
 67 m²
 3 hab.
 1 baños','[]',NULL,'[]','2026-11-06 00:00:06.946147','2026-11-07 04:28:13.368385',1);
-INSERT INTO "listings" VALUES('habitaclia_b42a7b61-ce58-4eff-b1d9-458123637896','habitaclia','b42a7b61-ce58-4eff-b1d9-458123637896','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/b42a7b61-ce58-4eff-b1d9-458123637896/d','Piso en venta en Horta - Guinardó',329000.0,66.0,4.98484848484848498e+03,3,1,'2ª planta',NULL,NULL,NULL,'el guinardo','barcelona',NULL,'1/15
+INSERT INTO "listings" VALUES('habitaclia_b42a7b61-ce58-4eff-b1d9-458123637896','habitaclia','b42a7b61-ce58-4eff-b1d9-458123637896','https://www.habitaclia.com/comprar/planta-intermedia/horta-guinardo/barcelona-capital/b42a7b61-ce58-4eff-b1d9-458123637896/d','Piso en venta en Horta - Guinardó',329000.0,66.0,4.98484848484848498e+03,3,1,'2ª planta',NULL,41.4195811631,2.1732195811,'el guinardo','barcelona',NULL,'1/15
 329.000 €
 Piso en venta en Horta - Guinardó
 Barcelona Capital, Barcelona
@@ -90618,7 +90618,7 @@ Barcelona Capital, Barcelona
 3 hab.
 1 baños
 1º','[]',NULL,'[]','2026-11-06 00:04:33.560366','2026-11-07 04:29:46.937845',1);
-INSERT INTO "listings" VALUES('habitaclia_1093d318-a504-42bc-9ade-5076117c620d','habitaclia','1093d318-a504-42bc-9ade-5076117c620d','https://www.habitaclia.com/comprar/planta-intermedia/santa-eulalia/l-hospitalet-de-llobregat/1093d318-a504-42bc-9ade-5076117c620d/d','Piso con terraza en venta en Santa Eulàlia',199000.0,219.0,908.675799086758,3,1,NULL,NULL,NULL,NULL,'santa eulalia','hospitalet de llobregat',NULL,'1/40
+INSERT INTO "listings" VALUES('habitaclia_1093d318-a504-42bc-9ade-5076117c620d','habitaclia','1093d318-a504-42bc-9ade-5076117c620d','https://www.habitaclia.com/comprar/planta-intermedia/santa-eulalia/l-hospitalet-de-llobregat/1093d318-a504-42bc-9ade-5076117c620d/d','Piso con terraza en venta en Santa Eulàlia',199000.0,219.0,908.675799086758,3,1,NULL,NULL,41.3663,2.12595,'santa eulalia','hospitalet de llobregat',NULL,'1/40
 199.000 €
 Piso con terraza en venta en Santa Eulàlia
 L''Hospitalet de Llobregat, Barcelona
@@ -90646,7 +90646,7 @@ Esplugues de Llobregat, Barcelona
 60 m²
 2 hab.
 1 baños','[]',NULL,'[]','2026-11-06 05:09:51.178803','2026-11-07 04:27:45.483588',1);
-INSERT INTO "listings" VALUES('habitaclia_6e976e72-cb50-4a4f-b5d7-73896303550b','habitaclia','6e976e72-cb50-4a4f-b5d7-73896303550b','https://www.habitaclia.com/comprar/planta-intermedia/galicia/bonavista-bufala-morera/badalona/6e976e72-cb50-4a4f-b5d7-73896303550b/d','Piso en venta en Galicia',274100.0,77.0,3.55974025974025971e+03,3,2,'1ª planta',NULL,NULL,NULL,'bufala','badalona',NULL,'1/3
+INSERT INTO "listings" VALUES('habitaclia_6e976e72-cb50-4a4f-b5d7-73896303550b','habitaclia','6e976e72-cb50-4a4f-b5d7-73896303550b','https://www.habitaclia.com/comprar/planta-intermedia/galicia/bonavista-bufala-morera/badalona/6e976e72-cb50-4a4f-b5d7-73896303550b/d','Piso en venta en Galicia',274100.0,77.0,3.55974025974025971e+03,3,2,'1ª planta',NULL,41.460461,2.246208,'bufala','badalona',NULL,'1/3
 274.100 €
 Piso en venta en Galicia
 Bonavista - Bufalà - Morera, Badalona
@@ -93545,7 +93545,7 @@ Montigalà - Sant Crist, Badalona
 2 hab.
 2 baños
 Bajos / Planta baja','[]',NULL,'[]','2026-11-06 17:32:23.068985','2026-11-07 04:28:08.495236',1);
-INSERT INTO "listings" VALUES('habitaclia_22483e92-2ea6-4e0f-a745-fe0d605ff889','habitaclia','22483e92-2ea6-4e0f-a745-fe0d605ff889','https://www.habitaclia.com/comprar/planta-intermedia/montigala-sant-crist/badalona/22483e92-2ea6-4e0f-a745-fe0d605ff889/d','Piso con balcón en venta en Montigalà - Sant Crist',250000.0,128.0,1953.125,3,2,'2ª planta',NULL,NULL,NULL,'montigala','badalona',NULL,'1/26
+INSERT INTO "listings" VALUES('habitaclia_22483e92-2ea6-4e0f-a745-fe0d605ff889','habitaclia','22483e92-2ea6-4e0f-a745-fe0d605ff889','https://www.habitaclia.com/comprar/planta-intermedia/montigala-sant-crist/badalona/22483e92-2ea6-4e0f-a745-fe0d605ff889/d','Piso con balcón en venta en Montigalà - Sant Crist',250000.0,128.0,1953.125,3,2,'2ª planta',NULL,41.4537086,2.222287,'montigala','badalona',NULL,'1/26
 250.000 €
 Piso con balcón en venta en Montigalà - Sant Crist
 Badalona, Barcelona
@@ -93553,7 +93553,7 @@ Badalona, Barcelona
 3 hab.
 2 baños
 2º','[]',NULL,'[]','2026-11-06 17:32:23.090710','2026-11-07 04:28:08.517767',1);
-INSERT INTO "listings" VALUES('habitaclia_d857ef77-b954-4203-b651-10950ff15564','habitaclia','d857ef77-b954-4203-b651-10950ff15564','https://www.habitaclia.com/comprar/planta-intermedia/avinguda-de-la-generalitat/centre/santa-coloma-de-gramenet/d857ef77-b954-4203-b651-10950ff15564/d','Piso en venta en Avinguda de la Generalitat',199900.0,71.0,2.81549295774647907e+03,3,1,'2ª planta',NULL,NULL,NULL,'centre','santa coloma de gramenet',NULL,'1/19
+INSERT INTO "listings" VALUES('habitaclia_d857ef77-b954-4203-b651-10950ff15564','habitaclia','d857ef77-b954-4203-b651-10950ff15564','https://www.habitaclia.com/comprar/planta-intermedia/avinguda-de-la-generalitat/centre/santa-coloma-de-gramenet/d857ef77-b954-4203-b651-10950ff15564/d','Piso en venta en Avinguda de la Generalitat',199900.0,71.0,2.81549295774647907e+03,3,1,'2ª planta',NULL,41.4501674,2.2096463,'centre','santa coloma de gramenet',NULL,'1/19
 199.900 €
 Piso en venta en Avinguda de la Generalitat
 Centre, Santa Coloma de Gramenet
@@ -93622,7 +93622,7 @@ Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 3 hab.
 1 baños
 2º','[]',NULL,'[]','2026-11-06 17:35:11.567899','2026-11-07 04:29:09.258110',1);
-INSERT INTO "listings" VALUES('habitaclia_4b5e63ae-b035-4c96-af21-0dc69f6c7ccd','habitaclia','4b5e63ae-b035-4c96-af21-0dc69f6c7ccd','https://www.habitaclia.com/comprar/planta-intermedia/avinguda-vilafranca/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/4b5e63ae-b035-4c96-af21-0dc69f6c7ccd/d','Piso con balcón en venta en Avinguda Vilafranca',320000.0,87.0,3.67816091954022977e+03,3,1,NULL,NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/16
+INSERT INTO "listings" VALUES('habitaclia_4b5e63ae-b035-4c96-af21-0dc69f6c7ccd','habitaclia','4b5e63ae-b035-4c96-af21-0dc69f6c7ccd','https://www.habitaclia.com/comprar/planta-intermedia/avinguda-vilafranca/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/4b5e63ae-b035-4c96-af21-0dc69f6c7ccd/d','Piso con balcón en venta en Avinguda Vilafranca',320000.0,87.0,3.67816091954022977e+03,3,1,NULL,NULL,41.3653204,2.1088165,'centre','hospitalet de llobregat',NULL,'1/16
 320.000 €
 Piso con balcón en venta en Avinguda Vilafranca
 Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
@@ -93630,7 +93630,7 @@ Centre - Sant Josep - Sanfeliu, L''Hospitalet de Llobregat
 3 hab.
 1 baños
 Mayor que 10','[]',NULL,'[]','2026-11-06 17:35:15.912869','2026-11-07 04:29:09.278645',1);
-INSERT INTO "listings" VALUES('habitaclia_8b976117-2818-4fa2-8243-4a5f71630e5b','habitaclia','8b976117-2818-4fa2-8243-4a5f71630e5b','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/8b976117-2818-4fa2-8243-4a5f71630e5b/d','Piso con balcón en venta en Centre - Sant Josep - Sanfeliu',282000.0,80.0,3525.0,3,1,'2ª planta',NULL,NULL,NULL,'centre','hospitalet de llobregat',NULL,'1/19
+INSERT INTO "listings" VALUES('habitaclia_8b976117-2818-4fa2-8243-4a5f71630e5b','habitaclia','8b976117-2818-4fa2-8243-4a5f71630e5b','https://www.habitaclia.com/comprar/planta-intermedia/centre-sant-josep-sanfeliu/l-hospitalet-de-llobregat/8b976117-2818-4fa2-8243-4a5f71630e5b/d','Piso con balcón en venta en Centre - Sant Josep - Sanfeliu',282000.0,80.0,3525.0,3,1,'2ª planta',NULL,41.3612426,2.0981102,'centre','hospitalet de llobregat',NULL,'1/19
 282.000 €
 Piso con balcón en venta en Centre - Sant Josep - Sanfeliu
 L''Hospitalet de Llobregat, Barcelona
@@ -95207,7 +95207,7 @@ Eixample, Barcelona Capital
 3 hab.
 2 baños
 2º','[]',NULL,'[]','2026-11-06 23:01:35.808094','2026-11-07 04:29:37.165283',1);
-INSERT INTO "listings" VALUES('idealista_113015543','idealista','113015543','https://www.idealista.com/inmueble/113015543/','Piso en Avenida de Can Serra, Can Serra, Hospitalet de Llobregat',275000.0,65.0,4.23076923076923048e+03,3,NULL,NULL,NULL,NULL,NULL,'can serra','hospitalet de llobregat',NULL,'https://www.idealista.com/inmueble/113015543/?utm_medium=email&utm_campaign=express_newAd_sale_professional&utm_campaigntype=retention&utm_project=adNotification&utm_source=alerts-id&utm_date_send=2026-11-07T000530&utm_link=propertyNewPhoto&utm_recipient_id=JGowRyE0F2b9Qxc/0kUcxFHh0TsyIioZ9ccuY0WP3NE=&utm_notification_id=f206b2bf-6a05-45c4-8702-d7f9ed1bd38d" target="_blank"> | | | | | | | | | | | | | | Ver 25 fotos | | | | | | | | | | | | | | Piso en Avenida de Can Serra, Can Serra, Hospitalet de Llobregat | | | | | | | | | | | | | | | 275.000 € 4.231 €/m² | | 3 hab. 65 m² | | | | | | | | | | ','[]',NULL,'[]','2026-11-06 23:17:19.759814','2026-11-07 04:29:56.729129',1);
+INSERT INTO "listings" VALUES('idealista_113015543','idealista','113015543','https://www.idealista.com/inmueble/113015543/','Piso en Avenida de Can Serra, Can Serra, Hospitalet de Llobregat',275000.0,65.0,4.23076923076923048e+03,3,NULL,NULL,NULL,NULL,NULL,'can serra','hospitalet de llobregat',NULL,'https://www.idealista.com/inmueble/113015543/?utm_medium=email&utm_campaign=express_newAd_sale_professional&utm_campaigntype=retention&utm_project=adNotification&utm_source=alerts-id&utm_date_send=2026-11-07T000530&utm_link=propertyNewPhoto&utm_recipient_id=JGowRyE0F2b9Qxc/0kUcxFHh0TsyIioZ9ccuY0WP3NE=&utm_notification_id=f206b2bf-6a05-45c4-8702-d7f9ed1bd38d" target="_blank"> | | | | | | | | | | | | | | Ver 25 fotos | | | | | | | | | | | | | | Piso en Avenida de Can Serra, Can Serra, Hospitalet de Llobregat | | | | | | | | | | | | | | | 275.000 € 4.231 €/m² | | 3 hab. 65 m² | | | | | | | | | | ','[]',NULL,'[]','2026-11-06 23:17:19.759814','2026-11-07 04:37:22.434330',1);
 CREATE TABLE rent_zone_averages (
 	id INTEGER NOT NULL, 
 	district VARCHAR, 
@@ -95238,5 +95238,5 @@ INSERT INTO "telegram_state" VALUES('daily_control_day','2026-11-06','2026-11-06
 INSERT INTO "telegram_state" VALUES('apify_fotocasa_last_run_at','2026-11-06T21:42:53.341976+00:00','2026-11-06 21:42:53.342107');
 INSERT INTO "telegram_state" VALUES('apify_fotocasa_seeded','["https://www.fotocasa.es/es/comprar/viviendas/badalona/todas-las-zonas/l?maxPrice=330000&minSurface=60&sortType=publicationDate", "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/horta-guinardo/l?maxPrice=385000&minSurface=60&sortType=publicationDate", "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/nou-barris/l?maxPrice=330000&minSurface=60&sortType=publicationDate", "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sagrada-familia/l?maxPrice=385000&minSurface=60&sortType=publicationDate", "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sant-andreu/l?maxPrice=385000&minSurface=60&sortType=publicationDate", "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sant-marti/l?maxPrice=385000&minSurface=60&sortType=publicationDate", "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sants-montjuic/l?maxPrice=330000&minSurface=60&sortType=publicationDate", "https://www.fotocasa.es/es/comprar/viviendas/cornella-de-llobregat/todas-las-zonas/l?maxPrice=330000&minSurface=60&sortType=publicationDate", "https://www.fotocasa.es/es/comprar/viviendas/esplugues-de-llobregat/todas-las-zonas/l?maxPrice=330000&minSurface=60&sortType=publicationDate", "https://www.fotocasa.es/es/comprar/viviendas/l-hospitalet-de-llobregat/todas-las-zonas/l?maxPrice=330000&minSurface=60&sortType=publicationDate", "https://www.fotocasa.es/es/comprar/viviendas/molins-de-rei/todas-las-zonas/l?maxPrice=330000&minSurface=60&sortType=publicationDate", "https://www.fotocasa.es/es/comprar/viviendas/sant-feliu-de-llobregat/todas-las-zonas/l?maxPrice=330000&minSurface=60&sortType=publicationDate", "https://www.fotocasa.es/es/comprar/viviendas/sant-just-desvern/todas-las-zonas/l?maxPrice=330000&minSurface=60&sortType=publicationDate", "https://www.fotocasa.es/es/comprar/viviendas/santa-coloma-de-gramenet/todas-las-zonas/l?maxPrice=330000&minSurface=60&sortType=publicationDate"]','2026-11-02 15:04:11.348685');
 INSERT INTO "telegram_state" VALUES('backlog_last_run_at','2026-11-06T21:09:02.027544+00:00','2026-11-06 21:09:02.027692');
-INSERT INTO "telegram_state" VALUES('map_last_export_at','2026-11-07T03:56:31.023299+00:00','2026-11-07 03:56:31.023529');
+INSERT INTO "telegram_state" VALUES('map_last_export_at','2026-11-07T04:43:58.193657+00:00','2026-11-07 04:43:58.193967');
 COMMIT;
