@@ -18,12 +18,12 @@
 <style>
 :root{
   --bg:#f4f6f5; --surface:#ffffff; --fg:#1b2321; --muted:#5d6a66; --line:#d9e0dd;
-  --accent:#0f6b58; --new:#d2451e; --sent:#7b8a86; --chip:#e6efec;
+  --accent:#0f6b58; --new:#d2451e; --sent:#7b8a86; --fav:#c98a00; --chip:#e6efec;
   --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){:root{
   --bg:#111615; --surface:#1a201f; --fg:#e6ecea; --muted:#9aa8a4; --line:#2c3633;
-  --accent:#5fc7ad; --new:#ff8a5c; --sent:#7d8b88; --chip:#203330; color-scheme:dark}}
+  --accent:#5fc7ad; --new:#ff8a5c; --sent:#7d8b88; --fav:#f2b631; --chip:#203330; color-scheme:dark}}
 html,body{height:100%;margin:0}
 body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:14px}
 .app{display:grid;grid-template-rows:auto 1fr;height:100%;padding-top:env(safe-area-inset-top,0px);box-sizing:border-box}
@@ -40,7 +40,7 @@ label{display:flex;gap:6px;align-items:center;color:var(--muted)}
 aside{border-left:1px solid var(--line);overflow:auto;background:var(--surface);min-width:0;padding-bottom:env(safe-area-inset-bottom,0px)}
 .legend{display:flex;gap:14px;padding:10px 14px;border-bottom:1px solid var(--line);color:var(--muted);font-size:13px;flex-wrap:wrap}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
-.dot.new{background:var(--new)}.dot.sent{border:2px solid var(--sent);width:8px;height:8px}
+.dot.new{background:var(--new)}.dot.fav{background:var(--fav)}.dot.sent{border:2px solid var(--sent);width:8px;height:8px}
 ul{list-style:none;margin:0;padding:0}
 li button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:5.6rem 1fr;gap:2px 10px;width:100%;padding:10px 14px;border-bottom:1px solid var(--line);cursor:pointer}
 li button:hover,li button:focus-visible{background:var(--chip)}
@@ -64,12 +64,13 @@ li button:hover,li button:focus-visible{background:var(--chip)}
       <label class="pr" for="max">hasta <span id="maxv"></span></label>
       <input id="max" type="range" min="150000" max="350000" step="5000" value="350000">
       <label><input id="only" type="checkbox"> Solo los que no te llegaron</label>
+      <label><input id="favs" type="checkbox"> Solo favoritos</label>
     </div>
   </header>
   <div class="main">
     <div id="map" aria-label="Mapa"></div>
     <aside>
-      <div class="legend"><span><i class="dot new"></i>No te llegó por notificación</span><span><i class="dot sent"></i>Ya te llegó</span></div>
+      <div class="legend"><span><i class="dot new"></i>No te llegó por notificación</span><span><i class="dot sent"></i>Ya te llegó</span><span><i class="dot fav"></i>Favorito (👍)</span></div>
       <ul id="list"></ul>
     </aside>
   </div>
@@ -83,11 +84,11 @@ const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const map=L.map('map',{minZoom:11,maxZoom:18}).setView([41.405,2.14],12);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
 const layer=L.layerGroup().addTo(map);
-const els=['town','src','max','only'].map(id=>document.getElementById(id));
+const els=['town','src','max','only','favs'].map(id=>document.getElementById(id));
 els.forEach(e=>e.addEventListener('input',render));
 function popup(i){
   const facts=[i.a+' m²',i.r?i.r+' hab':'',i.f,i.a?fmt(Math.round(i.p/i.a))+' €/m²':''].filter(Boolean).join(' · ');
-  return `<div class="pop"><div class="p">${fmt(i.p)} €</div><b>${esc(i.b||i.t)}</b>${i.b?', '+esc(i.t):''}<small>${esc(facts)}<br>${esc(i.src)} · ${i.s?'ya te llegó':'no te llegó'}${i.ap?' · ubicación aproximada':''}</small><a href="${esc(i.u)}" target="_blank" rel="noopener">Ver anuncio ↗</a></div>`;
+  return `<div class="pop"><div class="p">${fmt(i.p)} €</div><b>${esc(i.b||i.t)}</b>${i.b?', '+esc(i.t):''}<small>${esc(facts)}<br>${i.fv?'⭐ favorito · ':''}${esc(i.src)} · ${i.s?'ya te llegó':'no te llegó'}${i.ap?' · ubicación aproximada':''}</small><a href="${esc(i.u)}" target="_blank" rel="noopener">Ver anuncio ↗</a></div>`;
 }
 function fillTowns(){
   const cur=els[0].value;
@@ -96,17 +97,18 @@ function fillTowns(){
   els[0].value=towns.includes(cur)?cur:'';
 }
 function render(){
-  const t=els[0].value,s=els[1].value,mx=+els[2].value,only=els[3].checked;
+  const t=els[0].value,s=els[1].value,mx=+els[2].value,only=els[3].checked,favs=els[4].checked;
   document.getElementById('maxv').textContent=fmt(mx)+' €';
-  const rows=ITEMS.filter(i=>(!t||i.t===t)&&(!s||i.src===s)&&i.p<=mx&&(!only||!i.s)).sort((a,b)=>a.p-b.p);
+  const rows=ITEMS.filter(i=>(!t||i.t===t)&&(!s||i.src===s)&&(i.p<=mx||i.fv)&&(!only||!i.s)&&(!favs||i.fv)).sort((a,b)=>a.p-b.p);
   layer.clearLayers();
   const list=document.getElementById('list');list.innerHTML='';
-  const nc=css('--new'),sc=css('--sent');
+  const nc=css('--new'),sc=css('--sent'),fc=css('--fav');
   rows.forEach(i=>{
-    const mk=L.circleMarker([i.lat,i.lng],{radius:7,weight:2,color:i.s?sc:nc,fillColor:i.s?sc:nc,fillOpacity:i.s?0.15:0.85,dashArray:i.ap?'3 3':null}).bindPopup(popup(i));
-    mk.addTo(layer);
+    const c=i.fv?fc:i.s?sc:nc;
+    const mk=L.circleMarker([i.lat,i.lng],{radius:i.fv?10:7,weight:2,color:c,fillColor:c,fillOpacity:i.fv?0.9:i.s?0.15:0.85,dashArray:i.ap?'3 3':null}).bindPopup(popup(i));
+    mk.addTo(layer);if(i.fv)mk.bringToFront();
     const li=document.createElement('li');const b=document.createElement('button');b.type='button';
-    b.innerHTML=`<span class="p">${fmt(i.p)} €</span><span class="w"><b>${esc(i.b||i.t)}</b>${i.b?' · '+esc(i.t):''}<small>${i.a} m²${i.r?' · '+i.r+' hab':''}${i.f?' · '+esc(i.f):''}</small></span><span></span><span class="tag">${esc(i.src)}${i.s?' · ya te llegó':''}</span>`;
+    b.innerHTML=`<span class="p">${fmt(i.p)} €</span><span class="w"><b>${esc(i.b||i.t)}</b>${i.b?' · '+esc(i.t):''}<small>${i.a} m²${i.r?' · '+i.r+' hab':''}${i.f?' · '+esc(i.f):''}</small></span><span></span><span class="tag">${i.fv?'⭐ favorito · ':''}${esc(i.src)}${i.s?' · ya te llegó':''}</span>`;
     b.onclick=()=>{map.setView([i.lat,i.lng],Math.max(map.getZoom(),15));mk.openPopup()};
     li.appendChild(b);list.appendChild(li);
   });

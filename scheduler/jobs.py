@@ -698,6 +698,15 @@ class PipelineOrchestrator:
             # later pass as well.
             metrics = self._minimal_metrics(raw_dict)
 
+        # A favourite — a flat he tapped 👍 on — is followed whatever its
+        # price does, matching the search or not: any change is news.
+        if not is_new and alert:
+            from scheduler import favorites
+
+            if favorites.price_seen(self.alerter, listing_id, {**raw_dict, "id": listing_id},
+                                    raw_dict.get("price")):
+                return
+
         # A known advert at a lower price: the drop is news, sent at once.
         min_drop = ((self.config.get("alerts") or {}).get("price_drops") or {}).get("min_pct", 1)
         price = raw_dict.get("price")
@@ -1345,6 +1354,9 @@ class PipelineOrchestrator:
             place = (listing.get("district") or listing.get("city") or "").title()
             v = listing["juez"]
             lines.append(f"🧐 {v.get('s')}/10 · {money} € · {place} · {v.get('r')} · {listing.get('url')}")
+        if report.get("favoritos"):
+            lines.append("Tus favoritos:")
+            lines.extend(report["favoritos"])
         if report.get("ideal"):
             lines.append("Tu piso ideal, según lo que he aprendido:")
             lines.append(report["ideal"])
@@ -1367,7 +1379,16 @@ class PipelineOrchestrator:
         set_telegram_state("daily_control_day", today)
         report = self.daily_control()
         report["ideal"] = self.judge.ideal_to_show()
+        from scheduler import favorites
+        report["favoritos"] = favorites.control_lines()
         return bool(self.alerter._send_sync(self.daily_control_text(report), kind="control"))
+
+    def check_favourites(self) -> int:
+        """Read the favourites' adverts for their price, every few hours."""
+        from scheduler import favorites
+
+        cfg = self.config.get("favoritos") or {}
+        return favorites.check(self.alerter, cfg.get("interval_minutes", 180))
 
     def poll_taste_feedback(self) -> int:
         """Collect his 👍/👎 and notes, and let the judge relearn from them."""

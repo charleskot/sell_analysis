@@ -743,6 +743,12 @@ juez:
     peatonal que una avenida con mucho tráfico. Con ascensor o en planta
     primera o segunda. Nada de bajos ni sótanos.
 
+# Flats he tapped 👍 on: kept as favourites and their price followed — any
+# change, up or down, is sent at once, and so is the advert disappearing.
+# Habitaclia and Fotocasa adverts are read for their price this often.
+favoritos:
+  interval_minutes: 180
+
 map:
   enabled: true
   interval_minutes: 30

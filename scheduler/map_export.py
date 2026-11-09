@@ -94,6 +94,17 @@ def collect(orchestrator, listed_within_days: int = 3, max_reads: int = 40) -> l
             continue
         flats.append(listing)
 
+    # His favourites stay on the map whatever their price does now
+    from scheduler.favorites import all_favourites
+
+    favs = all_favourites()
+    on_map = {f["id"] for f in flats}
+    missing = [i for i, fav in favs.items() if i not in on_map and not fav.get("retirado")]
+    if missing:
+        with get_engine().connect() as conn:
+            flats += [dict(r._mapping) for r in conn.execute(
+                select(listings).where(listings.c.id.in_(missing)))]
+
     reads = 0
     kept = []
     for listing in flats:
@@ -112,6 +123,7 @@ def collect(orchestrator, listed_within_days: int = 3, max_reads: int = 40) -> l
                     conn.execute(update(listings).where(listings.c.id == listing["id"])
                                  .values(latitude=lat, longitude=lng))
         listing["_sent"] = listing["id"] in sent_ids or any(same_flat(listing, s) for s in sent_rows)
+        listing["_fav"] = listing["id"] in favs
         kept.append(listing)
     if reads:
         logger.info(f"mapa: {reads} fichas leídas para situar pisos")
@@ -148,7 +160,7 @@ def to_points(flats: list[dict]) -> list[dict]:
             "u": f.get("url"), "src": f.get("portal"),
             "t": _TOWNS.get((f.get("city") or "").lower(), (f.get("city") or "").title()),
             "b": _barri(f), "lat": round(lat, 5), "lng": round(lng, 5),
-            "s": bool(f.get("_sent")), "ap": approx,
+            "s": bool(f.get("_sent")), "ap": approx, "fv": bool(f.get("_fav")),
             "d": str(f.get("first_seen_at"))[:10],
         })
     return points

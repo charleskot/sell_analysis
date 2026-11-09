@@ -453,6 +453,12 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     except Exception as e:
         console.print(f"[yellow]Valoraciones falló:[/yellow] {e}")
 
+    # The price of every flat he liked, read from its advert every few hours
+    try:
+        orchestrator.check_favourites()
+    except Exception as e:
+        console.print(f"[yellow]Favoritos falló:[/yellow] {e}")
+
     # The map page's data, every half hour
     try:
         n = orchestrator.export_map()

@@ -190,7 +190,10 @@ class TelegramAlerter:
         title = f"{money} € · {place}"
         if metrics.get("near_miss"):
             title = f"Casi · {title}"
-        if metrics.get("price_drop_from"):
+        if metrics.get("favourite_from"):
+            went = "Baja" if price < metrics["favourite_from"] else "Sube"
+            title = f"⭐ Favorito · {went} · {money} € · {place}"
+        elif metrics.get("price_drop_from"):
             title = f"Bajada · {title}"
         elif metrics.get("backlog"):
             # Not news, but never sent: on sale since before the bot looked
@@ -211,10 +214,13 @@ class TelegramAlerter:
         body = " · ".join(facts) or "Nuevo piso que encaja"
 
         reason = metrics.get("match_reason") or ""
-        old = metrics.get("price_drop_from")
-        if old and price:
+        old = metrics.get("price_drop_from") or metrics.get("favourite_from")
+        if old and price and old > price:
             body += (f"\nAntes {old:,.0f} € → ahora {money} € "
                      f"(−{(old - price) / old * 100:.0f}%)").replace(",", ".")
+        elif old and price:
+            body += (f"\nAntes {old:,.0f} € → ahora {money} € "
+                     f"(+{(price - old) / old * 100:.0f}%)").replace(",", ".")
         if metrics.get("near_miss"):
             # What it misses, and why it is worth a look all the same
             body += "\n" + reason.split(" · ")[0]
@@ -268,6 +274,49 @@ class TelegramAlerter:
             record_alert_sent(listing_id, "push", "bajada")
             if signature:
                 record_alert_sent(signature, "push", "")
+        return True
+
+    def send_favourite_change(self, listing_id: str, listing: dict, old_price: float,
+                              new_price: float) -> bool:
+        """A favourite's price moved, up or down, by any amount: sent at once.
+
+        Whether or not it still meets the search — he liked it, so its price
+        is his business. Each price once, so two sources seeing the same
+        change send one notification. Quiet at night rather than held.
+        """
+        from models.db import record_alert_sent
+        from scheduler.quiet_hours import is_quiet
+
+        if not self._push_topic():
+            return False
+        key = f"favorito:{listing_id}:{new_price:.0f}"
+        if self.already_sent(key):
+            return True
+        allowed, why = budget.check(self._config, "bajada")
+        if not allowed:
+            logger.warning(f"Cambio de precio del favorito {listing_id} NO enviado: {why}")
+            return False
+        metrics = {"favourite_from": old_price, "quiet": is_quiet(self._config)}
+        if not self._push({**listing, "price": new_price}, metrics):
+            return False
+        budget.record("bajada")
+        record_alert_sent(key, "push", f"{old_price:.0f}->{new_price:.0f}")
+        return True
+
+    def send_favourite_gone(self, listing_id: str, listing: dict) -> bool:
+        """A favourite's advert is no longer on the portal: sold, or withdrawn."""
+        from models.db import record_alert_sent
+
+        key = f"favorito_retirado:{listing_id}"
+        if self.already_sent(key):
+            return True
+        money = f"{listing.get('price') or 0:,.0f}".replace(",", ".")
+        place = (listing.get("district") or listing.get("city") or "").title()
+        if not self._push_plain(f"⭐ Tu favorito ya no está anunciado\n{money} € · {place}\n"
+                                f"Puede que se haya vendido o lo hayan retirado.\n"
+                                f"{listing.get('url') or ''}", kind="favorito"):
+            return False
+        record_alert_sent(key, "push", "retirado")
         return True
 
     def _can_notify(self) -> bool:
@@ -334,7 +383,8 @@ class TelegramAlerter:
         from analysis.taste_judge import rating_actions
 
         listing_id = listing.get("id") or f"{listing.get('portal')}_{listing.get('external_id')}"
-        rating = rating_actions(self._config, listing_id)
+        title_for_ack = self._push_text(listing, metrics)[0]
+        rating = rating_actions(self._config, listing_id, title_for_ack)
         if url:
             payload["click"] = url
             if not rating:

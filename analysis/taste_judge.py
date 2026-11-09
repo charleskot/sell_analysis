@@ -44,6 +44,7 @@ _IDEAL_VOTES_KEY = "juez_piso_ideal_votos"
 _IDEAL_SHOWN_KEY = "juez_piso_ideal_mostrado"
 _NOTES_KEY = "juez_notas"
 _SINCE_KEY = "juez_gustos_desde"
+_VOTES_SINCE_KEY = "juez_votos_desde"
 _FEEDBACK_NOTE = "ntfy"            # marks votes cast from the notification buttons
 
 STATES = ["para entrar a vivir", "reforma ligera", "reforma importante", "no se puede saber"]
@@ -454,65 +455,107 @@ def feedback_topic() -> str:
     return f"{topic}-gustos" if topic else ""
 
 
-def rating_actions(config: dict, listing_id: str) -> list[dict]:
-    """The two buttons on a flat's notification."""
-    topic = feedback_topic()
+def rating_actions(config: dict, listing_id: str, title: str = "") -> list[dict]:
+    """The two buttons on a flat's notification.
+
+    A tap posts to his own alert topic, so the phone shows a confirmation
+    the moment he taps — "⭐ Guardado en favoritos" — rather than nothing:
+    the first version posted to a topic he does not follow, the votes
+    arrived, and to him the button "no hace nada". The vote rides in the
+    confirmation as "[si <id>]", which is what the bot reads back.
+    """
+    topic = os.environ.get("NTFY_TOPIC", "").strip()
     if not topic or not _cfg(config).get("feedback", True):
         return []
     server = ((config.get("alerts") or {}).get("ntfy") or {}).get("server", "https://ntfy.sh").rstrip("/")
-    return [{"action": "http", "label": f"{icon} {label}", "url": f"{server}/{topic}",
-             "method": "POST", "body": f"{word} {listing_id}", "clear": True}
-            for icon, label, word in (("👍", "Me gusta", "si"), ("👎", "No me gusta", "no"))]
+    what = title or "este piso"
+    like = (f"⭐ {what}\nGuardado en favoritos: seguiré su precio y te aviso si cambia."
+            f"\n[si {listing_id}]")
+    dislike = (f"👎 {what}\nAnotado que no te gusta: el juez aprenderá de ello."
+               f"\n[no {listing_id}]")
+    # Header values stay ASCII: the phone's HTTP client may refuse anything else
+    return [
+        {"action": "http", "label": "👍 Me gusta", "url": f"{server}/{topic}", "method": "POST",
+         "headers": {"Title": "Guardado en favoritos", "Tags": "star", "Priority": "2"},
+         "body": like, "clear": True},
+        {"action": "http", "label": "👎 No me gusta", "url": f"{server}/{topic}", "method": "POST",
+         "headers": {"Title": "Anotado", "Tags": "-1", "Priority": "2"},
+         "body": dislike, "clear": True},
+    ]
 
 
-_VOTE_RE = re.compile(r"^\s*(si|sí|no)\s+([a-z]+_[\w-]+)\s*$", re.I)
+# "[si habitaclia_…]" in a confirmation; "si habitaclia_…" alone from the
+# first version of the buttons
+_VOTE_RE = re.compile(r"\[(si|sí|no) ([a-z]+_[\w-]+)\]\s*$|^\s*(si|sí|no)\s+([a-z]+_[\w-]+)\s*$", re.I)
 
 
-def poll_ratings(config: dict) -> tuple[int, int]:
-    """Read the taps (and anything he writes) from the ratings topic.
-
-    Returns (votes, notes) newly recorded. A line that is not a button's
-    vote is kept as something he said about his taste: the ntfy app lets
-    him write to the topic directly.
-    """
+def _read_topic(server: str, topic: str, since: str) -> list[dict]:
     import requests
-    from models.db import get_telegram_state, record_feedback, set_telegram_state
 
-    topic = feedback_topic()
-    if not topic:
-        return 0, 0
-    server = ((config.get("alerts") or {}).get("ntfy") or {}).get("server", "https://ntfy.sh").rstrip("/")
-    since = get_telegram_state(_SINCE_KEY, "") or "72h"
     try:
         resp = requests.get(f"{server}/{topic}/json", params={"poll": "1", "since": since}, timeout=15)
         resp.raise_for_status()
     except Exception as e:
         logger.info(f"juez: no pude leer las valoraciones: {e}")
-        return 0, 0
-    votes = notes = 0
-    last = None
-    saved_notes = _state_json(_NOTES_KEY, [])
+        return []
+    out = []
     for line in resp.text.splitlines():
         try:
             msg = json.loads(line)
         except ValueError:
             continue
-        if msg.get("event") != "message":
-            continue
-        last = msg.get("id") or last
-        text = (msg.get("message") or "").strip()
-        vote = _VOTE_RE.match(text)
-        if vote:
-            record_feedback(vote.group(2), "no" if vote.group(1).lower() == "no" else "yes",
-                            _FEEDBACK_NOTE)
-            votes += 1
-        elif text:
-            saved_notes.append(text[:300])
-            notes += 1
+        if msg.get("event") == "message":
+            out.append(msg)
+    return out
+
+
+def _vote(text: str) -> tuple[str, str] | None:
+    found = _VOTE_RE.search(text or "")
+    if not found:
+        return None
+    word, listing_id = (found.group(1), found.group(2)) if found.group(1) else (found.group(3), found.group(4))
+    return ("no" if word.lower() == "no" else "yes"), listing_id
+
+
+def poll_ratings(config: dict) -> tuple[int, int]:
+    """Read his taps, and anything he wrote about his taste.
+
+    Taps come back on the alert topic as confirmations (and, from the first
+    version of the buttons, on the ratings topic). A 👍 also keeps the flat
+    as a favourite, whose price is followed from then on; a 👎 drops it.
+    Free text on the ratings topic is kept as something he said. Returns
+    (votes, notes) newly recorded.
+    """
+    from models.db import get_telegram_state, record_feedback, set_telegram_state
+    from scheduler import favorites
+
+    topic = os.environ.get("NTFY_TOPIC", "").strip()
+    if not topic:
+        return 0, 0
+    server = ((config.get("alerts") or {}).get("ntfy") or {}).get("server", "https://ntfy.sh").rstrip("/")
+    votes = notes = 0
+    saved_notes = _state_json(_NOTES_KEY, [])
+    for name, since_key, notes_allowed in ((topic, _VOTES_SINCE_KEY, False),
+                                           (feedback_topic(), _SINCE_KEY, True)):
+        messages = _read_topic(server, name, get_telegram_state(since_key, "") or "72h")
+        for msg in messages:
+            text = (msg.get("message") or "").strip()
+            vote = _vote(text)
+            if vote:
+                verdict, listing_id = vote
+                record_feedback(listing_id, verdict, _FEEDBACK_NOTE)
+                if verdict == "yes":
+                    favorites.add(listing_id)
+                else:
+                    favorites.remove(listing_id)
+                votes += 1
+            elif text and notes_allowed:
+                saved_notes.append(text[:300])
+                notes += 1
+        if messages and messages[-1].get("id"):
+            set_telegram_state(since_key, messages[-1]["id"])
     if notes:
         _save_json(_NOTES_KEY, saved_notes[-40:])
-    if last:
-        set_telegram_state(_SINCE_KEY, last)
     if votes or notes:
         logger.info(f"juez: {votes} valoraciones y {notes} notas nuevas")
     return votes, notes
