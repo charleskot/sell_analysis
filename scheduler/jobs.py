@@ -147,6 +147,8 @@ class PipelineOrchestrator:
         self.residence_scorer = ResidenceScorer(config)
         self.profile_matcher = ProfileMatcher(config)
         self.alerter = TelegramAlerter(config)
+        from analysis.taste_judge import TasteJudge
+        self.judge = TasteJudge(config)
         self._scrapers = self._init_scrapers()
         logger.info(f"Pipeline initialised in '{self.mode}' mode")
 
@@ -1039,7 +1041,36 @@ class PipelineOrchestrator:
             )
         return ok
 
-    def verify(self, listing: dict, metrics: dict) -> tuple[dict, dict] | None:
+    def verify(self, listing: dict, metrics: dict,
+               judge: bool = True) -> tuple[dict, dict] | None:
+        """Everything a flat must pass before it is sent, after the filters.
+
+        First its advert is read for occupation and the like (_read_advert);
+        then the taste judge looks at it, photos and all, and a flat he
+        would not want to live in is held back — listed in the daily control
+        instead. `judge=False` is the control's own check: it asks only
+        whether the advert disqualified the flat.
+        """
+        checked = self._read_advert(listing, metrics)
+        if checked is None or not judge:
+            return checked
+        listing, metrics = checked
+        # A flat he was already sent is not judged again: send_alert drops a
+        # repeat anyway, and a price drop on it is news whatever it looks like.
+        if self.alerter.already_sent(
+                listing.get("id") or f"{listing.get('portal')}_{listing.get('external_id')}",
+                self.alerter.property_signature(listing)):
+            return listing, metrics
+        verdict = self.judge.judge(listing, metrics)
+        if verdict is None:
+            return listing, metrics
+        if not verdict.get("ok"):
+            logger.info(f"{listing.get('id')} no te gustaría según el juez: "
+                        f"{verdict.get('s')}/10, {verdict.get('r')}")
+            return None
+        return listing, {**metrics, "juez": verdict}
+
+    def _read_advert(self, listing: dict, metrics: dict) -> tuple[dict, dict] | None:
         """Read the whole advert before sending, and drop it if it disqualifies.
 
         Whether somebody lives in a flat is only ever said in the seller's
@@ -1220,6 +1251,7 @@ class PipelineOrchestrator:
         from zoneinfo import ZoneInfo
         from sqlalchemy import select
         from ingest.email_parsers import _REJECT_RE
+        from analysis.taste_judge import get_verdict as get_judge_verdict
         from models.db import get_engine, get_verify_verdict, same_flat, was_similar_listing_sent
         from models.schema import alerts_sent, listings
 
@@ -1235,12 +1267,12 @@ class PipelineOrchestrator:
                                        listings.c.first_seen_at < end))]
             sent_ids = {r[0] for r in conn.execute(select(alerts_sent.c.listing_id))}
 
-        report: dict = {"day": day.isoformat(), "portals": {}, "escaped": []}
+        report: dict = {"day": day.isoformat(), "portals": {}, "escaped": [], "judged_out": []}
         for listing in rows:
             portal = listing.get("portal") or "?"
             counts = report["portals"].setdefault(
                 portal, {"nuevos": 0, "cumplen": 0, "enviados": 0, "repetidos": 0,
-                         "descartados": 0, "escapados": 0})
+                         "descartados": 0, "juez": 0, "escapados": 0})
             counts["nuevos"] += 1
             metrics = self._compute_metrics(listing) or self._minimal_metrics(listing)
             hits = self.profile_matcher.match(listing, metrics)
@@ -1260,7 +1292,11 @@ class PipelineOrchestrator:
                 counts["repetidos"] += 1
             elif verdict and verdict[0] == "rechazada":
                 counts["descartados"] += 1
-            elif self.verify(listing, metrics) is None and \
+            elif (judged := get_judge_verdict(listing["id"])) and not judged.get("ok"):
+                # Held back by the taste judge: listed, so a wrong call is seen
+                counts["juez"] += 1
+                report["judged_out"].append({**listing, "juez": judged})
+            elif self.verify(listing, metrics, judge=False) is None and \
                     (get_verify_verdict(listing["id"]) or ("",))[0] == "rechazada":
                 # Read now if never read: the browser's first look at a search
                 # stores a page of bank flats without reading one of them, and
@@ -1291,6 +1327,8 @@ class PipelineOrchestrator:
                 parts.append(f"{c['repetidos']} repetidos")
             if c["descartados"]:
                 parts.append(f"{c['descartados']} ocupados o trampas")
+            if c.get("juez"):
+                parts.append(f"{c['juez']} no te gustarían")
             if c["escapados"]:
                 parts.append(f"{c['escapados']} se escaparon")
             lines.append(f"{names[portal]}: {c['nuevos']} nuevos · {c['cumplen']} cumplían → "
@@ -1299,6 +1337,17 @@ class PipelineOrchestrator:
             money = f"{listing.get('price') or 0:,.0f}".replace(",", ".")
             place = (listing.get("district") or listing.get("city") or "").title()
             lines.append(f"⚠️ {money} € · {place} · {listing.get('area_m2') or '?'} m² · {listing.get('url')}")
+        judged = report.get("judged_out") or []
+        if judged:
+            lines.append("No enviados porque no te gustarían (dime si me equivoco con 👍):")
+        for listing in judged[:8]:
+            money = f"{listing.get('price') or 0:,.0f}".replace(",", ".")
+            place = (listing.get("district") or listing.get("city") or "").title()
+            v = listing["juez"]
+            lines.append(f"🧐 {v.get('s')}/10 · {money} € · {place} · {v.get('r')} · {listing.get('url')}")
+        if report.get("ideal"):
+            lines.append("Tu piso ideal, según lo que he aprendido:")
+            lines.append(report["ideal"])
         return "\n".join(lines)
 
     def send_daily_control(self) -> bool:
@@ -1317,7 +1366,17 @@ class PipelineOrchestrator:
         # three minutes — the budget would stop it, but quietly.
         set_telegram_state("daily_control_day", today)
         report = self.daily_control()
+        report["ideal"] = self.judge.ideal_to_show()
         return bool(self.alerter._send_sync(self.daily_control_text(report), kind="control"))
+
+    def poll_taste_feedback(self) -> int:
+        """Collect his 👍/👎 and notes, and let the judge relearn from them."""
+        from analysis.taste_judge import poll_ratings
+
+        votes, notes = poll_ratings(self.config)
+        if votes or notes:
+            self.judge.learn()
+        return votes + notes
 
     def send_pending(self) -> int:
         """Send every current match that has never gone out.

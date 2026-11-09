@@ -188,7 +188,7 @@ class _Verifier:
     def __init__(self):
         from scheduler.jobs import PipelineOrchestrator
 
-        self.verify = PipelineOrchestrator.verify.__get__(self)
+        self.verify = PipelineOrchestrator._read_advert.__get__(self)
         self.config = {}
         self.profile_matcher = _Matcher()
 

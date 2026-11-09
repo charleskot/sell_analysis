@@ -118,6 +118,9 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           # Idealista through Apify. Unset, that source is simply off.
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          # The taste judge (Claude, with the photos). Unset, flats go out
+          # unjudged exactly as before.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # Optional. Unset, the bot behaves exactly as before; the portals
           # that refuse datacenter addresses simply stay unreadable.
           SCRAPER_PROXY: ${{ secrets.SCRAPER_PROXY }}

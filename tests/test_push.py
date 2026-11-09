@@ -70,7 +70,13 @@ def test_with_a_topic_the_flat_goes_to_the_phone(monkeypatch, posts):
     assert url == "https://ntfy.sh/"
     assert payload["topic"] == "secreto"
     assert payload["click"] == FLAT["url"]
-    assert payload["actions"][0]["url"] == FLAT["url"]
+    # Tapping opens the advert; the buttons rate it for the taste judge,
+    # posting to the secret topic's sibling, never to a public one
+    like, dislike = payload["actions"][:2]
+    assert like["action"] == dislike["action"] == "http"
+    assert like["url"] == dislike["url"] == "https://ntfy.sh/secreto-gustos"
+    assert like["body"].startswith("si ") and dislike["body"].startswith("no ")
+    assert len(payload["actions"]) <= 3          # ntfy's limit
 
 
 def test_a_dead_notification_service_costs_nothing(monkeypatch):
