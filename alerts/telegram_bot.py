@@ -224,6 +224,10 @@ class TelegramAlerter:
             # Idealista's pages cannot be read from here; occupation is only
             # ever stated there, so the user is told this one was not checked.
             body += "\n⚠️ Ficha sin verificar: mírala antes por si está ocupado"
+        judged = metrics.get("juez")
+        if judged and judged.get("r"):
+            # What the taste judge saw in the photos and the advert
+            body += f"\n🧐 {judged.get('s')}/10 · {judged['r']}"
         return title, body
 
     def send_price_drop(self, listing_id: str, listing: dict, metrics: dict,
@@ -325,9 +329,18 @@ class TelegramAlerter:
         payload = {"topic": topic, "title": title, "message": body,
                    # At night a price drop still goes out at once, but quietly
                    "priority": 2 if metrics.get("quiet") else 4, "tags": ["house"]}
+        # Tapping the notification opens the advert. The buttons teach the
+        # taste judge (👍/👎); without them, "Ver anuncio" takes their place.
+        from analysis.taste_judge import rating_actions
+
+        listing_id = listing.get("id") or f"{listing.get('portal')}_{listing.get('external_id')}"
+        rating = rating_actions(self._config, listing_id)
         if url:
             payload["click"] = url
-            payload["actions"] = [{"action": "view", "label": "Ver anuncio", "url": url}]
+            if not rating:
+                payload["actions"] = [{"action": "view", "label": "Ver anuncio", "url": url}]
+        if rating:
+            payload["actions"] = rating
         map_url = (self._config.get("map") or {}).get("url")
         if map_url and (self._config.get("map") or {}).get("enabled"):
             payload.setdefault("actions", []).append(

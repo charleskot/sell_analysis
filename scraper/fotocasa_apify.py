@@ -73,7 +73,7 @@ def to_raw(item: dict) -> dict | None:
         "latitude": item.get("latitude"),
         "longitude": item.get("longitude"),
         "description": description.strip(),
-        "photo_urls": (item.get("photos") or [])[:5],
+        "photo_urls": (item.get("photos") or [])[:15],
         "description_complete": True,
         # When the advert went up: an actor's first look at a search calls
         # every flat on it new, however long it has been for sale.

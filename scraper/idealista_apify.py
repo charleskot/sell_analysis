@@ -179,7 +179,10 @@ def to_raw(item: dict) -> dict | None:
         "latitude": ubication.get("latitude"),
         "longitude": ubication.get("longitude"),
         "description": description.strip(),
-        "photo_urls": [item["thumbnail"]] if item.get("thumbnail") else [],
+        # The whole gallery when the actor returns it, for the taste judge
+        "photo_urls": [im["url"] for im in ((item.get("multimedia") or {}).get("images") or [])
+                       if isinstance(im, dict) and im.get("url")][:30]
+                      or ([item["thumbnail"]] if item.get("thumbnail") else []),
         # The seller's own words arrived whole: there is no page left to read
         "description_complete": True,
     }

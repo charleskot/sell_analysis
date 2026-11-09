@@ -716,6 +716,33 @@ location_scores:
 # Pages from docs/ (docs/index.html draws docs/pisos.json). The bot rewrites
 # the data every half hour and the state save commits it. Each notification
 # carries a "Ver mapa" button to `url`.
+# The taste judge (analysis/taste_judge.py): every flat that passes the
+# filters and the occupation check is shown to Claude with its whole advert
+# and a spread of its photos, and scored 0–10 against the user's taste.
+# Below min_score it is not sent — the daily control lists it instead. The
+# 👍/👎 on each notification teach it; every few ratings it rewrites "the
+# ideal flat". Needs the ANTHROPIC_API_KEY secret; without it, or past
+# max_per_day, flats go out unjudged exactly as before.
+juez:
+  enabled: true
+  model: claude-opus-5-5
+  effort: low
+  min_score: 5
+  max_photos: 8
+  photo_px: 800
+  max_per_day: 40        # API calls a day: caps the cost (about 0,05 $ each)
+  relearn_every: 3       # new ratings before the ideal flat is rewritten
+  feedback: true         # 👍/👎 buttons on every flat
+  gustos: >-
+    Busco un piso para vivir yo, no para invertir. Para entrar a vivir o con
+    muy poca reforma (pintar, algún detalle). No quiero pisos que pintan feos:
+    viejos, oscuros, con cocina y baño antiguos que piden reforma integral,
+    suelos y carpinterías de hace décadas, o fotos que esconden el estado
+    real. Me gustan luminosos y exteriores. Prefiero zonas tranquilas y calles
+    relativamente tranquilas y bonitas: mejor una calle pequeña, arbolada o
+    peatonal que una avenida con mucho tráfico. Con ascensor o en planta
+    primera o segunda. Nada de bajos ni sótanos.
+
 map:
   enabled: true
   interval_minutes: 30

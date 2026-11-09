@@ -447,6 +447,12 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     except Exception as e:
         console.print(f"[yellow]Pisos ya en venta falló:[/yellow] {e}")
 
+    # His 👍/👎 from the notifications: the taste judge learns from them
+    try:
+        orchestrator.poll_taste_feedback()
+    except Exception as e:
+        console.print(f"[yellow]Valoraciones falló:[/yellow] {e}")
+
     # The map page's data, every half hour
     try:
         n = orchestrator.export_map()

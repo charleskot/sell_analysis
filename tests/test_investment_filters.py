@@ -830,7 +830,7 @@ class _Orchestrator:
         from analysis.profiles import ProfileMatcher
         from scheduler.jobs import PipelineOrchestrator
 
-        self.verify = PipelineOrchestrator.verify.__get__(self)
+        self.verify = PipelineOrchestrator._read_advert.__get__(self)
         self._warn_if_reader_failing = PipelineOrchestrator._warn_if_reader_failing.__get__(self)
         self.config = {}       # defaults: must_read_portals = habitaclia, fotocasa
         self.alerter = type("A", (), {"pulses": [], "send_pulse":
