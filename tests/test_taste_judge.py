@@ -184,25 +184,32 @@ def test_the_daily_control_lists_what_the_judge_held_back():
 # ── Learning from him ────────────────────────────────────────────────────
 
 def test_taps_and_notes_are_collected(db, monkeypatch):
+    from scheduler import favorites
+
     monkeypatch.setenv("NTFY_TOPIC", "secreto")
     db.upsert_listing(FLAT)
-    lines = "\n".join(json.dumps(m) for m in [
-        {"event": "message", "id": "a1", "message": "si habitaclia_123"},
-        {"event": "message", "id": "a2", "message": "No me gustan las fincas sin portero"},
-    ])
-    seen = {}
+    topics = {
+        # The confirmation a 👍 posts to his own topic, beside a flat the bot sent
+        "https://ntfy.sh/secreto/json": [
+            {"event": "message", "id": "m1", "message": "290.000 € · Clot\n72 m²"},
+            {"event": "message", "id": "m2",
+             "message": "⭐ 280.000 € · El Clot\nGuardado en favoritos.\n[si habitaclia_123]"}],
+        # What he writes to the ratings topic, and a vote from the first buttons
+        "https://ntfy.sh/secreto-gustos/json": [
+            {"event": "message", "id": "g1", "message": "No me gustan las fincas sin portero"},
+            {"event": "message", "id": "g2", "message": "no fotocasa_9"}],
+    }
     import requests
 
-    def fake_get(url, params=None, timeout=None):
-        seen.update(url=url, params=params)
-        return SimpleNamespace(text=lines, raise_for_status=lambda: None)
-
-    monkeypatch.setattr(requests, "get", fake_get)
-    assert taste_judge.poll_ratings(CONFIG) == (1, 1)
-    assert seen["url"] == "https://ntfy.sh/secreto-gustos/json"
-    assert db.get_telegram_state("juez_gustos_desde") == "a2"
+    monkeypatch.setattr(requests, "get", lambda url, params=None, timeout=None: SimpleNamespace(
+        text="\n".join(json.dumps(m) for m in topics[url]), raise_for_status=lambda: None))
+    assert taste_judge.poll_ratings(CONFIG) == (2, 1)
+    assert db.get_telegram_state("juez_votos_desde") == "m2"
+    assert db.get_telegram_state("juez_gustos_desde") == "g2"
     rated = taste_judge.rated_flats()
     assert [(r["listing_id"], r["verdict"]) for r in rated] == [("habitaclia_123", "yes")]
+    # A 👍 keeps the flat as a favourite, at the price it had
+    assert favorites.all_favourites()["habitaclia_123"]["p"] == 280000.0
 
 
 def test_his_ratings_reach_the_judge_and_rewrite_the_ideal(db, monkeypatch):

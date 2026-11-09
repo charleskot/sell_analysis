@@ -72,10 +72,14 @@ def test_with_a_topic_the_flat_goes_to_the_phone(monkeypatch, posts):
     assert payload["click"] == FLAT["url"]
     # Tapping opens the advert; the buttons rate it for the taste judge,
     # posting to the secret topic's sibling, never to a public one
+    # A tap posts a confirmation to his own topic, so he sees it worked;
+    # the vote rides in it for the bot to read back
     like, dislike = payload["actions"][:2]
     assert like["action"] == dislike["action"] == "http"
-    assert like["url"] == dislike["url"] == "https://ntfy.sh/secreto-gustos"
-    assert like["body"].startswith("si ") and dislike["body"].startswith("no ")
+    assert like["url"] == dislike["url"] == "https://ntfy.sh/secreto"
+    assert "Guardado en favoritos" in like["body"] and like["body"].endswith("]")
+    assert "[no " in dislike["body"]
+    assert all(v.isascii() for a in (like, dislike) for v in a["headers"].values())
     assert len(payload["actions"]) <= 3          # ntfy's limit
 
 
