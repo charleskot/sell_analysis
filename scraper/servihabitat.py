@@ -137,3 +137,127 @@ class ServihabitatScraper(BaseScraper):
         except Exception as e:
             logger.debug(f"Error parsing Servihabitat card: {e}")
             return None
+
+
+# ── The live search the bot reads every half hour ───────────────────────
+
+_WEB_UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+           "(KHTML, like Gecko) Chrome/131.0 Safari/537.36")
+_BCN_DISTRICTS = {"bcnsantmarti": "sant martí", "bcnhortaguinardo": "horta-guinardó",
+                  "bcnsantandreu": "sant andreu", "bcneixample": "eixample",
+                  "bcnnoubarris": "nou barris", "bcngracia": "gràcia",
+                  "bcnsantsmontjuic": "sants-montjuïc", "bcnciutatvella": "ciutat vella",
+                  "bcnlescorts": "les corts", "bcnsarriasantgervasi": "sarrià-sant gervasi"}
+
+
+def card_to_listing(card, town: str | None) -> dict | None:
+    """One result card as a listing dict.
+
+    Each card carries its facts as data ("productPrice: 115400.00
+    productM2: 72 productRoomNum: 3 productExtra: [lift]") beside the text a
+    buyer sees ("Piso en venta en C. Calle Atlantida, 71-73, Badalona … En
+    rentabilidad"). "En rentabilidad" is Servihabitat's word for a flat sold
+    with its tenant, which the bot's own wording check would not know.
+    """
+    from urllib.parse import urljoin
+
+    ext_id = card.get("data-id")
+    link = card.find("a", href=re.compile(r"/\d{6,}$"))
+    if not ext_id or not link:
+        return None
+    text = re.sub(r"\s+", " ", card.get_text(" ", strip=True))
+
+    def fact(name: str):
+        found = re.search(rf"{name}:\s*([\w.\[\],]+)", text)
+        return found.group(1) if found else None
+
+    try:
+        price = float(fact("productPrice") or 0) or None
+    except ValueError:
+        price = None
+    if not price:
+        return None
+    area = fact("productM2")
+    rooms = fact("productRoomNum")
+    baths = fact("productBathNum")
+    extras = (fact("productExtra") or "").strip("[]").split(",")
+    heading = re.search(r"((?:Piso|Casa|Dúplex|Ático|Planta baja|Apartamento|Estudio|Chalet|Vivienda)"
+                        r"[^€]*? en venta en [^€]+?)(?=\s+\d+\s*m\s*2|\s+\d+\s*hab|$)", text)
+    title = heading.group(1).strip() if heading else f"Vivienda en venta en {town or ''}".strip()
+    url = urljoin("https://www.servihabitat.com", link["href"])
+    kind = (card.get("data-category") or "").split("/")
+    floor = "Bajo" if "planta-baja" in kind or "vivienda-plantabaja" in url else None
+
+    notes = []
+    # "productWithoutPosesion: sinposesion" marks a flat sold occupied; on a
+    # free one the field is empty and the next field's name follows
+    if re.search(r"productWithoutPosesion:\s*sinposesion", text):
+        notes.append("inmueble sin posesión (ocupado)")
+    if "lift" in extras:
+        notes.append("con ascensor")
+    if re.search(r"\ben rentabilidad\b", text, re.I):
+        notes.append("inmueble alquilado (en rentabilidad)")
+    district = None
+    slug = re.search(r"/venta/[^/]+/[a-z]+-[a-z]+-([a-z]+)/\d+", url)
+    if slug and slug.group(1) in _BCN_DISTRICTS:
+        district = _BCN_DISTRICTS[slug.group(1)]
+    return {
+        "portal": "servihabitat", "external_id": str(ext_id), "url": url,
+        "title": title, "price": price,
+        "area_m2": float(area) if area and area.replace(".", "").isdigit() else None,
+        "rooms": int(rooms) if rooms and rooms.isdigit() else None,
+        "bathrooms": int(baths) if baths and baths.isdigit() else None,
+        "floor": floor, "city": town or "desconocido", "district": district,
+        "description": " · ".join(notes),
+        "photo_urls": [img["src"] for img in card.select("img[src]")
+                       if img["src"].startswith("http") and "logo" not in img["src"]][:10],
+    }
+
+
+def scrape_recent(slug: str, town: str | None) -> list[dict]:
+    """The newest flats of one Servihabitat search (`slug` as in its links,
+    e.g. "barcelona-barcelones-badalona"), only its own results — the page
+    goes on with "También te puede interesar", flats from anywhere."""
+    import requests
+    from bs4 import BeautifulSoup
+
+    url = f"https://www.servihabitat.com/es/venta/vivienda/{slug}?o=2"    # o=2: newest first
+    resp = requests.get(url, headers={"User-Agent": _WEB_UA, "Accept-Language": "es-ES"}, timeout=30)
+    if resp.status_code != 200:
+        logger.info(f"Servihabitat: {resp.status_code} en {url}")
+        return []
+    own = resp.text.split('id="suggested-message"')[0]
+    cards = BeautifulSoup(own, "lxml").select("div.product-list div.product-item")
+    return [x for x in (card_to_listing(c, town) for c in cards) if x]
+
+
+def advert_text(url: str | None) -> str | None:
+    """What a Servihabitat advert says about the flat, or None if unreadable.
+
+    Not the whole page: every one of its pages carries the heading "Vivienda
+    sin posesión" in a hidden contact form, so scanning the page for
+    occupation condemned every flat, free or not. Whether a flat is sold
+    occupied is the page's possession field; the rest is the seller's
+    description.
+    """
+    import requests
+    from bs4 import BeautifulSoup
+
+    if not url:
+        return None
+    try:
+        resp = requests.get(url, headers={"User-Agent": _WEB_UA, "Accept-Language": "es-ES"}, timeout=30)
+    except Exception as e:
+        logger.info(f"Servihabitat: no pude leer {url[-50:]}: {e}")
+        return None
+    if resp.status_code != 200:
+        return None
+    parts = []
+    if re.search(r"productWithoutPosesion:\s*sinposesion", resp.text):
+        parts.append("Inmueble sin posesión (ocupado).")
+    soup = BeautifulSoup(resp.text, "lxml")
+    for el in soup.select("p.description"):
+        text = re.sub(r"\s+", " ", el.get_text(" ", strip=True))
+        if len(text) > 80 and not text.startswith("Un agente contactará"):
+            parts.append(text)
+    return " ".join(parts)

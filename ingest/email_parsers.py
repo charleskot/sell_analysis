@@ -433,8 +433,13 @@ def town_from_url(portal: str, url: str | None) -> str | None:
         found = re.search(r"/venta/[^/]+/([a-z-]+)/\d+", path)
         if found:
             squashed = found.group(1).split("-")[-1]
+            # Barcelona goes by district ("bcnnoubarris"), and a town's
+            # article trails its name ("pratdellobregatel")
+            if squashed.startswith("bcn"):
+                return "barcelona"
             for name in sorted(POPULATION, key=len, reverse=True):
-                if squashed.endswith(name.replace(" ", "")):
+                bare = name.replace(" ", "")
+                if squashed.endswith(bare) or squashed.startswith(bare):
                     return name
     elif portal == "solvia":
         found = re.search(r"/comprar/([a-z-]+?)-\d+-dormitorio", path) \

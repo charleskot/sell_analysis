@@ -763,6 +763,27 @@ pisos_com:
     - sant_just_desvern
     - molins_de_rei
 
+# Servihabitat (a bank's and a fund's stock), read directly, newest first.
+# Slugs as in its own links; Barcelona goes by district, and the town name
+# keeps its article at the end ("hospitaletdellobregatl").
+servihabitat_web:
+  enabled: true
+  interval_minutes: 30
+  searches:
+    - {slug: barcelona-barcelones-bcnsantmarti, town: barcelona}
+    - {slug: barcelona-barcelones-bcnhortaguinardo, town: barcelona}
+    - {slug: barcelona-barcelones-bcnsantandreu, town: barcelona}
+    - {slug: barcelona-barcelones-bcneixample, town: barcelona}
+    - {slug: barcelona-barcelones-bcnnoubarris, town: barcelona}
+    - {slug: barcelona-barcelones-badalona, town: badalona}
+    - {slug: barcelona-barcelones-hospitaletdellobregatl, town: hospitalet de llobregat}
+    - {slug: barcelona-barcelones-santacolomadegramenet, town: santa coloma de gramenet}
+    - {slug: barcelona-baixllobregat-cornelladellobregat, town: cornella de llobregat}
+    - {slug: barcelona-baixllobregat-espluguesdellobregat, town: esplugues de llobregat}
+    - {slug: barcelona-baixllobregat-santfeliudellobregat, town: sant feliu de llobregat}
+    - {slug: barcelona-baixllobregat-santjustdesvern, town: sant just desvern}
+    - {slug: barcelona-baixllobregat-molinsderei, town: molins de rei}
+
 # Flats he tapped 👍 on: kept as favourites and their price followed — any
 # change, up or down, is sent at once, and so is the advert disappearing.
 # Habitaclia and Fotocasa adverts are read for their price this often.

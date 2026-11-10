@@ -378,6 +378,15 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     except Exception as e:
         console.print(f"[yellow]Pisos.com falló:[/yellow] {e}")
 
+    # Servihabitat, read directly: every half hour
+    try:
+        svh = orchestrator.run_servihabitat()
+        if svh.get("searches"):
+            console.print(f"[green]Servihabitat:[/green] {svh['parsed']} pisos · "
+                          f"{svh['new']} nuevos · {svh['alerts_sent']} alertas")
+    except Exception as e:
+        console.print(f"[yellow]Servihabitat falló:[/yellow] {e}")
+
     # Idealista through Apify: its emails cannot be a feed. Every hour and a
     # half by day; on the other ticks it returns at once.
     try:
