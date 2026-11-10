@@ -38,6 +38,7 @@ _DESCRIPTION_SELECTORS = [
     ".desctext", ".primer-bloque",                          # Habitaclia
     ".detail-description", ".comment", "#details",          # Idealista
     ".fc-detail-text", "[class*='DetailDescription']",      # Fotocasa
+    ".description__content",                                # Pisos.com
     "[itemprop='description']",
 ]
 
@@ -160,6 +161,11 @@ def fetch_description(url: str) -> str | None:
     # The meta description is tried first and works across portals: every one
     # of them fills it from the advert itself. It is also immune to layout
     # changes, unlike a CSS selector, and short enough to carry no furniture.
+    # Pisos.com's meta description is a generic line; its advert text is here
+    own = soup.select_one(".description__content")
+    if own and len(own.get_text(strip=True)) > 80:
+        return re.sub(r"\s+", " ", own.get_text(" ", strip=True))[:_MAX_CHARS]
+
     meta = soup.find("meta", attrs={"name": "description"})
     if meta and meta.get("content") and len(meta["content"]) > 60:
         return re.sub(r"\s+", " ", meta["content"])[:_MAX_CHARS]

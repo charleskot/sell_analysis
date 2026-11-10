@@ -551,6 +551,92 @@ class PipelineOrchestrator:
                     f"{stats['seeded']} sembradas, {stats['errors']} errores")
         return stats
 
+    def run_pisos_com(self, force: bool = False) -> dict:
+        """Read pisos.com's newest flats in each town of the search.
+
+        "¿Podemos agregar otras plataformas?" Pisos.com answers a plain
+        request, sorts by newest and filters by price, and about one flat in
+        seven on it in his towns was on no other source the bot reads. It
+        works as the Habitaclia browser does: each search's first read is a
+        seed, stored without alerting (the backlog then sends what was never
+        sent, a few an hour); from then on a flat not seen before is news,
+        and a page of flats already known ends the read.
+        """
+        import json
+        from datetime import datetime, timedelta, timezone
+        from models.db import get_telegram_state, set_telegram_state
+
+        cfg = self.config.get("pisos_com") or {}
+        stats = {"searches": 0, "seeded": 0, "parsed": 0, "new": 0, "updated": 0,
+                 "filtered_out": 0, "rejected_after_enrich": 0, "enriched": 0,
+                 "alerts_sent": 0, "errors": 0, "by_profile": {}, "by_portal": {}}
+        if not cfg.get("enabled") or not cfg.get("towns"):
+            return stats
+        now = datetime.now(timezone.utc)
+        last = get_telegram_state("pisos_last_run_at", "")
+        try:
+            if not force and last and now - datetime.fromisoformat(last) < timedelta(
+                    minutes=cfg.get("interval_minutes", 15)):
+                return stats
+        except ValueError:
+            pass
+        set_telegram_state("pisos_last_run_at", now.isoformat())
+
+        from scraper.pisos import scrape
+
+        try:
+            seeded = set(json.loads(get_telegram_state("pisos_seeded", "[]") or "[]"))
+        except ValueError:
+            seeded = set()
+        fresh_hours = (self.config.get("alerts") or {}).get("fresh_hours", 24)
+        seed_date = now - timedelta(hours=fresh_hours + 1)
+        portal_stats = stats["by_portal"].setdefault("pisos", {"parsed": 0, "alerts": 0})
+
+        def _all_known(ids: list[str]) -> bool:
+            from sqlalchemy import func, select
+            from models.db import get_engine
+            from models.schema import listings
+
+            wanted = {f"pisos_{i}" for i in ids}
+            with get_engine().connect() as conn:
+                have = conn.execute(select(func.count()).select_from(listings)
+                                    .where(listings.c.id.in_(wanted))).scalar()
+            return have == len(wanted)
+
+        for town in cfg["towns"]:
+            url = (f"https://www.pisos.com/venta/pisos-{town}/hasta-{cfg.get('max_price', 385000)}"
+                   f"/fecharecientedesde-desc/")
+            first_time = url not in seeded
+            try:
+                found = scrape(url, max_pages=cfg.get("seed_pages", 10) if first_time
+                               else cfg.get("max_pages", 3),
+                               known=None if first_time else _all_known)
+            except Exception as e:
+                logger.error(f"Pisos.com: {town} falló: {type(e).__name__}: {e}")
+                stats["errors"] += 1
+                continue
+            stats["searches"] += 1
+            for raw_dict in found:
+                stats["parsed"] += 1
+                portal_stats["parsed"] += 1
+                if first_time:
+                    raw_dict["first_seen_at"] = seed_date
+                try:
+                    self._ingest_listing(raw_dict, stats, portal_stats, alert=not first_time)
+                except Exception as e:
+                    logger.error(f"Pisos.com: error con {raw_dict.get('url', '?')[:80]}: {e}")
+                    stats["errors"] += 1
+            if first_time and found:
+                seeded.add(url)
+                stats["seeded"] += 1
+                logger.info(f"Pisos.com: {town} sembrada con {len(found)} pisos (sin avisar)")
+
+        set_telegram_state("pisos_seeded", json.dumps(sorted(seeded)))
+        logger.info(f"Pisos.com: {stats['searches']} búsquedas, {stats['parsed']} pisos, "
+                    f"{stats['new']} nuevos, {stats['alerts_sent']} avisos, "
+                    f"{stats['seeded']} sembradas, {stats['errors']} errores")
+        return stats
+
     def run_idealista_apify(self, force: bool = False) -> dict:
         """Read Idealista's newest flats through Apify, every so often.
 
@@ -1322,12 +1408,15 @@ class PipelineOrchestrator:
     @staticmethod
     def daily_control_text(report: dict) -> str:
         """The report as the phone shows it: title line, then the facts."""
-        names = {"habitaclia": "Habitaclia", "idealista": "Idealista", "fotocasa": "Fotocasa"}
+        names = {"habitaclia": "Habitaclia", "idealista": "Idealista", "fotocasa": "Fotocasa",
+                 "pisos": "Pisos.com"}
         lines = [f"Control del {report['day'][8:10]}/{report['day'][5:7]}: "
                  + ("todo en orden" if not report["escaped"]
                     else f"se escaparon {len(report['escaped'])}")]
-        for portal in ("habitaclia", "idealista", "fotocasa"):
+        for portal in ("habitaclia", "idealista", "fotocasa", "pisos"):
             c = report["portals"].get(portal)
+            if not c and portal == "pisos":
+                continue
             if not c:
                 lines.append(f"{names[portal]}: no entró nada nuevo")
                 continue

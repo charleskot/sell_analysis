@@ -165,3 +165,75 @@ class PisosScraper(BaseScraper):
         except Exception as e:
             logger.debug(f"Error parsing Pisos.com card: {e}")
             return None
+
+
+# ── The live search the bot reads every few minutes ─────────────────────
+
+_USER_AGENT = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+               "(KHTML, like Gecko) Chrome/131.0 Safari/537.36")
+
+
+def place_from_subtitle(text: str) -> tuple[str | None, str | None]:
+    """(barri, town) from a card's subtitle, as the rest of the bot names them.
+
+    "El Congrés-Els Indians (Distrito Sant Andreu. Barcelona Capital)" is a
+    barri of Barcelona, not a town called "distrito sant andreu"; "Sant Josep
+    (L'Hospitalet de Llobregat)" is a barri of L'Hospitalet; a bare town
+    name has no barri.
+    """
+    text = re.sub(r"\s+", " ", (text or "")).strip()
+    if not text:
+        return None, None
+    inner = re.search(r"^(.*?)\s*\((.+)\)\s*$", text)
+    if not inner:
+        town = text.lower()
+        return None, ("barcelona" if town == "barcelona capital" else town)
+    barri, where = inner.group(1).strip().lower(), inner.group(2).strip().lower()
+    if "barcelona capital" in where:
+        return barri or None, "barcelona"
+    return barri or None, where
+
+
+def scrape(url: str, max_pages: int = 3, known=None, pause_s: float = 1.5) -> list[dict]:
+    """The flats on a pisos.com search, newest first, as listing dicts.
+
+    `known(ids)` says whether every id on a page is already stored; the
+    search is sorted newest first, so a page of known flats means the rest
+    are older still and the read stops there.
+    """
+    import time
+
+    import requests
+    from scraper.http_client import HttpClient
+
+    parser = PisosScraper.__new__(PisosScraper)
+    parser.http = HttpClient                    # only its hash_content is used
+    parser.config = {}
+    out: list[dict] = []
+    for page in range(1, max_pages + 1):
+        page_url = url if page == 1 else f"{url.rstrip('/')}/{page}/"
+        resp = requests.get(page_url, headers={"User-Agent": _USER_AGENT,
+                                               "Accept-Language": "es-ES,es;q=0.9"}, timeout=20)
+        if resp.status_code != 200:
+            logger.info(f"Pisos.com: {resp.status_code} en {page_url}")
+            break
+        cards = BeautifulSoup(resp.text, "lxml").select(PisosScraper.CARD_SEL)
+        found = []
+        for card in cards:
+            raw = parser._parse_card(card)
+            if raw is None or not raw.price:
+                continue
+            item = raw.to_dict()
+            sub = card.select_one(PisosScraper.LOCATION_SEL)
+            item["district"], city = place_from_subtitle(sub.get_text(" ", strip=True) if sub else "")
+            item["city"] = city or "desconocido"
+            desc = card.select_one(".ad-preview__description")
+            item["description"] = desc.get_text(" ", strip=True) if desc else ""
+            found.append(item)
+        out.extend(found)
+        if not found or len(cards) < 20:
+            break
+        if known and known([f["external_id"] for f in found]):
+            break
+        time.sleep(pause_s)
+    return out

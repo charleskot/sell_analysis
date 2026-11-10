@@ -365,6 +365,19 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     except Exception as e:
         console.print(f"[yellow]Navegador falló:[/yellow] {e}")
 
+    # Pisos.com, read directly: every quarter of an hour
+    try:
+        pisos = orchestrator.run_pisos_com()
+        if pisos.get("searches"):
+            console.print(
+                f"[green]Pisos.com:[/green] {pisos['searches']} búsquedas · "
+                f"{pisos['parsed']} pisos · {pisos['new']} nuevos · "
+                f"{pisos['alerts_sent']} alertas"
+                + (f" · {pisos['seeded']} sembradas" if pisos["seeded"] else "")
+            )
+    except Exception as e:
+        console.print(f"[yellow]Pisos.com falló:[/yellow] {e}")
+
     # Idealista through Apify: its emails cannot be a feed. Every hour and a
     # half by day; on the other ticks it returns at once.
     try:

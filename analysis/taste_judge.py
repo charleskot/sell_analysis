@@ -142,15 +142,19 @@ def photo_urls(listing: dict, max_photos: int = 8) -> list[str]:
         except ValueError:
             stored = []
     urls = [u for u in stored if isinstance(u, str) and u.startswith("http")]
-    if listing.get("portal") == "habitaclia" or len(urls) < 3:
+    if listing.get("portal") in ("habitaclia", "pisos") or len(urls) < 3:
         page_urls = _gallery_from_page(listing.get("url") or "")
         if len(page_urls) > len(urls):
             urls = page_urls
     return _spread(list(dict.fromkeys(urls)), max_photos)
 
 
+# Pisos.com serves each photo in several sizes under one id; "xl" is the large one
+_PISOS_IMG_RE = re.compile(r"https://fotos\.imghs\.net/[a-z-]+/(\d+/\w+/[0-9a-f-]{36}\w*)\.jpg")
+
+
 def _gallery_from_page(url: str) -> list[str]:
-    if "habitaclia.com" not in url:
+    if "habitaclia.com" not in url and "pisos.com" not in url:
         return []
     try:
         import requests
@@ -159,6 +163,9 @@ def _gallery_from_page(url: str) -> list[str]:
     except Exception as e:
         logger.info(f"juez: no pude leer las fotos de {url[-60:]}: {e}")
         return []
+    if "pisos.com" in url:
+        return [f"https://fotos.imghs.net/xl-wp/{key}.jpg"
+                for key in dict.fromkeys(_PISOS_IMG_RE.findall(page))]
     return [u + "?rule=original" for u in dict.fromkeys(_FOTOCASA_IMG_RE.findall(page))]
 
 
