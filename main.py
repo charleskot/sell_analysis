@@ -466,6 +466,12 @@ def tick(verbose: bool = typer.Option(False, "--verbose", "-v")):
     except Exception as e:
         console.print(f"[yellow]Valoraciones falló:[/yellow] {e}")
 
+    # Once: bank flats filed under a street instead of their town
+    try:
+        orchestrator.repair_bank_towns()
+    except Exception as e:
+        console.print(f"[yellow]Reparar pisos de banco falló:[/yellow] {e}")
+
     # The price of every flat he liked, read from its advert every few hours
     try:
         orchestrator.check_favourites()
