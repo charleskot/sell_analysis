@@ -637,6 +637,75 @@ class PipelineOrchestrator:
                     f"{stats['seeded']} sembradas, {stats['errors']} errores")
         return stats
 
+    def run_servihabitat(self, force: bool = False) -> dict:
+        """Read Servihabitat's newest flats in each town of the search.
+
+        "Crea las alertas de Servihabitat tú": an alert needs an account in
+        his name, but the site answers plain requests and sorts by newest,
+        which is better than an alert. The stock in his towns is small —
+        about forty flats — and most are sold occupied, which each card says.
+        First read of each search is a seed, as with the other portals.
+        """
+        import json
+        from datetime import datetime, timedelta, timezone
+        from models.db import get_telegram_state, set_telegram_state
+
+        cfg = self.config.get("servihabitat_web") or {}
+        stats = {"searches": 0, "seeded": 0, "parsed": 0, "new": 0, "updated": 0,
+                 "filtered_out": 0, "rejected_after_enrich": 0, "enriched": 0,
+                 "alerts_sent": 0, "errors": 0, "by_profile": {}, "by_portal": {}}
+        if not cfg.get("enabled") or not cfg.get("searches"):
+            return stats
+        now = datetime.now(timezone.utc)
+        last = get_telegram_state("servihabitat_last_run_at", "")
+        try:
+            if not force and last and now - datetime.fromisoformat(last) < timedelta(
+                    minutes=cfg.get("interval_minutes", 30)):
+                return stats
+        except ValueError:
+            pass
+        set_telegram_state("servihabitat_last_run_at", now.isoformat())
+
+        import time
+        from scraper.servihabitat import scrape_recent
+
+        try:
+            seeded = set(json.loads(get_telegram_state("servihabitat_seeded", "[]") or "[]"))
+        except ValueError:
+            seeded = set()
+        fresh_hours = (self.config.get("alerts") or {}).get("fresh_hours", 24)
+        seed_date = now - timedelta(hours=fresh_hours + 1)
+        portal_stats = stats["by_portal"].setdefault("servihabitat", {"parsed": 0, "alerts": 0})
+        for search in cfg["searches"]:
+            slug, town = search["slug"], search["town"]
+            first_time = slug not in seeded
+            try:
+                found = scrape_recent(slug, town)
+            except Exception as e:
+                logger.error(f"Servihabitat: {slug} falló: {type(e).__name__}: {e}")
+                stats["errors"] += 1
+                continue
+            stats["searches"] += 1
+            for raw_dict in found:
+                stats["parsed"] += 1
+                portal_stats["parsed"] += 1
+                if first_time:
+                    raw_dict["first_seen_at"] = seed_date
+                try:
+                    self._ingest_listing(raw_dict, stats, portal_stats, alert=not first_time)
+                except Exception as e:
+                    logger.error(f"Servihabitat: error con {raw_dict.get('url', '?')[:80]}: {e}")
+                    stats["errors"] += 1
+            # A town with nothing for sale is a real zero: the page answered
+            if first_time:
+                seeded.add(slug)
+                stats["seeded"] += 1
+            time.sleep(1)
+        set_telegram_state("servihabitat_seeded", json.dumps(sorted(seeded)))
+        logger.info(f"Servihabitat: {stats['searches']} búsquedas, {stats['parsed']} pisos, "
+                    f"{stats['new']} nuevos, {stats['alerts_sent']} avisos")
+        return stats
+
     def run_idealista_apify(self, force: bool = False) -> dict:
         """Read Idealista's newest flats through Apify, every so often.
 
@@ -1208,6 +1277,20 @@ class PipelineOrchestrator:
         cached = get_verify_verdict(lid)
         if cached and cached[0] == "rechazada":
             return None
+
+        # Servihabitat's pages all carry "Vivienda sin posesión" in a hidden
+        # form, so the whole-page scan below would refuse every flat. Its
+        # advert is read for the possession field and the description only.
+        if (listing.get("portal") or lid.split("_")[0]) == "servihabitat" \
+                and not listing.get("description_complete"):
+            from scraper.servihabitat import advert_text
+
+            text = advert_text(listing.get("url"))
+            if text is None:
+                logger.info(f"{lid} sin verificar: no pude leer la ficha de Servihabitat")
+                return None
+            listing = {**listing, "description": f"{listing.get('description') or ''} {text}".strip(),
+                       "description_complete": True}
         # A page read clean is not re-read on every pass of the sweep — the
         # same waste the "rechazada" verdict once stopped — but a day later
         # it is, in case the advert changed.
