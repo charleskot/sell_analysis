@@ -825,6 +825,17 @@ class PipelineOrchestrator:
             logger.info(f"{listing_id} descartado por su propio texto: {blocker.group(0)!r}")
             return
 
+        # Servihabitat's alerts carry no m²: read them off the advert, or a
+        # 40 m² flat would pass the size check as "unknown"
+        if raw_dict.get("portal") == "servihabitat" and not raw_dict.get("area_m2"):
+            from ingest.enrich import area_from_page_title
+
+            area = area_from_page_title(raw_dict.get("url"))
+            if area:
+                raw_dict["area_m2"] = area
+                upsert_listing(raw_dict)
+                metrics = self._compute_metrics(raw_dict) or self._minimal_metrics(raw_dict)
+
         hits = (self.profile_matcher.match(raw_dict, metrics)
                 or self._locate_from_page(raw_dict, metrics)
                 or self._near_miss(raw_dict, metrics))
@@ -1471,6 +1482,35 @@ class PipelineOrchestrator:
         from scheduler import favorites
         report["favoritos"] = favorites.control_lines()
         return bool(self.alerter._send_sync(self.daily_control_text(report), kind="control"))
+
+    def repair_bank_towns(self) -> int:
+        """Once: refile the bank flats stored under a street instead of a town.
+
+        Read from their links (see email_parsers.town_from_url); the backlog
+        then sends any still on sale that meet the search.
+        """
+        from sqlalchemy import select, update
+        from ingest.email_parsers import town_from_url
+        from models.db import get_engine, get_telegram_state, session_scope, set_telegram_state
+        from models.schema import listings
+
+        if get_telegram_state("bank_towns_repaired", "") == "1":
+            return 0
+        with get_engine().connect() as conn:
+            rows = [dict(r._mapping) for r in conn.execute(
+                select(listings).where(listings.c.portal.in_(["solvia", "servihabitat"])))]
+        fixed = 0
+        with session_scope() as conn:
+            for row in rows:
+                town = town_from_url(row["portal"], row.get("url"))
+                if town and town != row.get("city"):
+                    conn.execute(update(listings).where(listings.c.id == row["id"])
+                                 .values(city=town, district=None))
+                    fixed += 1
+        set_telegram_state("bank_towns_repaired", "1")
+        if fixed:
+            logger.info(f"Pisos de banco con el municipio corregido: {fixed}")
+        return fixed
 
     def check_favourites(self) -> int:
         """Read the favourites' adverts for their price, every few hours."""

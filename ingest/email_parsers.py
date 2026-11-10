@@ -414,6 +414,40 @@ def _resolve_city(place: str | None) -> str | None:
     return resolve_truncated(place) or place
 
 
+def town_from_url(portal: str, url: str | None) -> str | None:
+    """The town a bank's advert link names, when its alert title does not.
+
+    Solvia titles name the street ("Piso en C/ Milana") and Servihabitat's
+    sometimes nothing but the street ("C. Les Agudes, 8-10"): read as
+    places, 229 Solvia flats were filed in towns called "milana" or
+    "acacia" and all 60 from Servihabitat in "desconocido", so not one could
+    meet the search. Both links carry the town:
+      solvia.es/…/comprar/Piso-Sant-Pere-de-Ribes-3-dormitorio-217771-264042
+      servihabitat.com/es/venta/vivienda-piso/barcelona-baixllobregat-santboidellobregat/60445535
+    """
+    from urllib.parse import urlparse
+    from analysis.municipalities import POPULATION
+
+    path = urlparse(url or "").path.lower()
+    if portal == "servihabitat":
+        found = re.search(r"/venta/[^/]+/([a-z-]+)/\d+", path)
+        if found:
+            squashed = found.group(1).split("-")[-1]
+            for name in sorted(POPULATION, key=len, reverse=True):
+                if squashed.endswith(name.replace(" ", "")):
+                    return name
+    elif portal == "solvia":
+        found = re.search(r"/comprar/([a-z-]+?)-\d+-dormitorio", path) \
+            or re.search(r"/comprar/([a-z-]+?)-\d+-\d+$", path)
+        if found:
+            words = found.group(1).split("-")
+            for i in range(1, len(words)):
+                name = " ".join(words[i:])
+                if name in POPULATION:
+                    return name
+    return None
+
+
 def extract_location(title: str) -> tuple[str | None, str | None]:
     """Parse a listing title into (city, district).
 
@@ -662,6 +696,16 @@ def parse_email(sender: str, subject: str, html: str, text: str = "",
 
         title = extract_title(block, subject)
         city, district = extract_location(title)
+        town = town_from_url(portal, url)
+        if town:
+            # The title's "town" was a street; whatever it called the barri
+            # is only kept when it is not that same street or the town itself
+            if district and (district == city or _resolve_city(district) == town
+                             or town in (district or "")):
+                district = None
+            city = town
+            if portal == "solvia":
+                district = None
 
         listings.append(
             RawListing(

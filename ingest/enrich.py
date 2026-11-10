@@ -248,3 +248,20 @@ def floor_from_page(text: str | None) -> str | None:
     if not m or not _FLOOR_WORD_RE.search(m.group(1)):
         return None
     return m.group(1).strip()
+
+
+def area_from_page_title(url: str | None) -> float | None:
+    """The m² a bank's advert states in its page title, when the alert left
+    them out: Servihabitat's emails carry only price and street, and its
+    pages open with "Vivienda, Piso de 76 m² en venta, Sant Boi…"."""
+    if not url:
+        return None
+    try:
+        import requests
+
+        resp = requests.get(url, headers=_HEADERS, timeout=TIMEOUT_SECONDS, proxies=_proxies())
+    except Exception as e:
+        logger.info(f"enrich: request failed for {url[:60]}: {e}")
+        return None
+    found = re.search(r"<title>[^<]*?\b(\d{2,4})\s*m(?:²|2)", resp.text or "", re.I)
+    return float(found.group(1)) if found else None
