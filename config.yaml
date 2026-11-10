@@ -428,7 +428,7 @@ alerts:
     # page cannot be read here is held and retried, never sent unchecked.
     # Idealista and the bank sites refuse every read from the runner, so
     # their flats go out on their email's own words, marked "sin verificar".
-    must_read_portals: [habitaclia, fotocasa]
+    must_read_portals: [habitaclia, fotocasa, pisos]
   telegram:
     # Off since 24-oct-2026: the user follows the phone notifications only
     # ("no quiero telegram, no le veré más"). Every flat and every failure
@@ -742,6 +742,26 @@ juez:
     relativamente tranquilas y bonitas: mejor una calle pequeña, arbolada o
     peatonal que una avenida con mucho tráfico. Con ascensor o en planta
     primera o segunda. Nada de bajos ni sótanos.
+
+# Pisos.com, read directly (scheduler/jobs.py run_pisos_com): each town's
+# newest flats up to max_price, every interval_minutes. The search's own
+# filters decide what is sent; this only says where to look.
+pisos_com:
+  enabled: true
+  interval_minutes: 15
+  max_price: 385000        # the favourite zone's ceiling plus its margin
+  max_pages: 3             # per pass; a page of known flats stops sooner
+  seed_pages: 10           # the first read stores what is already on sale
+  towns:
+    - barcelona_capital
+    - badalona
+    - hospitalet_de_llobregat
+    - santa_coloma_de_gramenet
+    - cornella_de_llobregat
+    - esplugues_de_llobregat
+    - sant_feliu_de_llobregat
+    - sant_just_desvern
+    - molins_de_rei
 
 # Flats he tapped 👍 on: kept as favourites and their price followed — any
 # change, up or down, is sent at once, and so is the advert disappearing.
