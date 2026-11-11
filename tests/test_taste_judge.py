@@ -232,3 +232,39 @@ def test_his_ratings_reach_the_judge_and_rewrite_the_ideal(db, monkeypatch):
 def test_buttons_need_the_secret_topic(monkeypatch):
     monkeypatch.delenv("NTFY_TOPIC", raising=False)
     assert taste_judge.rating_actions(CONFIG, "habitaclia_1") == []
+
+
+def test_the_same_flat_under_another_listing_gets_the_verdict_its_photos_earned(db, monkeypatch):
+    # Habitaclia's copy, judged from eight photos, turned down
+    habitaclia = {**FLAT, "id": "habitaclia_123"}
+    db.upsert_listing(habitaclia)
+    taste_judge._store_verdict("habitaclia_123", {"s": 2, "ok": False, "r": "Para reformar",
+                                                  "fotos": 8, "at": "2099-01-01T00:00"})
+    # Idealista's copy of the same flat, no photos: not judged afresh
+    idealista = {**FLAT, "portal": "idealista", "external_id": "999", "id": "idealista_999",
+                 "url": "https://www.idealista.com/inmueble/999/"}
+    db.upsert_listing(idealista)
+    judge = judge_with(NICE, monkeypatch)
+    verdict = judge.judge(idealista)
+    assert verdict["s"] == 2 and verdict["ok"] is False
+    assert judge._client.calls == []
+
+
+def test_a_twin_seen_without_photos_does_not_decide_for_a_copy_with_them(db, monkeypatch):
+    db.upsert_listing({**FLAT, "portal": "idealista", "external_id": "999"})
+    taste_judge._store_verdict("idealista_999", {"s": 5, "ok": True, "r": "Sin fotos",
+                                                 "fotos": 0, "at": "2099-01-01T00:00"})
+    db.upsert_listing(FLAT)
+    judge = judge_with(UGLY, monkeypatch)
+    assert judge.judge({**FLAT, "id": "habitaclia_123"})["s"] == 3
+    assert len(judge._client.calls) == 1
+
+
+def test_a_nearby_flat_is_not_a_twin(db, monkeypatch):
+    db.upsert_listing({**FLAT, "external_id": "1", "price": 315000.0, "area_m2": 83.0})
+    taste_judge._store_verdict("habitaclia_1", {"s": 6, "ok": True, "r": "Otro piso",
+                                                "fotos": 8, "at": "2099-01-01T00:00"})
+    flat = {**FLAT, "portal": "fotocasa", "external_id": "2", "id": "fotocasa_2",
+            "price": 320000.0, "area_m2": 77.0}
+    db.upsert_listing(flat)
+    assert taste_judge.twin_verdict(flat) is None

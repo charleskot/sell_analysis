@@ -117,6 +117,45 @@ def _store_verdict(listing_id: str, verdict: dict, keep: int = 1500) -> None:
     _save_json(_VERDICTS_KEY, data)
 
 
+def twin_verdict(listing: dict, days: int = 21, min_photos: int = 3) -> dict | None:
+    """The verdict given to the same flat under another listing, if it was
+    judged with at least `min_photos` photos (the best-seen copy wins)."""
+    from datetime import timedelta
+    from sqlalchemy import select
+    from models.db import get_engine, same_flat
+    from models.schema import listings
+
+    lid = listing.get("id") or f"{listing.get('portal')}_{listing.get('external_id')}"
+    since = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
+    verdicts = {k: v for k, v in (_state_json(_VERDICTS_KEY, {}) or {}).items()
+                if k != lid and v.get("at", "") >= since and not v.get("gemelo")
+                and (v.get("fotos") or 0) >= min_photos}
+    if not verdicts or not listing.get("price"):
+        return None
+    try:
+        with get_engine().connect() as conn:
+            rows = [dict(r._mapping) for r in conn.execute(
+                select(listings).where(listings.c.id.in_(list(verdicts))))]
+    except Exception:
+        return None
+    twins = [verdicts[r["id"]] for r in rows if same_flat(listing, r) and _close_twin(listing, r)]
+    return max(twins, key=lambda v: v.get("fotos") or 0) if twins else None
+
+
+def _close_twin(a: dict, b: dict) -> bool:
+    """same_flat errs towards "same" so that nothing is sent twice; a verdict
+    is only borrowed between near-identical copies. 320.000 € for 77 m² and
+    315.000 € for 83 m² in Sant Josep pass same_flat, and are two flats."""
+    pa, pb = a.get("price") or 0, b.get("price") or 0
+    if not pa or not pb or abs(pa - pb) / max(pa, pb) > 0.005:
+        return False
+    sa, sb = a.get("area_m2"), b.get("area_m2")
+    if sa and sb and abs(sa - sb) > 3:
+        return False
+    ra, rb = a.get("rooms"), b.get("rooms")
+    return not (ra is not None and rb is not None and ra != rb)
+
+
 def _spread(items: list, n: int) -> list:
     """n items spread over the list: the first few, then evenly to the end.
 
@@ -279,6 +318,15 @@ class TasteJudge:
         cached = get_verdict(lid)
         if cached:
             return cached
+        # The same flat, listed by another agency or portal, judged already
+        # from its photos: one flat, one verdict. On 11 November a third of
+        # the day's calls went on such twins, and one Hospitalet flat was
+        # turned down from its Habitaclia photos (2/10) yet sent from its
+        # photoless Idealista copy (5/10).
+        twin = twin_verdict(listing)
+        if twin:
+            _store_verdict(lid, {**twin, "gemelo": True})
+            return twin
         if not self.enabled:
             return None
         from models.db import bump_daily, daily_counters
