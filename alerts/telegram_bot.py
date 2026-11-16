@@ -190,6 +190,8 @@ class TelegramAlerter:
         title = f"{money} € · {place}"
         if metrics.get("near_miss"):
             title = f"Casi · {title}"
+        if metrics.get("focus"):
+            title = f"🎯 {title}"
         if metrics.get("favourite_from"):
             went = "Baja" if price < metrics["favourite_from"] else "Sube"
             title = f"⭐ Favorito · {went} · {money} € · {place}"
@@ -377,7 +379,9 @@ class TelegramAlerter:
         url = listing.get("url") or ""
         payload = {"topic": topic, "title": title, "message": body,
                    # At night a price drop still goes out at once, but quietly
-                   "priority": 2 if metrics.get("quiet") else 4, "tags": ["house"]}
+                   # Outside his own zone, while the focus is on: silently
+                   "priority": 2 if metrics.get("quiet") or metrics.get("focus") is False else 4,
+                   "tags": ["house"]}
         # Tapping the notification opens the advert. The buttons teach the
         # taste judge (👍/👎); without them, "Ver anuncio" takes their place.
         from analysis.taste_judge import rating_actions

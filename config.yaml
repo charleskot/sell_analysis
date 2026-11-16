@@ -120,7 +120,7 @@ search_profiles:
     zone_budgets:
       - city: barcelona
         districts: [camp de l arpa, el clot, sagrada familia, baix guinardo,
-                    maragall, el guinardo, navas, la sagrera, congres]
+                    maragall, el guinardo, navas, la sagrera, congres, sant andreu]
         max_price: 350000
 
     # A good flat at a good price, close to the target, also goes out marked
@@ -731,6 +731,7 @@ juez:
   max_photos: 8
   photo_px: 800
   max_per_day: 40        # API calls a day: caps the cost (about 0,05 $ each)
+  focus_extra_per_day: 30  # more calls kept for the focus zone (enfoque)
   relearn_every: 3       # new ratings before the ideal flat is rewritten
   feedback: true         # 👍/👎 buttons on every flat
   gustos: >-
@@ -741,7 +742,21 @@ juez:
     real. Me gustan luminosos y exteriores. Prefiero zonas tranquilas y calles
     relativamente tranquilas y bonitas: mejor una calle pequeña, arbolada o
     peatonal que una avenida con mucho tráfico. Con ascensor o en planta
-    primera o segunda. Nada de bajos ni sótanos.
+    primera o segunda. Nada de bajos ni sótanos. Lo que tiene que ser un
+    piso: con luz y alto. No hace falta que esté reformado a estrenar, pero
+    sí que se pueda entrar a vivir.
+
+# "Quiero que te super enfoques": his own zone first. A flat here goes out
+# with sound and first in the queue, up to the zone budget (350.000 €);
+# anywhere else it goes out silently, and only when the taste judge gives
+# it others_min_score or more (unjudged — no key, cap reached — it still
+# goes out, silently, rather than be lost).
+enfoque:
+  enabled: true
+  city: barcelona
+  districts: [camp de l arpa, el clot, sagrada familia, la sagrera, congres,
+              navas, maragall, el guinardo, baix guinardo, sant andreu]
+  others_min_score: 7
 
 # Pisos.com, read directly (scheduler/jobs.py run_pisos_com): each town's
 # newest flats up to max_price, every interval_minutes. The search's own

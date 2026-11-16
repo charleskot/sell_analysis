@@ -695,3 +695,14 @@ class ProfileMatcher:
             else:
                 logger.debug(f"{listing.get('url', '?')} descartado por {profile.name}: {reason}")
         return hits
+
+
+def in_focus(listing: dict, config: dict) -> bool:
+    """Whether a flat is in his own zone ("enfoque" in config.yaml)."""
+    cfg = (config or {}).get("enfoque") or {}
+    if not cfg.get("enabled"):
+        return False
+    if not _place_matches(cfg.get("city", "barcelona"), listing.get("city") or ""):
+        return False
+    district = listing.get("district") or ""
+    return bool(district) and any(_place_matches(d, district) for d in cfg.get("districts") or [])
