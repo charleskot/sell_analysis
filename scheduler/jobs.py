@@ -1112,7 +1112,11 @@ class PipelineOrchestrator:
                     listing["price"] / listing["area_m2"] < zone["median"] * (1 - max_discount / 100):
                 continue
             candidates.append(({"listing": listing, "metrics": metrics}, signature))
-        candidates.sort(key=lambda c: c[0]["listing"].get("price") or 0)
+        # His own zone first, then cheapest first
+        from analysis.profiles import in_focus
+
+        candidates.sort(key=lambda c: (not in_focus(c[0]["listing"], self.config),
+                                       c[0]["listing"].get("price") or 0))
 
         sent = 0
         for entry, signature in candidates:
@@ -1226,20 +1230,26 @@ class PipelineOrchestrator:
         instead. `judge=False` is the control's own check: it asks only
         whether the advert disqualified the flat.
         """
+        from analysis.profiles import in_focus
+
         checked = self._read_advert(listing, metrics)
         if checked is None or not judge:
             return checked
         listing, metrics = checked
+        # His own zone goes out with sound; elsewhere silently (enfoque)
+        focus = in_focus(listing, self.config)
+        if (self.config.get("enfoque") or {}).get("enabled"):
+            metrics = {**metrics, "focus": focus}
         # A flat he was already sent is not judged again: send_alert drops a
         # repeat anyway, and a price drop on it is news whatever it looks like.
         if self.alerter.already_sent(
                 listing.get("id") or f"{listing.get('portal')}_{listing.get('external_id')}",
                 self.alerter.property_signature(listing)):
             return listing, metrics
-        verdict = self.judge.judge(listing, metrics)
+        verdict = self.judge.judge(listing, metrics, priority=focus)
         if verdict is None:
             return listing, metrics
-        if not verdict.get("ok"):
+        if not self.judge.passes(verdict, focus):
             logger.info(f"{listing.get('id')} no te gustaría según el juez: "
                         f"{verdict.get('s')}/10, {verdict.get('r')}")
             return None
@@ -1440,6 +1450,7 @@ class PipelineOrchestrator:
         from zoneinfo import ZoneInfo
         from sqlalchemy import select
         from ingest.email_parsers import _REJECT_RE
+        from analysis.profiles import in_focus
         from analysis.taste_judge import get_verdict as get_judge_verdict
         from models.db import get_engine, get_verify_verdict, same_flat, was_similar_listing_sent
         from models.schema import alerts_sent, listings
@@ -1481,7 +1492,8 @@ class PipelineOrchestrator:
                 counts["repetidos"] += 1
             elif verdict and verdict[0] == "rechazada":
                 counts["descartados"] += 1
-            elif (judged := get_judge_verdict(listing["id"])) and not judged.get("ok"):
+            elif (judged := get_judge_verdict(listing["id"])) and \
+                    not self.judge.passes(judged, in_focus(listing, self.config)):
                 # Held back by the taste judge: listed, so a wrong call is seen
                 counts["juez"] += 1
                 report["judged_out"].append({**listing, "juez": judged})

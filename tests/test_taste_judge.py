@@ -133,9 +133,10 @@ def test_the_daily_cap_stops_the_calls(db, monkeypatch):
 # ── In the pipeline ──────────────────────────────────────────────────────
 
 class _Pipeline:
-    def __init__(self, judge, sent=False):
+    def __init__(self, judge, sent=False, config=None):
         from scheduler.jobs import PipelineOrchestrator
 
+        self.config = config or {}
         self.verify = PipelineOrchestrator.verify.__get__(self)
         self._read_advert = lambda listing, metrics: (listing, metrics)
         self.judge = judge
@@ -268,3 +269,61 @@ def test_a_nearby_flat_is_not_a_twin(db, monkeypatch):
             "price": 320000.0, "area_m2": 77.0}
     db.upsert_listing(flat)
     assert taste_judge.twin_verdict(flat) is None
+
+
+
+# ── The focus zone ───────────────────────────────────────────────────────
+
+FOCUS = {"enfoque": {"enabled": True, "city": "barcelona",
+                     "districts": ["el clot", "sant andreu", "el guinardo"], "others_min_score": 7},
+         "juez": CONFIG["juez"], "alerts": CONFIG["alerts"]}
+SIX = {**NICE, "puntuacion": 6, "resumen": "Correcto, algo anticuado"}
+
+
+def test_his_zone_is_recognised_whatever_the_portal_calls_it():
+    from analysis.profiles import in_focus
+
+    assert in_focus({"city": "barcelona", "district": "el clot"}, FOCUS)
+    assert in_focus({"city": "Barcelona", "district": "Guinardó (Horta G"}, FOCUS)
+    assert in_focus({"city": "barcelona", "district": "sant andreu de palomar"}, FOCUS)
+    assert not in_focus({"city": "barcelona", "district": "turo de la peira"}, FOCUS)
+    assert not in_focus({"city": "badalona", "district": "centre"}, FOCUS)
+    assert not in_focus({"city": "barcelona", "district": "el clot"}, {})
+
+
+def test_in_his_zone_a_fair_flat_goes_out_with_sound(db, monkeypatch):
+    judge = judge_with(SIX, monkeypatch, config=FOCUS)
+    listing, metrics = _Pipeline(judge, config=FOCUS).verify(FLAT, {})
+    assert metrics["focus"] is True
+    from alerts.telegram_bot import TelegramAlerter
+    title, _ = TelegramAlerter._push_text(listing, metrics)
+    assert title.startswith("🎯 280.000 €")
+
+
+def test_elsewhere_only_a_good_flat_goes_out_and_silently(db, monkeypatch, tmp_path):
+    badalona = {**FLAT, "id": "habitaclia_9", "external_id": "9", "city": "badalona", "district": "centre"}
+    judge = judge_with(SIX, monkeypatch, config=FOCUS)
+    assert _Pipeline(judge, config=FOCUS).verify(badalona, {}) is None        # 6 < 7
+    judge = judge_with(NICE, monkeypatch, config=FOCUS)
+    badalona8 = {**badalona, "id": "habitaclia_10", "external_id": "10"}
+    listing, metrics = _Pipeline(judge, config=FOCUS).verify(badalona8, {})   # 8 ≥ 7
+    assert metrics["focus"] is False
+
+    import requests
+    posts = []
+    monkeypatch.setattr(requests, "post", lambda url, json=None, timeout=None:
+                        posts.append(json) or SimpleNamespace(status_code=200))
+    monkeypatch.setenv("NTFY_TOPIC", "secreto")
+    from alerts.telegram_bot import TelegramAlerter
+    alerter = TelegramAlerter.__new__(TelegramAlerter)
+    alerter._config = FOCUS
+    alerter._push(listing, metrics)
+    assert posts[0]["priority"] == 2
+
+
+def test_the_judge_keeps_calls_for_his_zone_after_the_daily_cap(db, monkeypatch):
+    config = {**FOCUS, "juez": {**CONFIG["juez"], "max_per_day": 1, "focus_extra_per_day": 1}}
+    judge = judge_with(NICE, monkeypatch, config=config)
+    judge.judge({**FLAT, "id": "a_1"})
+    assert judge.judge({**FLAT, "id": "a_2"}) is None                   # elsewhere: capped
+    assert judge.judge({**FLAT, "id": "a_3"}, priority=True)["s"] == 8   # his zone: still judged

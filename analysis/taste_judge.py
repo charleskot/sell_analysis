@@ -308,7 +308,16 @@ class TasteJudge:
 
     # ── Judging ──────────────────────────────────────────────────────────
 
-    def judge(self, listing: dict, metrics: dict | None = None) -> dict | None:
+    def passes(self, verdict: dict, focus: bool = True) -> bool:
+        """Whether a verdict lets the flat go out: the plain threshold in his
+        own zone, a higher one anywhere else while the focus is on."""
+        score = verdict.get("s") or 0
+        if focus or not (self.config.get("enfoque") or {}).get("enabled"):
+            return score >= self.min_score
+        return score >= int((self.config.get("enfoque") or {}).get("others_min_score", 7))
+
+    def judge(self, listing: dict, metrics: dict | None = None,
+              priority: bool = False) -> dict | None:
         """The verdict on a flat: {"s", "ok", "estado", "calle", "r", "pegas"}.
 
         None when the flat could not be judged — no key, over the day's cap,
@@ -331,7 +340,8 @@ class TasteJudge:
             return None
         from models.db import bump_daily, daily_counters
 
-        if daily_counters().get("juez_llamadas", 0) >= self.cfg.get("max_per_day", 40):
+        cap = self.cfg.get("max_per_day", 40) + (self.cfg.get("focus_extra_per_day", 0) if priority else 0)
+        if daily_counters().get("juez_llamadas", 0) >= cap:
             return None
         bump_daily("juez_llamadas")
         try:
