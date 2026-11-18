@@ -143,20 +143,22 @@ search_profiles:
     # per m² than its zone's median, and not so much less (max_discount_pct)
     # that it is a warning rather than a deal.
     near_miss:
-      area_m2: 5          # down to 60 m²
+      area_m2: 0          # never under 70 m²: "más de 70 m²"
       price_pct: 10       # up to 330.000 €
       rooms: 1            # one bedroom fewer
       min_discount_pct: 8
-      max_discount_pct: 35
+      max_discount_pct: 25
 
-    min_area_m2: 65
+    # "Quiero buenos pisos iluminados, altos, más de 70 m², para entrar a vivir"
+    min_area_m2: 70
     min_rooms: 2
 
     # A lift, or a walk-up no higher than the second floor. Only a stated
     # "sin ascensor" counts against a flat; silence is not read as absence.
     lift_or_max_floor: 2
-    # No ground floors: they are the opposite of the light he asked for.
-    min_floor: 1
+    # High: from the second floor up. No bajos, entresuelos or first floors.
+    # A flat whose floor is not stated passes, and the judge sees it.
+    min_floor: 2
 
     # Light: a flat its own advert calls interior is refused.
     reject_interior: true
@@ -433,6 +435,11 @@ alerts:
   # in silence when a search was first read, or before it was widened. "No
   # envías nada y se me está escapando todo." A few an hour by day,
   # cheapest first, each advert read first; budget `stock` caps the day.
+  # Far under its zone's price per m² is a trap, not a bargain: sold
+  # occupied, tenanted, at auction or in ruins, whatever the advert leaves
+  # unsaid. "Es normal que si está en 200k es raro."
+  max_below_zone_pct: 25
+
   backlog:
     enabled: true
     per_run: 5
@@ -750,7 +757,7 @@ juez:
   enabled: true
   model: claude-opus-5-5
   effort: low
-  min_score: 5
+  min_score: 6          # in his zone; elsewhere enfoque.others_min_score
   max_photos: 8
   photo_px: 800
   max_per_day: 40        # API calls a day: caps the cost (about 0,05 $ each)

@@ -71,10 +71,15 @@ def test_under_65_square_metres_is_refused(home):
 
 # ── Lift, or a low enough walk-up ─────────────────────────────────────────
 
-@pytest.mark.parametrize("floor", ["1ª planta", "2ª planta"])
-def test_no_lift_is_fine_on_the_first_two_floors(home, floor):
-    assert ok(home, floor=floor, title="Piso en venta en Navas",
+def test_no_lift_is_fine_on_the_second_floor(home):
+    assert ok(home, floor="2ª planta", title="Piso en venta en Navas",
               description="piso sin ascensor, exterior")[0]
+
+
+def test_a_first_floor_is_not_high_enough(home):
+    # 18 November: "quiero buenos pisos iluminados, altos"
+    good, why = ok(home, floor="1ª planta", title="Piso en venta en Navas")
+    assert not good and "planta 1" in why
 
 
 def test_no_lift_on_the_third_floor_is_refused(home):
@@ -176,10 +181,11 @@ def test_a_barri_is_not_the_district_habitaclia_appends(home):
     assert ok(home, district="Guinardó (Horta G")[0]
 
 
-def test_65_square_metres_and_300000_euros_pass(home):
-    assert ok(home, area_m2=66)[0]
+def test_70_square_metres_and_300000_euros_pass(home):
+    # 18 November: "más de 70 m²"
+    assert ok(home, area_m2=71)[0]
     assert ok(home, price=298000)[0]
-    assert not ok(home, area_m2=63)[0]
+    assert not ok(home, area_m2=66)[0]
 
 
 # ── 2 November: up to 350.000 € round Maragall and the Sagrada Família ────
