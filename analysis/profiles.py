@@ -62,10 +62,22 @@ def _place_matches(needle: str, haystack: str) -> bool:
     # matched every barri in the search.
     if len(n) < 3 or len(h) < 3:
         return False
-    if n in h or h in n:
+    if _contains_word(h, n) or _contains_word(n, h):
         return True
     ns, hs = _strip_articles(n), _strip_articles(h)
-    return bool(ns and hs and (ns in hs or hs in ns))
+    return bool(ns and hs and (_contains_word(hs, ns) or _contains_word(ns, hs)))
+
+
+def _contains_word(text: str, part: str) -> bool:
+    """`part` inside `text`, starting where a word starts.
+
+    A plain substring put Calella — past Mataró, far outside the search —
+    inside Alella. The start must be a word's start; the end may be cut
+    short, since portals truncate ("Barcel...", "Guinardó (Horta G").
+    """
+    import re as _re
+
+    return bool(_re.search(r"(?<![a-z0-9])" + _re.escape(part), text))
 
 
 class Profile:
