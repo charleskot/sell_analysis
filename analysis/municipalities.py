@@ -82,6 +82,7 @@ POPULATION = {
     "vilassar de dalt": 9_000,
     "cabrera de mar": 5_000,
     "teia": 6_000,
+    "cabrils": 7_600,
     "alella": 10_000,
     "canet de mar": 15_000,
     "sant pol de mar": 5_000,

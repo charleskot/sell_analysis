@@ -81,6 +81,7 @@ def run_each(token: str, base_input: dict, urls: list[str], per_search: int,
     import requests
 
     items: list[dict] = []
+    launched, last_error = 0, None
     for i in range(0, len(urls), parallel):
         started = []
         for url in urls[i:i + parallel]:
@@ -97,7 +98,9 @@ def run_each(token: str, base_input: dict, urls: list[str], per_search: int,
             except ApifyAuthError:
                 raise
             except Exception as e:
+                last_error = e
                 logger.warning(f"Apify: no pude lanzar {url[-60:]}: {e}")
+        launched += len(started)
         deadline = time.time() + timeout_s + 60
         for run_id, dataset in started:
             status = "RUNNING"
@@ -114,6 +117,10 @@ def run_each(token: str, base_input: dict, urls: list[str], per_search: int,
                 items.extend(r for r in rows if isinstance(r, dict))
             except Exception as e:
                 logger.warning(f"Apify: no pude leer la ejecución {run_id}: {e}")
+    # Not one search could start (no credit left, the actor gone…): that is
+    # a failure to report, not a quiet day
+    if urls and not launched and last_error is not None:
+        raise last_error
     return items
 
 

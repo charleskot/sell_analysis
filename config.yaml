@@ -122,6 +122,16 @@ search_profiles:
         districts: [camp de l arpa, el clot, sagrada familia, baix guinardo,
                     maragall, el guinardo, navas, la sagrera, congres, sant andreu]
         max_price: 350000
+      - {city: montgat, max_price: 350000}
+      - {city: el masnou, max_price: 350000}
+      - {city: premia de mar, max_price: 350000}
+      - {city: vilassar de mar, max_price: 350000}
+      - {city: cabrera de mar, max_price: 350000}
+      - {city: premia de dalt, max_price: 350000}
+      - {city: vilassar de dalt, max_price: 350000}
+      - {city: teia, max_price: 350000}
+      - {city: alella, max_price: 350000}
+      - {city: cabrils, max_price: 350000}
 
     # A good flat at a good price, close to the target, also goes out marked
     # "Casi" — "si ves una oportunidad interesante, aunque se pase un poco
@@ -203,6 +213,19 @@ search_profiles:
       # ── Zona 5 · L'Hospitalet: its highest-income barrios, on L1 ──────
       - city: hospitalet
         districts: [centre, sant josep, sanfeliu, santa eulalia]
+      # ── Zona 6 · Maresme, from Montgat to Cabrera de Mar (not Mataró) ──
+      # "En la parte del Maresme, Premià de Mar y las ciudades a la izquierda
+      # y derecha, sin llegar a Mataró… a 350.000 euros." Whole towns.
+      - city: montgat
+      - city: el masnou
+      - city: premia de mar
+      - city: vilassar de mar
+      - city: cabrera de mar
+      - city: premia de dalt
+      - city: vilassar de dalt
+      - city: teia
+      - city: alella
+      - city: cabrils
 
   # ── 2. Investment ───────────────────────────────────────────────────────
   - name: inversion
@@ -753,10 +776,22 @@ juez:
 # goes out, silently, rather than be lost).
 enfoque:
   enabled: true
-  city: barcelona
-  districts: [camp de l arpa, el clot, sagrada familia, la sagrera, congres,
-              navas, maragall, el guinardo, baix guinardo, sant andreu]
   others_min_score: 7
+  zones:
+    - city: barcelona
+      districts: [camp de l arpa, el clot, sagrada familia, la sagrera, congres,
+                  navas, maragall, el guinardo, baix guinardo, sant andreu]
+    # The Maresme from Montgat to Cabrera de Mar, whole towns
+    - {city: montgat}
+    - {city: el masnou}
+    - {city: premia de mar}
+    - {city: vilassar de mar}
+    - {city: cabrera de mar}
+    - {city: premia de dalt}
+    - {city: vilassar de dalt}
+    - {city: teia}
+    - {city: alella}
+    - {city: cabrils}
 
 # Pisos.com, read directly (scheduler/jobs.py run_pisos_com): each town's
 # newest flats up to max_price, every interval_minutes. The search's own
@@ -777,6 +812,16 @@ pisos_com:
     - sant_feliu_de_llobregat
     - sant_just_desvern
     - molins_de_rei
+    - montgat
+    - el_masnou
+    - premia_de_mar
+    - vilassar_de_mar
+    - cabrera_de_mar
+    - premia_de_dalt
+    - vilassar_de_dalt
+    - teia
+    - alella
+    - cabrils
 
 # Servihabitat (a bank's and a fund's stock), read directly, newest first.
 # Slugs as in its own links; Barcelona goes by district, and the town name
@@ -798,6 +843,16 @@ servihabitat_web:
     - {slug: barcelona-baixllobregat-santfeliudellobregat, town: sant feliu de llobregat}
     - {slug: barcelona-baixllobregat-santjustdesvern, town: sant just desvern}
     - {slug: barcelona-baixllobregat-molinsderei, town: molins de rei}
+    - {slug: barcelona-maresme-montgat, town: montgat}
+    - {slug: barcelona-maresme-masnouel, town: el masnou}
+    - {slug: barcelona-maresme-premiademar, town: premia de mar}
+    - {slug: barcelona-maresme-vilassardemar, town: vilassar de mar}
+    - {slug: barcelona-maresme-cabrerademar, town: cabrera de mar}
+    - {slug: barcelona-maresme-premiadedalt, town: premia de dalt}
+    - {slug: barcelona-maresme-vilassardedalt, town: vilassar de dalt}
+    - {slug: barcelona-maresme-teia, town: teia}
+    - {slug: barcelona-maresme-alella, town: alella}
+    - {slug: barcelona-maresme-cabrils, town: cabrils}
 
 # Flats he tapped 👍 on: kept as favourites and their price followed — any
 # change, up or down, is sent at once, and so is the advert disappearing.
@@ -852,6 +907,16 @@ apify:
         - Sants-Montjuïc, Barcelona
         - Sagrada Família, Barcelona
         - L'Hospitalet de Llobregat
+        - Montgat
+        - El Masnou
+        - Premià de Mar
+        - Vilassar de Mar
+        - Cabrera de Mar
+        - Premià de Dalt
+        - Vilassar de Dalt
+        - Teià
+        - Alella
+        - Cabrils
       minSize: 60
       maxPrice: 385000       # 350.000 € in the barris wanted most, plus near misses
       currentOccupationType: [free]
@@ -891,6 +956,16 @@ apify:
         - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sant-marti/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
         - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sants-montjuic/l?maxPrice=330000&minSurface=60&sortType=publicationDate"
         - "https://www.fotocasa.es/es/comprar/viviendas/barcelona-capital/sagrada-familia/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/montgat/todas-las-zonas/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/el-masnou/todas-las-zonas/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/premia-de-mar/todas-las-zonas/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/vilassar-de-mar/todas-las-zonas/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/cabrera-de-mar/todas-las-zonas/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/premia-de-dalt/todas-las-zonas/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/vilassar-de-dalt/todas-las-zonas/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/teia/todas-las-zonas/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/alella/todas-las-zonas/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
+        - "https://www.fotocasa.es/es/comprar/viviendas/cabrils/todas-las-zonas/l?maxPrice=385000&minSurface=60&sortType=publicationDate"
 
 browser_scraping:
   habitaclia:
@@ -975,6 +1050,27 @@ browser_scraping:
       - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/sants-montjuic/la-marina-del-port/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
         city: barcelona
         district: marina del port
+      # ── Zona 7 · Maresme, Montgat to Cabrera de Mar (350.000 €) ──
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/montgat/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
+        city: montgat
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/el-masnou/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
+        city: el masnou
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/premia-de-mar/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
+        city: premia de mar
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/vilassar-de-mar/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
+        city: vilassar de mar
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/cabrera-de-mar/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
+        city: cabrera de mar
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/premia-de-dalt/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
+        city: premia de dalt
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/vilassar-de-dalt/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
+        city: vilassar de dalt
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/teia/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
+        city: teia
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/alella/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
+        city: alella
+      - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/cabrils/s?maxPrice=385000&minSurface=60&sortBy=NEWEST"
+        city: cabrils
       # ── Neighbouring barris, added on 30 October ──
       - url: "https://www.habitaclia.com/comprar/viviendas/barcelona-provincia/barcelona-capital/horta-guinardo/horta/s?maxPrice=320000&minSurface=60&sortBy=NEWEST"
         city: barcelona
