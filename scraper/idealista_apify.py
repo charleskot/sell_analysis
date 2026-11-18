@@ -23,6 +23,15 @@ ACTOR = "memo23~idealista-scraper"
 API = "https://api.apify.com/v2"
 
 
+class ApifyAuthError(Exception):
+    """Apify refused the token: every run will fail until it is replaced."""
+
+
+def _check_auth(resp) -> None:
+    if resp.status_code in (401, 403):
+        raise ApifyAuthError(f"HTTP {resp.status_code}: {resp.text[:200]}")
+
+
 def run(token: str, actor_input: dict, timeout_s: int = 600, actor: str = ACTOR) -> list[dict]:
     """Start a run, wait for it, return its rows.
 
@@ -35,6 +44,7 @@ def run(token: str, actor_input: dict, timeout_s: int = 600, actor: str = ACTOR)
     started = requests.post(f"{API}/acts/{actor}/runs",
                             params={"token": token, "timeout": timeout_s},
                             json=actor_input, timeout=60)
+    _check_auth(started)
     started.raise_for_status()
     data = started.json()["data"]
     run_id, dataset = data["id"], data["defaultDatasetId"]
@@ -79,9 +89,13 @@ def run_each(token: str, base_input: dict, urls: list[str], per_search: int,
                                      params={"token": token, "timeout": timeout_s},
                                      json={**base_input, "startUrls": [url], "maxItems": per_search},
                                      timeout=60)
+                # A refused token fails every start alike: say so, don't swallow it
+                _check_auth(resp)
                 resp.raise_for_status()
                 data = resp.json()["data"]
                 started.append((data["id"], data["defaultDatasetId"]))
+            except ApifyAuthError:
+                raise
             except Exception as e:
                 logger.warning(f"Apify: no pude lanzar {url[-60:]}: {e}")
         deadline = time.time() + timeout_s + 60
