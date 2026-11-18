@@ -770,7 +770,7 @@ class PipelineOrchestrator:
         # interval, not on every three-minute tick at a cent a start.
         set_telegram_state(f"apify_{source}_last_run_at", now.isoformat())
 
-        from scraper.idealista_apify import run, run_each
+        from scraper.idealista_apify import ApifyAuthError, run, run_each
 
         module_name, monitor = self._APIFY_SOURCES[source]
         module = importlib.import_module(module_name)
@@ -789,11 +789,40 @@ class PipelineOrchestrator:
             else:
                 items = run(token, actor_input, timeout_s=cfg.get("timeout_seconds", 600),
                             actor=module.ACTOR)
+        except ApifyAuthError as e:
+            # 12 November: Apify revoked the token and both portals went
+            # quiet for six days, logged and unsaid. A refused token is told.
+            logger.error(f"Apify {name}: token rechazado: {e}")
+            stats["errors"] += 1
+            self._warn_once(
+                "apify_token",
+                "Apify ha rechazado el token: Idealista y Fotocasa solo llegan por correo "
+                "(muchos menos pisos). Crea un token nuevo en Apify (Settings → API & "
+                "Integrations) y ponlo en GitHub → Settings → Secrets → APIFY_TOKEN.")
+            return stats
         except Exception as e:
             logger.error(f"Apify {name} falló: {type(e).__name__}: {e}")
             stats["errors"] += 1
             return stats
         stats["runs"] += 1
+
+        # A source that stops bringing anything is told too, whatever the cause
+        last_items = get_telegram_state(f"apify_{source}_last_items_at", "")
+        if items:
+            set_telegram_state(f"apify_{source}_last_items_at", now.isoformat())
+        elif not last_items:
+            set_telegram_state(f"apify_{source}_last_items_at", now.isoformat())
+        else:
+            try:
+                silent = now - datetime.fromisoformat(last_items)
+            except ValueError:
+                silent = timedelta(0)
+            if silent > timedelta(hours=cfg.get("silent_alert_hours", 10)):
+                self._warn_once(
+                    f"apify_{source}_silent",
+                    f"{name} (Apify) no trae ningún piso desde hace "
+                    f"{int(silent.total_seconds() // 3600)} horas. Puede que el actor haya "
+                    f"cambiado o que la cuenta de Apify tenga un problema.")
 
         fresh_hours = (self.config.get("alerts") or {}).get("fresh_hours", 24)
         seed_date = now - timedelta(hours=fresh_hours + 1)
@@ -1411,6 +1440,22 @@ class PipelineOrchestrator:
             }
         set_verify_verdict(lid, "limpia")
         return listing, metrics
+
+    def _warn_once(self, key: str, text: str) -> bool:
+        """A problem told to the phone at most once a day per kind."""
+        from datetime import datetime, timezone
+        from models.db import get_telegram_state, set_telegram_state
+
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        if get_telegram_state(f"aviso_{key}_dia", "") == today:
+            return False
+        try:
+            if self.alerter.send_pulse(error=text):
+                set_telegram_state(f"aviso_{key}_dia", today)
+                return True
+        except Exception as e:
+            logger.warning(f"No pude avisar de {key}: {e}")
+        return False
 
     def _warn_if_reader_failing(self, threshold: int = 5) -> None:
         """Say so when adverts cannot be read, at most once a day.
