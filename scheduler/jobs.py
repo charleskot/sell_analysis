@@ -793,6 +793,7 @@ class PipelineOrchestrator:
             # 12 November: Apify revoked the token and both portals went
             # quiet for six days, logged and unsaid. A refused token is told.
             logger.error(f"Apify {name}: token rechazado: {e}")
+            set_telegram_state(f"apify_{source}_last_error", f"{now.isoformat()} token: {e}"[:400])
             stats["errors"] += 1
             self._warn_once(
                 "apify_token",
@@ -802,7 +803,13 @@ class PipelineOrchestrator:
             return stats
         except Exception as e:
             logger.error(f"Apify {name} falló: {type(e).__name__}: {e}")
+            # Kept in the state, which is committed, so it can be read back
+            set_telegram_state(f"apify_{source}_last_error",
+                               f"{now.isoformat()} {type(e).__name__}: {e}"[:400])
             stats["errors"] += 1
+            if "402" in str(e) or "credit" in str(e).lower() or "usage" in str(e).lower():
+                self._warn_once("apify_saldo", f"Apify no deja lanzar {name}: parece que la "
+                                               f"cuenta se ha quedado sin saldo ({str(e)[:120]}).")
             return stats
         stats["runs"] += 1
 

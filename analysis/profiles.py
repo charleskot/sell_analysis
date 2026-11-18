@@ -103,8 +103,11 @@ class Profile:
             city = listing.get("city") or ""
             barri = (listing.get("district") or "").split("(")[0]
             for zone in self.spec.get("zone_budgets") or []:
-                if _place_matches(zone.get("city", ""), city) and barri and any(
-                        _place_matches(d, barri) for d in zone.get("districts") or []):
+                if not _place_matches(zone.get("city", ""), city):
+                    continue
+                districts = zone.get("districts") or []
+                # A zone with no barris is the whole town (the Maresme towns)
+                if not districts or (barri and any(_place_matches(d, barri) for d in districts)):
                     return zone.get("max_price"), None
         return self.spec.get("max_price"), self.spec.get("stretch_max_price")
 
@@ -702,7 +705,14 @@ def in_focus(listing: dict, config: dict) -> bool:
     cfg = (config or {}).get("enfoque") or {}
     if not cfg.get("enabled"):
         return False
-    if not _place_matches(cfg.get("city", "barcelona"), listing.get("city") or ""):
-        return False
-    district = listing.get("district") or ""
-    return bool(district) and any(_place_matches(d, district) for d in cfg.get("districts") or [])
+    zones = cfg.get("zones") or [{"city": cfg.get("city", "barcelona"),
+                                  "districts": cfg.get("districts") or []}]
+    city, district = listing.get("city") or "", listing.get("district") or ""
+    for zone in zones:
+        if not _place_matches(zone.get("city", ""), city):
+            continue
+        districts = zone.get("districts") or []
+        # A zone with no barris is the whole town
+        if not districts or (district and any(_place_matches(d, district) for d in districts)):
+            return True
+    return False
