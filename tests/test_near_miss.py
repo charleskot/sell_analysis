@@ -37,10 +37,14 @@ def test_a_full_match_is_not_a_near_miss(home):
     assert casi(home) is None
 
 
-def test_slightly_small_and_cheap_goes_out_saying_why(home):
-    why = casi(home, area_m2=62, price=220000)          # 3.548 €/m², 11% under
-    assert why.startswith(NEAR_MISS_PREFIX)
-    assert "62 m²" in why and "11%" in why
+def test_never_under_70_square_metres_even_cheap(home):
+    # 18 November: "más de 70 m²" — size is no longer eased for a near miss
+    assert casi(home, area_m2=66, price=230000) is None
+
+
+def test_one_bedroom_short_and_cheap_goes_out_saying_why(home):
+    why = casi(home, area_m2=75, rooms=1, price=270000)   # 3.600 €/m², 10% under
+    assert why and why.startswith(NEAR_MISS_PREFIX)
 
 
 def test_slightly_over_budget_and_cheap_per_metre_goes_out(home):
@@ -113,10 +117,10 @@ def test_any_work_at_all_rules_a_near_miss_out(home):
 
 
 def test_once_read_the_advert_must_say_it_is_ready(home):
-    flat = _flat(area_m2=62, price=220000, description="piso exterior con balcón")
+    flat = _flat(area_m2=75, rooms=1, price=270000, description="piso exterior con balcón")
     assert home.near_miss(flat, {}, NAVAS)
     assert home.near_miss(flat, {}, NAVAS, confirm_ready=True) is None
-    ready = _flat(area_m2=62, price=220000, description="reformado, para entrar a vivir")
+    ready = _flat(area_m2=75, rooms=1, price=270000, description="reformado, para entrar a vivir")
     why = home.near_miss(ready, {}, NAVAS, confirm_ready=True)
     assert why and why.endswith("para entrar a vivir")
 

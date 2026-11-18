@@ -327,3 +327,14 @@ def test_the_judge_keeps_calls_for_his_zone_after_the_daily_cap(db, monkeypatch)
     judge.judge({**FLAT, "id": "a_1"})
     assert judge.judge({**FLAT, "id": "a_2"}) is None                   # elsewhere: capped
     assert judge.judge({**FLAT, "id": "a_3"}, priority=True)["s"] == 8   # his zone: still judged
+
+
+def test_a_flat_far_under_its_zone_is_not_sent(db, monkeypatch):
+    import scheduler.jobs as jobs
+    monkeypatch.setattr(jobs, "zone_market_stats", lambda city, district: {"median": 4000})
+    config = {**FOCUS, "alerts": {**CONFIG["alerts"], "max_below_zone_pct": 25}}
+    judge = judge_with(NICE, monkeypatch, config=config)
+    cheap = {**FLAT, "price": 200000.0, "area_m2": 72.0}            # 2.778 €/m², 31% under
+    assert _Pipeline(judge, config=config).verify(cheap, {}) is None
+    fair = {**FLAT, "price": 280000.0, "area_m2": 72.0}             # 3.889 €/m²
+    assert _Pipeline(judge, config=config).verify(fair, {}) is not None

@@ -1268,6 +1268,15 @@ class PipelineOrchestrator:
         """
         from analysis.profiles import in_focus
 
+        # Far under its zone's price is a trap, whatever its advert says
+        max_below = (self.config.get("alerts") or {}).get("max_below_zone_pct")
+        if judge and max_below and listing.get("price") and listing.get("area_m2"):
+            zone = zone_market_stats(listing.get("city"), listing.get("district"))
+            if zone and zone.get("median") and \
+                    listing["price"] / listing["area_m2"] < zone["median"] * (1 - max_below / 100):
+                logger.info(f"{listing.get('id')}: {max_below}% o más por debajo de su zona, descartado")
+                return None
+
         checked = self._read_advert(listing, metrics)
         if checked is None or not judge:
             return checked
