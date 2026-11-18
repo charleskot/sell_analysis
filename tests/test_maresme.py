@@ -35,3 +35,9 @@ def test_the_maresme_is_his_zone_and_the_barcelona_barris_still_are():
     assert in_focus({"city": "barcelona", "district": "el clot"}, CONFIG)
     assert not in_focus({"city": "barcelona", "district": "turo de la peira"}, CONFIG)
     assert not in_focus({"city": "Mataró", "district": "centre"}, CONFIG)
+
+
+def test_calella_is_not_alella():
+    assert not matches(city="Calella")
+    assert not in_focus({"city": "Calella", "district": None}, CONFIG)
+    assert matches(city="Alella")
