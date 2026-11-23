@@ -757,7 +757,7 @@ juez:
   enabled: true
   model: claude-opus-5-5
   effort: low
-  min_score: 6          # in his zone; elsewhere enfoque.others_min_score
+  min_score: 5          # in his zone; elsewhere enfoque.others_min_score
   max_photos: 8
   photo_px: 800
   max_per_day: 40        # API calls a day: caps the cost (about 0,05 $ each)
@@ -783,7 +783,7 @@ juez:
 # goes out, silently, rather than be lost).
 enfoque:
   enabled: true
-  others_min_score: 7
+  others_min_score: 6
   zones:
     - city: barcelona
       districts: [camp de l arpa, el clot, sagrada familia, la sagrera, congres,

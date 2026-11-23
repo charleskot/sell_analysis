@@ -49,3 +49,14 @@ def test_a_source_bringing_nothing_for_hours_is_told(db, monkeypatch):
     o = Orchestrator()
     o._run_apify("idealista", force=True)
     assert len(o.pulses) == 1 and "no trae ningún piso desde hace 30 horas" in o.pulses[0]
+
+
+def test_spent_monthly_credit_is_told_as_credit_not_token(db, monkeypatch):
+    import requests
+    monkeypatch.setenv("APIFY_TOKEN", "bueno")
+    monkeypatch.setattr(requests, "post", lambda *a, **k: SimpleNamespace(
+        status_code=403, raise_for_status=lambda: None,
+        text='{"error":{"type":"platform-feature-disabled","message":"You\'ve used the $5.00 of monthly usage"}}'))
+    o = Orchestrator()
+    o._run_apify("idealista", force=True)
+    assert len(o.pulses) == 1 and "sin saldo" in o.pulses[0] and "APIFY_TOKEN" not in o.pulses[0]
