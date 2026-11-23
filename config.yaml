@@ -891,7 +891,9 @@ map:
 apify:
   idealista:
     enabled: true
-    interval_minutes: 90
+    # Every four hours: the free plan's 5 $ a month ran out in four days at
+    # every ninety minutes once the Maresme was added.
+    interval_minutes: 240
     max_items: 60          # per run, a ceiling on cost should anything go wrong
     timeout_seconds: 600
     input:
@@ -940,7 +942,10 @@ apify:
   # search per town or district, newest first, 65 m² and 330.000 € (wide
   # enough for near misses). About $0.001 a flat delivered.
   fotocasa:
-    enabled: true
+    # Off to stay within Apify's free 5 $ a month: Fotocasa and Habitaclia
+    # belong to the same group and share much of their stock, and Habitaclia
+    # is read every ten minutes at no cost. Its alert emails still come in.
+    enabled: false
     interval_minutes: 90
     # One run per search, each reading its 10 newest flats: a single run's
     # cap would be spent on the first search and never reach the rest.
