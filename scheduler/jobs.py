@@ -790,11 +790,21 @@ class PipelineOrchestrator:
                 items = run(token, actor_input, timeout_s=cfg.get("timeout_seconds", 600),
                             actor=module.ACTOR)
         except ApifyAuthError as e:
+            set_telegram_state(f"apify_{source}_last_error", f"{now.isoformat()} token: {e}"[:400])
+            stats["errors"] += 1
+            # A 403 is also what Apify answers once the month's credit is
+            # spent ("platform-feature-disabled"): that is not the token.
+            if "platform-feature-disabled" in str(e) or "usage" in str(e).lower():
+                logger.error(f"Apify {name}: sin saldo este mes: {e}")
+                self._warn_once(
+                    "apify_saldo",
+                    "Apify se ha quedado sin saldo este mes (los 5 $ del plan gratis): Idealista "
+                    "y Fotocasa solo llegan por correo hasta que se renueve o se pase a un plan "
+                    "de pago. Habitaclia, Pisos.com y Servihabitat siguen funcionando.")
+                return stats
             # 12 November: Apify revoked the token and both portals went
             # quiet for six days, logged and unsaid. A refused token is told.
             logger.error(f"Apify {name}: token rechazado: {e}")
-            set_telegram_state(f"apify_{source}_last_error", f"{now.isoformat()} token: {e}"[:400])
-            stats["errors"] += 1
             self._warn_once(
                 "apify_token",
                 "Apify ha rechazado el token: Idealista y Fotocasa solo llegan por correo "
